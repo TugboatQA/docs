@@ -1,0 +1,15 @@
+{
+    "name": "tugboat-docs",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:Lullabot/tugboat-docs.git"
+    },
+    "license": "SEE LICENSE IN LICENSE",
+    "scripts": {
+        "install": "gitbook install --gitbook=2.5.2 && gitbook build --gitbook=2.5.2",
+        "build": "gitbook build --gitbook=2.5.2"
+    },
+    "dependencies": {
+        "gitbook-cli": "*"
+    }
+}

@@ -1,24 +1,21 @@
-# Introduction
+![tugboat-docs](logo.png)
 
-## Captured Email
+## Getting Started
 
-* Tugboat attempts to capture outbound email
-    * Application must use ports 25 or 587 without TLS
-    * Containers can be configured with ssmtp to allow local `sendmail` method
+If you're getting started setting up a new project on Tugboat, please read our
+[Getting Started](getting-started/index.md) guide.
 
-```
-root=postmaster
-mailhub=mail.tugboat.qa
-```
+## Troubleshooting
 
-## Makefiles/Scripts
+If you're having trouble with Tugboat, please take a look at our
+[Troubleshooting Guide](troubleshooting/index.md).
 
-The makefile targets are `tugboat-init`, `tugboat-build`, and `tugboat-update` for backwards compatibility.
+If you're still having trouble, please email
+[support@tugboat.qa](mailto:support@tugboat.qa).
 
-`tugboat-init` -- Build a preview from scratch
+## Contributing
 
-`tugboat-build` -- Build a preview from a base preview, the assumption being that things like a database and files are already present so not all of the steps from `init` are required
-
-`tugboat-update` -- Refresh a preview. Somewhere between `init` and `build`, in that there is already data, but it needs to be udpated/refreshed
-
-This is a big part of why we want to replace the Makefile with something more flexible. Because of that, we never renamed/augmented the existing targets
+This documentation is still a work in progress. If you find any typos, or
+incostencies, or just want to help make it better, let us know! Email us at
+[support@tugboat.qa](mailto:support@tugboat.qa), or submit pull requests
+directly to the [GitHub repository](https://github.com/Lullabot/tugboat-docs).
