@@ -23,5 +23,4 @@
   * [Import MySQL Database](examples/import_mysql_database.md)
 * [Troubleshooting](troubleshooting/index.md)
 * [FAQ](faq/index.md)
-* [Glossary](glossary/index.md)
 * [Support](support/index.md)
