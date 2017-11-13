@@ -2,7 +2,6 @@
 
 * [Introduction](README.md)
 * [Getting Started](getting-started/index.md)
-  * [Provider Access](getting-started/provider-access.md)
   * [Tugboat Configuration](getting-started/tugboat-configuration.md)
   * [Base Preview Setup](getting-started/base-preview-setup.md)
 * [Automation & Scripting](automation/index.md)

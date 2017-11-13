@@ -20,7 +20,6 @@ If all goes well, your Base Preview should be ready in a few short minutes.
 ![Base Preview Ready](_images/base-preview-ready.png)
 
 If the Base Preview fails to initialize, go back and double check your
-[Provider Access](provider-access.md) and
 [Tugboat Configuration](tugboat-configuration.md)
 
 ## Customize
