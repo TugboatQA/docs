@@ -15,7 +15,7 @@ If you're still having trouble, please email
 
 ## Contributing
 
-This documentation is still a work in progress. If you find any typos, or
-incostencies, or just want to help make it better, let us know! Email us at
-[support@tugboat.qa](mailto:support@tugboat.qa), or submit pull requests
-directly to the [GitHub repository](https://github.com/Lullabot/tugboat-docs).
+There is always room for improvement, and we are happy to accept your input. If
+you find any typos, or inconstencies to this documentation, or just want to help
+make it better, let us know! Email us at
+[support@tugboat.qa](mailto:support@tugboat.qa)
