@@ -5,5 +5,8 @@
     "plugins": ["-sharing", "collapsible-menu"],
     "links": {
         "gitbook": false
+    },
+    "styles": {
+        "website": "styles/website.css"
     }
 }

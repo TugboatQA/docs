@@ -1,4 +1,4 @@
-![tugboat-docs](logo.png)
+<img alt="Tugboat logo" src="logo.png" width="200px">
 
 ## Getting Started
 
