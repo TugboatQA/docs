@@ -2,14 +2,11 @@
 
 ## What technologies are under the hood?
 
-### Docker
-This is the container management tool that underlies the whole project. Each environment is run on containers which can be managed by Docker.
+- **Docker:** This is the container management tool that underlies the whole project. Each environment is run on containers which can be managed by Docker.
 
-### NodeJS
-The main Tugboat back-end application is written in NodeJS and interacts with the Docker API to help control and manage the various containers.
+- **NodeJS:** The main Tugboat back-end application is written in NodeJS and interacts with the Docker API to help control and manage the various containers.
 
-### ReactJS 
-This (along with NodeJS and socket.io) is what the Tugboat UI is built upon.
+- **ReactJS:** This (along with NodeJS and socket.io) is what the Tugboat UI is built upon.
 
 ## What technologies can we use with Tugboat?
 Tugboat supports pretty much anything that runs on linux. Here is a list of our current containers, but if you have a tech stack that needs more, we can add it. Just let us know.
@@ -49,4 +46,24 @@ accessible as plaintext through the Tugboat API.
 * Password: the value of the `imap_password` Tugboat configuration.
 
 ## Technical QA vs Visual QA
-## Is there a consumer version?
+
+## How do I add my repository?
+## How do I add my database?
+## What's a Base Preview?
+## What's a build script?
+## How do I build my first preview?
+## Is there a limit to the number of repositories I can have?
+## How many users can I invite?
+## What can project admins do that invited users can't?
+## Can I have SSH access?
+## Do you provide production level hosting?
+## If master is my Base Preview and I merge a Pull Request into that, will the Base Preview automatically update?
+## If master is my Base Preview and new changes get merged into it, will previews that have master as their Base Preview automatically update with those changes?
+## I don't see a Service for X. Do you support it?
+## What Linux distribution does Tugboat run on? Do you support X?
+## Do you support Windows?
+## Which repository providers do you support?
+## Do you support self hosted git repositories?
+## My Preview status says "Ready", but my Preview shows a blank screen. How do I fix this?
+## What is the difference between a Project and a Repository?
+## How do I know if I should add a Repository to my Project or start a new Project?
