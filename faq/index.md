@@ -1,15 +1,5 @@
 # FAQ
 
-## What technologies are under the hood?
-
-- **Docker:** This is the container management tool that underlies the whole project. Each environment is run on
-containers which can be managed by Docker.
-
-- **NodeJS:** The main Tugboat back-end application is written in NodeJS and interacts with the Docker API to help
-control and manage the various containers.
-
-- **ReactJS:** This (along with NodeJS and socket.io) is what the Tugboat UI is built upon.
-
 ## What technologies can we use with Tugboat?
 Tugboat supports pretty much anything that runs on linux. Here is a list of our current containers, 
 but if you have a tech stack that needs more, we can add it. Just let us know.
@@ -101,21 +91,21 @@ There is no limit to the number of users you can invite to your project.
 Project admins can add new repositories, manage project users and make billing/account tier changes.
 
 ## Can I have SSH access?
-No, direct SSH access to previews is not provided. However you can view logs, and issue commands to running previews
-via our web shell interface [TuSH](../tugboat-dashboard/tush.md)
+No, direct SSH access to previews is not provided. However shell access is provided to running previews
+via our web shell interface [TuSH](../tugboat-dashboard/tush.md).
 
 ## Do you provide production level hosting?
-No, Tugboat would be a rather impractical hosting environment, containers are intended to be short lived, may be
-put to sleep (depending on the plan chosen) and  
+No, Tugboat containers are intended to be (relatively) short lived, and don't come with the sort of stability/support
+guarantees needed to host a production application. It is also against our [Terms of Service](https://tugboat.qa/terms).
 
 ## If master is my Base Preview and I merge a Pull Request into that, will the Base Preview automatically update?
 Currently no, you must manually update your base preview with changes are made to it.
 
-## If master is my Base Preview and new changes get merged into it, will previews that have master as their Base Preview automatically update with those changes?
+## If my base preview is updated, will previews built from it automatically update with those changes?
 Currently no, as Base Preview's are not updated automatically, no previews based on them will be updated automatically.
 
 ## I don't see a Service for X. Do you support it?
-We are adding new services all the time, feel free to [email us](mailto:support@tugboat.qa) if there's something you'd
+We are adding new services all the time, feel free to [email us](https://tugboat.qa/support) if there's something you'd
 like to see supported that currently isn't. For more advanced users it is possible to install any service you might
 require in the same container as your application this would require installing and configuring it yourself however. See
 [advanced uses](../automation/advanced.md) in the automation documentation.
@@ -128,12 +118,12 @@ Unfortunately no, at this time we do not support windows.
 
 ## Which repository providers do you support?
 Currently Github, Bitbucket and Gitlab are supported. Self hosted git repositories are available as an option for self
-hosted tugboat instances. Is there a provider you'd like to see added? [Contact us](mailto:support@tugboat.qa) and
+hosted tugboat instances. Is there a provider you'd like to see added? [Contact us](https://tugboat.qa/support) and
 we will look into it.
 
 ## Do you support self hosted git repositories?
 Self hosted git repositories are available as an option for self hosted instances of Tugboat. 
-[Contact us](mailto:support@tugboat.qa) to discuss pricing and setup.
+[Contact us](https://tugboat.qa/support) to discuss pricing and setup.
 
 ## My Preview status says "Ready", but my Preview shows a blank screen. How do I fix this?
 The preview status indicates that the preview built successfully (no errors in the build script). It doesn't necessarily
