@@ -128,7 +128,8 @@ Unfortunately no, at this time we do not support windows.
 
 ## Which repository providers do you support?
 Currently Github, Bitbucket and Gitlab are supported. Self hosted git repositories are available as an option for self
-hosted tugboat instances. Is there a provider you'd like to see added? 
+hosted tugboat instances. Is there a provider you'd like to see added? [Contact us](mailto:support@tugboat.qa) and
+we will look into it.
 
 ## Do you support self hosted git repositories?
 Self hosted git repositories are available as an option for self hosted instances of Tugboat. 
