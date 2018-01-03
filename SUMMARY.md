@@ -25,7 +25,6 @@
   * [Examples](build-script/examples.md)
 * [Examples](examples/index.md)
   * [Drupal](examples/drupal.md)
-  * [Connecting to Acquia](examples/acquia.md)
   * [CasperJS for Testing](examples/casperjs_for_testing.md)
   * [Import MySQL Database](examples/import_mysql_database.md)
 * [Troubleshooting](troubleshooting/index.md)
