@@ -22,6 +22,7 @@
     * [Dashboard](tugboat-dashboard/preview/dashboard/index.md)
   * [User Profile](tugboat-dashboard/user-profile/index.md)
 * [Build Script](build-script/index.md)
+  * [Examples](build-script/examples.md)
 * [GitHub Config](plugins/tugboat-github.md)
 * [Upgrading Software](upgrades/index.md)
     * [PHP](upgrades/php.md)

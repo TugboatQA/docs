@@ -10,9 +10,11 @@ site work. For example, pulling a database, or installing an uncommon software
 package, etc.
 
 ## Makefile
-GNU Make is how Tugboat provides its hooks. The following targets can be added
-to a file named `Makefile` in the root of a tugboat repository. If a `Makefile`
-already exists, these can be added to it.
+
+[GNU Make](https://www.gnu.org/software/make/) is how Tugboat provides its
+hooks. The following targets can be added to a file named `Makefile` in the
+root of a tugboat repository. If a `Makefile` already exists, these can be
+added to it.
 
 The target names have some legacy ties, and are still what they are for
 backwards compatibility. This just means that their use is not exactly
@@ -24,84 +26,169 @@ intuitive.
   not present in the stock Tugboat containers, or modifying service
   configurations.
 
-* **tugboat-build** - This is called when a preview is created from a base preview. The assumption is that things like a database or other assets are already present and just need to be updated. So, not all of the steps from _tugboat-init_ are required.
+* **tugboat-build** - This is called when a preview is created from a base
+  preview. The assumption is that things like a database or other assets are
+  already present and just need to be updated. So, not all of the steps from
+  _tugboat-init_ are required.
 
-* **tugboat-build** - This is called during "tugboat build" after updating the local git repo. This can be used to perform any deployment scripts that might be required.
+* **tugboat-update** - This is called when a preview is refreshed. This falls
+  somewhere between `tugboat-init` and `tugboat-build`, in that there is
+  already data present, and services are already configured. They just need to
+  be updated
 
-* **tugboat-update** - This is called when a preview is refreshed.
-* **tugboat-update** - This is called during `tugboat update` after updating the local git repo. This can be used to downsync any data or other assets from a production/staging source.
+The use of a Makefile, or any of the targets listed above is entirely
+**optional**.  Tugboat will gracefully skip over these steps if the Makefile,
+or one of the targets does not exist.
 
+Deployments *can* be done by using the Makefile natively, but chances are, you
+probably just want to call out to another script that does the heavy lifting.
+This is actually a very common pattern, as it lends well to cascading the
+different build types.
 
-Deployments *can* be done by using the Makefile natively, but chances are, you probably just want to call out to another script that does the heavy lifting.
-
-The use of a Makefile, or any of the targets listed above is entirely **optional**.  Tugboat will gracefully skip over these steps if the Makefile, or one of the targets does not exist.
-
-### Examples
-## Tips
-
-* Make sure you use tabs. Using spaces will cause errors.
-* Check out [some examples](../examples/makefile.md) to get started.
+[Check out some examples](examples.md)
 
 ## Environment Variables
 
-Tugboat injects the following environment variables into every container, which you can use for various reasons.
+Tugboat injects the following environment variables into every container, which
+you can use for anything from build scripts to application configuration, etc.
 
-**`$TUGBOAT_TAG`** - The tag used to identify the overall Tugboat environment.
-For example, if the environment is for Pull Request 3258, this variable would be set to "pr3258".
+* **`$TUGBOAT_DASHBOARD`** - The domain where the Tugboat Dashboard can be found.
 
-**`$TUGBOAT_IMAGE`** - The image used to create the current container. For example, "apache" or "mysql".
+* **`$TUGBOAT_DOMAIN`** - The root domain of the current Tugboat Preview
 
-**`$TUGBOAT_DOMAIN`** - The domain where the Tugboat environment is hosted. Unless otherwise configured, this value is the FQDN of the Tugboat host server.
+* **`$TUGBOAT_IMAGE`** - DEPRECATED. Use `$TUGBOAT_SERVICE` instead.
 
-For client projects this will be "projectname.tugboat.qa", or for local development this is "tugboat.local".
+* **`$TUGBOAT_PREVIEW_ID`** - The ID of the current preview.
 
-**`$TUGBOAT_TOKEN`** - The authentication token for the Tugboat environment.
+* **`$TUGBOAT_PREVIEW`** - The friendly name of the current preview.
 
-This is used by the Tugboat HTTP proxy to grant access to an environment, and is passed through mostly as an informational value. Additional verification could be done in the application if necessary.
+* **`$TUGBOAT_PROJECT_ID`** - The ID of the project that the current preview
+  belongs to.
 
-**`$TUGBOAT_URL`** - The URL for the Tugboat environment.
-In addition to the environment variables above, the hostname of each container is set to
+* **`$TUGBOAT_PROJECT`** - The friendly name of the project that the current
+  preview belongs to.
 
-    ${TUGBOAT\_TAG}\_${TUGBOAT\_IMAGE}.${TUGBOAT\_DOMAIN}
+* **`$TUGBOAT_PROXY_URL`** - One of `subdomain` or `subpath`. This specifies what
+  the URL looks like for the current preview.
 
-For example, `latest_apache.projectname.tugboat.qa` or `pr4539_mysql.tugboat.local`.
+* **`$TUGBOAT_REPO_ID`** - The ID of the repo that the current preview belongs to.
 
-### Plugin Specific Variables
-These variables are available when the corresponding plugins are installed.
+* **`$TUGBOAT_REPO`** - The friendly name of the repo that the current preview
+  belongs to.
 
-Supported plugins:
-- GITHUB
-- BITBUCKET
+* **`$TUGBOAT_SERVICE_ID`** - The ID of the current service.
 
-#### Variables
+* **`$TUGBOAT_SERVICE`** - The friendly name of the current service. This is also
+  the host name used to reference this service container from other services.
 
-- **`$TUGBOAT_[plugin]_TITLE`**
-   The title of the pull request.  For example,`$TUGBOAT_GITHUB_TITLE`
+* **`$TUGBOAT_SMTP`** - The host name of a Tugboat SMTP server that can be used
+  to capture outbound email from the preview.
 
-- **`$TUGBOAT_[plugin]_BASE`**
-   The name of the base branch. For example,`$TUGBOAT_BITBUCKET_BASE`
+* **`$TUGBOAT_TAG`** - DEPRECATED. Use `$TUGBOAT_PREVIEW` instead.
 
-- **`$TUGBOAT_[plugin]_HEAD`**
-   The name of the head branch. For example,`$TUGBOAT_GITHUB_HEAD`
+* **`$TUGBOAT_TOKEN`** - The authentication token for the current Tugboat
+  Preview.  This is used by the Tugboat HTTP proxy to grant access to a preview,
+  and is passed through mostly as an informational value. Additional
+  verification could be done in the application if necessary.
 
-#### Additional GitHub Variables
+* **`$TUGBOAT_URL`** - The URL for the Tugboat Preview.
 
-- **`$TUGBOAT_GITHUB_TOKEN`**
-   The token used to authenticate to Github.
+## Provider-specific Environment Variables
 
-- **`$TUGBOAT_GITHUB_OWNER`**
-   The owner of the GitHub repository.
+### Bitbucket
 
-- **`$TUGBOAT_GITHUB_REPO`**
-   The name of the GitHub repository.
+These variables are injected into Tugboat Previews that are built from a
+Bitbucket repository.
 
-#### Additional BitBucket Variables
+* **`$TUGBOAT_BITBUCKET_OWNER`** - The owner of the Bitbucket repository.
 
-- **`$TUGBOAT_BITBUCKET_OWNER`**
-   The owner of the Bitbucket repository.
+* **`$TUGBOAT_BITBUCKET_SLUG`** - The URL-friendly name of the Bitbucket
+  repository. See https://confluence.atlassian.com/bitbucket/what-is-a-slug-224395839.html
 
-- **`$TUGBOAT_BITBUCKET_SLUG`**
-   The URL-friendly name of the Bitbucket repository. See https://confluence.atlassian.com/bitbucket/what-is-a-slug-224395839.html
+These variables are only injected into Tugboat Previews that are built from a
+Bitbucket pull request.
 
-### Notes
-Tugboat previews are not built with an interactive bash session. This means that your .bashrc or any included files, such as .bash_aliases, are not loaded. This also means that global environment variables cannot be set inside any scripts that are run during the build. The only environment variables you will have global access to are those set explicitly by Tugboat.
+* **`$TUGBOAT_BITBUCKET_TITLE`** - The title of the Bitbucket pull request.
+
+* **`$TUGBOAT_BITBUCKET_SOURCE`** - The name of the pull request source branch.
+
+* **`$TUGBOAT_BITBUCKET_DESTINATION`** - The name of the pull request
+  destination branch.
+
+### Git
+
+These variables are injected into Tugboat Previews that are built from a raw
+git repository.
+
+* **`$TUGBOAT_GIT_REPO`** - The address of the git repository.
+
+### Github
+
+These variables are injected into Tugboat Previews that are built from a Github
+repository.
+
+* **`$TUGBOAT_GITHUB_OWNER`** - The owner of the Github repository.
+
+* **`$TUGBOAT_GITHUB_REPO`** - The name of the Github repository.
+
+These variables are only injected into Tugboat Previews that are built from a
+Github pull request.
+
+* **`$TUGBOAT_GITHUB_TITLE`** - The title of the Github pull request.
+
+* **`$TUGBOAT_GITHUB_HEAD`** - The name of the pull request head branch.
+
+* **`$TUGBOAT_GITHUB_BASE'** - The name of the pull request base branch.
+
+### Gitlab
+
+These variables are injected into Tugboat Previews that are built from a Gitlab
+repository.
+
+* **`$TUGBOAT_GITLAB_NAMESPACE`** - The namespace of the Gitlab repository.
+
+* **`$TUGBOAT_GITLAB_PROJECT`** - The project name of the Gitlab repository.
+
+These variables are only injected into Tugboat Previews that are built from a
+Gitlab merge request.
+
+* **`$TUGBOAT_GITLAB_TITLE`** - The title of the Gitlab merge request.
+
+* **`$TUGBOAT_GITLAB_SOURCE`** - The name of the merge request source branch.
+
+* **`$TUGBOAT_GITLAB_TARGET`** - The name of the merge request target branch.
+
+### Stash / Bitbucket Server
+
+These variables are injected into a Tugboat Previews that are built from a
+Stash or Bitbucket Server repository.
+
+* **`$TUGBOAT_STASH_PROJECT`** - The project where the repository lives.
+
+* **`$TUGBOAT_STASH_SLUG`** - The URL-friendly name of the repository. See
+  https://confluence.atlassian.com/bitbucket/what-is-a-slug-224395839.html
+
+These variables are only injected into Tugboat Previews that are built from a
+Stash or Bitbucket Server pull request.
+
+* **`$TUGBOAT_STASH_TITLE`** - The title of the pull request.
+
+* **`$TUGBOAT_STASH_SOURCE`** - The name of the pull request source branch.
+
+* **`$TUGBOAT_STASH_DESTINATION`** - The name of the pull request destination
+  branch.
+
+## Custom Environment Variables
+
+In addition to the above environment variables, custom variables can also be
+injected into Tugboat Previews through the Tugboat Repository configuration.
+
+![Environment Variable Configuration](_images/envvars-config.png)
+
+## Notes
+
+Tugboat previews are not built with an interactive bash session. This means
+that .bashrc or any included files, such as .bash_aliases, are not loaded.
+This also means that global environment variables cannot be set inside any
+scripts that are run during the build. The only environment variables that are
+globally accessible are those set explicitly by Tugboat.
