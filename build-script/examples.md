@@ -26,7 +26,7 @@ tugboat-build:
 
 ## Call out to external scripts
 
-```makefile
+```
 tugboat-init:
     util/tugboat-init.sh
 
@@ -37,3 +37,28 @@ tugboat-update:
     util/tugboat-update.sh
 ```
 
+## Change an apache document root
+
+```
+tugboat-init:
+    ln -sf ${TUGBOAT_ROOT}/public_html /var/www/html
+```
+
+## Change an nginx document root
+
+```
+tugboat-init:
+    ln -s ${TUGBOAT_ROOT}/public_html /usr/share/nginx/html
+```
+
+## Re-use a common set of commands
+
+```
+install:
+    npm install
+    npm run build
+
+tugboat-init: install
+tugboat-update: install
+tugboat-build: install
+```

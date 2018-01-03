@@ -27,7 +27,6 @@
 * [Upgrading Software](upgrades/index.md)
     * [PHP](upgrades/php.md)
 * [Examples](examples/index.md)
-  * [Makefile](examples/makefile.md)
   * [Drupal](examples/drupal.md)
   * [Connecting to Acquia](examples/acquia.md)
   * [CasperJS for Testing](examples/casperjs_for_testing.md)

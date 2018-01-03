@@ -76,6 +76,9 @@ you can use for anything from build scripts to application configuration, etc.
 * **`$TUGBOAT_REPO`** - The friendly name of the repo that the current preview
   belongs to.
 
+* **`$TUGBOAT_ROOT`** - The filesystem location where the git repository is
+  cloned.
+
 * **`$TUGBOAT_SERVICE_ID`** - The ID of the current service.
 
 * **`$TUGBOAT_SERVICE`** - The friendly name of the current service. This is also
