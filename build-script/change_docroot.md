@@ -1,8 +1,10 @@
 # Change the document root
 
-By default, Tugboat tries to serve content out of a `/docroot` folder in the
-root of a repository. If the web content is at a different path, such as
-`/public_html`, use the build script to change where Tugboat looks.
+Tugboat tries to serve content out of a `/docroot` folder in the root of a
+repository. It does this by linking `${TUGBOAT_ROOT}/docroot` to the default
+document root of the web server. If the repository's web content is at a
+different path, such as `/public_html`, use the build script to change where
+Tugboat looks.
 
 ## apache
 
