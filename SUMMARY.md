@@ -23,8 +23,6 @@
   * [User Profile](tugboat-dashboard/user-profile/index.md)
 * [Build Script](build-script/index.md)
   * [Examples](build-script/examples.md)
-* [Upgrading Software](upgrades/index.md)
-    * [PHP](upgrades/php.md)
 * [Examples](examples/index.md)
   * [Drupal](examples/drupal.md)
   * [Connecting to Acquia](examples/acquia.md)

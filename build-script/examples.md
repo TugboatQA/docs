@@ -62,3 +62,13 @@ tugboat-init: install
 tugboat-update: install
 tugboat-build: install
 ```
+
+## Install PHP 7.2
+
+```
+tugboat-init:
+    apt-get install -y python-software-properties software-properties-common
+    add-apt-repository -y ppa:ondrej/php
+    apt-get update
+    apt-get install php7.2
+```
