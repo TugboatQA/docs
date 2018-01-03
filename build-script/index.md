@@ -9,6 +9,11 @@ developers to customize a stock Tugboat preview environment in order to make a
 site work. For example, pulling a database, or installing an uncommon software
 package, etc.
 
+> **Tip** - Save a bunch of disk space by cleaning up after apt at the end of
+> the build script.
+>
+>    `apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*`
+
 ## Makefile
 
 [GNU Make](https://www.gnu.org/software/make/) is how Tugboat provides its

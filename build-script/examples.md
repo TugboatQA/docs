@@ -3,7 +3,17 @@
 
 > **Tip:** Be sure to use tabs. Spaces cause Make to throw errors.
 
-## Pseudocode
+Sometimes it helps to see some examples. Here are some that we have compiled
+for various tasks and scenarios.
+
+* [Import a MySQL Database](import_mysql_database.md)
+* [Install PHP 7.2](install_php72.md)
+* [Change the Document Root Location](change_docroot.md)
+* [Re-use a Common Set of Commands](reuse_commands.md)
+* [Use External Scripts](external_scripts.md)
+* [Run CasperJS Tests](casperjs.md)
+
+## Overview
 
 ```
 # Build a preview from scratch
@@ -24,51 +34,3 @@ tugboat-build:
     # compile, uglify, etc.
 ```
 
-## Call out to external scripts
-
-```
-tugboat-init:
-    util/tugboat-init.sh
-
-tugboat-build:
-    util/tugboat-build.sh
-
-tugboat-update:
-    util/tugboat-update.sh
-```
-
-## Change an apache document root
-
-```
-tugboat-init:
-    ln -sf ${TUGBOAT_ROOT}/public_html /var/www/html
-```
-
-## Change an nginx document root
-
-```
-tugboat-init:
-    ln -s ${TUGBOAT_ROOT}/public_html /usr/share/nginx/html
-```
-
-## Re-use a common set of commands
-
-```
-install:
-    npm install
-    npm run build
-
-tugboat-init: install
-tugboat-update: install
-tugboat-build: install
-```
-
-## Install PHP 7.2
-
-```
-tugboat-init:
-    apt-get install -y python-software-properties software-properties-common
-    add-apt-repository -y ppa:ondrej/php
-    apt-get update
-    apt-get install php7.2
-```
