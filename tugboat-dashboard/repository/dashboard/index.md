@@ -26,4 +26,12 @@ New Previews will be built based on the Base Preview. You will notice faster bui
 
 ## Pull Requests, Tags and Branches Available to Build
 
+Here you will find all Pull Requests, Tags, and Branches that are available to be built. Once it is built, it will move up from this list to the Latest Previews section.
+
+![Available To Build](_images/available-to-build.jpg)
+
 ## Repository Stats
+
+The Repository stats give some useful insights about the state of your Repository. For one the usage of the current Repository compared to other Repositories in the same Project and the total quota.
+
+![Repository Stats](_images/repository-stats.jpg)
