@@ -1,34 +1,22 @@
 # Troubleshooting
 
-## If a preview is failing to build
+## A Preview Fails to Build
 
-### 1. Check the logs
-
-First check the logs to see why the preview is failing.
+Check the preview logs, and look for an error message. The most common cause
+of build failures is the build script exiting with an error.
 
 ![Failed Build Logs](_images/failed-log.png)
 
 If you understand the error message, you may have code to fix before you can
-rebuild this preview.
-
-### 2. Update base environment and rebuild
-
-Go to your project's Settings page, and select Update from the action menu for
-your Base Preview.
-
-![Base Preview Actions](_images/base-actions.png)
-
-Then try to rebuild the preview.
-
-![Failed Preview Actions](_images/failed-actions.png)
-
-It's important to rebuild vs. reset in this instance so that the preview is
-built from the newly updated base preview.
-
-![Rebuild Modal](_images/rebuild-modal.png)
+rebuild this preview. If the error message appears to be Tugboat's fault, try
+deleting the preview and building it again. If the problem persists,
+[contact support](https://tugboat.qa/support).
 
 ## Previews are not building automatically
 
+Only pull request previews will build automatically. If they are not, check the
+repository settings, and make sure "Build Pull Requests Automatically" is checked.
+
 Make sure that probe frequency is set to something other than "None"
 
-![GitHub Probe](_images/github-probe.png)
+![Pull Request Probe](_images/pr-probe.png)
