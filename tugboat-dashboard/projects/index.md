@@ -2,9 +2,6 @@
 
 This chapter will guide you through the Project dashboard and settings.
 
-* [Dashboard](dashboard/index.md)
-* [Settings](settings/index.md)
-
 ## Intro
 
 A Tugboat Project can contain any amount of repositories you want Tugboat to build previews for, and is tied to a subscription model (free or premium). Additionally, you can invite users to join the project. You can create as many projects as you like. All Repositories added to a Project will share the disk quota tied to its subscription.
@@ -21,3 +18,7 @@ When you sign in to Tugboat for the first time, and you haven't been invited to 
 
 ![Create New Project Link](_images/create-new-project.jpg)
 
+## Further Reading
+
+* [Dashboard](/tugboat-dashboard/projects/dashboard/index.md)
+* [Settings](/tugboat-dashboard/projects/settings/index.md)

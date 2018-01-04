@@ -8,7 +8,7 @@ To navigate to the Repository settings, either use the link next to the title in
 
 ## Services
 
-Services are isolated instances that contain applications like file servers, databases, caching, etc. Under the hood they are [Docker](https://www.docker.com/) containers. While you can install any application you need from a [Makefile]() build script, we highly recommend using Services whenever available as they're easy to include and most importantly, they have their own designated CPU(s) and memory. To see how many CPU(s) and memory is designated to your Services, check out your current subscription in the [Project Settings](/tugboat-dashboard/projects/settings/#manage-subscription).
+Services are isolated instances that contain applications like file servers, databases, caching, etc. Under the hood they are [Docker](https://www.docker.com/) containers. While you can install any application you need from a [Makefile](/build-script) build script, we highly recommend using Services whenever available as they're easy to include and most importantly, they have their own designated CPU(s) and memory. To see how many CPU(s) and memory is designated to your Services, check out your current subscription in the [Project Settings](/tugboat-dashboard/projects/settings/#manage-subscription).
 
 The Service which will serve up your files or will be the endpoint of the Tugboat Preview URL should be asigned as "webhead". In most cases this will be a file server like Apache.
 
@@ -46,7 +46,7 @@ Proxy settings relate to how Previews are served. Configuration options around H
 
 ### Screenshots
 
-Each time Tugboat builds a preview it generates screenshots which can be found on the [Preview Dashboard](). If a Preview is built based of a Base Preview, it will generate a visual diff. If you want to change default values like highligh mask colors or timeout values you can do so here.
+Each time Tugboat builds a preview it generates screenshots which can be found on the [Preview Dashboard](/tugboat-dashboard/preview/dashboard). If a Preview is built based of a Base Preview, it will generate a visual diff. If you want to change default values like highligh mask colors or timeout values you can do so here.
 
 ### Services
 
@@ -54,7 +54,7 @@ These are settings related to the Service containers. Here you can set a custom 
 
 ### Tests
 
-Provides an option to run the repo's test suite after building every Preview.
+Provides an option to run the repo's test suite after building every Preview. When enabled it will trigger the `tugboat-test` endpoint in your [Makefile](/build-script).
 
 ### Tugboat
 
