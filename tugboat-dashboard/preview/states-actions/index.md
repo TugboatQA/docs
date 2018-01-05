@@ -18,10 +18,10 @@ Stable States:
 
 Transition States:
 - **Building:** Tugboat is building the Preview. This means setting up Services, processing the build scripts from the Makefile, etc.
-- **Committing:** TODO: ???
+- **Committing:** This is a state that relates to Services. When a Service is committing, a snapshot is being created. If you make changes to any of your Services (like modifying files or database values) and choose to "reset" your preview later, your preview will be restored to these snapshots.
 - **Deleting:** The Preview is being deleted. The Pull Request/Tag/Branch will then be listed again in the "Available to Build" section below.
 - **Refreshing:** The Preview is being refreshed, meaning it called `tugboat-update` in the [Makefile](/build-script/index.md). This is often used to pull in fresh data from an external database like the production server.
-- **Resetting:** TODO: ???
+- **Resetting:** Resetting means that the preview is being restored the its last saved state. Each time a preview builds it saves its state. Any changes you made to the preview since it was built will be reset.
 - **Starting:** A Preview is "starting" when it is manually started after being stopped, or when it is coming out of a "Suspended" state.
 - **Stopping:** A Preview is "Stopping" when it is manually triggered to stop.
 - **Suspending:** A Preview is being Suspended. See "Suspended" above.
@@ -30,12 +30,11 @@ Transition States:
 ## Actions
 
 - **Cancel:** Cancels the currently running operation.
-- **Commit:** TODO: ??? Save any changes made to a running preview. Any other previews that get built with this as its base will use the saved state.
 - **Delete:** Delete a Tugboat preview. After a Preview is deleted the Pull Request/Tag/Branch will then be listed again in the "Available to Build" section below.
 - **Lock:** Locking a Tugboat preview still allows full access to the live preview, but disables any further actions on it until it is unlocked, including automatic updates from new commits. This is useful for lengthier reviews or to prevent interruptions during a demo.
-- **Rebuild:** Rebuild an existing Tugboat preview.
-- **Refresh:** Refresh the codebase and external assets of a Tugboat preview. Refreshing a preview pulls the latest code and allows a preview to update any outside resources, such as a database. When a Preview is being refreshed, it calles `tugboat-update` in the [Makefile](/build-script/index.md).
-- **Reset:** TODO: ??? Resets a Tugboat preview to its last saved state. Resetting a preview restores it to its last saved state. Usually, this is the state that resulted from the initial build of the preview, unless a commit has been made since then.
+- **Rebuild:** Rebuild an existing Tugboat preview from scratch. Rebuild calls `tugboat-init` in the [Makefile](/build-script/index.md) if there is no Base Preview, and `tugboat-build` if there is a Base Preview.
+- **Refresh:** Refresh the codebase and external assets of a Tugboat preview. Refreshing a preview pulls the latest code and allows a preview to update any outside resources, such as a database. When a Preview is being refreshed, it calls `tugboat-update` in the [Makefile](/build-script/index.md).
+- **Reset:** Resets a Tugboat preview to its last saved state. When a preview has finished building, it creates a saved state of it. So if you make changes in your preview, like changing data or files, a reset will restore the preview to its last saved state without having to rebuild the entire preview.
 - **Start:** Starts a stopped or suspended Tugboat preview. Starting a preview starts all of its services back up, bringing it back online for normal use.
 - **Stop:** Stops a running Tugboat preview. Stopping a preview stops all of its services, taking it offline. This is useful for preventing access to a preview that is not being actively reviewed.
 - **Unlock:** Unlocks a locked Tugboat preview. Unlocking a preview allows normal operations to resume, including automatic updates from new commits. This may end up destroying any changes made to the preview, or could interrupt someone actively reviewing or giving a demo on this preview.
