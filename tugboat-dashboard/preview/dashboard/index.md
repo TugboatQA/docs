@@ -28,4 +28,4 @@ Every time a Preview builds, a screenshot will be generated. By default it gener
 
 The real value of screenshots happen when a Preview is built from a Base Preview. In this case it will generate a screenshot of the Preview, a screenshot of the Base Preview, and a visual diff between the two.
 
-TODO: Screenshots of the screenshots
+[//]: # "TODO: Screenshots of the screenshots"

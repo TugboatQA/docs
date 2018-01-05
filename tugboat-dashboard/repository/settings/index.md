@@ -16,9 +16,15 @@ You can give your Services a custom name, but in most cases the default will wor
 
 If you would like to see a Service included that isn't listed yet, feel free to create one and make a pull request to [Lullabot/tugboat-registry](https://github.com/Lullabot/tugboat-registry). Once accepted here they will become available in Tugboat.
 
-TODO: part about Ready Command
-
 ![Services](_images/services.jpg)
+
+### Editing a Service
+
+Editing a Service lets you update the image, name and Ready Command.
+
+The **Ready Command** is a command to be called to verify if the particular Service is ready. This is to avoid your Preview going live before a Service is done setting up. If the command returns `0` (command succeeded), Tugboat will continue the build. If not, Tugboat will keep trying the command every few seconds until it does. Most Services come with a default command prepopulated (using `nc` or `curl` for example), but you can use any Linux command you prefer.
+
+![Edit Service](_images/service-edit.jpg)
 
 ## Configuration
 
