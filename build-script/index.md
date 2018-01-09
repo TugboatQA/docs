@@ -89,8 +89,14 @@ you can use for anything from build scripts to application configuration, etc.
 * **`$TUGBOAT_SERVICE`** - The friendly name of the current service. This is also
   the host name used to reference this service container from other services.
 
-* **`$TUGBOAT_SMTP`** - The host name of a Tugboat SMTP server that can be used
-  to capture outbound email from the preview.
+* **`$TUGBOAT_SMTP`** - DEPRECATED. Use `$TUGBOAT_SMTP_HOST` and
+  `$TUGBOAT_SMTP_PORT` instead.
+
+* **`$TUGBOAT_SMTP_HOST`** - The host name of the Tugboat SMTP server that can
+  be used to capture outbound email from a preview.
+
+* **`$TUGBOAT_SMTP_PORT`** - The port that the Tugboat SMTP server defined by
+  `$TUGBOAT_SMTP_HOST` is listening on.
 
 * **`$TUGBOAT_TAG`** - DEPRECATED. Use `$TUGBOAT_PREVIEW` instead.
 
