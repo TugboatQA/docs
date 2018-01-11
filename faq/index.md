@@ -92,7 +92,7 @@ Project admins can add new repositories, manage project users and make billing/a
 
 ## Can I have SSH access?
 No, direct SSH access to previews is not provided. However shell access is provided to running previews
-via our web shell interface [TuSH](../tugboat-dashboard/tush.md).
+via our web shell interface [TuSH](/tugboat-dashboard/preview/dashboard/index.md/#tush).
 
 ## Do you provide production level hosting?
 No, Tugboat containers are intended to be (relatively) short lived, and don't come with the sort of stability/support
@@ -129,7 +129,7 @@ Self hosted git repositories are available as an option for self hosted instance
 The preview status indicates that the preview built successfully (no errors in the build script). It doesn't necessarily
 ensure that your build script is correct. For example your build script might set up a database but not provide
 the correct password to some application config file. In this case the preview would build successfully but the
- application might not load. You can use [TuSH](../tugboat-dashboard/tush.md) to view application/web server logs
+ application might not load. You can use [TuSH](/tugboat-dashboard/preview/dashboard/index.md/#tush) to view application/web server logs
  and diagnose any issues.
 
 ## What is the difference between a Project and a Repository?

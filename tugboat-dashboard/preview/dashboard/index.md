@@ -8,13 +8,21 @@ In the Header of the Preview dashboard you'll find the same information as the [
 
 ## Services
 
-This lists all the Services that are included in the Preview, along with their status. Both "View Log" and "Launch Terminal" opens new browser windows. As expected the first will show the log in real-time specific to the Service. Launching the terminal will launch a command line interface to make adjustments specifically to that Service.
+This lists all the Services that are included in the Preview, along with their status. Both "View Log" and "Launch Terminal" opens new browser windows.
 
 ![Services](_images/preview-services.jpg)
 
-An Apache log window:
+### Log
+
+The log shows data in real-time specific to the Service.
 
 ![Apache Log](_images/preview-apache-log.jpg)
+
+### TuSH
+
+"Launch Terminal" launches TuSH (Tugboat SHell), an in-browser command line interface to make adjustments specifically to that Service.
+
+![TuSH](_images/TuSH.jpg)
 
 ## Logs
 
