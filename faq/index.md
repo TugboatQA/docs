@@ -14,15 +14,15 @@ Yes. We've used Tugboat for projects that run on Acquia cloud many times. While 
 your production code and database can still live on the Acquia Cloud servers.
 
 ## What is a Makefile target?
-See [Makefile](../automation/makefile.md)
+See [Makefile](/build-script/index.md/#makefile)
 
 ## How can I warm the cache of my previews?
 You can just add something like this, either to your build script, or as part of the `tugboat-build` 
-[Makefile](../automation/makefile.md) target.
+[Makefile](/build-script/index.md/#makefile) target.
     `curl http://localhost/`
 
 ## My environment is failing. What can I do?
-See [Troubleshooting](../troubleshooting/index.md).
+See [Troubleshooting](/troubleshooting/index.md).
 
 ## How does Tugboat deal with email?
 The Docker images from Lullabot's registry are pre-configured to use the host's
@@ -49,7 +49,7 @@ link on the dashboard of your project.
  
 ![Add a Repository](../getting-started/_images/project-dashboard-add-repository.jpg)
 
-See our [getting started](../getting-started/index.md) guide for additional information.
+See our [getting started](/getting-started/index.md) guide for additional information.
 
 ## How do I add my database?
 A database can be added to your project either by installing it in the same container as your application via your
@@ -57,7 +57,7 @@ build script, or by adding it as a service in the repository settings page. Data
 script process. If the data resides on a remote server (e.g. not in your repository) each tugboat repository has a generated
 SSH key visible in the repository settings. This key can be added to the remote server allowing your tugboat build
 script to log in without a password and run whatever command may be necessary to dump/import your data into the database
-server your preview will connect to. For an example see the [MySQL import example](../examples/import_mysql_database.md)
+server your preview will connect to. For an example see the [MySQL import example](/build-script/import_mysql_database.md)
 in the examples section.
 
 ## What's a Base Preview?
@@ -66,19 +66,19 @@ time of previews. If your preview takes a long time to initialize but a shorter 
 may considerably speed up your builds. As an example if you have a large set of test data which you wish to load you could
 see a substantial speed up in build times by creating a base preview in which that data is already loaded. When a new
 preview is built, it will start with the base preview and run the tugboat-update target (rather than tugboat-init). See
-[tugboat-update](../automation/makefile.md) in the makefile documentation for more information.
+[tugboat-update](/build-script/index.md/#makefile) in the makefile documentation for more information.
 
 ## What's a build script?
 A build script (also referred to as a Makefile) is how you customize your tugboat preview.
 Previews start as a bare bones Linux installation and a copy of your repository code. Anything you might do to get a 
 local development environment up and running is likely something which should be in your build script. 
 This might include things like installing dependencies for your application, creating/updating application configuration
-files, populating a database with test data, etc. For more information see the [automation](../automation/index.md)
+files, populating a database with test data, etc. For more information see the [build scripts](/build-scripts/index.md)
 section of this documentation.
 
 ## How do I build my first preview?
-See our [getting started](../getting-started/index.md) guide for a walkthrough which includes
-getting [your first preview](../getting-started/your-first-preview.md) up and running.
+See our [getting started](/getting-started/index.md) guide for a walkthrough which includes
+getting [your first preview](/getting-started/your-first-preview.md) up and running.
 
 ## Is there a limit to the number of repositories I can have?
 There is no hard limit on the number of repositories a project can contain, however resource quotas such as disk space
@@ -108,7 +108,7 @@ Currently no, as Base Preview's are not updated automatically, no previews based
 We are adding new services all the time, feel free to [email us](https://tugboat.qa/support) if there's something you'd
 like to see supported that currently isn't. For more advanced users it is possible to install any service you might
 require in the same container as your application this would require installing and configuring it yourself however. See
-[advanced uses](../automation/advanced.md) in the automation documentation.
+[examples](/build-script/examples.md) in the build script documentation.
 
 ## What Linux distribution does Tugboat run on? Do you support X?
 Our containers are currently built on Ubuntu (14.04). We do not currently support any other Linux distros. 
