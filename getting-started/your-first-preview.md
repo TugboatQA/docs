@@ -32,7 +32,7 @@ To get a working Preview, make sure you have the following set up:
 
 ![Repository Services](_images/repo-services.jpg)
 
-Editing a Service allows you to change the name and add a command to be called when the particular Service is ready. TODO: NEEDS MORE INFO
+Editing a Service allows you to change the name and add a [Ready Command](/tugboat-dashboard/repository/settings/index.md#editing-a-service) to be called to verify if the particular Service is ready.
 
  ### Makefile
 
