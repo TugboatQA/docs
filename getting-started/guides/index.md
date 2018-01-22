@@ -1,8 +1,8 @@
 # Guides
 
-The following are guides to set up your build for common scenarios.
+The following are guides to set up Tugboat for common some stacks.
 
-* [Static HTML](static-html.md)
-* [Generic LAMP](generic-lamp.md)
-* [Wordpress](wordpress.md)
 * [Drupal](drupal.md)
+* [Generic LAMP](generic-lamp.md)
+* [Static HTML](static-html.md)
+* [Wordpress](wordpress.md)
