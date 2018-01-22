@@ -29,5 +29,6 @@
     * [Re-use a Common Set of Commands](build-script/reuse_commands.md)
     * [Use External Scripts](build-script/external_scripts.md)
     * [Run CasperJS Tests](build-script/casperjs.md)
+* [Base Previews](base-previews/index.md)
 * [Troubleshooting](troubleshooting/index.md)
 * [FAQ](faq/index.md)
