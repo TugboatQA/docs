@@ -4,7 +4,7 @@
 * [Getting Started](getting-started/index.md)
   * [Create a Tugboat Account](getting-started/create-a-tugboat-account.md)
   * [Create a Project](getting-started/create-a-project.md)
-  * [Your First Preview](getting-started/your-first-preview.md)
+  * [Create a Preview](getting-started/create-a-preview.md)
   * [Guides](getting-started/guides/index.md)
     * [Drupal](getting-started/guides/drupal.md)
     * [Generic LAMP](getting-started/guides/generic-lamp.md)

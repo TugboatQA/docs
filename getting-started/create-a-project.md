@@ -11,8 +11,8 @@ Start by giving your Tugboat Project a name.
 ![Project Name](_images/project-name.png)
 
 Then, choose a repository that you want Tugboat to work with. If you choose to
-skip this step, repositories can be added later from the Tugboat Project's
-dashboard.
+skip this step, repositories can be added later from the [Project
+dashboard](../tugboat-dashboard/projects/dashboard/index.md).
 
 ![Add a Repository](_images/project-add-repository.png)
 

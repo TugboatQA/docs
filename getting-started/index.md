@@ -4,7 +4,7 @@ This section will walk you through setting up a new Tugboat project.
 
 * [Create a Tugboat Account](create-a-tugboat-account.md)
 * [Create a Project](create-a-project.md)
-* [Your First Preview](your-first-preview.md)
+* [Create a Preview](create-a-preview.md)
 
 ## Guides
 
