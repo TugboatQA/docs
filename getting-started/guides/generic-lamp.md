@@ -53,7 +53,7 @@ for indents, not spaces.
 
 ### Configure a Document Root
 
-By default, Tugboat tries to serve content from a `/docroot` folcer in the root
+By default, Tugboat tries to serve content from a `/docroot` folder in the root
 of your git repository. If your repository is already set up like this, the
 following step can be skipped.
 
