@@ -170,7 +170,7 @@ Add the following to the `tugboat-init` and `tugboat-update` sections of the
 build script.
 
 ```sh
-mkdir -p /var/www/html/wp-content/uploads
+mkdir -p /var/www/html/wp-content/uploads || /bin/true
 rsync -av --delete user@example.com:/path/to/wp-content/uploads/ /var/www/html/wp-content/uploads/
 chgrp -R www-data /var/www/html/wp-content/uploads
 find /var/www/html/wp-content/uploads -type d -exec chmod 2775 {} \;
@@ -208,7 +208,7 @@ importdb:
     wp --allow-root --path=/var/www/html search-replace 'wordpress.local' "${TUGBOAT_PREVIEW}-${TUGBOAT_TOKEN}.${TUGBOAT_DOMAIN}" --skip-columns=guid
 
 importuploads:
-    mkdir -p /var/www/html/wp-content/uploads
+    mkdir -p /var/www/html/wp-content/uploads || /bin/true
     rsync -av --delete user@example.com:/path/to/wp-content/uploads/ /var/www/html/wp-content/uploads/
     chgrp -R www-data /var/www/html/wp-content/uploads
     find /var/www/html/wp-content/uploads -type d -exec chmod 2775 {} \;
