@@ -101,6 +101,20 @@ you can use for anything from build scripts to application configuration, etc.
 
 * **`$TUGBOAT_URL`** - The URL for the Tugboat Preview.
 
+## Base Preview Environment Variables
+
+If a preview was built from a base preview, the following variables are also
+available with information about the base preview.
+
+* **`TUGBOAT_BASE_PREVIEW`** - The friendly name of the base preview.
+
+* **`TUGBOAT_BASE_PREVIEW_ID`** - The ID of the base preview.
+
+* **`TUGBOAT_BASE_PREVIEW_TOKEN`** - The authentication token for the base
+  preview.
+
+* **`TUGBOAT_BASE_PREVIEW_URL`** - The public URL for the base preview.
+
 ## Provider-specific Environment Variables
 
 ### Bitbucket
