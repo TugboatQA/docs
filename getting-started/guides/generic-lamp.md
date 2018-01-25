@@ -53,13 +53,13 @@ for indents, not spaces.
 
 ### Configure a Document Root
 
-By default, Tugboat tries to serve content from a `/docroot` in the root of your
-git repository. If your repository is already set up like this, the following
-step can be skipped.
+By default, Tugboat tries to serve content from a `/docroot` folcer in the root
+of your git repository. If your repository is already set up like this, the
+following step can be skipped.
 
 To point Tugboat to the right location in your repository, add a line to the
-`tugboat-init` section. To serve content from `/public_html` in your repository
-add this.
+`tugboat-init` section of the build script. To serve content from `/public_html`
+in your repository add this.
 
 
 ```sh
