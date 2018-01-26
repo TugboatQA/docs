@@ -27,10 +27,10 @@ Finally, select a pricing tier for your project. Use the feature matrix to
 decide which tier best suits your needs. If in doubt, select the Free tier, and
 upgrade as needed when you start to run into the limits.
 
-Besides more available disk space, CPU, and memory, the ability to create [Base
-Previews](../base-previews/index.md) is a major bonus to selecting a paid tier.
-[Base Previews](../base-previews/index.md) allow Tugboat to speed up build times
-and significanly reduces the amount of disk space a given preview occupies.
+Besides more available disk space, CPU, and memory, the ability to create Base
+Previewsis a major bonus to selecting a paid tier. Base Previews allow Tugboat
+to speed up build times and significanly reduces the amount of disk space a
+given preview occupies.
 
 ![Tiers](_images/project-tier.png)
 
