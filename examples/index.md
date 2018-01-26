@@ -1,4 +1,4 @@
-# Guides
+# Examples
 
 The following are guides to set up Tugboat for common some stacks.
 
