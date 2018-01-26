@@ -23,7 +23,7 @@ main navigation.
 
 ![Create New Project Link](_images/create-new-project.jpg)
 
-## Dashboard
+## Project Dashboard
 
 The project dashboard is where you can manage a project's repositories, see
 usage statistics, and access its settings.
