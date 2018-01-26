@@ -18,17 +18,28 @@ In addition, a MySQL or MariaDB database service needs to be selected.
 
 ## Drupal Configuration
 
-Add the following to the end of `settings.php` to let Drupal know where to find its database
+A common practice for managing Drupal's `settings.php` is to leave sensitive
+information, such as database credentials, out of it and commit it to git. Then,
+the sensitive information is loaded from a `settings.local.php` file that exists
+only on the Drupal installation location.
+
+This pattern works very well with Tugboat. It lets you keep a tugboat-specific
+set of configurations in your repository where you can just copy it into place
+with a build script.
+
+For Drupal 7, add the following to the end of `settings.php`
 
 ```php
-$tugboat = getenv('TUGBOAT_PREVIEW_ID');
-if (!empty($tugboat)) {
-  $databases['default']['default'] = [
-    'database' => 'drupal',
-    'username', 'tugboat',
-    'password', 'tugboat',
-    'host', 'mysql',
-  ];
+if (file_exists(DRUPAL_ROOT . '/' . conf_path() . '/settings.local.php')) {
+  include DRUPAL_ROOT . '/' . conf_path() . '/settings.local.php';
+}
+```
+
+For Drupal 8, add/uncomment the following at the end of `settings.php`
+
+```php
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
 }
 ```
 

@@ -69,12 +69,13 @@ The build script for a Wordpress repository consists of these main parts
 * Install prerequisite packages
 * Create/Import a database, and update the site URL
 * Import `wp-content/uploads`
+* Update the Wordpress configuration
 
 ### Configure a Document Root
 
 By default, Tugboat tries to serve content from a `/docroot` folcer in the root
-of your git repository. If your repository is already set up like this, the
-following step can be skipped.
+of your git repository. If your repository already has Wordpress in this
+location, this step can be skipped.
 
 To point Tugboat to the right location in your repository, add a line to the
 `tugboat-init` section of the build script. To serve content from `/public_html`
@@ -139,18 +140,6 @@ zcat /tmp/database.sql.gz | mysql -h mysql -u tugboat -ptugboat demo
 wp --allow-root --path=/var/www/html search-replace 'wordpress.local' "${TUGBOAT_PREVIEW}-${TUGBOAT_TOKEN}.${TUGBOAT_DOMAIN}" --skip-columns=guid
 ```
 
-Finally, configure Wordpress to use the new database by generating a
-`wp-config.local.php` file. Add the following to the `tugboat-init` section of
-the build script.
-
-```sh
-echo "<?php" > /var/www/html/wp-config.local.php
-echo "define('DB_NAME','demo');" >> /var/www/html/wp-config.local.php
-echo "define('DB_USER','tugboat');" >> /var/www/html/wp-config.local.php
-echo "define('DB_PASSWORD','tugboat');" >> /var/www/html/wp-config.local.php
-echo "define('DB_HOST','mysql');" >> /var/www/html/wp-config.local.php
-```
-
 ### Import wp-content/uploads
 
 Just like the database, in order to import the `wp-content/uploads` folder, it
@@ -177,12 +166,27 @@ find /var/www/html/wp-content/uploads -type d -exec chmod 2775 {} \;
 find /var/www/html/wp-content/uploads -type f -exec chmod 0664 {} \;
 ```
 
+### Update the Wordpress Configuration
+
+Finally, configure Wordpress to use the new database by generating a
+`wp-config.local.php` file. Add the following to the `tugboat-init` section of
+the build script.
+
+```sh
+echo "<?php" > /var/www/html/wp-config.local.php
+echo "define('DB_NAME','demo');" >> /var/www/html/wp-config.local.php
+echo "define('DB_USER','tugboat');" >> /var/www/html/wp-config.local.php
+echo "define('DB_PASSWORD','tugboat');" >> /var/www/html/wp-config.local.php
+echo "define('DB_HOST','mysql');" >> /var/www/html/wp-config.local.php
+```
+
 ### Full Makefile
 
 This Makefile pulls everything above together into a single file. It takes
 advantage of some code reuse, and cleans up temp files at the end to keep the
-preview disk space usage down a little. Make sure the indents are TABs if this
-is copied & pasted.
+preview disk space usage down a little.
+
+**Make sure the indents are TABs if this is copied & pasted.**
 
 ```sh
 packages:
