@@ -73,7 +73,7 @@ The build script for a Wordpress repository consists of these main parts
 
 ### Configure a Document Root
 
-By default, Tugboat tries to serve content from a `/docroot` folcer in the root
+By default, Tugboat tries to serve content from a `/docroot` folder in the root
 of your git repository. If your repository already has Wordpress in this
 location, this step can be skipped.
 

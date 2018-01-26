@@ -82,7 +82,7 @@ The build script for a Drupal 7 repository consists of these main parts
 
 ### Configure a Document Root
 
-By default, Tugboat tries to serve content from a `/docroot` folcer in the root
+By default, Tugboat tries to serve content from a `/docroot` folder in the root
 of your git repository. If your repository already has Drupal in this location,
 this step can be skipped.
 
@@ -114,7 +114,6 @@ other packages here that you might need while you are at it.
 ```sh
 apt-get update
 apt-get install -y mysql-client rsync
-curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 curl -L "https://github.com/drush-ops/drush/releases/download/8.1.15/drush.phar" > /usr/local/bin/drush
 chmod +x /usr/local/bin/drush
 ```
