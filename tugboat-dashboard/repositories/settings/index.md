@@ -1,6 +1,8 @@
 # Repository Settings
 
-To navigate to the Repository settings, either use the link next to the title in the Repository dashboard or use one of the links in the Repository table from the Project dashboard.
+To navigate to the Repository settings, either use the link next to the title in
+the Repository dashboard or use one of the links in the Repository table from
+the Project dashboard.
 
 ![Repository Dashboard Title](_images/repo-settings-link.jpg)
 
@@ -8,9 +10,17 @@ To navigate to the Repository settings, either use the link next to the title in
 
 ## Services
 
-Services are isolated instances that contain applications like file servers, databases, caching, etc. Under the hood they are [Docker](https://www.docker.com/) containers. While you can install any application you need from a [Makefile](/build-script) build script, we highly recommend using Services whenever available as they're easy to include and most importantly, they have their own designated CPU(s) and memory. To see how many CPU(s) and memory is designated to your Services, check out your current subscription in the [Project Settings](/tugboat-dashboard/projects/settings/#manage-subscription).
+Services act like isolated servers that run a specific part of your application
+stack, such as a web server, database, cache engine, etc. While you can install
+any applications that you need from a [build script](../build-scriopt/index.md),
+we highly recommend using Services whenever available as they're easy to include
+and most importantly, they have their own designated CPU(s) and memory. To see
+how many CPU(s) and memory is designated to your Services, check out your
+current subscription in the [Project
+Settings](/tugboat-dashboard/projects/settings/#manage-subscription).
 
-The Service which will serve up your files or will be the endpoint of the Tugboat Preview URL should be asigned as "webhead". In most cases this will be a file server like Apache.
+The Service which will serve your application should be asigned as the
+"webhead". In most cases this will be a web server like Apache.
 
 You can give your Services a custom name, but in most cases the default will work fine.
 
