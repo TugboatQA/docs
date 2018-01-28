@@ -26,16 +26,45 @@ usage statistics, and access its settings.
 
 ### Latest Previews
 
+Latest Previews shows a list of all of the repository previews that Tugboat is
+currently keeping track of. From here, you can quickly access the preview site,
+perform actions on a preview, or visit the git provider's page that references
+what the preview was built from.
+
 ![Latest Previews](_images/latest-previews.jpg)
 
 ### Base Previews
 
+If your project subscription allows access to Base Previews, this is where they
+are managed. The primary benefits to using a Base Preview include:
+
+* **Faster Build Times** - A Base Preview provides future previews a starting
+  point, so they do not need to build or import everything every time.
+* **Reduced Disk Space Requirements** - Previews built from a Base preview only
+  use the amount of disk space equal to what changed between it and its Base
+  Preview.
+
+Multiple Base Previews can be selected, but typically a single preview is used.
+This usually points to the branch that pull requests are merged to, such as
+`master` or `dev`.
+
+![Base Preview After](_images/base-preview-after.jpg)
+
 ### Previews Available to Build
 
-## Repository Services
+Tugboat can build previews from any branch, tag, or pull request in your git
+repository. This section is where you can find all of the previews that Tugboat
+can build for you. Once built, an available preview in this list moves up to the
+Latest Previews section.
+
+![Available To Build](_images/available-to-build.jpg)
 
 ## Repository Settings
 
-## Remote SSH Access
+[Repository Settings](settings/index.md) can be accessed from either the
+Repository Dashboard, or from the Project Dashboard where the repository
+resides.
 
-## Deleting a Repository
+![Repository Dashboard Title](_images/repo-settings-link.jpg)
+
+![Project Dashboard table](_images/repo-settings-links.jpg)

@@ -1,89 +1,78 @@
 # Repository Settings
 
-To navigate to the Repository settings, either use the link next to the title in
-the Repository dashboard or use one of the links in the Repository table from
-the Project dashboard.
-
-![Repository Dashboard Title](_images/repo-settings-link.jpg)
-
-![Project Dashboard table](_images/repo-settings-links.jpg)
-
 ## Services
 
 Services act like isolated servers that run a specific part of your application
 stack, such as a web server, database, cache engine, etc. While you can install
 any applications that you need from a [build script](../build-scriopt/index.md),
 we highly recommend using Services whenever available as they're easy to include
-and most importantly, they have their own designated CPU(s) and memory. To see
-how many CPU(s) and memory is designated to your Services, check out your
-current subscription in the [Project
-Settings](/tugboat-dashboard/projects/settings/#manage-subscription).
+and most importantly, they have their own designated CPU(s) and memory.
 
 The Service which will serve your application should be asigned as the
 "webhead". In most cases this will be a web server like Apache.
 
-You can give your Services a custom name, but in most cases the default will work fine.
+Services can be given a custom name, but in most cases the default will work
+fine. Whatever name is given to a Service is the network name that it can be
+accessed with. Every preview is given its own set of these services in an
+isolated network.
 
-If you would like to see a Service included that isn't listed yet, feel free to create one and make a pull request to [Lullabot/tugboat-registry](https://github.com/Lullabot/tugboat-registry). Once accepted here they will become available in Tugboat.
+If you need a service that is not yet listed, you can always create your own by
+selecting one of the existing options, `ubuntu` probably being the best one to
+use, and customize it with a [Build Script](../../build-script/index.md).
+
+We are also happy to work with you to create a service that may be useful to
+other customers.  Contact us at [support@tugboat.qa](mailto:support@tugboat.qa)
+for more information, or submit a pull request against
+[Lullabot/tugboat-registry](https://github.com/Lullabot/tugboat-registry).
 
 ![Services](_images/services.jpg)
 
-### Editing a Service
+**Advanced Service Settings**
 
-Editing a Service lets you update the image, name and Ready Command.
+In a service's settings, an optional "Ready Command" can be
+provided. This command is used by Tugboat to determine when a newly created
+service instance is actually ready to be used. For example, sometimes it takes
+MySQL a few seconds to initialize before it is ready to accept connections. If
+a service has a "Ready Command", Tugboat waits until that command executes
+successfully before moving on to the next step of a build.
 
-The **Ready Command** is a command to be called to verify if the particular Service is ready. This is to avoid your Preview going live before a Service is done setting up. If the command returns `0` (command succeeded), Tugboat will continue the build. If not, Tugboat will keep trying the command every few seconds until it does. Most Services come with a default command prepopulated (using `nc` or `curl` for example), but you can use any Linux command you prefer.
-
-![Edit Service](_images/service-edit.jpg)
+Be careful with this command. If not configured correctly, a build may never
+complete. Tugboat will eventually time out waiting for it to succeed.
 
 ## Configuration
 
-This section of the Repository Settings page bundles common configuration options, divided in sub-sections.
+The Configuration section of the Repository Settings page is where various
+different options can be configured for the repository. These options are
+bundled into groups that affect related behavior.
 
 ![Repository Configuration](_images/repo-configuration.jpg)
 
-### Email
-
-Here you can fill out email addresses that should receive a notification when certain events happen. Available events are:
-- Successful Build
-- Failed Build
-- Successful Rebuild
-- Failed Rebuild
-- Successful Refresh
-- Failed Refresh
-
-### Github/Bitbucket/Gitlab
-
-This section houses settings specific to the Repository provider. Specifically things that relate to connecting to the provider to set statuses and updates. A popular option is the ability to build Previews automatically each time a new Pull Request is created.
-
-### Proxy
-
-Proxy settings relate to how Previews are served. Configuration options around HTTP(S) and aliases can be found here.
-
-### Screenshots
-
-Each time Tugboat builds a preview it generates screenshots which can be found on the [Preview Dashboard](/tugboat-dashboard/preview/dashboard). If a Preview is built based of a Base Preview, it will generate a visual diff. If you want to change default values like highligh mask colors or timeout values you can do so here.
-
-### Services
-
-These are settings related to the Service containers. Here you can set a custom webhead port, application path, or one or more environment variables that will be available to every Preview for this Repository.
-
-### Tests
-
-Provides an option to run the repo's test suite after building every Preview. When enabled it will trigger the `tugboat-test` endpoint in your [Makefile](/build-script).
-
-### Tugboat
-
-The Tugboat settings relate to building Previews and refreshing Base Previews. A common thing to do is refresh a Base Preview periodically so it stays up-to-date, for example with the latest data from a production server.
-
 ## Remote SSH Access
 
-In some cases you may find having an SSH key assigned to your build is useful for connecting to external sources to pull in resources like database dumps, etc. You can generate a new private key on the fly, or you can upload your own. The SSH key will then be available to all Previews in this Repository.
+Tugboat commonly requires access to external resources in order to properly
+build a preview. These typically consist of things like databases or a set of
+static asset files. These resources need to be accessible somewhere on the
+internet in order for Tugboat to be able to import them. This can be
+accomplished in a number of different ways, but the recommended method is to
+make them accessible over SSH.
+
+Tugboat generates a unique SSH key pair for every repository. It then uses that
+key pair by default whenever it makes an outbound SSH connection. The public key
+can be found in the Repository Settings page, and should be imported into
+whichever system is serving the required assets. You can also provide your own
+private key if so desired, or ask Tugboat to generate a new key.
 
 ![SSH Key Generator](_images/ssh.jpg)
 
 ## Delete Repository
 
-Deleting a Repository cannot be undone. When you delete your Repository all Previews will be destroyed and all settings will be lost. Deleting a Tugboat Repository will not affect any data of the provider repository that is connected to it.
+A repository can be deleted by any administrator of the project that it belongs
+to. This action can not be undone. When a repository is deleted:
+
+* All Previews in the repository are deleted immediately
+* All settings for the Repository are lost
+
+Deleting a repository does NOT affect any data at the provider repository that
+it is connected to (GitHub, GitLab, Bitbucket, etc)
 
 ![Delete Repository](_images/repo-delete.jpg)
