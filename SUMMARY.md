@@ -11,8 +11,6 @@
   * [Repositories](tugboat-dashboard/repositories/index.md)
     * [Repository Settings](tugboat-dashboard/repositories/settings/index.md)
   * [Previews](tugboat-dashboard/previews/index.md)
-    * [Dashboard](tugboat-dashboard/previews/dashboard/index.md)
-    * [States And Actions](tugboat-dashboard/previews/states-actions/index.md)
   * [User Profile](tugboat-dashboard/profile/index.md)
 * [Build Script](build-script/index.md)
   * [Examples](build-script/examples.md)
