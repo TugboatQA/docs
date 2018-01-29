@@ -1,6 +1,6 @@
-# Drupal 8
+# Drupal 7
 
-These instructions show how to configure Tugboat for a typical Drupal 8
+These instructions show how to configure Tugboat for a typical Drupal 7
 repository. Every Drupal site tends to have slightly different requirements, so
 further customizations may be required. This should get you started, though.
 
@@ -8,7 +8,7 @@ further customizations may be required. This should get you started, though.
 
 In order to serve a Drupal site, an apache webhead with PHP needs to be
 selected. Tugboat provides services with PHP, Composer, and Drush pre-installed.
-Drupal 8 is supported on PHP version 5.5.9+, so either of these Tugboat Services
+Drupal 7 is supported on PHP version 5.2.5+, so either of these Tugboat Services
 should work fine.
 
 * apache-php-drupal (php-5.5.9)
@@ -40,11 +40,11 @@ This pattern works very well with Tugboat. It lets you keep a tugboat-specific
 set of configurations in your repository where you can just copy it into place
 with a build script.
 
-Add or uncomment the following at the end of `settings.php`
+Add the following to the end of `settings.php`
 
 ```php
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
+if (file_exists(DRUPAL_ROOT . '/' . conf_path() . '/settings.local.php')) {
+  include DRUPAL_ROOT . '/' . conf_path() . '/settings.local.php';
 }
 ```
 
@@ -53,21 +53,26 @@ with the following content.
 
 ```php
 <?php
-$databases['default']['default'] = array (
-  'database' => 'demo',
-  'username' => 'tugboat',
-  'password' => 'tugboat',
-  'prefix' => '',
-  'host' => 'mysql',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
+$databases = array (
+  'default' =>
+  array (
+    'default' =>
+    array (
+      'database' => 'demo',
+      'username' => 'tugboat',
+      'password' => 'tugboat',
+      'host' => 'mysql',
+      'port' => '',
+      'driver' => 'mysql',
+      'prefix' => '',
+    ),
+  ),
 );
 ```
 
 ## Build Script
 
-The build script for a Drupal 8 repository consists of these main parts
+The build script for a Drupal 7 repository consists of these main parts
 
 * Point Tugboat to the right document root
 * Install prerequisite packages
@@ -126,7 +131,7 @@ repository's public SSH key to the server hosting the mysqldump file. This
 should typically go in a file at `~/.ssh/authorized_keys` in the home directory
 of the user on the remote server that has access to the mysqldump file.
 
-![Repository Public SSH Key](_images/repo-public-key.png)
+![Repository Public SSH Key](../_images/repo-public-key.png)
 
 Add the following to the `tugboat-init` section of the build script to create a
 database
@@ -156,7 +161,7 @@ repository's public SSH key to the server hosting the directory we are going to
 sync. This should typically go in a file at `~/.ssh/authorized_keys` in the home
 directory of the user on the remote server that has access to the directory.
 
-![Repository Public SSH Key](_images/repo-public-key.png)
+![Repository Public SSH Key](../_images/repo-public-key.png)
 
 Add the following to the `tugboat-init` and `tugboat-update` sections of the
 build script.
@@ -195,18 +200,11 @@ the build script.
 cp /var/www/html/sites/default/tugboat.settings.php /var/www/html/sites/default/settings.local.php
 ```
 
-Generate a new hash salt for the Tugboat previews by adding the following to the
-`tugboat-init` section of the build script
-
-```sh
-echo "\$$settings['hash_salt'] = '$$(openssl rand -hex 32)';" >> /var/www/html/sites/default/settings.local.php
-```
-
 Finally, clear Drupal's cache by adding the following to each of `tugboat-init`,
 `tugboat-update`, and `tugboat-build` sections of the build script
 
 ```sh
-drush -r /var/www/html cache-rebuild
+drush -r /var/www/html cache-clear all
 ```
 
 ### Full Makefile
@@ -226,7 +224,6 @@ packages:
 
 drupalconfig:
 	cp /var/www/html/sites/default/tugboat.settings.php /var/www/html/sites/default/settings.local.php
-	echo "\$$settings['hash_salt'] = '$$(openssl rand -hex 32)';" >> /var/www/html/sites/default/settings.local.php
 
 createdb:
 	mysql -h mysql -u tugboat -ptugboat -e "create database demo;"
@@ -247,7 +244,7 @@ stagefileproxy:
     drush -r /var/www/html variable-set stage_file_proxy_origin "http://www.example.com"
 
 build:
-	drush -r /var/www/html cache-rebuild
+	drush -r /var/www/html cache-clear all
 
 cleanup:
 	apt-get clean

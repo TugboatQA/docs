@@ -121,7 +121,7 @@ repository's public SSH key to the server hosting the mysqldump file. This
 should typically go in a file at `~/.ssh/authorized_keys` in the home directory
 of the user on the remote server that has access to the mysqldump file.
 
-![Repository Public SSH Key](_images/repo-public-key.png)
+![Repository Public SSH Key](../_images/repo-public-key.png)
 
 Add the following to the `tugboat-init` section of the build script to create a
 database
@@ -153,7 +153,7 @@ repository's public SSH key to the server hosting the folder we are going to
 sync. This should typically go in a file at `~/.ssh/authorized_keys` in the home
 directory of the user on the remote server that has access to the folder.
 
-![Repository Public SSH Key](_images/repo-public-key.png)
+![Repository Public SSH Key](../_images/repo-public-key.png)
 
 Add the following to the `tugboat-init` and `tugboat-update` sections of the
 build script.

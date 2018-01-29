@@ -2,9 +2,9 @@
 
 This section will walk you through setting up a new Tugboat project.
 
-* [Create a Tugboat Account](create-a-tugboat-account.md)
-* [Create a Project](create-a-project.md)
-* [Create a Preview](create-a-preview.md)
+* [Create a Tugboat Account](create-a-tugboat-account/index.md)
+* [Create a Project](create-a-project/index.md)
+* [Create a Preview](create-a-preview/index.md)
 
 ## Examples
 

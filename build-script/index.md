@@ -50,7 +50,7 @@ probably just want to call out to another script that does the heavy lifting.
 This is actually a very common pattern, as it lends well to cascading the
 different build types.
 
-[Check out some examples](examples.md)
+[Check out some examples](examples/index.md)
 
 ## Environment Variables
 
