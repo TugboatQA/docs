@@ -4,7 +4,7 @@ Creating a Tugboat account is done simply by authenticating with your Git
 provider account. Authenticating this way allows Tugboat to build previews for
 any repository your account has access to.
 
-![Tugboat Sign in](_images/sign-in.jpg)
+![Tugboat Sign in](_images/sign-in.png)
 
 ## Authenticate Additional Git Providers (optional)
 

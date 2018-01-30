@@ -12,7 +12,7 @@ included.
 
 To add or change a Service, you can do so in the Repository settings:
 
-![Repository Settings: Services](_images/static-html-services.jpg)
+![Repository Settings: Services](_images/static-html-services.png)
 
 The service with "webhead" selected will be the service that will be the
 endpoint to serve up your application, so make sure to check the right one.

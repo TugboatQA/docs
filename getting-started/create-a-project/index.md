@@ -21,7 +21,7 @@ provide a handful of common sets of services as a quick starting point. These
 services can be modified later from the [Repository
 Settings](../tugboat-dashboard/repository/settings/index.md).
 
-![Service templates](_images/project-templates.jpg)
+![Service templates](_images/project-templates.png)
 
 Finally, select a pricing tier for your project. Use the feature matrix to
 decide which tier best suits your needs. If in doubt, select the Free tier, and
@@ -41,4 +41,4 @@ depending whether you selected a repository. You can always add one or more
 Repositories later from the Project Dashboard:
 
 ![Add a Repository from the Project
-dashboard](_images/project-dashboard-add-repository.jpg)
+dashboard](_images/project-dashboard-add-repository.png)

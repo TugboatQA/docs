@@ -3,7 +3,7 @@
 Your user profile can be accessed from the dropdown in the top right hand
 corner.
 
-![Navigating To User Profile](_images/profile-dropdown.jpg)
+![Navigating To User Profile](_images/profile-dropdown.png)
 
 ## Connected Accounts
 
@@ -17,7 +17,7 @@ Disconnecting a provider accounts prevents Tugboat from accessing any new
 repositories for that provider account. Existing Tugboat Repositories are not
 affected by this action, and need to be manually deleted.
 
-![Connected Accounts](_images/profile-connected-accounts.jpg)
+![Connected Accounts](_images/profile-connected-accounts.png)
 
 ## Name, Email & Announcements
 
@@ -29,4 +29,4 @@ verification link.
 You can also choose whether you want to recieve various notifications from
 Tugboat.
 
-![Name & Email](_images/name-email-announcements.jpg)
+![Name & Email](_images/name-email-announcements.png)

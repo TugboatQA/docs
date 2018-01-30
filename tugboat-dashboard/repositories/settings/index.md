@@ -25,7 +25,7 @@ other customers.  Contact us at [support@tugboat.qa](mailto:support@tugboat.qa)
 for more information, or submit a pull request against
 [Lullabot/tugboat-registry](https://github.com/Lullabot/tugboat-registry).
 
-![Services](_images/services.jpg)
+![Services](_images/services.png)
 
 **Advanced Service Settings**
 
@@ -45,7 +45,7 @@ The Configuration section of the Repository Settings page is where various
 different options can be configured for the repository. These options are
 bundled into groups that affect related behavior.
 
-![Repository Configuration](_images/repo-configuration.jpg)
+![Repository Configuration](_images/repo-configuration.png)
 
 ## Remote SSH Access
 
@@ -62,7 +62,7 @@ can be found in the Repository Settings page, and should be imported into
 whichever system is serving the required assets. You can also provide your own
 private key if so desired, or ask Tugboat to generate a new key.
 
-![SSH Key Generator](_images/ssh.jpg)
+![SSH Key Generator](_images/ssh.png)
 
 ## Delete Repository
 
@@ -75,4 +75,4 @@ to. This action can not be undone. When a repository is deleted:
 Deleting a repository does NOT affect any data at the provider repository that
 it is connected to (GitHub, GitLab, Bitbucket, etc)
 
-![Delete Repository](_images/repo-delete.jpg)
+![Delete Repository](_images/repo-delete.png)

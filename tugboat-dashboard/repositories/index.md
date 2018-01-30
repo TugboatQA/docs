@@ -31,7 +31,7 @@ currently keeping track of. From here, you can quickly access the preview site,
 perform actions on a preview, or visit the git provider's page that references
 what the preview was built from.
 
-![Latest Previews](_images/latest-previews.jpg)
+![Latest Previews](_images/latest-previews.png)
 
 ### Base Previews
 
@@ -48,7 +48,7 @@ Multiple Base Previews can be selected, but typically a single preview is used.
 This usually points to the branch that pull requests are merged to, such as
 `master` or `dev`.
 
-![Base Preview After](_images/base-preview-after.jpg)
+![Base Preview After](_images/base-preview-after.png)
 
 ### Previews Available to Build
 
@@ -57,7 +57,7 @@ repository. This section is where you can find all of the previews that Tugboat
 can build for you. Once built, an available preview in this list moves up to the
 Latest Previews section.
 
-![Available To Build](_images/available-to-build.jpg)
+![Available To Build](_images/available-to-build.png)
 
 ## Repository Settings
 
@@ -65,6 +65,6 @@ Latest Previews section.
 Repository Dashboard, or from the Project Dashboard where the repository
 resides.
 
-![Repository Dashboard Title](_images/repo-settings-link.jpg)
+![Repository Dashboard Title](_images/repo-settings-link.png)
 
-![Project Dashboard table](_images/repo-settings-links.jpg)
+![Project Dashboard table](_images/repo-settings-links.png)

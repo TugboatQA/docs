@@ -14,7 +14,7 @@ Once an invite has been accepted, the user can be made an administrator of the
 project if so desired. Administrators have access to user permissions, payment
 information, and are able to add or remove repositories.
 
-![User Management](_images/user-management-pending.jpg)
+![User Management](_images/user-management-pending.png)
 
 ## Project Subscription
 
@@ -55,7 +55,7 @@ charge the currently configured card at the beginning of each billing cycle.
 Changing the credit card information in between those times will NOT result in
 any additional chargs.
 
-![Payment Information](_images/payment-information.jpg)
+![Payment Information](_images/payment-information.png)
 
 ## Deleting a Project
 
@@ -70,4 +70,4 @@ delete the project first. Downgrading to a free plan before deleting will
 maximize your project's availability and also prevent additional charges to your
 credit card.
 
-![Delete Project](_images/delete-project.jpg)
+![Delete Project](_images/delete-project.png)

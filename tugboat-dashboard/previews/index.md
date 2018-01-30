@@ -23,14 +23,14 @@ The Preview Dashboard is where you can access a Preview's detailed information.
 This section shows the services connected to a preview, and allows a user to
 interact with them by opening logs or launching a terminal
 
-![Services](_images/preview-services.jpg)
+![Services](_images/preview-services.png)
 
 ### Service Logs
 
 The Service Logs show the logs provided from the given service. For example, an
 apache service's access or error logs
 
-![Apache Log](_images/preview-apache-log.jpg)
+![Apache Log](_images/preview-apache-log.png)
 
 ### Terminal
 
@@ -38,7 +38,7 @@ The Terminal provides command line access to the given service. It is available
 during most build phases, including "failed", and is incredibly useful for
 debugging or making minor adjustments to an existing preview.
 
-![TuSH](_images/TuSH.jpg)
+![TuSH](_images/TuSH.png)
 
 ### Activity Log
 
@@ -47,7 +47,7 @@ preview. This includes internal Tugboat operations as well as output from your
 [build script](../../build-script/index.md). This log can be filtered based on
 different levels of verbosity.
 
-![Activity Log](_images/preview-activity-log.jpg)
+![Activity Log](_images/preview-activity-log.png)
 
 ### Screenshots
 
@@ -55,14 +55,14 @@ Every time a Tugboat Preview is created, Tugboat creates a screenshot of its
 root URI. A screenshot of ay URI at any screen width can be requested using this
 form.
 
-[//]: # "TODO: screenshot of screenshot form"
+![Preview Screenshot](_images/preview-screenshot.png)
 
 In addition to seeing a simple screenshot, Tugboat can also generate visual
 diffs of a page for previews that were created from a base preview. This tool is
 incredibly useful for spotting small changes that would otherwise be difficult
 to spot.
 
-[//]: # "TODO: screenshot of visual diff"
+![Preview Visual Diff](_images/preview-visualdiff.png)
 
 ## Preview Actions
 

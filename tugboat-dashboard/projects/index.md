@@ -19,18 +19,18 @@ create a new Project from the My Projects page. Navigate to this page either via
 the breadcrumbs or via the My Projects links in the user dropdown menu in the
 main navigation.
 
-![My Projects Links](_images/my-projects-links.jpg)
+![My Projects Links](_images/my-projects-links.png)
 
-![Create New Project Link](_images/create-new-project.jpg)
+![Create New Project Link](_images/create-new-project.png)
 
 ## Project Dashboard
 
 The project dashboard is where you can manage a project's repositories, see
 usage statistics, and access its settings.
 
-![Repositories](_images/project-dashboard-repositories.jpg)
+![Repositories](_images/project-dashboard-repositories.png)
 
-![Project Stats](_images/project-dashboard-stats.jpg)
+![Project Stats](_images/project-dashboard-stats.png)
 
 ## Project Settings
 

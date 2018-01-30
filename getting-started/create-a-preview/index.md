@@ -8,17 +8,17 @@ Dashboard](../tugboat-dashboard/repository/dashboard/index.md), click the
 *Branches* tab, then click the *Build Preview* button next to the branch you
 want to build.
 
-![Build Preview](_images/build-preview.jpg)
+![Build Preview](_images/build-preview.png)
 
 When the preview finishes building, it will look like the following. Click the
 *Preview* button to view the preview site.
 
-![Preview Ready](_images/preview-ready.jpg)
+![Preview Ready](_images/preview-ready.png)
 
 Unless the repository is already set up to work with Tugboat, there's a good
 chance you'll see a page with the following heading:
 
-![Almost There](_images/preview-almost-ready.jpg)
+![Almost There](_images/preview-almost-ready.png)
 
 This means that Tugboat has deployed your code, but is missing some additional
 information in order to make the site work correctly. The page you see provides
@@ -37,7 +37,7 @@ Next, make sure that the service serving your web content selected as the
 "Webhead". This will usually be Apache or Nginx, but can be any service as long
 as Tugboat can forward HTTP requests to it.
 
-![Repository Services](_images/repo-services.jpg)
+![Repository Services](_images/repo-services.png)
 
 Finally, a [Build Script](../build-script/index.md) will likely be required to
 put the finishing touches on letting Tugboat know how to access your site. Even
