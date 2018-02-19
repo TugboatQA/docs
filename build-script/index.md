@@ -163,7 +163,7 @@ Github pull request.
 
 * **`$TUGBOAT_GITHUB_HEAD`** - The name of the pull request head branch.
 
-* **`$TUGBOAT_GITHUB_BASE'** - The name of the pull request base branch.
+* **`$TUGBOAT_GITHUB_BASE`** - The name of the pull request base branch.
 
 ### Gitlab
 
