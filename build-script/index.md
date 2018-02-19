@@ -56,6 +56,9 @@ different build types.
 
 Tugboat injects the following environment variables into every container, which
 you can use for anything from build scripts to application configuration, etc.
+These variables are available for the entire lifetime of a Preview's containers.
+This includes both build-time as well as run-time. So, they can be used in build
+scripts as well as run-time configuration files, etc.
 
 * **`$TUGBOAT_DASHBOARD`** - The domain where the Tugboat Dashboard can be found.
 
@@ -160,7 +163,7 @@ Github pull request.
 
 * **`$TUGBOAT_GITHUB_HEAD`** - The name of the pull request head branch.
 
-* **`$TUGBOAT_GITHUB_BASE'** - The name of the pull request base branch.
+* **`$TUGBOAT_GITHUB_BASE`** - The name of the pull request base branch.
 
 ### Gitlab
 
