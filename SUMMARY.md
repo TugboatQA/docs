@@ -20,6 +20,7 @@
     * [Re-use a Common Set of Commands](build-script/examples/reuse-commands/index.md)
     * [Use External Scripts](build-script/examples/external-scripts/index.md)
     * [Run CasperJS Tests](build-script/examples/casperjs/index.md)
+* [Base Previews](base-previews/index.md)
 * [Examples](examples/index.md)
   * [Drupal 7](examples/drupal7/index.md)
   * [Drupal 8](examples/drupal8/index.md)

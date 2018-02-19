@@ -44,9 +44,7 @@ are managed. The primary benefits to using a Base Preview include:
   use the amount of disk space equal to what changed between it and its Base
   Preview.
 
-Multiple Base Previews can be selected, but typically a single preview is used.
-This usually points to the branch that pull requests are merged to, such as
-`master` or `dev`.
+See [Base Previews](/base-previews/index.md) for more details.
 
 ![Base Preview After](_images/base-preview-after.png)
 
