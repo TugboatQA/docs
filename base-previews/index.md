@@ -35,10 +35,18 @@ To create a Base Preview, choose a preview that you want to use. This is
 typically a preview built from the master branch, or whichever branch in your
 repo corresponds with what you release to production. If your subscription
 allows the use of Base Previews, you will see a `Manage Base Previews` link on
-your [Repository Dashboard](/tugboat-dashboard/repositories/index.md). From
-there, select the preview that you want to use as a Base Preview.
+your [Repository Dashboard](/tugboat-dashboard/repositories/index.md).
 
-![Base Preview Selection](_images/base-preview.png)
+![Base Preview Selection](_images/base-preview-before.png)
+
+From there, select the preview that you want to use as a Base Preview.
+
+![Base Preview Selection](_images/base-preview-select.png)
+
+Then, that preview will be moved to the "Base Preview" section of the
+Repository Dashboard.
+
+![Base Preview Selection](_images/base-preview-after.png)
 
 That's it! From now on, new previews will build from the image created when the
 base preview was built.
