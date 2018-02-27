@@ -109,8 +109,9 @@ other packages here that you might need while you are at it.
 ```sh
 apt-get update
 apt-get install -y mysql-client rsync
-curl -L "https://github.com/drush-ops/drush/releases/download/8.1.15/drush.phar" > /usr/local/bin/drush
+wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.5.1/drush.phar
 chmod +x /usr/local/bin/drush
+composer install
 ```
 
 ### Create/Import a database
@@ -221,8 +222,11 @@ preview disk space usage down a little.
 packages:
 	apt-get update
 	apt-get install -y mysql-client rsync
-	curl -L "https://github.com/drush-ops/drush/releases/download/8.1.15/drush.phar" > /usr/local/bin/drush
+	# Install drush-launcher. This assumes you are using composer to install
+	# your desired version of Drush.
+	wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.5.1/drush.phar
 	chmod +x /usr/local/bin/drush
+	composer install
 
 drupalconfig:
 	cp /var/www/html/sites/default/tugboat.settings.php /var/www/html/sites/default/settings.local.php
@@ -232,6 +236,8 @@ createdb:
 	mysql -h mysql -u tugboat -ptugboat -e "create database demo;"
 
 importdb:
+	# Note: you should probably put the URL to the DB into an environment
+	# variable rather than committing the URL in code.
     scp user@example.com:database.sql.gz /tmp/database.sql.gz
 	zcat /tmp/database.sql.gz | mysql -h mysql -u tugboat -ptugboat demo
 
