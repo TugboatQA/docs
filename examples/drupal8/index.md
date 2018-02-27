@@ -221,7 +221,7 @@ preview disk space usage down a little.
 ```sh
 packages:
 	apt-get update
-	apt-get install -y mysql-client rsync
+	apt-get install -y mysql-client rsync wget
 	# Install drush-launcher. This assumes you are using composer to install
 	# your desired version of Drush.
 	wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.5.1/drush.phar
