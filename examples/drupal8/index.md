@@ -108,7 +108,9 @@ other packages here that you might need while you are at it.
 
 ```sh
 apt-get update
-apt-get install -y mysql-client rsync
+apt-get install -y mysql-client rsync wget
+# Install drush-launcher. This assumes you are using composer to install
+# your desired version of Drush.
 wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.5.1/drush.phar
 chmod +x /usr/local/bin/drush
 composer install
