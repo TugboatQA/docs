@@ -238,8 +238,6 @@ createdb:
 	mysql -h mysql -u tugboat -ptugboat -e "create database demo;"
 
 importdb:
-	# Note: you should probably put the URL to the DB into an environment
-	# variable rather than committing the URL in code.
 	scp user@example.com:database.sql.gz /tmp/database.sql.gz
 	zcat /tmp/database.sql.gz | mysql -h mysql -u tugboat -ptugboat demo
 
