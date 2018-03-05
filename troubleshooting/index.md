@@ -20,3 +20,7 @@ repository settings, and make sure "Build Pull Requests Automatically" is checke
 Make sure that probe frequency is set to something other than "None"
 
 ![Pull Request Probe](_images/pr-probe.png)
+
+## Error: Makefile:x: *** missing separator.  Stop.
+
+If you see an error like this in your Activity Log, you probably have spaces instead of tabs in your Makefile. Replace the indentation spaces with tabs and commit your script again. 
