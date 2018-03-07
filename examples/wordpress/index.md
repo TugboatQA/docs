@@ -1,6 +1,6 @@
-# Wordpress
+# WordPress
 
-These instructions show how to configure Tugboat for a typical Wordpress
+These instructions show how to configure Tugboat for a typical WordPress
 repository. Every site tends to have slightly different requirements, so
 further customization may be required, but this should get you started.
 
