@@ -6,4 +6,4 @@ The following are guides to set up Tugboat for common some stacks.
 * [Drupal 8](drupal8/index.md)
 * [Generic LAMP](generic-lamp/index.md)
 * [Static HTML](static-html/index.md)
-* [Wordpress](wordpress/index.md)
+* [WordPress](wordpress/index.md)

@@ -1,13 +1,13 @@
 # Wordpress
 
-These instructions show how to configure Tugboat for a typical Wordrepss
+These instructions show how to configure Tugboat for a typical Wordpress
 repository. Every site tends to have slightly different requirements, so
 further customization may be required, but this should get you started.
 
 ## Services
 
-In order to serve a Wordpress site, and apache webhead with PHP needs to be
-selected. Wordpress has fairly loose requirements around PHP versions, so
+In order to serve a WordPress site, and apache webhead with PHP needs to be
+selected. WordPress has fairly loose requirements around PHP versions, so
 either of these Tugboat Services should work fine.
 
 * apache-php (php-5.5.9)
@@ -18,18 +18,18 @@ In addition, a MySQL or MariaDB database service neeeds to be selected
 * mysql (mysql-5.5.4)
 * mariadb (mariadb-5.5.54)
 
-When selecting the Wordpress template, the `apache-php7` and `mysql` services
+When selecting the WordPress template, the `apache-php7` and `mysql` services
 are automatically selected, so that is what we will use for this example.
 
-![Wordpress Template](_images/wordpress-template.png)
+![WordPress Template](_images/wordpress-template.png)
 
 The resulting set of services for the repository should look like the following
 
-![Wordpress Services](_images/wordpress-services.png)
+![WordPress Services](_images/wordpress-services.png)
 
-## Wordpress Configuration
+## WordPress Configuration
 
-In order for Wordpress to use environment-specific settings, some changes need
+In order for WordPress to use environment-specific settings, some changes need
 to be made to `wp-config.php`. One popular method is to commit a "default"
 version of the file to the git repository, and include a "local" config file
 with override options. That local file should not be included in the git
@@ -63,18 +63,18 @@ if ( !defined('DB_HOST') )
 
 ## Build Script
 
-The build script for a Wordpress repository consists of these main parts
+The build script for a WordPress repository consists of these main parts
 
 * Point Tugboat to the right document root
 * Install prerequisite packages
 * Create/Import a database, and update the site URL
 * Import `wp-content/uploads`
-* Update the Wordpress configuration
+* Update the WordPress configuration
 
 ### Configure a Document Root
 
 By default, Tugboat tries to serve content from a `/docroot` folder in the root
-of your git repository. If your repository already has Wordpress in this
+of your git repository. If your repository already has WordPress in this
 location, this step can be skipped.
 
 To point Tugboat to the right location in your repository, add a line to the
@@ -131,7 +131,7 @@ mysql -h mysql -u tugboat -ptugboat -e "create database demo;"
 ```
 
 Add the following  to the `tugboat-init` and `tugboat-update` sections of the
-build script to import a fresh copy of the database and update the wordpress
+build script to import a fresh copy of the database and update the WordPress
 URL
 
 ```sh
@@ -166,9 +166,9 @@ find /var/www/html/wp-content/uploads -type d -exec chmod 2775 {} \;
 find /var/www/html/wp-content/uploads -type f -exec chmod 0664 {} \;
 ```
 
-### Update the Wordpress Configuration
+### Update the WordPress Configuration
 
-Finally, configure Wordpress to use the new database by generating a
+Finally, configure WordPress to use the new database by generating a
 `wp-config.local.php` file. Add the following to the `tugboat-init` section of
 the build script.
 

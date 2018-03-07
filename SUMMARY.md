@@ -26,6 +26,6 @@
   * [Drupal 8](examples/drupal8/index.md)
   * [Generic LAMP](examples/generic-lamp/index.md)
   * [Static HTML](examples/static-html/index.md)
-  * [Wordpress](examples/wordpress/index.md)
+  * [WordPress](examples/wordpress/index.md)
 * [Troubleshooting](troubleshooting/index.md)
 * [FAQ](faq/index.md)
