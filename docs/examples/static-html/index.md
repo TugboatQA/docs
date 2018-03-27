@@ -26,9 +26,10 @@ up the application. If your site does not live in this folder, you can let
 provide the correct path via a Makefile. Replace `public_html` with the correct
 location.
 
-{% gist id="f5f44a97384196730c5ab98da2bd7b8e",
-   file="Makefile.html" %}
-{% endgist %}
+<pre><code class="lang-sh">
+tugboat-init:
+&Tab;ln -sf ${TUGBOAT_ROOT}/public_html /var/www/html
+</code></pre>
 
 - `tugboat-init`: this Makefile target will be called when the preview is built from scratch.
 - `TUGBOAT_ROOT`: this links to the root of the repository it has cloned onto the server.
