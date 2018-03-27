@@ -11,6 +11,13 @@ build:
 		gitbook build
 	ln -sf ${TUGBOAT_ROOT}/docs/_book /var/www/html
 
-.PHONY: tugboat-init tugboat-build
-tugboat-init: packages build
-tugboat-build: build
+.PHONY: cleanup
+cleanup:
+	apt-get clean
+	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+.PHONY: tugboat-init
+tugboat-init: packages build cleanup
+
+.PHONY: tugboat-build
+tugboat-build: build cleanup
