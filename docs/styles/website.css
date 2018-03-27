@@ -3,3 +3,30 @@
     padding: 10px;
     vertical-align: middle;
 }
+
+.markdown-section .gist table tr {
+    border-top: 0;
+    border-bottom: 0;
+    background-color: #f8f8f8;
+}
+
+.markdown-section .gist table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+
+.markdown-section .gist table td.js-line-number {
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.markdown-section .gist table tr:first-child td {
+    border-top: 0;
+}
+
+.markdown-section .gist table tr:nth-child(2n) td.js-line-number {
+    background-color: #fff;
+}
+
+.markdown-section .gist .gist-meta {
+    background-color: #f2f2f2;
+}

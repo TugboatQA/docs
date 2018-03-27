@@ -215,5 +215,6 @@ preview disk space usage down a little.
 
 **Make sure the indents are TABs if this is copied & pasted.**
 
-{% gist id="https://gist.github.com/q0rban/f5f44a97384196730c5ab98da2bd7b8e" %}
+{% gist id="f5f44a97384196730c5ab98da2bd7b8e",
+   file="Makefile.d7" %}
 {% endgist %}
