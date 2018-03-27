@@ -118,24 +118,5 @@ apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ```
 
 ### Full Makefile
-<pre><code class="lang-sh">
-docroot:
-&Tab;ln -sf ${TUGBOAT_ROOT} /var/www/html
 
-mysqlclient:
-&Tab;apt-get update
-&Tab;apt-get install -y mysql-client
-
-mysqlcreatedb:
-&Tab;mysql -h mysql -u tugboat -ptugboat -e "create database mysite:"
-
-mysqlimport:
-&Tab;scp user@example.com:database.sql.gz /tmp/database.sql.gz
-&Tab;zcat /tmp/database.sql.gz | mysql -h mysql -u tugboat -ptugboat mysite
-
-cleanup:
-&Tab;apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-tugboat-init: docroot mysqlclient mysqlcreatedb mysqlimport cleanup
-tugboat-update: mysqlimport cleanup
-</code></pre>
+[import, lang="makefile"](Makefile)

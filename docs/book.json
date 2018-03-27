@@ -2,7 +2,18 @@
     "version": "2.x.x",
     "title": "Tugboat Documentation",
     "language": "en",
-    "plugins": ["-sharing", "collapsible-menu"],
+    "plugins": [
+        "-sharing",
+        "collapsible-menu",
+        "include-codeblock",
+        "ace@git+https://github.com/q0rban/gitbook-plugin-ace.git"
+    ],
+    "pluginsConfig": {
+        "include-codeblock": {
+            "template": "acefull",
+            "theme": "vibrant_ink"
+        }
+    },
     "links": {
         "gitbook": false
     },
