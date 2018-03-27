@@ -215,7 +215,8 @@ preview disk space usage down a little.
 
 **Make sure the indents are TABs if this is copied & pasted.**
 
-```sh
+{% raw %}
+```
 packages:
 	apt-get update
 	apt-get install -y mysql-client rsync
@@ -260,3 +261,4 @@ tugboat-build: build
 #tugboat-update: importdb stagefileproxy build cleanup
 #tugboat-build: build
 ```
+{% endraw %}
