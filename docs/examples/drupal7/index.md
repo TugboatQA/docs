@@ -229,19 +229,19 @@ createdb:
 	mysql -h mysql -u tugboat -ptugboat -e "create database demo;"
 
 importdb:
-    scp user@example.com:database.sql.gz /tmp/database.sql.gz
+	scp user@example.com:database.sql.gz /tmp/database.sql.gz
 	zcat /tmp/database.sql.gz | mysql -h mysql -u tugboat -ptugboat demo
 
 importfiles:
-    rsync -av --delete user@example.com:/path/to/drupal/sites/default/files/ /var/www/html/sites/default/files/
-    chgrp -R www-data /var/www/html/sites/default/files
-    find /var/www/html/sites/default/files -type d -exec chmod 2775 {} \;
-    find /var/www/html/sites/default/files -type f -exec chmod 0664 {} \;
+	rsync -av --delete user@example.com:/path/to/drupal/sites/default/files/ /var/www/html/sites/default/files/
+	chgrp -R www-data /var/www/html/sites/default/files
+	find /var/www/html/sites/default/files -type d -exec chmod 2775 {} \;
+	find /var/www/html/sites/default/files -type f -exec chmod 0664 {} \;
 
 stagefileproxy:
-    drush -r /var/www/html pm-download stage_file_proxy
-    drush -r /var/www/html pm-enable --yes stage_file_proxy
-    drush -r /var/www/html variable-set stage_file_proxy_origin "http://www.example.com"
+	drush -r /var/www/html pm-download stage_file_proxy
+	drush -r /var/www/html pm-enable --yes stage_file_proxy
+	drush -r /var/www/html variable-set stage_file_proxy_origin "http://www.example.com"
 
 build:
 	drush -r /var/www/html cache-clear all
