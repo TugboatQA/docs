@@ -2,7 +2,11 @@
     "version": "2.x.x",
     "title": "Tugboat Documentation",
     "language": "en",
-    "plugins": ["-sharing", "collapsible-menu"],
+    "plugins": [
+        "-sharing",
+        "collapsible-menu",
+        "gist"
+    ],
     "links": {
         "gitbook": false
     },
