@@ -5,7 +5,7 @@
     "plugins": [
         "-sharing",
         "collapsible-menu",
-        "include-codeblock@git+https://github.com/q0rban/gitbook-plugin-include-codeblock.git",
+        "include-codeblock",
         "ace@git+https://github.com/q0rban/gitbook-plugin-ace.git"
     ],
     "pluginsConfig": {
