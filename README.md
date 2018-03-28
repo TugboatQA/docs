@@ -4,7 +4,9 @@ If you find an issue or would like to improve the documentation there, please
 open a Pull Request here! :) Just peek inside of /docs in here to find the
 file, fork this repo, make your change, and create a PR for it. Or, just [open
 an issue](https://github.com/TugboatQA/docs/issues/new) if you're not
-comfortable doing any of that.
+comfortable doing any of that. There's also a [#contribute channel on
+ Slack](https://join.slack.com/t/tugboatqa/shared_invite/enQtMzI4MDIyMjEzODQ2LTJhYjU5NDI0MzJjYTg1ODM5YzM0NDg3Yjk2YTk3ZWQ3MWY2NzVjOGQwNzc5OGQ0NWVhNTFkMmJmNjgyZjYyMzQ)
+ if you have a question about contributing here.
 
 ### Installation
 
