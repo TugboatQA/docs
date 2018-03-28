@@ -1,3 +1,5 @@
+GITBOOK_VERSION := 3.2.2
+
 .PHONY: packages
 packages:
 	curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
@@ -7,8 +9,8 @@ packages:
 .PHONY: build
 build:
 	cd ${TUGBOAT_ROOT}/docs && \
-		gitbook install && \
-		gitbook build
+		gitbook install --gitbook=$(GITBOOK_VERSION) && \
+		gitbook build --gitbook=$(GITBOOK_VERSION)
 	ln -sf ${TUGBOAT_ROOT}/docs/_book /var/www/html
 
 .PHONY: cleanup
