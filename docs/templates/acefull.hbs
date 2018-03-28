@@ -3,20 +3,20 @@
 {% if file.type=="asciidoc" %}
 > [[{{id}}]]link:{{originalPath}}[{{title}}]
 {% else %}
-> <a id="{{id}}" href="{{originalPath}}" target="_blank">{{title}}</a>
+> <a id="{{id}}" href="{{originalPath}}" download="{{fileName}}">{{title}}</a>
 {% endif %}
 {{else}}
 {% if file.type=="asciidoc" %}
 > [[{{title}}]]link:{{originalPath}}[{{title}}]
 {% else %}
-> <a id="{{title}}" href="{{originalPath}}" target="_blank">{{title}}</a>
+> <a id="{{title}}" href="{{originalPath}}" download="{{fileName}}">{{title}}</a>
 {% endif %}
 {{/if}}
 {{else}}
 {% if file.type=="asciidoc" %}
 > [[{{fileName}}]]link:{{originalPath}}[{{fileName}}]
 {% else %}
-> <a id="{{fileName}}" href="{{originalPath}}" target="_blank">{{fileName}}</a>
+> <a id="{{fileName}}" href="{{originalPath}}" download="{{fileName}}">{{fileName}}</a>
 {% endif %}
 {{/if}}
 
