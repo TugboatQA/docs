@@ -1,9 +1,9 @@
 GITBOOK_VERSION := 3.2.2
 
+-include /usr/share/tugboat/Makefile
+
 .PHONY: packages
-packages:
-	curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-	sudo apt-get install --no-install-recommends -y nodejs
+packages: install-nodejs-8
 	npm install -g gitbook-cli
 
 .PHONY: build
