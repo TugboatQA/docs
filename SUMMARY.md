@@ -13,6 +13,8 @@
   * [Previews](tugboat-dashboard/previews/index.md)
   * [User Profile](tugboat-dashboard/profile/index.md)
 * [Build Script](build-script/index.md)
+  * [Environment Variables](build-script/environment-variables/index.md)
+  * [Custom Environment Variables](build-script/custom-environment-variables/index.md)
   * [Examples](build-script/examples/index.md)
     * [Install PHP 7.2](build-script/examples/install-php72/index.md)
     * [Import a MySQL Database](build-script/examples/import-mysql-database/index.md)
