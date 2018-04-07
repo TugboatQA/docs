@@ -35,13 +35,8 @@ Once you've added it, you can use these targets:
 - `install-terminus`: Install terminus for Pantheon sites.
 - `packages-update`: Gets information on the newest versions of packages and their dependencies.
 
-For more targets and info see the comments in the Makefile.
+For more targets and info see the comments in the [Makefile source](https://github.com/Lullabot/tugboat-registry/blob/master/baseimage/Makefile).
 
 For example:
 
 [import, lang="makefile"](Makefile)
-
-To learn more about Make syntax:
- - http://makefiletutorial.com/
- - http://www.gnu.org/software/make/manual/make.html
- - https://gist.github.com/isaacs/62a2d1825d04437c6f08

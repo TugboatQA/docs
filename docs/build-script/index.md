@@ -62,6 +62,11 @@ To learn more, read about the [Helper Makefile](helper-makefile/index.md) or
 check out [some example Makefiles](examples/index.md). You may also want to look
 at [examples for specific applications](../examples/index.md).
 
+To learn more about Make syntax:
+ - http://makefiletutorial.com/
+ - http://www.gnu.org/software/make/manual/make.html
+ - https://gist.github.com/isaacs/62a2d1825d04437c6f08
+
 ## Notes
 
 Tugboat previews are not built with an interactive bash session. This means
