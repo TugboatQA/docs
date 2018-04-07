@@ -1,4 +1,4 @@
-GITBOOK_VERSION := 3.2.2
+GITBOOK_VERSION := 3.2.3
 
 -include /usr/share/tugboat/Makefile
 
@@ -9,6 +9,7 @@ packages: install-nodejs-8
 .PHONY: build
 build:
 	cd ${TUGBOAT_ROOT}/docs && \
+		rm -rf node_modules && \
 		gitbook install --gitbook=$(GITBOOK_VERSION) && \
 		gitbook build --gitbook=$(GITBOOK_VERSION)
 	ln -sf ${TUGBOAT_ROOT}/docs/_book /var/www/html
