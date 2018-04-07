@@ -37,7 +37,8 @@ $connection = new PDO('mysql:dbname=mysite;host=mysql', 'tugboat', 'tugboat');
 
 ## Build Script
 
-A build script for a database-backed application often consists of two parts
+A [build script](../../build-script/index.md) for a database-backed application
+often consists of two parts:
 
 * Point Tugboat to the right document root
 * Import a database
@@ -91,11 +92,16 @@ of the user on the remote server that has access to the mysqldump file.
 
 Then, add the following lines to the `tugboat-init` section of `/Makefile`
 
-Make sure the MySQL client is installed
+Make sure the MySQL client is installed. To do this we can make use of the
+[helper Makefile](../../build-script/helper-makefile/index.md) in
+`/usr/share/tugboat`, so we're going to use that to install some packages we
+need.
+
 
 ```sh
-apt-get update
-apt-get install -y mysql-client
+-include /usr/share/tugboat/Makefile
+
+tugboat-init: install-package-mysql-client
 ```
 
 Copy the mysqldump file from the remote server to the local /tmp directory

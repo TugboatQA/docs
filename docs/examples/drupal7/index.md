@@ -108,14 +108,15 @@ going to need a few packages that are not installed by default, such as `rsync`
 and `mysql-client`. In addition, we are going to install a specific version of
 Drush.
 
+Tugboat services ship with a [helper Makefile](../../build-script/helper-makefile/index.md)
+in `/usr/share/tugboat`, so we're going to use that to install some packages we
+need.
+
 Add the following to the `tugboat-init` section of the build script. Add any
 other packages here that you might need while you are at it.
 
 ```sh
-apt-get update
-apt-get install -y mysql-client rsync
-curl -L "https://github.com/drush-ops/drush/releases/download/8.1.15/drush.phar" > /usr/local/bin/drush
-chmod +x /usr/local/bin/drush
+tugboat-init: install-package-mysql-client install-package-rsync install-drush
 ```
 
 ### Create/Import a database

@@ -6,7 +6,8 @@
         "-sharing",
         "collapsible-menu",
         "include-codeblock",
-        "ace"
+        "ace",
+        "callouts"
     ],
     "pluginsConfig": {
         "include-codeblock": {

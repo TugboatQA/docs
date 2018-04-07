@@ -99,21 +99,20 @@ ln -sf ${TUGBOAT_ROOT} /var/www/html
 ## Install Prerequisite Packages
 
 Tugboat lets you customize your preview environment however you need. We are
-going to need a few packages that are not installed by default, such as `rsync`
-and `mysql-client`. In addition, we are going to install a specific version of
-Drush.
+going to need a few packages that are not installed by default, such as `rsync`.
+In addition, we are going to install the 
+[drush-launcher](https://github.com/drush-ops/drush-launcher).
+
+Tugboat services ship with a [helper Makefile](../../build-script/helper-makefile/index.md)
+in `/usr/share/tugboat`, so we're going to use that to install some packages we
+need.
 
 Add the following to the `tugboat-init` section of the build script. Add any
 other packages here that you might need while you are at it.
 
 ```sh
-apt-get update
-apt-get install -y mysql-client rsync wget
-# Install drush-launcher. This assumes you are using composer to install
-# your desired version of Drush.
-wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.5.1/drush.phar
-chmod +x /usr/local/bin/drush
-composer install
+tugboat-init: install-composer install-drush-launcher install-package-rsync
+	composer install
 ```
 
 ### Create/Import a database

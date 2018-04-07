@@ -9,8 +9,9 @@ developers to customize a stock Tugboat preview environment in order to make a
 site work. For example, pulling a database, or installing an uncommon software
 package, etc.
 
-> **Tip** - Save a bunch of disk space by cleaning up after apt at the end of
-> the build script.
+> #### Info::Save Disk Space
+> Save a bunch of disk space by cleaning up after apt at the end of the build
+> script.
 >
 >    `apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*`
 
@@ -21,9 +22,7 @@ hooks. The following targets can be added to a file named `Makefile` in the
 root of a tugboat repository. If a `Makefile` already exists, these can be
 added to it.
 
-The target names have some legacy ties, and are still what they are for
-backwards compatibility. This just means that their use is not exactly
-intuitive.
+Here are the Makefile targets that Tugboat will execute if present.
 
 * **tugboat-init** - This is called when a preview is built from scratch, after
   all of the services have been built, and the git repository has been cloned.
@@ -36,21 +35,37 @@ intuitive.
   already present and just need to be updated. So, not all of the steps from
   _tugboat-init_ are required.
 
-* **tugboat-update** - This is called when a preview is refreshed. This falls
-  somewhere between `tugboat-init` and `tugboat-build`, in that there is
-  already data present, and services are already configured. They just need to
-  be updated
+* **tugboat-update** - This is called when a preview is refreshed, such as
+  getting a new database, or rsyncing files from a production or staging site.
+  This action falls somewhere between `tugboat-init` and `tugboat-build`, in
+  that there is already data present, and services are already configured. They
+  just need to be updated with fresh data from prod or stage.
+
+> #### Info::Naming things is hard
+> These target names have some legacy ties, and are still what they
+> are for backwards compatibility. We apologize for any confusion that causes.
 
 The use of a Makefile, or any of the targets listed above is entirely
 **optional**.  Tugboat will gracefully skip over these steps if the Makefile,
 or one of the targets does not exist.
 
-Deployments *can* be done by using the Makefile natively, but chances are, you
-probably just want to call out to another script that does the heavy lifting.
-This is actually a very common pattern, as it lends well to cascading the
-different build types.
+All Tugboat services also ship with a [Helper Makefile](helper-makefile/index.md)
+to simplify the execution of common tasks.
 
-[Check out some examples](examples/index.md)
+Deployments *can* be done by using the Makefile natively, but chances are, you
+probably just want to [call out to another script](examples/external-scripts/index.md)
+or build tool that does the heavy lifting. This is actually a very common
+pattern, as it lends well to cascading the different build types, and matching
+the behavior of deployments on your dev, stage, or production environments.
+
+To learn more, read about the [Helper Makefile](helper-makefile/index.md) or
+check out [some example Makefiles](examples/index.md). You may also want to look
+at [examples for specific applications](../examples/index.md).
+
+To learn more about Make syntax:
+ - http://makefiletutorial.com/
+ - http://www.gnu.org/software/make/manual/make.html
+ - https://gist.github.com/isaacs/62a2d1825d04437c6f08
 
 ## Notes
 
