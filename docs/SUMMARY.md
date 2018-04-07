@@ -13,6 +13,8 @@
   * [Previews](tugboat-dashboard/previews/index.md)
   * [User Profile](tugboat-dashboard/profile/index.md)
 * [Build Script](build-script/index.md)
+  * [Environment Variables](build-script/environment-variables/index.md)
+  * [Custom Environment Variables](build-script/custom-environment-variables/index.md)
   * [Helper Makefile](build-script/helper-makefile/index.md)
   * [Makefile Examples](build-script/examples/index.md)
     * [Import a MySQL Database](build-script/examples/import-mysql-database/index.md)

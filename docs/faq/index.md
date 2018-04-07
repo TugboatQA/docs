@@ -184,3 +184,7 @@ repositories but keep in mind that disk space quotas are on the Project level,
 this means that more repositories might create more previews and use more disk
 space. It also may make sense to create multiple projects to better organize
 repositories into logical groups.
+
+## How do I inject "secret" data into previews that I don't want to commit to my git repository?
+
+This can be accomplished by using [custom environment variables](../build-script/custom-environment-variables/index.md).
