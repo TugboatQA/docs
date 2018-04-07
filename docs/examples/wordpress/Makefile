@@ -1,6 +1,10 @@
-packages:
-	apt-get update
-	apt-get install -y mysql-client rsync
+# Tugboat services have a handy Makefile in /usr/share/tugboat that we can use
+# to simplify our setup process. We include that here. If you're curious what
+# that gives you, you can run 'make -C /usr/share/tugboat' from any Tugboat
+# service.
+-include /usr/share/tugboat/Makefile
+
+packages: install-package-mysql-client install-package-rsync
 	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 	chmod +x wp-cli.phar
 	mv wp-cli.phar /usr/local/bin/wp
