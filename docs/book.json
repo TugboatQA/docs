@@ -12,7 +12,7 @@
     "pluginsConfig": {
         "include-codeblock": {
             "template": "templates/acefull.hbs",
-            "theme": "vibrant_ink"
+            "theme": "dreamweaver"
         }
     },
     "links": {
