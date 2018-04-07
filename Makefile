@@ -22,5 +22,8 @@ cleanup:
 .PHONY: tugboat-init
 tugboat-init: packages build cleanup
 
+.PHONY: tugboat-update
+tugboat-update: build cleanup
+
 .PHONY: tugboat-build
 tugboat-build: build cleanup
