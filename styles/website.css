@@ -3,3 +3,14 @@
     padding: 10px;
     vertical-align: middle;
 }
+
+.markdown-section {
+    /* Add a bunch of padding at the bottom to make it easier to read longer
+       documents.
+     */
+    padding-bottom: 20em;
+}
+
+.ace {
+    margin-bottom: 1em;
+}

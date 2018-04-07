@@ -1,10 +1,10 @@
 # Install PHP 7.2
 
+Using the helper tugboat Makefile makes upgrading to a specific version of PHP
+easy. Just use the `install-php-%` target. For example, to install PHP 7.2:
+
 ```
-tugboat-init:
-    apt-get install -y python-software-properties software-properties-common
-    add-apt-repository -y ppa:ondrej/php
-    apt-get update
-    apt-get install -y php7.2
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+-include /usr/share/tugboat/Makefile
+
+tugboat-init: install-php-7.2
 ```
