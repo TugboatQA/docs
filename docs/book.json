@@ -6,7 +6,8 @@
         "-sharing",
         "collapsible-menu",
         "include-codeblock",
-        "ace@git+https://github.com/TugboatQA/gitbook-plugin-ace.git"
+        "ace@git+https://github.com/TugboatQA/gitbook-plugin-ace.git",
+        "callouts"
     ],
     "pluginsConfig": {
         "include-codeblock": {

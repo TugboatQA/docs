@@ -1,26 +1,8 @@
 
-# Build Script Examples
+# Makefile Examples
 
-> **Tip:** Be sure to use tabs. Spaces cause Make to throw errors.
-
-## Overview
-
-Tugboat services ship with a helper Makefile in /usr/share/tugboat that you can
-use to install or upgrade certain packages. If you're curious what that gives
-you, you can run `make -C /usr/share/tugboat` from any Tugboat service to see
-the help text for it, or check out [the source](https://github.com/Lullabot/tugboat-registry/blob/master/baseimage/Makefile)
-of this Makefile.
-
-To use the tugboat helper Makefile, you can put this at the top of your
-Makefile:
-
-```
--include /usr/share/tugboat/Makefile
-```
-
-For example:
-
-[import, lang="makefile"](Makefile)
+> #### Warning::Use Tabs
+> Be sure to use tabs. Spaces cause Make to throw errors.
 
 ## Examples
 
