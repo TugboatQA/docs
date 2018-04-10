@@ -12,14 +12,14 @@ Start by giving your Tugboat Project a name.
 
 Then, choose a repository that you want Tugboat to work with. If you choose to
 skip this step, repositories can be added later from the [Project
-dashboard](../tugboat-dashboard/projects/dashboard/index.md).
+dashboard](../../tugboat-dashboard/projects/index.md).
 
 ![Add a Repository](_images/project-add-repository.png)
 
 Tugboat needs to know which services your repository needs in order to run. We
 provide a handful of common sets of services as a quick starting point. These
 services can be modified later from the [Repository
-Settings](../tugboat-dashboard/repository/settings/index.md).
+Settings](../../tugboat-dashboard/repositories/settings/index.md).
 
 ![Service templates](_images/project-templates.png)
 
@@ -35,8 +35,8 @@ given preview occupies.
 ![Tiers](_images/project-tier.png)
 
 After completing this form, you will be redirected to either the [Repository
-dashboard](../tugboat-dashboard/repository/dashboard/index.md) page or the
-[Project dashboard](../tugboat-dashboard/projects/dashboard/index.md) page
+dashboard](../../tugboat-dashboard/repositories/index.md) page or the
+[Project dashboard](../../tugboat-dashboard/projects/index.md) page
 depending whether you selected a repository. You can always add one or more
 Repositories later from the Project Dashboard:
 
