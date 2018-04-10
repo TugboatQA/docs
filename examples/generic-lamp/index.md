@@ -13,7 +13,7 @@ Some options include:
 
 The PHP version provided by default in these containers can easily be
 upgraded/downgraded as needed for your application. See [Install PHP
-7.2](../build-script/install_php72.md) for an example of how to do that.
+7.2](../../build-script/examples/install-php72/index.md) for an example of how to do that.
 
 In addition, a MySQL or MariaDB database service needs to be selected.
 
@@ -45,7 +45,7 @@ often consists of two parts:
 
 Start by creating a file named `Makefile` in the root of your repository. More
 details about how this file works can be seen in our [Build
-Script](../build-script/index.md) documentation, but we'll touch on the parts
+Script](../../build-script/index.md) documentation, but we'll touch on the parts
 you need to know here.
 
 If there's one thing to remember about using a
@@ -83,7 +83,7 @@ for this example we are going to assume that a recent mysqldump file is
 available somewhere that can be accessed via SSH.
 
 First, visit your [Repository
-Settings](../tugboat-dashboard/repository/dashboard/index.md), and copy the
+Settings](../../tugboat-dashboard/repositories/index.md), and copy the
 repository's public SSH key to the server hosting the mysqldump file. This
 should typically go in a file at `~/.ssh/authorized_keys` in the home directory
 of the user on the remote server that has access to the mysqldump file.

@@ -4,7 +4,7 @@
 
 Services act like isolated servers that run a specific part of your application
 stack, such as a web server, database, cache engine, etc. While you can install
-any applications that you need from a [build script](../build-scriopt/index.md),
+any applications that you need from a [build script](../../../build-script/index.md),
 we highly recommend using Services whenever available as they're easy to include
 and most importantly, they have their own designated CPU(s) and memory.
 
@@ -18,7 +18,7 @@ isolated network.
 
 If you need a service that is not yet listed, you can always create your own by
 selecting one of the existing options, `ubuntu` probably being the best one to
-use, and customize it with a [Build Script](../../build-script/index.md).
+use, and customize it with a [Build Script](../../../build-script/index.md).
 
 We are also happy to work with you to create a service that may be useful to
 other customers.  Contact us at [support@tugboat.qa](mailto:support@tugboat.qa)

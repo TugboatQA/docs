@@ -80,13 +80,13 @@ is unlocked, including automatic updates from new commits. This is useful for
 lengthier reviews or to prevent interruptions during a demo.
 
 - **Rebuild:** Rebuild an existing Tugboat preview from scratch. Rebuild calls
-`tugboat-init` in the [build script](/../../build-script/index.md) if there is
+`tugboat-init` in the [build script](../../build-script/index.md) if there is
 no Base Preview, and `tugboat-build` if there is a Base Preview.
 
 - **Refresh:** Refresh the codebase and external assets of a Tugboat preview.
 Refreshing a preview pulls the latest code and allows a preview to update any
 outside resources, such as a database. When a Preview is being refreshed, it
-calls `tugboat-update` in the [build script](/../../build-script/index.md).
+calls `tugboat-update` in the [build script](../../build-script/index.md).
 
 - **Reset:** Resets a Tugboat preview to its last saved state. When a preview
 has finished building, it creates a saved state of it. So if you make changes in
@@ -114,7 +114,7 @@ would be to check the logs in the Preview Dashboard for more information.
 
 - **Ready:** The preview was successfully built and is ready to be viewed. If a
 preview is ready, but your site doesn't render as it should, it is possible that
-your [build script](../../../build-script/index.md) may still need some work.
+your [build script](../../build-script/index.md) may still need some work.
 When a preview state is "Ready", it means Tugboat built the environment and
 services, and no errors were returned from any of the steps.
 
