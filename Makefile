@@ -13,7 +13,7 @@ build:
 		rm -rf node_modules && \
 		gitbook install --gitbook=$(GITBOOK_VERSION) && \
 		gitbook build --gitbook=$(GITBOOK_VERSION)
-	blcl ${TUGBOAT_ROOT}/docs/_book
+	blcl docs/_book
 	ln -sf ${TUGBOAT_ROOT}/docs/_book /var/www/html
 
 .PHONY: cleanup
