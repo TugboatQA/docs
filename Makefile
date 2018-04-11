@@ -5,6 +5,7 @@ GITBOOK_VERSION := 3.2.3
 .PHONY: packages
 packages: install-nodejs-8
 	npm install -g gitbook-cli
+	npm install -g broken-link-checker-local
 
 .PHONY: build
 build:
@@ -12,6 +13,7 @@ build:
 		rm -rf node_modules && \
 		gitbook install --gitbook=$(GITBOOK_VERSION) && \
 		gitbook build --gitbook=$(GITBOOK_VERSION)
+	blcl ${TUGBOAT_ROOT}/docs/_book
 	ln -sf ${TUGBOAT_ROOT}/docs/_book /var/www/html
 
 .PHONY: cleanup
