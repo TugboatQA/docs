@@ -29,7 +29,6 @@
   * [Drupal 7](examples/drupal7/index.md)
   * [Drupal 8](examples/drupal8/index.md)
   * [Generic LAMP](examples/generic-lamp/index.md)
-  * [Pantheon](examples/pantheon/index.md)
   * [Static HTML](examples/static-html/index.md)
   * [WordPress](examples/wordpress/index.md)
 * [Troubleshooting](troubleshooting/index.md)
