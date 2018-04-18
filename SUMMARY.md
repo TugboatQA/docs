@@ -4,6 +4,7 @@
 * [Getting Started](getting-started/index.md)
   * [Create a Tugboat Account](getting-started/create-a-tugboat-account/index.md)
   * [Create a Project](getting-started/create-a-project/index.md)
+    * [Structuring Projects](getting-started/create-a-project/structuring-projects/index.md)
   * [Create a Preview](getting-started/create-a-preview/index.md)
 * [Tugboat Dashboard](tugboat-dashboard/index.md)
   * [Projects](tugboat-dashboard/projects/index.md)
