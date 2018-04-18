@@ -1,18 +1,18 @@
 # Create a Project
 
 When authenticating to Tugboat for the first time you will be presented with a
-form to create your first Tugboat Project. A Tugboat Project can
-contain any number of repositories that you want Tugboat to build previews for, and
-is tied to a subscription model (free or premium). Additionally, you can invite
-users to join a project.
-
-Start by giving your Tugboat Project a name.
+form to create your first Tugboat Project. To start, give your Tugboat Project a
+name.
 
 ![Project Name](_images/project-name.png)
 
-Then, choose a repository that you want Tugboat to work with. If you choose to
-skip this step, repositories can be added later from the [Project
-dashboard](../../tugboat-dashboard/projects/index.md).
+If you have a single repository you'd like to wire up with Tugboat, you can
+name your Tugboat project after that repository. If it's more complicated than
+that, read about [structuring Tugboat projects](structuring-projects/index.md).
+
+After choosing a name, select the repository that you want Tugboat to work with.
+If you choose to skip this step, repositories can be added later from the
+[Project dashboard](../../tugboat-dashboard/projects/index.md).
 
 ![Add a Repository](_images/project-add-repository.png)
 
