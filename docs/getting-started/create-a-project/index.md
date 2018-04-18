@@ -7,8 +7,8 @@ name.
 ![Project Name](_images/project-name.png)
 
 If you have a single repository you'd like to wire up with Tugboat, you can
-simply name your Tugboat project after that repository. If it's more complicated
-than that, read about [structuring Tugboat projects](structuring-projects/index.md).
+name your Tugboat project after that repository. If it's more complicated than
+that, read about [structuring Tugboat projects](structuring-projects/index.md).
 
 After choosing a name, select the repository that you want Tugboat to work with.
 If you choose to skip this step, repositories can be added later from the
