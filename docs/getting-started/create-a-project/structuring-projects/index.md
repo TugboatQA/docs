@@ -1,3 +1,5 @@
+# Structuring Tugboat Projects
+
 Most often, if you just have one repository that you want to use Tugboat with,
 just create a project that correlates directly to that repository. If it's a
 little more complicated than that, read on.
