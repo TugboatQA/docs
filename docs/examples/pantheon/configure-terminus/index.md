@@ -9,9 +9,9 @@ terminus before, don't worry—we will figure it out together.
 > #### Danger::Do not skip this step
 > Because of how terminus machine tokens work, you cannot restrict their access
 > to a single Pantheon project. This means that by sharing your machine token
-> with Tugboat, anyone else that has access to Tugboat could gain access to
-> your personal Pantheon account, including any other Pantheon projects that
-> account has access to.
+> with Tugboat, anyone else that has access to your Tugboat project could gain
+access to > your personal Pantheon account, including any other Pantheon
+projects that > account has access to.
  
 To mitigate the above risk, **you must create a separate user account** on
 Pantheon solely for Tugboat to use. You can then give this user access to just
@@ -20,7 +20,7 @@ user with Tugboat.
 
 1. If you're logged in to your personal account on Pantheon, [log out](https://dashboard.pantheon.io/logout).
 2. [Register a new account](https://dashboard.pantheon.io/register) on Pantheon.
-3. Specify a unique email address, ideally using an email alias
+3. Specify a unique email address, ideally using an email alias.
 4. Name your user something recognizeable, like *Tugboat User*.
 
 ![New account registration screenshot](_images/pantheon-register.png)

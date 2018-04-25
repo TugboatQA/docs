@@ -124,15 +124,15 @@ build:
 # connect to Pantheon using terminus.
 check-env:
 	@if [ -z $(PANTHEON_SOURCE_SITE) ]; then\
-		echo "You must set the PANTHEON_SOURCE_SITE variable in your Tugboat repository settings";\
+		echo "You must set the PANTHEON_SOURCE_SITE variable in your Makefile." 1>&2;\
 		exit 1;\
 	fi;\
 	if [ -z $(PANTHEON_SOURCE_ENVIRONMENT) ]; then\
-		echo "You must set the PANTHEON_SOURCE_ENVIRONMENT variable in your Tugboat repository settings";\
+		echo "You must set the PANTHEON_SOURCE_ENVIRONMENT variable in your Makefile." 1>&2;\
 		exit 1;\
 	fi;\
 	if [ -z $(PANTHEON_MACHINE_TOKEN) ]; then\
-		echo "You must set the PANTHEON_MACHINE_TOKEN variable in your Tugboat repository settings";\
+		echo "You must set the PANTHEON_MACHINE_TOKEN variable in your Tugboat repository settings." 1>&2;\
 		exit 1;\
 	fi;\
 

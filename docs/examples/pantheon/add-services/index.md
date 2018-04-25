@@ -26,7 +26,7 @@ appropriate Tugboat service when adding our repository to Tugboat. If your
 Pantheon site is using PHP 5.x, choose the apache-php-drupal service. If you
 are using a 7.x version of PHP, choose the apache-php7-drupal service. Don't
 worry if your Pantheon site is using, say 7.2, and not 7.0—we'll update it later
-to the correct minor version of PHP as a part of the init step. 
+to the correct minor version of PHP as a part of [creating the build script](../add-build-script/index.md).
 
 * apache-php-drupal (comes with php-5.5.x)
 * apache-php7-drupal (comes with php-7.0.x)
@@ -36,8 +36,8 @@ For the purposes of our example, let's say that our Pantheon site is using PHP
 
 In addition, a MySQL or MariaDB database service needs to be selected
 
-* mysql (mysql-5.5.4)
-* mariadb (mariadb-5.5.54)
+* mysql (mysql-5.5.x)
+* mariadb (mariadb-5.5.x)
 
 If you decide to use the Drupal template instead, the `apache-php7-drupal` and
 `mysql` services are automatically selected, so that is what we will use for
@@ -45,7 +45,7 @@ this example.
 
 ![Drupal Template](../../drupal8/_images/drupal-template.png)
 
-The resulting set of services for the repository should look like the following
+The resulting set of services for the repository should look like the following:
 
 ![Drupal Services](../../drupal8/_images/drupal-services.png)
 
