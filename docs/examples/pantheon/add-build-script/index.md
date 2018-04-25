@@ -20,12 +20,12 @@ create a new file named `Makefile`.
 At the top of this new file, we're going to declare some variables that we will
 use in the build script:
 
-First, we need to specify the machine name of the Pantheon site we are working
-with. For example, if your Pantheon site is named 'Mister Rogers Fan Club', the
-machine name would be `mister-rogers-fan-club`. If you are unsure, you can use
-terminus to list out all your Pantheon sites by running `terminus site:list
---fields=id,name`. We will set this value in our Makefile to the
-`PANTHEON_SOURCE_SITE` variable.
+First, you'll need to specify the machine name of the Pantheon site you are
+working with. For example, if your Pantheon site is named *Mister Rogers Fan
+Club*, the machine name would be `mister-rogers-fan-club`. If you are unsure,
+you can use terminus to list out all your Pantheon sites by running `terminus
+site:list --fields=id,name`. Once you determine the Pantheon site name, you
+should set this value in your Makefile to the `PANTHEON_SOURCE_SITE` variable.
 
 ```bash
 PANTHEON_SOURCE_SITE := mister-rogers-fan-club
@@ -82,8 +82,8 @@ Another common pattern is to have a Tugboat specific `settings.local.php` that
 contains the database connection string. For this example, I'll store that file
 in a `/.tugboat/dist` directory so that it can be copied into place as a part
 of the build script. To make it easier to find these files in our build script,
-create a variable to specify the directory relative to the repo root (i.e.
-`{$TUGBOAT_ROOT}`).
+create a variable named `DIST_DIR` to specify the directory relative to the repo
+root (i.e. `{$TUGBOAT_ROOT}`).
 
 ```bash
 DIST_DIR := ${TUGBOAT_ROOT}/.tugboat/dist
