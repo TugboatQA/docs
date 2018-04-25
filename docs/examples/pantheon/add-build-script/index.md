@@ -1,8 +1,109 @@
 # Add a build script
 
-**This is not complete, currently just a copy / paste of the D8 stuff.**
+At this point, you should have the following:
 
-## Drupal Configuration
+1. A Tugboat project with two Tugboat services (an Apache webhead service and a
+   MySQL or MariaDB service)
+2. The PHP version that your Pantheon site is using.
+3. A Pantheon user that Tugboat can use, and associated machine token exposed as
+   a `PANTHEON_MACHINE_TOKEN` environment variable in Tugboat.
+
+## Create a `Makefile` build script in your repository
+Once you have the above, you are ready to add a [build script](/build-script/index.md)
+to your Pantheon repository. From within the root directory of your repository,
+create a new file named `Makefile`.
+
+## Declare some variables
+At the top of this new file, we're going to declare some variables that we will
+use in the build script:
+
+First, we need to specify the machine name of the Pantheon site we are working
+with. If your Pantheon site is named 'Mister Rogers Fan Club', the machine name
+would be `mister-rogers-fan-club`. If you are unsure, you can use terminus to
+list out all your Pantheon sites by running `terminus site:list --fields=id,name`.
+We will set this value in our Makefile to the `PANTHEON_SOURCE_SITE` variable.
+
+```bash
+PANTHEON_SOURCE_SITE := mister-rogers-fan-club
+```
+
+Next, we need to tell Tugboat which Pantheon environment that it should use to
+download the database and files from. This would be `dev`, `test`, or `live`.
+It's often best to pull from `live`, as that will have the most stable and fresh
+data.
+
+```bash
+PANTHEON_SOURCE_ENVIRONMENT := live
+```
+
+Now, let's define the PHP version that we determined when we [created our
+Tugboat services](../add-services/index.md).
+
+```bash
+PHP_VERSION := 7.2
+```
+
+Next, specify the Drupal site, which corellates to the name of the directory in
+your Drupal /sites directory. This is typically just default unless you are
+using Drupal multisite.
+
+```bash
+DRUPAL_SITE := default
+```
+
+Tugboat also needs to know where the Drupal root is, relative to the repository
+root. Often on Pantheon this is equivalent to the root of the repository, but it
+also could be `/web` or `/docroot`. We will use the `${TUGBOAT_ROOT}`
+[environment variable](/build-script/environment-variables/index.md) to denote
+the root of the repository. For example, if `/web` is where Drupal is installed,
+set `DRUPAL_ROOT` equal to `${TUGBOAT_ROOT}/web`. In this example, the Drupal
+root is also the repository root:
+
+```bash
+DRUPAL_ROOT := ${TUGBOAT_ROOT}
+```
+
+In our build script, you'll also want to have a variable for the location of the
+public and private files directories. You should use the `${DRUPAL_SITE_DIR}`
+variable (that we will define later) for these.  For example, if your public
+files directory is `sites/default/files`, you would set this value to
+`${DRUPAL_SITE_DIR}/files`.
+
+```bash
+DRUPAL_FILES_PUBLIC = ${DRUPAL_SITE_DIR}/files
+DRUPAL_FILES_PRIVATE = ${DRUPAL_SITE_DIR}/files/private
+```
+
+Another common pattern is to have a Tugboat specific `settings.local.php` that
+contains the database connection string. For this example, I'll store that file
+in a `/.tugboat/dist` directory so that it can be copied into place as a part
+of the build script. To make it easier to find these files in our build script,
+create a variable to specify the directory relative to the repo root (i.e.
+`{$TUGBOAT_ROOT}`).
+
+```bash
+DIST_DIR := ${TUGBOAT_ROOT}/.tugboat/dist
+```
+
+Fantastic! Now you've got several variables that we can use in our Makefile
+build script, which will reduce the amount of code duplication in there.
+
+## Install packages
+
+As a first step in setting up your Tugboat webhead, you need to install some
+packages that your project needs, such as `terminus`, `composer`, and the
+correct version of PHP. Let's create a new Makefile target called `packages`
+just for this.
+
+[import:46-53, lang:"makefile", template:"ace"](../full-makefile/Makefile)
+
+For the most part, you can copy this as is into your Makefile, but if you have
+other software you need to build your project (e.g. NodeJS), you'll want to
+add to the above with those packages.
+
+## Configure Drupal
+
+Next, we need to put files into place to wire Drupal up to Tugboat.
 
 A common practice for managing Drupal's `settings.php` is to leave sensitive
 information, such as database credentials, out of it and commit it to git. Then,
@@ -13,7 +114,7 @@ This pattern works very well with Tugboat. It lets you keep a tugboat-specific
 set of configurations in your repository where you can just copy it into place
 with a build script.
 
-Add or uncomment the following at the end of `settings.php`
+Add or uncomment the following at the end of your `settings.php`
 
 ```php
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
@@ -21,8 +122,10 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 }
 ```
 
-Add a file named `tugboat.settings.php` in the same directory as `settings.php`
-with the following content.
+Add a file named `settings.local.php` into your `.tugboat/dist` directory that
+you specified above. Inside of that `settings.local.php`, you can define your
+Database array for Tugboat. You may also will want to add the Tugboat preview
+URLs to the trusted host patterns variable to further secure Drupal:
 
 ```php
 <?php
@@ -36,7 +139,21 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
+
+$settings['trusted_host_patterns'][] = '^.+\.tugboat\.qa$';
 ```
+
+With that in place, head back to your Makefile, and add a new target to
+configure Drupal:
+
+[import:57-69, lang:"makefile", template:"ace"](../full-makefile/Makefile)
+
+
+
+
+
+
+# THIS IS WHERE JAMES STOPPED
 
 ## Build Script
 

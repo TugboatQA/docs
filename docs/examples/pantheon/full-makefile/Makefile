@@ -3,10 +3,10 @@
 # Please modify the following environment variables to match your project.
 # The Pantheon site name where the database and files will be copied from. If
 # you're unsure, you can run 'terminus site:list --fields=id,name'.
-PANTHEON_SOURCE_SITE ?= example-pantheon-site
+PANTHEON_SOURCE_SITE := example-pantheon-site
 # The Pantheon environment to pull the database and files from. This is
 # typically dev, test, or live.
-PANTHEON_SOURCE_ENVIRONMENT ?= live
+PANTHEON_SOURCE_ENVIRONMENT := live
 # Specify the desired version of PHP in major.minor format, e.g. 7.1. For
 # Pantheon sites, go to the dashboard of your site, click 'Settings', then click
 # 'PHP Version'.
@@ -59,8 +59,6 @@ drupal-prep:
 	cp ${DIST_DIR}/settings.local.php ${DRUPAL_SITE_DIR}/settings.local.php
 #	# Generate a hash_salt to secure the site.
 	echo "\$$settings['hash_salt'] = '$$(openssl rand -hex 32)';" >> ${DRUPAL_SITE_DIR}/settings.local.php
-#	# Add a .tugboat.qa trusted host pattern to the settings file.
-	echo "\$$settings['trusted_host_patterns'][] = '^.+\.tugboat\.qa$$';" >> ${DRUPAL_SITE_DIR}/settings.local.php
 #	# Set up the default files directory, ensuring proper file permissions so
 #	# that the www user can read and write.
 	mkdir -p ${DRUPAL_FILES_PUBLIC} ${DRUPAL_FILES_PRIVATE}
