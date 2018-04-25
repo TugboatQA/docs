@@ -10,8 +10,8 @@ terminus before, don't worry—we will figure it out together.
 > Because of how terminus machine tokens work, you cannot restrict their access
 > to a single Pantheon project. This means that by sharing your machine token
 > with Tugboat, anyone else that has access to your Tugboat project could gain
-access to > your personal Pantheon account, including any other Pantheon
-projects that > account has access to.
+> access to your personal Pantheon account, including any other Pantheon
+> projects that account has access to.
  
 To mitigate the above risk, **you must create a separate user account** on
 Pantheon solely for Tugboat to use. You can then give this user access to just

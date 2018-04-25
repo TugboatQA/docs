@@ -8,6 +8,9 @@ At this point, you should have the following:
 3. A Pantheon user that Tugboat can use, and associated machine token exposed as
    a `PANTHEON_MACHINE_TOKEN` environment variable in Tugboat.
 
+If you're familiar with creating build scripts for Tugboat, you can skip ahead
+to read the [full Makefile](../full-makefile/index.md).
+
 ## Create a `Makefile` build script in your repository
 Once you have the above, you are ready to add a [build script](/build-script/index.md)
 to your Pantheon repository. From within the root directory of your repository,
