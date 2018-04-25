@@ -18,10 +18,11 @@ At the top of this new file, we're going to declare some variables that we will
 use in the build script:
 
 First, we need to specify the machine name of the Pantheon site we are working
-with. If your Pantheon site is named 'Mister Rogers Fan Club', the machine name
-would be `mister-rogers-fan-club`. If you are unsure, you can use terminus to
-list out all your Pantheon sites by running `terminus site:list --fields=id,name`.
-We will set this value in our Makefile to the `PANTHEON_SOURCE_SITE` variable.
+with. For example, if your Pantheon site is named 'Mister Rogers Fan Club', the
+machine name would be `mister-rogers-fan-club`. If you are unsure, you can use
+terminus to list out all your Pantheon sites by running `terminus site:list
+--fields=id,name`. We will set this value in our Makefile to the
+`PANTHEON_SOURCE_SITE` variable.
 
 ```bash
 PANTHEON_SOURCE_SITE := mister-rogers-fan-club
@@ -29,22 +30,22 @@ PANTHEON_SOURCE_SITE := mister-rogers-fan-club
 
 Next, we need to tell Tugboat which Pantheon environment that it should use to
 download the database and files from. This would be `dev`, `test`, or `live`.
-It's often best to pull from `live`, as that will have the most stable and fresh
-data.
+It's often best to pull from `live`, as that will have the most stable and
+freshest data.
 
 ```bash
 PANTHEON_SOURCE_ENVIRONMENT := live
 ```
 
 Now, let's define the PHP version that we determined when we [created our
-Tugboat services](../add-services/index.md).
+Tugboat services](../add-services/index.md) to a variable called `PHP_VERSION`.
 
 ```bash
 PHP_VERSION := 7.2
 ```
 
-Next, specify the Drupal site, which corellates to the name of the directory in
-your Drupal /sites directory. This is typically just default unless you are
+Next, specify the Drupal site, which correlates to the name of the directory in
+your Drupal /sites directory. This is typically just `default`, unless you are
 using Drupal multisite.
 
 ```bash
@@ -105,16 +106,15 @@ add to the above with those packages.
 
 Next, we need to put files into place to wire Drupal up to Tugboat.
 
-A common practice for managing Drupal's `settings.php` is to leave sensitive
-information, such as database credentials, out of it and commit it to git. Then,
-the sensitive information is loaded from a `settings.local.php` file that exists
-only on the Drupal installation location.
-
+A common practice for managing Drupal's `settings.php` is to store sensitive
+information, such as Database credentials and the like, into a
+`settings.local.php` file that exists only on the Drupal installation location.
 This pattern works very well with Tugboat. It lets you keep a tugboat-specific
 set of configurations in your repository where you can just copy it into place
 with a build script.
 
-Add or uncomment the following at the end of your `settings.php`
+To enable this functionality, add or uncomment the following at the end of your
+`settings.php`:
 
 ```php
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
@@ -124,8 +124,8 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 
 Add a file named `settings.local.php` into your `.tugboat/dist` directory that
 you specified above. Inside of that `settings.local.php`, you can define your
-Database array for Tugboat. You may also will want to add the Tugboat preview
-URLs to the trusted host patterns variable to further secure Drupal:
+Database array for Tugboat. You may also want to add the Tugboat preview URLs to
+the trusted host patterns variable to further secure Drupal:
 
 ```php
 <?php
@@ -144,162 +144,73 @@ $settings['trusted_host_patterns'][] = '^.+\.tugboat\.qa$';
 ```
 
 With that in place, head back to your Makefile, and add a new target to
-configure Drupal:
+configure Drupal, called `drupal-prep`;
 
 [import:57-69, lang:"makefile", template:"ace"](../full-makefile/Makefile)
 
+## Import database and files using terminus
 
+Next, you should add some targets to import the database and files from
+Pantheon. First, you need to use terminus to generate the backups. Add a target
+in your Makefile called `create-backup`:
 
+[import:73-74, lang:"makefile", template:"ace"](../full-makefile/Makefile)
 
+Now that we have that target, add a target to download and import the database.
+This target should depend on the `drupal-prep` and `create-backup` targets
+above. Name the target `importdb`, like so:
 
+[import:77-87, lang:"makefile", template:"ace"](../full-makefile/Makefile)
 
-# THIS IS WHERE JAMES STOPPED
+Similarly, create a target for downloading the files from Pantheon, that also
+depends on the `drupal-prep` and `create-backup` targets above.
 
-## Build Script
+[import:91-106, lang:"makefile", template:"ace"](../full-makefile/Makefile)
 
-The build script for a Drupal 8 repository consists of these main parts
+## Run your build steps
 
-* Point Tugboat to the right document root
-* Install prerequisite packages
-* Create/Import a database
-* Import the site's `files` directory
-* Update the Drupal configuration
+Now that you have the targets needed to get the Pantheon database and files into
+your Tugboat project, you need to define what build steps you run as a part of
+building your Drupal project. Typically this includes things like running
+`composer install`, rebuilding caches, importing configuration, running database
+updates, compiling SCSS, or minifying JavaScript. Ideally, you should have a
+build script that all your environments (i.e. local, Tugboat, Pantheon) use.
 
-### Configure a Document Root
+[import:116-119, lang:"makefile", template:"ace"](../full-makefile/Makefile)
 
-By default, Tugboat tries to serve content from a `/docroot` folder in the root
-of your git repository. If your repository already has Drupal in this location,
-this step can be skipped.
+## Add some other bits 
 
-To point Tugboat to the right location in your repository, add a line to the
-`tugboat-init` section of the build script. To serve content from `/public_html`
-in your repository add this.
+The following snippets you can just copy / paste to the bottom of your Makefile.
 
+This target ensures that we have all the environment variables we need to
+connect to Pantheon using terminus.
 
-```sh
-ln -sf ${TUGBOAT_ROOT}/public_html /var/www/html
-```
+[import:123-135, lang:"makefile", template:"ace"](../full-makefile/Makefile)
 
-Or, to serve directly from the root of your repository
+This target reduces disk space by cleaning up tmp directories and other non-
+essential files.
 
-```sh
-ln -sf ${TUGBOAT_ROOT} /var/www/html
-```
+[import:139-141, lang:"makefile", template:"ace"](../full-makefile/Makefile)
 
-## Install Prerequisite Packages
+These are some variables used above that you shouldn't need to modify.
 
-Tugboat lets you customize your preview environment however you need. We are
-going to need a few packages that are not installed by default, such as `rsync`
-and `mysql-client`. In addition, we are going to install a specific version of
-Drush.
+[import:153-162, lang:"makefile", template:"ace"](../full-makefile/Makefile)
 
-Add the following to the `tugboat-init` section of the build script. Add any
-other packages here that you might need while you are at it.
+## Wire up Tugboat targets
 
-```sh
-apt-get update
-apt-get install -y mysql-client rsync wget
-# Install drush-launcher. This assumes you are using composer to install
-# your desired version of Drush.
-wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.5.1/drush.phar
-chmod +x /usr/local/bin/drush
-composer install
-```
+We finally have everything in place to connect our build script to Tugboat. If
+you haven't yet, you should read through the [documentation on the Tugboat
+targets](/build-script/index.md#makefile), `tugboat-init`, `tugboat-update`, and
+`tugboat-build`. You'll notice, all we're doing in each of these targets is
+referencing all the work you did above. In addition, each target builds on the
+previous, i.e `tugboat-init` calls `tugboat-update` which calls `tugboat-build`.
 
-### Create/Import a database
+[import:147-149, lang:"makefile", template:"ace"](../full-makefile/Makefile)
 
-Before you can import a database into a Tugboat Preview, it needs to be
-accessible somewhere on the internet. There are a number of ways to do that, but
-for this example we are going to assume that a recent mysqldump file is
-available somewhere that can be accessed via SSH.
+---
 
-First, visit your [Repository
-Settings](../tugboat-dashboard/repository/dashboard/index.md), and copy the
-repository's public SSH key to the server hosting the mysqldump file. This
-should typically go in a file at `~/.ssh/authorized_keys` in the home directory
-of the user on the remote server that has access to the mysqldump file.
-
-![Repository Public SSH Key](../_images/repo-public-key.png)
-
-Add the following to the `tugboat-init` section of the build script to create a
-database
-
-```sh
-mysql -h mysql -u tugboat -ptugboat -e "create database demo;"
-```
-
-Add the following  to the `tugboat-init` and `tugboat-update` sections of the
-build script to import a fresh copy of the database.
-
-```sh
-scp user@example.com:database.sql.gz /tmp/database.sql.gz
-zcat /tmp/database.sql.gz | mysql -h mysql -u tugboat -ptugboat demo
-```
-
-### Import files
-
-Just like the database, in order to import the site's `files` directory, it
-needs to be accessible over the public internet somehow. Again, there are a
-number of different ways of doing that, but for this example we are going to
-assume we can rsync that directory from a server via SSH.
-
-Visit your [Repository
-Settings](../tugboat-dashboard/repository/dashboard/index.md), and copy the
-repository's public SSH key to the server hosting the directory we are going to
-sync. This should typically go in a file at `~/.ssh/authorized_keys` in the home
-directory of the user on the remote server that has access to the directory.
-
-![Repository Public SSH Key](../_images/repo-public-key.png)
-
-Add the following to the `tugboat-init` and `tugboat-update` sections of the
-build script.
-
-```sh
-rsync -av --delete user@example.com:/path/to/drupal/sites/default/files/ /var/www/html/sites/default/files/
-chgrp -R www-data /var/www/html/sites/default/files
-find /var/www/html/sites/default/files -type d -exec chmod 2775 {} \;
-find /var/www/html/sites/default/files -type f -exec chmod 0664 {} \;
-```
-
-Another common approach is to use the [Stage File
-Proxy](https://www.drupal.org/project/stage_file_proxy) Drupal module. This
-module lets Drupal serve files from another publicly-accessible Drupal site
-instead of syncing the entire `files` directory into the Tugboat Preview. This
-allows for smaller Previews, and reduces Preview the build time. If you have a
-production site, or publicly-accessible dev/staging sites with some or most of
-the same set of files, this may be a good alternative for your repository.
-
-To use Stage File Proxy, add the following to the `tugboat-init` and
-`tugboat-update` sections of the build script.
-
-```sh
-drush -r /var/www/html pm-download stage_file_proxy
-drush -r /var/www/html pm-enable --yes stage_file_proxy
-drush -r /var/www/html variable-set stage_file_proxy_origin "http://www.example.com"
-```
-
-### Update the Drupal Configuration
-
-Copy the `tugboat.settings.php` file that we created earlier into place so
-Drupal can find its database. Add the following to the `tugboat-init` section of
-the build script.
-
-```sh
-cp /var/www/html/sites/default/tugboat.settings.php /var/www/html/sites/default/settings.local.php
-```
-
-Generate a new hash salt for the Tugboat previews by adding the following to the
-`tugboat-init` section of the build script
-
-```sh
-echo "\$$settings['hash_salt'] = '$$(openssl rand -hex 32)';" >> /var/www/html/sites/default/settings.local.php
-```
-
-Finally, clear Drupal's cache by adding the following to each of `tugboat-init`,
-`tugboat-update`, and `tugboat-build` sections of the build script
-
-```sh
-drush -r /var/www/html cache-rebuild
-```
+That's it, you're ready to commit this Makefile and push it up to a new branch
+to see it in action on Tugboat! But first, you might want to compare with the
+full version of the Makefile:
 
 #### Next: [View the full Makefile](../full-makefile/index.md)

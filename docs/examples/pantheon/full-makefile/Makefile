@@ -149,7 +149,7 @@ tugboat-update: importdb importfiles tugboat-build
 tugboat-build: build cleanup
 
 #########
-# There is often no need to modify anything below here.
+# These are some variables used above that you shouldn't need to modify.
 DRUSH := drush -y --root=${DRUPAL_ROOT} --uri=${TUGBOAT_URL}
 # The directory that the web server serves the site from. On Apache services
 # this is /var/www/html. On Nginx services, it is /usr/share/nginx/html.
