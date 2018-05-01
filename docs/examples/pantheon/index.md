@@ -8,12 +8,14 @@ compare with.
 
 > #### Warning::Git provider
 > The following instructions assume you are using a git repository provider such
-> as GitHub, GitLab, or BitBucket. If you are not using one of these, [connect
-> with us](/support/index.md) to learn how to wire directly to Pantheon. 
+> as GitHub, GitLab, or BitBucket. Pantheon has [documentation on how to use
+> GitHub](https://pantheon.io/docs/guides/build-tools/), but if that's not an
+> option, [connect with us](/support/index.md) to learn how to wire directly to
+> Pantheon.
 
 An overview of the steps you will need to perform:
 
-1. Create a Tugboat project.
+1. Create a Tugboat project (instructions below).
 2. [Choose appropriate Tugboat services](add-services/index.md).
 3. [Create a Pantheon terminus token and add it to Tugboat](configure-terminus/index.md).
 4. [Add a Makefile build script](add-build-script/index.md) to your project.
