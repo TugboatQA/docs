@@ -9,6 +9,7 @@ packages: install-nodejs-8
 
 .PHONY: build
 build:
+	cp ${TUGBOAT_ROOT}/docs/disallow.robots.txt ${TUGBOAT_ROOT}/docs/robots.txt
 	cd ${TUGBOAT_ROOT}/docs && \
 		rm -rf node_modules && \
 		gitbook install --gitbook=$(GITBOOK_VERSION) && \
