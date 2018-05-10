@@ -4,7 +4,7 @@ All Tugboat services ship with a helper Makefile in `/usr/share/tugboat` that
 you can use to install or upgrade certain packages. If you're curious what that
 gives you, you can run `make -C /usr/share/tugboat _help` from any Tugboat
 service to see the help text for it, or check out [the
-source](https://github.com/Lullabot/tugboat-registry/blob/master/baseimage/Makefile)
+source](https://github.com/Lullabot/tugboat-registry/blob/master/baseimage/share/Makefile)
 of this Makefile.
 
 To use the tugboat helper Makefile, you can put this at the top of your
