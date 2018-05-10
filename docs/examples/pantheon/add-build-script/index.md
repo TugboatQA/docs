@@ -4,7 +4,7 @@ At this point, you should have the following:
 
 1. A Tugboat project with two Tugboat services (an Apache webhead service and a
    MySQL or MariaDB service)
-2. The PHP version that your Pantheon site is using.
+2. The PHP version that your Pantheon site is using. (We'll do minor version upgrades later)
 3. A Pantheon user that Tugboat can use, and associated machine token exposed as
    a `PANTHEON_MACHINE_TOKEN` environment variable in Tugboat.
 

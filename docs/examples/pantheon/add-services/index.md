@@ -23,7 +23,7 @@ Now that we know the version of PHP, there are two ways to choose Tugboat
 services. Only choose option 1 if your version of PHP is 7.0 or higher,
 otherwise you'll need to use Option 2.
 
-## Option 1: Choose a template
+## Option 1: Choose a template (for PHP >= 7.0)
 
 By far the easiest way to configure your Tugboat services for Pantheon is to
 select the appropriate template when you are [creating your project](../index.md#1.-create-a-tugboat-project).
@@ -41,7 +41,7 @@ The resulting set of services for the repository should look like the following:
 
 Once selected, you can continue to the next step, [configuring terminus](../configure-terminus/index.md).
 
-## Option 2: Choose services yourself
+## Option 2: Choose services yourself (for PHP < 7.0)
 
 For this option, you will choose the Tugboat services that you'd like yourself.
 If your Pantheon site is using PHP 5.x, choose the apache-php-drupal service. If

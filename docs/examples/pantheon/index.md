@@ -7,11 +7,11 @@ the concepts should apply for any Pantheon hosted PHP site. Check out the
 compare with.
 
 > #### Warning::Git provider
-> The following instructions assume you are using a git repository provider such
-> as GitHub, GitLab, or BitBucket. Pantheon has [documentation on how to use
-> GitHub](https://pantheon.io/docs/guides/build-tools/), but if that's not an
-> option, [connect with us](/support/index.md) to learn how to wire directly to
-> Pantheon.
+> The following instructions assume you have already configured an external git 
+> repository provider such as GitHub, GitLab, or BitBucket. Pantheon has
+>  [documentation on how to use GitHub](https://pantheon.io/docs/guides/build-tools/), 
+> but if that's not an option, [connect with us](/support/index.md) to learn how 
+> to wire directly to Pantheon.
 
 An overview of the steps you will need to perform:
 
