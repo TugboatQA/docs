@@ -4,6 +4,7 @@
     "language": "en",
     "plugins": [
         "-sharing",
+        "anchors",
         "collapsible-menu",
         "include-codeblock",
         "ace",
