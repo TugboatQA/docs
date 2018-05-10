@@ -8,7 +8,8 @@
         "collapsible-menu",
         "include-codeblock",
         "ace",
-        "callouts"
+        "callouts",
+        "robots-txt@git+https://github.com/TugboatQA/gitbook-plugin-robots-txt.git#1.0.1"
     ],
     "pluginsConfig": {
         "include-codeblock": {
