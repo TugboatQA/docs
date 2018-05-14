@@ -2,7 +2,7 @@
     "version": "2.x.x",
     "title": "Tugboat Documentation",
     "language": "en",
-    "plugins": ["-sharing", "highlight", "anchors", "collapsible-menu", "include-codeblock", "ace", "callouts"],
+    "plugins": ["-sharing", "anchors", "collapsible-menu", "include-codeblock", "ace", "callouts"],
     "pluginsConfig": {
         "include-codeblock": {
             "template": "templates/acefull.hbs",
