@@ -14,3 +14,7 @@
 .ace {
     margin-bottom: 1em;
 }
+
+a.glossary-term {
+    color: #333;
+}

@@ -9,7 +9,7 @@ previews.
 
 Tugboat provides a convenient way of injecting these values via custom
 environment variables. These variables can be found in on a Tugboat Repository's
-Settings page in the Repository Configuration sectuion on the Services tab.
+Settings page in the Repository Configuration section on the Services tab.
 
 ![Environment Variable Configuration](_images/envvars-config.png)
 

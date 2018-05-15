@@ -7,7 +7,7 @@
         "anchors",
         "collapsible-menu",
         "include-codeblock",
-        "ace",
+        "ace@git+https://github.com/TugboatQA/gitbook-plugin-ace.git",
         "callouts"
     ],
     "pluginsConfig": {
