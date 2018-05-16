@@ -11,7 +11,7 @@
     * [Structuring Projects](getting-started/create-a-project/structuring-projects/index.md)
   * [Create a Preview](getting-started/create-a-preview/index.md)
   * [Create a Base Preview](getting-started/create-a-base-preview/index.md)
-  
+
 * [Build Scripts & Examples](build-script/index.md)
   * [Environment Variables](build-script/environment-variables/index.md)
   * [Custom Environment Variables](build-script/custom-environment-variables/index.md)
@@ -36,7 +36,7 @@
       * [Generic LAMP](build-script/example-build-scripts/sample-projects/generic-lamp/index.md)
       * [Static HTML](build-script/example-build-scripts/sample-projects/static-html/index.md)
       * [WordPress](build-script/example-build-scripts/sample-projects/wordpress/index.md)
-      
+
 * [Features](features/index.md)
   * [Base Previews](features/base-previews/index.md)
   * [Visual Regression Testing](features/visual-regression/index.md)
@@ -47,7 +47,7 @@
 * [Debugging & Troubleshooting](troubleshooting/index.md)
   * [Debugging your Build Script](troubleshooting/build-script-debug/index.md)
   * [Common Issues w/ Previews](troubleshooting/debugging-previews/index.md)
-  
+
 * [Tugboat Dashboard](tugboat-dashboard/index.md)
   * [Projects](tugboat-dashboard/projects/index.md)
     * [Project Settings](tugboat-dashboard/projects/settings/index.md)
@@ -55,7 +55,7 @@
     * [Repository Settings](tugboat-dashboard/repositories/settings/index.md)
   * [Previews](tugboat-dashboard/previews/index.md)
   * [User Profile](tugboat-dashboard/profile/index.md)
-  
+
 * [Reference](reference/index.md)
   * [Prebuilt Services](reference/services/index.md)
   * [API](reference/api/index.md)
