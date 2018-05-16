@@ -33,7 +33,7 @@ The Terminal provides command line access to the given service. It is available 
 
 ### Activity Log
 
-The Activity Log keeps track of every operation that has been performed on the Preview. This includes internal Tugboat operations as well as output from your [build script](../../build-script/index.md). This log can be filtered based on different levels of verbosity.
+The Activity Log keeps track of every operation that has been performed on the Preview. This includes internal Tugboat operations as well as output from your [build script](/build-script/). This log can be filtered based on different levels of verbosity.
 
 ![Activity Log](_images/preview-activity-log.png)
 
@@ -58,9 +58,9 @@ diffs of a page for Previews that were created from a Base Preview. This tool is
 
 - **Lock:** Locking a Tugboat Preview still allows full access to the live Preview, but prevents Tugboat from performing any further actions on it until it is unlocked, including automatic updates from new commits. This is useful for lengthier reviews or to avoid interruptions during a demo.
 
-- **Rebuild:** Rebuild an existing Tugboat Preview from scratch. Rebuild calls `tugboat-init` in the [build script](../../build-script/index.md) if there is no Base Preview, and `tugboat-build` if there is a Base Preview.
+- **Rebuild:** Rebuild an existing Tugboat Preview from scratch. Rebuild calls `tugboat-init` in the [build script](/build-script/) if there is no Base Preview, and `tugboat-build` if there is a Base Preview.
 
-- **Refresh:** Refresh the codebase and external assets of a Tugboat Preview. Refreshing a Preview pulls the latest code and allows a Preview to update any outside resources, such as a database. When a Preview is being refreshed, it calls `tugboat-update` in the [build script](../../build-script/index.md).
+- **Refresh:** Refresh the codebase and external assets of a Tugboat Preview. Refreshing a Preview pulls the latest code and allows a Preview to update any outside resources, such as a database. When a Preview is being refreshed, it calls `tugboat-update` in the [build script](/build-script/).
 
 - **Reset:** Resets a Tugboat preview to its last saved state. When a Preview has finished building, it creates a saved state of it. So if you make changes in your Preview, like changing data or files, a reset will restore the preview to its last saved state without having to rebuild the entire Preview.
 
@@ -75,7 +75,7 @@ diffs of a page for Previews that were created from a Base Preview. This tool is
 ###Stable States:
 
 - **Failed:** Something went wrong during the build. A good first step of action would be to check the logs in the Preview Dashboard for more information.
-- **Ready:** The Preview was successfully built and is ready to be viewed. If a Preview is ready, but your site doesn't render as it should, it is possible that your [build script](../../build-script/index.md) may still need some work. When a Preview state is "Ready", it means Tugboat built the environment and services, and no errors were returned from any of the steps.
+- **Ready:** The Preview was successfully built and is ready to be viewed. If a Preview is ready, but your site doesn't render as it should, it is possible that your [build script](/build-script/) may still need some work. When a Preview state is "Ready", it means Tugboat built the environment and services, and no errors were returned from any of the steps.
 - **Stopped:** The Preview cannot be viewed while stopped. Select "Start" from the actions to start up the Preview again.
 - **Suspended:** Previews get placed in a suspended state after some time of inactivity. The amount of time depends on the Project's subscription. Any HTTP request to the Preview will automatically start it up again. How long that takes depends on how much time it takes for each of the services for the Preview to start.
 - **Unavailable:** Something went wrong trying to load the Preview. Try triggering a reset from the actions.
@@ -83,7 +83,7 @@ diffs of a page for Previews that were created from a Base Preview. This tool is
 
 ###Transition States:
 
-- **Building:** Tugboat is building the Preview. This means setting up Services, processing the [build script](../../build-script/index.md), etc.
+- **Building:** Tugboat is building the Preview. This means setting up Services, processing the [build script](/build-script/), etc.
 
 - **Committing:** This is a state that relates to Services. When a Service is committing, a snapshot is being created. If you make changes to any of your Services (like modifying files or database values) and choose to "reset" your Preview later, your Preview will be restored to this snapshot.
 

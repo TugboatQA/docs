@@ -1,7 +1,7 @@
 # Access Tokens
 
 Personal access token are used in place of your password when accessing Tugboat through the 
-[Command Line Tool](../CLI/index.md) or [Tugboat API](../../reference/API/index.md). You generate 
+[Command Line Tool](/features/cli/) or [Tugboat API](/reference/api/). You generate 
 the token from your Tugboat account, then copy and paste it to the terminal window or script.
 
 ## Create an Access Token

@@ -2,6 +2,12 @@
 
 Briefly, Base Previews provide Tugboat with a starting point, from where it can build new Previews. The advantage of Base Previews is they drastically reduce Preview build times as well as the amount of space a Preview occupies on disk.
 
+> #### Info::Automatically Updating Base Previews
+> **If master is my Base Preview and I merge a Pull Request into master, will the Base Preview automatically update?**
+>
+> Yes, Base Previews are automatically updated daily at 12am ET. This frequency and time of day can be changed in a repository's settings. It can also be disabled if you prefer to update the Base Preview manually.
+
+
 ## How Base Previews Work
 
 When a regular Preview is built, the [build script](/build-script/index.md) will often be used to pull in a database, image files, or other assets. This process can take a while. When the Preview has finished building, Tugboat takes a point-in-time snapshot of its disk image, so that it has a point of reference of where it can do things like let you quickly reset a Preview back to its original build state. It can also leverage this snapshot to create a Base Preview if instructed. 
@@ -33,7 +39,12 @@ That's it! From now on, new Previews will build from the image created when the 
 
 You will generally want to keep your Base Preview up to date with your latest codebase, and a fresh copy of your database, image files, and other assets. By default, Tugboat does this every night at 12 am ET. To change this, check the Repository Settings.
 
-Tugboat performs the update by pulling the latest code from git for the branch or Tag the Preview was built from.  During the update, Tugboat calls the `tugboat-update` target of your [build script](/build-script/index.md). 
+Tugboat performs the update by pulling the latest code from git for the branch or Tag the Preview was built from.  During the update, Tugboat calls the `tugboat-update` target of your [build script](/build-script/index.md).
+
+> #### Warning::Previews created from Base Previews are not automatically updated. 
+> **If my Base Preview is updated, will Previews built from it automatically update with those changes?**
+> 
+> No. If a Base Preview is updated, Previews built from it are left alone, and must be rebuilt manually.
 
 ## Advanced Use Cases
 

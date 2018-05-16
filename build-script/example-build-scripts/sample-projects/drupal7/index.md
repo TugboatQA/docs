@@ -94,7 +94,7 @@ ln -sf ${TUGBOAT_ROOT} /var/www/html
 
 Tugboat lets you customize your Preview environment however you need. We are going to need a few packages that are not installed by default, such as `rsync` and `mysql-client`. We are also going to install a specific version of Drush.
 
-Tugboat services ship with a [helper Makefile](../../build-script/helper-makefile/index.md) in `/usr/share/tugboat`, so we're going to use that to install packages we need.
+Tugboat services ship with a [helper Makefile](/build-script/helper-makefile/) in `/usr/share/tugboat`, so we're going to use that to install packages we need.
 
 Add the following to the `tugboat-init` section of your build script. Add any
 other packages here that you might need while you are at it.
@@ -108,7 +108,7 @@ tugboat-init: install-package-mysql-client install-package-rsync install-drush
 Before you can import a database into a Tugboat Preview, it needs to be
 accessible somewhere on the Internet. There are several ways to do that, but for this example we are going to assume that a recent `mysqldump` file is available somewhere that can be accessed via SSH.
 
-First, visit your [Repository Settings](../../tugboat-dashboard/repositories/index.md), and copy the repository's public SSH key to the server hosting the `mysqldump` file. This should typically go in a file at `~/.ssh/authorized_keys` in the home directory of the user on the remote server that has access to the `mysqldump` file.
+First, visit your [Repository Settings](/tugboat-dashboard/repositories/), and copy the repository's public SSH key to the server hosting the `mysqldump` file. This should typically go in a file at `~/.ssh/authorized_keys` in the home directory of the user on the remote server that has access to the `mysqldump` file.
 
 ![Repository Public SSH Key](../_images/repo-public-key.png)
 
@@ -132,7 +132,7 @@ Just like the database, to import the site's `files` directory, it needs to be a
 number of different ways of doing that, but for this example we are going to
 assume we can `rsync` that directory from a server via SSH.
 
-Visit your [Repository Settings](../../tugboat-dashboard/repositories/index.md), and copy the repository's public SSH key to the server hosting the directory we are going to sync. This should typically go in a file at `~/.ssh/authorized_keys` in the home directory of the user on the remote server that has access to the directory.
+Visit your [Repository Settings](/tugboat-dashboard/repositories/), and copy the repository's public SSH key to the server hosting the directory we are going to sync. This should typically go in a file at `~/.ssh/authorized_keys` in the home directory of the user on the remote server that has access to the directory.
 
 ![Repository Public SSH Key](../_images/repo-public-key.png)
 

@@ -3,14 +3,14 @@
 ## Services
 
 Services act like isolated servers that run a specific part of your application
-stack, such as a web server, database, cache engine, etc. While you can install any applications that you need from a [build script](../../../build-script/index.md), we highly recommend using Services whenever available as they're easy to include and most importantly, they have their own designated CPU(s) and memory.
+stack, such as a web server, database, cache engine, etc. While you can install any applications that you need from a [build script](/build-script/), we highly recommend using Services whenever available as they're easy to include and most importantly, they have their own designated CPU(s) and memory.
 
 The Service which will serve your application should be assigned as the
 "webhead". In most cases, this will be a web server like Apache.
 
 Services can be given a custom name, but in most cases, the default will work fine. Whatever name is given to a Service is the network name that it can be accessed with. Every Preview is given its own set of these services in an isolated network.
 
-If you need a service that is not yet listed, you can always create your own by selecting one of the existing options, `ubuntu` probably being the best one to use, and customize it with a [Build Script](../../../build-script/index.md).
+If you need a service that is not yet listed, you can always create your own by selecting one of the existing options, `ubuntu` probably being the best one to use, and customize it with a [Build Script](/build-script/).
 
 We are also happy to work with you to create a service that may be useful to
 other customers.  Contact us at [support@tugboat.qa](mailto:support@tugboat.qa) for more information, or submit a pull request against [Lullabot/tugboat-registry](https://github.com/Lullabot/tugboat-registry).

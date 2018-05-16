@@ -34,9 +34,9 @@ or one of the targets does not exist.
 
 All Tugboat services also ship with a [Helper Makefile](helper-makefile/index.md) to simplify the execution of common tasks.
 
-Deployments *can* be done by using the `Makefile` natively, but chances are, you probably want to [call out to another script](examples/external-scripts/index.md) or build tool that does the heavy lifting. This is a very common pattern, as it lends well to cascading the different build types, and matching the behavior of deployments on your dev, stage, or production environments.
+Deployments *can* be done by using the `Makefile` natively, but chances are, you probably want to [call out to another script](/build-script/example-build-scripts/snippets/external-scripts/) or build tool that does the heavy lifting. This is a very common pattern, as it lends well to cascading the different build types, and matching the behavior of deployments on your dev, stage, or production environments.
 
-To learn more, read about the [Helper Makefile](helper-makefile/index.md) or check out [some example Makefiles](examples/index.md). You may also want to look at [examples for specific applications](../examples/index.md).
+To learn more, read about the [Helper Makefile](helper-makefile/index.md) or check out [some example Makefiles](/build-script/example-build-scripts/). You may also want to look at [examples for specific applications](/build-script/example-build-scripts/sample-projects/).
 
 To learn more about Make syntax:
  - http://makefiletutorial.com/

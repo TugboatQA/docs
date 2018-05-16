@@ -1,5 +1,3 @@
 # API
 
-The Tugboat API works over web sockets. Full documentation is [over here](https://api.tugboat.qa). 
-
-Question: Can anyone use the API?
+The Tugboat API works over web sockets. You will need an [access token](/features/access-tokens/) to work with the API. Full documentation is [over here](https://api.tugboat.qa). 

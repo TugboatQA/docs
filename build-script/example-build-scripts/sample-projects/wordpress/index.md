@@ -103,7 +103,7 @@ mv wp-cli.phar /usr/local/bin/wp
 Before you can import a database into a Tugboat Preview, it needs to be
 accessible somewhere on the Internet. There are several ways to do that, but for this example we are going to assume that a recent `mysqldump` file is available somewhere that can be accessed via SSH.
 
-First, visit your [Repository Settings](../../tugboat-dashboard/repositories/index.md), and copy the repository's public SSH key to the server hosting the `mysqldump` file. This should typically go in a file at `~/.ssh/authorized_keys` in the home directory of the user on the remote server that has access to the `mysqldump` file.
+First, visit your [Repository Settings](/tugboat-dashboard/repositories/), and copy the repository's public SSH key to the server hosting the `mysqldump` file. This should typically go in a file at `~/.ssh/authorized_keys` in the home directory of the user on the remote server that has access to the `mysqldump` file.
 
 ![Repository Public SSH Key](../_images/repo-public-key.png)
 
@@ -128,7 +128,7 @@ Just like the database, to import the `wp-content/uploads` folder, it needs to b
 number of different ways of doing that, but for this example we are going to
 assume we can `rsync` that directory from a server via SSH.
 
-Visit your [Repository Settings](../../tugboat-dashboard/repositories/index.md), and copy the repository's public SSH key to the server hosting the folder we are going to sync. This should typically go in a file at `~/.ssh/authorized_keys` in the home directory of the user on the remote server that has access to the folder.
+Visit your [Repository Settings](/tugboat-dashboard/repositories/), and copy the repository's public SSH key to the server hosting the folder we are going to sync. This should typically go in a file at `~/.ssh/authorized_keys` in the home directory of the user on the remote server that has access to the folder.
 
 ![Repository Public SSH Key](../_images/repo-public-key.png)
 

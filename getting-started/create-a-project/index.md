@@ -30,7 +30,7 @@ upgrade as needed when you start to run into the limits. Paid plans give you mor
 ![Tiers](_images/project-tier.png)
 
 After completing this form, you will be redirected to either the [Repository
-dashboard](../../tugboat-dashboard/repositories/index.md) page or the
+dashboard](/tugboat-dashboard/repositories/) page or the
 [Project dashboard](../../tugboat-dashboard/projects/index.md) page
 depending on whether you selected a repository. You can always more
 Repositories later from the Project Dashboard:

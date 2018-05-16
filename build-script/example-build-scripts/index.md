@@ -1,5 +1,7 @@
 # Example Build Scripts
 
+Be sure to check out [how to debug your build script](/troubleshooting/build-script-debug/) as you're working with these examples. 
+
 ## Snippets
 
 Sometimes it helps to see examples. Here are some that we have compiled
@@ -18,6 +20,7 @@ The following are guides to set up Tugboat for common stacks.
 
 * [Drupal 7](sample-projects/drupal7/index.md)
 * [Drupal 8](sample-projects/drupal8/index.md)
+* [Pantheon](sample-projects/pantheon/index.md)
 * [Generic LAMP](sample-projects/generic-lamp/index.md)
 * [Static HTML](sample-projects/static-html/index.md)
 * [WordPress](sample-projects/wordpress/index.md)

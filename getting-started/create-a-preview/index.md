@@ -34,10 +34,10 @@ Next, make sure that the service serving your web content selected as the
 
 ![Repository Services](_images/repo-services.png)
 
-Finally, a [Build Script](../../build-script/index.md) will likely be required to
+Finally, a [Build Script](/build-script/) will likely be required to
 put the finishing touches on letting Tugboat know how to access your site. Even simple static HTML sites will probably need this to point Tugboat at the right document root location.
 
-Check the [Build Script](../../build-script/index.md) documentation for more details, but a simple build script is a file named `Makefile` in the root of your git repository with the following content to link Tugboat to the right
+Check the [Build Script](/build-script/) documentation for more details, but a simple build script is a file named `Makefile` in the root of your git repository with the following content to link Tugboat to the right
 document root
 
 ```
@@ -45,4 +45,4 @@ tugboat-init:
     ln -sf ${TUGBOAT_ROOT}/public_html /var/www/html
 ```
 
-Check out our [Examples](../../examples/index.md) for more detailed information about specific types of sites and how to set them up with Tugboat.
+Check out our [Examples](/build-script/example-build-scripts/) for more detailed information about specific types of sites and how to set them up with Tugboat.

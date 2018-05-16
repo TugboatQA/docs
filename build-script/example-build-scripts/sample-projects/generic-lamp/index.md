@@ -12,7 +12,7 @@ Some options include:
 
 The PHP version provided by default in these containers can easily be
 upgraded/downgraded as needed for your application. See [Install PHP
-7.2](../../build-script/examples/install-php72/index.md) for an example of how to do that.
+7.2](/build-script/example-build-scripts/snippets/install-php72/) for an example of how to do that.
 
 In addition, a MySQL or MariaDB database service needs to be selected.
 
@@ -32,14 +32,14 @@ $connection = new PDO('mysql:dbname=mysite;host=mysql', 'tugboat', 'tugboat');
 
 ## Build Script
 
-A [build script](../../build-script/index.md) for a database-backed application often consists of two parts:
+A [build script](/build-script/) for a database-backed application often consists of two parts:
 
 * Pointing Tugboat to the correct document root
 * Importing a database
 
 Start by creating a file named `Makefile` in the root of your repository. More
 details about how this file works can be found in our [Build
-Script](../../build-script/index.md) documentation, but we'll touch on the parts you need to know here.
+Script](/build-script/) documentation, but we'll touch on the parts you need to know here.
 
 If there's one thing to remember about using a [Makefile](https://www.gnu.org/software/make/), is that you **MUST** use tabs
 for indents, not spaces.
@@ -70,12 +70,12 @@ tugboat-init:
 Before you can import a database into a Tugboat Preview, it needs to be
 accessible somewhere on the Internet. There are several ways to do that, but for this example we are going to assume that a recent `mysqldump` file is available somewhere that can be accessed via SSH.
 
-First, visit your [Repository Settings](../../tugboat-dashboard/repositories/index.md), and copy the repository's public SSH key to the server hosting the mysqldump file. This should typically go in a file at `~/.ssh/authorized_keys` in the home directory of the user on the remote server that has access to the `mysqldump` file.
+First, visit your [Repository Settings](/tugboat-dashboard/repositories/), and copy the repository's public SSH key to the server hosting the mysqldump file. This should typically go in a file at `~/.ssh/authorized_keys` in the home directory of the user on the remote server that has access to the `mysqldump` file.
 
 ![Repository Public SSH Key](../_images/repo-public-key.png)
 
 Make sure the MySQL client is installed. To do this, we can make use of the
-[helper Makefile](../../build-script/helper-makefile/index.md) in
+[helper Makefile](/build-script/helper-makefile/) in
 `/usr/share/tugboat`, so we're going to use that to install any packages we need.
 
 ```sh
