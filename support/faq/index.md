@@ -187,4 +187,4 @@ repositories into logical groups.
 
 ## How do I inject "secret" data into previews that I don't want to commit to my git repository?
 
-This can be accomplished by using [custom environment variables](../build-script/custom-environment-variables/index.md).
+This can be accomplished by using [custom environment variables](../../build-script/custom-environment-variables/index.md).
