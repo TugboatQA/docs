@@ -10,10 +10,11 @@ This section will walk you through setting up a new Tugboat project.
 
 ## Sample Projects
 
-The following are guides to set up Tugboat for some common stacks if you don't need the full setup guide. 
+The following are guides to set up Tugboat for some common stacks if you don't
+need the full setup guide.
 
-* [Drupal 7](/build-script/example-build-scripts/sample-projects/drupal7/)
-* [Drupal 8](/build-script/example-build-scripts/sample-projects/drupal8/index.md)
-* [Generic LAMP](/build-script/example-build-scripts/sample-projects/generic-lamp/index.md)
-* [Static HTML](/build-script/example-build-scripts/sample-projects/static-html/index.md)
-* [Wordpress](/build-script/example-build-scripts/sample-projects/wordpress/index.md)
+* [Drupal 7](../build-script/examples/applications/drupal7/index.md)
+* [Drupal 8](../build-script/examples/applications/drupal8/index.md)
+* [Generic LAMP](../build-script/examples/applications/generic-lamp/index.md)
+* [Static HTML](../build-script/examples/applications/static-html/index.md)
+* [Wordpress](../build-script/examples/applications/wordpress/index.md)
