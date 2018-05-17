@@ -35,7 +35,7 @@ preview will connect to. For an example see the
 
 No, direct SSH access to Previews is not possible. However, shell access is
 provided to running Previews via our web-based Tugboat SHell (TuSH) found on the
-[preview's dashboard](../dashboard/previews/index.md).
+[preview's dashboard](../tugboat-dashboard/previews/index.md).
 
 ---
 

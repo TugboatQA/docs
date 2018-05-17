@@ -12,14 +12,14 @@ read about [structuring Tugboat projects](structuring-projects/index.md).
 
 After choosing a name, select the repository that you want Tugboat to work with.
 If you choose to skip this step, repositories can be added later from the
-[Project dashboard](../../dashboard/projects/index.md).
+[Project dashboard](../../tugboat-dashboard/projects/index.md).
 
 ![Add a Repository](_images/project-add-repository.png)
 
 Tugboat needs to know which services your repository needs in order to run. We
 provide a handful of common sets of services as a quick starting point. These
 services can be modified later from the
-[Repository Settings](../../dashboard/repositories/settings/index.md).
+[Repository Settings](../../tugboat-dashboard/repositories/settings/index.md).
 
 ![Service templates](_images/project-templates.png)
 
@@ -31,10 +31,10 @@ more available disk space, CPU, and memory to generate Previews.
 ![Tiers](_images/project-tier.png)
 
 After completing this form, you will be redirected to either the
-[Repository dashboard](../../dashboard/repositories/index.md) page or the
-[Project dashboard](../../dashboard/projects/index.md) page depending on whether
-you selected a repository. You can always more Repositories later from the
-Project Dashboard:
+[Repository dashboard](../../tugboat-dashboard/repositories/index.md) page or
+the [Project dashboard](../../tugboat-dashboard/projects/index.md) page
+depending on whether you selected a repository. You can always more Repositories
+later from the Project Dashboard:
 
 ![Add a Repository from the Project
 dashboard](_images/project-dashboard-add-repository.png)

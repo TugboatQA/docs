@@ -53,14 +53,14 @@
   * [Debugging your Build Script](troubleshooting/build-script-debug/index.md)
   * [Common Issues w/ Previews](troubleshooting/debugging-previews/index.md)
 
-* [Tugboat Dashboard](dashboard/index.md)
+* [Tugboat Dashboard](tugboat-dashboard/index.md)
 
-  * [Projects](dashboard/projects/index.md)
-    * [Project Settings](dashboard/projects/settings/index.md)
-  * [Repositories](dashboard/repositories/index.md)
-    * [Repository Settings](dashboard/repositories/settings/index.md)
-  * [Previews](dashboard/previews/index.md)
-  * [User Profile](dashboard/profile/index.md)
+  * [Projects](tugboat-dashboard/projects/index.md)
+    * [Project Settings](tugboat-dashboard/projects/settings/index.md)
+  * [Repositories](tugboat-dashboard/repositories/index.md)
+    * [Repository Settings](tugboat-dashboard/repositories/settings/index.md)
+  * [Previews](tugboat-dashboard/previews/index.md)
+  * [User Profile](tugboat-dashboard/profile/index.md)
 
 * [Reference](reference/index.md)
   * [Prebuilt Services](reference/services/index.md)

@@ -43,7 +43,7 @@ To create a Base Preview, choose a Preview that you want to use. The selected
 Preview is typically built from the `master` branch, or whichever branch in your
 repo corresponds with what you release to production. You will find the `Manage
 Base Previews` link on your
-[Repository Dashboard](../../dashboard/repositories/index.md).
+[Repository Dashboard](../../tugboat-dashboard/repositories/index.md).
 
 ![Base Preview Selection](_images/base-preview-before.png)
 

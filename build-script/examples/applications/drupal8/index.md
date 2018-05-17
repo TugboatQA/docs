@@ -122,10 +122,11 @@ this example we are going to assume that a recent `mysqldump` file is available
 somewhere that can be accessed via SSH.
 
 First, visit your
-[Repository Settings](../../../../dashboard/repositories/index.md), and copy the
-repository's public SSH key to the server hosting the `mysqldump` file. This
-should typically go in a file at `~/.ssh/authorized_keys` in the home directory
-of the user on the remote server that has access to the `mysqldump` file.
+[Repository Settings](../../../../tugboat-dashboard/repositories/index.md), and
+copy the repository's public SSH key to the server hosting the `mysqldump` file.
+This should typically go in a file at `~/.ssh/authorized_keys` in the home
+directory of the user on the remote server that has access to the `mysqldump`
+file.
 
 ![Repository Public SSH Key](../_images/repo-public-key.png)
 
@@ -151,11 +152,12 @@ accessible over the public Internet. Again, there are many different ways of
 doing that, but for this example we are going to assume we can `rsync` that
 directory from a server via SSH.
 
-Visit your [Repository Settings](../../../../dashboard/repositories/index.md),
-and copy the repository's public SSH key to the server hosting the directory we
-are going to sync. This should typically go in a file at
-`~/.ssh/authorized_keys` in the home directory of the user on the remote server
-that has access to the directory.
+Visit your
+[Repository Settings](../../../../tugboat-dashboard/repositories/index.md), and
+copy the repository's public SSH key to the server hosting the directory we are
+going to sync. This should typically go in a file at `~/.ssh/authorized_keys` in
+the home directory of the user on the remote server that has access to the
+directory.
 
 ![Repository Public SSH Key](../_images/repo-public-key.png)
 

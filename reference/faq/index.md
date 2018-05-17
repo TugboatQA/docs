@@ -53,7 +53,7 @@ running.
 
 No, direct SSH access to Previews is not possible. However shell access is
 provided to running Previews via our web based Tugboat SHell (TuSH) found on the
-[Preview's dashboard](../../dashboard/previews/index.md).
+[Preview's dashboard](../../tugboat-dashboard/previews/index.md).
 
 ## Do you provide production level hosting?
 

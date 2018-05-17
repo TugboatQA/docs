@@ -44,8 +44,8 @@ the build script). It doesn't necessarily ensure that your build script is
 correct. For example your build script might set up a database but not provide
 the correct password to some application config file. In this case the Preview
 would build successfully but the application might not load. You can use the
-[preview dashboard](../../dashboard/previews/index.md) to view application/web
-server logs and diagnose any issues.
+[preview dashboard](../../tugboat-dashboard/previews/index.md) to view
+application/web server logs and diagnose any issues.
 
 ### Previews are not building automatically
 

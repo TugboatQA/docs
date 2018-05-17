@@ -4,7 +4,7 @@ After creating a project and adding a repository, you are ready to start
 building previews. A preview can be created from any Branch, Tag, or Pull
 Request in the git repository. A good place to start is usually to build the
 `master` branch, or create a new branch for testing. From the
-[Repository Dashboard](../../dashboard/repositories/index.md), click the
+[Repository Dashboard](../../tugboat-dashboard/repositories/index.md), click the
 _Branches_ tab, then click the _Build Preview_ button next to the branch you
 want to build.
 
@@ -28,10 +28,10 @@ provides more information, but the two most common causes for this are:
 * Tugboat is unable to find your content (docroot)
 
 First, check the
-[Repository Settings](../../dashboard/repositories/settings/index.md) and verify
-that at least one service is configured. A simple static site probably only
-needs a simple web server like Apache or Nginx, but more advanced sites will
-likely require additional services like MySQL, Redis, or CouchDB.
+[Repository Settings](../../tugboat-dashboard/repositories/settings/index.md)
+and verify that at least one service is configured. A simple static site
+probably only needs a simple web server like Apache or Nginx, but more advanced
+sites will likely require additional services like MySQL, Redis, or CouchDB.
 
 Next, make sure that the service serving your web content selected as the
 "Webhead". This will usually be Apache or Nginx, but can be any service as long
