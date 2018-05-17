@@ -69,7 +69,7 @@ We are adding new services all the time, feel free to
 to see supported. For more advanced users it is possible to install any service
 you might require in the same container as your application this would require
 installing and configuring it yourself however. See
-[examples](../../build-script/examples/index.md) in the build script
+[examples](../../examples/index.md) in the build script
 documentation.
 
 ## Which Linux distributions does Tugboat support?

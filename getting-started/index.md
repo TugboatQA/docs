@@ -13,8 +13,8 @@ This section will walk you through setting up a new Tugboat project.
 The following are guides to set up Tugboat for some common stacks if you don't
 need the full setup guide.
 
-* [Drupal 7](../build-script/examples/applications/drupal7/index.md)
-* [Drupal 8](../build-script/examples/applications/drupal8/index.md)
-* [Generic LAMP](../build-script/examples/applications/generic-lamp/index.md)
-* [Static HTML](../build-script/examples/applications/static-html/index.md)
-* [Wordpress](../build-script/examples/applications/wordpress/index.md)
+* [Drupal 7](../examples/applications/drupal7/index.md)
+* [Drupal 8](../examples/applications/drupal8/index.md)
+* [Generic LAMP](../examples/applications/generic-lamp/index.md)
+* [Static HTML](../examples/applications/static-html/index.md)
+* [Wordpress](../examples/applications/wordpress/index.md)

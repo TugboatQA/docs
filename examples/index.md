@@ -1,7 +1,7 @@
 # Example Build Scripts
 
 Be sure to check out
-[how to debug your build script](../../troubleshooting/build-script-debug/index.md)
+[how to debug your build script](../troubleshooting/build-script-debug/index.md)
 as you're working with these examples.
 
 ## By Feature

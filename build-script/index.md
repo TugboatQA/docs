@@ -56,15 +56,15 @@ tasks.
 
 Deployments _can_ be done by using the `Makefile` natively, but chances are, you
 probably want to
-[call out to another script](examples/features/external-scripts/index.md) or
+[call out to another script](../examples/features/external-scripts/index.md) or
 build tool that does the heavy lifting. This is a very common pattern, as it
 lends well to cascading the different build types, and matching the behavior of
 deployments on your dev, stage, or production environments.
 
 To learn more, read about the [Helper Makefile](helper-makefile/index.md) or
-check out [some example Makefiles](examples/index.md). You may also want to look
-at examples for specific [applications](examples/applications/index.md) or
-[services](examples/services/index.md).
+check out [some example Makefiles](../examples/index.md). You may also want to look
+at examples for specific [applications](../examples/applications/index.md) or
+[services](../examples/services/index.md).
 
 To learn more about Make syntax:
 

@@ -29,7 +29,7 @@ visible in the repository settings. This key can be added to the remote server
 allowing your Tugboat build script to log in without a password and run whatever
 command may be necessary to dump/import your data into the database server your
 preview will connect to. For an example see the
-[MySQL import example](../build-script/examples/features/import-mysql-database/index.md).
+[MySQL import example](../examples/features/import-mysql-database/index.md).
 
 ## Can I have SSH access?
 

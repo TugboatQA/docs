@@ -107,7 +107,7 @@ going to need a few packages that are not installed by default, such as `rsync`
 and `mysql-client`. We are also going to install a specific version of Drush.
 
 Tugboat services ship with a
-[helper Makefile](../../../helper-makefile/index.md) in `/usr/share/tugboat`, so
+[helper Makefile](../../../build-script/helper-makefile/index.md) in `/usr/share/tugboat`, so
 we're going to use that to install packages we need.
 
 Add the following to the `tugboat-init` section of your build script. Add any
@@ -125,7 +125,7 @@ this example we are going to assume that a recent `mysqldump` file is available
 somewhere that can be accessed via SSH.
 
 First, visit your
-[Repository Settings](../../../../tugboat-dashboard/repositories/index.md), and
+[Repository Settings](../../../tugboat-dashboard/repositories/index.md), and
 copy the repository's public SSH key to the server hosting the `mysqldump` file.
 This should typically go in a file at `~/.ssh/authorized_keys` in the home
 directory of the user on the remote server that has access to the `mysqldump`
@@ -156,7 +156,7 @@ different ways of doing that, but for this example we are going to assume we can
 `rsync` that directory from a server via SSH.
 
 Visit your
-[Repository Settings](../../../../tugboat-dashboard/repositories/index.md), and
+[Repository Settings](../../../tugboat-dashboard/repositories/index.md), and
 copy the repository's public SSH key to the server hosting the directory we are
 going to sync. This should typically go in a file at `~/.ssh/authorized_keys` in
 the home directory of the user on the remote server that has access to the

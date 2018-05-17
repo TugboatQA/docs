@@ -38,7 +38,7 @@ $connection = new PDO('mysql:dbname=mysite;host=mysql', 'tugboat', 'tugboat');
 
 ## Build Script
 
-A [build script](../../../../build-script/index.md) for a database-backed
+A [build script](../../../build-script/index.md) for a database-backed
 application often consists of two parts:
 
 * Pointing Tugboat to the correct document root
@@ -46,7 +46,7 @@ application often consists of two parts:
 
 Start by creating a file named `Makefile` in the root of your repository. More
 details about how this file works can be found in our
-[Build Script](../../../../build-script/index.md) documentation, but we'll touch
+[Build Script](../../../build-script/index.md) documentation, but we'll touch
 on the parts you need to know here.
 
 If there's one thing to remember about using a
@@ -83,7 +83,7 @@ this example we are going to assume that a recent `mysqldump` file is available
 somewhere that can be accessed via SSH.
 
 First, visit your
-[Repository Settings](../../../../tugboat-dashboard/repositories/index.md), and
+[Repository Settings](../../../tugboat-dashboard/repositories/index.md), and
 copy the repository's public SSH key to the server hosting the mysqldump file.
 This should typically go in a file at `~/.ssh/authorized_keys` in the home
 directory of the user on the remote server that has access to the `mysqldump`
@@ -92,7 +92,7 @@ file.
 ![Repository Public SSH Key](../_images/repo-public-key.png)
 
 Make sure the MySQL client is installed. To do this, we can make use of the
-[helper Makefile](../../../../build-script/helper-makefile/index.md) in
+[helper Makefile](../../../build-script/helper-makefile/index.md) in
 `/usr/share/tugboat`, so we're going to use that to install any packages we
 need.
 

@@ -15,7 +15,7 @@ to read the [full Makefile](../full-makefile/index.md).
 ## Create a `Makefile` build script in your repository
 
 Once you have the above, you are ready to add a
-[build script](../../../../index.md) to your Pantheon repository. From within
+[build script](../../../../build-script/index.md) to your Pantheon repository. From within
 the root directory of your repository, create a new file named `Makefile`.
 
 ## Declare some variables
@@ -62,7 +62,7 @@ DRUPAL_SITE := default
 Tugboat also needs to know where the Drupal root is, relative to the repository
 root. Often on Pantheon this is equivalent to the root of the repository, but it
 also could be `/web` or `/docroot`. We will use the `${TUGBOAT_ROOT}`
-[environment variable](../../../../environment-variables/index.md) to denote the
+[environment variable](../../../../build-script/environment-variables/index.md) to denote the
 root of the repository. For example, if `/web` is where Drupal is installed, set
 `DRUPAL_ROOT` equal to `${TUGBOAT_ROOT}/web`. In this example, the Drupal root
 is also the repository root:
@@ -207,7 +207,7 @@ These are some variables used above that you shouldn't need to modify.
 
 We finally have everything in place to connect our build script to Tugboat. If
 you haven't yet, you should read through the
-[documentation on the Tugboat targets](../../../../index.md#makefile),
+[documentation on the Tugboat targets](../../../../build-script/index.md#makefile),
 `tugboat-init`, `tugboat-update`, and `tugboat-build`. You'll notice, all we're
 doing in each of these targets is referencing all the work you did above. In
 addition, each target builds on the previous, i.e `tugboat-init` calls

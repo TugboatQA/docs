@@ -54,5 +54,5 @@ tugboat-init:
     ln -sf ${TUGBOAT_ROOT}/public_html /var/www/html
 ```
 
-Check out our [Examples](../../build-script/examples/index.md) for more detailed
+Check out our [Examples](../../examples/index.md) for more detailed
 information about specific types of sites and how to set them up with Tugboat.

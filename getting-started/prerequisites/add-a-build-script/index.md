@@ -9,7 +9,7 @@ root of your Git Repository.
 
 From here you can either read our
 [documentation](../../../build-script/index.md) for Tugboat Build Scripts, or
-use a [template](../../../build-script/examples/index.md) for one of our
+use a [template](../../../examples/index.md) for one of our
 supported stacks.
 
 After you [create an account](../../create-a-tugboat-account/index.md) on

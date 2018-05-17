@@ -28,11 +28,11 @@ yourself.
 ## 1. Create a Tugboat project
 
 To start with,
-[create a new Tugboat project](../../../../getting-started/create-a-project/index.md).
+[create a new Tugboat project](../../../getting-started/create-a-project/index.md).
 If you already have a project,
-[add your repository](../../../../tugboat-dashboard/repositories/index.md) to it
+[add your repository](../../../tugboat-dashboard/repositories/index.md) to it
 and then navigate to the
-[repository settings](../../../../tugboat-dashboard/repositories/settings/index.md)
+[repository settings](../../../tugboat-dashboard/repositories/settings/index.md)
 to [add your services](add-services/index.md).
 
 #### Next: [Add your services](add-services/index.md)

@@ -75,7 +75,7 @@ button.
 Now that we have our Pantheon machine token, and our new user is a member of our
 Pantheon project, we need to store the machine token securely within Tugboat. To
 do this, we will use Tugboat's
-[custom environment variables](../../../../custom-environment-variables/index.md).
+[custom environment variables](../../../../build-script/custom-environment-variables/index.md).
 Navigate to your Tugboat Repository's Settings page in the Repository
 Configuration section on the Services tab. Then add a new environment variable
 called `PANTHEON_MACHINE_TOKEN`, setting it to the value of the token that
