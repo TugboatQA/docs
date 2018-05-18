@@ -1,0 +1,18 @@
+services:
+  apache:
+    default: true
+    commands:
+      init:
+        - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+        - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+        - make -C /usr/share/tugboat install-nodejs-8
+        - apt-get install yarn
+        - yarn install
+        - yarn build
+        - ln -sf ${TUGBOAT_ROOT}/_book /var/www/html
+      build:
+        - yarn install
+        - yarn build
+      update:
+        - yarn install
+        - yarn build
