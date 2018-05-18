@@ -9,6 +9,7 @@ services:
         - apt-get install yarn
         - yarn install
         - yarn build
+        - ln -sf ${TUGBOAT_ROOT}/_book /var/www/html
       build:
         - yarn install
         - yarn build
