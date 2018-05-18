@@ -1,0 +1,24 @@
+{
+  "name": "tugboat-docs",
+  "author": {
+    "name": "Lullaot",
+    "email": "tugboat@lullabot.com"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "build": "gitbook install --gitbook=3.2.3 && gitbook build --gitbook=3.2.3",
+    "lint": "prettier --list-different **/*.md",
+    "test": "blcl -re ./_book",
+    "serve": "gitbook serve"
+  },
+  "dependencies": {
+    "gitbook-cli": "^2.3.2",
+    "highlight.js": "^9.12.0",
+    "html-escape": "^2.0.0"
+  },
+  "devDependencies": {
+    "broken-link-checker-local": "^0.2.0",
+    "chokidar-cli": "^1.2.0",
+    "prettier": "^1.12.1"
+  }
+}
