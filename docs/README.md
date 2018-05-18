@@ -14,6 +14,7 @@ If you're having trouble with Tugboat, please take a look at our
 
 There is always room for improvement, and we are happy to accept your input. If
 you find any typos, or inconsistencies to this documentation, or just want to
-help make it better, let us know! Email us at [support@tugboat.qa](mailto:support@tugboat.qa)
-or [open an issue](https://github.com/TugboatQA/docs/issues/new) on our GitHub
+help make it better, let us know! Email us at
+[support@tugboat.qa](mailto:support@tugboat.qa) or
+[open an issue](https://github.com/TugboatQA/docs/issues/new) on our GitHub
 repository.

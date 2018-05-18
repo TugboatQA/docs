@@ -14,8 +14,8 @@ repositories in the same project, visit that project's dashboard.
 Repositories are added from a Project's dashboard. Any number of repositories
 can be added to a project. A list of repositories available to you from your
 authenticated git provider accounts is provided to select from. Additional
-provider accounts can be linked to your tugboat account from your [user
-profile](../profile).
+provider accounts can be linked to your tugboat account from your
+[user profile](../profile/index.md).
 
 ![Add a Repository](_images/add-a-repository.png)
 
@@ -36,7 +36,7 @@ what the preview was built from.
 ### Base Previews
 
 If your project subscription allows access to Base Previews, this is where they
-are managed. The primary benefits to using a Base Preview include:
+are managed. The primary benefits of using a Base Preview include:
 
 * **Faster Build Times** - A Base Preview provides future previews a starting
   point, so they do not need to build or import everything every time.
@@ -44,15 +44,16 @@ are managed. The primary benefits to using a Base Preview include:
   use the amount of disk space equal to what changed between it and its Base
   Preview.
 
-See [Base Previews](/base-previews/index.md) for more details.
+See [Base Previews](../../getting-started/create-a-base-preview/index.md) for
+more details.
 
 ![Base Preview After](_images/base-preview-after.png)
 
 ### Previews Available to Build
 
-Tugboat can build previews from any branch, tag, or pull request in your git
-repository. This section is where you can find all of the previews that Tugboat
-can build for you. Once built, an available preview in this list moves up to the
+Tugboat can build Previews from any branch, tag, or pull request in your git
+repository. This section is where you can find all of the Previews that Tugboat
+can build for you. Once built, an available Preview in this list moves up to the
 Latest Previews section.
 
 ![Available To Build](_images/available-to-build.png)
@@ -60,8 +61,7 @@ Latest Previews section.
 ## Repository Settings
 
 [Repository Settings](settings/index.md) can be accessed from either the
-Repository Dashboard, or from the Project Dashboard where the repository
-resides.
+Repository Dashboard or from the Project Dashboard where the repository resides.
 
 ![Repository Dashboard Title](_images/repo-settings-link.png)
 

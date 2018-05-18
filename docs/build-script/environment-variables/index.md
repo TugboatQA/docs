@@ -2,11 +2,12 @@
 
 Tugboat injects the following environment variables into every container, which
 you can use for anything from build scripts to application configuration, etc.
-These variables are available for the entire lifetime of a Preview's containers.
-This includes both build-time as well as run-time. So, they can be used in build
-scripts as well as run-time configuration files, etc.
+These variables are available for the entire lifetime of a Preview's container.
+This includes both build-time as well as run-time. So, they can be used in Build
+Scripts as well as run-time configuration files, etc.
 
-* **`$TUGBOAT_DASHBOARD`** - The domain where the Tugboat Dashboard can be found.
+* **`$TUGBOAT_DASHBOARD`** - The domain where the Tugboat Dashboard can be
+  found.
 
 * **`$TUGBOAT_DOMAIN`** - The root domain of the current Tugboat Preview
 
@@ -22,10 +23,11 @@ scripts as well as run-time configuration files, etc.
 * **`$TUGBOAT_PROJECT`** - The friendly name of the project that the current
   preview belongs to.
 
-* **`$TUGBOAT_PROXY_URL`** - One of `subdomain` or `subpath`. This specifies what
-  the URL looks like for the current preview.
+* **`$TUGBOAT_PROXY_URL`** - One of `subdomain` or `subpath`. This specifies
+  what the URL looks like for the current preview.
 
-* **`$TUGBOAT_REPO_ID`** - The ID of the repo that the current preview belongs to.
+* **`$TUGBOAT_REPO_ID`** - The ID of the repo that the current preview belongs
+  to.
 
 * **`$TUGBOAT_REPO`** - The friendly name of the repo that the current preview
   belongs to.
@@ -35,16 +37,17 @@ scripts as well as run-time configuration files, etc.
 
 * **`$TUGBOAT_SERVICE_ID`** - The ID of the current service.
 
-* **`$TUGBOAT_SERVICE`** - The friendly name of the current service. This is also
-  the host name used to reference this service container from other services.
+* **`$TUGBOAT_SERVICE`** - The friendly name of the current service. This is
+  also the hostname used to reference this service container from other
+  services.
 
-* **`$TUGBOAT_SMTP`** - The host name of a Tugboat SMTP server that can be used
+* **`$TUGBOAT_SMTP`** - The hostname of a Tugboat SMTP server that can be used
   to capture outbound email from the preview.
 
 * **`$TUGBOAT_TAG`** - DEPRECATED. Use `$TUGBOAT_PREVIEW` instead.
 
 * **`$TUGBOAT_TOKEN`** - The authentication token for the current Tugboat
-  Preview.  This is used by the Tugboat HTTP proxy to grant access to a preview,
+  Preview. This is used by the Tugboat HTTP proxy to grant access to a Preview
   and is passed through mostly as an informational value. Additional
   verification could be done in the application if necessary.
 
@@ -52,17 +55,17 @@ scripts as well as run-time configuration files, etc.
 
 ## Base Preview Environment Variables
 
-If a preview was built from a base preview, the following variables are also
+If a Preview was built from a Base Preview, the following variables are also
 available with information about the base preview.
 
-* **`TUGBOAT_BASE_PREVIEW`** - The friendly name of the base preview.
+* **`TUGBOAT_BASE_PREVIEW`** - The friendly name of the Base Preview.
 
-* **`TUGBOAT_BASE_PREVIEW_ID`** - The ID of the base preview.
+* **`TUGBOAT_BASE_PREVIEW_ID`** - The ID of the Base Preview.
 
-* **`TUGBOAT_BASE_PREVIEW_TOKEN`** - The authentication token for the base
-  preview.
+* **`TUGBOAT_BASE_PREVIEW_TOKEN`** - The authentication token for the Base
+  Preview.
 
-* **`TUGBOAT_BASE_PREVIEW_URL`** - The public URL for the base preview.
+* **`TUGBOAT_BASE_PREVIEW_URL`** - The public URL for the Base Preview.
 
 ## Provider-specific Environment Variables
 
@@ -74,7 +77,8 @@ Bitbucket repository.
 * **`$TUGBOAT_BITBUCKET_OWNER`** - The owner of the Bitbucket repository.
 
 * **`$TUGBOAT_BITBUCKET_SLUG`** - The URL-friendly name of the Bitbucket
-  repository. See https://confluence.atlassian.com/bitbucket/what-is-a-slug-224395839.html
+  repository. See
+  https://confluence.atlassian.com/bitbucket/what-is-a-slug-224395839.html
 
 These variables are only injected into Tugboat Previews that are built from a
 Bitbucket pull request.
@@ -88,8 +92,8 @@ Bitbucket pull request.
 
 ### Git
 
-These variables are injected into Tugboat Previews that are built from a raw
-git repository.
+These variables are injected into Tugboat Previews that are built from a raw git
+repository.
 
 * **`$TUGBOAT_GIT_REPO`** - The address of the git repository.
 
@@ -131,8 +135,8 @@ Gitlab merge request.
 
 ### Stash / Bitbucket Server
 
-These variables are injected into a Tugboat Previews that are built from a
-Stash or Bitbucket Server repository.
+These variables are injected into a Tugboat Previews that are built from a Stash
+or Bitbucket Server repository.
 
 * **`$TUGBOAT_STASH_PROJECT`** - The project where the repository lives.
 
@@ -148,4 +152,3 @@ Stash or Bitbucket Server pull request.
 
 * **`$TUGBOAT_STASH_DESTINATION`** - The name of the pull request destination
   branch.
-
