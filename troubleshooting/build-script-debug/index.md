@@ -3,7 +3,7 @@
 In this section we'll walk through the basic steps of debugging your Build
 Script.
 
-> #### Warning::Error: Makefile:x: \**\* missing separator. Stop.
+> #### Warning::Error: Makefile:x: \*\*\* missing separator. Stop.
 >
 > If you see an error like this in your Activity Log, you probably have **spaces
 > instead of tabs** in your `Makefile`. Replace the indentation spaces with tabs
@@ -46,7 +46,6 @@ up and running is as follows:
 
 ## Tips
 
-* You can run the Makefile from within the terminal window by calling `make
-  tugboat-init` or `make tugboat-build` for instance.
+* You can run the Makefile from within the terminal window by calling `make tugboat-init` or `make tugboat-build` for instance.
 * If there is an error on a given line, copy that command, launch terminal,
   paste it in and run it to get the exact output.

@@ -31,7 +31,7 @@ rebuild this Preview. If the error message appears to be Tugboat's fault, try
 deleting the Preview and building it again. If the problem persists,
 [contact support](https://tugboat.qa/support).
 
-### Error: Makefile:x: \**\* missing separator. Stop.
+### Error: Makefile:x: \*\*\* missing separator. Stop.
 
 If you see an error like this in your Activity Log, you probably have spaces
 instead of tabs in your Makefile. Replace the indentation spaces with tabs and

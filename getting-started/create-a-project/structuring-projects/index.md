@@ -9,10 +9,10 @@ build previews for and is tied to a subscription model (free or premium).
 Additionally, you can invite users to join a project. It can be helpful to think
 about how to break up your projects based on these three questions:
 
-1. What repositories are a part of this project? (Often this is just one)
-2. Who will access the Tugboat dashboard for those repositories?
-3. What subscription model will the project need? What sort of Tugboat resources
-   (memory and disk space) do I expect this project to use?
+1.  What repositories are a part of this project? (Often this is just one)
+2.  Who will access the Tugboat dashboard for those repositories?
+3.  What subscription model will the project need? What sort of Tugboat resources
+    (memory and disk space) do I expect this project to use?
 
 Based on these answers, you may realize that you want to break things up into
 more projects, or combine several repositories into a single project.
