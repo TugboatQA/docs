@@ -7,13 +7,13 @@ webhead with a MySQL database service.
 Prior to selecting services, you should determine what version of PHP your
 Pantheon site is using. To determine this value:
 
-1. Log into the [Pantheon Dashboard](https://dashboard.pantheon.io)
-1. Navigate to the project you are trying to connect with Pantheon
-1. Click the Settings gear in the upper right
-   ![Click on Settings in Pantheon Dashboard](_images/pantheon-settings.png)
-1. Once in Settings, you should see a PHP Version tab to the far right. After
-   clicking that, you should see the PHP Version.
-   ![Click on PHP Version in Pantheon Settings](_images/pantheon-php-settings.png)
+1.  Log into the [Pantheon Dashboard](https://dashboard.pantheon.io)
+1.  Navigate to the project you are trying to connect with Pantheon
+1.  Click the Settings gear in the upper right
+    ![Click on Settings in Pantheon Dashboard](_images/pantheon-settings.png)
+1.  Once in Settings, you should see a PHP Version tab to the far right. After
+    clicking that, you should see the PHP Version.
+    ![Click on PHP Version in Pantheon Settings](_images/pantheon-php-settings.png)
 
 > #### Warning::Terminus for PHP version
 >

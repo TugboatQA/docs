@@ -16,10 +16,10 @@ the concepts should apply for any Pantheon hosted PHP site. Check out the
 
 An overview of the steps you will need to perform:
 
-1. Create a Tugboat project (instructions below).
-2. [Choose appropriate Tugboat services](add-services/index.md).
-3. [Create a Pantheon terminus token and add it to Tugboat](configure-terminus/index.md).
-4. [Add a Makefile build script](add-build-script/index.md) to your project.
+1.  Create a Tugboat project (instructions below).
+2.  [Choose appropriate Tugboat services](add-services/index.md).
+3.  [Create a Pantheon terminus token and add it to Tugboat](configure-terminus/index.md).
+4.  [Add a Makefile build script](add-build-script/index.md) to your project.
 
 If you're feeling confident that you don't need to go step by step, you can
 download the [full Pantheon Makefile](full-makefile/index.md) and tweak it
