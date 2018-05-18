@@ -19,7 +19,8 @@
   * [Custom Environment Variables](build-script/custom-environment-variables/index.md)
   * [Helper Makefile](build-script/helper-makefile/index.md)
 
-* [Build Script Examples](examples/index.md)
+* [Examples](examples/index.md)
+
   * [By Feature](examples/features/index.md)
     * [Import a MySQL Database](examples/features/import-mysql-database/index.md)
     * [Install PHP 7.2](examples/features/install-php72/index.md)

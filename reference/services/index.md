@@ -13,8 +13,7 @@ images, see our
 > For more advanced users it is possible to install any service you might
 > require in the same container as your application this would require
 > installing and configuring it yourself however. See
-> [examples](../../examples/index.md) in the build script
-> documentation.
+> [examples](../../examples/index.md) in the build script documentation.
 
 We use Ubuntu for our base images, so all software is usually the latest
 installable version found within Ubuntu package repository.

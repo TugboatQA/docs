@@ -46,8 +46,8 @@ application often consists of two parts:
 
 Start by creating a file named `Makefile` in the root of your repository. More
 details about how this file works can be found in our
-[Build Script](../../../build-script/index.md) documentation, but we'll touch
-on the parts you need to know here.
+[Build Script](../../../build-script/index.md) documentation, but we'll touch on
+the parts you need to know here.
 
 If there's one thing to remember about using a
 [Makefile](https://www.gnu.org/software/make/), is that you **MUST** use tabs

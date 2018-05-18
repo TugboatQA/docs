@@ -103,8 +103,9 @@ In addition, we are going to install
 [drush-launcher](https://github.com/drush-ops/drush-launcher).
 
 Tugboat services ship with a
-[helper Makefile](../../../build-script/helper-makefile/index.md) in `/usr/share/tugboat`, so
-we're going to use that to install some packages we need.
+[helper Makefile](../../../build-script/helper-makefile/index.md) in
+`/usr/share/tugboat`, so we're going to use that to install some packages we
+need.
 
 Add the following to the `tugboat-init` section of the build script. Add any
 other packages here that you might need while you are at it.

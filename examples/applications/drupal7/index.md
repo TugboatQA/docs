@@ -107,8 +107,8 @@ going to need a few packages that are not installed by default, such as `rsync`
 and `mysql-client`. We are also going to install a specific version of Drush.
 
 Tugboat services ship with a
-[helper Makefile](../../../build-script/helper-makefile/index.md) in `/usr/share/tugboat`, so
-we're going to use that to install packages we need.
+[helper Makefile](../../../build-script/helper-makefile/index.md) in
+`/usr/share/tugboat`, so we're going to use that to install packages we need.
 
 Add the following to the `tugboat-init` section of your build script. Add any
 other packages here that you might need while you are at it.
