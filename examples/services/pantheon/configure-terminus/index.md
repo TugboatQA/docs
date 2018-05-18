@@ -20,11 +20,11 @@ Pantheon solely for Tugboat to use. You can then give this user access to just
 the one Pantheon project it needs, and safely share the machine token for that
 user with Tugboat.
 
-1. If you're logged in to your personal account on Pantheon,
-   [log out](https://dashboard.pantheon.io/logout).
-2. [Register a new account](https://dashboard.pantheon.io/register) on Pantheon.
-3. Specify a unique email address, ideally using an email alias.
-4. Name your user something recognizeable, like _Tugboat User_.
+1.  If you're logged in to your personal account on Pantheon,
+    [log out](https://dashboard.pantheon.io/logout).
+2.  [Register a new account](https://dashboard.pantheon.io/register) on Pantheon.
+3.  Specify a unique email address, ideally using an email alias.
+4.  Name your user something recognizeable, like _Tugboat User_.
 
 ![New account registration screenshot](_images/pantheon-register.png)
 
@@ -81,11 +81,11 @@ Configuration section on the Services tab. Then add a new environment variable
 called `PANTHEON_MACHINE_TOKEN`, setting it to the value of the token that
 Pantheon provided earlier.
 
-1. Click _Services_ on the Repository Settings page
-2. Enter the environment variable as
-   `PANTHEON_MACHINE_TOKEN=ABCDEF123456ABCDEF123456`
-3. Click _Add_
-4. Click _Save Configuration_
+1.  Click _Services_ on the Repository Settings page
+2.  Enter the environment variable as
+    `PANTHEON_MACHINE_TOKEN=ABCDEF123456ABCDEF123456`
+3.  Click _Add_
+4.  Click _Save Configuration_
 
 ![Screenshot of Services tab on Repository Settings page](_images/add-environment-variable.png)
 

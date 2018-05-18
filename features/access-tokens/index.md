@@ -9,10 +9,10 @@ Tugboat account, then copy and paste it to the terminal window or script.
 
 Create an API token from your Tugboat account:
 
-1. Log in to https://dashboard2.tugboat.qa/access-tokens.
-2. Click on **Generate New Token** to create a new token.
-3. Before you close the creation dialog window, copy the token to your
-   clipboard.
+1.  Log in to https://dashboard2.tugboat.qa/access-tokens.
+2.  Click on **Generate New Token** to create a new token.
+3.  Before you close the creation dialog window, copy the token to your
+    clipboard.
 
 ![Access Tokens](_images/access-tokens.png)
 

@@ -2,12 +2,12 @@
 
 At this point, you should have the following:
 
-1. A Tugboat project with two Tugboat services (an Apache webhead service and a
-   MySQL or MariaDB service)
-2. The PHP version that your Pantheon site is using. (We'll do minor version
-   upgrades later)
-3. A Pantheon user that Tugboat can use, and associated machine token exposed as
-   a `PANTHEON_MACHINE_TOKEN` environment variable in Tugboat.
+1.  A Tugboat project with two Tugboat services (an Apache webhead service and a
+    MySQL or MariaDB service)
+2.  The PHP version that your Pantheon site is using. (We'll do minor version
+    upgrades later)
+3.  A Pantheon user that Tugboat can use, and associated machine token exposed as
+    a `PANTHEON_MACHINE_TOKEN` environment variable in Tugboat.
 
 If you're familiar with creating build scripts for Tugboat, you can skip ahead
 to read the [full Makefile](../full-makefile/index.md).
@@ -27,8 +27,7 @@ use in the build script:
 First, you'll need to specify the machine name of the Pantheon site you are
 working with. For example, if your Pantheon site is named _Mister Rogers Fan
 Club_, the machine name would be `mister-rogers-fan-club`. If you are unsure,
-you can use terminus to list out all your Pantheon sites by running `terminus
-site:list --fields=id,name`. Once you determine the Pantheon site name, you
+you can use terminus to list out all your Pantheon sites by running `terminus site:list --fields=id,name`. Once you determine the Pantheon site name, you
 should set this value in your Makefile to the `PANTHEON_SOURCE_SITE` variable.
 
 ```bash
