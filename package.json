@@ -6,10 +6,11 @@
   },
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
-    "build": "gitbook install --gitbook=3.2.3 && gitbook build --gitbook=3.2.3",
+    "install": "gitbook install --gitbook=3.2.3",
+    "build": "gitbook build --gitbook=3.2.3",
     "lint": "prettier --list-different **/*.md",
     "test": "blcl -re ./_book",
-    "serve": "gitbook serve"
+    "serve": "gitbook serve --gitbook=3.2.3"
   },
   "dependencies": {
     "gitbook-cli": "^2.3.2",
