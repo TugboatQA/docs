@@ -44,7 +44,7 @@ Once you've added it, you can use these targets:
   their dependencies.
 
 For more targets and info see the comments in the
-[Makefile source](https://github.com/Lullabot/tugboat-registry/blob/master/baseimage/Makefile).
+[Makefile source](https://github.com/Lullabot/tugboat-registry/blob/master/baseimage/share/Makefile).
 
 For example:
 
