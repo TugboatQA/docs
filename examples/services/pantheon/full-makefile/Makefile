@@ -11,7 +11,7 @@ PANTHEON_SOURCE_ENVIRONMENT := live
 # Pantheon sites, go to the dashboard of your site, click 'Settings', then click
 # 'PHP Version'.
 PHP_VERSION := 7.2
-# Specify the Drupal site, which corellates to the name of the directory in
+# Specify the Drupal site, which correlates to the name of the directory in
 # your Drupal /sites directory. This is typically just default unless you are
 # using Drupal multisite.
 DRUPAL_SITE := default
