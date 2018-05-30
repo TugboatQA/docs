@@ -3,7 +3,7 @@
 # Please modify the following environment variables to match your project.
 # Specify the desired version of PHP in major.minor format, e.g. 7.1.
 PHP_VERSION := 7.2
-# Specify the Drupal site, which corellates to the name of the directory in
+# Specify the Drupal site, which correlates to the name of the directory in
 # your Drupal /sites directory. This is typically just default unless you are
 # using Drupal multisite.
 DRUPAL_SITE := default
