@@ -5,11 +5,12 @@
     "email": "tugboat@lullabot.com"
   },
   "license": "SEE LICENSE IN LICENSE",
+  "config": { "gitbook": "3.2.3" },
   "scripts": {
-    "build": "gitbook install --gitbook=3.2.3 && gitbook build --gitbook=3.2.3",
+    "build": "gitbook install --gitbook=$npm_package_config_gitbook && gitbook build --gitbook=$npm_package_config_gitbook",
     "lint": "prettier --list-different **/*.md",
     "test": "blcl -re ./_book",
-    "serve": "gitbook install --gitbook=3.2.3 && gitbook serve --gitbook=3.2.3"
+    "serve": "gitbook install --gitbook=$npm_package_config_gitbook && gitbook serve --gitbook=$npm_package_config_gitbook"
   },
   "dependencies": {
     "gitbook-cli": "^2.3.2",
@@ -20,5 +21,9 @@
     "broken-link-checker-local": "^0.2.0",
     "chokidar-cli": "^1.2.0",
     "prettier": "^1.12.1"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "proseWrap": "always"
   }
 }
