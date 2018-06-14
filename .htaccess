@@ -25,4 +25,6 @@
     RewriteRule ^examples/static-html/?$ %{ENV:CWD}examples/applications/static-html/ [L,R=301]
     RewriteRule ^examples/wordpress/?$ %{ENV:CWD}examples/applications/wordpress/ [L,R=301]
     RewriteRule ^faq/?$ %{ENV:CWD}reference/faq/ [L,R=301]
+
+    RewriteRule ^reference/glossary/?$ %{ENV:CWD} [L,R=301]
 </IfModule>

@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 
-* [Getting Started](getting-started/index.md)
+- [Getting Started](getting-started/index.md)
 
   * [Prerequisites](getting-started/prerequisites/index.md)
     * [Create a Repository](getting-started/prerequisites/create-a-repository/index.md)
@@ -13,13 +13,13 @@
   * [Create a Preview](getting-started/create-a-preview/index.md)
   * [Create a Base Preview](getting-started/create-a-base-preview/index.md)
 
-* [Build Scripts](build-script/index.md)
+- [Build Scripts](build-script/index.md)
 
   * [Environment Variables](build-script/environment-variables/index.md)
   * [Custom Environment Variables](build-script/custom-environment-variables/index.md)
   * [Helper Makefile](build-script/helper-makefile/index.md)
 
-* [Examples](examples/index.md)
+- [Examples](examples/index.md)
 
   * [By Feature](examples/features/index.md)
     * [Import a MySQL Database](examples/features/import-mysql-database/index.md)
@@ -42,7 +42,7 @@
       * [4. Add a build script](examples/services/pantheon/add-build-script/index.md)
       * [Full Makefile](examples/services/pantheon/full-makefile/index.md)
 
-* [Features](features/index.md)
+- [Features](features/index.md)
 
   * [Base Previews](features/base-previews/index.md)
   * [Visual Regression Testing](features/visual-regression/index.md)
@@ -50,12 +50,12 @@
   * [CLI](features/cli/index.md)
   * [Access Tokens](features/access-tokens/index.md)
 
-* [Debugging & Troubleshooting](troubleshooting/index.md)
+- [Debugging & Troubleshooting](troubleshooting/index.md)
 
   * [Debugging your Build Script](troubleshooting/build-script-debug/index.md)
   * [Common Issues w/ Previews](troubleshooting/debugging-previews/index.md)
 
-* [Tugboat Dashboard](tugboat-dashboard/index.md)
+- [Tugboat Dashboard](tugboat-dashboard/index.md)
 
   * [Projects](tugboat-dashboard/projects/index.md)
     * [Project Settings](tugboat-dashboard/projects/settings/index.md)
@@ -64,9 +64,8 @@
   * [Previews](tugboat-dashboard/previews/index.md)
   * [User Profile](tugboat-dashboard/profile/index.md)
 
-* [Reference](reference/index.md)
+- [Reference](reference/index.md)
   * [Prebuilt Services](reference/services/index.md)
   * [API](reference/api/index.md)
-  * [Glossary](reference/glossary/index.md)
   * [FAQ](reference/faq/index.md)
   * [Help & Support](reference/support/index.md)
