@@ -5,6 +5,14 @@ branch, tag, commit, or pull request. It can automatically create these previews
 for pull requests by integrating with GitHub, GitLab, or Bitbucket git
 repositories.
 
+## Contributing
+
+If you have any suggestions or feedback about this documentation, we are happy
+to hear it. We want this document to be as helpful as possible. Email us at
+[support@tugboat.qa](mailto:support@tugboat.qa) or
+[open an issue](https://github.com/TugboatQA/docs/issues/new) on our GitHub
+repository.
+
 ## Terminology and Definitions
 
 The following terms are used throughout this document
@@ -52,11 +60,3 @@ The following terms are used throughout this document
   preview consists of one or more services, one of which is responsible for
   serving the website via HTTP. This document refers to a Tugboat Service as
   either "Tugboat Service" or just "service", whichever fits the context.
-
-## Contributing
-
-If you have any suggestions or feedback about this documentation, we are happy
-to hear it. We want this document to be as helpful as possible. Email us at
-[support@tugboat.qa](mailto:support@tugboat.qa) or
-[open an issue](https://github.com/TugboatQA/docs/issues/new) on our GitHub
-repository.
