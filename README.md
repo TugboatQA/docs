@@ -22,7 +22,6 @@ at [support@tugboat.qa](mailto:support@tugboat.qa).
 
 This document is licensed as
 [Creative Commons Attribution-NonCommercial-ShareAlike CC BY-NC-SA](http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
-[Learn More](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 Everything not covered above is licensed under the
 [MIT license](https://choosealicense.com/licenses/mit/).
