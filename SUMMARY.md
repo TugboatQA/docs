@@ -2,47 +2,47 @@
 
 * [Introduction](README.md)
 
-* Concepts
+* [Concepts](concepts/index.md)
 
-  * Projects
-  * Repositories
-  * Previews
-  * Base Previews
-  * Services
+  * [Projects](concepts/projects/index.md)
+  * [Repositories](concepts/repositories/index.md)
+  * [Previews](concepts/previews/index.md)
+  * [Base Previews](concepts/base-previews/index.md)
+  * [Services](concepts/services/index.md)
 
-* Configuring Tugboat
+* [Configuring Tugboat](configuring-tugboat/index.md)
 
-* Examples
+* [Examples](examples/index.md)
 
-  * Import a MySQL Database
-  * Change the Document Root Location
-  * Run Functional Tests
+  * [Import a MySQL Database](examples/import-mysql-database/index.md)
+  * [Change the Document Root Location](examples/change-docroot/index.md)
+  * [Run Functional Tests](examples/functional-tests/index.md)
 
-* Tutorials
+* [Tutorials](tutorials/index.md)
 
-  * Drupal 7
-  * Drupal 8
-  * Wordpress
-  * Static HTML
-  * Generic LAMP
-  * Pantheon
+  * [Drupal 7](tutorials/drupal7/index.md)
+  * [Drupal 8](tutorials/drupal8/index.md)
+  * [Wordpress](tutorials/wordpress/index.md)
+  * [Static HTML](tutorials/static-html/index.md)
+  * [Generic LAMP](tutorials/generic-lamp/index.md)
+  * [Pantheon](tutorials/pantheon/index.md)
 
-* Advanced
+* [Advanced](advanced/index.md)
 
-  * Custom Environment Variables
-  * Command Line Interface
-  * Helper Makefile
+  * [Custom Environment Variables](advanced/custom-environment-variables/index.md)
+  * [Command Line Interface](advanced/cli/index.md)
+  * [Helper Makefile](advanced/helper-makefile/index.md)
 
-* Reference
+* [Reference](reference/index.md)
 
-  * Tugboat Configuration File
-  * Prebuilt Images
-  * Environment Variables
-  * Preview Actions and States
-  * Glossary
+  * [Tugboat Configuration File](reference/tugboat-configuration/index.md)
+  * [Prebuilt Images](reference/images/index.md)
+  * [Environment Variables](reference/environment-variables/index.md)
+  * [Preview Actions and States](reference/preview-states/index.md)
+  * [Glossary](reference/glossary/index.md)
 
-* FAQ
+* [FAQ](faq/index.md)
 
-* Troubleshooting
+* [Troubleshooting](troubleshooting/index.md)
 
-* Help and Support
+* [Help and Support](support/index.md)
