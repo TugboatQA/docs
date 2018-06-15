@@ -1,4 +1,4 @@
-![Tugboat Logo](logo.png)
+<img alt="Tugboat logo" src="logo.png" width="200px" style="padding: 0; border: none">
 
 ## Getting Started
 
