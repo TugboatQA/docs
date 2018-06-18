@@ -1,5 +1,5 @@
 {
-    "version": "2.x.x",
+    "version": "2.18.06-beta1",
     "title": "Tugboat Documentation",
     "language": "en",
     "plugins": [
@@ -7,18 +7,8 @@
         "anchors",
         "collapsible-menu",
         "include-codeblock",
-        "ace@git+https://github.com/TugboatQA/gitbook-plugin-ace.git",
         "callouts"
     ],
-    "pluginsConfig": {
-        "include-codeblock": {
-            "template": "templates/acefull.hbs",
-            "theme": "dreamweaver"
-        }
-    },
-    "links": {
-        "gitbook": false
-    },
     "styles": {
         "website": "styles/website.css"
     }
