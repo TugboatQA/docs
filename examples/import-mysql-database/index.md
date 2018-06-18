@@ -13,7 +13,6 @@ services:
     image: tugboatqa/mysql
     commands:
       init:
-        - mysql -e "create database tugboat;"
         - scp example.com/database.sql.gz /tmp/
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz
