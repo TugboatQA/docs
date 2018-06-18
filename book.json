@@ -5,8 +5,8 @@
     "plugins": [
         "-sharing",
         "anchors",
-        "collapsible-menu",
         "include-codeblock",
+        "expandable-chapters",
         "callouts"
     ],
     "styles": {
