@@ -38,7 +38,7 @@
   * [Tugboat Configuration File](reference/tugboat-configuration/index.md)
   * [Prebuilt Images](reference/images/index.md)
   * [Environment Variables](reference/environment-variables/index.md)
-  * [Preview Actions and States](reference/preview-states/index.md)
+  * [Actions and States](reference/actions-and-states/index.md)
   * [Glossary](reference/glossary/index.md)
 
 * [FAQ](faq/index.md)
