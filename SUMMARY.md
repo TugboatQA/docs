@@ -31,7 +31,6 @@
 
   * [Custom Environment Variables](advanced/custom-environment-variables/index.md)
   * [Command Line Interface](advanced/cli/index.md)
-  * [Helper Makefile](advanced/helper-makefile/index.md)
 
 * [Reference](reference/index.md)
 
