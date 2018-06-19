@@ -64,14 +64,15 @@ services:
       init:
     	- composer --no-ansi global require drush/drush
     	- ln -sf ~/.composer/vendor/bin/drush /usr/local/bin/drush
-    	- cp ${DOCROOT}/sites/default/tugboat.settings.php ${DOCROOT}/sites/default/settings.local.php
+    	- ln -sf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
+    	- cp "${DOCROOT}/sites/default/tugboat.settings.php" "${DOCROOT}/sites/default/settings.local.php"
       update:
-        - rsync -av --delete user@example.com:/path/to/files/ ${DOCROOT}/sites/default/files/
-        - chgrp -R www-data ${DOCROOT}/sites/default/files
-        - find ${DOCROOT}/sites/default/files -type d -exec chmod 2775 {} \;
-        - find ${DOCROOT}/sites/default/files -type f -exec chmod 0664 {} \;
+        - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
+        - chgrp -R www-data "${DOCROOT}/sites/default/files"
+        - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
+        - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
       build:
-        - drush -r ${DOCROOT} cache-clear all
+        - drush -r "${DOCROOT}" cache-clear all
 
   mysql:
     image: tugboatqa/mysql
