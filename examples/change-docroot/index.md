@@ -8,7 +8,7 @@ in your [configuration](../../configuring-tugboat/index.md)
 Each web server image expects the document root to be in a different location.
 This is a side effect of using the
 [Official Docker Images](https://docs.docker.com/docker-hub/official_repos/).
-The [images](../../reference/images/index.md) provided by Tugboat store this
+The [images](../../reference/services/index.md) provided by Tugboat store this
 document root location in an environment variable named `$DOCROOT` for
 convenience.
 
