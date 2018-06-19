@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 
-* [Concepts](concepts/index.md)
+* Concepts
 
   * [Projects](concepts/projects/index.md)
   * [Repositories](concepts/repositories/index.md)
@@ -12,13 +12,13 @@
 
 * [Configuring Tugboat](configuring-tugboat/index.md)
 
-* [Examples](examples/index.md)
+* Examples
 
   * [Import a MySQL Database](examples/import-mysql-database/index.md)
   * [Change the Document Root Location](examples/change-docroot/index.md)
   * [Run Functional Tests](examples/functional-tests/index.md)
 
-* [Tutorials](tutorials/index.md)
+* Tutorials
 
   * [Drupal 7](tutorials/drupal7/index.md)
   * [Drupal 8](tutorials/drupal8/index.md)
@@ -27,12 +27,12 @@
   * [Generic LAMP](tutorials/generic-lamp/index.md)
   * [Pantheon](tutorials/pantheon/index.md)
 
-* [Advanced](advanced/index.md)
+* Advanced
 
   * [Custom Environment Variables](advanced/custom-environment-variables/index.md)
   * [Command Line Interface](advanced/cli/index.md)
 
-* [Reference](reference/index.md)
+* Reference
 
   * [Tugboat Configuration File](reference/tugboat-configuration/index.md)
   * [Prebuilt Images](reference/images/index.md)
