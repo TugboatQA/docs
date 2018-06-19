@@ -56,7 +56,7 @@ To serve a Drupal site,
 ```yaml
 services:
   php:
-    image: tugboatqa/php:7.2-apache
+    image: tugboatqa/php:7.1-apache
     default: true
     checkout: true
     depends: mysql
@@ -79,4 +79,5 @@ services:
       update:
         - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         - zcat /tmp/database.sql.gz | mysql tugboat
+        - rm /tmp/database.sql.gz
 ```
