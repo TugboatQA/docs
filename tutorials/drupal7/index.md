@@ -47,9 +47,10 @@ $databases = array (
 
 ## Tugboat Configuration
 
-Let's start with the complete working configuration. From there, we will step
-through each of the sections and explain what is going on. Then, you can
-customize your configuration as needed.
+Let's start with the complete working configuration. This file needs to reside
+in `.tugboat/config.yml` in the root of your git repository. From there, we will
+step through it to explain what is going on. Then, you can customize it as
+needed.
 
 ```yaml
 services:
