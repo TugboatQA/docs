@@ -12,6 +12,8 @@
 
 * [Configuring Tugboat](configuring-tugboat/index.md)
 
+  * [Migration](configuring-tugboat/migration/index.md)
+
 * Examples
 
   * [Import a MySQL Database](examples/import-mysql-database/index.md)
