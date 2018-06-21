@@ -1,1 +1,1 @@
-* TODO: image selection best practices (specific tags)
+* TODO: difference in the command execution hierarchy
