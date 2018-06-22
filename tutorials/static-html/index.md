@@ -1,39 +1,36 @@
 # Static HTML
 
-A static HTML site serves files exactly as they are in the git repository.
+A static HTML site serves files exactly as they are found in the git repository.
 
 ## Tugboat Configuration
 
-Let's start with the complete working configuration. This file needs to reside
-in `.tugboat/config.yml` in the root of your git repository. From there, we will
-step through it to explain what is going on. Then, you can customize it as
-needed.
+The Tugboat configuration is managed by a YAML file at `.tugboat/config.yml` in
+the git repository. Below is a basic static HTML configuration with comments to
+explain what is going on. Use it as a starting point, and customize it as needed
+for your own installation.
 
 ```yaml
 services:
+
+  # What to call the service hosting the site. Because there is only
+  # one service, it is automatically set as the default service, which
+  # does a few things
+  #   1. Clones the git repository into the service container
+  #   2. Exposes port 80 to the Tugboat HTTP proxy
+  #   3. Routes requests to the preview URL to this service
   apache:
+
+    # Use the available version of Apache by not specifying a version
     image: tugboatqa/httpd
+
+    # A set of commands to run while building this service
     commands:
+
+      # Commands that set up the basic preview infrastructure
       init:
+
+    	  # Link the document root to the expected path
     	- ln -sf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
-```
-
-### Apache Service
-
-We chose to use Apache to serve our static HTML site. By not specifying an httpd
-version, we will always get the latest available version of Apache.
-
-```yaml
-image: tugboatqa/httpd
-```
-
-No further configurations are required other than linking up the document root
-to the expected path. Our web content lives in the `/docroot` directory in our
-git repository, so we create a symlink there.
-
-```yaml
-init:
-  - ln -sf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
 ```
 
 ## Start Building Previews!

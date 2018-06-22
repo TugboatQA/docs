@@ -5,81 +5,58 @@ customizations may be required, but this should get you started.
 
 ## Tugboat Configuration
 
-Let's start with the complete working configuration. This file needs to reside
-in `.tugboat/config.yml` in the root of your git repository. From there, we will
-step through it to explain what is going on. Then, you can customize it as
-needed.
+The Tugboat configuration is managed by a YAML file at `.tugboat/config.yml` in
+the git repository. Below is a basic LAMP configuration with comments to explain
+what is going on. Use it as a starting point, and customize it as needed for
+your own installation.
 
 ```yaml
 services:
+
+  # What to call the service hosting the site.
   php:
-    image: tugboatqa/php-apache
+
+    # Use PHP 7.1 with Apache
+    image: tugboatqa/php:7.1-apache
+
+    # Set this as the default service. This does a few things
+    #   1. Clones the git repository into the service container
+    #   2. Exposes port 80 to the Tugboat HTTP proxy
+    #   3. Routes requests to the preview URL to this service
     default: true
+
+    # A set of commands to run while building this service
     commands:
+
+      # Commands that set up the basic preview infrastructure
       init:
+
+    	  # Link the document root to the expected path
     	- ln -sf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
 
+  # What to call the service hosting MySQL. This name also acts as the
+  # hostname to access the service by from the php service.
   mysql:
+
+    # Use the latest available version of MySQL by not specifying a
+    # version
     image: tugboatqa/mysql
+
+    # A set of commands to run while building this service
     commands:
+
+      # Commands that import files, databases, or other assets. When an
+      # existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
       update:
+
+          # Copy a database dump from an external server. The public
+          # SSH key found in the Tugboat Repository configuration must be
+          # copied to the external server in order to use scp.
         - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz
-```
-
-### PHP Service
-
-We chose to use PHP 7.1 with Apache.
-[Other options are available](../../reference/services/index.md#php). By not
-specifying a PHP version, we will always get the latest version of PHP
-available. If your application requires a specific version, you should include
-that here.
-
-```yaml
-image: tugboatqa/php-apache
-```
-
-This is the service that will be serving the application, so we tell Tugboat
-that this is the preview's default service. This is a shortcut option to clone
-the git repository into this service, and expose port 80 to the Tugboat proxy
-server. It also means that the default preview URL will route to this service.
-
-```yaml
-default: true
-```
-
-Finally, we define the commands that get run on this service. The `init`
-commands link the document root to the expected path.
-
-```yaml
-init:
-  - ln -sf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
-```
-
-### MySQL Service
-
-We chose to use the latest available version of MySQL because we are not picky
-about which version we get.
-[Other options are available](../../reference/services/index.md#mysql)
-
-```yaml
-image: tugboatqa/mysql
-```
-
-This is an auxiliary service for a preview, so there are no additional
-configurations required like we used in the PHP service. All that is left is the
-commands to import the database.
-
-We are using `scp` to copy a database dump into the mysql service container.
-Before this will work, the public SSH key found in the Tugboat Repository
-configuration needs to be copied to the server hosting this file.
-
-```yaml
-update:
-  - scp user@example.com:database.sql.gz /tmp/database.sql.gz
-  - zcat /tmp/database.sql.gz | mysql tugboat
-  - rm /tmp/database.sql.gz
 ```
 
 ## Start Building Previews!

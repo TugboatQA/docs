@@ -72,9 +72,10 @@ services:
     # Wait until the mysql service is done building
     depends: mysql
 
+    # A set of commands to run while building this service
     commands:
 
-      # Commands that set up the basic preview ifrastructure
+      # Commands that set up the basic preview infrastructure
       init:
           # Install wp-cli
         - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -83,6 +84,9 @@ services:
 
           # Use the tugboat-specific wp-config.local.php
         - cp "${TUGBOAT_ROOT}/.tugboat/wp-config.local.php" "${DOCROOT}/"
+
+    	  # Link the document root to the expected path
+    	- ln -sf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
 
       # Commands that import files, databases, or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
@@ -111,6 +115,7 @@ services:
     # Use the latest available 5.x version of MySQL
     image: tugboatqa/mysql:5
 
+    # A set of commands to run while building this service
     commands:
 
       # Commands that import files, databases, or other assets. When an

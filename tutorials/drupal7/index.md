@@ -68,7 +68,9 @@ services:
     # Wait until the mysql service is done building
     depends: mysql
 
+    # A set of commands to run while building this service
     commands:
+
       # Commands that set up the basic preview infrastructure
       init:
 
@@ -110,6 +112,7 @@ services:
     # Use the latest available 5.x version of MySQL
     image: tugboatqa/mysql:5
 
+    # A set of commands to run while building this service
     commands:
 
       # Commands that import files, databases,  or other assets. When an
