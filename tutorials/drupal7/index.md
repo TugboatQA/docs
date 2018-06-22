@@ -56,7 +56,6 @@ needed.
 services:
   php:
     image: tugboatqa/php:7.1-apache
-    checkout: true
     default: true
     depends: mysql
     commands:
@@ -91,15 +90,10 @@ We chose to use PHP 7.1 with Apache.
 image: tugboatqa/php:7.1-apache
 ```
 
-This is the service that will be serving the Drupal 7 site, so we need to have a
-copy of the git repository.
-
-```yaml
-checkout: true
-```
-
-And, we need to be able to respond to HTTP requests. Setting this as the default
-service tells Tugboat that the preview's URL should route here.
+This is the service that will be serving the Drupal 7 site, so we tell Tugboat
+that this is the preview's default service. This is a shortcut option to clone
+the git repository into this service, and expose port 80 to the Tugboat proxy
+server. It also means that the default preview URL will route to this service.
 
 ```yaml
 default: true
