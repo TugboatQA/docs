@@ -2,7 +2,7 @@
 
 These instructions show how to configure Tugboat for a typical Drupal 7
 repository. Every Drupal site tends to have slightly different requirements, so
-further customizations may be required. This should get you started, though.
+further customizations may be required, but this should get you started.
 
 ## Drupal Configuration
 
@@ -23,8 +23,8 @@ if (file_exists(DRUPAL_ROOT . '/' . conf_path() . '/settings.local.php')) {
 }
 ```
 
-Add a file named `tugboat.settings.php` in the same directory as `settings.php`
-with the following content:
+Add a file to the git repository at `.tugboat/settings.local.php` with the
+following content:
 
 ```php
 <?php
@@ -63,7 +63,7 @@ services:
     	- composer --no-ansi global require drush/drush
     	- ln -sf ~/.composer/vendor/bin/drush /usr/local/bin/drush
     	- ln -sf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
-    	- cp "${DOCROOT}/sites/default/tugboat.settings.php" "${DOCROOT}/sites/default/settings.local.php"
+    	- cp "${TUGBOAT_ROOT}/.tugboat/tugboat.local.php" "${DOCROOT}/sites/default/"
       update:
         - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
         - chgrp -R www-data "${DOCROOT}/sites/default/files"
