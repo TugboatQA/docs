@@ -50,37 +50,84 @@ define('DB_HOST', 'mysql';
 
 ## Tugboat Configuration
 
-Let's start with the complete working configuration. This file needs to reside
-in `.tugboat/config.yml` in the root of your git repository. From there, we will
-step through it to explain what is going on. Then, you can customize it as
-needed.
+The Tugboat configuration is managed by a YAML file at .tugboat/config.yml in
+the git repository. Below is a basic WordPress configuration with comments to
+explain what is going on. Use it as a starting point, and customize it as needed
+for your own WordPress installation.
 
 ```yaml
 services:
+
   php:
+
+    # Use PHP 7.1 with Apache to serve the WordPress site
     image: tugboatqa/php:7.1-apache
+
+    # Set this as the default service. This does a few things
+    #   1. Clones the git repository into the service container
+    #   2. Exposes port 80 to the Tugboat HTTP proxy
+    #   3. Routes requests to the preview URL to this service
     default: true
+
+    # Wait until the mysql service is done building
     depends: mysql
+
     commands:
+
+      # Commands that set up the basic preview ifrastructure
       init:
+          # Install wp-cli
         - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         - cmod +x wp-cli.phar
         - mv wp-cli.phar /usr/local/bin/wp
+
+          # Use the tugboat-specific wp-config.local.php
         - cp "${TUGBOAT_ROOT}/.tugboat/wp-config.local.php" "${DOCROOT}/"
+
+      # Commands that import files, databases, or other assets. When an
+      # existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
       update:
+
+          # Copy the uploads directory from an external server. The public
+          # SSH key found in the Tugboat Repository configuration must be
+          # copied to the external server in order to use rsync over SSH.
         - mkdir -p "${DOCROOT}/wp-content/uploads" || /bin/true
         - rsync -av --delete user@example.com:/path/to/wp-content/uploads/ "${DOCROOT}/wp-content/uploads/"
         - chgrp -R www-data "${DOCROOT}/wp-content/uploads"
         - find "${DOCROOT}/wp-content/uploads" -type d -exec chmod 2775 {} \;
         - find "${DOCROOT}/wp-content/uploads" -type f -exec chmod 0664 {} \;
+
+      # Commands that build the site. When a preview is built from a
+      # base preview, the build workflow starts here, skipping the init
+      # and update steps, because the results of those are inherited
+      # from the base preview.
       build:
         - wp --allow-root --path="${DOCROOT}" search-replace 'wordpress.local' "${TUGBOAT_PREVIEW}-${TUGBOAT_TOKEN}.${TUGBOAT_DOMAIN}" --skip-columns=guid
 
   mysql:
+
+    # Use the latest available 5.x version of MySQL
     image: tugboatqa/mysql:5
+
     commands:
+
+      # Commands that import files, databases, or other assets. When an
+      # existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
       update:
+
+          # Copy a database dump from an external server. The public
+          # SSH key found in the Tugboat Repository configuration must be
+          # copied to the external server in order to use scp.
         - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz
 ```
+
+## Start Building Previews!
+
+Once the Tugboat configuration file is committed to your git repository, you can
+start building previews!
