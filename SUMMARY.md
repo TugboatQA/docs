@@ -28,6 +28,7 @@
   * [Static HTML](tutorials/static-html/index.md)
   * [Generic LAMP](tutorials/generic-lamp/index.md)
   * [Pantheon](tutorials/pantheon/index.md)
+    * [Configuring Terminus](tutorials/pantheon/configuring-terminus/index.md)
 
 * Advanced
 
