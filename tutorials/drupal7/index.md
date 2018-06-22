@@ -47,122 +47,83 @@ $databases = array (
 
 ## Tugboat Configuration
 
-Let's start with the complete working configuration. This file needs to reside
-in `.tugboat/config.yml` in the root of your git repository. From there, we will
-step through it to explain what is going on. Then, you can customize it as
-needed.
+The Tugboat configuration is managed by a YAML file at `.tugboat/config.yml` in
+the git repository. Below is a basic Drupal 7 configuration, with inline
+documentation.
 
 ```yaml
 services:
+
   php:
+
+    # Use PHP 7.1 with Apache to serve the Drupal site
     image: tugboatqa/php:7.1-apache
+
+    # Set this as the default service. This does a few things
+    #   1. Clones the git repository into the service container
+    #   2. Exposes port 80 to the Tugboat HTTP proxy
+    #   3. Routes requests to the preview URL to this service
     default: true
+
+    # Wait until the mysql service is done building
     depends: mysql
+
     commands:
+      # Commands that set up the basic preview infrastructure
       init:
-    	- composer --no-ansi global require drush/drush
+
+          # Install drush 8.1.17
+    	- composer --no-ansi global require drush/drush:8.1.17
     	- ln -sf ~/.composer/vendor/bin/drush /usr/local/bin/drush
+
+    	  # Link the document root to the expected path
     	- ln -sf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
-    	- cp "${TUGBOAT_ROOT}/.tugboat/tugboat.local.php" "${DOCROOT}/sites/default/"
+
+    	  # Use the tugboat-specific Drupal settings
+    	- cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
+
+      # Commands that import files, databases,  or other assets. When an
+      # existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
       update:
+
+          # Copy the files directory from an external server. The public
+          # SSH key found in the Tugboat Repository configuration must be
+          # copied to the external server in order to use rsync over SSH.
         - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
         - chgrp -R www-data "${DOCROOT}/sites/default/files"
         - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
         - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
+
+      # Commands that build the site. This is where you would add things
+      # like feature reverts or any other drush commands required to
+      # set up or configure the site. When a preview is built from a
+      # base preview, the build workflow starts here, skipping the init
+      # and update steps, because the results of those are inherited
+      # from the base preview.
       build:
         - drush -r "${DOCROOT}" cache-clear all
 
   mysql:
-    image: tugboatqa/mysql
+
+    # Use the latest available 5.x version of MySQL
+    image: tugboatqa/mysql:5
+
     commands:
+
+      # Commands that import files, databases,  or other assets. When an
+      # existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
       update:
+
+          # Copy a database dump from an external server. The public
+          # SSH key found in the Tugboat Repository configuration must be
+          # copied to the external server in order to use scp.
         - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz
-```
-
-### PHP Service
-
-We chose to use PHP 7.1 with Apache.
-[Other options are available](../../reference/services/index.md#php)
-
-```yaml
-image: tugboatqa/php:7.1-apache
-```
-
-This is the service that will be serving the Drupal 7 site, so we tell Tugboat
-that this is the preview's default service. This is a shortcut option to clone
-the git repository into this service, and expose port 80 to the Tugboat proxy
-server. It also means that the default preview URL will route to this service.
-
-```yaml
-default: true
-```
-
-Before we start running any commands on this service, we need the database to be
-imported into the `mysql` service.
-
-```yaml
-depends: mysql
-```
-
-Finally, we define the commands that get run on this service. The `init`
-commands install drush, link the document root to the expected path, and
-configure Drupal to use a tugboat-specific configuration file.
-
-```yaml
-init:
-  - composer --no-ansi global require drush/drush
-  - ln -sf ~/.composer/vendor/bin/drush /usr/local/bin/drush
-  - ln -sf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
-  - cp "${DOCROOT}/sites/default/tugboat.settings.php" "${DOCROOT}/sites/default/settings.local.php"
-```
-
-The `update` commands copy the files directory, and sets the permissions. Notice
-we are using rsync over SSH here. In order to let Tugboat copy these files, add
-the public SSH key found in the Tugboat Repository configuration to the server
-hosting these files.
-
-```yaml
-update:
-  - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
-  - chgrp -R www-data "${DOCROOT}/sites/default/files"
-  - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
-  - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
-```
-
-The `build` commands clear the cache. This is also where you would add things
-like feature reverts or any other drush commands required to set up or configure
-your site.
-
-```yaml
-build:
-  - drush -r "${DOCROOT}" cache-clear all
-```
-
-### MySQL Service
-
-We chose to use the latest available version of MySQL because we are not picky
-about which version we get.
-[Other options are available](../../reference/services/index.md#mysql)
-
-```yaml
-image: tugboatqa/mysql
-```
-
-This is an auxiliary service for a preview, so there are no additional
-configurations required like we used in the PHP service. All that is left is the
-commands to import the database.
-
-Like above, we are using SSH to copy a database dump into the mysql service
-container. The public SSH key in the Tugboat Repository configuration also needs
-to be copied to the server hosting this file.
-
-```yaml
-update:
-  - scp user@example.com:database.sql.gz /tmp/database.sql.gz
-  - zcat /tmp/database.sql.gz | mysql tugboat
-  - rm /tmp/database.sql.gz
 ```
 
 ## Start Building Previews!
