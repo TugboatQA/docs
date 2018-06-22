@@ -58,6 +58,7 @@ for your own WordPress installation.
 ```yaml
 services:
 
+  # What to call the service hosting the site.
   php:
 
     # Use PHP 7.1 with Apache to serve the WordPress site
@@ -110,6 +111,8 @@ services:
       build:
         - wp --allow-root --path="${DOCROOT}" search-replace 'wordpress.local' "${TUGBOAT_PREVIEW}-${TUGBOAT_TOKEN}.${TUGBOAT_DOMAIN}" --skip-columns=guid
 
+  # What to call the service hosting MySQL. This name also acts as the
+  # hostname to access the service by from the php service.
   mysql:
 
     # Use the latest available 5.x version of MySQL

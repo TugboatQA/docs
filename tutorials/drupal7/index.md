@@ -48,8 +48,9 @@ $databases = array (
 ## Tugboat Configuration
 
 The Tugboat configuration is managed by a YAML file at `.tugboat/config.yml` in
-the git repository. Below is a basic Drupal 7 configuration, with inline
-documentation.
+the git repository. Below is a basic Drupal 7 configuration with comments to
+explain what is going on. Use it as a starting point, and customize it as needed
+for your own installation.
 
 ```yaml
 services:
@@ -98,6 +99,15 @@ services:
         - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
         - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
 
+          # Alternatively, another common practice is to use the
+          # stage_file_proxy Drupal module. This module lets Drupal serve
+          # files from another publicly-accessible Drupal site instead of
+          # syncing the entire files directory into the Tugboat Preview.
+          # This results in smaller previews and reduces the build time.
+        - drush -r "${DOCROOT}" pm-download stage_file_proxy
+        - drush -r "${DOCROOT}" pm-enable --yes stage_file_proxy
+        - drush -r "${DOCROOT}" variable-set stage_file_proxy_origin "http://www.example.com"
+
       # Commands that build the site. This is where you would add things
       # like feature reverts or any other drush commands required to
       # set up or configure the site. When a preview is built from a
@@ -106,7 +116,10 @@ services:
       # from the base preview.
       build:
         - drush -r "${DOCROOT}" cache-clear all
+        - drush -r "${DOCROOT}" updb -y
 
+  # What to call the service hosting MySQL. This name also acts as the
+  # hostname to access the service by from the php service.
   mysql:
 
     # Use the latest available 5.x version of MySQL
@@ -131,5 +144,5 @@ services:
 
 ## Start Building Previews!
 
-Once this Tugboat configuration file is committed to your git repository, you
-can start building previews!
+Once the Tugboat configuration file is committed to your git repository, you can
+start building previews!
