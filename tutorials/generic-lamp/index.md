@@ -31,8 +31,10 @@ services:
       # Commands that set up the basic preview infrastructure
       init:
 
-    	  # Link the document root to the expected path
-    	- ln -sf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
+        # Link the document root to the expected path. Tugboat uses /docroot
+        # by default. So, if the application is located at any other path in your git
+        # repository, change that here. This example links /web to the docroot
+    	- ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.

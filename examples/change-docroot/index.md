@@ -23,5 +23,5 @@ services:
     image: tugboatqa/httpd
     commands:
       init:
-        - ln -sf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
+        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 ```

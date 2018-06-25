@@ -75,8 +75,10 @@ services:
         - wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
         - chmod +x /usr/local/bin/drush
 
-    	  # Link the document root to the expected path
-    	- ln -sf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+    	  # Link the document root to the expected path. Tugboat uses /docroot
+    	  # by default. So, if Drupal is located at any other path in your git
+    	  # repository, change that here. This example links /web to the docroot
+    	- ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,

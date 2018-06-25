@@ -206,9 +206,10 @@ services:
         - wget -O /tmp/installer.phar https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar
         - php /tmp/installer.phar install
 
-        # Link the document root to the expected path. This example assumes
-        # that Drupal is in /web.
-    	- ln -sf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+        # Link the document root to the expected path. Tugboat uses /docroot
+        # by default. So, if Drupal is located at any other path in your git
+        # repository, change that here. This example links /web to the docroot
+    	- ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
     	# Authenticate to terminus. Note this command uses a Tugboat environment
     	# variable named PANTHEON_MACHINE_TOKEN
