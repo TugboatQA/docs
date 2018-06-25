@@ -78,18 +78,19 @@ services:
 
       # Commands that set up the basic preview infrastructure
       init:
-          # Install wp-cli
+
+        # Install wp-cli
         - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         - cmod +x wp-cli.phar
         - mv wp-cli.phar /usr/local/bin/wp
 
-          # Use the tugboat-specific wp-config.local.php
+        # Use the tugboat-specific wp-config.local.php
         - cp "${TUGBOAT_ROOT}/.tugboat/wp-config.local.php" "${DOCROOT}/"
 
         # Link the document root to the expected path. Tugboat uses /docroot
         # by default. So, if WordPress is located at any other path in your git
         # repository, change that here. This example links /web to the docroot
-    	- ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
       # Commands that import files, databases, or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
@@ -97,9 +98,9 @@ services:
       # already be present.
       update:
 
-          # Copy the uploads directory from an external server. The public
-          # SSH key found in the Tugboat Repository configuration must be
-          # copied to the external server in order to use rsync over SSH.
+        # Copy the uploads directory from an external server. The public
+        # SSH key found in the Tugboat Repository configuration must be
+        # copied to the external server in order to use rsync over SSH.
         - mkdir -p "${DOCROOT}/wp-content/uploads" || /bin/true
         - rsync -av --delete user@example.com:/path/to/wp-content/uploads/ "${DOCROOT}/wp-content/uploads/"
         - chgrp -R www-data "${DOCROOT}/wp-content/uploads"
@@ -129,9 +130,9 @@ services:
       # already be present.
       update:
 
-          # Copy a database dump from an external server. The public
-          # SSH key found in the Tugboat Repository configuration must be
-          # copied to the external server in order to use scp.
+        # Copy a database dump from an external server. The public
+        # SSH key found in the Tugboat Repository configuration must be
+        # copied to the external server in order to use scp.
         - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz

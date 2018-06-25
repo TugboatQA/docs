@@ -32,7 +32,7 @@ services:
         # Link the document root to the expected path. Tugboat uses /docroot
         # by default. So, if the root is located at any other path in your git
         # repository, change that here. This example links /web to the docroot
-    	- ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 ```
 
 ## Start Building Previews!

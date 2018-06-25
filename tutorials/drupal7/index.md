@@ -75,17 +75,17 @@ services:
       # Commands that set up the basic preview infrastructure
       init:
 
-          # Install drush 8.1.17
-    	- composer --no-ansi global require drush/drush:8.1.17
-    	- ln -sf ~/.composer/vendor/bin/drush /usr/local/bin/drush
+        # Install drush 8.1.17
+        - composer --no-ansi global require drush/drush:8.1.17
+        - ln -sf ~/.composer/vendor/bin/drush /usr/local/bin/drush
 
-    	  # Link the document root to the expected path. Tugboat uses /docroot
-    	  # by default. So, if Drupal is located at any other path in your git
-    	  # repository, change that here. This example links /web to the docroot
-    	- ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+        # Link the document root to the expected path. Tugboat uses /docroot
+        # by default. So, if Drupal is located at any other path in your git
+        # repository, change that here. This example links /web to the docroot
+        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
-    	  # Use the tugboat-specific Drupal settings
-    	- cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
+        # Use the tugboat-specific Drupal settings
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
 
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
@@ -93,19 +93,19 @@ services:
       # already be present.
       update:
 
-          # Copy the files directory from an external server. The public
-          # SSH key found in the Tugboat Repository configuration must be
-          # copied to the external server in order to use rsync over SSH.
+        # Copy the files directory from an external server. The public
+        # SSH key found in the Tugboat Repository configuration must be
+        # copied to the external server in order to use rsync over SSH.
         - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
         - chgrp -R www-data "${DOCROOT}/sites/default/files"
         - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
         - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
 
-          # Alternatively, another common practice is to use the
-          # stage_file_proxy Drupal module. This module lets Drupal serve
-          # files from another publicly-accessible Drupal site instead of
-          # syncing the entire files directory into the Tugboat Preview.
-          # This results in smaller previews and reduces the build time.
+        # Alternatively, another common practice is to use the
+        # stage_file_proxy Drupal module. This module lets Drupal serve
+        # files from another publicly-accessible Drupal site instead of
+        # syncing the entire files directory into the Tugboat Preview.
+        # This results in smaller previews and reduces the build time.
         - drush -r "${DOCROOT}" pm-download stage_file_proxy
         - drush -r "${DOCROOT}" pm-enable --yes stage_file_proxy
         - drush -r "${DOCROOT}" variable-set stage_file_proxy_origin "http://www.example.com"
@@ -136,9 +136,9 @@ services:
       # already be present.
       update:
 
-          # Copy a database dump from an external server. The public
-          # SSH key found in the Tugboat Repository configuration must be
-          # copied to the external server in order to use scp.
+        # Copy a database dump from an external server. The public
+        # SSH key found in the Tugboat Repository configuration must be
+        # copied to the external server in order to use scp.
         - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz

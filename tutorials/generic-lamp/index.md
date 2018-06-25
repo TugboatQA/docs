@@ -34,7 +34,7 @@ services:
         # Link the document root to the expected path. Tugboat uses /docroot
         # by default. So, if the application is located at any other path in your git
         # repository, change that here. This example links /web to the docroot
-    	- ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
@@ -53,9 +53,9 @@ services:
       # already be present.
       update:
 
-          # Copy a database dump from an external server. The public
-          # SSH key found in the Tugboat Repository configuration must be
-          # copied to the external server in order to use scp.
+        # Copy a database dump from an external server. The public
+        # SSH key found in the Tugboat Repository configuration must be
+        # copied to the external server in order to use scp.
         - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz
