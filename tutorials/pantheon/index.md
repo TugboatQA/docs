@@ -85,17 +85,6 @@ button.
 > variable to store the machine token, instead of committing it to your
 > repository or storing it in some other fashion.
 
-Now that we have our Pantheon machine token, and our new user is a member of our
-Pantheon project, we need to store the machine token securely within Tugboat. To
-do this, we will use Tugboat's
-[custom environment variables](../../advanced/custom-environment-variables/index.md).
-Add a new environment variabled named `PANTHEON_MACHINE_TOKEN` and set it to the
-value of the token that Pantheon provided above.
-
-```
-PANTHEON_MACHINE_TOKEN=ABCDEF123456ABCDEF123456
-```
-
 ## Configure Drupal
 
 A common practice for managing Drupal's `settings.php` is to leave sensitive
@@ -133,6 +122,147 @@ $databases['default']['default'] = array (
 ```
 
 ## Configure Tugboat
+
+There are three parts to configuring Tugboat to work with Pantheon. First, we
+need to figure out which version of PHP to use. Then, we need to set up a few
+Tugboat custom environment variables. Finally, we can create a configuration
+file to include in your git repository.
+
+### PHP Version
+
+In order to replicate the Pantheon environment as closely as possible, we need
+to use the same version of PHP.
+
+> #### Warning::Terminus for PHP version
+>
+> While in theory you could use the `terminus site:info` command to determine
+> the PHP version, we've found that may not give you accurate results.
+
+1.  Log into the [Pantheon Dashboard](https://dashboard.pantheon.io)
+2.  Navigate to the project you are trying to connect with Pantheon
+3.  Click the Settings gear in the upper right
+    ![Click on Settings in Pantheon Dashboard](_images/pantheon-settings.png)
+4.  Once in Settings, you should see a PHP Version tab to the far right. After
+    clicking that, you should see the PHP Version.
+    ![Click on PHP Version in Pantheon Settings](_images/pantheon-php-settings.png)
+
+### Environment Variables
+
+The Tugboat configuration file below makes use of some Tugboat
+[custom environment variables](../../advanced/custom-environment-variables/index.md).
+This is how we are securly storing the Pantheon machine token from above, so it
+does not need to be committed into your git repository. We also define the
+Pantheon site and environment names here to make the config file more portable.
+
+In the Tugboat Repository settings, create the following environment variables.
+In this example, we are using the "live" environment of a Pantheon site named
+"example".
+
+```
+PANTHEON_MACHINE_TOKEN=ABCDEF123456ABCDEF123456
+PANTHEON_SOURCE_SITE=example
+PANTHEON_SOURCE_ENVIRONMENT=live
+```
+
+### Tugboat Configuration File
+
+The main Tugboat configuration is managed by a YAML file at
+`.tugboat/config.yml` in the git repository. Below is a Pantheon Drupal 8
+configuration with comments to explain what is going on. Use it as a starting
+point, and customize it as needed for your own installation.
+
+```yaml
+services:
+
+  # What to call the service hosting the site
+  php:
+
+    # Use PHP 7.2 with Apache. Be sure this matches the version of PHP used by
+    # Pantheon.
+    image: tugboatqa/php:7.2-apache
+
+    # Set this as the default service. This does a few things
+    #   1. Clones the git repository into the service container
+    #   2. Exposes port 80 to the Tugboat HTTP proxy
+    #   3. Routes requests to the preview URL to this service
+    default: true
+
+    # Wait until the mysql service is done building
+    depends: mysql
+
+    # A set of commands to run while building this service
+    commands:
+
+      # Commands that set up the basic preview infrastructure. This is where we
+      # install the tools that need to be present before building the site, such
+      # as Drush and Terminus.
+      init:
+
+        # Install drush-launcher
+        - wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
+        - chmod +x /usr/local/bin/drush
+
+        # Install the latest version of terminus
+        - wget -O /tmp/installer.phar https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar
+        - php /tmp/installer.phar install
+
+        # Link the document root to the expected path. This example assumes
+        # that Drupal is in /web.
+    	- ln -sf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+
+    	# Authenticate to terminus. Note this command uses a Tugboat environment
+    	# variable named PANTHEON_MACHINE_TOKEN
+    	- terminus auth:login --machine-token=${PANTHEON_MACHINE_TOKEN}
+
+      # Commands that import files, databases,  or other assets. When an
+      # existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
+      update:
+
+        # Use the tugboat-specific Drupal settings
+    	- cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
+
+        # Generate a unique hash_salt to secure the site
+    	- echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >> "${DOCROOT}/sites/default/settings.local.php"
+
+        # Install/update packages managed by composer
+        - composer install --no-ansi
+
+        # Import and sanitize a database backup from Pantheon
+        - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/database.sql.gz --element=db
+        - drush -r "${DOCROOT}" sql-drop
+        - zcat /tmp/database.sql.gz | drush -r "${DOCROOT}" sql-cli
+        - drush -r "${DOCROOT}" sqlsan --sanitize-password=tugboat
+
+        # Import the files from Pantheon. Alternatively, the stage_file_proxy
+        # Drupal module could be enabled & configured here using Drush commands
+        - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/files.tar.gz --element=files
+        - tar -C /tmp -zxf /tmp/files.tar.gz
+        - rsync -av --exclude=.htaccess --delete --no-owner --no-group --no-perms /tmp/files_${PANTHEON_SOURCE_ENVIRONMENT}/ "${DOCROOT}/sites/default/files/"
+
+      # Commands that build the site. This is where you would add things
+      # like feature reverts or any other drush commands required to
+      # set up or configure the site. When a preview is built from a
+      # base preview, the build workflow starts here, skipping the init
+      # and update steps, because the results of those are inherited
+      # from the base preview.
+      build:
+
+        # Clear the cache, and update the database
+        - drush -r "${DOCROOT}" cache-rebuild
+        - drush -r "${DOCROOT}" updb
+
+        # Clean up temp files used during the build
+        - rm -rf /tmp/* /var/tmp/*
+
+  # What to call the service hosting MySQL. This name also acts as the
+  # hostname to access the service by from the php service.
+  mysql:
+
+    # Use the latest available 5.x version of MySQL
+    image: tugboatqa/mysql:5
+```
 
 ## Start Building Previews!
 

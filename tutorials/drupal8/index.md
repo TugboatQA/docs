@@ -78,17 +78,17 @@ services:
     	  # Link the document root to the expected path
     	- ln -sf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
-    	  # Use the tugboat-specific Drupal settings
-    	- cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
-
-          # Generate a unique hash_salt to secure the site
-    	- echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >> "${DOCROOT}/sites/default/settings.local.php"
-
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
       # skipping the init step, because the results of that step will
       # already be present.
       update:
+
+    	  # Use the tugboat-specific Drupal settings
+    	- cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
+
+          # Generate a unique hash_salt to secure the site
+    	- echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >> "${DOCROOT}/sites/default/settings.local.php"
 
           # Install/update packages managed by composer, including drush
         - composer install --no-ansi
