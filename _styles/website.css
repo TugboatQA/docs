@@ -1,0 +1,12 @@
+.markdown-section img {
+    border: 1px solid #ddd;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.markdown-section {
+    /* Add some padding at the bottom to make it easier to read longer documents */
+    padding-bottom: 20em;
+}

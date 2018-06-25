@@ -1,4 +1,4 @@
-![Tugboat Logo](logo.png)
+<img alt="Tugboat Logo" src="logo.png" style="padding: 0; border: none">
 
 # Welcome to Tugboat!
 

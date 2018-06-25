@@ -10,6 +10,6 @@
         "callouts"
     ],
     "styles": {
-        "website": "styles/website.css"
+        "website": "_styles/website.css"
     }
 }
