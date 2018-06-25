@@ -23,12 +23,20 @@
 * Tutorials
 
   * [Drupal 7](tutorials/drupal7/index.md)
+    * [Configure Drupal](tutorials/drupal7/index.md#configure-drupal)
+    * [Configure Tugboat](tutorials/drupal7/index.md#configure-tugboat)
   * [Drupal 8](tutorials/drupal8/index.md)
+    * [Configure Drupal](tutorials/drupal8/index.md#configure-drupal)
+    * [Configure Tugboat](tutorials/drupal8/index.md#configure-tugboat)
   * [Wordpress](tutorials/wordpress/index.md)
+    * [Configure WordPress](tutorials/wordpress/index.md#configure-wordpress)
+    * [Configure Tugboat](tutorials/wordpress/index.md#configure-tugboat)
   * [Static HTML](tutorials/static-html/index.md)
   * [Generic LAMP](tutorials/generic-lamp/index.md)
   * [Pantheon](tutorials/pantheon/index.md)
     * [Configure Terminus](tutorials/pantheon/configure-terminus/index.md)
+    * [Configure Drupal](tutorials/pantheon/configure-drupal/index.md)
+    * [Configure Tugboat](tutorials/pantheon/configure-tugboat/index.md)
 
 * Advanced
 

@@ -3,7 +3,7 @@
 A Generic LAMP stack should work with most PHP/MySQL web applications. Some
 customizations may be required, but this should get you started.
 
-## Tugboat Configuration
+## Configure Tugboat
 
 The Tugboat configuration is managed by a YAML file at `.tugboat/config.yml` in
 the git repository. Below is a basic LAMP configuration with comments to explain

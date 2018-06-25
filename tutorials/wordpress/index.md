@@ -4,7 +4,7 @@ These instructions show how to configure Tugboat for a standard WordPress
 repository. Every site tends to have slightly different requirements, so further
 customization may be required, but this should get you started.
 
-## WordPress Configuration
+## Configure WordPress
 
 For WordPress to use environment-specific settings, some changes need to be made
 to `wp-config.php`. One popular method is to commit a "default" version of the
@@ -48,7 +48,7 @@ define('DB_PASSWORD', 'tugboat');
 define('DB_HOST', 'mysql';
 ```
 
-## Tugboat Configuration
+## Configure Tugboat
 
 The Tugboat configuration is managed by a YAML file at .tugboat/config.yml in
 the git repository. Below is a basic WordPress configuration with comments to

@@ -4,7 +4,7 @@ These instructions show how to configure Tugboat for a typical Drupal 7
 repository. Every Drupal site tends to have slightly different requirements, so
 further customizations may be required, but this should get you started.
 
-## Drupal Configuration
+## Configure Drupal
 
 A common practice for managing Drupal's `settings.php` is to remove sensitive
 information, such as database credentials, before committing it to git. Then,
@@ -45,7 +45,7 @@ $databases = array (
 );
 ```
 
-## Tugboat Configuration
+## Configure Tugboat
 
 The Tugboat configuration is managed by a YAML file at `.tugboat/config.yml` in
 the git repository. Below is a basic Drupal 7 configuration with comments to

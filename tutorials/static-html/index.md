@@ -2,7 +2,7 @@
 
 A static HTML site serves files exactly as they are found in the git repository.
 
-## Tugboat Configuration
+## Configure Tugboat
 
 The Tugboat configuration is managed by a YAML file at `.tugboat/config.yml` in
 the git repository. Below is a basic static HTML configuration with comments to
