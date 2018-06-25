@@ -34,9 +34,9 @@
   * [Static HTML](tutorials/static-html/index.md)
   * [Generic LAMP](tutorials/generic-lamp/index.md)
   * [Pantheon](tutorials/pantheon/index.md)
-    * [Configure Terminus](tutorials/pantheon/configure-terminus/index.md)
-    * [Configure Drupal](tutorials/pantheon/configure-drupal/index.md)
-    * [Configure Tugboat](tutorials/pantheon/configure-tugboat/index.md)
+    * [Configure Terminus](tutorials/pantheon/index.md#configure-terminus)
+    * [Configure Drupal](tutorials/pantheon/index.md#configure-drupal)
+    * [Configure Tugboat](tutorials/pantheon/index.md#configure-tugboat)
 
 * Advanced
 
