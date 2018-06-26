@@ -95,15 +95,75 @@ of node 8.x.
 
 ## Default Service
 
-TODO: explain how this implies expose, and git options
+If more than one service is defined, one of them must be designated as the
+`default`. If only one service is defined, it is automatically set as the
+default. The default service is where HTTP requests are routed when a preview's
+URL is visited by a user.
 
-## Service URL
+```yaml
+services:
+  apache:
+    image: tugboatqa/httpd:2.4
+    default: true
+  mysql:
+    image: tugboatqa/mysql:5.6
+```
 
-TODO: explain "expose", summarize other options, link to reference page
+Setting a service as the default also implies that port 80 is exposed to the
+Tugboat Proxy, and that the git repository is cloned to `/var/lib/tugboat`.
+These implied settings can be overridden as explained below.
+
+## Service HTTP Port
+
+Every service in a preview is given a unique URL. Whether that URL is accessible
+is determined by whether an HTTP service is running on the service, and that
+port is exposed to the Tugboat Proxy. To expose a port, include an `expose` key
+to the service definition with the port number that the HTTP service is
+listening on.
+
+```yaml
+services:
+  node:
+    image: tugboatqa/node:8
+    expose: 3000
+```
+
+The above configuration allows the Tugboat Proxy to forward requests to the
+service's URL through to a nodejs service running on port 3000. When a service
+is set as the `default`, port 80 is automatically exposed. This can be
+overridden by explicitly setting an alternate port.
+
+There are other options that affect how the proxy routing is handled. These
+advanced options can usually be left to their default settings. Look through the
+[Tugboat Configuration](../reference/tugboat-configuration/index.md) reference
+for a complete list.
 
 ## Git Options
 
-TODO: checkout, checkout_path
+Every service has the option of whether to have a copy of the git repository
+cloned into it. The default behavior is to only clone the git repository into
+the `default` service, as described above.
+
+To explicitly request that a service has access to the git repository, specify
+the `checkout` key in the service definition. This is especially useful if there
+are service-specific scripts or test data files committed to the git repository.
+
+```yaml
+services:
+  apache:
+    image: tugboatqa/httpd:2.4
+    default: true
+  mysql:
+    image: tugboatqa/mysql:5.6
+    checkout: true
+```
+
+The above results in both the `apache` and `mysql` services getting a clone of
+the git repository, checked out to the git branch, tag, commit, or pull request
+that the preview is created for. The path where the git repository is cloned is
+available in an
+[environment variable](../reference/environment-variables/index.md) named
+`$TUGBOAT_ROOT`
 
 ## Commands
 
@@ -113,6 +173,6 @@ TODO: explain the stage workflow
 
 TODO: Summarize advanced options, link to reference page
 
-## Example
+## Examples
 
 TODO: A full example YAML file, link to tutorials
