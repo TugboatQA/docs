@@ -1,12 +1,14 @@
 # Configuring Tugboat: Migration Guide
 
 Tugboat Repositories created before the release of the YAML configuration
-feature will continue to work using the legacy `Makefile` workflow. However,
-support for that workflow is deprecated, and will no longer work after **October
-31, 2018**. All new repositories are required to use a YAML configuration file.
+feature will continue to work using the legacy `Makefile` workflow. This guide
+will walk through the steps required to migrate a legacy Tugboat repository to
+use a YAML configuration file.
 
-This guide will walk through the steps required to migrate a legacy Tugboat
-repository to use a YAML configuration file.
+> #### Warning::Repository Migration Timeline
+>
+> The legacy `Makefile` workflow is deprecated and will no longer work after
+> **October 31, 2018**.
 
 ## Export a Repository Configuration
 
