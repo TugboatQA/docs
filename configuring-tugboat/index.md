@@ -26,7 +26,7 @@ These service names are arbitrary, and can be anything you would like. Keep in
 mind that they also act as the internal host name that a service is known by to
 the other services in a preview. This means that the service names must conform
 to the same rules as an internet host name, consisting of only the characters
-a-z, 0-9, and hyphens.
+`a-z`, `0-9`, and `-`.
 
 A practical example of a set of services that might be used to serve a PHP-based
 site with a MySQL database and a Redis cache might look like the following:
@@ -51,15 +51,15 @@ extensions of
 [official Docker images](https://docs.docker.com/docker-hub/official_repos/),
 and include tools and configurations that help them work well with Tugboat. A
 complete list of available images and tags can be found on
-[Docker Hub](https://hub.docker.com/u/tugboatqa/).
+[Docker Hub](https://hub.docker.com/u/tugboatqa/). The scripts used to create
+these images are available on [GitHub](https://github.com/TugboatQA/images).
 
 > #### Info::3rd Party Docker Images
 >
 > Technically, any publicly available Docker image can be used. However, there
 > are some limitations. For example, Tugboat will not create a service from an
 > image that defines any VOLUMES. For that reason, sticking with the images
-> provided by Tugboat is recommended. The scripts used to create these images
-> are available on [GitHub](https://github.com/TugboatQA/images).
+> built specifically for use with Tugboat is recommended.
 
 To configure which image a service should use, include an `image` key in the
 service definition.
@@ -93,4 +93,26 @@ Likewise, a specific major version might be sufficient. For example, specifying
 `tugboatqa/node:8` will ensure you always use the latest available minor release
 of node 8.x.
 
-* TODO: command execution order for build/rebuild/refresh
+## Default Service
+
+TODO: explain how this implies expose, and git options
+
+## Service URL
+
+TODO: explain "expose", summarize other options, link to reference page
+
+## Git Options
+
+TODO: checkout, checkout_path
+
+## Commands
+
+TODO: explain the stage workflow
+
+## Advanced Options
+
+TODO: Summarize advanced options, link to reference page
+
+## Example
+
+TODO: A full example YAML file, link to tutorials
