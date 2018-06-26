@@ -23,16 +23,16 @@ while they are building as well as while they are running.
 Environment variables are good at storing simple string values. However, what if
 you need to store something more complex, like an encoded JSON string, or the
 contents of an arbitrary file? One way of accomplishing that is to base64 encode
-the value, and then decode the value in your build script.
+the value, and then decode the value with a
+[configuration file command](../../configuring-tugboat/index.md#commands).
 
 ```sh
 $ cat file | base64
 Q2h1Z2dhIENodWdnYSBUdWdib2F0IQo=
 ```
 
-Store that value into an environment variable. Then, in your build script
-extract it to a file you can use in your Preview with something like the
-following:
+Store that value into an environment variable. Then, extract it to a file you
+can use in your Preview with something like the following:
 
 ```sh
 echo $VAR | base64 -D > /tmp/file

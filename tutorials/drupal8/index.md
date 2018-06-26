@@ -13,7 +13,7 @@ only on the Drupal installation location.
 
 This pattern works very well with Tugboat. It lets you keep a tugboat-specific
 set of configurations in your repository where you can copy it into place with a
-build script.
+[configuration file command](../../configuring-tugboat/index.md#commands).
 
 Add or uncomment the following at the end of `settings.php`
 
