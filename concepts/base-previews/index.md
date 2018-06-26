@@ -62,14 +62,6 @@ or Tag the preview was built from. During the update, Tugboat runs any commands
 in the `update` section of the
 [configuration](../../configuring-tugboat/index.md)
 
-> #### Info::Previews created from Base Previews are not automatically updated.
->
-> **If my Base Preview is updated, will previews built from it automatically
-> update with those changes?**
->
-> No. If a Base Preview is updated, previews built from it are left alone, and
-> must be rebuilt manually.
-
 ## Advanced Use Cases
 
 Tugboat allows multiple Base Previews to be defined. The effect of doing this is
