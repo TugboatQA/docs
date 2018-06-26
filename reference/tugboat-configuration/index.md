@@ -38,36 +38,6 @@ the service:
 
 ---
 
-## `image`
-
-* **Type:** String
-* **Default:** _no default_
-* **Required:** Yes
-
-The Docker image to use for this service. Tugboat maintains a set of images on
-[Dockerhub](https://hub.docker.com/u/tugboatqa). These images all extend the
-official docker images, and are configured to work well with Tugboat.
-
-## `default`
-
-* **Type:** Boolean
-* **Default:** `false` (`true` if only one service is defined)
-* **Required:** Yes, if more than one service is defined.
-
-Whether this is the default service for a preview. The default service is where
-incoming HTTP requests to the preview URL are routed. Setting this to true also
-implies `expose: 80` and `checkout: true` unless those attributes are explicitly
-set otherwise.
-
-## `expose`
-
-* **Type:** Integer
-* **Default:** _no default_ (`80` when `default: true` is set)
-* **Required:** No
-
-If this service should be publicly accessible via HTTP/HTTPS, this is the port
-that the Tugboat Proxy will forward incoming requests to.
-
 ## `checkout`
 
 * **Type:** Boolean
@@ -85,18 +55,6 @@ it.
 
 Specifies the path where the git repository should be cloned if `checkout: true`
 is set. If this path already exists, the clone will fail.
-
-## `depends`
-
-* **Type:** List
-* **Default:** _no default_
-* **Required:** No
-
-Defines the order in which commands are executed between the defined services.
-If one service has a dependency on another, it will wait for that service's
-commands to run before running its own commands. If not set, there is no
-guaranteed order in which services will execute their commands relative to other
-services.
 
 ## `commands`
 
@@ -128,6 +86,51 @@ The `init`, `update`, and `build` stages are related as follows
 * When a preview is created from a base preview, only the commands in `build`
   are run.
 
+## `default`
+
+* **Type:** Boolean
+* **Default:** `false` (`true` if only one service is defined)
+* **Required:** Yes, if more than one service is defined.
+
+Whether this is the default service for a preview. The default service is where
+incoming HTTP requests to the preview URL are routed. Setting this to true also
+implies `expose: 80` and `checkout: true` unless those attributes are explicitly
+set otherwise.
+
+## `depends`
+
+* **Type:** List
+* **Default:** _no default_
+* **Required:** No
+
+Defines the order in which commands are executed between the defined services.
+If one service has a dependency on another, it will wait for that service's
+commands to run before running its own commands. If not set, there is no
+guaranteed order in which services will execute their commands relative to other
+services.
+
+## `domain`
+
+* **Type:** String
+* **Default:** _no default_
+* **Required:** No
+
+A custom domain to use when generating URLs for the service. If `example.com` is
+used, for example, URLs for the service will resemble
+`http://pr123-token.example.com` or `http://preview.example.com/pr123-token/`,
+depending on the other configuration values. Note that using a custom domain
+will result in browsers issuing SSL/TLS certificate warnings when combined with
+`https: true`.
+
+## `expose`
+
+* **Type:** Integer
+* **Default:** _no default_ (`80` when `default: true` is set)
+* **Required:** No
+
+If this service should be publicly accessible via HTTP/HTTPS, this is the port
+that the Tugboat Proxy will forward incoming requests to.
+
 ## `http`
 
 * **Type:** Boolean
@@ -155,6 +158,16 @@ are `true`.
 When `true`, HTTP requests are automatically redirected to HTTPS. This setting
 only applies if both `http` and `https` are `true`.
 
+## `image`
+
+* **Type:** String
+* **Default:** _no default_
+* **Required:** Yes
+
+The Docker image to use for this service. Tugboat maintains a set of images on
+[Dockerhub](https://hub.docker.com/u/tugboatqa). These images all extend the
+official docker images, and are configured to work well with Tugboat.
+
 ## `subpath`
 
 * **Type:** Boolean
@@ -179,16 +192,3 @@ can solve problems with testing advertisements or using OAuth
 When `true`, and `subpath: true` is set, URLs are rewritten by the Tugboat Proxy
 to replace the preview-specific path with `/` before being forwarded to the
 service. When `false`, URLs are passed through as-is.
-
-## `domain`
-
-* **Type:** String
-* **Default:** _no default_
-* **Required:** No
-
-A custom domain to use when generating URLs for the service. If `example.com` is
-used, for example, URLs for the service will resemble
-`http://pr123-token.example.com` or `http://preview.example.com/pr123-token/`,
-depending on the other configuration values. Note that using a custom domain
-will result in browsers issuing SSL/TLS certificate warnings when combined with
-`https: true`.
