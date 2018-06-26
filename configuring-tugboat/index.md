@@ -135,8 +135,8 @@ overridden by explicitly setting an alternate port.
 
 There are other options that affect how the proxy routing is handled. These
 advanced options can usually be left to their default settings. Look through the
-[Tugboat Configuration](../reference/tugboat-configuration/index.md) reference
-for a complete list.
+[Tugboat Configuration File](../reference/tugboat-configuration/index.md)
+reference for a complete list.
 
 ## Git Options
 
@@ -171,8 +171,17 @@ TODO: explain the stage workflow
 
 ## Advanced Options
 
-TODO: Summarize advanced options, link to reference page
+There are a number of advanced options available that were not covered here. See
+the [Tugboat Configuration File](../reference/tugboat-configuration/index.md)
+reference for a complete list of configuration options.
 
 ## Examples
 
-TODO: A full example YAML file, link to tutorials
+To see some real-world example configurations, check out our tutorials
+
+* [Static HTML](../tutorials/static-html/index.md)
+* [Generic LAMP](../tutorials/generic-lamp/index.md)
+* [Drupal 7](../tutorials/drupal7/index.md)
+* [Drupal 8](../tutorials/drupal8/index.md)
+* [WordPress](../tutorials/wordpress/index.md)
+* [Pantheon](../tutorials/pantheon/index.md)
