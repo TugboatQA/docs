@@ -6,7 +6,7 @@
     margin-right: auto;
 }
 
-.markdown-section {
+.markdown-section, .book-summary {
     /* Add some padding at the bottom to make it easier to read longer documents */
-    padding-bottom: 20em;
+    padding-bottom: 10em;
 }
