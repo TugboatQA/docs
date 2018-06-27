@@ -1,0 +1,12 @@
+<html>
+<head>
+    <title>Page Not Found · Tugboat Documentation</title>
+    <link rel="stylesheet" href="gitbook/style.css">
+    <link rel="stylesheet" href="_styles/website.css">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<h1>Page Not Found</h1>
+<a href="<!--#echo var="REDIRECT_CWD" -->">Back</a>
+</body>
