@@ -9,8 +9,9 @@ The only top-level key of the configuration file is `services`. It is a required
 key, and is a map of the services required by a preview.
 
 Every service consists of the service's name as the key, and a map as the value.
-The name must be unique in the `services` list, and must also be a valid host
-name containing only the characters a-z, 0-9, and hyphen (`[a-z0-9-]`).
+The name must be unique in the `services` list, and must also be a
+[valid host name](https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames)
+containing only the characters `a-z`, `0-9`, and `-`.
 
 The following attributes control how a service is built:
 
