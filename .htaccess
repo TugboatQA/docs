@@ -63,18 +63,21 @@
     RewriteRule ^reference/faq/?$ %{ENV:CWD}faq/ [L,R=302]
     RewriteRule ^reference/support/?$ %{ENV:CWD}support/ [L,R=302]
 
-    ## Redirects to 404s
+    ## Redirects to 404
 
     RewriteRule ^build-script/examples/reuse-commands/?$ %{ENV:CWD}examples/features/reuse-commands/ [L,R=302]
     RewriteRule ^build-script/examples/external-scripts/?$ %{ENV:CWD}examples/features/external-scripts/ [L,R=302]
 
-</IfModule>
+    ## Custom 404 page
+    <IfModule mod_include.c>
+        Options +Includes
+        AddType text/html .shtml
+        AddOutputFilter INCLUDES .shtml
 
-## Custom 404 page
-<IfModule mod_include.c>
-    Options +Includes
-    ErrorDocument 404 /404.shtml
-    AddType text/html .shtml
-    AddOutputFilter INCLUDES .shtml
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^ %{ENV:CWD}404.shtml [L]
+    </IfModule>
+
 </IfModule>
 

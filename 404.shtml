@@ -1,12 +1,53 @@
-<html>
+<!DOCTYPE HTML>
+<html lang="en" >
+
 <head>
-    <title>Page Not Found · Tugboat Documentation</title>
+    <meta charset="UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Not Found · Tugboat Documentation</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="gitbook/style.css">
     <link rel="stylesheet" href="_styles/website.css">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-<h1>Page Not Found</h1>
-<a href="<!--#echo var="REDIRECT_CWD" -->">Back</a>
+
+<div class="book without-animation font-size-2 font-family-1">
+    <div class="page-inner">
+
+        <section class="normal markdown-section">
+
+            <p><img alt="Tugboat Logo" src="logo.png" style="border: none; padding: 0"></p>
+
+            <div class="not-found">
+                <h1>Page Not Found</h1>
+
+                <p>
+                    The page you requested cannot be found. It may have moved,
+                    or is no longer available. Try searching for the content you
+                    are looking for, or <a href="/">start from the beginning</a>.
+                </p>
+
+                <form action="/" method="get">
+                    <div class="search">
+                        <input type="text" name="q"/>
+                        <button type="submit">Search</button>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+    </div>
+</div>
+
+
 </body>
+</html>
+
