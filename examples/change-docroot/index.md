@@ -1,4 +1,4 @@
-# Change the Document Root Location
+# Set the Document Root Path
 
 Tugboat does not try to guess where your document root lives in your repository.
 Likewise, it does not try to guess where a web server image expects to serve the
