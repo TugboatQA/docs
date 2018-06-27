@@ -68,11 +68,13 @@
     RewriteRule ^build-script/examples/reuse-commands/?$ %{ENV:CWD}examples/features/reuse-commands/ [L,R=302]
     RewriteRule ^build-script/examples/external-scripts/?$ %{ENV:CWD}examples/features/external-scripts/ [L,R=302]
 
-    <IfModule mod_include.c>
-        ## Custom 404 page
-        ErrorDocument 404 /404.shtml
-        AddType text/html .shtml
-        AddOutputFilter INCLUDES .shtml
-    </IfModule>
-
 </IfModule>
+
+## Custom 404 page
+<IfModule mod_include.c>
+    Options +Includes
+    ErrorDocument 404 /404.shtml
+    AddType text/html .shtml
+    AddOutputFilter INCLUDES .shtml
+</IfModule>
+
