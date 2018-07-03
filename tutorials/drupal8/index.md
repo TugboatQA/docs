@@ -1,6 +1,6 @@
 # Drupal 8
 
-These instructions show how to configure Tugboat for a typical Drupal 7
+These instructions show how to configure Tugboat for a typical Drupal 8
 repository. Every Drupal site tends to have slightly different requirements, so
 further customizations may be required, but this should get you started.
 
@@ -75,9 +75,8 @@ services:
         - wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
         - chmod +x /usr/local/bin/drush
 
-        # Link the document root to the expected path. Tugboat uses /docroot
-        # by default. So, if Drupal is located at any other path in your git
-        # repository, change that here. This example links /web to the docroot
+        # Link the document root to the expected path. This example links /web
+        # to the docroot
         - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
       # Commands that import files, databases,  or other assets. When an

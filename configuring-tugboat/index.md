@@ -167,9 +167,9 @@ available in an
 
 ## Commands
 
-While strictly optional, service commands are arguably the most important part
-of the configuration file. This is the set of commands that Tugboat should run
-in a service container while creating a preview.
+While technically optional, service commands are arguably the most important
+part of the configuration file. This is the set of commands that Tugboat should
+run in a service container while creating a preview.
 
 The service commands are separated into a set of stages: `init`, `update`, and
 `build`. Each stage is an optional set of commands that Tugboat should run
@@ -214,6 +214,7 @@ services:
     commands:
       init:
         - apt-get install nodejs
+        - ln -snf "${TUGBOAT_ROOT}" "${DOCROOT}"
       update:
         - rsync -av example.com:files/ "${DOCROOT}/files/"
         - chgrp -R www-data "${DOCROOT}/files"
@@ -230,6 +231,20 @@ services:
 Notice that each stage is optional for a given service. There may not be any
 commands required for that service during some stage. When that is the case, the
 stage can be excluded completely.
+
+> #### Hint::Link your docroot
+>
+> Tugboat does not try to guess where your actual content lives in your git
+> repository. Doing so would work for some, but would potentially expose
+> unwanted content to the internet for others. So, one command that is always
+> required is creating a link from the docroot in your git repository to the
+> location that the web server image you chose expects it to be.
+>
+> ```yaml
+> commands:
+>   init:
+>     - ln -snf "${TUGBOAT_ROOT}" "${DOCROOT}"
+> ```
 
 ## Advanced Options
 

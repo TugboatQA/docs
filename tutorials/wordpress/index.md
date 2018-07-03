@@ -87,9 +87,8 @@ services:
         # Use the tugboat-specific wp-config.local.php
         - cp "${TUGBOAT_ROOT}/.tugboat/wp-config.local.php" "${DOCROOT}/"
 
-        # Link the document root to the expected path. Tugboat uses /docroot
-        # by default. So, if WordPress is located at any other path in your git
-        # repository, change that here. This example links /web to the docroot
+        # Link the document root to the expected path. This example links /web
+        # to the docroot
         - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
       # Commands that import files, databases, or other assets. When an

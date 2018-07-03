@@ -46,6 +46,27 @@ repositories already. It just had to be coded into the Makefile. Now, it's
 automatic. So, a little shuffling of an existing `Makefile` may be required if
 each of these targets was implemented in a cascading fashion.
 
+## Link a Document Root
+
+Tugboat no longer tries to guess where your actual content lives in your git
+repository. This was an old feature that worked some of the time, but mostly did
+not. It also posed some technical challenges that were better left out. So, if
+you do not already have a command to link your git repository's docroot to the
+location that your web server expects, you will need to add a command somewhere
+in your build process like this
+
+```sh
+ln -snf "${TUGBOAT_ROOT}" "${DOCROOT}"
+```
+
+Note, the `${DOCROOT}` variable is not present on legacy images, so use an
+absolute path there unless you are also upgrading your image selection. For a
+legacy Apache image, use a command like this
+
+```bash
+ln -snf "${TUGBOAT_ROOT}" /var/www/html
+```
+
 ## Complete the Migration
 
 Test the new configuration by building a preview for the new branch. If all goes

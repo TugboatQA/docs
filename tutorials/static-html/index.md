@@ -29,10 +29,9 @@ services:
       # Commands that set up the basic preview infrastructure
       init:
 
-        # Link the document root to the expected path. Tugboat uses /docroot
-        # by default. So, if the root is located at any other path in your git
-        # repository, change that here. This example links /web to the docroot
-        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+        # Link the document root to the expected path. This example links the
+        # root of the git repository to the docroot
+        - ln -snf "${TUGBOAT_ROOT}" "${DOCROOT}"
 ```
 
 ## Start Building Previews!

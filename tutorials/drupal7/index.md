@@ -79,10 +79,9 @@ services:
         - composer --no-ansi global require drush/drush:8.1.17
         - ln -sf ~/.composer/vendor/bin/drush /usr/local/bin/drush
 
-        # Link the document root to the expected path. Tugboat uses /docroot
-        # by default. So, if Drupal is located at any other path in your git
-        # repository, change that here. This example links /web to the docroot
-        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+        # Link the document root to the expected path. This example links
+        # /docroot to the docroot
+        - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
 
         # Use the tugboat-specific Drupal settings
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
