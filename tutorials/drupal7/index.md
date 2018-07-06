@@ -75,6 +75,10 @@ services:
       # Commands that set up the basic preview infrastructure
       init:
 
+        # Install prerequisite packages
+        - apt-get update
+        - apt-get install -y mysql-client
+
         # Install drush 8.1.17
         - composer --no-ansi global require drush/drush:8.1.17
         - ln -sf ~/.composer/vendor/bin/drush /usr/local/bin/drush
