@@ -12,4 +12,4 @@ services:
       build:
         - yarn install
         - yarn build
-        - ln -snf ${TUGBOAT_ROOT}/_book /var/www/html
+        - ln -snf "${TUGBOAT_ROOT}/_book" "${DOCROOT}"
