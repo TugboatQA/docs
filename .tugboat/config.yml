@@ -1,18 +1,15 @@
 services:
   apache:
-    default: true
+    image: tugboatqa/httpd
     commands:
       init:
+        - apt-get update
+        - apt-get install -y apt-transport-https
         - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
         - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-        - make -C /usr/share/tugboat install-nodejs-8
-        - apt-get install yarn
-        - yarn install
-        - yarn build
-        - ln -sf ${TUGBOAT_ROOT}/_book /var/www/html
+        - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+        - apt-get install -y nodejs yarn
       build:
         - yarn install
         - yarn build
-      update:
-        - yarn install
-        - yarn build
+        - ln -snf "${TUGBOAT_ROOT}/_book" "${DOCROOT}"
