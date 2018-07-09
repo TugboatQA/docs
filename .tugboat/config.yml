@@ -5,9 +5,9 @@ services:
       init:
         - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
         - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-        - make -C /usr/share/tugboat install-nodejs-8
-        - apt-get install yarn
-        - ln -snf ${TUGBOAT_ROOT}/_book /var/www/html
+        - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+        - apt-get install nodejs yarn
       build:
         - yarn install
         - yarn build
+        - ln -snf ${TUGBOAT_ROOT}/_book /var/www/html
