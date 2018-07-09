@@ -1,0 +1,35 @@
+.markdown-section img {
+    border: 1px solid #ddd;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.markdown-section, .book-summary {
+    /* Add some padding at the bottom to make it easier to read longer documents */
+    padding-bottom: 10em;
+}
+
+.not-found {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+.not-found .search {
+    margin-top: 35px;
+    display: flex;
+}
+
+.not-found .search input {
+    flex: 1 1 auto;
+    margin-right: 7px;
+    line-height: 22px;
+    padding: 7px;
+}
+
+.not-found .search button {
+    padding-left: 15px;
+    padding-right: 15px;
+}
