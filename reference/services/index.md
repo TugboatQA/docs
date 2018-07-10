@@ -49,11 +49,11 @@ based on CentOS.
 ### PHP
 
 The PHP images provided [upstream](https://hub.docker.com/_/php/) do not use
-apt-get to install PHP extensions. Instead, they provider helper scripts that
-let you install additional extensions as required. The images provided by
-Tugboat attempt to balance installing the most commonly used extensions with
-reserving as much disk space as possible. If an extension that you need is not
-installed, see the
+apt-get to install PHP extensions. Instead, they provide helper scripts that let
+you install additional extensions as required. The images provided by Tugboat
+attempt to balance installing the most commonly used extensions with reserving
+as much disk space as possible. If an extension that you need is not installed,
+see the
 [upstream documentation](https://github.com/docker-library/docs/blob/master/php/README.md#how-to-install-more-php-extensions)
 to learn about the available helper scripts, and add any required commands to
 your repository config file
