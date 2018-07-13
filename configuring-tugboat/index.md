@@ -6,8 +6,12 @@ configures how Tugboat builds the services for a preview and how the web site in
 a preview is served. This document walks through the structure of this
 configuration file, and how each of the parts work together.
 
-This configuration file in the git repository is required. Without it, Tugboat
-cannot create previews for a repository.
+The configuration file in the git repository is required. Without it, Tugboat
+cannot create previews for a repository. Every preview that Tugboat builds gets
+its configuration from the `.tugboat/config.yml` file in the branch, tag,
+commit, or pull request that is being built. The exception being that when a
+preview is built from a [base preview](../concepts/base-previews/index.md), the
+configuration for the base preview is always used.
 
 ## Preview Services
 
