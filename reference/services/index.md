@@ -53,10 +53,10 @@ The MariaDB and MySQL images are configured the same way. Each have a default
 database named `tugboat` as well as a user named `tugboat` with a password of
 `tugboat`. The `tugboat` user has full access to the `tugboat` database. In
 addition, the `root` database user does not have a password, but can only be
-used to connect to the database from the MariaDB or MySQL container.
+used to connect to the database from the MariaDB or MySQL service.
 
 This means that in order to do any root-level database operations, they must be
-done by the commands defined for the MySQL or MariaDB
+done by the commands defined for the MySQL or MariaDB service.
 
 ```yaml
 services:
@@ -69,7 +69,7 @@ services:
 
 ### PHP
 
-#### PHP Extension
+#### PHP Extensions
 
 The PHP images provided [upstream](https://hub.docker.com/_/php/) do not use
 apt-get to install PHP extensions. Instead, there are helper scripts that let
