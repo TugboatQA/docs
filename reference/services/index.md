@@ -19,6 +19,7 @@ sure you always have the most recent version available by specifying
 
 | Image                             | Usage                                  |                                                                |
 | :-------------------------------- | :------------------------------------- | -------------------------------------------------------------- |
+| [Alpine](#alpine)                 | `image: tugboatqa/alpine:[TAG]`        | [Tags](https://hub.docker.com/r/tugboatqa/alpine/tags')        |
 | Apache                            | `image: tugboatqa/httpd:[TAG]`         | [Tags](https://hub.docker.com/r/tugboatqa/httpd/tags/)         |
 | CouchDB                           | `image: tugboatqa/couchdb:[TAG]`       | [Tags](https://hub.docker.com/r/tugboatqa/couchdb/tags/)       |
 | Debian                            | `image: tugboatqa/debian:[TAG]`        | [Tags](https://hub.docker.com/r/tugboatqa/debian/tags/)        |
@@ -37,6 +38,12 @@ sure you always have the most recent version available by specifying
 ---
 
 ## Additional Information
+
+### Alpine
+
+The Alpine image is extremely minimal by nature. Unlike the other images, it
+does not have any extra tools installed except those required to use git with
+SSH.
 
 ### Elastic Search
 
