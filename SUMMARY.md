@@ -19,6 +19,7 @@
   * [Import a MySQL Database](examples/import-mysql-database/index.md)
   * [Set the Document Root Path](examples/change-docroot/index.md)
   * [Run Functional Tests](examples/functional-tests/index.md)
+  * [SimpleTest](examples/simpletest/index.md)
 
 * [Tutorials](tutorials/index.md)
 
