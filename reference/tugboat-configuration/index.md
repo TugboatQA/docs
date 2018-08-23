@@ -89,8 +89,12 @@ set to `['foo.com', 'bar.com']`, alias URLs look like the following
 
 or
 
-* https://previews.foo.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
-* https://previews.bar.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+* https://foo.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+* https://bar.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+
+In order for these domains to resolve, a DNS entry must be added to the alias
+domains as a `CNAME` to `previews.tugboat.qa`. A wildcard entry is required if
+`subpath` is set to `false`.
 
 ---
 
