@@ -23,6 +23,14 @@ The following attributes control how a service is built:
 | [depends](#depends)            | List    | List of other services that this service depends on |
 | [commands](#commands)          | List    | List of commands to run for various build stages    |
 
+The following attributes configure how service URLs are generated
+
+| Key                      | Type    | Description                                               |
+| :----------------------- | :------ | :-------------------------------------------------------- |
+| [aliases](#aliases)      | List    | A list of aliases to generate URLs for                    |
+| [alias_type](#aliastype) | String  | What kind of aliases to generate                          |
+| [subpath](#subpath)      | Boolean | Whether subpath URLs should be generated for this service |
+
 The following attributes configure how the Tugboat proxy routes HTTP requests to
 the service:
 
@@ -34,8 +42,68 @@ the service:
 | [https](#https)                  | Boolean | Whether the service should be available via HTTPS         |
 | [https_redirect](#httpsredirect) | Boolean | Whether HTTP requests should be redirected to HTTPS       |
 | [domain](#domain)                | String  | A custom domain for Tugboat to generate URLs with         |
-| [subpath](#subpath)              | Boolean | Whether subpath URLs should be generated for this service |
 | [subpath_map](#subpathmap)       | Boolean | Whether to map the generated subpath to "/"               |
+
+---
+
+## `alias_type`
+
+* **Type:** String
+* **Default:** `default`
+* **Required:** No
+
+What type of URL aliases to generate for the service. Valid options are
+`default` or `domain`. Alias URLs are generated in addition to the normal
+Service URLs.
+
+#### `default`
+
+When `alias_type` is set to `default`, the alias URLs are constructed by
+substituting the preview name in the Service URL with the values of `aliases`.
+The values of `aliases` are sanitized based on the value of
+[`subpath`](#subpath).
+
+If `subpath` is `false`, alias values are sanitized to create a valid host name,
+and is truncated to 30 characters, to make the host name a maximum of 63
+characters. If `subpath` is `true`, the alias values are URL encoded.
+
+If `aliases` is set to `['foo', 'bar']`, alias URLs look like the following
+
+* https://foo-4vdrhxvyddvr5tne7zcr4y72vzowqohj.tugboat.qa
+* https://bar-4vdrhxvyddvr5tne7zcr4y72vzowqohj.tugboat.qa
+
+or
+
+* https://previews.tugboat.qa/foo-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+* https://previews.tugboat.qa/bar-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+
+#### `domain`
+
+When `alias_type` is set to `domain`, the alias URLs are constructing by
+substituting the domain part of the Service URL with the values of `aliases`.
+The alias values are sanitized to create a valid domain name. If `aliases` is
+set to `['foo.com', 'bar.com']`, alias URLs look like the following
+
+* https://pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj.foo.com
+* https://pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj.bar.com
+
+or
+
+* https://previews.foo.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+* https://previews.bar.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+
+---
+
+## `aliases`
+
+* **Type:** List
+* **Default:** _no default_
+* **Required:** No
+
+A list of aliases to generate URLs for. If set, additional alias URLs will be
+generated for the service. These URLs can be used to route to different
+endpoints inside of the service, such as for a Drupal Multisite. How the alias
+URLs are constructed depend on the value of [`alias_type`](#aliastype)
 
 ---
 
@@ -48,6 +116,8 @@ the service:
 Whether or not this service should have a copy of the git repository cloned into
 it.
 
+---
+
 ## `checkout_path`
 
 * **Type:** String
@@ -56,6 +126,8 @@ it.
 
 Specifies the path where the git repository should be cloned if `checkout: true`
 is set. If this path already exists, the clone will fail.
+
+---
 
 ## `commands`
 
@@ -87,6 +159,8 @@ The `init`, `update`, and `build` stages are related as follows
 * When a preview is created from a base preview, only the commands in `build`
   are run.
 
+---
+
 ## `default`
 
 * **Type:** Boolean
@@ -97,6 +171,8 @@ Whether this is the default service for a preview. The default service is where
 incoming HTTP requests to the preview URL are routed. Setting this to true also
 implies `expose: 80` and `checkout: true` unless those attributes are explicitly
 set otherwise.
+
+---
 
 ## `depends`
 
@@ -109,6 +185,8 @@ If one service has a dependency on another, it will wait for that service's
 commands to run before running its own commands. If not set, there is no
 guaranteed order in which services will execute their commands relative to other
 services.
+
+---
 
 ## `domain`
 
@@ -123,6 +201,8 @@ depending on the other configuration values. Note that using a custom domain
 will result in browsers issuing SSL/TLS certificate warnings when combined with
 `https: true`.
 
+---
+
 ## `expose`
 
 * **Type:** Integer
@@ -132,6 +212,8 @@ will result in browsers issuing SSL/TLS certificate warnings when combined with
 If this service should be publicly accessible via HTTP/HTTPS, this is the port
 that the Tugboat Proxy will forward incoming requests to.
 
+---
+
 ## `http`
 
 * **Type:** Boolean
@@ -139,6 +221,8 @@ that the Tugboat Proxy will forward incoming requests to.
 * **Required:** No
 
 When `true`, this service's URL is publicly accessible via HTTP on port 80
+
+---
 
 ## `https`
 
@@ -150,6 +234,8 @@ When `true`, this service's URL is public accessible via HTTPS on port 443. A
 preview's default URL will always use the HTTPS URL if both `http` and `https`
 are `true`.
 
+---
+
 ## `https_redirect`
 
 * **Type:** Boolean
@@ -158,6 +244,8 @@ are `true`.
 
 When `true`, HTTP requests are automatically redirected to HTTPS. This setting
 only applies if both `http` and `https` are `true`.
+
+---
 
 ## `image`
 
@@ -169,6 +257,8 @@ The Docker image to use for this service. Tugboat maintains a set of images on
 [Dockerhub](https://hub.docker.com/u/tugboatqa). These images all extend the
 official docker images, and are configured to work well with Tugboat.
 
+---
+
 ## `subpath`
 
 * **Type:** Boolean
@@ -179,10 +269,12 @@ When `true`, the URL generated for this service will be a subpath of the root
 preview domain instead of a subdomain. Using a subpath URL is not common, but
 can solve problems with testing advertisements or using OAuth
 
-| subpath | URL Example                             |
-| :------ | :-------------------------------------- |
-| `true`  | https://preview.tugboat.qa/pr123-token/ |
-| `false` | https://pr123-token.tugboat.qa          |
+| subpath | URL Example                                                        |
+| :------ | :----------------------------------------------------------------- |
+| `true`  | https://preview.tugboat.qa/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/ |
+| `false` | https://pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj.tugboat.qa          |
+
+---
 
 ## `subpath_map`
 
