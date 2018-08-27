@@ -4,3 +4,4 @@
 * [Set the Document Root Path](change-docroot/index.md)
 * [Run Functional Tests](functional-tests/index.md)
 * [SimpleTest](simpletest/index.md)
+* [Warm a Page Cache](examples/page-cache/index.md)
