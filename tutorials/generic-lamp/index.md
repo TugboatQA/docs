@@ -12,10 +12,8 @@ your own installation.
 
 ```yaml
 services:
-
   # What to call the service hosting the site.
   php:
-
     # Use PHP 7.1 with Apache
     image: tugboatqa/php:7.1-apache
 
@@ -27,10 +25,8 @@ services:
 
     # A set of commands to run while building this service
     commands:
-
       # Commands that set up the basic preview infrastructure
       init:
-
         # Link the document root to the expected path. This example links
         # /htdocs to the docroot
         - ln -snf "${TUGBOAT_ROOT}/htdocs" "${DOCROOT}"
@@ -38,20 +34,17 @@ services:
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
   mysql:
-
     # Use the latest available version of MySQL by not specifying a
     # version
     image: tugboatqa/mysql
 
     # A set of commands to run while building this service
     commands:
-
       # Commands that import files, databases, or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-
         # Copy a database dump from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use scp.

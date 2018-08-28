@@ -68,11 +68,11 @@ done by the commands defined for the MySQL or MariaDB service.
 
 ```yaml
 services:
-    mysql:
-        image: tugboatqa/mysql
-        commands:
-            init:
-                - mysql -e "CREATE DATABASE foo;"
+  mysql:
+    image: tugboatqa/mysql
+    commands:
+      init:
+        - mysql -e "CREATE DATABASE foo;"
 ```
 
 ### PHP
@@ -89,10 +89,10 @@ use `docker-php-ext-configure`, `docker-php-ext-install`, and
 
 ```yaml
 commands:
-    init:
-        # Install and enable the redis extension
-        - pecl install redis
-        - docker-php-ext-enable redis
+  init:
+    # Install and enable the redis extension
+    - pecl install redis
+    - docker-php-ext-enable redis
 ```
 
 More information about these helper scripts can be found in the
@@ -106,9 +106,9 @@ add it with a service command
 
 ```yaml
 commands:
-    init:
-        # Enable mod_rewrite and mod_headers
-        - a2enmod rewrite headers
+  init:
+    # Enable mod_rewrite and mod_headers
+    - a2enmod rewrite headers
 ```
 
 ---
