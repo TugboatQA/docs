@@ -179,28 +179,28 @@ The service commands are separated into a set of stages: `init`, `update`, and
 `build`. Each stage is an optional set of commands that Tugboat should run
 during that stage. The stages are related as follows:
 
-* When a new preview is created from scratch, the commands in `init` are run
+- When a new preview is created from scratch, the commands in `init` are run
   first, then the commands in `update`, and finally the commands in `build`
 
-* When a preview is created from a base preview, only the commands in `build`
+- When a preview is created from a base preview, only the commands in `build`
   are run
 
-* When a preview is refreshed, the commands in `update` are run, followed by the
+- When a preview is refreshed, the commands in `update` are run, followed by the
   commands in `build`
 
 It may help to think of the stages as groups of commands with a particular
 purpose. While not enforced in any way, the stages roughly represent the
 following purposes:
 
-* **init** - Commands that set up the basic preview infrastructure. This might
+- **init** - Commands that set up the basic preview infrastructure. This might
   include things like installing required packages or tools, or overriding
   default configuration files.
 
-* **update** - Commands that import data or other assets into a service. This
+- **update** - Commands that import data or other assets into a service. This
   might include things like importing a database, or syncing image files into a
   service.
 
-* **build** - Commands that build or generate the actual site. This might
+- **build** - Commands that build or generate the actual site. This might
   include things like compiling Sass files, updating 3rd party libraries, or
   running database updates that the current code in the preview depends on.
 
@@ -260,9 +260,9 @@ reference for a complete list of configuration options.
 
 To see some real-world example configurations, check out our tutorials
 
-* [Static HTML](../tutorials/static-html/index.md)
-* [Generic LAMP](../tutorials/generic-lamp/index.md)
-* [Drupal 7](../tutorials/drupal7/index.md)
-* [Drupal 8](../tutorials/drupal8/index.md)
-* [WordPress](../tutorials/wordpress/index.md)
-* [Pantheon](../tutorials/pantheon/index.md)
+- [Static HTML](../tutorials/static-html/index.md)
+- [Generic LAMP](../tutorials/generic-lamp/index.md)
+- [Drupal 7](../tutorials/drupal7/index.md)
+- [Drupal 8](../tutorials/drupal8/index.md)
+- [WordPress](../tutorials/wordpress/index.md)
+- [Pantheon](../tutorials/pantheon/index.md)
