@@ -1,6 +1,7 @@
 # Automated Testing in Drupal with SimpleTest
 
-Here is an example of how you might use Tugboat to run automated testing with SimpleTest. 
+Here is an example of how you might use Tugboat to run automated testing with
+SimpleTest.
 
 ```services:
   php:
