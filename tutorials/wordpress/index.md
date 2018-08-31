@@ -111,7 +111,6 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
-
         - wp --allow-root --path="${DOCROOT}" search-replace 'wordpress.local' "${TUGBOAT_PREVIEW}-${TUGBOAT_TOKEN}.${TUGBOAT_DOMAIN}" --skip-columns=guid
 
   # What to call the service hosting MySQL. This name also acts as the
