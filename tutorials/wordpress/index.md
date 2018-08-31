@@ -57,8 +57,10 @@ for your own WordPress installation.
 
 ```yaml
 services:
+
   # What to call the service hosting the site.
   php:
+
     # Use PHP 7.1 with Apache to serve the WordPress site
     image: tugboatqa/php:7.1-apache
 
@@ -73,8 +75,10 @@ services:
 
     # A set of commands to run while building this service
     commands:
+
       # Commands that set up the basic preview infrastructure
       init:
+
         # Install wp-cli
         - curl -O
           https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -93,6 +97,7 @@ services:
       # skipping the init step, because the results of that step will
       # already be present.
       update:
+
         # Copy the uploads directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.
@@ -108,6 +113,7 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
+
         - wp --allow-root --path="${DOCROOT}" search-replace 'wordpress.local'
           "${TUGBOAT_PREVIEW}-${TUGBOAT_TOKEN}.${TUGBOAT_DOMAIN}"
           --skip-columns=guid
@@ -115,16 +121,19 @@ services:
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
   mysql:
+
     # Use the latest available 5.x version of MySQL
     image: tugboatqa/mysql:5
 
     # A set of commands to run while building this service
     commands:
+
       # Commands that import files, databases, or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
       # skipping the init step, because the results of that step will
       # already be present.
       update:
+
         # Copy a database dump from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use scp.
