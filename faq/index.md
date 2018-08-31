@@ -1,18 +1,18 @@
 # Frequently Asked Questions
 
-- [What technologies can I use with Tugboat?](#what-technologies-can-i-use-with-tugboat)
-- [Does Tugboat work with Acquia Cloud?](#does-tugboat-work-with-acquia-cloud)
-- [Does Tugboat work with Pantheon?](#does-tugboat-work-with-pantheon)
-- [Do you provide production level hosting?](#do-you-provide-production-level-hosting)
-- [Do you support self-hosted git repositories?](#do-you-support-self-hosted-git-repositories)
-- [How many repositories can I add to a project?](#how-many-repositories-can-i-add-to-a-project)
-- [I don't see a prebuilt service image that I need. Do you support it?](#i-dont-see-a-prebuilt-service-image-that-i-need-do-you-support-it)
-- [Can I import an existing database into a preview?](#can-i-import-an-existing-database-into-a-preview)
-- [Can I have SSH access to a preview?](#can-i-have-ssh-access-to-a-preview)
-- [How does Tugboat deal with sending email?](#how-does-tugboat-deal-with-sending-email)
-- [If I merge a pull request into a base preview's branch, will the base preview automatically update?](#if-i-merge-a-pull-request-into-a-base-previews-branch-will-the-base-preview-automatically-update)
-- [If a base preview is updated, will previews built from it automatically update with those changes?](#if-a-base-preview-is-updated-will-previews-built-from-it-automatically-update-with-those-changes)
-- [Why are Docker volumes not supported on Tugboat?](#why-are-docker-volumes-not-supported-on-tugboat)
+* [What technologies can I use with Tugboat?](#what-technologies-can-i-use-with-tugboat)
+* [Does Tugboat work with Acquia Cloud?](#does-tugboat-work-with-acquia-cloud)
+* [Does Tugboat work with Pantheon?](#does-tugboat-work-with-pantheon)
+* [Do you provide production level hosting?](#do-you-provide-production-level-hosting)
+* [Do you support self-hosted git repositories?](#do-you-support-self-hosted-git-repositories)
+* [How many repositories can I add to a project?](#how-many-repositories-can-i-add-to-a-project)
+* [I don't see a prebuilt service image that I need. Do you support it?](#i-dont-see-a-prebuilt-service-image-that-i-need-do-you-support-it)
+* [Can I import an existing database into a preview?](#can-i-import-an-existing-database-into-a-preview)
+* [Can I have SSH access to a preview?](#can-i-have-ssh-access-to-a-preview)
+* [How does Tugboat deal with sending email?](#how-does-tugboat-deal-with-sending-email)
+* [If I merge a pull request into a base preview's branch, will the base preview automatically update?](#if-i-merge-a-pull-request-into-a-base-previews-branch-will-the-base-preview-automatically-update)
+* [If a base preview is updated, will previews built from it automatically update with those changes?](#if-a-base-preview-is-updated-will-previews-built-from-it-automatically-update-with-those-changes)
+* [Why are Docker volumes not supported on Tugboat?](#why-are-docker-volumes-not-supported-on-tugboat)
 
 ---
 
