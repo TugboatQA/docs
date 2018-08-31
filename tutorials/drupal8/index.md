@@ -71,9 +71,9 @@ services:
       # Commands that set up the basic preview infrastructure
       init:
 
-        # Install prerequisite packages
-        - apt-get update
-        - apt-get install -y mysql-client
+        # Install opcache and mod-rewrite.
+        - docker-php-ext-install opcache
+        - a2enmod headers rewrite
 
         # Install drush-launcher
         - wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar

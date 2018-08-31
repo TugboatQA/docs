@@ -12,6 +12,7 @@
 * [How does Tugboat deal with sending email?](#how-does-tugboat-deal-with-sending-email)
 * [If I merge a pull request into a base preview's branch, will the base preview automatically update?](#if-i-merge-a-pull-request-into-a-base-previews-branch-will-the-base-preview-automatically-update)
 * [If a base preview is updated, will previews built from it automatically update with those changes?](#if-a-base-preview-is-updated-will-previews-built-from-it-automatically-update-with-those-changes)
+* [Why are Docker volumes not supported on Tugboat?](#why-are-docker-volumes-not-supported-on-tugboat)
 
 ---
 
@@ -38,9 +39,8 @@ sort of stability or support guarantees needed to host a production application.
 
 ### Do you support self-hosted git repositories?
 
-Yes. But, this is currently a beta feature.
-[Contact us](https://tugboat.qa/support) if you are interested in helping us
-test this.
+Yes. You can connect to a generic Git provider from the
+[project creation page](https://dashboard2.tugboat.qa/new-project).
 
 ### How many repositories can I add to a project?
 
@@ -93,3 +93,16 @@ disabled if you prefer to update your base preview manually.
 
 No. When a base preview is updated, the previews built from it are left alone,
 and must be updated manually.
+
+### Why are Docker volumes not supported on Tugboat?
+
+Tugboat has a concept of [Base Previews](../concepts/base-previews/). Base
+Previews provide Tugboat with a starting point, from where it can build new
+previews. The advantage of Base Previews is they drastically reduce preview
+build times as well as the amount of space a preview occupies on disk. This is
+because under the hood Tugboat is committing the entire state of the container
+(including files, databases, etc), so all the new Preview needs to do is run the
+build steps without importing a database or other required assets.
+
+If you'd like to use your own Docker images, here's the repo we use to make an
+image Tugboat compatible: https://github.com/TugboatQA/images

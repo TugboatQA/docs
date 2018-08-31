@@ -20,6 +20,7 @@
   * [Set the Document Root Path](examples/change-docroot/index.md)
   * [Run Functional Tests](examples/functional-tests/index.md)
   * [SimpleTest](examples/simpletest/index.md)
+  * [Warm a Page Cache](examples/page-cache/index.md)
 
 * [Tutorials](tutorials/index.md)
 

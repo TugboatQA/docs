@@ -66,7 +66,7 @@ To see a list of your Tugboat Previews
 tugboat ls previews
 ```
 
-To build a new preview from the master branch of a Tugboat Repository with an ID
+To build a new Preview from the master branch of a Tugboat Repository with an ID
 of `5b02ed093558930001c04cfa`
 
 ```sh
@@ -84,4 +84,10 @@ To view the services of a preview with an ID of `5b04c7d14c3dad00016a2e80`
 
 ```sh
 tugboat ls services preview=5b04c7d14c3dad00016a2e80
+```
+
+To force the deletion of a Preview with an ID of `5b04c7d14c3dad00016a2e80`
+
+```sh
+tugboat delete 5b02ed093558930001c04cfa -f
 ```
