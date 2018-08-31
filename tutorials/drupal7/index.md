@@ -95,6 +95,7 @@ services:
       # skipping the init step, because the results of that step will
       # already be present.
       update:
+
         # Copy the files directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.

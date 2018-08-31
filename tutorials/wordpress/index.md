@@ -80,8 +80,7 @@ services:
       init:
 
         # Install wp-cli
-        - curl -O
-          https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+        - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         - cmod +x wp-cli.phar
         - mv wp-cli.phar /usr/local/bin/wp
 
@@ -102,8 +101,7 @@ services:
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.
         - mkdir -p "${DOCROOT}/wp-content/uploads" || /bin/true
-        - rsync -av --delete user@example.com:/path/to/wp-content/uploads/
-          "${DOCROOT}/wp-content/uploads/"
+        - rsync -av --delete user@example.com:/path/to/wp-content/uploads/ "${DOCROOT}/wp-content/uploads/"
         - chgrp -R www-data "${DOCROOT}/wp-content/uploads"
         - find "${DOCROOT}/wp-content/uploads" -type d -exec chmod 2775 {} \;
         - find "${DOCROOT}/wp-content/uploads" -type f -exec chmod 0664 {} \;
@@ -114,9 +112,7 @@ services:
       # from the base preview.
       build:
 
-        - wp --allow-root --path="${DOCROOT}" search-replace 'wordpress.local'
-          "${TUGBOAT_PREVIEW}-${TUGBOAT_TOKEN}.${TUGBOAT_DOMAIN}"
-          --skip-columns=guid
+        - wp --allow-root --path="${DOCROOT}" search-replace 'wordpress.local' "${TUGBOAT_PREVIEW}-${TUGBOAT_TOKEN}.${TUGBOAT_DOMAIN}" --skip-columns=guid
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.

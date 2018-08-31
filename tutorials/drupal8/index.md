@@ -90,8 +90,7 @@ services:
       update:
 
         # Use the tugboat-specific Drupal settings
-        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php"
-          "${DOCROOT}/sites/default/"
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
 
         # Generate a unique hash_salt to secure the site
         - echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >> "${DOCROOT}/sites/default/settings.local.php"
