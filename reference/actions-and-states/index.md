@@ -17,7 +17,7 @@
 * **Rebuild** - Rebuild an existing Tugboat Preview from scratch.
 
 * **Refresh** - Pulls the latest code from git and runs any commands found in
-  the `update` section of the
+  the `update` section followed by the `build` section of the
   [configuration](../../configuring-tugboat/index.md).
 
 * **Reset** - Resets a preview to the state it was in when it finished building.
