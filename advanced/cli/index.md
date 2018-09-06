@@ -1,3 +1,8 @@
+---
+search:
+    keywords: ['cli', 'command-line']
+---
+
 # Command Line Interface
 
 The Tugboat [Command Line Tool](https://dashboard2.tugboat.qa/downloads)
