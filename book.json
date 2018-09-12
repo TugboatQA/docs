@@ -6,8 +6,7 @@
         "-sharing",
         "anchors",
         "expandable-chapters",
-        "callouts",
-        "gist"
+        "callouts"
     ],
     "styles": {
         "website": "_styles/website.css"

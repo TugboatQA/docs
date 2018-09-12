@@ -11,23 +11,6 @@
     padding-bottom: 10em;
 }
 
-/**
- * Don't inherit the alternating row colors from gitbook when displaying GitHub Gists.
- */
-.markdown-section .gist table tr {
-    background-color: #fff;
-    border-top: 0px;
-}
-
-.markdown-section .gist table tr:nth-child(2n) {
-    background-color: #fff;
-}
-
-.markdown-section .gist table td, .markdown-section .gist table th {
-    padding: inherit;
-    border: 0px;
-}
-
 .not-found {
     max-width: 600px;
     margin: 0 auto;
