@@ -1,8 +1,8 @@
 # Troubleshooting
 
-* [A preview fails to build](#a-preview-fails-to-build)
-* [A preview says it is "ready", but shows a blank page](#a-preview-says-it-is-ready-but-shows-a-blank-page)
-* [Previews are not building automatically](#previews-are-not-building-automatically)
+- [A preview fails to build](#a-preview-fails-to-build)
+- [A preview says it is "ready", but shows a blank page](#a-preview-says-it-is-ready-but-shows-a-blank-page)
+- [Previews are not building automatically](#previews-are-not-building-automatically)
 
 ---
 

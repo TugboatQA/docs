@@ -32,13 +32,13 @@ respectively. The primary difference is that these three stages are no longer
 independent. Tugboat uses different combinations of these stages for different
 types of preview operations.
 
-* When a new preview is created from scratch, the commands in `init` are run
+- When a new preview is created from scratch, the commands in `init` are run
   first, then the commands in `update`, and finally the commands in `build`
 
-* When a preview is created from a base preview, only the commands in `build`
+- When a preview is created from a base preview, only the commands in `build`
   are run
 
-* When a preview is refreshed, the commands in `update` are run, followed by the
+- When a preview is refreshed, the commands in `update` are run, followed by the
   commands in `build`
 
 While this workflow is technically new, it was heavily used by many legacy
