@@ -1,6 +1,6 @@
 ---
 search:
-    keywords: ['cli', 'command-line']
+  keywords: ["cli", "command-line"]
 ---
 
 # Command Line Interface

@@ -5,7 +5,7 @@ environment.
 
 To use this snippet in you own config file, register for an account on Tenon.io
 and add your Tenon API Key to Tugboat as a
-[custom environment variable](../../advanced/custom-environment-variables/)
+[custom environment variable](../../advanced/custom-environment-variables/index.md)
 called `TENON_API`.
 
 ```yaml
@@ -21,6 +21,11 @@ services:
       build:
         # Tenon Integration
         - touch results.json
-        - curl -d "url=${TUGBOAT_PREVIEW_URL}&key=${TENON_API}" -H Content-Type:application/x-www-form-urlencoded -H Cache-Control:no-cache -X POST https://tenon.io/api/ > results.json
-        - "jq '{Summary: [.resultSummary .tests], title: .resultSet[] .errorTitle, description: .resultSet[] .errorDescription, snippet: .resultSet[] .errorSnippet, ref: .resultSet[] .ref, resultTitle: .resultSet[] .resultTitle, xpath: .resultSet[] .xpath}' results.json"
+        - curl -d "url=${TUGBOAT_PREVIEW_URL}&key=${TENON_API}" -H
+          Content-Type:application/x-www-form-urlencoded -H
+          Cache-Control:no-cache -X POST https://tenon.io/api/ > results.json
+        - "jq '{Summary: [.resultSummary .tests], title: .resultSet[]
+          .errorTitle, description: .resultSet[] .errorDescription, snippet:
+          .resultSet[] .errorSnippet, ref: .resultSet[] .ref, resultTitle:
+          .resultSet[] .resultTitle, xpath: .resultSet[] .xpath}' results.json"
 ```

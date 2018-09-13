@@ -54,9 +54,7 @@ for your own installation.
 
 ```yaml
 services:
-
   php:
-
     # Use PHP 7.1 with Apache to serve the Drupal site
     image: tugboatqa/php:7.1-apache
 
@@ -71,10 +69,8 @@ services:
 
     # A set of commands to run while building this service
     commands:
-
       # Commands that set up the basic preview infrastructure
       init:
-
         # Install opcache and enable mod-rewrite.
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
@@ -88,18 +84,19 @@ services:
         - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
 
         # Use the tugboat-specific Drupal settings
-        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php"
+          "${DOCROOT}/sites/default/"
 
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-
         # Copy the files directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.
-        - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
+        - rsync -av --delete user@example.com:/path/to/files/
+          "${DOCROOT}/sites/default/files/"
         - chgrp -R www-data "${DOCROOT}/sites/default/files"
         - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
         - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
@@ -111,7 +108,8 @@ services:
         # This results in smaller previews and reduces the build time.
         - drush -r "${DOCROOT}" pm-download stage_file_proxy
         - drush -r "${DOCROOT}" pm-enable --yes stage_file_proxy
-        - drush -r "${DOCROOT}" variable-set stage_file_proxy_origin "http://www.example.com"
+        - drush -r "${DOCROOT}" variable-set stage_file_proxy_origin
+          "http://www.example.com"
 
       # Commands that build the site. This is where you would add things
       # like feature reverts or any other drush commands required to
@@ -126,19 +124,16 @@ services:
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
   mysql:
-
     # Use the latest available 5.x version of MySQL
     image: tugboatqa/mysql:5
 
     # A set of commands to run while building this service
     commands:
-
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-
         # Copy a database dump from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use scp.
