@@ -75,13 +75,13 @@ Bitbucket repository.
 These variables are only injected into Tugboat Previews that are built from a
 Bitbucket pull request.
 
-* **`$TUGBOAT_BITBUCKET_PR`** - The Bitbucket pull request number.
+- **`$TUGBOAT_BITBUCKET_PR`** - The Bitbucket pull request number.
 
-* **`$TUGBOAT_BITBUCKET_TITLE`** - The title of the Bitbucket pull request.
+- **`$TUGBOAT_BITBUCKET_TITLE`** - The title of the Bitbucket pull request.
 
-- **`$TUGBOAT_BITBUCKET_SOURCE`** - The name of the pull request source branch.
+* **`$TUGBOAT_BITBUCKET_SOURCE`** - The name of the pull request source branch.
 
-- **`$TUGBOAT_BITBUCKET_DESTINATION`** - The name of the pull request
+* **`$TUGBOAT_BITBUCKET_DESTINATION`** - The name of the pull request
   destination branch.
 
 ### Git
@@ -103,13 +103,13 @@ repository.
 These variables are only injected into Tugboat Previews that are built from a
 GitHub pull request.
 
-* **`$TUGBOAT_GITHUB_PR`** - The GitHub pull request number.
+- **`$TUGBOAT_GITHUB_PR`** - The GitHub pull request number.
 
-* **`$TUGBOAT_GITHUB_TITLE`** - The title of the GitHub pull request.
+- **`$TUGBOAT_GITHUB_TITLE`** - The title of the GitHub pull request.
 
-- **`$TUGBOAT_GITHUB_HEAD`** - The name of the pull request head branch.
+* **`$TUGBOAT_GITHUB_HEAD`** - The name of the pull request head branch.
 
-- **`$TUGBOAT_GITHUB_BASE`** - The name of the pull request base branch.
+* **`$TUGBOAT_GITHUB_BASE`** - The name of the pull request base branch.
 
 ### GitLab
 
@@ -123,13 +123,13 @@ repository.
 These variables are only injected into Tugboat Previews that are built from a
 GitLab merge request.
 
-* **`$TUGBOAT_GITLAB_MR`** - The GitLab merge request number.
+- **`$TUGBOAT_GITLAB_MR`** - The GitLab merge request number.
 
-* **`$TUGBOAT_GITLAB_TITLE`** - The title of the GitLab merge request.
+- **`$TUGBOAT_GITLAB_TITLE`** - The title of the GitLab merge request.
 
-- **`$TUGBOAT_GITLAB_SOURCE`** - The name of the merge request source branch.
+* **`$TUGBOAT_GITLAB_SOURCE`** - The name of the merge request source branch.
 
-- **`$TUGBOAT_GITLAB_TARGET`** - The name of the merge request target branch.
+* **`$TUGBOAT_GITLAB_TARGET`** - The name of the merge request target branch.
 
 ### Stash / Bitbucket Server
 
@@ -144,11 +144,11 @@ or Bitbucket Server repository.
 These variables are only injected into Tugboat Previews that are built from a
 Stash or Bitbucket Server pull request.
 
-* **`$TUGBOAT_STASH_PR`** - The pull request number.
+- **`$TUGBOAT_STASH_PR`** - The pull request number.
 
-* **`$TUGBOAT_STASH_TITLE`** - The title of the pull request.
+- **`$TUGBOAT_STASH_TITLE`** - The title of the pull request.
 
-- **`$TUGBOAT_STASH_SOURCE`** - The name of the pull request source branch.
+* **`$TUGBOAT_STASH_SOURCE`** - The name of the pull request source branch.
 
-- **`$TUGBOAT_STASH_DESTINATION`** - The name of the pull request destination
+* **`$TUGBOAT_STASH_DESTINATION`** - The name of the pull request destination
   branch.
