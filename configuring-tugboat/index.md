@@ -13,6 +13,13 @@ commit, or pull request that is being built. The exception being that when a
 preview is built from a [base preview](../concepts/base-previews/index.md), the
 configuration for the base preview is always used.
 
+> #### Hint::Video Overview
+>
+> If you want to learn more about debugging your configuration file and get a
+> feel for the overall workflow, watch our
+> [Getting Started with Tugboat video](https://www.youtube.com/watch?v=HYTsrm5ORmU&t=118s)
+> on YouTube.
+
 ## Preview Services
 
 A Tugboat preview consists of one or more services, each responsible for a
