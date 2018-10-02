@@ -24,12 +24,13 @@ sure you always have the most recent version available by specifying
 | CouchDB                           | `image: tugboatqa/couchdb:[TAG]`       | [Tags](https://hub.docker.com/r/tugboatqa/couchdb/tags/)       |
 | Debian                            | `image: tugboatqa/debian:[TAG]`        | [Tags](https://hub.docker.com/r/tugboatqa/debian/tags/)        |
 | [Elastic Search](#elastic-search) | `image: tugboatqa/elasticsearch:[TAG]` | [Tags](https://hub.docker.com/r/tugboatqa/elasticsearch/tags/) |
-| [MariaDB](#mariadbmysql)          | `image: tugboatqa/mariadb:[TAG]`       | [Tags](https://hub.docker.com/r/tugboatqa/mariadb/tags/)       |
+| [MariaDB](#mysqlmariadbpercona)   | `image: tugboatqa/mariadb:[TAG]`       | [Tags](https://hub.docker.com/r/tugboatqa/mariadb/tags/)       |
 | Memcached                         | `image: tugboatqa/memcached:[TAG]`     | [Tags](https://hub.docker.com/r/tugboatqa/memcached/tags/)     |
 | MongoDB                           | `image: tugboatqa/mongo:[TAG]`         | [Tags](https://hub.docker.com/r/tugboatqa/mongo/tags/)         |
-| [MySQL](#mariadbmysql)            | `image: tugboatqa/mysql:[TAG]`         | [Tags](https://hub.docker.com/r/tugboatqa/mysql/tags/)         |
+| [MySQL](#mysqlmariadbpercona)     | `image: tugboatqa/mysql:[TAG]`         | [Tags](https://hub.docker.com/r/tugboatqa/mysql/tags/)         |
 | Nginx                             | `image: tugboatqa/nginx:[TAG]`         | [Tags](https://hub.docker.com/r/tugboatqa/nginx/tags/)         |
 | Node                              | `image: tugboatqa/node:[TAG]`          | [Tags](https://hub.docker.com/r/tugboatqa/node/tags/)          |
+| [Percona](#mysqlmariadbpercona)   | `image: tugboatqa/percona:[TAG]`       | [Tags](https://hub.docker.com/r/tugboatqa/percona/tags/)       |
 | [PHP](#php)                       | `image: tugboatqa/php:[TAG]`           | [Tags](https://hub.docker.com/r/tugboatqa/php/tags/)           |
 | Redis                             | `image: tugboatqa/redis:[TAG]`         | [Tags](https://hub.docker.com/r/tugboatqa/redis/tags/)         |
 | Solr                              | `image: tugboatqa/solr:[TAG]`          | [Tags](https://hub.docker.com/r/tugboatqa/solr/tags/)          |
@@ -55,13 +56,13 @@ The newer tags of this image extend the official Elastic Search images
 maintained by [Elastic.co](https://www.docker.elastic.co/). These images are
 based on CentOS.
 
-### MariaDB/MySQL
+### MySQL/MariaDB/Percona
 
-The MariaDB and MySQL images are configured the same way. Each have a default
-database named `tugboat` as well as a user named `tugboat` with a password of
-`tugboat`. The `tugboat` user has full access to the `tugboat` database. In
-addition, the `root` database user does not have a password, but can only be
-used to connect to the database from the MariaDB or MySQL service.
+The MySQL, MariaDB, and Percona images are configured the same way. Each have a
+default database named `tugboat` as well as a user named `tugboat` with a
+password of `tugboat`. The `tugboat` user has full access to the `tugboat`
+database. In addition, the `root` database user does not have a password, but
+can only be used to connect to the database from the MariaDB or MySQL service.
 
 This means that in order to do any root-level database operations, they must be
 done by the commands defined for the MySQL or MariaDB service.
