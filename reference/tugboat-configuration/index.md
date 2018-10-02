@@ -221,10 +221,11 @@ that the Tugboat Proxy will forward incoming requests to.
 ## `http`
 
 - **Type:** Boolean
-- **Default:** `true`
+- **Default:** `false`
 - **Required:** No
 
-When `true`, this service's URL is publicly accessible via HTTP on port 80
+When `true`, this service's URL is publicly accessible via HTTP on port 80. By
+default, Tugboat only generates HTTPS URLs.
 
 ---
 
@@ -243,7 +244,7 @@ are `true`.
 ## `https_redirect`
 
 - **Type:** Boolean
-- **Default:** `true`
+- **Default:** `false`
 - **Required:** No
 
 When `true`, HTTP requests are automatically redirected to HTTPS. This setting
