@@ -35,9 +35,6 @@ run-time configuration files, etc.
 - **`$TUGBOAT_SMTP`** - The hostname of a Tugboat SMTP server that can be used
   to capture outbound email from the preview.
 
-- **`$TUGBOAT_SERVICE_HOSTNAME`** - The fully-qualified hostname of the current
-  service.
-
 ## Exposed Service Variables
 
 If a service has an exposed HTTP port configured, the following variables are
