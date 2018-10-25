@@ -11,8 +11,6 @@ run-time configuration files, etc.
 
 - **`$TUGBOAT_PREVIEW`** - The friendly name of the current preview.
 
-- **`$TUGBOAT_PREVIEW_URL`**
-
 - **`$TUGBOAT_PROJECT_ID`** - The ID of the project that the current preview
   belongs to.
 
@@ -34,30 +32,56 @@ run-time configuration files, etc.
   also the hostname used to reference this service container from other
   services.
 
-- **`$TUGBOAT_SERVICE_HOSTNAME`**
-
-- **`$TUGBOAT_SERVICE_URL`**
-
 - **`$TUGBOAT_SMTP`** - The hostname of a Tugboat SMTP server that can be used
   to capture outbound email from the preview.
 
-- **`$TUGBOAT_TOKEN`** - The authentication token for the current Tugboat
-  Preview. This is used by the Tugboat HTTP proxy to grant access to a Preview
+- **`$TUGBOAT_SERVICE_HOSTNAME`** - The fully-qualified hostname of the current
+  service.
+
+## Exposed Service Variables
+
+If a service has an exposed HTTP port configured, the following variables are
+also available with information about the service's public URL
+
+- **`$TUGBOAT_SERVICE_TOKEN`** - The authentication token for the Tugboat
+  Service. This is used by the Tugboat HTTP proxy to grant access to a Service
   and is passed through mostly as an informational value. Additional
   verification could be done in the application if necessary.
 
-- **`$TUGBOAT_URL`** - The URL for the Tugboat Preview.
+- **`$TUGBOAT_SERVICE_URL`** - The full URL of the current service
+
+- **`$TUGBOAT_SERVICE_URL_PROTOCOL`** - The "protocol" part of the current
+  service's URL.
+
+- **`$TUGBOAT_SERVICE_URL_HOST`** - The "host" part of the current service's
+  URL.
+
+- **`$TUGBOAT_SERVICE_URL_PATH`** - The "path" part of the current service's
+  URL.
 
 ## Base Preview Environment Variables
 
 If a Preview was built from a Base Preview, the following variables are also
 available with information about the base preview.
 
-- **`TUGBOAT_BASE_PREVIEW`** - The friendly name of the Base Preview.
+- **`$TUGBOAT_BASE_PREVIEW`** - The friendly name of the Base Preview.
 
-- **`TUGBOAT_BASE_PREVIEW_ID`** - The ID of the Base Preview.
+- **`$TUGBOAT_BASE_PREVIEW_ID`** - The ID of the Base Preview.
 
-- **`TUGBOAT_BASE_PREVIEW_URL`** - The public URL for the Base Preview.
+- **`$TUGBOAT_BASE_PREVIEW_TOKEN`** - The authentication token of the Base
+  Preview's default service.
+
+- **`$TUGBOAT_BASE_PREVIEW_URL`** - The public URL for the Base Preview's
+  default service.
+
+- **`$TUGBOAT_BASE_PREVIEW_URL_PROTOCOL`** - The "protocol" part of the Base
+  Preview's default service URL.
+
+- **`$TUGBOAT_BASE_PREVIEW_URL_HOST`** - The "host" part of the Base Preview's
+  default service URL.
+
+- **`$TUGBOAT_BASE_PREVIEW_URL_PATH`** - The "path" part of the Base Preview's
+  default service URL.
 
 ## Provider-specific Environment Variables
 
