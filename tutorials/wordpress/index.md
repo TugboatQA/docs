@@ -59,8 +59,8 @@ for your own WordPress installation.
 services:
   # What to call the service hosting the site.
   php:
-    # Use PHP 7.1 with Apache to serve the WordPress site
-    image: tugboatqa/php:7.1-apache
+    # Use PHP 7.2 with Apache to serve the WordPress site
+    image: tugboatqa/php:7.2-apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container
@@ -75,6 +75,13 @@ services:
     commands:
       # Commands that set up the basic preview infrastructure
       init:
+        # Install prerequisite packages
+        - apt-get update
+        - apt-get install -y rsync
+
+        # Install the PHP mysqli extension
+        - docker-php-ext-install mysqli
+
         # Install wp-cli
         - curl -O
           https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -103,14 +110,20 @@ services:
         - find "${DOCROOT}/wp-content/uploads" -type d -exec chmod 2775 {} \;
         - find "${DOCROOT}/wp-content/uploads" -type f -exec chmod 0664 {} \;
 
+        # Cleanup
+        - apt-get clean
+        - rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
       # Commands that build the site. When a preview is built from a
       # base preview, the build workflow starts here, skipping the init
       # and update steps, because the results of those are inherited
       # from the base preview.
-      build:
-        - wp --allow-root --path="${DOCROOT}" search-replace 'wordpress.local'
-          "${TUGBOAT_PREVIEW}-${TUGBOAT_TOKEN}.${TUGBOAT_DOMAIN}"
-          --skip-columns=guid
+      build: |
+        if [ "x${TUGBOAT_BASE_PREVIEW}" != "x" ]; then
+            wp --allow-root --path="${DOCROOT}" search-replace "${TUGBOAT_BASE_PREVIEW_URL_HOST}" "${TUGBOAT_SERVICE_URL_HOST}" --skip-columns=guid
+        else
+            wp --allow-root --path="${DOCROOT}" search-replace 'wordpress.local' "${TUGBOAT_SERVICE_URL_HOST}" --skip-columns=guid
+        fi
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
