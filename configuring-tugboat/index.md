@@ -37,7 +37,7 @@ These service names are arbitrary, and can be anything you would like. Keep in
 mind that they also act as the internal host name that a service is known by to
 the other services in a preview. This means that the service names must conform
 to the same rules as an internet host name, consisting of only the characters
-`a-z`, `0-9`, and `-`.
+`a-z`, `0-9`, and `-`. Service names are also limited to 39 characters.
 
 A practical example of a set of services that might be used to serve a PHP-based
 site with a MySQL database and a Redis cache might look like the following:
