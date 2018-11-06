@@ -5,3 +5,4 @@
 - [Run Functional Tests](functional-tests/index.md)
 - [SimpleTest](simpletest/index.md)
 - [Warm a Page Cache](page-cache/index.md)
+- [Adding a Background Process](background-process/index.md)
