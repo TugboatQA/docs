@@ -43,6 +43,7 @@
 
   - [Custom Environment Variables](advanced/custom-environment-variables/index.md)
   - [Command Line Interface](advanced/cli/index.md)
+  - [Start a Background Process](advanced/background-process/index.md)
 
 - [Reference](reference/index.md)
 
