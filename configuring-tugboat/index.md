@@ -17,7 +17,7 @@ configuration for the base preview is always used.
 >
 > If you want to learn more about debugging your configuration file and get a
 > feel for the overall workflow, watch our
-> [Getting Started with Tugboat video](https://www.youtube.com/watch?v=HYTsrm5ORmU&t=118s)
+> [Getting Started with Tugboat video](https://www.youtube.com/watch?v=HYTsrm5ORmU)
 > on YouTube.
 
 ## Preview Services
