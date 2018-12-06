@@ -5,6 +5,27 @@ variables are available for the entire lifetime of a service. This includes both
 build-time as well as run-time. So, they can be used in Build Scripts as well as
 run-time configuration files, etc.
 
+- **`TUGBOAT_DEFAULT_SERVICE`** - The friendly name of the default service of
+  the current preview.
+
+- **`TUGBOAT_DEFAULT_SERVICE_ID`** - The ID of the default service of the
+  current preview.
+
+- **`TUGBOAT_DEFAULT_SERVICE_TOKEN`** - The authentication token for the default
+  service of the current preview.
+
+- **`TUGBOAT_DEFAULT_SERVICE_URL`** - The full URL for the default service of
+  the current preview. This is also the default URL for the preview itself.
+
+- **`TUGBOAT_DEFAULT_SERVICE_URL_HOST`** - The "host" part of the URL for the
+  default service of the current preview.
+
+- **`TUGBOAT_DEFAULT_SERVICE_URL_PROTOCOL`** - The "protocol" part of the URL
+  for the default service of the current preview.
+
+- **`TUGBOAT_DEFAULT_SERVICE_URL_PATH`** - The "path" part of the URL for the
+  default service of the current preview.
+
 - **`$TUGBOAT_DOMAIN`** - The root domain of the current Tugboat Preview
 
 - **`$TUGBOAT_PREVIEW_ID`** - The ID of the current preview.
