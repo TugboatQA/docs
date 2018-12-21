@@ -91,13 +91,15 @@ disabled if you prefer to update your base preview manually.
 
 ### If a base preview is updated, will previews built from it automatically update with those changes?
 
-No. When a base preview is updated, the previews built from it are left alone,
-and must be updated manually.
+By default, no. However, there are two repo configuration options that will
+enable this functionality.
+
+![Automatically Rebuild Child Previews](_images/auto-rebuild.png)
 
 ### Why are Docker volumes not supported on Tugboat?
 
-Tugboat has a concept of [Base Previews](../concepts/base-previews/). Base
-Previews provide Tugboat with a starting point, from where it can build new
+Tugboat has a concept of [Base Previews](../concepts/base-previews/index.md).
+Base Previews provide Tugboat with a starting point, from where it can build new
 previews. The advantage of Base Previews is they drastically reduce preview
 build times as well as the amount of space a preview occupies on disk. This is
 because under the hood Tugboat is committing the entire state of the container
