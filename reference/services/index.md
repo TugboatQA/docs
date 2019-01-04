@@ -33,6 +33,7 @@ sure you always have the most recent version available by specifying
 | Node                              | `image: tugboatqa/node:[TAG]`          | [Tags](https://hub.docker.com/r/tugboatqa/node/tags/)          |
 | [Percona](#mysqlmariadbpercona)   | `image: tugboatqa/percona:[TAG]`       | [Tags](https://hub.docker.com/r/tugboatqa/percona/tags/)       |
 | [PHP](#php)                       | `image: tugboatqa/php:[TAG]`           | [Tags](https://hub.docker.com/r/tugboatqa/php/tags/)           |
+| [phpMyAdmin](#phpmyadmin)         | `image: tugboatqa/phpmyadmin:[TAG]`    | [Tags](https://hub.docker.com/r/tugboatqa/phpmyadmin/tags/)           |
 | Redis                             | `image: tugboatqa/redis:[TAG]`         | [Tags](https://hub.docker.com/r/tugboatqa/redis/tags/)         |
 | Solr                              | `image: tugboatqa/solr:[TAG]`          | [Tags](https://hub.docker.com/r/tugboatqa/solr/tags/)          |
 | Ubuntu                            | `image: tugboatqa/ubuntu:[TAG]`        | [Tags](https://hub.docker.com/r/tugboatqa/ubuntu/tags/)        |
@@ -112,6 +113,41 @@ commands:
     # Enable mod_rewrite and mod_headers
     - a2enmod rewrite headers
 ```
+
+### phpMyAdmin
+
+[phpMyAdmin](https://www.phpmyadmin.net/) is a user interface to connect to a
+MySQL server. The Tugboat image uses the [official upstream](https://hub.docker.com/r/phpmyadmin/phpmyadmin).
+Here is an example config.yml showing how you might add a phpmyadmin service
+to your Tugboat project that has a MySQL 5.6 image.
+
+```yaml
+services:
+  mysql:
+    image: tugboatqa/mysql:5.6
+  phpmyadmin:
+    expose: 80
+    image: tugboatqa/phpmyadmin:4.8
+    depends:
+      - mysql
+```
+
+Once you've added the phpmyadmin service to your Tugboat config, you will need
+to follow the instructions on the [Custom Environment Variables](../../advanced/custom-environment-variables/index.md)
+to add the following environment variables to your Repository Settings:
+
+- `PMA_USER`: Set this environment variable to a username you would like to use to authenticate to phpMyAdmin.
+- `PMA_PASSWORD`: Set this environment variable to the password for the above user.
+- `PMA_HOST`: Set this to the name of the MySQL service that you would like phpmyadmin to connect to. In the example yml config above, the service name is `mysql`.
+- `MYSQL_USER`: Set this environment variable to the MySQL user that can connect to the above MySQL service. Typically this is `tugboat`.
+- `MYSQL_PASSWORD`: This is the password for the above user. Typically this value is `tugboat`.
+
+Once you've added these custom environment variables, you're ready to build a
+new Preview to test out phpMyAdmin. Note that we are exposing port 80 in the
+config.yml above, which will give you a separate Preview* button on the Tugboat
+Preview Dashboard for phpMyAdmin:
+
+![Click Preview to access phpMyAdmin](_images/preview.png)
 
 ---
 
