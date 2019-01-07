@@ -1,10 +1,22 @@
 # Adding a phpMyAdmin Service
 
-[phpMyAdmin](https://www.phpmyadmin.net/) is a user interface to connect to a
-MySQL server. The
-[official phpMyAdmin Docker image](https://hub.docker.com/r/phpmyadmin/phpmyadmin)
-can be used with Tugboat. Here is an example config.yml showing how you might
-add a phpmyadmin service to a Tugboat Preview.
+Database management tools such as MySQL Workbench or Sequel Pro are commonly
+used by developers to work with a MySQL database. However, Tugboat does not
+provide a way for these tools to connect to a database for a Preview. A popular
+alternative is to use [phpMyAdmin](https://www.phpmyadmin.net/) to fill this
+gap.
+
+> #### Warning::
+>
+> Exposing a phpMyAdmin service grants full access to the database for the
+> Tugboat Preview to anyone that has the link. While it is best practice to
+> avoid storing sensitive data in Tugboat, it is still a good idea to be careful
+> about sharing this link.
+
+The official phpMyAdmin
+[Docker image](https://hub.docker.com/r/phpmyadmin/phpmyadmin) can be used with
+Tugboat. Here is an example config.yml showing how you might add a phpmyadmin
+service to a Tugboat Preview:
 
 ```yaml
 services:
@@ -49,11 +61,5 @@ Once you've added these environment variables, you're ready to build a new
 Preview with phpMyAdmin. Note that we are exposing port 80 in the config.yml
 above, which will give you a separate _Preview_ button on the Tugboat Preview
 Dashboard for phpMyAdmin:
-
-> #### Warning::
->
-> The link to the phpMyAdmin services grants full access to the database for the
-> Tugboat Preview. While it is best practice to avoid storing sensitive data in
-> Tugboat, it is still a good idea to be careful about sharing this link.
 
 ![Click Preview to access phpMyAdmin](_images/preview.png)
