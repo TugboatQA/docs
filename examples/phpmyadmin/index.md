@@ -49,13 +49,14 @@ to add the following environment variables to your Repository Settings:
 
 - **`PMA_HOST`** - Set this to the name of the MySQL service that you would like
   phpmyadmin to connect to. In the example yml config above, the service name is
-  `mysql`.
+  `mysql`
 
-- **`PMA_USER`** - Set this environment variable to a username you would like to
-  use to authenticate to phpMyAdmin.
+- **`PMA_USER`** - Set this environment variable to a MySQL user that can
+  connect to the above MySQL service. Typically this is the default `tugboat`
+  user
 
-- **`PMA_PASSWORD`** - Set this environment variable to the password for the
-  above user.
+- **`PMA_PASSWORD`** - This is the password for the above MySQL user. The
+  default password for the `tugboat` user is also `tugboat`
 
 Once you've added these environment variables, you're ready to build a new
 Preview with phpMyAdmin. Note that we are exposing port 80 in the config.yml
