@@ -20,6 +20,7 @@
   - [SimpleTest](examples/simpletest/index.md)
   - [Warm a Page Cache](examples/page-cache/index.md)
   - [Tenon.io Integration](examples/tenon_io/index.md)
+  - [Add a phpMyAdmin service](examples/phpmyadmin/index.md)
 
 - [Tutorials](tutorials/index.md)
 

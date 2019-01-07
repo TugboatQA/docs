@@ -5,3 +5,5 @@
 - [Run Functional Tests](functional-tests/index.md)
 - [SimpleTest](simpletest/index.md)
 - [Warm a Page Cache](page-cache/index.md)
+- [Tenon.io Integration](tenon_io/index.md)
+- [Add a phpMyAdmin service](phpmyadmin/index.md)
