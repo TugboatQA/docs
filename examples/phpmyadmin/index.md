@@ -28,7 +28,7 @@ to add the following environment variables to your Repository Settings:
 
 Once you've added these custom environment variables, you're ready to build a
 new Preview to test out phpMyAdmin. Note that we are exposing port 80 in the
-config.yml above, which will give you a separate Preview* button on the Tugboat
+config.yml above, which will give you a separate *Preview* button on the Tugboat
 Preview Dashboard for phpMyAdmin:
 
 ![Click Preview to access phpMyAdmin](_images/preview.png)
