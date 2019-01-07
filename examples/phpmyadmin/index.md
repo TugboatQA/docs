@@ -53,8 +53,7 @@ Dashboard for phpMyAdmin:
 > #### Warning::
 >
 > The link to the phpMyAdmin services grants full access to the database for the
-> preview. While it is best practice to avoid storing sensitive data in a
-> Tugboat Preview, it is still a good idea to be careful about sharing this
-> link.
+> Tugboat Preview. While it is best practice to avoid storing sensitive data in
+> Tugboat, it is still a good idea to be careful about sharing this link.
 
 ![Click Preview to access phpMyAdmin](_images/preview.png)
