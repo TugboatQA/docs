@@ -11,9 +11,6 @@ services:
       init:
         - apt-get update
         - apt-get install -y phantomjs
-        - casperjs test app.js
       build:
-        - casperjs test app.js
-      update:
         - casperjs test app.js
 ```
