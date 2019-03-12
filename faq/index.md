@@ -60,11 +60,12 @@ need.
 
 ### Can I import an existing database into a preview?
 
-Yes. Use the `commands` section of your repository's
-[Tugboat configuration file](../configuring-tugboat/index.md) to add any
-commands necessary to import a database from a remote server. Check out
-[an example](../examples/import-mysql-database/index.md) for a good starting
-point.
+Yes. In order seed a database, you will need to be able to access a copy of it
+from your Tugboat previews. We generally recommend using SSH, but you could
+accomplish this however works for you. We generate unique SSH keys for each
+repository that is linked to Tugboat, which you can use to safely access remote
+assets. See [this example](../examples/import-mysql-database/index.md) for how
+you might do this with MySQL.
 
 ### Can I have SSH access to a preview?
 
