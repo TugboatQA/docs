@@ -34,15 +34,14 @@ The following attributes configure how service URLs are generated
 The following attributes configure how the Tugboat proxy routes HTTP requests to
 the service:
 
-| Key                              | Type    | Description                                               |
-| :------------------------------- | :------ | :-------------------------------------------------------- |
-| [expose](#expose)                | Integer | Which port the service should expose to the Tugboat proxy |
-| [default](#default)              | Boolean | Whether this is the default service for a preview.        |
-| [http](#http)                    | Boolean | Whether the service should be available via HTTP          |
-| [https](#https)                  | Boolean | Whether the service should be available via HTTPS         |
-| [https_redirect](#httpsredirect) | Boolean | Whether HTTP requests should be redirected to HTTPS       |
-| [domain](#domain)                | String  | A custom domain for Tugboat to generate URLs with         |
-| [subpath_map](#subpathmap)       | Boolean | Whether to map the generated subpath to "/"               |
+| Key                        | Type    | Description                                               |
+| :------------------------- | :------ | :-------------------------------------------------------- |
+| [expose](#expose)          | Integer | Which port the service should expose to the Tugboat proxy |
+| [default](#default)        | Boolean | Whether this is the default service for a preview.        |
+| [http](#http)              | Boolean | Whether the service should be available via HTTP          |
+| [https](#https)            | Boolean | Whether the service should be available via HTTPS         |
+| [domain](#domain)          | String  | A custom domain for Tugboat to generate URLs with         |
+| [subpath_map](#subpathmap) | Boolean | Whether to map the generated subpath to "/"               |
 
 ---
 
@@ -224,8 +223,9 @@ that the Tugboat Proxy will forward incoming requests to.
 - **Default:** `false`
 - **Required:** No
 
-When `true`, this service's URL is publicly accessible via HTTP on port 80. By
-default, Tugboat only generates HTTPS URLs.
+By default, Tugboat only generates HTTPS URLs and forces a redirect to HTTPS.
+Setting this value to `true` changes this behavior to allow access to this
+service's URL directly via HTTP on port 80.
 
 ---
 
@@ -235,20 +235,9 @@ default, Tugboat only generates HTTPS URLs.
 - **Default:** `true`
 - **Required:** No
 
-When `true`, this service's URL is public accessible via HTTPS on port 443. A
-preview's default URL will always use the HTTPS URL if both `http` and `https`
-are `true`.
-
----
-
-## `https_redirect`
-
-- **Type:** Boolean
-- **Default:** `false`
-- **Required:** No
-
-When `true`, HTTP requests are automatically redirected to HTTPS. This setting
-only applies if both `http` and `https` are `true`.
+When `true`, this service's URL is public accessible via HTTPS on port 443. In
+order to disable HTTPS for a service URL, `https` must be set to `false`, and
+`http` must be set to `true`. If both `https` and `http` are set to `true`.
 
 ---
 
