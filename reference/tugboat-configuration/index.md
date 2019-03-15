@@ -55,7 +55,7 @@ What type of URL aliases to generate for the service. Valid options are
 `default` or `domain`. Alias URLs are generated in addition to the normal
 Service URLs.
 
-#### `default`
+**`default`**
 
 When `alias_type` is set to `default`, the alias URLs are constructed by
 substituting the preview name in the Service URL with the values of `aliases`.
@@ -76,7 +76,7 @@ or
 - https://previews.tugboat.qa/foo-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
 - https://previews.tugboat.qa/bar-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
 
-#### `domain`
+**`domain`**
 
 When `alias_type` is set to `domain`, the alias URLs are constructing by
 substituting the domain part of the Service URL with the values of `aliases`.
