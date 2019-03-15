@@ -58,6 +58,21 @@ get it added to the list. Alternatively, you are free to choose a generic
 service image, such as `debian` or `ubuntu` and install any packages you might
 need.
 
+### Can I use my own images in Tugboat?
+
+We do support pulling Docker images from any registry that is
+internet-accessible. If your registry requires authentication, you can set that
+up in your Tugboat repository settings.
+
+There are a couple of caveats to using your own images:
+
+1. We do not support images that
+   [define volumes](#why-are-docker-volumes-not-supported-on-tugboat)
+2. We assume `sh` is available in the path, because Tugboat executes commands
+   directly in the container with it
+3. If you want your git repository cloned to your service container, we assume
+   `git` is available
+
 ### Can I import an existing database into a preview?
 
 Yes. In order seed a database, you will need to be able to access a copy of it
