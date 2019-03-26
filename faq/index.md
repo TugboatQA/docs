@@ -7,6 +7,7 @@
 - [Do you support self-hosted git repositories?](#do-you-support-self-hosted-git-repositories)
 - [How many repositories can I add to a project?](#how-many-repositories-can-i-add-to-a-project)
 - [I don't see a prebuilt service image that I need. Do you support it?](#i-dont-see-a-prebuilt-service-image-that-i-need-do-you-support-it)
+- [Can I use my own images in Tugboat?](#can-i-use-my-own-images-in-tugboat)
 - [Can I import an existing database into a preview?](#can-i-import-an-existing-database-into-a-preview)
 - [Can I have SSH access to a preview?](#can-i-have-ssh-access-to-a-preview)
 - [How does Tugboat deal with sending email?](#how-does-tugboat-deal-with-sending-email)
@@ -57,6 +58,21 @@ need them. If there is something you need that we have not yet added,
 get it added to the list. Alternatively, you are free to choose a generic
 service image, such as `debian` or `ubuntu` and install any packages you might
 need.
+
+### Can I use my own images in Tugboat?
+
+We do support pulling Docker images from any registry that is
+internet-accessible. If your registry requires authentication, you can set that
+up in your Tugboat repository settings.
+
+There are a couple of caveats to using your own images:
+
+1. We do not support images that
+   [define volumes](#why-are-docker-volumes-not-supported-on-tugboat)
+2. We assume `sh` is available in the path, because Tugboat executes commands
+   directly in the container with it
+3. If you want your git repository cloned to your service container, we assume
+   `git` is available
 
 ### Can I import an existing database into a preview?
 
