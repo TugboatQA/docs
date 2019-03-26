@@ -7,6 +7,7 @@
 - [Do you support self-hosted git repositories?](#do-you-support-self-hosted-git-repositories)
 - [How many repositories can I add to a project?](#how-many-repositories-can-i-add-to-a-project)
 - [I don't see a prebuilt service image that I need. Do you support it?](#i-dont-see-a-prebuilt-service-image-that-i-need-do-you-support-it)
+- [Can I use my own images in Tugboat?](#can-i-use-my-own-images-in-tugboat)
 - [Can I import an existing database into a preview?](#can-i-import-an-existing-database-into-a-preview)
 - [Can I have SSH access to a preview?](#can-i-have-ssh-access-to-a-preview)
 - [How does Tugboat deal with sending email?](#how-does-tugboat-deal-with-sending-email)
