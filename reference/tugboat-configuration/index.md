@@ -290,8 +290,9 @@ service. When `false`, URLs are passed through as-is.
 - **Required:** No
 
 A set of visual diffs that should be generated for the service. These visual
-diffs are generated automatically when a preview is created with a base preview.
-They are then updated when the preview is refreshed or rebuilt.
+diffs are generated automatically when a preview is created with a
+[base preview](../../concepts/base-previews/index.md). They are then updated
+when the preview is refreshed or rebuilt.
 
 The visual diffs are specified by providing a list of _relative URLs_ to the
 service. Each item in this list can be either a string, such as `/blog`, or a
