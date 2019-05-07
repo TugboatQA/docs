@@ -22,6 +22,7 @@ The following attributes control how a service is built:
 | [checkout_path](#checkoutpath) | String  | Where to clone the git repository                   |
 | [depends](#depends)            | List    | List of other services that this service depends on |
 | [commands](#commands)          | List    | List of commands to run for various build stages    |
+| [visualdiffs](#visualdiffs)    | List    | List of visualdiffs to generate for the service     |
 
 The following attributes configure how service URLs are generated
 
@@ -279,3 +280,42 @@ can solve problems with testing advertisements or using OAuth
 When `true`, and `subpath: true` is set, URLs are rewritten by the Tugboat Proxy
 to replace the preview-specific path with `/` before being forwarded to the
 service. When `false`, URLs are passed through as-is.
+
+---
+
+## `visualdiffs`
+
+- **Type:** List
+- **Default:** _no default_
+- **Required:** No
+
+A set of visual diffs that should be generated for the service. These visual
+diffs are generated automatically when a preview is created with a
+[base preview](../../concepts/base-previews/index.md). They are then updated
+when the preview is refreshed or rebuilt.
+
+The visual diffs are specified by providing a list of _relative URLs_ to the
+service. Each item in this list can be either a string, such as `/blog`, or a
+map overriding the following screenshot options
+
+| Option    | Default    | Description                                                                                                                                              |
+| :-------- | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| url       | _none_     | The relative URL to create the visual diff for. This option is required                                                                                  |
+| aliases   | `:default` | Only create visual diffs for these [service aliases](#aliases). The special `:default` alias can be used to also generate a visual diff without an alias |
+| timeout   | `30`       | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                               |
+| waitUntil | `load`     | Which event to wait for before creating a screenshot of a page.                                                                                          |
+
+The `waitUntil` option can be one of the following events
+
+| Event            | Description                                                                |
+| :--------------- | :------------------------------------------------------------------------- |
+| load             | Fires when the `load` event is fired                                       |
+| domcontentloaded | Fires when the `DOMContentLoaded` event is fired                           |
+| networkidle0     | Fires when there are no more than 0 network connections for at least 500ms |
+| networkidle2     | Fires when there are no more than 2 network connections for at least 500ms |
+
+The visual diff URLs can optionally be grouped by [service alias](#aliases),
+which is convenient when aliases have different URL structures. Group URLs by
+nesting them in a map with the name of the alias they belong to. The special
+`:default` alias can be used to create a group of URLs that should not use an
+alias.

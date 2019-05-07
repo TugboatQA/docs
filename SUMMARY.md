@@ -12,6 +12,14 @@
 
 - [Configuring Tugboat](configuring-tugboat/index.md)
 
+  - [Preview Services](configuring-tugboat/index.md#preview-services)
+  - [Service Images](configuring-tugboat/index.md#service-images)
+  - [Default Service](configuring-tugboat/index.md#default-service)
+  - [Service HTTP Port](configuring-tugboat/index.md#service-http-port)
+  - [Git Options](configuring-tugboat/index.md#git-options)
+  - [Commands](configuring-tugboat/index.md#commands)
+  - [Visual Diffs](configuring-tugboat/index.md#visual-diffs)
+
 - [Examples](examples/index.md)
 
   - [Import a MySQL Database](examples/import-mysql-database/index.md)
