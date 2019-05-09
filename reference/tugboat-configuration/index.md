@@ -306,7 +306,8 @@ map overriding the following screenshot options
 | waitUntil | `load`     | Which event to wait for before creating a screenshot of a page.                                                                                          |
 | fullPage  | `true`     | Disable this to use an alternate screenshot method that is more friendly to elements that have `vh` CSS styles                                           |
 
-The `waitUntil` option can be one of the following events
+The `waitUntil` option can be one of the following events. If a list of events
+is given, the screenshot is created after all of the listed events have fired
 
 | Event            | Description                                                                |
 | :--------------- | :------------------------------------------------------------------------- |
