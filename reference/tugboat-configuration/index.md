@@ -304,6 +304,7 @@ map overriding the following screenshot options
 | aliases   | `:default` | Only create visual diffs for these [service aliases](#aliases). The special `:default` alias can be used to also generate a visual diff without an alias |
 | timeout   | `30`       | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                               |
 | waitUntil | `load`     | Which event to wait for before creating a screenshot of a page.                                                                                          |
+| fullPage  | `true`     | Disable this to use an alternate screenshot method that is more friendly to elements that have `vh` CSS styles                                           |
 
 The `waitUntil` option can be one of the following events
 
