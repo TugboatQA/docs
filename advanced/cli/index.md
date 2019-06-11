@@ -55,7 +55,41 @@ time it is run.
 
 ## Usage
 
-Run `tugboat help` to see a list of commands that can be executed
+Run `tugboat help` to see a list of commands that can be executed. Run
+`tugboat <command> -help` to see detailed documentation of a specific commands.
+For example, `tugboat api -help` will explain how the `api` command works.
+
+## Commands
+
+Here are the commands available to the Tugboat CLI. These commands are found by
+calling `tugboat help` from the command line.
+
+```
+api <type> <action> [args...]      Execute a Tugboat API call directly
+cancel <id>                        Cancel a preview that is currently building
+clone <id> [args...]               Clone a Tugboat Preview
+config <repo> [command] [args...]  Configure a Tugboat Repository
+create <type> [name] [args...]     Create a Tugboat resource
+delete|rm <id> [args...]           Delete a Tugboat resource
+find <id>                          Find a Tugboat resource
+grant <id> [args...]               Grant access to a Tugboat resource
+history <id> [args...]             History of Tugboat resource
+list|ls <id> [args...]             List a Tugboat resource
+log [options] <id> [args...]       View the log for a Tugboat resource
+ping <id>                          Validate the authentication of a Tugboat repository
+rebuild <id> [args...]             Rebuild a Tugboat Preview
+refresh <id> [args...]             Refresh a Tugboat Preview
+rekey <id>                         Rekey a Tugboat Preview
+reset <id>                         Reset a Tugboat Preview or Service
+revoke <id> [args...]              Revoke access from a Tugboat resource
+shell <id> [args...]               Start a shell session in a Tugboat resource
+start <id>                         Start a Tugboat Preview
+stop <id>                          Stop a Tugboat Preview
+suspend <id>                       Suspend a Tugboat Preview
+update <id> [args...]              Update a Tugboat resource
+validate <id|filename> [ref]       Validate a tugboat config.yml
+help [cmd]                         display help for [cmd]
+```
 
 ## Examples
 

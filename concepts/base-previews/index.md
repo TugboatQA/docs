@@ -52,6 +52,11 @@ the Base Preview was built.
 
 ## Keeping Base Previews Updated
 
+> #### Info::Automatic Updates
+>
+> Base Previews automatically run commands in the `update` section of your
+> [configuration](../../configuring-tugboat/index.md) file.
+
 You will generally want to keep your Base Preview up to date with your latest
 codebase, and a fresh copy of your database, image files, and other assets. By
 default, Tugboat does this every night at 12 am ET. To change this, check the
