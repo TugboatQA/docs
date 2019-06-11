@@ -35,6 +35,9 @@ includes tutorials, examples, and references for all experience levels.
 
 - Run the documnentation server locally. It runs ```cross-var gitbook serve --gitbook=$npm_package_config_gitbook```
 
+## Callouts
+We use the [Gitbook Plugin Callouts module](https://github.com/gubler/gitbook-plugin-callouts) to create callouts within the documentation. 
+
 ## Contributing
 
 This document is open-source, and is available on
