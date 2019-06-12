@@ -10,34 +10,6 @@ Bitbucket git repositories.
 This document aims to provide the information required to use Tugboat. It
 includes tutorials, examples, and references for all experience levels.
 
-## Commands
-```yarn install```
-
-- Use this to install the dependencies. It will run ```cross-var gitbook install --gitbook=$npm_package_config_gitbook```
-
-```yarn build```
-
-- This command will build the documentation. It runs ```cross-var gitbook build --gitbook=$npm_package_config_gitbook```
-
-```yarn lint```
-
-- Use this command to make the formatting of the documentation consistent. It runs ```prettier --list-different \"**/*.md\"```
-
-```yarn lint-fix```
-
-- This will apply the formatting changes found with '''yarn lint'''. It runs ```prettier --write \"**/*.md\"```
-
-```yarn test```
-
-- Test that all links work as expected. It runs ```blcl -re ./_book```
-
-```yarn serve```
-
-- Run the documnentation server locally. It runs ```cross-var gitbook serve --gitbook=$npm_package_config_gitbook```
-
-## Callouts
-We use the [Gitbook Plugin Callouts module](https://github.com/gubler/gitbook-plugin-callouts) to create callouts within the documentation. 
-
 ## Contributing
 
 This document is open-source, and is available on
