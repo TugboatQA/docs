@@ -61,8 +61,11 @@ For example, `tugboat api -help` will explain how the `api` command works.
 
 ## Commands
 
-Here are the commands available to the Tugboat CLI. These commands are found by
-calling `tugboat help` from the command line.
+> #### Warning::Commands May Be Out of Date
+>
+> This list of commands may have changed. To retreive the latest commands, query
+> the in-line help in the CLI by calling `tugboat help` from your command line
+> once the CLI has been installed.
 
 ```
 api <type> <action> [args...]      Execute a Tugboat API call directly
