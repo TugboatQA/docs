@@ -37,13 +37,20 @@ That's it! Your Tugboat account is now linked to GitHub, and you'll now have acc
 
 The GitHub integration gives your Tugboat a ton of cool features, which you can access in your Project -> Repository Settings:
 
-- Build Pull Requests automatically
-- Rebuild updated Pull Requests automatically
-- Delete Pull Request Previews automatically
-- Set Pull Request status
-- Set Pull Request deployment status
-- Post Preview links in Pull Request comments
-- Build Previews for forked Pull Requests
+- **Build Pull Requests automatically**
+  On by default; Tugboat automatically creates a Preview when a GitHub pull request is opened.
+- **Rebuild updated Pull Requests automatically**
+  On by default; Tugboat automatically rebuilds a Preview when the corresponding pull request is updated.
+- **Delete Pull Request Previews automatically**
+  On by default; Tugboat automatically deletes a Preview when its pull request is merged or closed.
+- **Set Pull Request status**
+  On by default; Tugboat updates the pull request status to reflect the state of its Preview.
+- **Set Pull Request deployment status**
+  Off by default; Tugboat adds a deployment update to the pull request when a Preview is built.
+- **Post Preview links in Pull Request comments**
+  Off by default; Tugboat adds a comment to a pull request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: Change user notifications and Add a Tugboat Bot to your team.
+- **Build Previews for forked Pull Requests**
+  Off by default; Tugboat builds Previews for pull requests made to the primary repo from forked repositories. **__There are security implications from using this setting:__** any secrets in your Preview will be accessible by the owner of the forked repository.
 
 You can also specify the account from which comments are posted to GitHub in this section. For info on customizing this, see: Change user notifications and Add a Tugboat Bot to your team.
 
@@ -64,12 +71,18 @@ That's it! Your Tugboat account is now linked to GitLab, and you'll now have acc
 
 The GitLab integration gives your Tugboat a ton of cool features, which you can access in your Project -> Repository Settings:
 
-- Build Merge Requests automatically
-- Rebuild updated Merge Requests automatically
-- Delete Merge Request Previews automatically
-- Set Merge Request build status
-- Post Preview links in Merge Request comments
-- Build Previews for forked Merge Requests
+- **Build Merge Requests automatically**
+  On by default; Tugboat automatically creates a Preview when a GitLab merge request is opened.
+- **Rebuild updated Merge Requests automatically**
+  On by default; Tugboat automatically creates a Preview when the corresponding merge request is updated.
+- **Delete Merge Request Previews automatically**
+  On by default; Tugboat automatically deletes a Preview when its merge request is merged or closed.
+- **Set Merge Request build status**
+  On by default; Tugboat updates the merge request build status to reflect the state of its Preview.
+- **Post Preview links in Merge Request comments**
+  Off by default; Tugboat adds a comment to a merge request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: Change user notifications and Add a Tugboat Bot to your team.
+- **Build Previews for forked Merge Requests**
+  Off by default; Tugboat builds Previews for merge requests made to the primary repo from forked repositories. **__There are security implications from using this setting:__** any secrets in your Preview will be accessible by the owner of the forked repository.
 
 You can also specify the account from which comments are posted to GitLab in this section. For info on customizing this, see: Change user notifications and Add a Tugboat Bot to your team.
 
@@ -90,12 +103,18 @@ That's it! Your Tugboat account is now linked to BitBucket, and you'll now have 
 
 The BitBucket integration gives your Tugboat a ton of cool features, which you can access in your Project -> Repository Settings:
 
-- Build Pull Requests automatically
-- Rebuild updated Pull Requests automatically
-- Delete Pull Request Previews automatically
-- Set Pull Request status
-- Post Preview links in Pull Request comments
-- Build Previews for forked Pull Requests
+- **Build Pull Requests automatically**
+  On by default; Tugboat automatically creates a Preview when a BitBucket pull request is opened.
+- **Rebuild updated Pull Requests automatically**
+  On by default; Tugboat automatically rebuilds a Preview when the corresponding pull request is updated.
+- **Delete Pull Request Previews automatically**
+  On by default; Tugboat automatically deletes a Preview when its pull request is merged or closed.
+- **Set Pull Request status**
+  On by default; Tugboat updates the pull request status to reflect the state of its Preview.
+- **Post Preview links in Pull Request comments**
+  Off by default; Tugboat adds a comment to a pull request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: Change user notifications and Add a Tugboat Bot to your team.
+- **Build Previews for forked Pull Requests**
+  Off by default; Tugboat builds Previews for pull requests made to the primary repo from forked repositories. **__There are security implications from using this setting:__** any secrets in your Preview will be accessible by the owner of the forked repository.
 
 You can also specify the account from which comments are posted to BitBucket in this section. For info on customizing this, see: Change user notifications and Add a Tugboat Bot to your team.
 
@@ -107,7 +126,7 @@ Once you've connected Tugboat to your preferred source control provider, it's ti
 - [Things to know about Tugboat projects](#things-to-know-about-tugboat-projects)
 - [Add repos to the project](#add-repos-to-the-project)
 
-Then hit the Create Project button, and it's anchors away!
+Then hit the **Create Project** button, and it's anchors away!
 
 ### How to create a project
 
