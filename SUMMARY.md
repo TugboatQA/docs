@@ -2,6 +2,14 @@
 
 - [Introduction](README.md)
 
+- [Setting up your Tugboat](setting-up-tugboat/index.md)
+
+  - [Connect with your provider](setting-up-tugboat/connect-with-your-provider/index.md)
+  - [Create a new project](setting-up-tugboat/create-a-new-project/index.md)
+  - [Add repos to the project](setting-up-tugboat/add-repos-to-the-project/index.md)
+  - [Select repo settings (optional)](setting-up-tugboat/select-repo-settings-optional/index.md)
+  - [Create a Config file](setting-up-tugboat/create-a-config-file/index.md)
+
 - [Concepts](concepts/index.md)
 
   - [Projects](concepts/projects/index.md)

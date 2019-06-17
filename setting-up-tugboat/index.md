@@ -17,9 +17,9 @@
 
 If you're not using GitHub, GitLab, or BitBucket, you can use a generic git server with Tugboat. You'll [sign in to Tugboat](https://dashboard.tugboat.qa/) using an email address, and when you go to add a repo to your Tugboat project, you can link to a Git URL.
 
-#### Warning::Be aware
-
-If your repo isn't connected via Tugboat's GitHub, GitLab, or BitBucket authentication, you won't have the integration features to automatically build Previews from Pull Requests, and other related functionality. If you add this connection later, you'll need to delete the generic git repo from your project, and add it again via the provider integration.
+> #### Warning::Be aware
+>
+> If your repo isn't connected via Tugboat's GitHub, GitLab, or BitBucket authentication, you won't have the integration features to automatically build Previews from Pull Requests, and other related functionality. If you add this connection later, you'll need to delete the generic git repo from your project, and add it again via the provider integration.
 
 ### GitHub
 
@@ -175,24 +175,60 @@ After you've created a project, you might want to go in and tweak your Tugboat r
 - [Authenticate with a Docker Registry](#authenticate-with-a-docker-registry)
 - [Delete the repo](#delete-the-repo)
 
+Don't forget to hit the **Save Configuration** button after you've checked or unchecked boxes to save your changes.
+
 ### Modify settings for your GitHub, GitLab or BitBucket Integration
 
+When you're using the Tugboat integration with GitHub, GitLab or BitBucket, you'll see provider-specific settings for each of your Tugboat repos. These settings enable you to do things like automatically create a Preview when a Pull Request or Merge Request is opened, or post a comment to a PR with links to its preview. For a full list of the provider-specific integration options, check out:
 
+- [Using the GitHub integration](#using-the-github-integration)
+- [Using the GitLab integration](#using-the-gitlab-integration)
+- [Using the BitBucket integration](#using-the-bitbucket-integration)
 
 ### Rebuild Orphaned Previews Automatically
 
+When this option is selected, Tugboat automatically rebuilds Previews when the Base Preview they're built from is rebuilt. This option is turned off by default.
+
 ### Rebuild Stale Previews Automatically
+
+When this option is selected, Tugboat automatically rebuilds Previews when the Base Preview they're built from is refreshed. This option is turned off by default.
 
 ### Refresh Base Previews Automatically
 
+By default, Tugboat refreshes your Base Previews every day at 12am UTC. You can de-select this checkbox to turn off automatic refresh, or you can specify your preferred interval and time for the refresh to occur. Automatically refreshing Base Previews is a great way to ensure your large assets, such as databases, stay up-to-date, saving you time when you build a new Preview from a recently-refreshed Base Preview.
+
 ### Specify Build Timeout
+
+By default, Preview builds timeout at 3600 seconds. You can change the Preview build timeout to your preferred interval.
 
 ### Modify Environment Variables
 
+Here's where you can enter environment variables, like API keys or passwords, that you wouldn't want to store in your repo. If you're looking for Tugboat's environment variables to add to your Build Scripts or configuration files, check out [Reference -> Environment Variables](reference/environment-variables/index.md).
+
 ### Set up Remote SSH Access
+
+SSH commands run from Previews in this repository use the public key in your repo settings. This key is unique to this repository. Put this public key on the remote boxes that your build scripts or applications on Tugboat need to access.
 
 ### Authenticate with a Docker Registry
 
+If you want to pull images from Docker registries that require authentication, you can manage your authorization credentials from within the repo settings.
+
 ### Delete the repo
 
+If you want to delete a repo from your Tugboat project, you'll go into the Repository Settings for that repo and press the **Delete Repository** button. Deleting a repo from Tugboat does not affect any data in the git provider repo connected to it, nor does it delete the Tugboat project that contains the repo.
+
+![Delete repository](_images/delete_repo.png)
+
 ## Create a Config file
+
+The final step in setting up your Tugboat is committing a YAML Config file in the source's git repository. Think of the Config file as the engine that powers your Tugboat; here's where you specify the services you want to run when your Tugboat Preview builds.
+
+The Tugboat Config file should live at: `.tugboat/config.yml` in the branch, tag, commit or pull request that is being built. The only exception is when you're building from a Base Preview; in that case, the config.yml from the Base Preview is used.
+
+Creating the Config file can be a complex process, just like building a Tugboat's engine from parts! To break things down for you, check out these docs:
+
+- [Setting up Services in your Tugboat](setting-up-services/index.md)
+- [Service Code Snippet Library](service-code-snippets/index.md) (pre-populated code snippets to help you get started)
+- [Using the Tugboat Command Line Tool](using-the-cli/index.md)
+- [Config file reference](reference/tugboat-configuration/index.md) (detailing the attributes you can use when building Services)
+- [Debugging Config files](troubleshooting/debugging-config-files/index.md)
