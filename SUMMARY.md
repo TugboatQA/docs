@@ -10,6 +10,14 @@
   - [Select repo settings (optional)](setting-up-tugboat/select-repo-settings-optional/index.md)
   - [Create a Config file](setting-up-tugboat/create-a-config-file/index.md)
 
+- [Administering Tugboat crew](administering-tugboat-crew/index.md)
+
+  - [Add a user to a project](administering-tugboat-crew/add-a-user-to-a-project/index.md)
+  - [Remove a user from a project](administering-tugboat-crew/remove-a-user-from-a-project/index.md)
+  - [Change user permissions](administering-tugboat-crew/change-user-permissions/index.md)
+  - [Add a Tugboat bot to your team](administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md)
+  - [User permission levels explained](administering-tugboat-crew/user-permission-levels-explained/index.md)
+
 - [Concepts](concepts/index.md)
 
   - [Projects](concepts/projects/index.md)

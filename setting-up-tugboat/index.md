@@ -48,11 +48,11 @@ The GitHub integration gives your Tugboat a ton of cool features, which you can 
 - **Set Pull Request deployment status**
   Off by default; Tugboat adds a deployment update to the pull request when a Preview is built.
 - **Post Preview links in Pull Request comments**
-  Off by default; Tugboat adds a comment to a pull request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: Change user notifications and Add a Tugboat Bot to your team.
+  Off by default; Tugboat adds a comment to a pull request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md).
 - **Build Previews for forked Pull Requests**
   Off by default; Tugboat builds Previews for pull requests made to the primary repo from forked repositories. **__There are security implications from using this setting:__** any secrets in your Preview will be accessible by the owner of the forked repository.
 
-You can also specify the account from which comments are posted to GitHub in this section. For info on customizing this, see: Change user notifications and Add a Tugboat Bot to your team.
+You can also specify the account from which comments are posted to GitHub in this section. For info on customizing this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md).
 
 ### GitLab
 
@@ -80,11 +80,11 @@ The GitLab integration gives your Tugboat a ton of cool features, which you can 
 - **Set Merge Request build status**
   On by default; Tugboat updates the merge request build status to reflect the state of its Preview.
 - **Post Preview links in Merge Request comments**
-  Off by default; Tugboat adds a comment to a merge request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: Change user notifications and Add a Tugboat Bot to your team.
+  Off by default; Tugboat adds a comment to a merge request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md).
 - **Build Previews for forked Merge Requests**
   Off by default; Tugboat builds Previews for merge requests made to the primary repo from forked repositories. **__There are security implications from using this setting:__** any secrets in your Preview will be accessible by the owner of the forked repository.
 
-You can also specify the account from which comments are posted to GitLab in this section. For info on customizing this, see: Change user notifications and Add a Tugboat Bot to your team.
+You can also specify the account from which comments are posted to GitLab in this section. For info on customizing this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md).
 
 ### BitBucket
 
@@ -112,11 +112,11 @@ The BitBucket integration gives your Tugboat a ton of cool features, which you c
 - **Set Pull Request status**
   On by default; Tugboat updates the pull request status to reflect the state of its Preview.
 - **Post Preview links in Pull Request comments**
-  Off by default; Tugboat adds a comment to a pull request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: Change user notifications and Add a Tugboat Bot to your team.
+  Off by default; Tugboat adds a comment to a pull request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md).
 - **Build Previews for forked Pull Requests**
   Off by default; Tugboat builds Previews for pull requests made to the primary repo from forked repositories. **__There are security implications from using this setting:__** any secrets in your Preview will be accessible by the owner of the forked repository.
 
-You can also specify the account from which comments are posted to BitBucket in this section. For info on customizing this, see: Change user notifications and Add a Tugboat Bot to your team.
+You can also specify the account from which comments are posted to BitBucket in this section. For info on customizing this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md).
 
 ## Create a new project
 
@@ -132,7 +132,7 @@ Then hit the **Create Project** button, and it's anchors away!
 
 The first time you sign into Tugboat, you'll go directly to the Create New Project screen.
 
-After you've already got projects, you can add new ones by going to the Tugboat Dashboard and selecting Create New Project.
+After you've already got projects, you can add new ones by going to the Tugboat Dashboard and selecting **Create New Project**.
 
 ### Things to know about Tugboat projects
 
@@ -237,6 +237,10 @@ If you want to pull images from Docker registries that require authentication, y
 If you want to delete a repo from your Tugboat project, you'll go into the Repository Settings for that repo and press the **Delete Repository** button. Deleting a repo from Tugboat does not affect any data in the git provider repo connected to it, nor does it delete the Tugboat project that contains the repo.
 
 ![Delete repository](_images/delete_repo.png)
+
+> #### Note::Note
+>
+> Only Admin users have the **Delete Repository** option. For more on user permissions, see: [User permission levels explained](../administering-tugboat-crew/user-permission-levels-explained/index.md) .
 
 ## Create a Config file
 
