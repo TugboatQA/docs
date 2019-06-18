@@ -11,7 +11,6 @@
 - [Auto-delete Previews](#auto-delete-previews)
 - [Optimize your Preview builds](#optimize-your-preview-builds)
 
-
 ## Build a Preview
 
 Once you've [set up your Tugboat project](../setting-up-tugboat/create-a-project/index.md), [linked a repo](../setting-up-tugboat/add-repos-to-the-project/index.md), and [put your Config file in the linked repo](../setting-up-tugboat/create-a-config-file/index.md), it's time to build a Preview!
@@ -228,7 +227,5 @@ From the Repository Dashboard, click into the **Actions** drop-down next to the 
 ## Auto-generate Previews
 
 ## Auto-delete Previews
-
-
 
 ## Optimize your Preview builds
