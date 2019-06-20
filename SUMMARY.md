@@ -5,18 +5,18 @@
 - [Setting up your Tugboat](setting-up-tugboat/index.md)
 
   - [Connect with your provider](setting-up-tugboat/index.md#connect-with-your-provider)
-  - [Create a new project](setting-up-tugboat/create-a-new-project/index.md)
-  - [Add repos to the project](setting-up-tugboat/add-repos-to-the-project/index.md)
-  - [Select repo settings (optional)](setting-up-tugboat/select-repo-settings-optional/index.md)
-  - [Create a Config file](setting-up-tugboat/create-a-config-file/index.md)
+  - [Create a new project](setting-up-tugboat/index.md#create-a-new-project)
+  - [Add repos to the project](setting-up-tugboat/index.md#add-repos-to-the-project)
+  - [Select repo settings (optional)](setting-up-tugboat/index.md#select-repo-settings-optional)
+  - [Create a Config file](setting-up-tugboat/index.md#create-a-config-file)
 
 - [Administering Tugboat crew](administering-tugboat-crew/index.md)
 
-  - [Add a user to a project](administering-tugboat-crew/add-a-user-to-a-project/index.md)
-  - [Remove a user from a project](administering-tugboat-crew/remove-a-user-from-a-project/index.md)
-  - [Change user permissions](administering-tugboat-crew/change-user-permissions/index.md)
-  - [Add a Tugboat bot to your team](administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md)
-  - [User permission levels explained](administering-tugboat-crew/user-permission-levels-explained/index.md)
+  - [Add a user to a project](administering-tugboat-crew/index.md#add-a-user-to-a-project)
+  - [Remove a user from a project](administering-tugboat-crew/index.md#remove-a-user-from-a-project)
+  - [Change user permissions](administering-tugboat-crew/index.md#change-user-permissions)
+  - [Add a Tugboat bot to your team](administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team)
+  - [User permission levels explained](administering-tugboat-crew/index.md#user-permission-levels-explained)
 
 - [Concepts](concepts/index.md)
 

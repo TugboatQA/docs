@@ -11,18 +11,19 @@
 - [Auto-delete Previews](#auto-delete-previews)
 - [Optimize your Preview builds](#optimize-your-preview-builds)
 
+
 ## Build a Preview
 
-Once you've [set up your Tugboat project](../setting-up-tugboat/create-a-project/index.md), [linked a repo](../setting-up-tugboat/add-repos-to-the-project/index.md), and [put your Config file in the linked repo](../setting-up-tugboat/create-a-config-file/index.md), it's time to build a Preview!
+Once you've [set up your Tugboat project](../setting-up-tugboat/index.md#create-a-project), [linked a repo](../setting-up-tugboat/index.md#add-repos-to-the-project), and [put your Config file in the linked repo](../setting-up-tugboat/index.md#create-a-config-file), it's time to build a Preview!
 
 To build a Preview:
 
-Click your username in the upper right-hand corner, and go to Projects;
-2) Click the **My Projects** link;
-3) Select the project where you want to build a Preview;
-4) Click the name of the repo that contains the code you want to use to build the Preview;
-5) Scroll down to the **Available to Build** section; by default, you'll see _Branches_, but you can switch to view Tags or Pull Requests that are available to Preview;
-6) Press the **Build Preview** button to begin the build.
+1. Click your username in the upper right-hand corner, and go to Projects;
+2. Click the **My Projects** link;
+3. Select the project where you want to build a Preview;
+4. Click the name of the repo that contains the code you want to use to build the Preview;
+5. Scroll down to the **Available to Build** section; by default, you'll see _Branches_, but you can switch to view Tags or Pull Requests that are available to Preview;
+6. Press the **Build Preview** button to begin the build.
 
 ![Build preview](_images/available_to_build.png)
 
@@ -49,7 +50,7 @@ Send that link to the person who needs to look at the Preview, and they'll be ab
 
 ### Configure Tugboat to auto-post Preview links
 
-When you're using the Tugboat integration with [GitHub](../setting-up-tugboat/github/index.md), [GitLab](../setting-up-tugboat/gitlab/index.md) or [BitBucket](../setting-up-tugboat/bitbucket/index.md), you can configure your Tugboat to automatically post links to Previews as comments on pull requests. Configure this option in [Repository Settings](../setting-up-tugboat/modify-settings-for-your-github-gitlab-or-bitbucket-integration/index.md).
+When you're using the Tugboat integration with [GitHub](../setting-up-tugboat/index.md#github), [GitLab](../setting-up-tugboat/index.md#gitlab) or [BitBucket](../setting-up-tugboat/index.md#bitbucket), you can configure your Tugboat to automatically post links to Previews as comments on pull requests. Configure this option in [Repository Settings](../setting-up-tugboat/modify-settings-for-your-github-gitlab-or-bitbucket-integration/index.md).
 
 ## Preview Actions
 
@@ -90,9 +91,9 @@ Rebuild an existing Tugboat Preview from scratch.
 
 #### Refresh
 
-1) Pull the latest code from git;
-2) Run commands from the `update` section of the [configuration](../setting-up-tugboat/create-a-config-file/index.md);
-3) Run commands from the `build` section of the [configuration](../setting-up-tugboat/create-a-config-file/index.md).
+1. Pull the latest code from git;
+2. Run commands from the `update` section of the [configuration](../setting-up-tugboat/index.md#create-a-config-file/);
+3. Run commands from the `build` section of the [configuration](../setting-up-tugboat/index.md#create-a-config-file).
 
 #### Reset
 
@@ -129,7 +130,7 @@ Preview status is indicated in a couple of different ways:
 - **Ready (and inactive):** After your Preview has built and some time has passed, you'll see a green `ready` status, with a green half-moon to indicate that the Preview is available, but is currently suspended. When you go to the Preview link, you'll see a splash page while the Preview starts running again, and then you'll be taken to your Preview. If you don't want to wait through the splash page, you can go to the **Actions** drop-down next to the Preview button, and select **Start**; this will restart the Preview. When the half-moon switches to a green dot, you'll be able to go directly to the Preview, bypassing the splash screen.
 - **Building:** While your Preview build is in-progress, you'll see a `building` status in yellow. If your Preview build is taking significantly longer than your average build time, displayed in the Repository Stats section lower on the Project -> Repo page, you may want to start [troubleshooting](../troubleshooting/index.md).
 - **Rebuilding:** When a rebuild has been kicked off, you'll see a `rebuilding` status in yellow. This indicates a complete Preview rebuild from the beginning of the build process, so it should take as long as a typical build.
-- **Refreshing:** When a refresh has been kicked off, you'll see a `refreshing` status in yellow. This indicates a Preview that is pulling in the latest code from git, and then running any commands in the `update` section, followed by the `build` section of the [Configuration file](../setting-up-services/create-a-config-file/index.md).
+- **Refreshing:** When a refresh has been kicked off, you'll see a `refreshing` status in yellow. This indicates a Preview that is pulling in the latest code from git, and then running any commands in the `update` section, followed by the `build` section of the [Configuration file](../setting-up-services/index.md#create-a-config-file).
 - **Resuming:** When you've used the Action -> Start option, you'll see a `resuming` status in yellow while the Preview starts spinning up [services](../setting-up-services/index.md) again.
 - **Stopping:** When you've used the Action -> Stop option, you'll see a `stopping` status in yellow while the Preview goes through the process of stopping [services](../setting-up-services/index.md).
 - **Stopped:** When you've used the Action -> Stop option, you'll see a `stopped` status in red to indicate that the Preview has successfully stopped [services](../setting-up-services/index.md).
@@ -146,7 +147,7 @@ If you want to speed up your Preview builds, and make subsequent Preview builds 
 
 ### How Base Previews work
 
-When a regular preview is built, the [configuration file](../setting-up-services/create-a-config-file/index.md) typically instructs Tugboat to pull in databases, image files, or other assets. This process can take a while; the larger the assets, the longer the build.
+When a regular preview is built, the [configuration file](../setting-up-services/index.md#create-a-config-file) typically instructs Tugboat to pull in databases, image files, or other assets. This process can take a while; the larger the assets, the longer the build.
 
 After your Preview has finished building, Tugboat automatically takes a point-in-time snapshot of its disk image, so it has a point of reference of where it can do things like let you quickly [reset](#reset) a Preview back to its original build state. You can leverage this snapshot to create a Base Preview.
 
@@ -174,7 +175,7 @@ That's it! From now on, Previews will build from the snapshot created when the B
 
 You'll generally want to keep your Base Preview up to date with your latest codebase, and a fresh copy of your database, image files, and other assets. By default, Tugboat automatically checks for updates every night at 12 am ET, and [refreshes](#refresh) your Base Preview with these updates. To change this, check the Repository Settings.
 
-Tugboat performs this update by pulling the latest code from git for the branch or Tag the preview was built from. During the update, Tugboat runs any commands in the `update` and `build` sections of the [configuration](../setting-up-services/create-a-config-file/index.md) file.
+Tugboat performs this update by pulling the latest code from git for the branch or Tag the preview was built from. During the update, Tugboat runs any commands in the `update` and `build` sections of the [configuration](../setting-up-services/index.md#create-a-config-file) file.
 
 ### Using multiple Base Previews
 
@@ -186,9 +187,9 @@ This feature allows you to test code, for instance, against different PHP versio
 
 Once you've set a Base Preview, new Previews build on that Base Preview by default. If you want a Preview to build from scratch, instead of a Base Preview:
 
-1) Go to the **Available to Build** section of the Repository Dashboard;
-2) Click into the drop-down next to the **Build Preview** button for the Preview you'd like to build from scratch;
-3) Select the **Build with no base preview** option.
+1. Go to the **Available to Build** section of the Repository Dashboard;
+2. Click into the drop-down next to the **Build Preview** button for the Preview you'd like to build from scratch;
+3. Select the **Build with no base preview** option.
 
 Now your Preview will build from scratch!
 
@@ -214,18 +215,20 @@ If you want to keep your Base Previews up-to-date, there are two ways you can do
 You'll generally want to keep your Base Preview up to date with your latest codebase, and a fresh copy of your database, image files, and other assets. By default, Tugboat automatically checks for updates every night at 12 am ET, and [refreshes](#refresh) your Base Preview with these updates. You can go to the Repository Settings to change this.
 
 During this update, Tugboat:
-1) Pulls the latest code from git for the branch or Tag the preview was built from;
-2) Runs commands in the `update` section of the [configuration](../setting-up-services/create-a-config-file/index.md) file;
-3) Runs commands in the `build` section of the [config](../setting-up-services/create-a-config-file/index.md) file.
+1. Pulls the latest code from git for the branch or Tag the preview was built from;
+2. Runs commands in the `update` section of the [configuration](../setting-up-services/index.md#create-a-config-file) file;
+3. Runs commands in the `build` section of the [config](../setting-up-services/index.md#create-a-config-file) file.
 
 #### Manually update Base Previews
 
 You can also update a Base Preview manually.
 
-From the Repository Dashboard, click into the **Actions** drop-down next to the Preview button for the Base Preview you want to update. From there, you can Refresh the Base Preview, as well as
+From the Repository Dashboard, click into the **Actions** drop-down next to the Preview button for the Base Preview you want to update. From there, you can [Refresh](#refresh) the Base Preview to update , as well as
 
 ## Auto-generate Previews
 
 ## Auto-delete Previews
+
+
 
 ## Optimize your Preview builds

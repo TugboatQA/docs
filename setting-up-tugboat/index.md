@@ -17,7 +17,7 @@
 
 If you're not using GitHub, GitLab, or BitBucket, you can use a generic git server with Tugboat. You'll [sign in to Tugboat](https://dashboard.tugboat.qa/) using an email address, and when you go to add a repo to your Tugboat project, you can link to a Git URL.
 
-> #### Warning::Be aware
+> #### Warning::Authenticate with a git provider to use auto-build Preview functionality
 >
 > If your repo isn't connected via Tugboat's GitHub, GitLab, or BitBucket authentication, you won't have the integration features to automatically build Previews from Pull Requests, and other related functionality. If you add this connection later, you'll need to delete the generic git repo from your project, and add it again via the provider integration.
 
@@ -28,8 +28,9 @@ If you're not using GitHub, GitLab, or BitBucket, you can use a generic git serv
 
 #### How do I link my Tugboat to GitHub?
 
-1) Go to [Sign In](https://dashboard.tugboat.qa/) and select GitHub
-2) Enter your GitHub Username and Password (or Create an Account), complete Two-Factor Authentication
+1. Go to [Sign In](https://dashboard.tugboat.qa/) and select GitHub
+2. Enter your GitHub Username and Password (or Create an Account), complete Two-Factor Authentication
+3. Authorize Tugboat
 
 That's it! Your Tugboat account is now linked to GitHub, and you'll now have access to add your repos to your Tugboat project and enjoy all the benefits of GitHub integration.
 
@@ -48,11 +49,11 @@ The GitHub integration gives your Tugboat a ton of cool features, which you can 
 - **Set Pull Request deployment status**
   Off by default; Tugboat adds a deployment update to the pull request when a Preview is built.
 - **Post Preview links in Pull Request comments**
-  Off by default; Tugboat adds a comment to a pull request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md).
+  Off by default; Tugboat adds a comment to a pull request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 - **Build Previews for forked Pull Requests**
   Off by default; Tugboat builds Previews for pull requests made to the primary repo from forked repositories. **__There are security implications from using this setting:__** any secrets in your Preview will be accessible by the owner of the forked repository.
 
-You can also specify the account from which comments are posted to GitHub in this section. For info on customizing this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md).
+You can also specify the account from which comments are posted to GitHub in this section. For info on customizing this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 
 ### GitLab
 
@@ -61,9 +62,9 @@ You can also specify the account from which comments are posted to GitHub in thi
 
 #### How do I link my Tugboat to GitLab?
 
-1) Go to [Sign In](https://dashboard.tugboat.qa/) and select GitLab
-2) Enter your GitLab Username and Password (or Register)
-3) Authorize Tugboat
+1. Go to [Sign In](https://dashboard.tugboat.qa/) and select GitLab
+2. Enter your GitLab Username and Password (or Register)
+3. Authorize Tugboat
 
 That's it! Your Tugboat account is now linked to GitLab, and you'll now have access to add your repos to your Tugboat project and enjoy all the benefits of GitLab integration.
 
@@ -80,11 +81,11 @@ The GitLab integration gives your Tugboat a ton of cool features, which you can 
 - **Set Merge Request build status**
   On by default; Tugboat updates the merge request build status to reflect the state of its Preview.
 - **Post Preview links in Merge Request comments**
-  Off by default; Tugboat adds a comment to a merge request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md).
+  Off by default; Tugboat adds a comment to a merge request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 - **Build Previews for forked Merge Requests**
   Off by default; Tugboat builds Previews for merge requests made to the primary repo from forked repositories. **__There are security implications from using this setting:__** any secrets in your Preview will be accessible by the owner of the forked repository.
 
-You can also specify the account from which comments are posted to GitLab in this section. For info on customizing this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md).
+You can also specify the account from which comments are posted to GitLab in this section. For info on customizing this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 
 ### BitBucket
 
@@ -93,9 +94,9 @@ You can also specify the account from which comments are posted to GitLab in thi
 
 #### How do I link my Tugboat to BitBucket?
 
-1) Go to [Sign In](https://dashboard.tugboat.qa/) and select BitBucket
-2) Enter your BitBucket Email and Password (or Sign up for an account)
-3) Grant Access to Tugboat
+1. Go to [Sign In](https://dashboard.tugboat.qa/) and select BitBucket
+2. Enter your BitBucket Email and Password (or Sign up for an account)
+3. Grant Access to Tugboat
 
 That's it! Your Tugboat account is now linked to BitBucket, and you'll now have access to add your repos to your Tugboat project and enjoy all the benefits of BitBucket integration.
 
@@ -112,11 +113,11 @@ The BitBucket integration gives your Tugboat a ton of cool features, which you c
 - **Set Pull Request status**
   On by default; Tugboat updates the pull request status to reflect the state of its Preview.
 - **Post Preview links in Pull Request comments**
-  Off by default; Tugboat adds a comment to a pull request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md).
+  Off by default; Tugboat adds a comment to a pull request with links to its Preview. Comment displays from the person who authenticated the git repo to Tugboat; to change this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 - **Build Previews for forked Pull Requests**
   Off by default; Tugboat builds Previews for pull requests made to the primary repo from forked repositories. **__There are security implications from using this setting:__** any secrets in your Preview will be accessible by the owner of the forked repository.
 
-You can also specify the account from which comments are posted to BitBucket in this section. For info on customizing this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/add-a-tugboat-bot-to-your-team/index.md).
+You can also specify the account from which comments are posted to BitBucket in this section. For info on customizing this, see: [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 
 ## Create a new project
 
@@ -162,9 +163,9 @@ Alternately, if you're using a generic git server, select Git as the provider, a
 
 If you want to add repos to a project you've already created:
 
-1) Go to username -> My Projects at the upper-right of the Tugboat screen;
-2) Select the project where you want to add the repo;
-3) Go to Add a Repository.
+1. Go to username -> My Projects at the upper-right of the Tugboat screen;
+2. Select the project where you want to add the repo;
+3. Go to Add a Repository.
 
 From there, you'll be back to the familiar 'select a provider and specify a repo' screen.
 
@@ -238,7 +239,7 @@ If you want to delete a repo from your Tugboat project, you'll go into the Repos
 
 ![Delete repository](_images/delete_repo.png)
 
-> #### Note::Note
+> #### Note::User Permissions
 >
 > Only Admin users have the **Delete Repository** option. For more on user permissions, see: [User permission levels explained](../administering-tugboat-crew/user-permission-levels-explained/index.md) .
 
@@ -254,4 +255,4 @@ Creating the Config file can be a complex process, just like building a Tugboat'
 - [Service Code Snippet Library](service-code-snippets/index.md) (pre-populated code snippets to help you get started)
 - [Using the Tugboat Command Line Tool](using-the-cli/index.md)
 - [Config file reference](reference/tugboat-configuration/index.md) (detailing the attributes you can use when building Services)
-- [Debugging Config files](troubleshooting/debugging-config-files/index.md)
+- [Debugging Config files](troubleshooting/index.md#debugging-config-files)
