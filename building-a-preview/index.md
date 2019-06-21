@@ -2,15 +2,13 @@
 
 - [Build a Preview](#build-a-preview)
 - [Share your Preview](#share-your-preview)
-- [Preview Actions]
+- [Preview Actions](#preview-actions)
 - [Preview status](#preview-status)
-- [Administer Previews](#administer-previews)
 - [Set a Base Preview](#set-a-base-preview)
 - [Administer Base Previews](#administer-base-previews)
 - [Auto-generate Previews](#auto-generate-previews)
 - [Auto-delete Previews](#auto-delete-previews)
 - [Optimize your Preview builds](#optimize-your-preview-builds)
-
 
 ## Build a Preview
 
@@ -44,13 +42,13 @@ After you've built your Preview, there are a few ways you can share it:
 
 ### Manually share the URL of your Preview
 
-Want to share a Preview link manually with Lisa in Product, or Al the client? It couldn't be easier. Just go to the Preview you want to share, and either open it and copy the URL from the browser's address bar, or use the browser options to Copy Link on the Preview button.
+Want to share a Preview link manually with Lisa in Product, or Al the client? It couldn't be easier. Just go to the Preview you want to share, and open the Preview and copy the URL from the browser's address bar, or use the browser options to Copy Link on the **Preview** button.
 
-Send that link to the person who needs to look at the Preview, and they'll be able to view it. That person doesn't need to be a member of your [Tugboat crew](../administering-tugboat-crew/index.md), or able to view the git repo where the code is hosted.
+Send that link to the person who needs to look at the Preview, and they'll be able to view it. That person doesn't need to be a member of your [Tugboat crew](../administering-tugboat-crew/index.md), or able to view the git repo where the code is hosted - you can share your Preview link with anyone.
 
 ### Configure Tugboat to auto-post Preview links
 
-When you're using the Tugboat integration with [GitHub](../setting-up-tugboat/index.md#github), [GitLab](../setting-up-tugboat/index.md#gitlab) or [BitBucket](../setting-up-tugboat/index.md#bitbucket), you can configure your Tugboat to automatically post links to Previews as comments on pull requests. Configure this option in [Repository Settings](../setting-up-tugboat/modify-settings-for-your-github-gitlab-or-bitbucket-integration/index.md).
+When you're using the Tugboat integration with [GitHub](../setting-up-tugboat/index.md#github), [GitLab](../setting-up-tugboat/index.md#gitlab) or [BitBucket](../setting-up-tugboat/index.md#bitbucket), you can configure your Tugboat to automatically post links to Previews as comments on pull requests. Configure this option in [Repository Settings](../setting-up-tugboat/index.md#modify-settings-for-your-github-gitlab-or-bitbucket-integration).
 
 ## Preview Actions
 
@@ -69,7 +67,7 @@ After you've built a Preview, you'll see an **Actions** drop-down menu just to t
 
 #### Clone
 
-Quickly duplicate a Preview from the snapshot created when the original finished building.
+Quickly duplicate a Preview from the snapshot created when the original finished building. This is a great option if you want to generate multiple Previews from the same code so multiple folks can QA or tinker simultaneously. You could also use this feature to create a demo sandbox, or do limited a/b testing.
 
 #### Cancel
 
@@ -81,9 +79,9 @@ Delete a Preview.
 
 #### Lock
 
- Lock a Preview. A locked Preview stays in its current state, and will not be updated by Tugboat, including updates from new pull request commits. This overrides any repo-specific settings for things like _Rebuild Updated Pull Requests Automatically_, _Rebuild Orphaned Previews Automatically_, _Rebuild Stale Previews Automatically_, _Refresh Base Previews Automatically_.
+Lock a Preview. A locked Preview stays in its current state, and will not be updated by Tugboat - which means it won't auto-update the Preview from updated pull requests or [Preview Actions](#preview-actions). This overrides any repo-specific settings for things like _Rebuild Updated Pull Requests Automatically_, _Rebuild Orphaned Previews Automatically_, _Rebuild Stale Previews Automatically_, _Refresh Base Previews Automatically_.
 
- Lock Previews for longer reviews or to avoid interruptions during a demo.
+Lock Previews for longer reviews or to avoid interruptions during a demo.
 
 #### Rebuild
 
@@ -97,7 +95,7 @@ Rebuild an existing Tugboat Preview from scratch.
 
 #### Reset
 
-Reset a preview to the state it was in when it finished building. This allows you to quickly undo any changes you made for testing, etc.
+Reset a Preview to the state it was in when it finished building. This allows you to quickly undo any changes you made for testing, etc.
 
 #### Start
 
@@ -134,7 +132,7 @@ Preview status is indicated in a couple of different ways:
 - **Resuming:** When you've used the Action -> Start option, you'll see a `resuming` status in yellow while the Preview starts spinning up [services](../setting-up-services/index.md) again.
 - **Stopping:** When you've used the Action -> Stop option, you'll see a `stopping` status in yellow while the Preview goes through the process of stopping [services](../setting-up-services/index.md).
 - **Stopped:** When you've used the Action -> Stop option, you'll see a `stopped` status in red to indicate that the Preview has successfully stopped [services](../setting-up-services/index.md).
-- **Failed:** When a Preview build, rebuild or refresh can't complete, you'll see a `failed` status in red. For help with a `failed` preview, take a look at our [troubleshooting](../setting-up-services/index.md) docs, or go to our [Help and Support](#support) page to join our Slack support channel or email us.
+- **Failed:** When a Preview build, rebuild or refresh can't complete, you'll see a `failed` status in red. For help with a `failed` preview, take a look at our [troubleshooting](../setting-up-services/index.md) docs, or go to our [Help and Support](../help-and-support/index.md) page to join our Slack support channel or email us.
 
 ## Set a Base Preview
 
@@ -143,7 +141,7 @@ If you want to speed up your Preview builds, and make subsequent Preview builds 
 - [How Base Previews work](#how-base-previews-work)
 - [How to set a Base Preview](#how-to-set-a-base-preview)
 - [Using multiple Base Previews](#using-multiple-base-previews)
-- [Building a Preview from scratch after you've set a Base Preview](#building-a-preview-from-scratch-after-you-ve-set-a-base-preview)
+- [Building a Preview from scratch after you've set a Base Preview](#building-a-preview-from-scratch-after-youve-set-a-base-preview)
 
 ### How Base Previews work
 
@@ -157,15 +155,24 @@ In addition to speeding up your Preview builds, Tugboat saves disk space by stor
 
 ### How to set a Base Preview
 
-To create a Base Preview, you'll need to have a Preview build to serve as your starting point.
+To create a Base Preview, you'll first need to have a [Preview build](#build-a-preview) to serve as your starting point.
+
+1. Go to the **Manage Base Previews** link on the Repository Dashboard;
+2. Click the checkbox next to the Preview you want to use as a Base Preview;
+3. Press the **OK** button.
+
+That preview will be moved to the **Base Preview** section of the Repository Dashboard. From now on, Previews will build from the snapshot created when the Base Preview was built.
+
+1. Go to the **Manage Base Previews** link on the Repository Dashboard.
 
 ![Base Preview Selection](_images/base-preview-before.png)
 
-From there, go to the `Manage Base Previews` link on the Repository Dashboard and select the Preview you want to use as a Base Preview.
+2. Click the checkbox next to the Preview you want to use as a Base Preview.
+3. Press the **OK** button.
 
 ![Base Preview Selection](_images/base-preview-select.png)
 
-That preview will be moved to the "Base Preview" section of the Repository Dashboard.
+That preview will be moved to the **Base Preview** section of the Repository Dashboard.
 
 ![Base Preview Selection](_images/base-preview-after.png)
 
@@ -183,6 +190,8 @@ Tugboat allows multiple Base Previews to be defined. The effect of doing this is
 
 This feature allows you to test code, for instance, against different PHP versions, database content, etc.
 
+![Multiple Base Previews generating multiple Preview builds](_images/multiple_base_preview_preview_builds.png)
+
 ### Building a Preview from scratch after you've set a Base Preview
 
 Once you've set a Base Preview, new Previews build on that Base Preview by default. If you want a Preview to build from scratch, instead of a Base Preview:
@@ -197,13 +206,62 @@ Now your Preview will build from scratch!
 
 ## Administer Base Previews
 
-- Add a new Base Preview
-- Add multiple Base Previews
-- Stop using a Base Preview
-- [Keeping Base Previews updated](#keeping-base-previews-updated)
-- Using Preview Actions on a Base Preview
+- [Add a new Base Preview](#add-a-new-base-preview)
+- [Add multiple Base Previews](#add-multiple-base-previews)
+- [Stop using a Base Preview](#stop-using-a-base-preview)
+- [Keeping Base Previews up-to-date](#keeping-base-previews-up-to-date)
+- [Using Preview Actions on a Base Preview](#using-preview-actions-on-a-base-preview)
 
-### Keeping Base Previews updated
+### Add a new Base Preview
+
+Adding a new Base Preview can mean a few different things:
+
+- [Set a Base Preview for the first time](#set-a-base-preview-for-the-first-time)
+- [Add additional/multiple Base Previews](#add-additionalmultiple-base-previews)
+- [Stop using the current Base Preview and set a new Base Preview](#stop-using-the-current-base-preview-and-set-a-new-base-preview)
+
+#### Set a Base Preview for the first time
+
+Ready to get started with your first Base Preview? Check out: [How to set a Base Preview](#how-to-set-a-base-preview).
+
+#### Add additional/multiple Base Previews
+
+Want to use more than one Base Preview? Take a look at: [Add multiple Base Previews](#add-multiple-base-previews).
+
+#### Stop using the current Base Preview and set a new Base Preview
+
+Want to change the Base Preview you're using? First, you'll need to have a [Preview build](#build-a-preview) ready to set as your new Base Preview. Then:
+
+1. Go to the **Manage Base Previews** link on the Repository Dashboard;
+2. Click the checkbox next to the Base Preview you want to stop using to deselect it;
+3. Click the checkbox next to the Preview you want to set as your new Base Preview;
+3. Press the **OK** button.
+
+The Preview you've deselected will move out of the Base Previews section of the dashboard, and the new Base Preview will appear here, instead.
+
+![Deselect and select new Base Preview](_images/deselect_and_select_new_base_preview.png)
+
+### Add multiple Base Previews
+
+Want to use more than one Base Preview? No problem! Simply follow the instructions in [How to set a Base Preview](#how-to-set-a-base-preview), and check the checkboxes next to all of the Previews that you want to use as Base Previews.
+
+![Set multiple Base Previews](_images/set_multiple_base_previews.png)
+
+Keep in mind that when you've selected multiple Base Previews, every new Preview build (including automated builds from pull requests) will create a build from _each_ Base Preview. In my sample project, I've set two base Previews, and building a Preview from a new PR automatically created two Previews.
+
+![Multiple Base Previews generating multiple Preview builds](_images/multiple_base_preview_preview_builds.png)
+
+### Stop using a Base Preview
+
+If you want to stop using a Base Preview, simply:
+
+1. Go to the **Manage Base Previews** link on the Repository Dashboard;
+2. Click the checkbox next to the Base Preview you want to stop using;
+3. Press the **OK** button.
+
+The deselected Preview will disappear from the Base Preview section of the dashboard, and subsequent Preview builds - including automated builds from git provider integrations - will no longer start from that Base Preview.
+
+### Keeping Base Previews up-to-date
 
 If you want to keep your Base Previews up-to-date, there are two ways you can do it:
 
@@ -223,12 +281,91 @@ During this update, Tugboat:
 
 You can also update a Base Preview manually.
 
-From the Repository Dashboard, click into the **Actions** drop-down next to the Preview button for the Base Preview you want to update. From there, you can [Refresh](#refresh) the Base Preview to update , as well as
+From the Repository Dashboard, click into the **Actions** drop-down next to the Preview button for the Base Preview you want to update. From there, you can simply [Refresh](#refresh) the Base Preview to update it, or [Rebuild](#rebuild) if you want to build it fresh from scratch.
+
+### Using Preview Actions on a Base Preview
+
+You can use all the normal [Preview Actions](#preview-actions) on a Base Preview just like you would on a regular Preview build - but there are a couple of things to keep in mind:
+
+- If you're using the options to [Rebuild Orphaned Previews Automatically](..setting-up-tugboat/index.md#rebuild-orphaned-previews-automatically) and/or [Rebuild Stale Previews Automatically](..setting-up-tugboat/index.md#rebuild-stale-previews-automatically), [Rebuilding](#rebuild) or [Refreshing](#refresh) a Base Preview will also kick off processes to Rebuild or Refresh Previews that were generated from the Base Preview.
+- If you've stopped using a Base Preview, but it was previously used to generate subsequent Previews, the above settings still apply; you'll get a dialogue box detailing the potential pitfalls of doing this, and asking you to confirm whether you want to rebuild the Preview - and separately, whether you want to rebuild subsequent Previews.
+
+![Confirm a rebuild from a former Base Preview](_images/confirm_rebuild_from_former_base_preview.png)
 
 ## Auto-generate Previews
 
+We love automatically generating Previews from new pull requests - we think it's one of Tugboat's best features!
+
+- [What are the options for auto-generating Previews?](#options-for-auto-generating-previews)
+- [How to configure Tugboat to auto-generate Previews](#how-to-configure-tugboat-to-auto-generate-previews)
+
+### Options for auto-generating Previews
+
+If you're using a [git provider integration](../setting-up-tugboat/index.md#connect-with-your-provider), you'll be able to auto-generate Previews in a few different ways:
+
+- **Build Pull Requests Automatically**  
+  Tugboat automatically creates a Preview when a pull request is opened.
+- **Rebuild Updated Pull Requests Automatically**  
+  Tugboat automatically rebuilds a Preview when the corresponding pull request is updated.
+- **Build Previews for Forked Pull Requests**  
+  Tugboat builds Previews for pull requests made to the primary repo from forked repositories. **__There are security implications from using this setting:__** any secrets in your Preview will be accessible by the owner of the forked repository.
+
+Besides auto-generating Previews from pull requests, you can also auto-generate Previews when you make changes to a [Base Preview](#set-a-base-preview). If you've [set a Base Preview](#how-to-set-a-base-preview), you can have Tugboat:
+
+- Rebuild Orphaned Previews Automatically
+  Automatically rebuild Previews when the Base Preview they were built from is [rebuilt](#rebuild).
+- Rebuild Stale Previews Automatically
+  Automatically rebuild Previews when the Base Preview they were built from is [refreshed](#refresh).
+
+### How to configure Tugboat to auto-generate Previews
+
+To configure Tugboat to auto-generate Previews, you'll need to:
+
+1. Go to username -> My Projects at the upper-right of the Tugboat screen;
+2. Select the project where you want to configure auto-generate settings for Previews;
+3. Click into Settings for the repository;
+4. Click the checkboxes for the auto-generate features you'd like to turn on/off.
+
+> ####Hint::Missing auto-generate from PR options?
+>
+>Don't see the options to auto-generate Previews from pull requests? You'll need to [connect your preferred git provider to Tugboat](../setting-up-tugboat/index.md#connect-with-your-provider), and then [delete](../setting-up-tugboat/index.md#delete-the-repo) and [re-add the provider-specific version of the repository](../setting-up-tugboat/index.md#add-repos-to-the-project) to your Tugboat project.
+
 ## Auto-delete Previews
 
+Each of the Previews in your Tugboat project count toward the total storage space available in your project's billing tier. By default, Tugboat is configured to automatically delete Previews when their corresponding git pull requests are merged or closed.
 
+If you want to manually change the setting to automatically delete Previews when their PRs are merged or closed:
+
+1. Go to username -> My Projects at the upper-right of the Tugboat screen;
+2. Select the project where you want to configure auto-delete settings for Previews;
+3. Click into Settings for the repository;
+4. Click the checkbox to change the setting.
 
 ## Optimize your Preview builds
+
+Do your Previews take a long time to build? Some things, like importing large assets, are just going to take time - but there are some things you can do to speed up your Preview builds:
+
+- [Use Service Commands to create a Base Preview that does the heavy lifting](#use-service-commands-to-create-a-base-preview-that-does-the-heavy-lifting)
+- [Use the Auto Refresh Base Preview functionality to update large assets](#use-the-auto-refresh-base-preview-functionality-to-update-large-assets)
+- [Contact Tugboat support for help optimizing your Config file](#contact-tugboat-support-for-help-optimizing-your-config-file)
+- [Upgrade your project tier to a higher-performance tier](#upgrade-your-project-tier-to-a-higher-performance-tier)
+
+### Use Service Commands to create a Base Preview that does the heavy lifting
+
+The big value of using a Base Preview is that you can front-load the work into a time-consuming Preview you only have to build once, and then use that as a base to iterate on with smaller, faster-building Previews.
+
+You can do this by using [Service Commands](../setting-up-services/index.md#service-commands) in the `init` stage of the Preview build to do the resource-intensive, time-intensive processes - and then [set that as your Base Preview](#set-a-base-preview) so you don't have to complete those steps in every single build. This is the perfect time to install a large database that you won't have to update in subsequent Previews, or download and configure the host of [services](../setting-up-services/index.md#services-in-the-context-of-tugboat) that power your Tugboat.
+
+### Use the Auto Refresh Base Preview functionality to update large assets
+
+If you're updating large assets as part of the `update` stage of your Tugboat build, you can configure Tugboat to [automatically refresh your Base Preview](#keeping-base-previews-updated) while your crew isn't working. By default, Tugboat automatically refreshes Base Previews daily at 12am UTC (8pm EDT). You can set this for a time and frequency that works best for your team, and then you won't have to manually update your Base Preview when you're about to test an important build - it will already have the latest database, or any large assets you need, whenever you're ready.
+
+### Contact Tugboat support for help optimizing your Config file
+
+Sometimes, speeding up your Preview builds can be as simple as having a second set of eyes take a look at your Config file and make recommendations to help you optimize it. This might include something like running a command in `init` instead of `update`, or scripting a few simple commands. The team at Tugboat is happy to help; our [Support](../support/index.md) page can direct you to our Tugboat support Slack, or an email address where you can reach us.
+
+### Upgrade your project tier to a higher-performance tier
+
+If it's not a simple question of optimizing your Config file - for example, if you're building a complex or resource-intensive sequence of code in every Tugboat Preview - you might want to consider upgrading your Tugboat Project to a higher-performance tier. A higher-performance tier gives you more CPU power and RAM to build your Previews, which can mildly or dramatically speed up your build times. When build times matter, keep this option in mind.
+
+You can change your Tugboat plan in **Project Settings**.

@@ -18,6 +18,18 @@
   - [Add a Tugboat bot to your team](administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team)
   - [User permission levels explained](administering-tugboat-crew/index.md#user-permission-levels-explained)
 
+- [Building a Preview](building-a-preview/index.md)
+
+  - [Build a Preview](building-a-preview/index.md#build-a-preview)
+  - [Share your Preview](building-a-preview/index.md#share-your-preview)
+  - [Preview Actions](building-a-preview/index.md#preview-actions)
+  - [Preview status](building-a-preview/index.md#preview-status)
+  - [Set a Base Preview](building-a-preview/index.md#set-a-base-preview)
+  - [Administer Base Previews](building-a-preview/index.md#administer-base-previews)
+  - [Auto-generate Previews](building-a-preview/index.md#auto-generate-previews)
+  - [Auto-delete Previews](building-a-preview/index.md#auto-delete-previews)
+  - [Optimize your Preview builds](building-a-preview/index.md#optimize-your-preview-builds)
+
 - [Concepts](concepts/index.md)
 
   - [Projects](concepts/projects/index.md)
