@@ -30,6 +30,18 @@
   - [Auto-delete Previews](building-a-preview/index.md#auto-delete-previews)
   - [Optimize your Preview builds](building-a-preview/index.md#optimize-your-preview-builds)
 
+- [Setting up Services](setting-up-services/index.md)
+  - [How to set up Services](setting-up-services/index.md#how-to-set-up-services-in-tugboat)
+    - [Name your Service](setting-up-services/index.md#name-your-service)
+    - [Specify a Service image](setting-up-services/index.md#specify-a-service-image)
+    - [Define a default Service](setting-up-services/index.md#define-a-default-service)
+    - [Expose a Service HTTP port](setting-up-services/index.md#expose-a-service-http-port)
+  - [Services options and reference](setting-up-services/index.md#using-git-options-with-your-service-optional)
+    - [Service commands](setting-up-services/index.md#service-commands)
+    - [Set the Document Root Path](setting-up-services/index.md#set-the-document-root-path)
+    - [Running a Background Process](setting-up-services/index.md#running-a-background-process)
+    
+
 - [Concepts](concepts/index.md)
 
   - [Projects](concepts/projects/index.md)
