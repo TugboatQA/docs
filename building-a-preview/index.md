@@ -46,6 +46,8 @@ Want to share a Preview link manually with Lisa in Product, or Al the client? It
 
 Send that link to the person who needs to look at the Preview, and they'll be able to view it. That person doesn't need to be a member of your [Tugboat crew](../administering-tugboat-crew/index.md), or able to view the git repo where the code is hosted - you can share your Preview link with anyone.
 
+MW: We could say more that Tugboat Links are hard-to-guess secure URLs that are accessible to anyone with the link? 
+
 ### Configure Tugboat to auto-post Preview links
 
 When you're using the Tugboat integration with [GitHub](../setting-up-tugboat/index.md#github), [GitLab](../setting-up-tugboat/index.md#gitlab) or [BitBucket](../setting-up-tugboat/index.md#bitbucket), you can configure your Tugboat to automatically post links to Previews as comments on pull requests. Configure this option in [Repository Settings](../setting-up-tugboat/index.md#modify-settings-for-your-github-gitlab-or-bitbucket-integration).
@@ -178,11 +180,13 @@ That preview will be moved to the **Base Preview** section of the Repository Das
 
 That's it! From now on, Previews will build from the snapshot created when the Base Preview was built.
 
+MW: This is great. I would that you can see which Previews are using Base Previews because the name of the Base Preview is listed under the name of the current Preview. You show that in the image, but don't call it out specifically. 
+
 ### Keeping Base Previews updated
 
 You'll generally want to keep your Base Preview up to date with your latest codebase, and a fresh copy of your database, image files, and other assets. By default, Tugboat automatically checks for updates every night at 12 am ET, and [refreshes](#refresh) your Base Preview with these updates. To change this, check the Repository Settings.
 
-Tugboat performs this update by pulling the latest code from git for the branch or Tag the preview was built from. During the update, Tugboat runs any commands in the `update` and `build` sections of the [configuration](../setting-up-services/index.md#create-a-config-file) file.
+Tugboat performs this update by pulling the latest code from git for the branch or Tag the preview was built from. During the update, Tugboat runs any commands in the `update` and `build` sections for services in the [configuration](../setting-up-services/index.md#create-a-config-file) file.
 
 ### Using multiple Base Previews
 
@@ -291,6 +295,8 @@ You can use all the normal [Preview Actions](#preview-actions) on a Base Preview
 - If you've stopped using a Base Preview, but it was previously used to generate subsequent Previews, the above settings still apply; you'll get a dialogue box detailing the potential pitfalls of doing this, and asking you to confirm whether you want to rebuild the Preview - and separately, whether you want to rebuild subsequent Previews.
 
 ![Confirm a rebuild from a former Base Preview](_images/confirm_rebuild_from_former_base_preview.png)
+
+MW: Oopsie. Image missing here.
 
 ## Auto-generate Previews
 

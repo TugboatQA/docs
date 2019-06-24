@@ -21,6 +21,8 @@ Every ship captain needs a crew - even a tugboat! Want to add, remove or make ch
 5. In the **Invite a User to This Project** section, add the recipient's email address, and select the appropriate [user type](#user-permission-levels-explained) from the drop-down;
 6. Press the big blue **Invite** button!
 
+MW: A screenshot of the invite email content might be nice, or at least the email address the email is coming from in case the email goes to spam? 
+
 ## Remove a user from a project
 
 1. Click your username in the upper right-hand corner, and go to Projects;
