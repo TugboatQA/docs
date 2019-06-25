@@ -1,6 +1,6 @@
 # Building a Preview
 
-- [Build a Preview](#build-a-preview)
+- [Build a Preview](#build-a-preview))
 - [Share your Preview](#share-your-preview)
 - [Preview Actions](#preview-actions)
 - [Preview status](#preview-status)
@@ -17,6 +17,11 @@ Once you've
 [linked a repo](../setting-up-tugboat/index.md#add-repos-to-the-project), and
 [put your Config file in the linked repo](../setting-up-tugboat/index.md#create-a-config-file),
 it's time to build a Preview!
+
+- [How to build a Preview](#how-to-build-a-preview)
+- [The build process: explained](#the-build-process-explained)
+
+### How to build a Preview
 
 To build a Preview:
 
@@ -44,6 +49,68 @@ Preview. While you're at it, go ahead and
 
 ![Preview is ready](_images/preview_ready.png)
 
+### The build process: explained
+
+When you kick off a Preview build, the
+[Service Commands](../setting-up-services/index.md#service-commands) in your
+[config file](../setting-up-tugboat/index.md#create-a-config-file) are executed
+in three phases:
+
+1. `init`
+2. `update`
+3. `build`
+
+During the `init` phase, you might use commands that set up the basic preview
+infrastructure. This might include things like installing required packages or
+tools, or overriding default configuration files.
+
+During the `update` phase, you might use commands that import data or other
+assets into a service. This might include things like importing a database, or
+syncing image files into a service.
+
+During the `build` phase, you might use commands that build or generate the
+actual site. This might include things like compiling Sass files, updating 3rd
+party libraries, or running database updates that the current code in the
+preview depends on.
+
+When using various [Preview Actions](#preview-actions), the build process may
+bypass phases:
+
+- [Preview Actions that start at `init`](#preview-actions-that-start-at-init)
+- [Preview Actions that start at `update`](#preview-actions-that-start-at-update)
+- [Preview Actions that start at `build`](#preview-actions-that-start-at-build)
+
+#### Preview Actions that start at init
+
+Three types of Preview builds start from the very beginning of the process, at
+the `init` phase:
+
+- [Building a new Preview](#how-to-build-a-preview) from scratch (without a Base
+  Preview)
+- [Rebuilding](#rebuild) a Preview without a Base Preview
+- [Rebuilding](#rebuild) a Base Preview
+
+> #### Note::Rebuilding a Preview from a Base Preview
+>
+> If you're
+> [Rebuilding a Preview that was built from a Base Preview](#preview-actions-that-start-at-build),
+> the build starts at the `build` phase - not the `init` phase.
+
+#### Preview Actions that start at update
+
+Two types of Preview builds start from the `update` phase, bypassing `init`:
+
+- [Refreshing](#refresh) a Preview that has no Base Preview
+- [Refreshing](#refresh) a Base Preview
+
+#### Preview Actions that start at build
+
+Two types of Preview builds start from the `build` phase, bypassing `init` and
+`update`:
+
+- Building a new Preview from a Base Preview
+- Rebuilding a Preview that was built from a Base Preview
+
 ## Share your Preview
 
 After you've built your Preview, there are a few ways you can share it:
@@ -59,12 +126,10 @@ Preview and copy the URL from the browser's address bar, or use the browser
 options to Copy Link on the **Preview** button.
 
 Send that link to the person who needs to look at the Preview, and they'll be
-able to view it. That person doesn't need to be a member of your
+able to view it. Tugboat links are hard-to-guess secure URLs that are accessible
+to anyone with the link; that person doesn't need to be a member of your
 [Tugboat crew](../administering-tugboat-crew/index.md), or able to view the git
-repo where the code is hosted - you can share your Preview link with anyone.
-
-MW: We could say more that Tugboat Links are hard-to-guess secure URLs that are
-accessible to anyone with the link?
+repo where the code is hosted.
 
 ### Configure Tugboat to auto-post Preview links
 
@@ -120,7 +185,15 @@ Lock Previews for longer reviews or to avoid interruptions during a demo.
 
 #### Rebuild
 
-Rebuild an existing Tugboat Preview from scratch.
+Rebuild an existing Tugboat Preview from scratch. This kicks off a new Preview  
+build from the beginning of [the build process](#the-build-process-explained),
+starting with `init`.
+
+> #### Note::Rebuilding a Preview from a Base Preview
+>
+> If you're
+> [Rebuilding a Preview that was built from a Base Preview](#preview-actions-that-start-at-build),
+> the build starts at the `build` phase - not the `init` phase.
 
 #### Refresh
 
@@ -217,7 +290,7 @@ Previews.
 
 ### How Base Previews work
 
-When a regular preview is built, the
+When you build a regular Preview, the
 [configuration file](../setting-up-services/index.md#create-a-config-file)
 typically instructs Tugboat to pull in databases, image files, or other assets.
 This process can take a while; the larger the assets, the longer the build.
@@ -270,9 +343,10 @@ Dashboard.
 That's it! From now on, Previews will build from the snapshot created when the
 Base Preview was built.
 
-MW: This is great. I would that you can see which Previews are using Base
-Previews because the name of the Base Preview is listed under the name of the
-current Preview. You show that in the image, but don't call it out specifically.
+If you're ever wondering which Base Preview was used when generating a Preview,
+just look under the name of the Preview, at the "from [Base Preview Name]":
+
+![View Base Preview for Preview](_images/biew_base_preview_for_preview.png)
 
 ### Keeping Base Previews updated
 
@@ -438,9 +512,7 @@ things to keep in mind:
   whether you want to rebuild the Preview - and separately, whether you want to
   rebuild subsequent Previews.
 
-![Confirm a rebuild from a former Base Preview](_images/confirm_rebuild_from_former_base_preview.png)
-
-MW: Oopsie. Image missing here.
+![Confirm a rebuild from a former Base Preview](_images/confirm_rebuild_from_former_base.png)
 
 ## Auto-generate Previews
 
@@ -463,9 +535,9 @@ you'll be able to auto-generate Previews in a few different ways:
   is updated.
 - **Build Previews for Forked Pull Requests**  
   Tugboat builds Previews for pull requests made to the primary repo from forked
-  repositories. ****There are security implications from using this setting:****
-  any secrets in your Preview will be accessible by the owner of the forked
-  repository.
+  repositories. \***\*There are security implications from using this
+  setting:\*\*** any secrets in your Preview will be accessible by the owner of
+  the forked repository.
 
 Besides auto-generating Previews from pull requests, you can also auto-generate
 Previews when you make changes to a [Base Preview](#set-a-base-preview). If

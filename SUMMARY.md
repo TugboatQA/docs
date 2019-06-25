@@ -7,7 +7,7 @@
   - [Connect with your provider](setting-up-tugboat/index.md#connect-with-your-provider)
   - [Create a new project](setting-up-tugboat/index.md#create-a-new-project)
   - [Add repos to the project](setting-up-tugboat/index.md#add-repos-to-the-project)
-  - [Select repo settings (optional)](setting-up-tugboat/index.md#select-repo-settings-optional)
+  - [Repository Settings (optional)](setting-up-tugboat/index.md#repository-settings-optional)
   - [Create a Config file](setting-up-tugboat/index.md#create-a-config-file)
 
 - [Administering Tugboat crew](administering-tugboat-crew/index.md)

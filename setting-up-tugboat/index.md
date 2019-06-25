@@ -3,7 +3,7 @@
 - [Connect with your provider](#connect-with-your-provider)
 - [Create a new project](#create-a-new-project)
 - [Add repos to the project](#add-repos-to-the-project)
-- [Select repo settings (optional)](#select-repo-settings-optional)
+- [Select repo settings (optional)](#repository-settings-optional)
 - [Create a Config file](#create-a-config-file)
 
 ## Connect with your provider
@@ -65,9 +65,10 @@ access in your Project -> Repository Settings:
   person who authenticated the git repo to Tugboat; to change this, see:
   [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 - **Build Previews for forked Pull Requests** Off by default; Tugboat builds
-  Previews for pull requests made to the primary repo from forked repositories.
-  ****There are security implications from using this setting:**** any secrets
-  in your Preview will be accessible by the owner of the forked repository.
+  Previews for pull requests made to the primary repo from forked
+  repositories. \***\*There are security implications from using this
+  setting:\*\*** any secrets in your Preview will be accessible by the owner of
+  the forked repository.
 
 You can also specify the account from which comments are posted to GitHub in
 this section. For info on customizing this, see:
@@ -107,9 +108,10 @@ access in your Project -> Repository Settings:
   the person who authenticated the git repo to Tugboat; to change this, see:
   [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 - **Build Previews for forked Merge Requests** Off by default; Tugboat builds
-  Previews for merge requests made to the primary repo from forked repositories.
-  ****There are security implications from using this setting:**** any secrets
-  in your Preview will be accessible by the owner of the forked repository.
+  Previews for merge requests made to the primary repo from forked
+  repositories. \***\*There are security implications from using this
+  setting:\*\*** any secrets in your Preview will be accessible by the owner of
+  the forked repository.
 
 You can also specify the account from which comments are posted to GitLab in
 this section. For info on customizing this, see:
@@ -149,9 +151,10 @@ can access in your Project -> Repository Settings:
   person who authenticated the git repo to Tugboat; to change this, see:
   [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 - **Build Previews for forked Pull Requests** Off by default; Tugboat builds
-  Previews for pull requests made to the primary repo from forked repositories.
-  ****There are security implications from using this setting:**** any secrets
-  in your Preview will be accessible by the owner of the forked repository.
+  Previews for pull requests made to the primary repo from forked
+  repositories. \***\*There are security implications from using this
+  setting:\*\*** any secrets in your Preview will be accessible by the owner of
+  the forked repository.
 
 You can also specify the account from which comments are posted to BitBucket in
 this section. For info on customizing this, see:
@@ -275,20 +278,34 @@ out:
 
 ### Rebuild Orphaned Previews Automatically
 
-When this option is selected, Tugboat automatically rebuilds Previews when the
-Base Preview they're built from is rebuilt. This option is turned off by
-default.
-
-MW: Maybe we should link to more information about Base Previews here?
+When this option is selected, Tugboat automatically
+[rebuilds Previews](../building-a-preview/index.md#rebuild) when the
+[Base Preview](../building-a-preview/index.md#set-a-base-preview) they're built
+from is rebuilt. This option is turned off by default.
 
 ### Rebuild Stale Previews Automatically
 
-When this option is selected, Tugboat automatically rebuilds Previews when the
-Base Preview they're built from is refreshed. This option is turned off by
-default.
+When this option is selected, Tugboat automatically
+[rebuilds Previews](../building-a-preview/index.md#rebuild) when the
+[Base Preview](../building-a-preview/index.md#set-a-base-preview) they're built
+from is [refreshed](../building-a-preview/index.md#refresh). This option is
+turned off by default.
 
-MW: This seems like a good moment to discuss the difference between rebuilding a
-base preview vs refreshing it.
+To unpack this a little:
+
+- When you're using a
+  [Base Preview](../building-a-preview/index.md#set-a-base-preview):
+- And the Base Preview is [refreshed](../building-a-preview/index.md#refresh)  
+  (You may manually Refresh a Base Preview, or have Tugboat
+  [refresh Base Previews automatically](#refresh-base-previews-automatically),
+  for example, every day at 12am UTC.)
+- The Base Preview kicks off the
+  [build process](../building-a-preview/index.md#the-build-process-explained)
+  from the `update` phase, and runs commands in both `update` and `build`;
+- When the Base Preview refresh is complete, child Previews kick off a
+  [build process](../building-a-preview/index.md#the-build-process-explained)
+  from `build`, using the Base Preview as the starting point and bypassing
+  commands in `init` and `update`.
 
 ### Refresh Base Previews Automatically
 

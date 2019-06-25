@@ -28,8 +28,16 @@ changes to your Tugboat team?
    [user type](#user-permission-levels-explained) from the drop-down;
 6. Press the big blue **Invite** button!
 
-MW: A screenshot of the invite email content might be nice, or at least the
-email address the email is coming from in case the email goes to spam?
+The user you've invited will get an email from `support@tugboat.qa` with a link
+to accept the invitation. If the user doesn't see the invite:
+
+- Have them check Inboxes and Spam for this email address, or;
+- **Copy Link** and share it another way from the Pending Invites section of the
+  Project Settings, or;
+- Hit the **Re-send** link from the Pending Invites section of the Project
+  Settings.
+
+![Copy Link or Re-Send from Pending Invites](_images/add_user_pending_invite.png)
 
 ## Remove a user from a project
 
@@ -96,7 +104,7 @@ Admin users can:
 - Manage other users, including removing other admins, though they cannot remove
   themselves.
 - Manage the repositories that are in the project, including
-  [changing repository settings](../setting-up-tugboat/index.md#select-repo-settings-optional)
+  [changing repository settings](../setting-up-tugboat/index.md#repository-settings-optional)
   and deleting the repositories.
 - Delete the entire project, and rename the project.
 
@@ -105,7 +113,7 @@ Admin users can:
 Tugboat's generic User's permissions include:
 
 - Manage the configuration interface. This includes things like
-  [changing repository settings](../setting-up-tugboat/index.md#select-repo-settings-optional),
+  [changing repository settings](../setting-up-tugboat/index.md#repository-settings-optional),
   environment variables and SSH keys.
 - Manage previews. Create, remove, rebuild or lock previews. Manage base
   previews.
