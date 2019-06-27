@@ -1,6 +1,6 @@
 # Building a Preview
 
-- [Build a Preview](#build-a-preview))
+- [Build a Preview](#build-a-preview)
 - [Share your Preview](#share-your-preview)
 - [Preview Actions](#preview-actions)
 - [Preview status](#preview-status)
@@ -15,7 +15,7 @@
 Once you've
 [set up your Tugboat project](../setting-up-tugboat/index.md#create-a-project),
 [linked a repo](../setting-up-tugboat/index.md#add-repos-to-the-project), and
-[put your Config file in the linked repo](../setting-up-tugboat/index.md#create-a-config-file),
+[put your Config file in the linked repo](../setting-up-tugboat/index.md#create-a-tugboat-config-file),
 it's time to build a Preview!
 
 - [How to build a Preview](#how-to-build-a-preview)
@@ -53,8 +53,8 @@ Preview. While you're at it, go ahead and
 
 When you kick off a Preview build, the
 [Service Commands](../setting-up-services/index.md#service-commands) in your
-[config file](../setting-up-tugboat/index.md#create-a-config-file) are executed
-in three phases:
+[config file](../setting-up-tugboat/index.md#create-a-tugboat-config-file) are
+executed in three phases:
 
 1. `init`
 2. `update`
@@ -199,9 +199,9 @@ starting with `init`.
 
 1. Pull the latest code from git;
 2. Run commands from the `update` section of the
-   [configuration](../setting-up-tugboat/index.md#create-a-config-file/);
+   [configuration](../setting-up-tugboat/index.md#create-a-tugboat-config-file/);
 3. Run commands from the `build` section of the
-   [configuration](../setting-up-tugboat/index.md#create-a-config-file).
+   [configuration](../setting-up-tugboat/index.md#create-a-tugboat-config-file).
 
 #### Reset
 
@@ -261,7 +261,7 @@ Preview status is indicated in a couple of different ways:
   status in yellow. This indicates a Preview that is pulling in the latest code
   from git, and then running any commands in the `update` section, followed by
   the `build` section of the
-  [Configuration file](../setting-up-services/index.md#create-a-config-file).
+  [Configuration file](../setting-up-services/index.md#create-a-tugboat-config-file).
 - **Resuming:** When you've used the Action -> Start option, you'll see a
   `resuming` status in yellow while the Preview starts spinning up
   [services](../setting-up-services/index.md) again.
@@ -291,7 +291,7 @@ Previews.
 ### How Base Previews work
 
 When you build a regular Preview, the
-[configuration file](../setting-up-services/index.md#create-a-config-file)
+[configuration file](../setting-up-services/index.md#create-a-tugboat-config-file)
 typically instructs Tugboat to pull in databases, image files, or other assets.
 This process can take a while; the larger the assets, the longer the build.
 
@@ -359,7 +359,8 @@ check the Repository Settings.
 Tugboat performs this update by pulling the latest code from git for the branch
 or Tag the preview was built from. During the update, Tugboat runs any commands
 in the `update` and `build` sections for services in the
-[configuration](../setting-up-services/index.md#create-a-config-file) file.
+[configuration](../setting-up-services/index.md#create-a-tugboat-config-file)
+file.
 
 ### Using multiple Base Previews
 
@@ -480,9 +481,10 @@ During this update, Tugboat:
 1. Pulls the latest code from git for the branch or Tag the preview was built
    from;
 2. Runs commands in the `update` section of the
-   [configuration](../setting-up-services/index.md#create-a-config-file) file;
+   [configuration](../setting-up-services/index.md#create-a-tugboat-config-file)
+   file;
 3. Runs commands in the `build` section of the
-   [config](../setting-up-services/index.md#create-a-config-file) file.
+   [config](../setting-up-services/index.md#create-a-tugboat-config-file) file.
 
 #### Manually update Base Previews
 

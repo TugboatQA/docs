@@ -4,7 +4,7 @@
 - [Create a new project](#create-a-new-project)
 - [Add repos to the project](#add-repos-to-the-project)
 - [Select repo settings (optional)](#repository-settings-optional)
-- [Create a Config file](#create-a-config-file)
+- [Create a Tugboat Config file](#create-a-tugboat-config-file)
 
 ## Connect with your provider
 
@@ -340,6 +340,8 @@ access.
 
 If you want to pull images from Docker registries that require authentication,
 you can manage your authorization credentials from within the repo settings.
+
+![Authenticate with a Docker registry](_images/authenticate_with_a_docker_registry.png)
 
 ### Delete the Repository
 

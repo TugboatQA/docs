@@ -8,7 +8,7 @@
   - [Create a new project](setting-up-tugboat/index.md#create-a-new-project)
   - [Add repos to the project](setting-up-tugboat/index.md#add-repos-to-the-project)
   - [Repository Settings (optional)](setting-up-tugboat/index.md#repository-settings-optional)
-  - [Create a Config file](setting-up-tugboat/index.md#create-a-config-file)
+  - [Create a Tugboat config file](setting-up-tugboat/index.md#create-a-tugboat-config-file)
 
 - [Administering Tugboat crew](administering-tugboat-crew/index.md)
 
@@ -34,15 +34,21 @@
   - [How to set up Services](setting-up-services/index.md#how-to-set-up-services-in-tugboat)
     - [Name your Service](setting-up-services/index.md#name-your-service)
     - [Specify a Service image](setting-up-services/index.md#specify-a-service-image)
+      - [Docker Hub](setting-up-services/index.md#how-to-call-a-service-image-from-docker-hub)
+      - [Tugboat's prebuilt images](setting-up-services/index.md#tugboats-prebuilt-docker-images)
+      - [Third-party Docker images](setting-up-services/index.md#third-party-docker-images)
+      - [Alternate registries](setting-up-services/index.md#bring-your-own-docker-image-from-another-registry)
+      - [Mirroring production](setting-up-services/index.md#using-a-docker-image-to-mirror-your-production-services)
+      - [Image pull and update](setting-up-services/index.md#when-does-an-image-get-pulled-or-updated)
     - [Define a default Service](setting-up-services/index.md#define-a-default-service)
     - [Expose a Service HTTP port](setting-up-services/index.md#expose-a-service-http-port)
-  - [Services options and reference](setting-up-services/index.md#using-git-options-with-your-service-optional)
-    - [Service commands](setting-up-services/index.md#service-commands)
     - [Set the Document Root Path](setting-up-services/index.md#set-the-document-root-path)
+  - [Services options and reference](setting-up-services/index.md#services-options-and-reference)
+    - [Cloning Git repositories into your Services](setting-up-services/index.md#cloning-git-repositories-into-your-services)
+    - [Using Service Commands](setting-up-services/index.md#service-commands)
     - [Running a Background Process](setting-up-services/index.md#running-a-background-process)
-    
 
-- [Concepts](concepts/index.md)
+* [Concepts](concepts/index.md)
 
   - [Projects](concepts/projects/index.md)
   - [Repositories](concepts/repositories/index.md)
@@ -50,7 +56,7 @@
   - [Base Previews](concepts/base-previews/index.md)
   - [Services](concepts/services/index.md)
 
-- [Configuring Tugboat](configuring-tugboat/index.md)
+* [Configuring Tugboat](configuring-tugboat/index.md)
 
   - [Preview Services](configuring-tugboat/index.md#preview-services)
   - [Service Images](configuring-tugboat/index.md#service-images)
@@ -60,7 +66,7 @@
   - [Commands](configuring-tugboat/index.md#commands)
   - [Visual Diffs](configuring-tugboat/index.md#visual-diffs)
 
-- [Examples](examples/index.md)
+* [Examples](examples/index.md)
 
   - [Import a MySQL Database](examples/import-mysql-database/index.md)
   - [Set the Document Root Path](examples/change-docroot/index.md)
@@ -70,7 +76,7 @@
   - [Tenon.io Integration](examples/tenon_io/index.md)
   - [Add a phpMyAdmin service](examples/phpmyadmin/index.md)
 
-- [Tutorials](tutorials/index.md)
+* [Tutorials](tutorials/index.md)
 
   - [Static HTML](tutorials/static-html/index.md)
   - [Generic LAMP](tutorials/generic-lamp/index.md)
@@ -88,13 +94,13 @@
     - [Configure Drupal](tutorials/pantheon/index.md#configure-drupal)
     - [Configure Tugboat](tutorials/pantheon/index.md#configure-tugboat)
 
-- [Advanced](advanced/index.md)
+* [Advanced](advanced/index.md)
 
   - [Custom Environment Variables](advanced/custom-environment-variables/index.md)
   - [Command Line Interface](advanced/cli/index.md)
   - [Start a Background Process](advanced/background-process/index.md)
 
-- [Reference](reference/index.md)
+* [Reference](reference/index.md)
 
   - [Tugboat Configuration File](reference/tugboat-configuration/index.md)
   - [Prebuilt Service Images](reference/services/index.md)
@@ -102,8 +108,8 @@
   - [Actions and States](reference/actions-and-states/index.md)
   - [Glossary](reference/glossary/index.md)
 
-- [FAQ](faq/index.md)
+* [FAQ](faq/index.md)
 
-- [Troubleshooting](troubleshooting/index.md)
+* [Troubleshooting](troubleshooting/index.md)
 
-- [Help and Support](support/index.md)
+* [Help and Support](support/index.md)
