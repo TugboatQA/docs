@@ -31,6 +31,7 @@
   - [Optimize your Preview builds](building-a-preview/index.md#optimize-your-preview-builds)
 
 - [Setting up Services](setting-up-services/index.md)
+
   - [How to set up Services](setting-up-services/index.md#how-to-set-up-services-in-tugboat)
     - [Name your Service](setting-up-services/index.md#name-your-service)
     - [Specify a Service image](setting-up-services/index.md#specify-a-service-image)
@@ -47,6 +48,12 @@
     - [Cloning Git repositories into your Services](setting-up-services/index.md#cloning-git-repositories-into-your-services)
     - [Using Service Commands](setting-up-services/index.md#service-commands)
     - [Running a Background Process](setting-up-services/index.md#running-a-background-process)
+
+- [Tugboat's CLI](tugboat-cli/index.md)
+  - [Install the CLI](tugboat-cli/index.md#install-tugboats-command-line-interface)
+  - [Set an Access Token](tugboat-cli/index.md#set-an-access-token)
+  - [Commands](tugboat-cli/index.md#review-commands)
+  - [Running the CLI in a Preview](tugboat-cli/index.md#running-the-cli-from-a-tugboat-preview)
 
 * [Concepts](concepts/index.md)
 
