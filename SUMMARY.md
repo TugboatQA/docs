@@ -50,10 +50,24 @@
     - [Running a Background Process](setting-up-services/index.md#running-a-background-process)
 
 - [Tugboat's CLI](tugboat-cli/index.md)
+
   - [Install the CLI](tugboat-cli/index.md#install-tugboats-command-line-interface)
   - [Set an Access Token](tugboat-cli/index.md#set-an-access-token)
   - [Commands](tugboat-cli/index.md#review-commands)
   - [Running the CLI in a Preview](tugboat-cli/index.md#running-the-cli-from-a-tugboat-preview)
+
+- [Tugboat Billing](tugboat-billing/index.md)
+  - [Tugboat pricing](tugboat-billing/index.md#tugboat-pricing)
+    - [How pricing works](tugboat-billing/index.md#how-does-tugboat-pricing-work)
+      - [Calculating storage](tugboat-billing/index.md#calculating-project-storage-for-tugboat-billing)
+      - [View storage](tugboat-billing/index.md#how-to-view-project-storage)
+    - [View Tugboat pricing](tugboat-billing/index.md#to-view-tugboat-pricing-for-your-project)
+    - [Tugboat for Enterprise](tugboat-billing/index.md#tugboat-for-enterprise)
+  - [Change your Tugboat plan](tugboat-billing/index.md#change-your-tugboat-plan)
+  - [Change billing information](tugboat-billing/index.md#change-billing-information)
+  - [Cancel billing](tugboat-billing/index.md#cancel-billing)
+    - [Change to Free](tugboat-billing/index.md#change-your-tugboat-plan-to-the-free-tier)
+    - [Delete project](tugboat-billing/index.md#delete-your-project)
 
 * [Concepts](concepts/index.md)
 
