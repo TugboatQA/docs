@@ -29,6 +29,7 @@
   - [Auto-generate Previews](building-a-preview/index.md#auto-generate-previews)
   - [Auto-delete Previews](building-a-preview/index.md#auto-delete-previews)
   - [Optimize your Preview builds](building-a-preview/index.md#optimize-your-preview-builds)
+  - [Preview size explained](building-a-preview/index.md#preview-size-explained)
 
 - [Setting up Services](setting-up-services/index.md)
 

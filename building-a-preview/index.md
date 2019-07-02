@@ -9,6 +9,7 @@
 - [Auto-generate Previews](#auto-generate-previews)
 - [Auto-delete Previews](#auto-delete-previews)
 - [Optimize your Preview builds](#optimize-your-preview-builds)
+- [Preview size explained](#preview-size-explained)
 
 ## Build a Preview
 
@@ -48,6 +49,22 @@ Preview. While you're at it, go ahead and
 [share your Preview](#share-your-preview) - we know you're proud of your work!
 
 ![Preview is ready](_images/preview_ready.png)
+
+> #### Note:: Preview size
+>
+> When you look at your new Preview, you'll see the size of the Preview next to
+> the branch/tag/PR that the Preview was built from. In the example above, the
+> Preview size is 385.49MB.
+>
+> Because
+> [billing for Tugboat projects is](../tugboat-billing/index.md#how-does-tugboat-pricing-work),
+> in part, based on the total size of all the Previews contained within a
+> project, Preview size becomes an important factor when building out multiple
+> Previews.
+>
+> Check out our section on
+> [Optimizing Preview builds](#optimize-your-preview-builds) for tips on
+> [reducing Preview size](#optimizing-preview-size).
 
 ### The build process: explained
 
@@ -594,6 +611,7 @@ speed up your Preview builds:
 
 - [Use Service Commands to create a Base Preview that does the heavy lifting](#use-service-commands-to-create-a-base-preview-that-does-the-heavy-lifting)
 - [Use the Auto Refresh Base Preview functionality to update large assets](#use-the-auto-refresh-base-preview-functionality-to-update-large-assets)
+- [Optimizing Preview size](#optimizing-preview-size)
 - [Contact Tugboat support for help optimizing your Config file](#contact-tugboat-support-for-help-optimizing-your-config-file)
 - [Upgrade your project tier to a higher-performance tier](#upgrade-your-project-tier-to-a-higher-performance-tier)
 
@@ -624,6 +642,39 @@ that works best for your team, and then you won't have to manually update your
 Base Preview when you're about to test an important build - it will already have
 the latest database, or any large assets you need, whenever you're ready.
 
+### Optimizing Preview size
+
+If you want to make your Previews smaller, there are a couple of tricks you can
+use to reduce Preview size:
+
+- [Use a Base Preview](#work-from-base-previews)
+- [Use dummy data](#use-dummy-data)
+
+Looking for more info about Preview size? Check out:
+
+- [Preview size explained](#preview-size-explained)
+
+#### Work From Base Previews
+
+In addition to speeding up Preview builds, Base Previews can help you
+dramatically reduce the size of Previews built from that Base Preview. This is
+because the Base Preview contains everything Tugboat needs to run your Preview,
+while subsequent Previews only contain the differences between the Base Preview
+and the new Preview build.
+
+In practice, this means that a Base Preview might be 3GB in size, but subsequent
+Previews might be only 100MB.
+
+Ready to set up a Base Preview? Check out:
+[Set a Base Preview](#set-a-base-preview).
+
+#### Use dummy data
+
+Are you pulling in a large production database? You can save Preview space -
+_and_ speed up your Preview builds at the same time - by switching to a small
+dummy database that contains enough data for testing, but doesn't mirror your
+large production behemoth.
+
 ### Contact Tugboat support for help optimizing your Config file
 
 Sometimes, speeding up your Preview builds can be as simple as having a second
@@ -643,3 +694,29 @@ RAM to build your Previews, which can mildly or dramatically speed up your build
 times. When build times matter, keep this option in mind.
 
 You can change your Tugboat plan in **Project Settings**.
+
+## Preview size explained
+
+What Tugboat calls "Preview size" is actually the size of the container in which
+the Preview lives. When a Preview is done building, Tugboat takes a snapshot of
+the container at that moment in time, and that's what you're seeing in your
+Tugboat Dashboard.
+
+When you [set up Services](../setting-up-services/index.md) in your Preview,
+Tugboat pulls those
+[Service images](../setting-up-services/index.md#specify-a-service-image) into
+the Preview container. Each of these Service images contributes to the total
+size of the Preview when it is fully built.
+
+For example, say I'm building a Preview that uses Tugboat's Service images for
+`apache`, `mysql` and `redis`; those Service images are 154MB, 226MB, and 147MB
+at the time of this writing. That's over 500MB for just these Services; by the
+time you add a database file, the container's operating system and other assets,
+you'll likely be looking at 800MB to 1GB for a Preview that's only pulling in
+100MB of code from your linked git repo.
+
+This is why working from a [Base Preview](#how-base-previews-work) is so helpful
+in reducing Preview size; all of those assets are contained in the Base Preview.
+When you build a new Preview from the Base Preview, the new Preview only
+contains what's different in the PR, Branch or Tag you're building. In my
+example above, a new Preview built from the Base Preview was only 20KB.
