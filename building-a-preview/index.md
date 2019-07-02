@@ -344,7 +344,7 @@ That's it! From now on, Previews will build from the snapshot created when the
 Base Preview was built.
 
 If you're ever wondering which Base Preview was used when generating a Preview,
-just look under the name of the Preview, at the "from [Base Preview Name]":
+just look under the name of the Preview, at the "from _Base Preview Name_":
 
 ![View Base Preview for Preview](_images/biew_base_preview_for_preview.png)
 

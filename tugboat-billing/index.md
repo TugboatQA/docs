@@ -105,8 +105,8 @@ If you need an enterprise or self-hosted version of Tugboat, we've got
 enterprise version comes with significantly more Preview storage and RAM, and
 can be hosted in Tugboat's Cloud or behind your firewall.
 
-To view pricing and change your Tugboat enterprise plan, [contact
-us](mailto:support@tugboat.qa?subject=Enterprise Plans).
+To view pricing and change your Tugboat enterprise plan,
+[contact us](mailto:support@tugboat.qa?subject=Enterprise-Plans).
 
 ## Change your Tugboat plan
 
@@ -135,9 +135,9 @@ you can download or print as needed.
 
 > #### Note:: Tugboat for Enterprise
 >
-> If you're using Tugboat's enterprise plans, [reach out to us
-> directly](mailto:support@tugboat.qa?subject=Enterprise Plans) to change your
-> plan.
+> If you're using Tugboat's enterprise plans,
+> [reach out to us directly](mailto:support@tugboat.qa?subject=Enterprise-Plans)
+> to change your plan.
 
 ## Change billing information
 

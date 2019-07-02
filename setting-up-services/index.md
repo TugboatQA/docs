@@ -203,7 +203,7 @@ any VOLUMES. For that reason, we recommend sticking with the images built
 specifically for use with Tugboat.
 
 If you'd like to use your own Docker images, this repo contains the scripts we
-use to make an image Tugboat compatible: https://github.com/TugboatQA/images
+use to make an image Tugboat compatible: <https://github.com/TugboatQA/images>
 
 > #### Info:: Why are Docker volumes not supported on Tugboat?
 >
@@ -227,7 +227,7 @@ For a full breakdown of how to pull from a different registry, check out
 Docker's Docs:
 [Pull from a different registry](https://docs.docker.com/engine/reference/commandline/pull/#pull-from-a-different-registry).
 
-[EXAMPLE PLACEHOLDER - BEN, PLEASE PROVIDE EXAMPLE]
+_EXAMPLE PLACEHOLDER - BEN, PLEASE PROVIDE EXAMPLE_
 
 An example of this in action at Tugboat might look like:
 
