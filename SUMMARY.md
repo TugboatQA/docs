@@ -2,7 +2,7 @@
 
 - [Introduction](README.md)
 
-- [Setting up your Tugboat](setting-up-tugboat/index.md)
+* [Setting up your Tugboat](setting-up-tugboat/index.md)
 
   - [Connect with your provider](setting-up-tugboat/index.md#connect-with-your-provider)
   - [Create a new project](setting-up-tugboat/index.md#create-a-new-project)
@@ -10,7 +10,7 @@
   - [Repository Settings (optional)](setting-up-tugboat/index.md#repository-settings-optional)
   - [Create a Tugboat config file](setting-up-tugboat/index.md#create-a-tugboat-config-file)
 
-- [Administering Tugboat crew](administering-tugboat-crew/index.md)
+* [Administering Tugboat crew](administering-tugboat-crew/index.md)
 
   - [Add a user to a project](administering-tugboat-crew/index.md#add-a-user-to-a-project)
   - [Remove a user from a project](administering-tugboat-crew/index.md#remove-a-user-from-a-project)
@@ -18,7 +18,7 @@
   - [Add a Tugboat bot to your team](administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team)
   - [User permission levels explained](administering-tugboat-crew/index.md#user-permission-levels-explained)
 
-- [Building a Preview](building-a-preview/index.md)
+* [Building a Preview](building-a-preview/index.md)
 
   - [Build a Preview](building-a-preview/index.md#build-a-preview)
   - [Share your Preview](building-a-preview/index.md#share-your-preview)
@@ -31,7 +31,7 @@
   - [Optimize your Preview builds](building-a-preview/index.md#optimize-your-preview-builds)
   - [Preview size explained](building-a-preview/index.md#preview-size-explained)
 
-- [Setting up Services](setting-up-services/index.md)
+* [Setting up Services](setting-up-services/index.md)
 
   - [How to set up Services](setting-up-services/index.md#how-to-set-up-services-in-tugboat)
     - [Name your Service](setting-up-services/index.md#name-your-service)
@@ -50,14 +50,14 @@
     - [Using Service Commands](setting-up-services/index.md#service-commands)
     - [Running a Background Process](setting-up-services/index.md#running-a-background-process)
 
-- [Tugboat's CLI](tugboat-cli/index.md)
+* [Tugboat's CLI](tugboat-cli/index.md)
 
   - [Install the CLI](tugboat-cli/index.md#install-tugboats-command-line-interface)
   - [Set an Access Token](tugboat-cli/index.md#set-an-access-token)
   - [Commands](tugboat-cli/index.md#review-commands)
   - [Running the CLI in a Preview](tugboat-cli/index.md#running-the-cli-from-a-tugboat-preview)
 
-- [Tugboat Billing](tugboat-billing/index.md)
+* [Tugboat Billing](tugboat-billing/index.md)
   - [Tugboat pricing](tugboat-billing/index.md#tugboat-pricing)
     - [How pricing works](tugboat-billing/index.md#how-does-tugboat-pricing-work)
       - [Calculating storage](tugboat-billing/index.md#calculating-project-storage-for-tugboat-billing)
@@ -69,6 +69,22 @@
   - [Cancel billing](tugboat-billing/index.md#cancel-billing)
     - [Change to Free](tugboat-billing/index.md#change-your-tugboat-plan-to-the-free-tier)
     - [Delete project](tugboat-billing/index.md#delete-your-project)
+
+* [Code Library](code-library/index.md)
+  - [Tutorials](code-library/index.md#tutorials)
+    - [Drupal 7](code-library/drupal7/index.md)
+    - [Drupal 8](code-library/drupal8/index.md)
+    - [WordPress](code-library/wordpress/index.md)
+  - [Code Snippets](code-library/index.md#code-snippets)
+    - [Static HTML](code-library/static-html/index.md)
+    - [Generic LAMP](code-library/generic-lamp/index.md)
+    - [Import a MySQL Database](code-library/import-mysql-database/index.md)
+    - [Run Functional Tests](code-library/functional-tests/index.md)
+    - [SimpleTest](code-library/simpletest/index.md)
+    - [Warm a Page Cache](code-library/page-cache/index.md)
+    - [Tenon.io Integration](code-library/tenon_io/index.md)
+    - [Add a phpMyAdmin service](code-library/phpmyadmin/index.md)
+
 
 * [Concepts](concepts/index.md)
 
@@ -87,34 +103,6 @@
   - [Git Options](configuring-tugboat/index.md#git-options)
   - [Commands](configuring-tugboat/index.md#commands)
   - [Visual Diffs](configuring-tugboat/index.md#visual-diffs)
-
-* [Examples](examples/index.md)
-
-  - [Import a MySQL Database](examples/import-mysql-database/index.md)
-  - [Set the Document Root Path](examples/change-docroot/index.md)
-  - [Run Functional Tests](examples/functional-tests/index.md)
-  - [SimpleTest](examples/simpletest/index.md)
-  - [Warm a Page Cache](examples/page-cache/index.md)
-  - [Tenon.io Integration](examples/tenon_io/index.md)
-  - [Add a phpMyAdmin service](examples/phpmyadmin/index.md)
-
-* [Tutorials](tutorials/index.md)
-
-  - [Static HTML](tutorials/static-html/index.md)
-  - [Generic LAMP](tutorials/generic-lamp/index.md)
-  - [Drupal 7](tutorials/drupal7/index.md)
-    - [Configure Drupal](tutorials/drupal7/index.md#configure-drupal)
-    - [Configure Tugboat](tutorials/drupal7/index.md#configure-tugboat)
-  - [Drupal 8](tutorials/drupal8/index.md)
-    - [Configure Drupal](tutorials/drupal8/index.md#configure-drupal)
-    - [Configure Tugboat](tutorials/drupal8/index.md#configure-tugboat)
-  - [Wordpress](tutorials/wordpress/index.md)
-    - [Configure WordPress](tutorials/wordpress/index.md#configure-wordpress)
-    - [Configure Tugboat](tutorials/wordpress/index.md#configure-tugboat)
-  - [Pantheon](tutorials/pantheon/index.md)
-    - [Configure Terminus](tutorials/pantheon/index.md#configure-terminus)
-    - [Configure Drupal](tutorials/pantheon/index.md#configure-drupal)
-    - [Configure Tugboat](tutorials/pantheon/index.md#configure-tugboat)
 
 * [Advanced](advanced/index.md)
 

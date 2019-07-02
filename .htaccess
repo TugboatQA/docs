@@ -63,6 +63,25 @@
     RewriteRule ^reference/faq/?$ %{ENV:CWD}faq/ [L,R=302]
     RewriteRule ^reference/support/?$ %{ENV:CWD}support/ [L,R=302]
 
+
+
+    RewriteRule ^tutorials/static-html/?$ %{ENV:CWD}code-library/static-html/ [L,R=302]
+    RewriteRule ^tutorials/generic-lamp/?$ %{ENV:CWD}code-library/generic-lamp/ [L,R=302]
+    RewriteRule ^tutorials/drupal7/?$ %{ENV:CWD}code-library/drupal7/ [L,R=302]
+    RewriteRule ^tutorials/drupal8/?$ %{ENV:CWD}code-library/drupal8/ [L,R=302]
+    RewriteRule ^tutorials/wordpress/?$ %{ENV:CWD}code-library/wordpress/ [L,R=302]
+    RewriteRule ^tutorials/pantheon/?$ %{ENV:CWD}code-library/pantheon/ [L,R=302]
+    RewriteRule ^tutorials/?$ %{ENV:CWD}code-library/#tutorials [L,R=302]
+    RewriteRule ^examples/?$ %{ENV:CWD}code-library/#code-snippets [L,R=302]
+    RewriteRule ^examples/change-docroot/?$ %{ENV:CWD}setting-up-services/#set-the-document-root-path [L,R=302]
+    RewriteRule ^examples/functional-tests/?$ %{ENV:CWD}code-library/functional-tests/ [L,R=302]
+    RewriteRule ^examples/import-mysql-database/?$ %{ENV:CWD}code-library/import-mysql-database/ [L,R=302]
+    RewriteRule ^examples/page-cache/?$ %{ENV:CWD}code-library/page-cache/ [L,R=302]
+    RewriteRule ^examples/phpmyadmin/?$ %{ENV:CWD}code-library/phpmyadmin/ [L,R=302]
+    RewriteRule ^examples/simpletest/?$ %{ENV:CWD}code-library/simpletest/ [L,R=302]
+    RewriteRule ^examples/tenon_io/?$ %{ENV:CWD}code-library/tenon_io/ [L,R=302]
+    RewriteRule ^examples/?$ %{ENV:CWD}code-library/#code-snippets [L,R=302]
+
     ## Redirects to 404
 
     RewriteRule ^build-script/examples/reuse-commands/?$ %{ENV:CWD}examples/features/reuse-commands/ [L,R=302]
@@ -80,4 +99,3 @@
     </IfModule>
 
 </IfModule>
-
