@@ -49,6 +49,7 @@
     - [Cloning Git repositories into your Services](setting-up-services/index.md#cloning-git-repositories-into-your-services)
     - [Using Service Commands](setting-up-services/index.md#service-commands)
     - [Running a Background Process](setting-up-services/index.md#running-a-background-process)
+  - [Services in action](setting-up-services/index.md#services-in-action)
 
 * [Tugboat's CLI](tugboat-cli/index.md)
 
@@ -58,6 +59,7 @@
   - [Running the CLI in a Preview](tugboat-cli/index.md#running-the-cli-from-a-tugboat-preview)
 
 * [Tugboat Billing](tugboat-billing/index.md)
+
   - [Tugboat pricing](tugboat-billing/index.md#tugboat-pricing)
     - [How pricing works](tugboat-billing/index.md#how-does-tugboat-pricing-work)
       - [Calculating storage](tugboat-billing/index.md#calculating-project-storage-for-tugboat-billing)
@@ -85,8 +87,7 @@
     - [Tenon.io Integration](code-library/tenon_io/index.md)
     - [Add a phpMyAdmin service](code-library/phpmyadmin/index.md)
 
-
-* [Concepts](concepts/index.md)
+- [Concepts](concepts/index.md)
 
   - [Projects](concepts/projects/index.md)
   - [Repositories](concepts/repositories/index.md)
@@ -94,7 +95,7 @@
   - [Base Previews](concepts/base-previews/index.md)
   - [Services](concepts/services/index.md)
 
-* [Configuring Tugboat](configuring-tugboat/index.md)
+- [Configuring Tugboat](configuring-tugboat/index.md)
 
   - [Preview Services](configuring-tugboat/index.md#preview-services)
   - [Service Images](configuring-tugboat/index.md#service-images)
@@ -104,13 +105,13 @@
   - [Commands](configuring-tugboat/index.md#commands)
   - [Visual Diffs](configuring-tugboat/index.md#visual-diffs)
 
-* [Advanced](advanced/index.md)
+- [Advanced](advanced/index.md)
 
   - [Custom Environment Variables](advanced/custom-environment-variables/index.md)
   - [Command Line Interface](advanced/cli/index.md)
   - [Start a Background Process](advanced/background-process/index.md)
 
-* [Reference](reference/index.md)
+- [Reference](reference/index.md)
 
   - [Tugboat Configuration File](reference/tugboat-configuration/index.md)
   - [Prebuilt Service Images](reference/services/index.md)
@@ -118,8 +119,8 @@
   - [Actions and States](reference/actions-and-states/index.md)
   - [Glossary](reference/glossary/index.md)
 
-* [FAQ](faq/index.md)
+- [FAQ](faq/index.md)
 
-* [Troubleshooting](troubleshooting/index.md)
+- [Troubleshooting](troubleshooting/index.md)
 
-* [Help and Support](support/index.md)
+- [Help and Support](support/index.md)
