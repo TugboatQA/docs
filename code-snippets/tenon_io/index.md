@@ -3,8 +3,9 @@
 [Tenon.io](https://tenon.io) can identify 508 and WCAG 2.0 issues in any
 environment.
 
-To use this snippet in you own config file, register for an account on Tenon.io
-and add your Tenon API Key to Tugboat as a
+Before you use this snippet in you own
+[Tugboat config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file),
+register for an account on Tenon.io and add your Tenon API Key to Tugboat as a
 [custom environment variable](../../advanced/custom-environment-variables/index.md)
 called `TENON_API`.
 

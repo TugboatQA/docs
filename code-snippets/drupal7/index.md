@@ -1,25 +1,25 @@
-# Drupal 8
+# Drupal 7
 
-These instructions show how to configure Tugboat for a typical Drupal 8
-repository. Every Drupal site tends to have slightly different requirements, so
-further customizations may be required, but this should get you started.
+Wondering how to configure Tugboat for a typical Drupal 7 repository? Every
+Drupal site tends to have slightly different requirements, so you may need to do
+more customizing, but this should get you started.
 
 ## Configure Drupal
 
-A common practice for managing Drupal's `settings.php` is to leave sensitive
-information, such as database credentials, out of it and commit it to git. Then,
+A common practice for managing Drupal's `settings.php` is to remove sensitive
+information, such as database credentials, before committing it to git. Then,
 the sensitive information is loaded from a `settings.local.php` file that exists
 only on the Drupal installation location.
 
-This pattern works very well with Tugboat. It lets you keep a tugboat-specific
-set of configurations in your repository where you can copy it into place with a
-[configuration file command](../../configuring-tugboat/index.md#commands).
+This pattern works very well with Tugboat. It lets you keep a Tugboat-specific
+set of configurations in your repository where it can be copied in during the
+[Preview build process](../../building-a-preview/index.md#the-build-process-explained).
 
-Add or uncomment the following at the end of `settings.php`
+Add the following to the end of `settings.php`:
 
 ```php
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
+if (file_exists(DRUPAL_ROOT . '/' . conf_path() . '/settings.local.php')) {
+  include DRUPAL_ROOT . '/' . conf_path() . '/settings.local.php';
 }
 ```
 
@@ -28,31 +28,36 @@ following content:
 
 ```php
 <?php
-$databases['default']['default'] = array (
-  'database' => 'tugboat',
-  'username' => 'tugboat',
-  'password' => 'tugboat',
-  'prefix' => '',
-  'host' => 'mysql',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
+$databases = array (
+  'default' =>
+  array (
+    'default' =>
+    array (
+      'database' => 'tugboat',
+      'username' => 'tugboat',
+      'password' => 'tugboat',
+      'host' => 'mysql',
+      'port' => '',
+      'driver' => 'mysql',
+      'prefix' => '',
+    ),
+  ),
 );
 ```
 
 ## Configure Tugboat
 
-The Tugboat configuration is managed by a YAML file at `.tugboat/config.yml` in
-the git repository. Below is a basic Drupal 8 configuration with comments to
-explain what is going on. Use it as a starting point, and customize it as needed
-for your own installation.
+The Tugboat configuration is managed by a
+[YAML file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) at
+`.tugboat/config.yml` in the git repository. Here's a basic Drupal 7
+configuration you can use as a starting point, with comments to explain what's
+going on:
 
 ```yaml
 services:
-  # What to call the service hosting the site.
   php:
-    # Use PHP 7.2 with Apache
-    image: tugboatqa/php:7.2-apache
+    # Use PHP 7.1 with Apache to serve the Drupal site
+    image: tugboatqa/php:7.1-apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container
@@ -67,18 +72,17 @@ services:
     commands:
       # Commands that set up the basic preview infrastructure
       init:
-        # Install opcache and mod-rewrite.
+        # Install opcache and enable mod-rewrite.
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
 
-        # Install drush-launcher
-        - wget -O /usr/local/bin/drush
-          https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
-        - chmod +x /usr/local/bin/drush
+        # Install drush 8.1.17
+        - composer --no-ansi global require drush/drush:8.1.17
+        - ln -sf ~/.composer/vendor/bin/drush /usr/local/bin/drush
 
-        # Link the document root to the expected path. This example links /web
-        # to the docroot
-        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+        # Link the document root to the expected path. This example links
+        # /docroot to the docroot
+        - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
 
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
@@ -88,13 +92,6 @@ services:
         # Use the tugboat-specific Drupal settings
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php"
           "${DOCROOT}/sites/default/"
-
-        # Generate a unique hash_salt to secure the site
-        - echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >>
-          "${DOCROOT}/sites/default/settings.local.php"
-
-        # Install/update packages managed by composer, including drush
-        - composer install --no-ansi
 
         # Copy the files directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
@@ -122,7 +119,7 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
-        - drush -r "${DOCROOT}" cache-rebuild
+        - drush -r "${DOCROOT}" cache-clear all
         - drush -r "${DOCROOT}" updb -y
 
   # What to call the service hosting MySQL. This name also acts as the
@@ -149,4 +146,4 @@ services:
 ## Start Building Previews!
 
 Once the Tugboat configuration file is committed to your git repository, you can
-start building previews!
+start [building previews](../../building-a-preview/index.md)!

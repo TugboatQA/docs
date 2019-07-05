@@ -1,13 +1,15 @@
 # Static HTML
 
-A static HTML site serves files exactly as they are found in the git repository.
+A static HTML Tugboat Preview serves files exactly as they are found in the git
+repository.
 
 ## Configure Tugboat
 
-The Tugboat configuration is managed by a YAML file at `.tugboat/config.yml` in
-the git repository. Below is a basic static HTML configuration with comments to
-explain what is going on. Use it as a starting point, and customize it as needed
-for your own installation.
+The Tugboat configuration is managed by a
+[YAML file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) at
+`.tugboat/config.yml` in the git repository. Here's a basic static HTML
+configuration you can use as a starting point, with comments to explain what's
+going on:
 
 ```yaml
 services:
@@ -33,4 +35,4 @@ services:
 ## Start Building Previews!
 
 Once this Tugboat configuration file is committed to your git repository, you
-can start building previews!
+can start [building previews](../../building-a-preview/index.md)!

@@ -1,15 +1,15 @@
 # Pantheon
 
-These instructions show how to configure Tugboat for a typical site hosted on
-Pantheon. While these instructions are for a Drupal 8 site, the concepts should
-apply for any PHP site hosted by Pantheon. Check out the
-[Drupal 7](../drupal7/index.md) and [WordPress](../wordpress/index.md) tutorials
-for comparisons.
+Wondering how to configure Tugboat for a typical site hosted on Pantheon? While
+these instructions are for a Drupal 8 site, the concepts should apply for any
+PHP site hosted by Pantheon. Check out the [Drupal 7](../drupal7/index.md) and
+[WordPress](../wordpress/index.md) tutorials for comparisons.
 
 > #### Warning::Git Provider
 >
-> These instructions you have already configured an external git repository
-> provider such as GitHub, GitLab, or BitBucket. Pantheon has documentation on
+> These instructions assume you have already configured an external git
+> repository provider such as GitHub, GitLab, or BitBucket. Pantheon has
+> documentation on
 > [how to use GitHub](https://pantheon.io/docs/guides/build-tools/).
 
 ## Configure Terminus
@@ -37,7 +37,7 @@ token can then be safely shared with Tugboat.
 2.  [Register a new account](https://dashboard.pantheon.io/register) on
     Pantheon.
 3.  Specify a unique email address, ideally using an email alias.
-4.  Name your user something recognizeable, like _Tugboat User_.
+4.  Name your user something recognizable, like _Tugboat User_.
 
 ![Screenshot: Create a new pantheon account](_images/pantheon-register.png)
 
@@ -54,14 +54,14 @@ token can then be safely shared with Tugboat.
 Now that we have a new user that Tugboat can use, we will need to generate a
 machine token for this account on Pantheon. While logged in as this new user, go
 to
-[Machine Tokens](https://dashboard.pantheon.io/user?destination=%2Fuser#account/tokens/create/terminus/)
+[Machine Tokens](https://dashboard.pantheon.io/user?destination=%2Fuser#account/tokens/create/terminus/),
 which is under your account settings. You can name this token whatever you'd
 like, such as `Terminus on Tugboat`:
 
 ![Screenshot: New machine token form](_images/new-token.png)
 
 Once you've picked a name, click _Generate Token_. You will then be presented
-with a screen with your machine token visible. **Store this token in a secure
+with a screen that displays your machine token. **Store this token in a secure
 place, such as a password manager or OS keychain.**
 
 ![Screenshot: Token generated modal](_images/token-generated.png)
@@ -69,11 +69,13 @@ place, such as a password manager or OS keychain.**
 ### Add your new Pantheon user to your Pantheon project
 
 Now that you've generated a machine token for your new Pantheon user, you still
-need to add this user to your Pantheon project. To do this, log out of Pantheon
-and then log back in with your personal Pantheon account. Then, navigate to your
-Pantheon project, and click _Team_ from the header. Finally, enter the email
-address of the new Pantheon user you created above and click the _Add to team_
-button.
+need to add this user to your Pantheon project. To do this:
+
+1. Log out of Pantheon;
+2. Log back in with your personal Pantheon account;
+3. Navigate to your Pantheon project, and click _Team_ from the header;
+4. Enter the email address of the new Pantheon user you created above, and click
+   the _Add to team_ button.
 
 ![Screenshot: Pantheon Add to team](_images/add-to-team.png)
 
@@ -85,7 +87,7 @@ button.
 > variable to store the machine token, instead of committing it to your
 > repository or storing it in some other fashion.
 
-## Configure Drupal
+## Configure Pantheon (using a Drupal example)
 
 A common practice for managing Drupal's `settings.php` is to leave sensitive
 information, such as database credentials, out of it and commit it to git. Then,
@@ -94,7 +96,7 @@ only on the Drupal installation location.
 
 This pattern works very well with Tugboat. It lets you keep a tugboat-specific
 set of configurations in your repository where you can copy it into place with a
-[configuration file commands](../../configuring-tugboat/index.md#commands)
+[configuration file command](../../setting-up-services/index.md#service-commands).
 
 Add or uncomment the following at the end of `settings.php`
 
@@ -123,10 +125,13 @@ $databases['default']['default'] = array (
 
 ## Configure Tugboat
 
-There are three parts to configuring Tugboat to work with Pantheon. First, we
-need to figure out which version of PHP to use. Then, we need to set up a few
-Tugboat custom environment variables. Finally, we can create a configuration
-file to include in your git repository.
+There are three parts to configuring Tugboat to work with Pantheon.
+
+1. Figure out which version of PHP to use.
+2. Set up a few Tugboat custom environment variables.
+3. Create a
+   [configuration file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
+   to include in your git repository.
 
 ### PHP Version
 
@@ -138,9 +143,9 @@ to use the same version of PHP.
 > While in theory you could use the `terminus site:info` command to determine
 > the PHP version, we've found that may not give you accurate results.
 
-1.  Log into the [Pantheon Dashboard](https://dashboard.pantheon.io)
-2.  Navigate to the project you are trying to connect with Pantheon
-3.  Click the Settings gear in the upper right
+1.  Log into the [Pantheon Dashboard](https://dashboard.pantheon.io);
+2.  Navigate to the project you are trying to connect with Pantheon;
+3.  Click the Settings gear in the upper right;
     ![Click on Settings in Pantheon Dashboard](_images/pantheon-settings.png)
 4.  Once in Settings, you should see a PHP Version tab to the far right. After
     clicking that, you should see the PHP Version.
@@ -150,13 +155,15 @@ to use the same version of PHP.
 
 The Tugboat configuration file below makes use of some Tugboat
 [custom environment variables](../../advanced/custom-environment-variables/index.md).
-This is how we are securly storing the Pantheon machine token from above, so it
-does not need to be committed into your git repository. We also define the
-Pantheon site and environment names here to make the config file more portable.
+This is how we securely store the
+[Pantheon machine token](#generate-a-pantheon-machine-token) from above, so you
+don't have to commit it to your git repository. We also define the Pantheon site
+and environment names here to make the config file more portable.
 
-In the Tugboat Repository settings, create the following environment variables.
-In this example, we are using the "live" environment of a Pantheon site named
-"example".
+In the
+[Tugboat Repository settings](../../setting-up-tugboat/index.md#repository-settings-optional),
+create the following environment variables. In this example, we are using the
+"live" environment of a Pantheon site named "example".
 
 ```
 PANTHEON_MACHINE_TOKEN=ABCDEF123456ABCDEF123456
@@ -166,10 +173,11 @@ PANTHEON_SOURCE_ENVIRONMENT=live
 
 ### Tugboat Configuration File
 
-The main Tugboat configuration is managed by a YAML file at
-`.tugboat/config.yml` in the git repository. Below is a Pantheon Drupal 8
-configuration with comments to explain what is going on. Use it as a starting
-point, and customize it as needed for your own installation.
+The main Tugboat configuration is managed by a
+[YAML file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) at
+`.tugboat/config.yml` in the git repository. Here's a Pantheon Drupal 8
+configuration you can use as a starting point, with comments to explain what's
+going on:
 
 ```yaml
 services:
@@ -177,8 +185,8 @@ services:
   # What to call the service hosting the site
   php:
 
-    # Use PHP 7.2 with Apache. Be sure this matches the version of PHP used by
-    # Pantheon.
+    # Use PHP 7.x with Apache. Be sure this matches the version of PHP used by
+    # Pantheon, which you discovered in the PHP version step above.
     image: tugboatqa/php:7.2-apache
 
     # Set this as the default service. This does a few things
@@ -267,4 +275,4 @@ services:
 ## Start Building Previews!
 
 Once the Tugboat configuration file is committed to your git repository, you can
-start building previews!
+start [building previews](../../building-a-preview/index.md)!

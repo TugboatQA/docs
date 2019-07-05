@@ -1,21 +1,21 @@
 # Generic LAMP
 
-A Generic LAMP stack should work with most PHP/MySQL web applications. Some
-customizations may be required, but this should get you started.
+A Generic LAMP stack should work with most PHP/MySQL web applications. You may
+need to do some customizing, but this should get you started.
 
 ## Configure Tugboat
 
-The Tugboat configuration is managed by a YAML file at `.tugboat/config.yml` in
-the git repository. Below is a basic LAMP configuration with comments to explain
-what is going on. Use it as a starting point, and customize it as needed for
-your own installation.
+The Tugboat configuration is managed by a
+[YAML file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) at
+`.tugboat/config.yml` in the git repository. Here's a basic LAMP configuration
+you can use as a starting point, with comments to explain what's going on:
 
 ```yaml
 services:
   # What to call the service hosting the site.
   php:
     # Use PHP 7.1 with Apache
-    image: tugboatqa/php:7.1-apache
+    image: tugboatqa/php:apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container
@@ -56,4 +56,4 @@ services:
 ## Start Building Previews!
 
 Once this Tugboat configuration file is committed to your git repository, you
-can start building previews!
+can start [building previews](../../building-a-preview/index.md)!

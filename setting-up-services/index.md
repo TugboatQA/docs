@@ -560,8 +560,8 @@ Now that we've gone through all the components you'll need to set up Services
 for your Tugboat, let's take a look at an example
 [config file](../setting-up-tugboat/index.md#create-a-tugboat-config-file) so
 you can see Services in action. This config file is for a
-[Drupal 8](../code-library/drupal8/index.md) site, but you can check out our
-[Code Snippets](../code-library/index.md) to see if we've got a code example to
+[Drupal 8](../code-snippets/drupal8/index.md) site, but you can check out our
+[Code Snippets](../code-snippets/index.md) to see if we've got a code example to
 kick-start your setup.
 
 ```yaml

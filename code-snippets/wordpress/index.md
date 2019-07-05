@@ -1,19 +1,19 @@
 # WordPress
 
-These instructions show how to configure Tugboat for a standard WordPress
-repository. Every site tends to have slightly different requirements, so further
-customization may be required, but this should get you started.
+Wondering how to configure Tugboat for a standard WordPress repository? Every
+site tends to have slightly different requirements, so you may need to do more
+customizing, but this should get you started.
 
 ## Configure WordPress
 
-For WordPress to use environment-specific settings, some changes need to be made
-to `wp-config.php`. One popular method is to commit a "default" version of the
-file to the git repository, and include a "local" config file with override
-options. That local file should not be included in the git repository.
+For WordPress to use environment-specific settings, you'll need to make some
+changes to `wp-config.php`. One way to do this is to commit a "default" version
+of the file to the git repository, and include a "local" config file with
+override options. That local file should not be included in the git repository.
 
 These are the settings we are particularly interested in for Tugboat, but the
 the concept could be easily extended to cover the remaining settings in
-`wp-config.php`
+`wp-config.php`:
 
 ```php
 if ( file_exists( dirname( __FILE__ ) . '/wp-config.local.php' ) )
@@ -50,17 +50,18 @@ define('DB_HOST', 'mysql';
 
 ## Configure Tugboat
 
-The Tugboat configuration is managed by a YAML file at .tugboat/config.yml in
-the git repository. Below is a basic WordPress configuration with comments to
-explain what is going on. Use it as a starting point, and customize it as needed
-for your own WordPress installation.
+The Tugboat configuration is managed by a
+[YAML file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) at
+.tugboat/config.yml in the git repository. Here's a basic WordPress
+configuration you can use as a starting point, with comments to explain what's
+going on:
 
 ```yaml
 services:
   # What to call the service hosting the site.
   php:
-    # Use PHP 7.2 with Apache to serve the WordPress site
-    image: tugboatqa/php:7.2-apache
+    # Use PHP 7.x with Apache to serve the WordPress site; this syntax pulls in the latest version of PHP 7
+    image: tugboatqa/php:7-apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container
@@ -114,8 +115,8 @@ services:
         - apt-get clean
         - rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-      # Commands that build the site. When a preview is built from a
-      # base preview, the build workflow starts here, skipping the init
+      # Commands that build the site. When a Preview is built from a
+      # Base Preview, the build workflow starts here, skipping the init
       # and update steps, because the results of those are inherited
       # from the base preview.
       build: |
@@ -149,4 +150,4 @@ services:
 ## Start Building Previews!
 
 Once the Tugboat configuration file is committed to your git repository, you can
-start building previews!
+start [building previews](../../building-a-preview/index.md)!
