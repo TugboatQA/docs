@@ -374,10 +374,10 @@ Preview is used.
 Creating the Config file can be a complex process, just like building a
 Tugboat's engine from parts! To break things down for you, check out these docs:
 
-- [Setting up Services in your Tugboat](setting-up-services/index.md)
-- [Service Code Snippet Library](service-code-snippets/index.md) (pre-populated
-  code snippets to help you get started)
-- [Using the Tugboat Command Line Tool](using-the-cli/index.md)
-- [Config file reference](reference/tugboat-configuration/index.md) (detailing
-  the attributes you can use when building Services)
-- [Debugging Config files](troubleshooting/index.md#debugging-config-files)
+- [Setting up Services in your Tugboat](../setting-up-services/index.md)
+- [Starter Configuration files](../starter-configs/index.md) (configuration file
+  code snippets with comments to help you get started)
+- [Using the Tugboat Command Line Tool](../using-the-cli/index.md)
+- [Config file reference](../reference/tugboat-configuration/index.md)
+  (detailing the attributes you can use when building Services)
+- [Debugging Config files](../troubleshooting/index.md#debugging-config-files)

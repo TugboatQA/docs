@@ -1,17 +1,25 @@
-# Code Snippets
+# Starter Configuration Files
 
-Looking for examples and tutorials to help you get started using Tugboat with
-your projects?
+Looking for starter configuration files and code snippets to kick-start your
+Tugboat?
 
 - [Tutorials](#tutorials)
-- [Code snippets](#code-snippets)
+  - [Drupal 7](drupal7/index.md)
+  - [Drupal 8](drupal8/index.md)
+  - [Wordpress](wordpress/index.md)
+  - [Pantheon](pantheon/index.md)
+- [Code snippets](#starter-configs)
+  - [Frameworks, CMSs and sites](#frameworks-cmss-and-sites)
+  - [Databases](#databases)
+  - [Testing](#testing)
+  - [Utility](#utility)
 
 ## Tutorials
 
 Our tutorials give you a bit of information about configuring the other side, as
 well as example
-[Tugboat configuration file](../setting-up-tugboat/index.md#create-a-tugboat-config-file)
-code to help get you started:
+[Tugboat configuration files](../setting-up-tugboat/index.md#create-a-tugboat-config-file)
+to help get you started:
 
 - [Drupal 7](drupal7/index.md)
 - [Drupal 8](drupal8/index.md)
@@ -27,7 +35,7 @@ for other frameworks and Content Management Systems in our
 
 Our code snippets give you example
 [Tugboat configuration file](../setting-up-tugboat/index.md#create-a-tugboat-config-file)
-code to use when setting up these types of projects in your Tugboat:
+code stubs to use when setting up these types of projects in your Tugboat:
 
 ### Frameworks, CMSs and sites
 

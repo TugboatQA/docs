@@ -65,22 +65,22 @@
 
 
 
-    RewriteRule ^tutorials/static-html/?$ %{ENV:CWD}code-snippets/static-html/ [L,R=302]
-    RewriteRule ^tutorials/generic-lamp/?$ %{ENV:CWD}code-snippets/generic-lamp/ [L,R=302]
-    RewriteRule ^tutorials/drupal7/?$ %{ENV:CWD}code-snippets/drupal7/ [L,R=302]
-    RewriteRule ^tutorials/drupal8/?$ %{ENV:CWD}code-snippets/drupal8/ [L,R=302]
-    RewriteRule ^tutorials/wordpress/?$ %{ENV:CWD}code-snippets/wordpress/ [L,R=302]
-    RewriteRule ^tutorials/pantheon/?$ %{ENV:CWD}code-snippets/pantheon/ [L,R=302]
-    RewriteRule ^tutorials/?$ %{ENV:CWD}code-snippets/#tutorials [L,R=302]
-    RewriteRule ^examples/?$ %{ENV:CWD}code-snippets/#code-snippets [L,R=302]
+    RewriteRule ^tutorials/static-html/?$ %{ENV:CWD}starter-configs/static-html/ [L,R=302]
+    RewriteRule ^tutorials/generic-lamp/?$ %{ENV:CWD}starter-configs/generic-lamp/ [L,R=302]
+    RewriteRule ^tutorials/drupal7/?$ %{ENV:CWD}starter-configs/drupal7/ [L,R=302]
+    RewriteRule ^tutorials/drupal8/?$ %{ENV:CWD}starter-configs/drupal8/ [L,R=302]
+    RewriteRule ^tutorials/wordpress/?$ %{ENV:CWD}starter-configs/wordpress/ [L,R=302]
+    RewriteRule ^tutorials/pantheon/?$ %{ENV:CWD}starter-configs/pantheon/ [L,R=302]
+    RewriteRule ^tutorials/?$ %{ENV:CWD}starter-configs/#tutorials [L,R=302]
+    RewriteRule ^examples/?$ %{ENV:CWD}starter-configs/#starter-configs [L,R=302]
     RewriteRule ^examples/change-docroot/?$ %{ENV:CWD}setting-up-services/#set-the-document-root-path [L,R=302]
-    RewriteRule ^examples/functional-tests/?$ %{ENV:CWD}code-snippets/functional-tests/ [L,R=302]
-    RewriteRule ^examples/import-mysql-database/?$ %{ENV:CWD}code-snippets/import-mysql-database/ [L,R=302]
-    RewriteRule ^examples/page-cache/?$ %{ENV:CWD}code-snippets/page-cache/ [L,R=302]
-    RewriteRule ^examples/phpmyadmin/?$ %{ENV:CWD}code-snippets/phpmyadmin/ [L,R=302]
-    RewriteRule ^examples/simpletest/?$ %{ENV:CWD}code-snippets/simpletest/ [L,R=302]
-    RewriteRule ^examples/tenon_io/?$ %{ENV:CWD}code-snippets/tenon_io/ [L,R=302]
-    RewriteRule ^examples/?$ %{ENV:CWD}code-snippets/#code-snippets [L,R=302]
+    RewriteRule ^examples/functional-tests/?$ %{ENV:CWD}starter-configs/functional-tests/ [L,R=302]
+    RewriteRule ^examples/import-mysql-database/?$ %{ENV:CWD}starter-configs/import-mysql-database/ [L,R=302]
+    RewriteRule ^examples/page-cache/?$ %{ENV:CWD}starter-configs/page-cache/ [L,R=302]
+    RewriteRule ^examples/phpmyadmin/?$ %{ENV:CWD}starter-configs/phpmyadmin/ [L,R=302]
+    RewriteRule ^examples/simpletest/?$ %{ENV:CWD}starter-configs/simpletest/ [L,R=302]
+    RewriteRule ^examples/tenon_io/?$ %{ENV:CWD}starter-configs/tenon_io/ [L,R=302]
+    RewriteRule ^examples/?$ %{ENV:CWD}starter-configs/#starter-configs [L,R=302]
 
     ## Redirects to 404
 
