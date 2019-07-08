@@ -91,14 +91,6 @@
     - [Warm a Page Cache](starter-configs/page-cache/index.md)
     - [Tenon.io Integration](starter-configs/tenon_io/index.md)
 
-- [Concepts](concepts/index.md)
-
-  - [Projects](concepts/projects/index.md)
-  - [Repositories](concepts/repositories/index.md)
-  - [Previews](concepts/previews/index.md)
-  - [Base Previews](concepts/base-previews/index.md)
-  - [Services](concepts/services/index.md)
-
 - [Configuring Tugboat](configuring-tugboat/index.md)
 
   - [Preview Services](configuring-tugboat/index.md#preview-services)
