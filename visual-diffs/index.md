@@ -26,8 +26,8 @@ services:
 ```
 
 The URL list can also be grouped by
-[service alias](../reference/tugboat-configuration/index.md#aliases), which is
-convenient when aliases have different URL structures
+[service alias](../setting-up-services/index.md#aliases), which is convenient
+when aliases have different URL structures
 
 ```yaml
 services:

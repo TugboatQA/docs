@@ -88,6 +88,12 @@
     RewriteRule ^concepts/base-previews/?$ %{ENV:CWD}building-a-preview/index.md#set-a-base-preview [L,R=302]
     RewriteRule ^concepts/services/?$ %{ENV:CWD}setting-up-services/ [L,R=302]
     RewriteRule ^configuring-tugboat/?$ %{ENV:CWD}setting-up-services/ [L,R=302]
+    RewriteRule ^reference/tugboat-configuration/?$ %{ENV:CWD}setting-up-services/index.md#service-attributes [L,R=302]
+    RewriteRule ^reference/services/?$ %{ENV:CWD}setting-up-services/index.md#prebuilt-service-images [L,R=302]
+    RewriteRule ^reference/actions-and-states/?$ %{ENV:CWD}building-a-preview/index.md#preview-actions [L,R=302]
+    RewriteRule ^reference/environment-variables/?$ %{ENV:CWD}setting-up-services/index.md#environment-variables [L,R=302]
+    RewriteRule ^reference/?$ %{ENV:CWD}setting-up-services/index.md [L,R=302]
+    RewriteRule ^reference/glossary/?$ %{ENV:CWD}setting-up-services/index.md [L,R=302]
 
     ## Redirects to 404
 

@@ -49,6 +49,9 @@
     - [Cloning Git repositories into your Services](setting-up-services/index.md#cloning-git-repositories-into-your-services)
     - [Using Service Commands](setting-up-services/index.md#service-commands)
     - [Running a Background Process](setting-up-services/index.md#running-a-background-process)
+    - [Service Attributes](setting-up-services/index.md#service-attributes)
+    - [Prebuilt Service images](setting-up-services/index.md#prebuilt-service-images)
+    - [Environment Variables](setting-up-services/index.md#environment-variables)
   - [Services in action](setting-up-services/index.md#services-in-action)
 
 * [Tugboat's CLI](tugboat-cli/index.md)
@@ -101,14 +104,6 @@
   - [Custom Environment Variables](advanced/custom-environment-variables/index.md)
   - [Command Line Interface](advanced/cli/index.md)
   - [Start a Background Process](advanced/background-process/index.md)
-
-- [Reference](reference/index.md)
-
-  - [Tugboat Configuration File](reference/tugboat-configuration/index.md)
-  - [Prebuilt Service Images](reference/services/index.md)
-  - [Environment Variables](reference/environment-variables/index.md)
-  - [Actions and States](reference/actions-and-states/index.md)
-  - [Glossary](reference/glossary/index.md)
 
 - [Troubleshooting](troubleshooting/index.md)
 

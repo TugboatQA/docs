@@ -17,9 +17,9 @@
 ## Does Tugboat work with...?
 
 Tugboat supports pretty much anything that runs on Linux. Look through our
-[prebuilt service images](../reference/services/index.md) to see what we
-currently have available. If something that you need is missing, let us know,
-and we will work with you to get it added to the list.
+[prebuilt service images](../setting-up-services/index.md#prebuilt-service-images)
+to see what we currently have available. If something that you need is missing,
+let us know, and we will work with you to get it added to the list.
 
 - **Acquia Cloud?** Yes!
 - **Pantheon?** Yes! We even have a

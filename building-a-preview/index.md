@@ -288,11 +288,30 @@ Preview status is indicated in a couple of different ways:
 - **Stopped:** When you've used the Action -> Stop option, you'll see a
   `stopped` status in red to indicate that the Preview has successfully stopped
   [services](../setting-up-services/index.md).
-- **Failed:** When a Preview build, rebuild or refresh can't complete, you'll
-  see a `failed` status in red. For help with a `failed` preview, take a look at
-  our [troubleshooting](../setting-up-services/index.md) docs, or go to our
+- **Suspended** - When Previews have been inactive for a period of time, you'll
+  see a `suspended` status. Any incoming HTTP request to the preview will
+  automatically start it again.
+- **Failed:** When something goes wrong during the the last action that was
+  taken on the Preview, you'll see a `failed` status in red. Details should be
+  available in the Preview's activity logs. Sometimes a failed Preview can be
+  recovered by resetting it. For more help with a `failed` preview, take a look
+  at our [troubleshooting](../setting-up-services/index.md) docs, or go to our
   [Help and Support](../help-and-support/index.md) page to join our Slack
   support channel or email us.
+- **Unavailable** - When something goes wrong trying to load the Preview, you
+  may see an `unavailable` status. This usually indicates an internal Tugboat
+  error. [Resetting](#reset) a Preview often fixes this.
+- **Canceled** - When you cancel a Preview while it's building, you'll see a
+  `canceled` status in red.
+
+### Service states
+
+A Service could be in any of the above states, as well as:
+
+- **Committing** - Tugboat is currently taking a snapshot of the current state
+  of the Service.
+- **Waiting** - Tugboat is performing some operation on the Service's repo, and
+  the Service is waiting for its turn.
 
 ## Set a Base Preview
 

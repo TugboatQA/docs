@@ -392,6 +392,6 @@ Tugboat's engine from parts! To break things down for you, check out these docs:
 - [Starter Configuration files](../starter-configs/index.md) (configuration file
   code snippets with comments to help you get started)
 - [Using the Tugboat Command Line Tool](../using-the-cli/index.md)
-- [Config file reference](../reference/tugboat-configuration/index.md)
+- [Service Attributes](../setting-up-services/index.md#service-attributes)
   (detailing the attributes you can use when building Services)
 - [Debugging Config files](../troubleshooting/index.md#debugging-config-files)
