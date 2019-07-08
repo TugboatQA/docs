@@ -200,6 +200,15 @@ For a complete list of Tugboat's images and tags, find us on
 You can check out the scripts we used to create these images on
 [GitHub](https://github.com/TugboatQA/images).
 
+> #### Note::I don't see a Service image that I need...
+>
+> We add new [prebuilt service images](../reference/services/index.md) as users
+> need them. If there is something you need that we have not yet added,
+> [let us know](https://tugboat.qa/support), and we will work with you to try to
+> get it added to the list. Alternatively, you are free to choose a generic
+> service image, such as `debian` or `ubuntu` and install any packages you might
+> need.
+
 #### Third-party Docker images
 
 Theoretically, you can use any publicly available Docker image in your Tugboat

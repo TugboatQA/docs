@@ -245,6 +245,13 @@ Go to Add a Repository.
 
 ![My Projects](_images/add_a_repo.png)
 
+> #### Info:: How many repositories can I add to a project?
+>
+> There is no limit to the number of repositories you can add to a Tugboat
+> project. Limits are imposed on the number of Previews that can be created in a
+> project at any given time, based on the
+> [billing tier for your project and how big each Preview is](../tugboat-billing/index.md#how-does-tugboat-pricing-work).
+
 ## Repository Settings (optional)
 
 After you've created a project, you might want to go in and tweak your Tugboat
