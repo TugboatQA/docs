@@ -14,3 +14,6 @@ _book
 
 # Vidual Code Studio
 .vscode
+
+# Atom on-save plugin
+.on-save.json
