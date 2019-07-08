@@ -73,6 +73,7 @@
     - [Delete project](tugboat-billing/index.md#delete-your-project)
 
 * [Starter Configs](starter-configs/index.md)
+
   - [Tutorials](starter-configs/index.md#tutorials)
     - [Drupal 7](starter-configs/drupal7/index.md)
     - [Drupal 8](starter-configs/drupal8/index.md)
@@ -91,15 +92,9 @@
     - [Warm a Page Cache](starter-configs/page-cache/index.md)
     - [Tenon.io Integration](starter-configs/tenon_io/index.md)
 
-- [Configuring Tugboat](configuring-tugboat/index.md)
+* [Using Visual Diffs](visual-diffs/index.md)
 
-  - [Preview Services](configuring-tugboat/index.md#preview-services)
-  - [Service Images](configuring-tugboat/index.md#service-images)
-  - [Default Service](configuring-tugboat/index.md#default-service)
-  - [Service HTTP Port](configuring-tugboat/index.md#service-http-port)
-  - [Git Options](configuring-tugboat/index.md#git-options)
-  - [Commands](configuring-tugboat/index.md#commands)
-  - [Visual Diffs](configuring-tugboat/index.md#visual-diffs)
+* [FAQ](faq/index.md)
 
 - [Advanced](advanced/index.md)
 
@@ -114,8 +109,6 @@
   - [Environment Variables](reference/environment-variables/index.md)
   - [Actions and States](reference/actions-and-states/index.md)
   - [Glossary](reference/glossary/index.md)
-
-- [FAQ](faq/index.md)
 
 - [Troubleshooting](troubleshooting/index.md)
 

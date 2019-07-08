@@ -87,6 +87,7 @@
     RewriteRule ^concepts/previews/?$ %{ENV:CWD}building-a-preview/ [L,R=302]
     RewriteRule ^concepts/base-previews/?$ %{ENV:CWD}building-a-preview/index.md#set-a-base-preview [L,R=302]
     RewriteRule ^concepts/services/?$ %{ENV:CWD}setting-up-services/ [L,R=302]
+    RewriteRule ^configuring-tugboat/?$ %{ENV:CWD}setting-up-services/ [L,R=302]
 
     ## Redirects to 404
 
