@@ -154,7 +154,7 @@ to use the same version of PHP.
 ### Environment Variables
 
 The Tugboat configuration file below makes use of some Tugboat
-[custom environment variables](../../advanced/custom-environment-variables/index.md).
+[custom environment variables](../../setting-up-services/index.md#custom-environment-variables/).
 This is how we securely store the
 [Pantheon machine token](#generate-a-pantheon-machine-token) from above, so you
 don't have to commit it to your git repository. We also define the Pantheon site

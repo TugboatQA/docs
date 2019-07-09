@@ -52,6 +52,7 @@
     - [Service Attributes](setting-up-services/index.md#service-attributes)
     - [Prebuilt Service images](setting-up-services/index.md#prebuilt-service-images)
     - [Environment Variables](setting-up-services/index.md#environment-variables)
+    - [Custom Environment Variables](setting-up-services/index.md#custom-environment-variables)
   - [Services in action](setting-up-services/index.md#services-in-action)
 
 * [Tugboat's CLI](tugboat-cli/index.md)
@@ -98,12 +99,6 @@
 * [Using Visual Diffs](visual-diffs/index.md)
 
 * [FAQ](faq/index.md)
-
-- [Advanced](advanced/index.md)
-
-  - [Custom Environment Variables](advanced/custom-environment-variables/index.md)
-  - [Command Line Interface](advanced/cli/index.md)
-  - [Start a Background Process](advanced/background-process/index.md)
 
 - [Troubleshooting](troubleshooting/index.md)
 

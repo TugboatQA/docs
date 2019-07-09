@@ -94,6 +94,10 @@
     RewriteRule ^reference/environment-variables/?$ %{ENV:CWD}setting-up-services/index.md#environment-variables [L,R=302]
     RewriteRule ^reference/?$ %{ENV:CWD}setting-up-services/index.md [L,R=302]
     RewriteRule ^reference/glossary/?$ %{ENV:CWD}setting-up-services/index.md [L,R=302]
+    RewriteRule ^advanced/custom-environment-variables/?$ %{ENV:CWD}setting-up-services/index.md#custom-environment-variables [L,R=302]
+    RewriteRule ^advanced/background-process/?$ %{ENV:CWD}setting-up-services/index.md#running-a-background-process [L,R=302]
+    RewriteRule ^advanced/cli/?$ %{ENV:CWD}tugboat-cli/ [L,R=302]
+    RewriteRule ^advanced/?$ %{ENV:CWD}setting-up-services/ [L,R=302]
 
     ## Redirects to 404
 
