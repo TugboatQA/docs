@@ -102,4 +102,8 @@
 
 - [Troubleshooting](troubleshooting/index.md)
 
+  - [Preview won't build](troubleshooting/index.md#tugboat-preview-wont-build)
+  - [Preview builds incorrectly](troubleshooting/index.md#tugboat-preview-has-built-but-something-isnt-as-i-expect)
+  - [Debugging Configuration files](troubleshooting/index.md#debugging-configuration-files)
+
 - [Help and Support](support/index.md)
