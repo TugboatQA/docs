@@ -11,9 +11,10 @@
   "scripts": {
     "install": "cross-var gitbook install --gitbook=$npm_package_config_gitbook",
     "build": "cross-var gitbook build --gitbook=$npm_package_config_gitbook",
+    "pdf": "cross-var gitbook pdf --gitbook=$npm_package_config_gitbook ./ _book/tugboat.pdf",
     "lint": "prettier --list-different \"**/*.md\"",
     "lint-fix": "prettier --write \"**/*.md\"",
-    "test": "blcl -re ./_book",
+    "test": "blcl -re --exclude /tugboat.pdf ./_book",
     "serve": "cross-var gitbook serve --gitbook=$npm_package_config_gitbook"
   },
   "dependencies": {
