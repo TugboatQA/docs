@@ -14,3 +14,6 @@ services:
         - yarn build
         - yarn pdf
         - ln -snf "${TUGBOAT_ROOT}/_book" "${DOCROOT}"
+          visualdiffs:
+                # Create a visualdiff of the home page using the default options
+                - /troubleshooting
