@@ -8,6 +8,7 @@
   - [A preview says it is "ready", but shows a blank page](#a-preview-says-it-is-ready-but-shows-a-blank-page)
   - [A Preview is pulling the wrong Docker image](#a-preview-is-pulling-the-wrong-docker-image)
   - [Something in my Preview isn't right](#something-in-my-preview-isnt-right)
+  - [Troubleshooting Visual Diffs](#troubleshooting-visual-diffs)
 - [I need to debug a Configuration file](#debugging-configuration-files)
   - [Process for debugging Tugboat config files](#process-for-debugging-tugboat-config-files)
   - [Tools for debugging Tugboat config files](#tools-for-debugging-tugboat-config-files)
@@ -189,6 +190,7 @@ and make sure "Build Pull Requests Automatically" is enabled.
 - [A Preview says it is "ready", but shows a blank page](#a-preview-says-it-is-ready-but-shows-a-blank-page)
 - [A Preview is pulling the wrong Docker image](#a-preview-is-pulling-the-wrong-docker-image)
 - [Something in my Preview isn't right](#something-in-my-preview-isnt-right)
+- [Troubleshooting Visual Diffs](#troubleshooting-visual-diffs)
 
 ### A Preview says it is "ready", but shows a blank page
 
@@ -287,6 +289,23 @@ To troubleshoot where this might have gone wrong:
 If you can't figure out why something isn't as you expect in your Preview, let
 us know! Visit us at [Help and Support](../support/index.md); we're happy to
 help.
+
+### Troubleshooting Visual Diffs
+
+- [Visual diffs aren't displaying, or aren't displaying as I expect](#visual-diffs-arent-displaying-or-arent-displaying-as-i-expect)
+
+#### Visual diffs aren't displaying, or aren't displaying as I expect
+
+To configure which pages have visual diffs generated, you need to specify the
+relative URLs of the pages in a `visualdiffs` key in the Service definition.
+That information should be in the
+[config file](../setting-up-tugboat/index.md#create-a-tugboat-config-file) of
+the branch or PR that you're building, _not_ the Base Preview.
+
+If you've verified the relative URLs are correct, and that information is in the
+config file of the branch or PR you're building, but you're still not seeing
+what you expect to see, reach out to us at
+[help and support](../support/index.md) - we're happy to take a look!
 
 ## Debugging Configuration files
 
@@ -451,13 +470,21 @@ Tugboat CLI to view the logs.
 - [PHP out of memory issues](#php-out-of-memory-issues)
 - [MySQL server has gone away](#mysql-server-has-gone-away)
 - [cd isn't working](#cd-isnt-working)
+- [Tugboat error messages](#tugboat-error-messages)
+- [Running a background process "breaks" the build](#running-a-background-process)
 
 #### PHP out of memory issues
 
 If you're getting "PHP out of memory errors", you can manually set the memory
-limit higher; this should resolve these errors:
+limit higher. If you're using one of the
+[tugboatqa php images](../setting-up-services/index.md#tugboats-prebuilt-docker-images),
+use something like this in your build script:
 
 `echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/my-php.ini`
+
+Or you might try something like this in your drupal settings.php:
+
+`if (drupal_is_cli()) { ini_set('memory_limit', '-1');`
 
 #### MySQL server has gone away
 
@@ -474,3 +501,61 @@ behavior is required, include an external script in the git repository and call
 it from the config file.
 
 _BEN CAN WE INSERT AN EXAMPLE OF THIS?_
+
+#### Tugboat error messages
+
+- [1064: Command Failed](#1064-command-failed)
+- [1074: Repo configuration does not allow building of pull requests from forks](#1074-repo-configuration-does-not-allow-building-of-pull-requests-from-forks)
+
+##### 1064: Command Failed
+
+This error typically occurs when a command in your config file can't be executed
+as written. When a Preview build fails with this error:
+
+1. [Check the Preview logs](#how-to-check-the-preview-logs) to see what command
+   was running when the build failed;
+2. If you don't spot an issue with the command,
+   [terminal into the relevant Service](#debug-by-terminal-in-tugboats-web-ui)
+   and try executing the command directly to get more context about what's
+   happening.
+
+If you're having trouble pinpointing the error, you may need to go back and
+execute your config file commands line-by-line until you find the point at which
+things stop working.
+
+> #### Hint:: Check for these issues:
+>
+> A few common problems in config files include:
+> [`cd` does not "stick" between commands](#cd-isnt-working) and
+> [running a background process "breaks" the build](#running-a-background-process).
+> Check out the troubleshooting docs for info on addressing these issues.
+
+If you've gone through the debugging process and haven't been able to figure out
+why your command is failing, reach out to us at
+[help and support](../support/index.md) - we're happy to take a look!
+
+##### 1074: Repo configuration does not allow building of pull requests from forks
+
+If you're getting this error message, it's because you haven't enabled the
+[repository setting](../setting-up-tugboat/index.md#repository-settings-optional)
+to allow building pull requests from forks.
+
+This setting is off by default, but when it's enabled, Tugboat builds Previews
+for pull requests made to the primary repo from forked repositories. Turning on
+this setting should correct this error.
+
+> #### Warning:: There are security implications when using this setting.
+>
+> Any secrets in your Preview will be accessible by the owner of the forked
+> repository.
+
+#### Running a background process
+
+If you try to add a background-process to your
+[config file](../setting-up-tugboat/index.md#create-a-tugboat-config-file) in
+the conventional way, Tugboat will think the Preview has not finished building,
+and it will be stuck in the "building" state until it eventually times out and
+fails.
+
+For instructions on how to run a background within a Tugboat Preview, see:
+[Setting up Services -> Running a Background Process](../setting-up-services/index.md#running-a-background-process).
