@@ -1,13 +1,24 @@
 # Using Visual Diffs
 
-When a preview is created from a base preview, Tugboat can generate visual diff
-images to highlight any changes between the base preview and the new preview.
+When a Preview is built from a
+[Base Preview](../building-a-preview/index.md#set-a-base-preview), Tugboat can
+generate Visual Diff images to highlight any changes between the Base Preview
+and the new Preview.
 
 ![Visual Diff Example](_images/visualdiff.png)
 
+Ready to get started with Visual Diffs? Here's what you need to know:
+
+- [How to configure visual diffs](#how-to-configure-visual-diffs)
+- [How to view visual diffs](#how-to-view-visual-diffs)
+
+## How to configure visual diffs
+
 To configure which pages have visual diffs generated, specify the _relative
 URLs_ of the pages in a `visualdiffs` key in the service definition. Each URL
-can be either a string, or a map that overrides the default screenshot options
+can be either a string, or a map that overrides the default screenshot options.
+For more info on exactly what you can use in this key, check out:
+[Service Attributes -> visualdiffs](../setting-up-services/index.md#visualdiffs).
 
 ```yaml
 services:
@@ -50,3 +61,60 @@ services:
       bar:
         - /
 ```
+
+> #### Hint:: Using php instead of apache
+>
+> If you're not running an `apache` service on your Preview, but you _are_
+> running `php`, set up Visual Diffs under the `php` service.
+
+## How to view visual diffs
+
+To view visual diffs, you'll need to go to the Preview Dashboard.
+
+1. Click into a Preview that has finished building;
+2. Scroll down past the Preview Log and you'll see the Visual Diffs pane;
+3. Click into the Visual Diff for Mobile, Tablet or Desktop to see the diff.
+
+Inside the diff, you'll see a **Before** visualization on the left, an **After**
+visualization on the right, and a composite in the middle, which highlights
+changes to the page.
+
+You'll also see an option to **Regenerate** visual diffs; use this if you've
+updated your Base Preview, and want to see a new version of the visual diffs for
+this build.
+
+> #### Info:: Don't see what you expect?
+>
+> While the Preview is building, you'll see: "Unavailable while preview is
+> building" in the Visual Diffs pane. After the Preview build has completed, it
+> will take some time for visual diffs to generate. If you get an error message,
+> or don't see what you expect when the visual diffs generate, head over to
+> [Troubleshooting -> Visual Diffs](../troubleshooting/index.md#troubleshooting-visual-diffs)
+> for tips on figuring out what happened.
+
+### Visual Walkthrough
+
+Click into a Preview that has finished building;
+
+![Click into Preview Dashboard](_images/click-into-preview.png)
+
+Scroll down past the Preview Log, and you'll see the Visual Diffs pane;
+
+![View Visual Diffs Pane](_images/scroll-down-to-view-visual-diffs-pane.png)
+
+Click into the Visual Diff for **Mobile**, **Tablet** or **Desktop** to see the
+diff.
+
+![Click into the Visual Diff to see the diff](_images/click-into-mobile-to-view-diff.png)
+
+Inside the diff, you'll see a **Before** visualization on the left, an **After**
+visualization on the right, and a composite in the middle, which highlights
+changes to the page.
+
+![Visual Diff Before, After and Difference](_images/visual-diff-before-after-example.png)
+
+You'll also see an option to **Regenerate** visual diffs; use this if you've
+updated your Base Preview, and want to see a new version of the visual diffs for
+this build.
+
+![Regenerate visual diffs](_images/regenerate-visual-diffs.png)

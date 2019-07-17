@@ -293,6 +293,8 @@ help.
 ### Troubleshooting Visual Diffs
 
 - [Visual diffs aren't displaying, or aren't displaying as I expect](#visual-diffs-arent-displaying-or-arent-displaying-as-i-expect)
+- [URL not found](#url-not-found)
+- [There was a problem generating Visual Diffs for this preview.](#there-was-a-problem-generating-visual-diffs-for-this-preview)
 
 #### Visual diffs aren't displaying, or aren't displaying as I expect
 
@@ -302,9 +304,61 @@ That information should be in the
 [config file](../setting-up-tugboat/index.md#create-a-tugboat-config-file) of
 the branch or PR that you're building, _not_ the Base Preview.
 
+Some things you might try when troubleshooting a visual diff include:
+
+- Confirm the _relative URL_ is correct;
+- Consider overriding the default timeout option;
+- Consider overriding the default WaitUntil option.
+
+##### Overriding the default timeout option
+
+```yaml
+services:
+  apache:
+    visualdiffs:
+      # Create a visualdiff of /blog, but override the default timeout option
+      - url: /blog
+        timeout: 10
+```
+
+##### Overriding the default waitUntil option
+
+```yaml
+services:
+  apache:
+    visualdiffs:
+      # Create a visualdiff of /about, but override the default waitUntil option
+      - url: /about
+        waitUntil: domcontentloaded
+```
+
 If you've verified the relative URLs are correct, and that information is in the
 config file of the branch or PR you're building, but you're still not seeing
 what you expect to see, reach out to us at
+[help and support](../support/index.md) - we're happy to take a look!
+
+#### URL not found
+
+If the URL you use when
+[configuring your visual diffs](../visual-diffs/index.md#how-to-configure-visual-diffs)
+doesn't match a _relative URL_ in your site, you may see visual diff panes
+generate, but with "Not Found" message inside the images. If this happens,
+[edit your config file](../setting-up-tugboat/index.md#create-a-tugboat-config-file)
+to specify the _relative URLs_ of the pages you want to diff, and then
+[Rebuild](../building-a-preview/index.md#rebuild) the Preview.
+
+![URL Not Found in Visual Diff](_images/visual-diff-url-not-found.png)
+
+#### There was a problem generating Visual Diffs for this preview.
+
+If there's an issue with the way your visual diffs key is configured, you may
+get the "There was a problem generating Visual Diffs for this preview" error.
+This could be because of the _relative URLs_ in your
+[config file](../setting-up-tugboat/index.md#create-a-tugboat-config-file), or
+it could be that you need to override
+[the default timeout option](#overriding-the-default-timeout-option) or the
+[default waitUntil option](#overriding-the-default-waituntil-option). If you've
+tried those things, and are still having problems, reach out to us at
 [help and support](../support/index.md) - we're happy to take a look!
 
 ## Debugging Configuration files

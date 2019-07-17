@@ -98,6 +98,9 @@
 
 * [Using Visual Diffs](visual-diffs/index.md)
 
+  - [Configure Visual Diffs](visual-diffs/index.md#how-to-configure-visual-diffs)
+  - [View Visual Diffs](visual-diffs/index.md#how-to-view-visual-diffs)
+
 * [FAQ](faq/index.md)
 
 - [Troubleshooting](troubleshooting/index.md)
