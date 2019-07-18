@@ -277,6 +277,9 @@ repo settings. When you go into Repository Settings, you can:
 Don't forget to hit the **Save Configuration** button after you've checked or
 unchecked boxes to save your changes.
 
+If you later need to change Repository Settings, you can do that anytime; see:
+[Change Repository Settings](#change-repository-settings).
+
 ### Modify settings for your GitHub, GitLab or BitBucket Integration
 
 When you're using the Tugboat integration with GitHub, GitLab or BitBucket,
@@ -345,10 +348,72 @@ out
 
 ### Set up Remote SSH Access
 
-SSH commands run from Previews in this repository use the public key in your
-repo settings. This key is unique to this repository. Put this public key on the
-remote servers that your build scripts or applications on Tugboat need to
-access.
+SSH commands you run from Previews in this repository use the public key in your
+repo settings. Each of your repositories linked to Tugboat have a unique SSH
+key. Put this public key on the remote servers that your build scripts or
+applications need to access.
+
+- [Use the Tugboat SSH key](#use-the-tugboat-ssh-key)
+- [Use your own SSH key](#use-your-own-ssh-key)
+- [Delete an SSH key](#delete-an-ssh-key)
+
+> #### Info:: SSH from Tugboat is outbound only
+>
+> You can't SSH into a Tugboat Preview; the SSH key here is all about outbound
+> requests to remote resources. If you want to get _into_ a Tugboat Preview,
+> shell access is provided in both the web interface and the
+> [command line tool](../tugboat-cli/index.md).
+
+#### Use the Tugboat SSH key
+
+When you link a git repository to Tugboat, Tugboat automatically generates an
+SSH key for that repo. You can access this key in
+[Repository Settings](#change-repository-settings) -> **Remote SSH Access**. To
+use the SSH key, simply copy it to your clipboard and put it where you need it!
+
+![Copy SSH Key to Clipboard](_images/ssh-key-copy-to-clipboard.png)
+
+> #### Info:: Tugboat-generated SSH keys
+>
+> Tugboat provides a private 4096 bit length RSA SSH key. What you see on the
+> Repository Settings page is the public key from the pair.
+
+If you want Tugboat to generate a new SSH key, press the **Generate SSH Key**
+button. You'll see a dialogue box asking you to confirm that you want to
+generate a new key, as this action can't be undone.
+
+> #### Warning:: Generating a new SSH key erases the existing key
+>
+> If you have Tugboat create a new SSH key, this automatically erases the
+> existing SSH key. If you're using this SSH key anywhere, you'll need to update
+> that when you generate a new key.
+
+#### Use your own SSH key
+
+If you've got a specific SSH key you want to use, you can set that up in
+[Repository Settings](#change-repository-settings) -> **Remote SSH Access**.
+Press the **Upload SSH Key** button, and you'll be asked to enter a private key,
+or select a private key file.
+
+> #### Info:: Requirements for your SSH key
+>
+> The private key you provide here must be in PEM format. The public key will be
+> automatically extracted from the private key you upload.
+
+![Upload an SSH Key](_images/upload-an-ssh-key.png)
+
+> #### Warning:: Uploading your SSH key erases the existing key
+>
+> If you upload your own SSH key, this automatically erases the existing SSH
+> key. If you're using this SSH key anywhere, you'll need to update that when
+> you upload the new key.
+
+#### Delete an SSH key
+
+Need to delete or get rid of an SSH key? Go to
+[Repository Settings](#change-repository-settings) -> **Remote SSH Access** for
+the repository whose key you want to delete, and press the **Generate SSH Key**
+button. Generating a new key permanently erases the old key.
 
 ### Authenticate with a Docker Registry
 
@@ -372,6 +437,24 @@ connected to it, nor does it delete the Tugboat project that contains the repo.
 > permissions, see:
 > [User permission levels explained](../administering-tugboat-crew/user-permission-levels-explained/index.md)
 > .
+
+### Change Repository Settings
+
+Any time you need to make a change to Repository Changes, just:
+
+1. Click your username in the upper right-hand corner, and go to Projects;
+2. Click the **My Projects** link;
+3. Select the project where you want to edit repository settings;
+4. Scroll to the linked repository whose settings you want to change, and click
+   the **Settings** link.
+
+From here, you'll see all the Repository Settings you can modify. If you make
+changes to the settings, don't forget to press the **Save Configuration**
+button!
+
+If you want to dive deeper into any of these settings, you can view the full
+list of [Repository Settings](#repository-settings-optional) and drill down to
+the setting you're curious about.
 
 ## Create a Tugboat Config File
 
