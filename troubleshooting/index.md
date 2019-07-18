@@ -180,10 +180,13 @@ and make sure "Build Pull Requests Automatically" is enabled.
 > The option to "Build Pull Requests Automatically" only appears if you have
 > linked your Tugboat repository with a git provider repository via a
 > [git provider integration](../setting-up-tugboat/index.md#connect-with-your-provider).
-> If you haven't already connected to a git provider, you'll need to set up a
-> git integration, and then
+> If you haven't already connected to a git provider, you'll need to
+> [set up a git integration](../setting-up-tugboat/index.md#adding-a-link-to-a-git-provider),
+> and then
 > [delete the repository](../setting-up-tugboat/index.md#delete-the-repository)
-> from Tugboat and link it again via the integration.
+> from Tugboat and
+> [add it back to your project](../setting-up-tugboat/index.md#add-repos-to-the-project)
+> using the git provider integration.
 
 ## Tugboat Preview has built, but something isn't as I expect:
 
