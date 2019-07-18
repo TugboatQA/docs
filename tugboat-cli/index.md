@@ -107,13 +107,25 @@ Access Token; paste it in and hit `Y` to have the CLI remember it.
 Run `tugboat help` to see a list of commands you can execute. A few options
 include:
 
+**View info**
+
 - [List Tugboat Repositories](#list-tugboat-repositories)
 - [List Tugboat Previews](#list-tugboat-previews)
-- [Build a new Preview](#build-a-new-preview)
 - [View the Services in a Preview](#view-the-services-of-a-preview)
+- [View Preview logs](#view-preview-logs)
+- [View Service logs](#view-services-logs)
+
+**Administer Previews**
+
+- [Build a new Preview](#build-a-new-preview)
+- [Delete a Preview](#delete-a-preview)
+
+**Shell into Services**
+
 - [Start a shell on the default Service of a Preview](#start-a-shell-on-the-default-service-of-a-preview)
 - [Start a shell on a Service](#start-a-shell-on-a-service)
-- [Delete a Preview](#delete-a-preview)
+
+### View info
 
 ### List Tugboat repositories
 
@@ -127,6 +139,33 @@ tugboat ls repos
 tugboat ls previews
 ```
 
+### View the Services of a Preview
+
+To view the services of a preview with an ID of `5b04c7d14c3dad00016a2e80`:
+
+```sh
+tugboat ls services preview=5b04c7d14c3dad00016a2e80
+```
+
+### View Preview logs
+
+To view the logs for a Preview with an ID of `5b04c7d14c3dad00016a2e80`:
+
+```sh
+tugboat log 5b04c7d14c3dad00016a2e80
+```
+
+### View Services logs
+
+To view the logs for a Service with an ID of `5d092b16bd44cb22a498be90` that's
+running in a Preview:
+
+```sh
+tugboat log 5d092b16bd44cb22a498be90
+```
+
+### Administer Previews
+
 ### Build a new Preview
 
 To build a new Preview from the master branch of a Tugboat Repository with an ID
@@ -136,13 +175,15 @@ of `5b02ed093558930001c04cfa`:
 tugboat create preview master repo=5b02ed093558930001c04cfa
 ```
 
-### View the Services of a Preview
+### Delete a Preview
 
-To view the services of a preview with an ID of `5b04c7d14c3dad00016a2e80`:
+To force the deletion of a Preview with an ID of `5b04c7d14c3dad00016a2e80`:
 
 ```sh
-tugboat ls services preview=5b04c7d14c3dad00016a2e80
+tugboat delete 5b02ed093558930001c04cfa -f
 ```
+
+### Start a shell into Services on a Preview
 
 ### Start a shell on the default Service of a Preview
 
@@ -185,14 +226,6 @@ tugboat shell 5d122e46a42667d473ae5733
 Now you've got shell access in that Service:
 
 ![Shell access in the Service](_images/shell-access-in-service.png)
-
-### Delete a Preview
-
-To force the deletion of a Preview with an ID of `5b04c7d14c3dad00016a2e80`:
-
-```sh
-tugboat delete 5b02ed093558930001c04cfa -f
-```
 
 ## Running the CLI from a Tugboat Preview
 

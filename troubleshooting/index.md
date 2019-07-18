@@ -518,7 +518,9 @@ Preview in order to apply config file changes. For more info, see:
 
 You can click into the Preview's name to view the Preview's logs _and_ logs for
 individual Services you're running on a Preview. Alternately, you could use the
-Tugboat CLI to view the logs.
+[Tugboat CLI](../tugboat-cli/index.md) to view
+[Preview logs](../tugboat-cli/index.md#view-preview-logs) and
+[Service logs](../tugboat-cli/index.md#view-services-logs).
 
 ![View Preview logs](_images/click-into-preview-for-logs.png)
 
