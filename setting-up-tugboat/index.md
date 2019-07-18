@@ -19,6 +19,7 @@
 - [GitHub](#github)
 - [GitLab](#gitlab)
 - [BitBucket](#bitbucket)
+- [Add a link to another git provider](#adding-a-link-to-a-git-provider)
 
 ### Generic Git Server
 
@@ -166,6 +167,35 @@ can access in your Project -> Repository Settings:
 You can also specify the account from which comments are posted to BitBucket in
 this section. For info on customizing this, see:
 [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
+
+### Adding a link to a git provider
+
+Need to add a git provider to your Tugboat account? No problem! Whether you
+created your initial Tugboat account with an email and now want to add a git
+provider, or whether you're adding your second or third git provider - you can
+easily connect your Tugboat account with additional git providers.
+
+1. Click the User drop-down in the upper right-hand corner of the Tugboat
+   dashboard, and select **Profile**;
+2. Click the **+ Connect Account** link;
+3. Select the git provider whose account you'd like to connect;
+4. Follow the instructions to connect to
+   [GitHub](#how-do-i-link-my-tugboat-to-github),
+   [GitLab](#how-do-i-link-my-tugboat-to-gitlab) or
+   [BitBucket](#how-do-i-link-my-tugboat-to-bitbucket).
+
+Click the User drop-down in the upper right-hand corner of the Tugboat
+dashboard, and select **Profile**.
+
+![Go to User drop-down, and select Profile](_images/go-to-user-profile.png)
+
+Click the **+ Connect Account** link.
+
+![Click the + Connect Account link](_images/click-connect-account-link.png)
+
+Select the git provider whose account you'd like to connect.
+
+![Select a git provider](_images/select-a-git-provider.png)
 
 ## Create a new project
 
