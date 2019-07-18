@@ -272,6 +272,18 @@ services:
     image: tugboatqa/mysql:5
 ```
 
+Want to know more about something mentioned in the comments of this config file?
+Check out these topics:
+
+- [Name your Service](../../setting-up-services/index.md#name-your-service)
+- [Specify a Service image](../../setting-up-services/index.md#specify-a-service-image)
+- [Define a default Service](../../setting-up-services/index.md#define-a-default-service)
+- [Service commands](../../setting-up-services/index.md#service-commands)
+- [Set the document root path](../../setting-up-services/index.md#set-the-document-root-path)
+- [Set up remote SSH access](../../setting-up-tugboat/index.md#set-up-remote-ssh-access)
+- [Preview build process phases (`init`, `update`, `build`)](../../building-a-preview/index.md#the-build-process-explained)
+- [How Base Previews work](../../building-a-preview/index.md#how-base-previews-work)
+
 ## Start Building Previews!
 
 Once the Tugboat configuration file is committed to your git repository, you can
