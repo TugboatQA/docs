@@ -97,6 +97,20 @@ bypass phases:
 - [Preview Actions that start at `update`](#preview-actions-that-start-at-update)
 - [Preview Actions that start at `build`](#preview-actions-that-start-at-build)
 
+> #### Hint:: Troubleshooting Tugboat not pulling changes
+>
+> Have you changed the Docker image in your build, changed the database you're
+> pulling during the `update` phase, or added new resources or commands during
+> `init`? A common cause for changes not appearing in your Tugboat Preview is
+> that the Preview build isn't a brand new build from scratch. For example,
+> building a Preview after [setting a Base Preview](#set-a-base-preview) means
+> that new Previews start from the `build` phase - so if you're changing the
+> database in `update`, or changing the Docker image (which gets pulled before
+> `init`), you won't see your changes in the child Preview. Read through which
+> Preview actions start at which phase to help you troubleshoot whether you need
+> to do a different type of Preview build - i.e.
+> [building a Preview from scratch after setting a Base Preview](#building-a-preview-from-scratch-after-youve-set-a-base-preview).
+
 #### Preview Actions that start at init
 
 Three types of Preview builds start from the very beginning of the process, at
@@ -127,6 +141,16 @@ Two types of Preview builds start from the `build` phase, bypassing `init` and
 
 - Building a new Preview from a Base Preview
 - Rebuilding a Preview that was built from a Base Preview
+
+> #### Hint:: Making changes to child Previews
+>
+> Because Previews that are built after setting a Base Preview bypass the `init`
+> and `update` phases, if you make changes to the child Preview that would take
+> effect during these phases (or even before `init`, such as changing a Docker
+> image) - you won't see those changes in the Preview. You'd need to either
+> [build the Preview from scratch without the Base Preview](#building-a-preview-from-scratch-after-youve-set-a-base-preview),
+> or [rebuild the Base Preview](#using-preview-actions-on-a-base-preview) to see
+> those changes.
 
 ## Share your Preview
 
@@ -348,6 +372,18 @@ storing only a binary difference between the Base Preview and Previews built
 from that Base Preview. A new Preview only uses whatever space it needs that
 differs from the Base Preview. Often, this means a Base Preview might use 2-3GB
 of space, and a Preview built from it might only use 100-200MB.
+
+> #### Hint:: Base Previews and Preview Build Stages
+>
+> When you set a Base Preview, new Previews you build - including Previews that
+> are built automatically from pull requests - use the Base Preview as a
+> starting point, and build only from the `build` stage. This means that if
+> you're making changes that would be processed during `init` or `update`
+> stages, or changing a Docker image, you'll need to either
+> [rebuild the Base Preview](#using-preview-actions-on-a-base-preview), or
+> [build the Preview from scratch without the Base Preview](#building-a-preview-from-scratch-after-youve-set-a-base-preview).
+> For more info, see:
+> [the build process: explained](#the-build-process-explained).
 
 ### How to set a Base Preview
 
