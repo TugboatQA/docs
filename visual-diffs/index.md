@@ -9,15 +9,17 @@ and the new Preview.
 
 Ready to get started with Visual Diffs? Here's what you need to know:
 
-- [How to configure visual diffs](#how-to-configure-visual-diffs)
-- [How to view visual diffs](#how-to-view-visual-diffs)
+- [How to configure Visual Diffs](#how-to-configure-visual-diffs)
+- [How to view Visual Diffs](#how-to-view-visual-diffs)
+- [How are Visual Diffs calculated?](#how-are-visual-diffs-calculated)
 
-## How to configure visual diffs
+## How to configure Visual Diffs
 
-To configure which pages have visual diffs generated, specify the _relative
-URLs_ of the pages in a `visualdiffs` key in the service definition. Each URL
-can be either a string, or a map that overrides the default screenshot options.
-For more info on exactly what you can use in this key, check out:
+To configure which pages have Visual Diffs generated, specify the _relative
+URLs_ of the pages in a `visualdiffs` key in the
+[service definition](../setting-up-services/index.md). Each URL can be either a
+string, or a map that overrides the default screenshot options. For more info on
+exactly what you can use in this key, check out:
 [Service Attributes -> visualdiffs](../setting-up-services/index.md#visualdiffs).
 
 ```yaml
@@ -67,9 +69,9 @@ services:
 > If you're not running an `apache` service on your Preview, but you _are_
 > running `php`, set up Visual Diffs under the `php` service.
 
-## How to view visual diffs
+## How to view Visual Diffs
 
-To view visual diffs, you'll need to go to the Preview Dashboard.
+To view Visual Diffs, you'll need to go to the Preview Dashboard.
 
 1. Click into a Preview that has finished building;
 2. Scroll down past the Preview Log and you'll see the Visual Diffs pane;
@@ -118,3 +120,21 @@ updated your Base Preview, and want to see a new version of the visual diffs for
 this build.
 
 ![Regenerate visual diffs](_images/regenerate-visual-diffs.png)
+
+## How are Visual Diffs calculated?
+
+Tugboat's Visual Diffs implementation is a pixel-by-pixel comparison of what a
+Preview page looks like. The percent calculation displayed next to the diff is a
+literal calculation of how many pixels have changed in the page from Before to
+After. This makes it a great tool for front-end developers to visually see what
+has changed on the page, and it also helps Q/A, Product and UX spot new feature
+implementation - and also regression bugs.
+
+![Example Visual Diff with page contents moved down](_images/example-visual-diff-page-contents-moved-down.png)
+
+As a result of the way Visual Diffs are calculated, though, when you move
+something at the top of the page that bumps content down, the whole page may
+show up as changed. This is because all of the pixels on the pixel-by-pixel
+calculation are no longer an exact match; everything has shifted down. It's
+great for visual regression testing, or spotting the introduction of new bugs,
+but may make something like diffing content changes visually less meaningful.

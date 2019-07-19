@@ -100,6 +100,7 @@
 
   - [Configure Visual Diffs](visual-diffs/index.md#how-to-configure-visual-diffs)
   - [View Visual Diffs](visual-diffs/index.md#how-to-view-visual-diffs)
+  - [Visual Diff Calculations](visual-diffs/index.md#how-are-visual-diffs-calculated)
 
 * [FAQ](faq/index.md)
 
