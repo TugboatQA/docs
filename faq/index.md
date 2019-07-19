@@ -11,6 +11,7 @@
 - [Can I have SSH access to a preview?](#can-i-have-ssh-access-to-a-preview)
 - [How does Tugboat deal with sending email?](#how-does-tugboat-deal-with-sending-email)
 - [Does Tugboat have a Slack integration?](#does-tugboat-have-a-slack-integration)
+- [What are Tugboat's IPs?](#whitelist-tugboats-ips)
 
 ---
 
@@ -34,18 +35,18 @@ let us know, and we will work with you to get it added to the list.
   [Starter Configs -> Import a MySQL Database](../starter-configs/import-mysql-database/index.md)
   for an example.
 
-### Do you provide production-level hosting?
+## Do you provide production-level hosting?
 
 No. Tugboat previews are intended to be short-lived, and do not come with the
 stability or support guarantees needed to host a production application.
 
-### Can I have SSH access to a Preview?
+## Can I have SSH access to a Preview?
 
 No. Direct SSH access to a Preview is not possible. However, shell access is
 provided in both the web interface and the
 [command line tool](../tugboat-cli/index.md).
 
-### How does Tugboat deal with sending email?
+## How does Tugboat deal with sending email?
 
 Tugboat makes a best effort to capture outbound email. Using the local
 `sendmail` or the SMTP server at `$TUGBOAT_SMTP` will result in email being
@@ -56,7 +57,7 @@ Tugboat does not attempt to capture any other outbound SMTP server connections,
 so if you are concerned with sending emails to customers from a QA environment,
 be sure to update your application configuration to use Tugboat's SMTP server.
 
-### Does Tugboat have a Slack integration?
+## Does Tugboat have a Slack integration?
 
 Tugboat does not currently have a direct Slack integration. However, you can get
 very similar functionality if you're using a git integration with Slack:
@@ -75,3 +76,33 @@ to share details about your Tugboat Previews, such as:
 
 When using these settings, Tugboat's updates to your git repository can be
 carried through your git Slack integration into your relevant Slack channels.
+
+## Whitelist Tugboat's IPs
+
+Do you need to whitelist Tugboat's IP addresses so you can access something
+behind a firewall? We've got you covered! Our IPs sometimes change due to
+maintenance, so here's how you can use `dig` to perform a DNS lookup and check
+our IPs:
+
+```sh
+$ dig txt _egress.tugboat.qa
+
+; <<>> DiG 9.10.6 <<>> txt _egress.tugboat.qa
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 50383
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;_egress.tugboat.qa.        IN    TXT
+
+;; ANSWER SECTION:
+_egress.tugboat.qa.    300    IN    TXT    "69.164.208.64,198.74.59.242,96.126.107.6,45.56.103.116"
+
+;; Query time: 339 msec
+;; SERVER: 172.16.42.1#53(172.16.42.1)
+;; WHEN: Sat Jul 13 00:58:57 CDT 2019
+;; MSG SIZE  rcvd: 114
+```
