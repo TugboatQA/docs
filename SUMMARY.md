@@ -102,12 +102,12 @@
   - [View Visual Diffs](visual-diffs/index.md#how-to-view-visual-diffs)
   - [Visual Diff Calculations](visual-diffs/index.md#how-are-visual-diffs-calculated)
 
-* [FAQ](faq/index.md)
-
 - [Troubleshooting](troubleshooting/index.md)
 
   - [Preview won't build](troubleshooting/index.md#tugboat-preview-wont-build)
   - [Preview builds incorrectly](troubleshooting/index.md#tugboat-preview-has-built-but-something-isnt-as-i-expect)
   - [Debugging Configuration files](troubleshooting/index.md#debugging-configuration-files)
+
+* [FAQ](faq/index.md)
 
 - [Help and Support](support/index.md)
