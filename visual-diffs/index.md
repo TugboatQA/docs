@@ -73,8 +73,8 @@ services:
 
 To view Visual Diffs, you'll need to go to the Preview Dashboard.
 
-1. Click into a Preview that has finished building;
-2. Scroll down past the Preview Log and you'll see the Visual Diffs pane;
+1. Click into a Preview that has finished building.
+2. Scroll down past the Preview Log and you'll see the Visual Diffs pane.
 3. Click into the Visual Diff for Mobile, Tablet or Desktop to see the diff.
 
 Inside the diff, you'll see a **Before** visualization on the left, an **After**

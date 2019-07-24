@@ -1,4 +1,4 @@
-# Setting up your Tugboat
+# Setting up Tugboat
 
 - [Connect with your provider](#connect-with-your-provider)
 - [Create a new project](#create-a-new-project)
@@ -15,46 +15,31 @@
 
 ## Connect with your provider
 
-- [Generic git server](#generic-git-server)
 - [GitHub](#github)
 - [GitLab](#gitlab)
 - [BitBucket](#bitbucket)
-- [Add a link to another git provider](#adding-a-link-to-a-git-provider)
-
-### Generic Git Server
-
-If you're not using GitHub, GitLab, or BitBucket, you can use a generic git
-server with Tugboat. You'll [sign in to Tugboat](https://dashboard.tugboat.qa/)
-using an email address, and when you go to add a repo to your Tugboat project,
-you can link to a Git URL.
-
-> #### Warning::Authenticate with a git provider to use auto-build Preview functionality
->
-> If your repo isn't connected via Tugboat's GitHub, GitLab, or BitBucket
-> authentication, you won't have the integration features to automatically build
-> Previews from Pull Requests, and other related functionality. If you add
-> GitHub, GitLab, or BitBucket authentication later, you'll need to delete your
-> generic git server from your project, and add it again to use it.
+- [Generic git server](#generic-git-server)
+- [Add a link to an additional git provider](#adding-a-link-to-a-git-provider)
 
 ### GitHub
 
-- [How to connect your Tugboat to GitHub](#how-do-i-link-my-tugboat-to-github)
+- [How to connect Tugboat to GitHub](#how-do-i-link-tugboat-to-github)
 - [Using the GitHub integration](#using-the-github-integration)
 
-#### How do I link my Tugboat to GitHub?
+#### How do I link Tugboat to GitHub?
 
-1. Go to [Sign In](https://dashboard.tugboat.qa/) and select GitHub
+1. Go to [Sign In](https://dashboard.tugboat.qa/) and select GitHub.
 2. Enter your GitHub Username and Password (or Create an Account), complete
-   Two-Factor Authentication
-3. Authorize Tugboat
+   Two-Factor Authentication.
+3. Authorize Tugboat.
 
-That's it! Your Tugboat account is now linked to GitHub, and you'll now have
-access to add your repos to your Tugboat project and enjoy all the benefits of
-GitHub integration.
+Your Tugboat account is now linked to GitHub, and you'll now have access to add
+your repos to your Tugboat project and enjoy all the benefits of GitHub
+integration.
 
 #### Using the GitHub integration
 
-The GitHub integration gives your Tugboat the following features, which you can
+The GitHub integration gives Tugboat the following features, which you can
 access in your Project -> Repository Settings:
 
 - **Build Pull Requests automatically** On by default; Tugboat automatically
@@ -73,10 +58,9 @@ access in your Project -> Repository Settings:
   person who authenticated the git repo to Tugboat; to change this, see:
   [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 - **Build Previews for forked Pull Requests** Off by default; Tugboat builds
-  Previews for pull requests made to the primary repo from forked
-  repositories. \***\*There are security implications from using this
-  setting:\*\*** any secrets in your Preview will be accessible by the owner of
-  the forked repository.
+  Previews for pull requests made to the primary repo from forked repositories.
+  **There are security implications from using this setting:** any secrets in
+  your Preview will be accessible by the owner of the forked repository.
 
 You can also specify the account from which comments are posted to GitHub in
 this section. For info on customizing this, see:
@@ -84,18 +68,18 @@ this section. For info on customizing this, see:
 
 ### GitLab
 
-- [How to connect your Tugboat to GitLab](#how-do-i-link-my-tugboat-to-gitlab)
+- [How to connect Tugboat to GitLab](#how-do-i-link-tugboat-to-gitlab)
 - [Using the GitLab integration](#using-the-gitlab-integration)
 
-#### How do I link my Tugboat to GitLab?
+#### How do I link Tugboat to GitLab?
 
-1. Go to [Sign In](https://dashboard.tugboat.qa/) and select GitLab
-2. Enter your GitLab Username and Password (or Register)
-3. Authorize Tugboat
+1. Go to [Sign In](https://dashboard.tugboat.qa/) and select GitLab.
+2. Enter your GitLab Username and Password (or Register).
+3. Authorize Tugboat.
 
-That's it! Your Tugboat account is now linked to GitLab, and you'll now have
-access to add your repos to your Tugboat project and enjoy all the benefits of
-GitLab integration.
+Your Tugboat account is now linked to GitLab, and you'll now have access to add
+your repos to your Tugboat project and enjoy all the benefits of GitLab
+integration.
 
 #### Using the GitLab integration
 
@@ -116,10 +100,9 @@ access in your Project -> Repository Settings:
   the person who authenticated the git repo to Tugboat; to change this, see:
   [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 - **Build Previews for forked Merge Requests** Off by default; Tugboat builds
-  Previews for merge requests made to the primary repo from forked
-  repositories. \***\*There are security implications from using this
-  setting:\*\*** any secrets in your Preview will be accessible by the owner of
-  the forked repository.
+  Previews for merge requests made to the primary repo from forked repositories.
+  **There are security implications from using this setting:** any secrets in
+  your Preview will be accessible by the owner of the forked repository.
 
 You can also specify the account from which comments are posted to GitLab in
 this section. For info on customizing this, see:
@@ -127,23 +110,23 @@ this section. For info on customizing this, see:
 
 ### BitBucket
 
-- [How to connect your Tugboat to BitBucket](#how-do-i-link-my-tugboat-to-bitbucket)
+- [How to connect your Tugboat to BitBucket](#how-do-i-link-tugboat-to-bitbucket)
 - [Using the BitBucket integration](#using-the-bitbucket-integration)
 
-#### How do I link my Tugboat to BitBucket?
+#### How do I link Tugboat to BitBucket?
 
-1. Go to [Sign In](https://dashboard.tugboat.qa/) and select BitBucket
-2. Enter your BitBucket Email and Password (or Sign up for an account)
-3. Grant Access to Tugboat
+1. Go to [Sign In](https://dashboard.tugboat.qa/) and select BitBucket.
+2. Enter your BitBucket Email and Password (or Sign up for an account).
+3. Grant Access to Tugboat.
 
-That's it! Your Tugboat account is now linked to BitBucket, and you'll now have
-access to add your repos to your Tugboat project and enjoy all the benefits of
-BitBucket integration.
+Your Tugboat account is now linked to BitBucket, and you'll now have access to
+add your repos to your Tugboat project and enjoy all the benefits of BitBucket
+integration.
 
 #### Using the BitBucket integration
 
-The BitBucket integration gives your Tugboat the following features, which you
-can access in your Project -> Repository Settings:
+The BitBucket integration gives Tugboat the following features, which you can
+access in your Project -> Repository Settings:
 
 - **Build Pull Requests automatically** On by default; Tugboat automatically
   creates a Preview when a BitBucket pull request is opened.
@@ -159,30 +142,44 @@ can access in your Project -> Repository Settings:
   person who authenticated the git repo to Tugboat; to change this, see:
   [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 - **Build Previews for forked Pull Requests** Off by default; Tugboat builds
-  Previews for pull requests made to the primary repo from forked
-  repositories. \***\*There are security implications from using this
-  setting:\*\*** any secrets in your Preview will be accessible by the owner of
-  the forked repository.
+  Previews for pull requests made to the primary repo from forked repositories.
+  **There are security implications from using this setting:** any secrets in
+  your Preview will be accessible by the owner of the forked repository.
 
 You can also specify the account from which comments are posted to BitBucket in
 this section. For info on customizing this, see:
 [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
 
+### Generic Git Server
+
+If you're not using GitHub, GitLab, or BitBucket, you can use a generic git
+server with Tugboat. You'll [sign in to Tugboat](https://dashboard.tugboat.qa/)
+using an email address, and when you go to add a repo to your Tugboat project,
+you can link to a Git URL.
+
+> #### Warning::Authenticate with a git provider to use auto-build Preview functionality
+>
+> If your repo isn't connected via Tugboat's GitHub, GitLab, or BitBucket
+> authentication, you won't have the integration features to automatically build
+> Previews from Pull Requests, and other related functionality. If you add
+> GitHub, GitLab, or BitBucket authentication later, you'll need to delete your
+> generic git server from your project, and add it again to use it.
+
 ### Adding a link to a git provider
 
-Need to add a git provider to your Tugboat account? No problem! Whether you
-created your initial Tugboat account with an email and now want to add a git
-provider, or whether you're adding your second or third git provider - you can
-easily connect your Tugboat account with additional git providers.
+Need to add a git provider to your Tugboat account? Whether you created your
+initial Tugboat account with an email and now want to add a git provider, or
+whether you're adding your second or third git provider, here's how to connect
+your Tugboat account with additional git providers:
 
 1. Click the User drop-down in the upper right-hand corner of the Tugboat
-   dashboard, and select **Profile**;
-2. Click the **+ Connect Account** link;
-3. Select the git provider whose account you'd like to connect;
+   dashboard, and select **Profile**.
+2. Click the **+ Connect Account** link.
+3. Select the git provider whose account you'd like to connect.
 4. Follow the instructions to connect to
-   [GitHub](#how-do-i-link-my-tugboat-to-github),
-   [GitLab](#how-do-i-link-my-tugboat-to-gitlab) or
-   [BitBucket](#how-do-i-link-my-tugboat-to-bitbucket).
+   [GitHub](#how-do-i-link-tugboat-to-github),
+   [GitLab](#how-do-i-link-tugboat-to-gitlab) or
+   [BitBucket](#how-do-i-link-tugboat-to-bitbucket).
 
 Click the User drop-down in the upper right-hand corner of the Tugboat
 dashboard, and select **Profile**.
@@ -213,7 +210,7 @@ Once you hit the **Create Project** button, it's anchors away!
 The first time you sign into Tugboat, you'll go directly to the Create New
 Project screen.
 
-After you've already got projects, you can add new ones by going to the Tugboat
+After you've already got a project, you can add more by going to the Tugboat
 Dashboard and selecting **Create New Project**.
 
 ### Things to know about Tugboat projects
@@ -222,37 +219,29 @@ When you're creating a project, there are a few things to keep in mind:
 
 - A Tugboat project is a collection of any number of repos across git providers
 - Tugboat's pricing tiers and billing are specified on the project level, not
-  the number of repositories
+  based on the number of repositories
 - Users are managed on a per project basis
-
-With this in mind, you may find yourself sailing on stormy seas if you're
-building a lot of Previews (or resource-intensive Previews) on a low-level
-project tier. If that's the case, consider structuring your projects by putting
-repos requiring resource-intensive Preview builds in their own projects, while
-other repos' Preview builds proceed in a different project without performance
-hits.
 
 Deciding which users need to be able to access which projects can help you
 figure out how you want to organize, too. For example, let's say you are
 building a recipe site that consists of a backend Drupal repository and a
 frontend React repository. If the entire development team should have access to
-both repositories within Tugboat, you probably should create a single project
+both repositories within Tugboat, you should probably create a single project
 for both repositories in Tugboat.
 
-On the other hand, let's say you have a simple WordPress blog that is managed by
-an outside vendor. Also, you have a separate and unrelated Node.js application
-that is a "top secret" internal project your company is working on. It may be
-best to create two separate projects so that you can manage permissions for each
-of the projects independently.
+On the other hand, let's say you have a WordPress blog that is managed by an
+outside vendor. Also, you have a separate and unrelated Node.js application that
+is a "top secret" internal project your company is working on. It may be best to
+create two separate projects so that you can manage permissions for each of the
+projects independently.
 
 ### Add repos to the project
 
 Once you've decided how you want to structure your project, add the relevant
 repos to your project.
 
-When you're creating a project, you'll simply select your repository host from
-the Provider drop-down, and click the radio button next to the repo you want to
-add.
+When you're creating a project, select your repository host from the Provider
+drop-down, and click the radio button next to the repo you want to add.
 
 ![Select Provider and repo](_images/github_select_repo.png)
 
@@ -263,31 +252,32 @@ and enter your repo name and Git URL.
 
 If you want to add repos to a project you've already created:
 
-1. Go to username -> My Projects at the upper-right of the Tugboat screen;
-2. Select the project where you want to add the repo;
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+   upper-right of the Tugboat screen.
+2. Select the project where you want to add the repo.
 3. Go to Add a Repository.
 
-From there, you'll be back to the familiar 'select a provider and specify a
-repo' screen.
+From there, you'll be back to the 'select a provider and specify a repo' screen.
 
-Go to username -> My Projects at the upper-right of the Tugboat screen;
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+upper-right of the Tugboat screen.
 
 ![My Projects](_images/username_my_projects.png)
 
-Select the project where you want to add the repo;
+Select the project where you want to add the repo.
 
 ![Select the project](_images/select_a_project.png)
 
 Go to Add a Repository.
 
-![My Projects](_images/add_a_repo.png)
+![Go to Add a Repository](_images/add_a_repo.png)
 
 > #### Info:: How many repositories can I add to a project?
 >
 > There is no limit to the number of repositories you can add to a Tugboat
-> project. Limits are imposed on the number of Previews that can be created in a
-> project at any given time, based on the
-> [billing tier for your project and how big each Preview is](../tugboat-billing/index.md#how-does-tugboat-pricing-work).
+> project. However, you may be unable to build new Previews within a project, if
+> the total storage used in your project reaches the
+> [billing tier storage limit for your project](../tugboat-billing/index.md#how-does-tugboat-pricing-work).
 
 ## Repository Settings (optional)
 
@@ -341,14 +331,14 @@ turned off by default.
 To unpack this a little:
 
 - When you're using a
-  [Base Preview](../building-a-preview/index.md#set-a-base-preview):
+  [Base Preview](../building-a-preview/index.md#set-a-base-preview)
 - And the Base Preview is [refreshed](../building-a-preview/index.md#refresh)  
   (You may manually Refresh a Base Preview, or have Tugboat
   [refresh Base Previews automatically](#refresh-base-previews-automatically),
   for example, every day at 12am UTC.)
 - The Base Preview kicks off the
   [build process](../building-a-preview/index.md#the-build-process-explained)
-  from the `update` phase, and runs commands in both `update` and `build`;
+  from the `update` phase, and runs commands in both `update` and `build`
 - When the Base Preview refresh is complete, child Previews kick off a
   [build process](../building-a-preview/index.md#the-build-process-explained)
   from `build`, using the Base Preview as the starting point and bypassing
@@ -378,9 +368,9 @@ out
 
 ### Set up Remote SSH Access
 
-SSH commands you run from Previews in this repository use the public key in your
-repo settings. Each of your repositories linked to Tugboat have a unique SSH
-key. Put this public key on the remote servers that your build scripts or
+SSH commands that you run from Previews in this repository use the public key in
+your repo settings. Each of your repositories linked to Tugboat have a unique
+SSH key. Put this public key on the remote servers that your build scripts or
 applications need to access.
 
 - [Use the Tugboat SSH key](#use-the-tugboat-ssh-key)
@@ -465,17 +455,16 @@ connected to it, nor does it delete the Tugboat project that contains the repo.
 >
 > Only Admin users have the **Delete Repository** option. For more on user
 > permissions, see:
-> [User permission levels explained](../administering-tugboat-crew/user-permission-levels-explained/index.md)
-> .
+> [User permission levels explained](../administering-tugboat-crew/user-permission-levels-explained/index.md).
 
 ### Change Repository Settings
 
-Any time you need to make a change to Repository Changes, just:
+Any time you need to make a change to Repository Settings:
 
-1. Click your username in the upper right-hand corner, and go to Projects;
-2. Click the **My Projects** link;
-3. Select the project where you want to edit repository settings;
-4. Scroll to the linked repository whose settings you want to change, and click
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+   upper-right of the Tugboat screen.
+2. Select the project where you want to edit repository settings.
+3. Scroll to the linked repository whose settings you want to change, and click
    the **Settings** link.
 
 From here, you'll see all the Repository Settings you can modify. If you make
@@ -490,16 +479,14 @@ the setting you're curious about.
 
 The final step in setting up your Tugboat is committing a YAML Config file in
 the source's git repository. Think of the Config file as the engine that powers
-your Tugboat; here's where you specify the services you want to run when your
-Tugboat Preview builds.
+Tugboat; here's where you specify the Services you want to run when your Tugboat
+Preview builds.
 
 The Tugboat Config file should live at: `.tugboat/config.yml` in the branch,
-tag, commit or pull request that is being built. The only exception is when
-you're building from a Base Preview; in that case, the config.yml from the Base
-Preview is used.
+tag, commit or pull request that is being built.
 
-Creating the Config file can be a complex process, just like building a
-Tugboat's engine from parts! To break things down for you, check out these docs:
+Creating the Config file can be a complex process, like building a Tugboat's
+engine from parts! These docs can help get you started:
 
 - [Setting up Services in your Tugboat](../setting-up-services/index.md)
 - [Starter Configuration files](../starter-configs/index.md) (configuration file

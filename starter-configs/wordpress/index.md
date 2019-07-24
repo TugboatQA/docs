@@ -12,7 +12,7 @@ of the file to the git repository, and include a "local" config file with
 override options. That local file should not be included in the git repository.
 
 These are the settings we are particularly interested in for Tugboat, but the
-the concept could be easily extended to cover the remaining settings in
+the concept could be extended to cover the remaining settings in
 `wp-config.php`:
 
 ```php

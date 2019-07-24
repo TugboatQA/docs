@@ -26,8 +26,8 @@
 ### Can't build a Preview in the Tugboat UI
 
 If you're Building a Preview from a branch whose name includes a `/`, you may
-get a JS error `Uncaught Error` and be unable to build. Until this issue is
-addressed, there are two workarounds:
+get a JS `Uncaught Error` and be unable to build. Until this issue is addressed,
+there are two workarounds:
 
 1. Rename the branch without the slash.
 2. Use the [Tugboat CLI](../tugboat-cli/index.md) to build the branch.
@@ -61,8 +61,8 @@ Has your Preview been building for a long time? There are a couple of things to
 check:
 
 Take a look at your Repository Stats to see how long your average build time is.
-If your Preview has been building for less than that time, just hang in there;
-if it has been in `building` for significantly longer, it might be time to
+If your Preview has been building for less than that time, hang in there; if it
+has been in `building` for significantly longer, it might be time to
 troubleshoot.
 
 ![View average build time in Repository Stats](_images/repo-stats-build-time.png)
@@ -81,7 +81,7 @@ for a few things you might try:
 
 - [Use Service Commands to create a Base Preview that does the heavy lifting](../building-a-preview/index.md#use-service-commands-to-create-a-base-preview-that-does-the-heavy-lifting)
 - [Use the Auto Refresh Base Preview functionality to update large assets](../building-a-preview/index.md#use-the-auto-refresh-base-preview-functionality-to-update-large-assets)
-- [Optimizing Preview size](../building-a-preview/index.md#optimizing-preview-size)
+- [Optimize Preview size](../building-a-preview/index.md#optimizing-preview-size)
 - [Contact Tugboat support for help optimizing your Config file](../building-a-preview/index.md#contact-tugboat-support-for-help-optimizing-your-config-file)
 - [Upgrade your project tier to a higher-performance tier](../building-a-preview/index.md#upgrade-your-project-tier-to-a-higher-performance-tier)
 
@@ -89,7 +89,7 @@ for a few things you might try:
 
 Preview hung on `rebuilding`? Take a look at your Repository Stats to see how
 long your average build time is. If your Preview has been building for less than
-that time, just hang in there; if it has been in `rebuilding` for significantly
+that time, hang in there; if it has been in `rebuilding` for significantly
 longer, it might be time to troubleshoot.
 
 ![View average build time in Repository Stats](_images/repo-stats-build-time.png)
@@ -127,8 +127,8 @@ for a few things you might try:
 
 Preview hung on `refreshing`? Take a look at your Repository Stats to see how
 long your average build time is. If your Preview has been refreshing for less
-than that time, just hang in there; if it has been in `refreshing` for
-significantly longer, it might be time to troubleshoot.
+than that time, hang in there; if it has been in `refreshing` for significantly
+longer, it might be time to troubleshoot.
 
 ![View average build time in Repository Stats](_images/repo-stats-build-time.png)
 
@@ -144,8 +144,8 @@ and figuring out what's causing the Preview rebuild to hang.
 If you've decided to cancel a Preview Action, but the Preview is stuck on
 `canceling`, there are a couple of things you can try:
 
-1. Hang in and wait a bit longer;
-2. Try canceling the Preview Action from the Tugboat CLI;
+1. Hang in and wait a bit longer.
+2. Try canceling the Preview Action from the Tugboat CLI.
 3. If you're still having issues, contact us at
    [Help and Support](../support/index.md).
 
@@ -162,8 +162,8 @@ exits with an error. If that is the case, it's time to start
 
 If you're having problems figuring out why the Preview build `failed`, we're
 happy to look into the problem with you to see whether we can help. We've gotten
-good at spotting common config file issues, and we're happy to help. Just
-[let us know](https://tugboat.qa/support).
+good at spotting common config file issues, and we're happy to help.
+[Let us know](https://tugboat.qa/support).
 
 ### Previews are not building automatically
 
@@ -209,9 +209,9 @@ the application might not load.
 To troubleshoot where this might have gone wrong:
 
 1. Double-check the commands in the
-   [configuration file](../setting-up-tugboat/index.md#create-a-tugboat-config-file);
+   [configuration file](../setting-up-tugboat/index.md#create-a-tugboat-config-file).
 2. Check [the Preview's logs](#how-to-check-the-preview-logs) for any clues,
-   and;
+   and.
 3. Make use of [Tugboat's terminal access](../tugboat-cli/index.md) to the
    Preview to do the same type of troubleshooting you would do if this happened
    on your local installation.
@@ -282,9 +282,8 @@ possible something in the configuration file didn't execute as you expected.
 To troubleshoot where this might have gone wrong:
 
 1. Double-check the commands in the
-   [configuration file](../setting-up-tugboat/index.md#create-a-tugboat-config-file);
-2. Check [the Preview's logs](#how-to-check-the-preview-logs) for any clues,
-   and;
+   [configuration file](../setting-up-tugboat/index.md#create-a-tugboat-config-file).
+2. Check [the Preview's logs](#how-to-check-the-preview-logs) for any clues.
 3. Make use of [Tugboat's terminal access](../tugboat-cli/index.md) to the
    Preview to do the same type of troubleshooting you would do if this happened
    on your local installation.
@@ -384,12 +383,12 @@ When you're first getting Tugboat set up, here's how we recommend getting
 started and debugging your initial config file:
 
 1. Create a branch within your git repository for adding Tugboat, and put your
-   [config file there](../setting-up-tugboat/index.md#create-a-tugboat-config-file);
+   [config file there](../setting-up-tugboat/index.md#create-a-tugboat-config-file).
 2. [Build a Preview](../building-a-preview/index.md#how-to-build-a-preview) from
-   that branch;
+   that branch.
 3. If you get an error while building the Preview, take a
-   [look at the Preview log](#how-to-check-the-preview-logs);
-4. Click **Full Log** to make sure you're viewing the entire log;
+   [look at the Preview log](#how-to-check-the-preview-logs).
+4. Click **Full Log** to make sure you're viewing the entire log.
 5. Review the log until you see where the Preview build failed.
 
 In some cases, you'll be able to see the specific command where the Preview
@@ -420,8 +419,8 @@ mostly the same as when you first set it up, but there are a few things you want
 to do to make sure Tugboat is getting the changes as expected:
 
 1. Create a branch within your git repository for your changes, and put your new
-   [config file there](../setting-up-tugboat/index.md#create-a-tugboat-config-file);
-2. Push the branch with your config file changes;
+   [config file there](../setting-up-tugboat/index.md#create-a-tugboat-config-file).
+2. Push the branch with your config file changes.
 3. Go into Tugboat, and manually
    [build your Preview without a Base Preview](../building-a-preview/index.md#building-a-preview-from-scratch-after-youve-set-a-base-preview).
 
@@ -437,8 +436,8 @@ to do to make sure Tugboat is getting the changes as expected:
 
 From here, if your Preview build is failing, the process is the same as above:
 
-1. Take a [look at the Preview log](#how-to-check-the-preview-logs);
-2. Click **Full Log** to make sure you're viewing the entire log;
+1. Take a [look at the Preview log](#how-to-check-the-preview-logs).
+2. Click **Full Log** to make sure you're viewing the entire log.
 3. Review the log until you see where the Preview build failed.
 
 In some cases, you'll be able to see the specific command where the Preview
@@ -498,7 +497,7 @@ tugboat shell 5d26155195433d189bdf9307
 ```
 
 And once you've got a shell into the Service, you can go line-by-line debugging
-your config file, just the same as if you'd used the web UI to terminal into a
+your config file, the same as if you'd used the web UI to terminal into a
 Service.
 
 #### Debug via pushing changes to git
@@ -572,7 +571,7 @@ This error typically occurs when a command in your config file can't be executed
 as written. When a Preview build fails with this error:
 
 1. [Check the Preview logs](#how-to-check-the-preview-logs) to see what command
-   was running when the build failed;
+   was running when the build failed.
 2. If you don't spot an issue with the command,
    [terminal into the relevant Service](#debug-by-terminal-in-tugboats-web-ui)
    and try executing the command directly to get more context about what's

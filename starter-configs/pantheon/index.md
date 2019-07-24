@@ -43,8 +43,8 @@ token can then be safely shared with Tugboat.
 
 > #### Hint::Use an email alias
 >
-> Many email clients allow you to easily generate aliases, or allow you to
-> dynamically have an alias. For example, on gmail, if your email address is
+> Many email clients allow you to generate aliases, or allow you to dynamically
+> have an alias. For example, on gmail, if your email address is
 > `dorothy@gmail.com`, you could use the `+` symbol followed by a unique string
 > to create an alias for this tugboat user, e.g.
 > `dorothy+tugboat-pantheon@gmail.com`.
@@ -71,9 +71,9 @@ place, such as a password manager or OS keychain.**
 Now that you've generated a machine token for your new Pantheon user, you still
 need to add this user to your Pantheon project. To do this:
 
-1. Log out of Pantheon;
-2. Log back in with your personal Pantheon account;
-3. Navigate to your Pantheon project, and click _Team_ from the header;
+1. Log out of Pantheon.
+2. Log back in with your personal Pantheon account.
+3. Navigate to your Pantheon project, and click _Team_ from the header.
 4. Enter the email address of the new Pantheon user you created above, and click
    the _Add to team_ button.
 
@@ -143,9 +143,9 @@ to use the same version of PHP.
 > While in theory you could use the `terminus site:info` command to determine
 > the PHP version, we've found that may not give you accurate results.
 
-1.  Log into the [Pantheon Dashboard](https://dashboard.pantheon.io);
-2.  Navigate to the project you are trying to connect with Pantheon;
-3.  Click the Settings gear in the upper right;
+1.  Log into the [Pantheon Dashboard](https://dashboard.pantheon.io).
+2.  Navigate to the project you are trying to connect with Pantheon.
+3.  Click the Settings gear in the upper right.
     ![Click on Settings in Pantheon Dashboard](_images/pantheon-settings.png)
 4.  Once in Settings, you should see a PHP Version tab to the far right. After
     clicking that, you should see the PHP Version.

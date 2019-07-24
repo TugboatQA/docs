@@ -67,8 +67,8 @@ Interface, you'll be asked for an Access Token.
 To set an Access Token:
 
 1. In Tugboat's web interface, go to User Name -> Access Tokens, or
-   [click this link](https://dashboard2.tugboat.qa/access-tokens);
-2. Click the **+ Generate New Token option**;
+   [click this link](https://dashboard2.tugboat.qa/access-tokens).
+2. Click the **+ Generate New Token option**.
 3. You'll be asked to give the Access Token a description; for example, "Command
    Line Tool"; enter a description and press the **Generate** button.
 4. Make sure you save your Access Token somewhere safe, as you won't be able to
@@ -185,7 +185,10 @@ tugboat delete 5b02ed093558930001c04cfa -f
 
 ### Start a shell into Services on a Preview
 
-### Start a shell on the default Service of a Preview
+- [Start a shell on the default Service](#start-a-shell-on-the-default-service-of-a-preview)
+- [Start a shell on a Service that isn't the default](#start-a-shell-on-a-service)
+
+#### Start a shell on the default Service of a Preview
 
 To start a shell on the
 [default Service](../setting-up-services/index.md#define-a-default-service) of a
@@ -195,13 +198,13 @@ Preview with an ID of `5b04c7d14c3dad00016a2e80`:
 tugboat shell 5b04c7d14c3dad00016a2e80
 ```
 
-### Start a shell on a Service
+#### Start a shell on a Service
 
 To start a shell on Service that isn't the default:
 
 1. Start by
-   [viewing the Services of the Preview](#view-the-services-of-a-preview);
-2. Find the Service where you want to start a shell;
+   [viewing the Services of the Preview](#view-the-services-of-a-preview).
+2. Find the Service where you want to start a shell.
 3. Start the shell using the ID of the specific Service.
 
 [View the Services of a Preview](#view-the-services-of-a-preview) via its ID; in

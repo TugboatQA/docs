@@ -57,7 +57,7 @@ viewing an individual repository within Tugboat.
 > size is the size of the entire container at the end of the Preview build
 > process. If your Preview build is pulling in large assets, such as large
 > databases or Service images, your resulting build size includes those assets -
-> not just the code from your linked git repo.
+> not only the code from your linked git repo.
 >
 > If you want to reduce your Preview size, take a look at our tips in:
 > [optimize your Preview builds](../building-a-preview/index.md#optimize-your-preview-builds).
@@ -67,8 +67,9 @@ viewing an individual repository within Tugboat.
 You can view how much storage you've used by going to your Project Dashboard,
 and looking at the Project Stats section:
 
-1. Go to username -> My Projects at the upper-right of the Tugboat dashboard;
-2. Select the project where you want to view disk space used;
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+   upper-right of the Tugboat dashboard.
+2. Select the project where you want to view disk space used.
 3. Scroll down to **Project Stats**.
 
 ![Project Stats -> Project Storage](_images/project-stats-project-storage.png)
@@ -78,9 +79,10 @@ and looking at the Project Stats section:
 If you're a current Tugboat user, here's how to view the pricing for your
 project:
 
-1. Go to username -> My Projects at the upper-right of the Tugboat dashboard;
-2. Select the project where you want to view and administer billing;
-3. Go to **Project Settings**;
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+   upper-right of the Tugboat dashboard.
+2. Select the project where you want to view and administer billing.
+3. Go to **Project Settings**.
 4. Scroll down to **Your Plan**.
 
 From here, you'll see the pricing tiers available for your plan. You can
@@ -101,7 +103,7 @@ If you don't have a Tugboat project, you can view current Tugboat pricing here:
 ### Tugboat for Enterprise
 
 If you need an enterprise or self-hosted version of Tugboat, we've got
-[Tugboat for Enterprise](https://tugboat.qa/enterprise/) just for you! Tugboat's
+[Tugboat for Enterprise](https://tugboat.qa/enterprise/) for you! Tugboat's
 enterprise version comes with significantly more Preview storage and RAM, and
 can be hosted in Tugboat's Cloud or behind your firewall.
 
@@ -110,12 +112,13 @@ To view pricing and change your Tugboat enterprise plan,
 
 ## Change your Tugboat plan
 
-Changing your Tugboat plan is simple:
+To change your Tugboat plan:
 
-1. Go to username -> My Projects at the upper-right of the Tugboat dashboard;
-2. Select the project where you want to change the plan;
-3. Go to **Project Settings**;
-4. Scroll down to **Your Plan**;
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+   upper-right of the Tugboat dashboard.
+2. Select the project where you want to change the plan.
+3. Go to **Project Settings**.
+4. Scroll down to **Your Plan**.
 5. Click the radio button next to the new plan you want, and hit the **Update
    Tier** button.
 
@@ -143,10 +146,11 @@ you can download or print as needed.
 
 If you need to change the billing information for your Tugboat project:
 
-1. Go to username -> My Projects at the upper-right of the Tugboat dashboard;
-2. Select the project where you want to change the billing info;
-3. Go to **Project Settings**;
-4. Scroll down to **Your Plan**;
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+   upper-right of the Tugboat dashboard.
+2. Select the project where you want to change the billing info.
+3. Go to **Project Settings**.
+4. Scroll down to **Your Plan**.
 5. Click the **Billing Information** link.
 
 ![Change billing information](_images/change-billing-information.png)
@@ -190,10 +194,11 @@ select the Free tier.
 If you don't need your Tugboat Previews anymore, or are finished using Tugboat
 for a particular project, you can always delete your project:
 
-1. Go to username -> My Projects at the upper-right of the Tugboat dashboard;
-2. Select the project you want to delete;
-3. Go to **Project Settings**;
-4. Scroll down past **Your Plan**;
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+   upper-right of the Tugboat dashboard.
+2. Select the project you want to delete.
+3. Go to **Project Settings**.
+4. Scroll down past **Your Plan**.
 5. Click the red **Delete Project** button.
 
 > #### Note:: deleting a project only applies to that project

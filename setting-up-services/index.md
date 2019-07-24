@@ -3,7 +3,7 @@
 First thing's first:
 [in the context of Tugboat, what are Services, exactly?](#what-are-tugboat-services)
 
-Once you understand that, take a look at:
+Looking for a step-by-step guide to get you started configuring Services?
 
 **How to set up Services in Tugboat:**
 
@@ -35,13 +35,13 @@ etc. Services form the core of your
 working together to build a [Preview](../building-a-preview/index.md).
 
 Under the cover, Tugboat Services are Docker images. This tech gives you some
-powerful functionality in building your services - i.e. specifying a specific
-PHP version when serving Drupal sites, or using an image to mirror your
+powerful functionality in building your services - for example, specifying a
+specific PHP version when serving Drupal sites, or using an image to mirror your
 production services. For more info, check out:
 [Specify a Service image](#specify-a-service-image).
 
-For an example of what Services might look like in your site, check out:
-[Services in action](#services-in-action).
+If you want to see a sample of what Services might look like in your site, check
+out: [Services in action](#services-in-action).
 
 ## How to set up Services in Tugboat
 
@@ -185,8 +185,8 @@ always use the latest available minor release of node 8.x.
 In some cases, you're less likely to be worried about a specific version; for
 example, it may not matter which version of memcached you use.
 
-When you don't need to call for a specific version of a Service, using just the
-image name without a tag (`tugboatqa/memcached`), or the `latest` tag
+When you don't need to call for a specific version of a Service, using the image
+name without a tag (`tugboatqa/memcached`), or the `latest` tag
 (`tugboatqa/memcached:latest`) will get you the most recent version of a Service
 image.
 
@@ -237,9 +237,8 @@ use to make an image Tugboat compatible: <https://github.com/TugboatQA/images>
 
 #### Bring your own Docker Image from another registry
 
-If you want to use a Docker image from another registry, it's easy to do; you
-just have to specify the alternate registry, since Tugboat pulls from Docker Hub
-by default.
+If you want to use a Docker image from another registry, you'll need to specify
+the alternate registry, since Tugboat pulls from Docker Hub by default.
 
 For a full breakdown of how to pull from a different registry, check out
 Docker's Docs:
@@ -254,7 +253,7 @@ An example of this in action at Tugboat might look like:
 #### Using a Docker image to mirror your production services
 
 Using a Docker image to mirror your production services in Tugboat works the
-same as pulling an image for any other Service in Tugboat. Simply follow the
+same as pulling an image for any other Service in Tugboat. Follow the
 [steps to set up Services in Tugboat](#setting-up-services-in-your-tugboat), and
 specify your production image.
 
@@ -262,11 +261,11 @@ As you'll probably be pulling from a private repository, you may need to first:
 
 1. [Authenticate with a Docker Registry](../setting-up-tugboat/index.md#authenticate-with-a-docker-registry)
    from Tugboat's
-   [Repository Settings](../setting-up-tugboat/index.md#repository-settings-optional);
+   [Repository Settings](../setting-up-tugboat/index.md#repository-settings-optional).
 2. Take a look at
    [using third-party Docker images with Tugboat](#third-party-docker-images)
    for info about caveats, as well as links to scripts you could use to optimize
-   your own image for Tugboat;
+   your own image for Tugboat.
 3. If you're pulling from a private Docker repository that isn't on Docker Hub,
    you'll need to follow the process in:
    [Bring your own Docker image from another registry](#bring-your-own-docker-image-from-another-registry).
