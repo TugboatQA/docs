@@ -12,6 +12,10 @@
     "pluginsConfig": {
         "ga": {
             "token": "UA-69911960-4"
+        },
+        "callouts":
+        {
+            "showTypeInHeader": false
         }
     },
     "styles": {
