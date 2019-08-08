@@ -1,54 +1,52 @@
 # Building a Preview
 
 **Administer Previews**
+
 - [Build Previews](administer-previews/index.md#build-previews)
 - [Change or Update Previews](administer-previews/index.md#change-or-update-previews)
 - [Delete Previews](administer-previews/index.md#delete-previews)
 - [Change Preview states](administer-previews/index.md#change-preview-states)
 
 **Work with Base Previews**
+
 - [Set a Base Preview](work-with-base-previews/index.md#how-to-set-a-base-preview)
 - [Change or update Base Previews](work-with-base-previews/index.md#change-or-update-base-previews)
-- [Use multiple Base Previews](work-with-base-previews/index.md#using-multiple-base-previews)
+- [Use multiple Base Previews](work-with-base-previews/index.md#use-multiple-base-previews)
 - [Stop using a Base Preview](work-with-base-previews/index.md#stop-using-a-base-preview)
 - [Delete a Base Preview](work-with-base-previews/index.md#delete-a-base-preview)
 
 **Share a Preview**
+
 - [Manually share a Preview](share-a-preview/index.md#manually-share-the-url-of-your-preview)
 - [Auto-post Preview links](share-a-preview/index.md#configure-tugboat-to-auto-post-preview-links)
 
 **Automate Previews**
+
 - [Auto-generate Previews](automate-previews/index.md#auto-generate-previews)
 - [Auto-delete Previews](automate-previews/index.md#auto-delete-previews)
 - [Auto-update Previews](automate-previews/index.md#auto-update-previews)
 
 **Inside a Preview**
+
 - [Preview logs](inside-a-preview/index.md#preview-logs)
 - [Services](inside-a-preview/index.md#services)
 - [Captured mail](inside-a-preview/index.md#captured-mail)
 - [Visual Diffs](inside-a-preview/index.md#visual-diffs)
 
 **How do Previews work?**
+
 - [Preview build process](how-previews-work/index.md#the-build-process-explained)
 - [How Base Previews Work](how-previews-work/index.md#how-base-previews-work)
 - [Preview states](how-previews-work/index.md#preview-status)
 - [Preview size](how-previews-work/index.md#preview-size-explained)
 
 **Optimize Preview builds**
+
 - [Create a Base Preview that does the heavy lifting](optimize-preview-builds/index.md#use-service-commands-to-create-a-base-preview-that-does-the-heavy-lifting)
 - [Automatically refresh Base Previews to update large assets](optimize-preview-builds/index.md#use-the-auto-refresh-base-preview-functionality-to-update-large-assets)
 - [Optimize Preview size](optimize-preview-builds/index.md#optimizing-preview-size)
 - [Contact Tugboat support for help optimizing your config file](optimize-preview-builds/index.md#contact-tugboat-support-for-help-optimizing-your-config-file)
 - [Upgrade your project tier to a higher-performance tier](optimize-preview-builds/index.md#upgrade-your-project-tier-to-a-higher-performance-tier)
-
-## Build a Preview
-
-Once you've
-[set up your Tugboat project](../setting-up-tugboat/index.md#create-a-project),
-[linked a repo](../setting-up-tugboat/index.md#add-repos-to-the-project), and
-[put your Config file in the linked repo](../setting-up-tugboat/index.md#create-a-tugboat-config-file),
-it's time to build a Preview!
-
 
 ## Preview Actions
 

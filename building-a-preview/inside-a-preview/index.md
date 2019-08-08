@@ -1,6 +1,5 @@
 # Inside a Preview
 
-
 ## Preview logs
 
 ## Services

@@ -1,20 +1,23 @@
-# Working with Base Previews
+# Work with Base Previews
+
 If you want to speed up your Preview builds, and make subsequent Preview builds
 smaller files, you can set a Base Preview as a starting point for subsequent
 Previews.
 
-- [Set a Base Preview]
-- [Change or update Base Previews]
-- [Use multiple Base Previews]
-- [Stop using a Base Preview]
-- [Delete a Base Preview]
+- [Set a Base Preview](#how-to-set-a-base-preview)
+- [Change or update Base Previews](#change-or-update-base-previews)
+- [Use multiple Base Previews](#use-multiple-base-previews)
+- [Stop using a Base Preview](#stop-using-a-base-preview)
+- [Delete a Base Preview](#delete-a-base-preview)
 
-Want to learn more about Base Previews under the cover? Check out: [How Base Previews work](../how-previews-work/index.md#how-base-previews-work).
+Want to learn more about Base Previews under the cover? Check out:
+[How Base Previews work](../how-previews-work/index.md#how-base-previews-work).
 
-### How to set a Base Preview
+## How to set a Base Preview
 
 To create a Base Preview, you'll first need to have a
-[Preview build](#build-a-preview) to serve as your starting point.
+[Preview build](../administer-previews/index.md#build-previews) to serve as your
+starting point.
 
 1. Go to the **Manage Base Previews** link on the Repository Dashboard.
 2. Click the checkbox next to the Preview you want to use as a Base Preview.
@@ -26,17 +29,17 @@ Base Preview was built.
 
 1. Go to the **Manage Base Previews** link on the Repository Dashboard.
 
-![Base Preview Selection](_images/base-preview-before.png)
+![Base Preview Selection](../../_images/base-preview-before.png)
 
 2. Click the checkbox next to the Preview you want to use as a Base Preview.
 3. Press the **OK** button.
 
-![Base Preview Selection](_images/base-preview-select.png)
+![Base Preview Selection](../../_images/base-preview-select.png)
 
 That preview will be moved to the **Base Preview** section of the Repository
 Dashboard.
 
-![Base Preview Selection](_images/base-preview-after.png)
+![Base Preview Selection](../../_images/base-preview-after.png)
 
 From now on, Previews will build from the snapshot created when the Base Preview
 was built.
@@ -45,23 +48,81 @@ If you're ever wondering which Base Preview was used when generating a Preview,
 check under the name of the Preview; you're looking for the "from _Base Preview
 Name_":
 
-![View Base Preview for Preview](_images/biew_base_preview_for_preview.png)
+![View Base Preview for Preview](../../_images/view_base_preview_for_preview.png)
 
-### Change or update Base Previews
+## Change or update Base Previews
+
+- [Change a Base Preview](#change-a-base-preview)
+- [Update a Base Preview](#update-a-base-preview)
+- [Automatically update Base Previews](#automatically-update-base-previews)
+
+Not sure whether you need to change or update your Base Preview?
+
+### Change a Base Preview
+
+If you want to change an image that a Base Preview is using, or make changes to
+something that happens during the `build` phase of the Preview build process,
+you'll need to Rebuild your Base Preview. Rebuilding a Base Preview kicks off a
+fresh build process from the beginning, in effect replacing your current Base
+Preview with a new one that contains all of your changes.
+
+Want to know more about build phases? Check out:
+[the build process: explained](../how-previews-work/index.md#the-build-process-explained).
+
+> #### Note:: Rebuilding a Base Preview and child Previews
+>
+> If you've checked the
+> [Repository Setting](../../setting-up-tugboat/index.md#repository-settings-optional)
+> to **Rebuild Stale Previews Automatically**, starting a Rebuild of a Base
+> Preview will also kick off Rebuilds of any child Previews that were built from
+> your Base Preview.
+
+To Rebuild a Base Preview:
+
+### Update a Base Preview
+
+If you don't need to pull a new Docker image or make changes to the `build`
+phase in your
+[config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file),
+you can do a smaller, faster update of your Base Preview using Refresh.
+Refreshing a Base Preview:
+
+1. Pulls the latest code from git.
+2. Runs commands from the `update` section of the config.yml.
+3. Run commands from the `build` section of the config.yml.
+
+Want to know more about build phases? Check out:
+[the build process: explained](../how-previews-work/index.md#the-build-process-explained).
+
+> #### Hint:: Pulling images and changing the config.yml
+>
+> If you want to pull a fresh Docker image, or if you've made changes to the
+> config.yml's `build` phase, you'll need to
+> [rebuild the Base Preview](#change-a-base-preview) in order to see those
+> changes.
+
+Tugboat provides a couple of ways to Refresh a Base Preview:
+
+- [Manually Refresh a Base Preview](#manually-refresh-a-base-preview)
+- [Automatically Refresh Base Previews](#automatically-refresh-a-base-preview)
+
+#### Manually Refresh a Base Preview
+
+#### Automatically Refresh a Base Preview
 
 You'll generally want to keep your Base Preview up to date with your latest
 codebase, and a fresh copy of your database, image files, and other assets. By
 default, Tugboat automatically checks for updates every night at 12 am ET, and
-[refreshes](#refresh) your Base Preview with these updates. To change this,
-check the Repository Settings.
+refreshes your Base Preview with these updates. To change this, check the
+Repository Settings.
 
 Tugboat performs this update by pulling the latest code from git for the branch
 or Tag the preview was built from. During the update, Tugboat runs any commands
 in the `update` and `build` sections for services in the
-[configuration](../setting-up-services/index.md#create-a-tugboat-config-file)
+[configuration](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
 file.
 
-### Using multiple Base Previews
+## Use multiple Base Previews
 
 Tugboat allows multiple Base Previews to be defined. The effect of doing this is
 that every preview will generate the corresponding number of Base Preview
@@ -72,9 +133,9 @@ that pull request, each starting from a different Base Preview.
 This feature allows you to test code, for instance, against different PHP
 versions, database content, etc.
 
-![Multiple Base Previews generating multiple Preview builds](_images/multiple_base_preview_preview_builds.png)
+![Multiple Base Previews generating multiple Preview builds](../../_images/multiple_base_preview_preview_builds.png)
 
-### Building a Preview from scratch after you've set a Base Preview
+## Building a Preview from scratch after you've set a Base Preview
 
 Once you've set a Base Preview, new Previews build on that Base Preview by
 default. If you want a Preview to build from scratch, instead of from a Base
@@ -87,9 +148,9 @@ Preview:
 
 Now your Preview will build from scratch!
 
-![Build with no base preview](_images/build_with_no_base_preview.png)
+![Build with no base preview](../../_images/build_with_no_base_preview.png)
 
-### Add a new Base Preview
+## Add a new Base Preview
 
 Adding a new Base Preview can mean a few different things:
 
@@ -97,17 +158,17 @@ Adding a new Base Preview can mean a few different things:
 - [Add additional/multiple Base Previews](#add-additionalmultiple-base-previews)
 - [Stop using the current Base Preview and set a new Base Preview](#stop-using-the-current-base-preview-and-set-a-new-base-preview)
 
-#### Set a Base Preview for the first time
+### Set a Base Preview for the first time
 
 Ready to get started with your first Base Preview? Check out:
 [How to set a Base Preview](#how-to-set-a-base-preview).
 
-#### Add additional/multiple Base Previews
+### Add additional/multiple Base Previews
 
 Want to use more than one Base Preview? Take a look at:
 [Add multiple Base Previews](#add-multiple-base-previews).
 
-#### Stop using the current Base Preview and set a new Base Preview
+### Stop using the current Base Preview and set a new Base Preview
 
 Want to change the Base Preview you're using? First, you'll need to have a
 [Preview build](#build-a-preview) ready to set as your new Base Preview. Then:
@@ -122,24 +183,24 @@ Want to change the Base Preview you're using? First, you'll need to have a
 The Preview you've deselected will move out of the Base Previews section of the
 dashboard, and the new Base Preview will appear here, instead.
 
-![Deselect and select new Base Preview](_images/deselect_and_select_new_base_preview.png)
+![Deselect and select new Base Preview](../../_images/deselect_and_select_new_base_preview.png)
 
-### Add multiple Base Previews
+## Add multiple Base Previews
 
 Want to use more than one Base Preview? Follow the instructions in
 [How to set a Base Preview](#how-to-set-a-base-preview), and check the
 checkboxes next to all of the Previews that you want to use as Base Previews.
 
-![Set multiple Base Previews](_images/set_multiple_base_previews.png)
+![Set multiple Base Previews](../../_images/set_multiple_base_previews.png)
 
 Keep in mind that when you've selected multiple Base Previews, every new Preview
 build (including automated builds from pull requests) will create a build from
 _each_ Base Preview. In my sample project, I've set two base Previews, and
 building a Preview from a new PR automatically created two Previews.
 
-![Multiple Base Previews generating multiple Preview builds](_images/multiple_base_preview_preview_builds.png)
+![Multiple Base Previews generating multiple Preview builds](../../_images/multiple_base_preview_preview_builds.png)
 
-### Stop using a Base Preview
+## Stop using a Base Preview
 
 If you want to stop using a Base Preview:
 
@@ -206,4 +267,4 @@ keep in mind:
   Refresh that former Base Preview, you'll also be kicking off a process to
   Rebuild or Refresh child Previews.
 
-![Confirm a rebuild from a former Base Preview](_images/confirm_rebuild_from_former_base.png)
+![Confirm a rebuild from a former Base Preview](../../_images/confirm_rebuild_from_former_base.png)

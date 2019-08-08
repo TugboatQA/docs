@@ -1,11 +1,11 @@
-# How do Previews work?
+# How Previews work
 
 ### The build process: explained
 
 When you kick off a Preview build, the
 [Service Commands](../../setting-up-services/index.md#service-commands) in your
-[config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) are
-executed in three phases:
+[config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
+are executed in three phases:
 
 1. `init`
 2. `update`
@@ -182,8 +182,8 @@ Preview status is indicated in a couple of different ways:
   taken on the Preview, you'll see a `failed` status in red. Details should be
   available in the Preview's activity logs. Sometimes a failed Preview can be
   recovered by resetting it. For more help with a `failed` preview, take a look
-  at our [troubleshooting](../../setting-up-services/index.md) docs, or go to our
-  [Help and Support](../../help-and-support/index.md) page to join our Slack
+  at our [troubleshooting](../../setting-up-services/index.md) docs, or go to
+  our [Help and Support](../../help-and-support/index.md) page to join our Slack
   support channel or email us.
 - **Unavailable** - When something goes wrong trying to load the Preview, you
   may see an `unavailable` status. This usually indicates an internal Tugboat
@@ -209,9 +209,9 @@ Tugboat Dashboard.
 
 When you [set up Services](../../setting-up-services/index.md) in your Preview,
 Tugboat pulls those
-[Service images](../../setting-up-services/index.md#specify-a-service-image) into
-the Preview container. Each of these Service images contributes to the total
-size of the Preview when it is fully built.
+[Service images](../../setting-up-services/index.md#specify-a-service-image)
+into the Preview container. Each of these Service images contributes to the
+total size of the Preview when it is fully built.
 
 For example, say I'm building a Preview that uses Tugboat's Service images for
 `apache`, `mysql` and `redis`; those Service images are 154MB, 226MB, and 147MB

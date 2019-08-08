@@ -76,8 +76,8 @@ Sometimes, speeding up your Preview builds might involve having a second set of
 eyes take a look at your Config file and make recommendations to help you
 optimize it. This might include something like running a command in `init`
 instead of `update`, or scripting a few commands. The team at Tugboat is happy
-to help; our [Support](../../support/index.md) page can direct you to our Tugboat
-support Slack, or an email address where you can reach us.
+to help; our [Support](../../support/index.md) page can direct you to our
+Tugboat support Slack, or an email address where you can reach us.
 
 ### Upgrade your project tier to a higher-performance tier
 

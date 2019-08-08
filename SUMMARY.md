@@ -18,44 +18,43 @@
   - [Add a Tugboat bot to your team](administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team)
   - [User permission levels explained](administering-tugboat-crew/index.md#user-permission-levels-explained)
 
-* [Building a Preview](building-a-preview/index.md)
-  - [Administer Previews](building-a-preview/administer-previews/index.md)
+* [Building a Preview](building-a-preview/index.md#building-a-preview)
+  - [Administer Previews](building-a-preview/administer-previews/index.md#administer-previews)
     - [Build Previews](building-a-preview/administer-previews/index.md#build-previews)
     - [Change or update Previews](building-a-preview/administer-previews/index.md#change-or-update-previews)
     - [Delete Previews](building-a-preview/administer-previews/index.md#delete-previews)
     - [Change Preview states](building-a-preview/administer-previews/index.md#change-preview-states)
-  - [Work with Base Previews](building-a-preview/work-with-base-previews/index.md)
+  - [Work with Base Previews](building-a-preview/work-with-base-previews/index.md#work-with-base-previews)
     - [Set a Base Preview](building-a-preview/work-with-base-previews/index.md#how-to-set-a-base-preview)
     - [Change or update Base Previews](building-a-preview/work-with-base-previews/index.md#change-or-update-base-previews)
-    - [Use multiple Base Previews](building-a-preview/work-with-base-previews/index.md#using-multiple-base-previews)
+    - [Use multiple Base Previews](building-a-preview/work-with-base-previews/index.md#use-multiple-base-previews)
     - [Stop using a Base Preview](building-a-preview/work-with-base-previews/index.md#stop-using-a-base-preview)
     - [Delete a Base Preview](building-a-preview/work-with-base-previews/index.md#delete-a-base-preview)
-  - [Share a Preview](building-a-preview/share-a-preview/index.md)
+  - [Share a Preview](building-a-preview/share-a-preview/index.md#share-a-preview)
     - [Manually share a Preview](building-a-preview/share-a-preview/index.md#manually-share-the-url-of-your-preview)
     - [Auto-post Preview links](building-a-preview/share-a-preview/index.md#configure-tugboat-to-auto-post-preview-links)
-  - [Automate Previews](building-a-preview/automate-previews/index.md)
+  - [Automate Previews](building-a-preview/automate-previews/index.md#automate-previews)
     - [Auto-generate Previews](building-a-preview/automate-previews/index.md#auto-generate-previews)
     - [Auto-delete Previews](building-a-preview/automate-previews/index.md#auto-delete-previews)
     - [Auto-update Previews](building-a-preview/automate-previews/index.md#auto-update-previews)
-  - [Inside a Preview](building-a-preview/inside-a-preview/index.md)
+  - [Inside a Preview](building-a-preview/inside-a-preview/index.md#inside-a-preview)
     - [Preview logs](building-a-preview/inside-a-preview/index.md#preview-logs)
     - [Services](building-a-preview/inside-a-preview/index.md#services)
     - [Captured mail](building-a-preview/inside-a-preview/index.md#captured-mail)
     - [Visual Diffs](building-a-preview/inside-a-preview/index.md#visual-diffs)
-  - [How Previews work](building-a-preview/how-previews-work/index.md)
+  - [How Previews work](building-a-preview/how-previews-work/index.md#how-previews-work)
     - [Preview build process](building-a-preview/how-previews-work/index.md#the-build-process-explained)
     - [How Base Previews work](building-a-preview/how-previews-work/index.md#how-base-previews-work)
     - [Preview states](building-a-preview/how-previews-work/index.md#preview-status)
     - [Preview size](building-a-preview/how-previews-work/index.md#preview-size-explained)
-  - [Optimize Preview builds](building-a-preview/optimize-preview-builds/index.md)
+  - [Optimize Preview builds](building-a-preview/optimize-preview-builds/index.md#optimize-preview-builds)
     - [Create a Base Preview that does the heavy lifting](building-a-preview/optimize-preview-builds/index.md#use-service-commands-to-create-a-base-preview-that-does-the-heavy-lifting)
     - [Automatically refresh Base Previews to update large assets](building-a-preview/optimize-preview-builds/index.md#use-the-auto-refresh-base-preview-functionality-to-update-large-assets)
     - [Optimize Preview size](building-a-preview/optimize-preview-builds/index.md#optimizing-preview-size)
     - [Contact Tugboat support for help optimizing your config file](building-a-preview/optimize-preview-builds/index.md#contact-tugboat-support-for-help-optimizing-your-config-file)
     - [Upgrade your project tier to a higher-performance tier](building-a-preview/optimize-preview-builds/index.md#upgrade-your-project-tier-to-a-higher-performance-tier)
 
-
-* [Setting up Services](setting-up-services/index.md)
+- [Setting up Services](setting-up-services/index.md)
 
   - [How to set up Services](setting-up-services/index.md#how-to-set-up-services-in-tugboat)
     - [Name your Service](setting-up-services/index.md#name-your-service)
@@ -79,14 +78,14 @@
     - [Custom Environment Variables](setting-up-services/index.md#custom-environment-variables)
   - [Services in action](setting-up-services/index.md#services-in-action)
 
-* [Tugboat's CLI](tugboat-cli/index.md)
+- [Tugboat's CLI](tugboat-cli/index.md)
 
   - [Install the CLI](tugboat-cli/index.md#install-tugboats-command-line-interface)
   - [Set an Access Token](tugboat-cli/index.md#set-an-access-token)
   - [Commands](tugboat-cli/index.md#review-commands)
   - [Running the CLI in a Preview](tugboat-cli/index.md#running-the-cli-from-a-tugboat-preview)
 
-* [Tugboat Billing](tugboat-billing/index.md)
+- [Tugboat Billing](tugboat-billing/index.md)
 
   - [Tugboat pricing](tugboat-billing/index.md#tugboat-pricing)
     - [How pricing works](tugboat-billing/index.md#how-does-tugboat-pricing-work)
@@ -100,7 +99,7 @@
     - [Change to Free](tugboat-billing/index.md#change-your-tugboat-plan-to-the-free-tier)
     - [Delete project](tugboat-billing/index.md#delete-your-project)
 
-* [Starter Configs](starter-configs/index.md)
+- [Starter Configs](starter-configs/index.md)
 
   - [Tutorials](starter-configs/index.md#tutorials)
     - [Drupal 7](starter-configs/drupal7/index.md)
@@ -120,18 +119,18 @@
     - [Warm a Page Cache](starter-configs/page-cache/index.md)
     - [Tenon.io Integration](starter-configs/tenon_io/index.md)
 
-* [Using Visual Diffs](visual-diffs/index.md)
+- [Using Visual Diffs](visual-diffs/index.md)
 
   - [Configure Visual Diffs](visual-diffs/index.md#how-to-configure-visual-diffs)
   - [View Visual Diffs](visual-diffs/index.md#how-to-view-visual-diffs)
   - [Visual Diff Calculations](visual-diffs/index.md#how-are-visual-diffs-calculated)
 
-- [Troubleshooting](troubleshooting/index.md)
+* [Troubleshooting](troubleshooting/index.md)
 
   - [Preview won't build](troubleshooting/index.md#tugboat-preview-wont-build)
   - [Preview builds incorrectly](troubleshooting/index.md#tugboat-preview-has-built-but-something-isnt-as-i-expect)
   - [Debugging Configuration files](troubleshooting/index.md#debugging-configuration-files)
 
-* [FAQ](faq/index.md)
+- [FAQ](faq/index.md)
 
-- [Help and Support](support/index.md)
+* [Help and Support](support/index.md)

@@ -53,7 +53,6 @@ To configure Tugboat to auto-generate Previews, you'll need to:
 > [re-add the provider-specific version of the repository](../../setting-up-tugboat/index.md#add-repos-to-the-project)
 > to your Tugboat project.
 
-
 ## Auto-delete Previews
 
 Each of the Previews in your Tugboat project count toward the total storage
