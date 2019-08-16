@@ -17,26 +17,26 @@ example, it may not matter which version of memcached you use, and you can be
 sure you always have the most recent version available by specifying
 `tugboatqa/memcached` or `tugboatqa/memcached:latest`
 
-| Image                             | Usage                                  |                                                                |
-| :-------------------------------- | :------------------------------------- | -------------------------------------------------------------- |
-| [Alpine](#alpine)                 | `image: tugboatqa/alpine:[TAG]`        | [Tags](https://hub.docker.com/r/tugboatqa/alpine/tags/)        |
-| Apache                            | `image: tugboatqa/httpd:[TAG]`         | [Tags](https://hub.docker.com/r/tugboatqa/httpd/tags/)         |
-| CentOS                            | `image: tugboatqa/centos:[TAG]`        | [Tags](https://hub.docker.com/r/tugboatqa/centos/tags/)        |
-| CouchDB                           | `image: tugboatqa/couchdb:[TAG]`       | [Tags](https://hub.docker.com/r/tugboatqa/couchdb/tags/)       |
-| Debian                            | `image: tugboatqa/debian:[TAG]`        | [Tags](https://hub.docker.com/r/tugboatqa/debian/tags/)        |
-| [Elastic Search](#elastic-search) | `image: tugboatqa/elasticsearch:[TAG]` | [Tags](https://hub.docker.com/r/tugboatqa/elasticsearch/tags/) |
-| [MariaDB](#mysqlmariadbpercona)   | `image: tugboatqa/mariadb:[TAG]`       | [Tags](https://hub.docker.com/r/tugboatqa/mariadb/tags/)       |
-| Memcached                         | `image: tugboatqa/memcached:[TAG]`     | [Tags](https://hub.docker.com/r/tugboatqa/memcached/tags/)     |
-| MongoDB                           | `image: tugboatqa/mongo:[TAG]`         | [Tags](https://hub.docker.com/r/tugboatqa/mongo/tags/)         |
-| [MySQL](#mysqlmariadbpercona)     | `image: tugboatqa/mysql:[TAG]`         | [Tags](https://hub.docker.com/r/tugboatqa/mysql/tags/)         |
-| Nginx                             | `image: tugboatqa/nginx:[TAG]`         | [Tags](https://hub.docker.com/r/tugboatqa/nginx/tags/)         |
-| Node                              | `image: tugboatqa/node:[TAG]`          | [Tags](https://hub.docker.com/r/tugboatqa/node/tags/)          |
-| [Percona](#mysqlmariadbpercona)   | `image: tugboatqa/percona:[TAG]`       | [Tags](https://hub.docker.com/r/tugboatqa/percona/tags/)       |
-| [PHP](#php)                       | `image: tugboatqa/php:[TAG]`           | [Tags](https://hub.docker.com/r/tugboatqa/php/tags/)           |
-| Redis                             | `image: tugboatqa/redis:[TAG]`         | [Tags](https://hub.docker.com/r/tugboatqa/redis/tags/)         |
-| Solr                              | `image: tugboatqa/solr:[TAG]`          | [Tags](https://hub.docker.com/r/tugboatqa/solr/tags/)          |
-| Ubuntu                            | `image: tugboatqa/ubuntu:[TAG]`        | [Tags](https://hub.docker.com/r/tugboatqa/ubuntu/tags/)        |
-| Varnish                           | `image: tugboatqa/varnish:[TAG]`       | [Tags](https://hub.docker.com/r/tugboatqa/varnish/tags/)       |
+| Image                             | Usage                                  |                                                                                              |
+| :-------------------------------- | :------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [Alpine](#alpine)                 | `image: tugboatqa/alpine:[TAG]`        | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/alpine/TAGS.md)        |
+| Apache                            | `image: tugboatqa/httpd:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/httpd/TAGS.md)         |
+| CentOS                            | `image: tugboatqa/centos:[TAG]`        | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/centos/TAGS.md)        |
+| CouchDB                           | `image: tugboatqa/couchdb:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/couchdb/TAGS.md)       |
+| Debian                            | `image: tugboatqa/debian:[TAG]`        | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/debian/TAGS.md)        |
+| [Elastic Search](#elastic-search) | `image: tugboatqa/elasticsearch:[TAG]` | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/elasticsearch/TAGS.md) |
+| [MariaDB](#mysqlmariadbpercona)   | `image: tugboatqa/mariadb:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/mariadb/TAGS.md)       |
+| Memcached                         | `image: tugboatqa/memcached:[TAG]`     | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/memcached/TAGS.md)     |
+| MongoDB                           | `image: tugboatqa/mongo:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/mongo/TAGS.md)         |
+| [MySQL](#mysqlmariadbpercona)     | `image: tugboatqa/mysql:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/mysql/TAGS.md)         |
+| Nginx                             | `image: tugboatqa/nginx:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/nginx/TAGS.md)         |
+| Node                              | `image: tugboatqa/node:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/node/TAGS.md)          |
+| [Percona](#mysqlmariadbpercona)   | `image: tugboatqa/percona:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/percona/TAGS.md)       |
+| [PHP](#php)                       | `image: tugboatqa/php:[TAG]`           | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/php/TAGS.md)           |
+| Redis                             | `image: tugboatqa/redis:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/redis/TAGS.md)         |
+| Solr                              | `image: tugboatqa/solr:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/solr/TAGS.md)          |
+| Ubuntu                            | `image: tugboatqa/ubuntu:[TAG]`        | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/ubuntu/TAGS.md)        |
+| Varnish                           | `image: tugboatqa/varnish:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/varnish/TAGS.md)       |
 
 ---
 
