@@ -161,7 +161,7 @@ The `init`, `update`, and `build` stages are related as follows
   are run.
 
 - When a preview is refreshed, the commands in `update` are run, followed by the
-  commands in `build`. This applies to any preview, even those created from a
+  commands in `build`. This applies to all previews, even those created from a
   base preview.
 
 ---
