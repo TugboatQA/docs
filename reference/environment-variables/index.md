@@ -32,6 +32,9 @@ run-time configuration files, etc.
 
 - **`$TUGBOAT_PREVIEW`** - The friendly name of the current preview.
 
+- **`$TUGBOAT_PREVIEW_TYPE`** - What type of preview this is. The value will be
+  one of: `branch`, `tag`, `commit`, `pullrequest`, or `mergerequest`.
+
 - **`$TUGBOAT_PROJECT_ID`** - The ID of the project that the current preview
   belongs to.
 
