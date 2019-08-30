@@ -316,33 +316,38 @@ out:
 ### Rebuild Orphaned Previews Automatically
 
 When this option is selected, Tugboat automatically
-[rebuilds Previews](../building-a-preview/index.md#rebuild) when the
-[Base Preview](../building-a-preview/index.md#set-a-base-preview) they're built
-from is rebuilt. This option is turned off by default.
+[rebuilds Previews](../building-a-preview/automate-previews/index.md#auto-update-previews)
+when the
+[Base Preview](../building-a-preview/work-with-base-previews/index.md#how-to-set-a-base-preview)
+they're built from is
+[rebuilt](../building-a-preview/work-with-base-previews/index.md#change-a-base-preview).
+This option is turned off by default.
 
 ### Rebuild Stale Previews Automatically
 
 When this option is selected, Tugboat automatically
-[rebuilds Previews](../building-a-preview/index.md#rebuild) when the
-[Base Preview](../building-a-preview/index.md#set-a-base-preview) they're built
-from is [refreshed](../building-a-preview/index.md#refresh). This option is
-turned off by default.
+[rebuilds Previews](../building-a-preview/automate-previews/index.md#auto-update-previews)
+when the
+[Base Preview](../building-a-preview/work-with-base-previews/index.md#how-to-set-a-base-preview)
+they're built from is
+[refreshed](../building-a-preview/work-with-base-previews/index.md#update-a-base-preview).
+This option is turned off by default.
 
 To unpack this a little:
 
 - When you're using a
-  [Base Preview](../building-a-preview/index.md#set-a-base-preview)
-- And the Base Preview is [refreshed](../building-a-preview/index.md#refresh)  
+  [Base Preview](../building-a-preview/work-with-base-previews/index.md#how-to-set-a-base-preview)
+- And the Base Preview is
+  [refreshed](../building-a-preview/work-with-base-previews/index.md#update-a-base-preview)  
   (You may manually Refresh a Base Preview, or have Tugboat
   [refresh Base Previews automatically](#refresh-base-previews-automatically),
   for example, every day at 12am UTC.)
 - The Base Preview kicks off the
-  [build process](../building-a-preview/index.md#the-build-process-explained)
+  [build process](../building-a-preview/how-previews-work/index.md#the-build-process-explained)
   from the `update` phase, and runs commands in both `update` and `build`
-- When the Base Preview refresh is complete, child Previews kick off a
-  [build process](../building-a-preview/index.md#the-build-process-explained)
-  from `build`, using the Base Preview as the starting point and bypassing
-  commands in `init` and `update`.
+- When the Base Preview refresh is complete, child Previews kick off a build
+  process from `build`, using the Base Preview as the starting point and
+  bypassing commands in `init` and `update`.
 
 ### Refresh Base Previews Automatically
 

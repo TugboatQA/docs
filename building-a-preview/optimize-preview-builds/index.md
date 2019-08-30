@@ -19,10 +19,11 @@ to iterate on with smaller, faster-building Previews.
 You can do this by using
 [Service Commands](../../setting-up-services/index.md#service-commands) in the
 `init` stage of the Preview build to do the resource-intensive, time-intensive
-processes - and then [set that as your Base Preview](#set-a-base-preview) so you
-don't have to complete those steps in every single build. This is the perfect
-time to install a large database that you won't have to update in subsequent
-Previews, or download and configure the host of
+processes - and then
+[set that as your Base Preview](../work-with-base-previews/index.md#how-to-set-a-base-preview)
+so you don't have to complete those steps in every single build. This is the
+perfect time to install a large database that you won't have to update in
+subsequent Previews, or download and configure the host of
 [services](../../setting-up-services/index.md#services-in-the-context-of-tugboat)
 in your Preview.
 
@@ -30,8 +31,8 @@ in your Preview.
 
 If you're updating large assets as part of the `update` stage of your Tugboat
 build, you can configure Tugboat to
-[automatically refresh your Base Preview](#keeping-base-previews-updated) while
-your crew isn't working. By default, Tugboat automatically refreshes Base
+[automatically refresh your Base Preview](../work-with-base-previews/index.md#automatically-refresh-a-base-preview)
+while your crew isn't working. By default, Tugboat automatically refreshes Base
 Previews daily at 12am UTC (8pm EDT). You can set this for a time and frequency
 that works best for your team, and then you won't have to manually update your
 Base Preview when you're about to test an important build - it will already have
@@ -46,8 +47,7 @@ use to reduce Preview size:
 - [Use dummy data](#use-dummy-data)
 
 Looking for more info about Preview size? Check out:
-
-- [Preview size explained](#preview-size-explained)
+[Preview size explained](../how-previews-work/index.md#preview-size-explained)
 
 #### Work From Base Previews
 
@@ -61,7 +61,7 @@ In practice, this means that a Base Preview might be 3GB in size, but subsequent
 Previews might be only 100MB.
 
 Ready to set up a Base Preview? Check out:
-[Set a Base Preview](#set-a-base-preview).
+[How to set a Base Preview](../work-with-base-previews/index.md#how-to-set-a-base-preview).
 
 #### Use dummy data
 

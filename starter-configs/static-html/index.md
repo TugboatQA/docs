@@ -40,9 +40,10 @@ Check out these topics:
 - [Define a default Service](../../setting-up-services/index.md#define-a-default-service)
 - [Service commands](../../setting-up-services/index.md#service-commands)
 - [Set the document root path](../../setting-up-services/index.md#set-the-document-root-path)
-- [Preview build process phases (`init`, `update`, `build`)](../../building-a-preview/index.md#the-build-process-explained)
+- [Preview build process phases (`init`, `update`, `build`)](../../building-a-preview/how-previews-work/index.md#the-build-process-explained)
 
 ## Start Building Previews!
 
 Once this Tugboat configuration file is committed to your git repository, you
-can start [building previews](../../building-a-preview/index.md)!
+can start
+[building previews](../../building-a-preview/administer-previews/index.md#build-previews)!

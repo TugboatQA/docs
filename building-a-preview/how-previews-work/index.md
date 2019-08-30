@@ -1,11 +1,20 @@
 # How Previews work
 
+- [The Preview build process: explained](#the-build-process-explained)
+- [The Build snapshot](#the-build-snapshot)
+- [How Base Previews work](#how-base-previews-work)
+- [Preview size: explained](#preview-size-explained)
+- [Preview status](#preview-status)
+
 ### The build process: explained
 
-When you kick off a Preview build, the
-[Service Commands](../../setting-up-services/index.md#service-commands) in your
+When you kick off a Preview build, Tugboat grabs the
 [config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
-are executed in three phases:
+from your linked repository. Tugboat follows the instructions to
+[set up each Service in your config file](../../setting-up-services/index.md),
+grabbing the specified Docker images and then executing the
+[Service Commands](../../setting-up-services/index.md#service-commands) in three
+phases:
 
 1. `init`
 2. `update`
@@ -24,69 +33,46 @@ actual site. This might include things like compiling Sass files, updating 3rd
 party libraries, or running database updates that the current code in the
 preview depends on.
 
-When using various [Preview Actions](#preview-actions), the build process may
-bypass phases:
+In the process of building your Preview, you'll
+[specify a default service](../../setting-up-services/index.md#define-a-default-service),
+and that's the service where your git repository is cloned. If you want to clone
+it into other services, see:
+[cloning git repositories into your Services](../../setting-up-services/index.md#cloning-git-repositories-into-your-services).
 
-- [Preview Actions that start at `init`](#preview-actions-that-start-at-init)
-- [Preview Actions that start at `update`](#preview-actions-that-start-at-update)
-- [Preview Actions that start at `build`](#preview-actions-that-start-at-build)
+By the time the build is complete, Tugboat has configured Services according to
+your config file, including pulling the Docker images you want it to use for
+each Service, and has pulled in your code to execute your Preview.
 
-> #### Hint:: Troubleshooting Tugboat not pulling changes
->
-> Have you changed the Docker image in your build, changed the database you're
-> pulling during the `update` phase, or added new resources or commands during
-> `init`? A common cause for changes not appearing in your Tugboat Preview is
-> that the Preview build isn't a brand new build from scratch. For example,
-> building a Preview after [setting a Base Preview](#set-a-base-preview) means
-> that new Previews start from the `build` phase - so if you're changing the
-> database in `update`, or changing the Docker image (which gets pulled before
-> `init`), you won't see your changes in the child Preview. Read through which
-> Preview actions start at which phase to help you troubleshoot whether you need
-> to do a different type of Preview build - i.e.
-> [building a Preview from scratch after setting a Base Preview](#building-a-preview-from-scratch-after-youve-set-a-base-preview).
+#### Why build phases matter
 
-#### Preview Actions that start at init
+When you're [changing](../administer-previews/index.md#rebuild-previews) or
+[updating](../administer-previews/index.md#refresh-previews) your Preview
+builds - or
+[building new Previews from a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview) -
+the build process may bypass some of the build phases. For example, when you
+Refresh a Preview, the build process pulls in updated code from your repo, but
+only executes Service commands from `update` and `build` - bypassing the `init`
+commands.
 
-Three types of Preview builds start from the very beginning of the process, at
-the `init` phase:
+This can get a little complicated, so we've made a handy-dandy flowchart to help
+you keep track of where various processes start in each build phase:
 
-- [Building a new Preview](#how-to-build-a-preview) from scratch (without a Base
-  Preview)
-- [Rebuilding](#rebuild) a Preview without a Base Preview
-- [Rebuilding](#rebuild) a Base Preview
+![Tugboat Build Phases](../../_images/tugboat-build-phases.png)
 
-> #### Note::Rebuilding a Preview from a Base Preview
->
-> If you're
-> [Rebuilding a Preview that was built from a Base Preview](#preview-actions-that-start-at-build),
-> the build starts at the `build` phase - not the `init` phase.
+## The Build Snapshot
 
-#### Preview Actions that start at update
+After your Tugboat Build completes, Tugboat commits the entire container, taking
+a snapshot of that container, including all of its data and Services, at that
+moment in time.
 
-Two types of Preview builds start from the `update` phase, bypassing `init`:
+When you do things like:
 
-- [Refreshing](#refresh) a Preview that has no Base Preview
-- [Refreshing](#refresh) a Base Preview
+- [Clone a Preview](../administer-previews/index.md#duplicate-a-preview)
+- [Reset a Preview](../administer-previews/index.md#reset)
 
-#### Preview Actions that start at build
-
-Two types of Preview builds start from the `build` phase, bypassing `init` and
-`update`:
-
-- Building a new Preview from a Base Preview
-- Rebuilding a Preview that was built from a Base Preview
-
-> #### Hint:: Making changes to child Previews
->
-> Because Previews that are built after setting a Base Preview bypass the `init`
-> and `update` phases, if you make changes to the child Preview that would take
-> effect during these phases (or even before `init`, such as changing a Docker
-> image) - you won't see those changes in the Preview. You'd need to either
-> [build the Preview from scratch without the Base Preview](#building-a-preview-from-scratch-after-youve-set-a-base-preview),
-> or [rebuild the Base Preview](#using-preview-actions-on-a-base-preview) to see
-> those changes. There's one exception, though; if you introduce a new Service
-> in a child Preview, that Service's `init` and `update` commands will run when
-> building the child Preview.
+Tugboat uses that build snapshot as the basis for those actions, enabling you to
+quickly duplicate a Preview build or reset a Preview build to the state it was
+in the moment the build completed.
 
 ### How Base Previews work
 
@@ -95,23 +81,20 @@ When you build a regular Preview, the
 typically instructs Tugboat to pull in databases, image files, or other assets.
 This process can take a while; the larger the assets, the longer the build.
 
-After your Preview has finished building, Tugboat automatically takes a
-point-in-time snapshot of its disk image, so it has a point of reference of
-where it can do things like let you quickly [reset](#reset) a Preview back to
-its original build state. You can leverage this snapshot to create a Base
-Preview.
-
-When you mark a Preview as a Base Preview, Tugboat can use this as a starting
-point for all subsequent newly-created Previews. None of the new Previews need
-to re-download copies of databases, image files, or other assets. Base Previews
-can dramatically reduce the amount of time required to generate a working
-Preview.
+When you mark a Preview as a Base Preview, Tugboat uses that Preview's
+[build snapshot](#the-build-snapshot) as a starting point for every new Preview
+build. None of the new Previews need to re-download copies of databases, image
+files, or other assets. Base Previews dramatically reduce the amount of time
+required to generate a working Preview.
 
 In addition to speeding up your Preview builds, Tugboat saves disk space by
 storing only a binary difference between the Base Preview and Previews built
 from that Base Preview. A new Preview only uses whatever space it needs that
 differs from the Base Preview. Often, this means a Base Preview might use 2-3GB
-of space, and a Preview built from it might only use 100-200MB.
+of space, and a Preview built from it might only use 100-200MB. This is a great
+way to keep a Tugboat Project under your
+[billing tier's storage limit](../../tugboat-billing/index.md#how-does-tugboat-pricing-work),
+even when you're building multiple Previews.
 
 > #### Hint:: Base Previews and Preview Build Stages
 >
@@ -120,10 +103,37 @@ of space, and a Preview built from it might only use 100-200MB.
 > starting point, and build only from the `build` stage. This means that if
 > you're making changes that would be processed during `init` or `update`
 > stages, or changing a Docker image, you'll need to either
-> [rebuild the Base Preview](#using-preview-actions-on-a-base-preview), or
-> [build the Preview from scratch without the Base Preview](#building-a-preview-from-scratch-after-youve-set-a-base-preview).
+> [rebuild the Base Preview](../work-with-base-previews/index.md#change-a-base-preview),
+> or
+> [build the Preview from scratch without the Base Preview](../work-with-base-previews/index.md#build-a-preview-with-no-base-preview).
 > For more info, see:
-> [the build process: explained](#the-build-process-explained).
+> [Building and Rebuilding Previews when you're using a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+
+## Preview size: explained
+
+What Tugboat calls "Preview size" is actually the size of the container in which
+the Preview lives. When a Preview is done building, Tugboat takes a snapshot of
+the container at that moment in time, and that's what you're seeing in your
+Tugboat Dashboard.
+
+When you [set up Services](../../setting-up-services/index.md) in your Preview,
+Tugboat pulls those
+[Service images](../../setting-up-services/index.md#specify-a-service-image)
+into the Preview container. Each of these Service images contributes to the
+total size of the Preview when it is fully built.
+
+For example, say I'm building a Preview that uses Tugboat's Service images for
+`apache`, `mysql` and `redis`; those Service images are 154MB, 226MB, and 147MB
+at the time of this writing. That's over 500MB for these Services; by the time
+you add a database file, the container's operating system and other assets,
+you'll likely be looking at 800MB to 1GB for a Preview that's only pulling in
+100KB of code from your linked git repo.
+
+This is why working from a [Base Preview](#how-base-previews-work) is so helpful
+in reducing Preview size; all of those assets are contained in the Base Preview.
+When you build a new Preview from the Base Preview, the new Preview only
+contains what's different in the PR, Branch or Tag you're building. In my
+example above, a new Preview built from the Base Preview was only 20KB.
 
 ## Preview status
 
@@ -131,11 +141,12 @@ Preview status is indicated in a couple of different ways:
 
 - [Color](#color)
 - [Status message](#status-message)
+- [Service states](#service-states)
 
 ### Color
 
 - **Green:** Preview has built successfully and is ready to view.
-- **Yellow:** A [Preview action](#preview-actions) is in progress.
+- **Yellow:** A Preview action is in progress.
 - **Red:** Preview build has failed, or has been stopped.
 
 ### Status message
@@ -182,12 +193,13 @@ Preview status is indicated in a couple of different ways:
   taken on the Preview, you'll see a `failed` status in red. Details should be
   available in the Preview's activity logs. Sometimes a failed Preview can be
   recovered by resetting it. For more help with a `failed` preview, take a look
-  at our [troubleshooting](../../setting-up-services/index.md) docs, or go to
-  our [Help and Support](../../help-and-support/index.md) page to join our Slack
-  support channel or email us.
+  at our [troubleshooting](../../troubleshooting/index.md) docs, or go to our
+  [Help and Support](../../support/index.md) page to join our Slack support
+  channel or email us.
 - **Unavailable** - When something goes wrong trying to load the Preview, you
   may see an `unavailable` status. This usually indicates an internal Tugboat
-  error. [Resetting](#reset) a Preview often fixes this.
+  error. [Resetting](../administer-previews/index.md#reset) a Preview often
+  fixes this.
 - **Canceled** - When you cancel a Preview while it's building, you'll see a
   `canceled` status in red.
 
@@ -199,29 +211,3 @@ A Service could be in any of the above states, as well as:
   Service.
 - **Waiting** - Tugboat is performing some operation on the Service's repo, and
   the Service is waiting for its turn.
-
-## Preview size explained
-
-What Tugboat calls "Preview size" is actually the size of the container in which
-the Preview lives. When a Preview is done building, Tugboat takes a snapshot of
-the container at that moment in time, and that's what you're seeing in your
-Tugboat Dashboard.
-
-When you [set up Services](../../setting-up-services/index.md) in your Preview,
-Tugboat pulls those
-[Service images](../../setting-up-services/index.md#specify-a-service-image)
-into the Preview container. Each of these Service images contributes to the
-total size of the Preview when it is fully built.
-
-For example, say I'm building a Preview that uses Tugboat's Service images for
-`apache`, `mysql` and `redis`; those Service images are 154MB, 226MB, and 147MB
-at the time of this writing. That's over 500MB for these Services; by the time
-you add a database file, the container's operating system and other assets,
-you'll likely be looking at 800MB to 1GB for a Preview that's only pulling in
-100KB of code from your linked git repo.
-
-This is why working from a [Base Preview](#how-base-previews-work) is so helpful
-in reducing Preview size; all of those assets are contained in the Base Preview.
-When you build a new Preview from the Base Preview, the new Preview only
-contains what's different in the PR, Branch or Tag you're building. In my
-example above, a new Preview built from the Base Preview was only 20KB.

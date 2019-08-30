@@ -1,9 +1,9 @@
 # Using Visual Diffs
 
 When a Preview is built from a
-[Base Preview](../building-a-preview/index.md#set-a-base-preview), Tugboat can
-generate Visual Diff images to highlight any changes between the Base Preview
-and the new Preview.
+[Base Preview](../building-a-preview/work-with-base-previews/index.md#how-to-set-a-base-preview),
+Tugboat can generate Visual Diff images to highlight any changes between the
+Base Preview and the new Preview.
 
 ![Visual Diff Example](_images/visualdiff.png)
 

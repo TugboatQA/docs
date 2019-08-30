@@ -230,7 +230,7 @@ use to make an image Tugboat compatible: <https://github.com/TugboatQA/images>
 > building from a Base Preview, all the new Preview needs to do is run the
 > `build` steps without importing a database or other required assets. (For more
 > info, take a look at:
-> [the build process: explained.](../building-a-preview/index.md#the-build-process-explained))
+> [the build process: explained.](../building-a-preview/how-previews-work/index.md#the-build-process-explained)
 >
 > Because of this, the concept of Docker volumes doesn’t really mesh with the
 > way Tugboat uses images.
@@ -290,21 +290,24 @@ Tugboat doesn't pull the images in your config file every time you open a pull
 request, or refresh a Preview; it only does a `docker pull` (under the hood)
 when:
 
-- You [build a Preview](../building-a-preview/index.md#how-to-build-a-preview)
-  from scratch (without using a Base Preview)
-- You [Rebuild](../building-a-preview/index.md#rebuild) a
-  [Base Preview](../building-a-preview/index.md#set-a-base-preview)
 - You
-  [manually Rebuild a Preview that was built from a Base Preview - without using the Base Preview](../building-a-preview/index.md#building-a-preview-from-scratch-after-youve-set-a-base-preview)
+  [build a Preview](../building-a-preview/administer-previews/index.md#build-previews)
+  from scratch (without using a Base Preview)
+- You
+  [Rebuild](../building-a-preview/administer-previews/index.md#rebuild-previews)
+  a Preview or a
+  [Base Preview](../building-a-preview/work-with-base-previews/index.md#change-a-base-preview)
+- You
+  [manually Rebuild a Preview that was built from a Base Preview - without using the Base Preview](../building-a-preview/work-with-base-previews/index.md#build-a-preview-with-no-base-preview)
 
 Otherwise, Tugboat relies on the images you pulled when the Preview was first
-created; [Preview Actions](../building-a-preview/index.md#preview-actions) like
-[Refreshing a Preview](../building-a-preview/index.md#refresh),
-[Cloning a Preview](../building-a-preview/index.md#clone), or
-[automatically generating a Preview from a pull request](../building-a-preview/index.md#auto-generate-previews)
-when you're using a
-[Base Preview](../building-a-preview/index.md#set-a-base-preview) - those things
-all keep the Docker images you referenced when you first built the Preview.
+created; Preview Actions like
+[Refreshing a Preview](../building-a-preview/administer-previews/index.md#refresh-previews),
+[Cloning a Preview](../building-a-preview/administer-previews/index.md#duplicate-a-preview),
+or
+[automatically generating a Preview from a pull request](../building-a-preview/automate-previews/index.md#auto-generate-previews)
+when you're using a Base Preview - those things all keep the Docker images you
+referenced when you first built the Preview.
 
 ##### When does Tugboat update a Docker image?
 
@@ -313,13 +316,14 @@ process, it won't `docker pull` an updated image unless you kick off the Preview
 build process from scratch again.
 
 For more info, see:
-[Preview Actions that start at `init`](../building-a-preview/index.md#preview-actions-that-start-at-init).
+[Why Build phases matter](../building-a-preview/how-previews-work/index.md#why-build-phases-matter).
 
 > #### Hint:: Tugboat Preview isn't pulling your latest image tag?
 >
 > If your Tugboat Preview isn't pulling your latest Docker image tag, it might
 > be because you're building from a Base Preview. If that's the case, you'll
-> need to [Rebuild your Base Preview](../building-a-preview/index.md#rebuild),
+> need to
+> [Rebuild your Base Preview](../building-a-preview/work-with-base-previews/index.md#change-a-base-preview),
 > which executes an API call to `docker pull` under the hood to grab the image
 > tag referenced in your
 > [config file](../setting-up-tugboat/index.md#create-a-tugboat-config-file).
@@ -334,8 +338,8 @@ For more info, see:
 
 Every [Config file](../setting-up-tugboat/index.md#create-a-tugboat-config-file)
 requires a default Service. The default Service is where HTTP requests are
-routed when a [Preview's URL](../building-a-preview/index.md#share-your-preview)
-is visited by a user.
+routed when a [Preview's URL](../building-a-preview/share-a-preview/index.md) is
+visited by a user.
 
 If your Config file only has one Service, that Service automatically becomes the
 default Service.
@@ -471,7 +475,7 @@ The service commands are separated into a set of stages: `init`, `update`, and
 `build`. Each stage represents an optional set of commands that Tugboat should
 run during that stage. For more info on the stages in the Preview build process,
 check out:
-[the build process: explained](../building-a-preview/index.md#the-build-process-explained).
+[the build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained).
 
 It may help to think of the stages as groups of commands with a particular
 purpose. While not enforced in any way, the stages roughly represent the
@@ -702,7 +706,7 @@ directories does not "stick" between commands. If that behavior is required, an
 external script should be called.
 
 See also: [Service Commands](#service-commands) and
-[Building a Preview -> The build process: explained](../building-a-preview/index.md#the-build-process-explained)
+[Building a Preview -> The build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained)
 
 | Stage  | Description                                                                                            |
 | :----- | :----------------------------------------------------------------------------------------------------- |
@@ -716,8 +720,9 @@ The `init`, `update`, and `build` stages are related as follows:
 - When a Preview is created, the commands in `init` are run, followed by the
   commands in `update`, and finally the commands in `build`.
 
-- When a Preview is [refreshed](../building-a-preview/index.md#refresh), the
-  commands in `update` are run, followed by the commands in `build`.
+- When a Preview is
+  [refreshed](../building-a-preview/administer-previews/index.md#refresh-previews),
+  the commands in `update` are run, followed by the commands in `build`.
 
 - When a Preview is created from a Base Preview, only the commands in `build`
   are run.
@@ -852,9 +857,11 @@ Service. When `false`, URLs are passed through as-is.
 
 A set of visual diffs that should be generated for the Service. These visual
 diffs are generated automatically when a Preview is created with a
-[base preview](../building-a-preview/index.md#set-a-base-preview). They are then
-updated when the Preview is [refreshed](../building-a-preview/index.md#refresh)
-or [rebuilt](../building-a-preview/index.md#rebuild).
+[base preview](../building-a-preview/work-with-base-previews/index.md#how-to-set-a-base-preview).
+They are then updated when the Preview is
+[refreshed](../building-a-preview/administer-previews/index.md#refresh-previews)
+or
+[rebuilt](../building-a-preview/administer-previews/index.md#rebuild-previews).
 
 The visual diffs are specified by providing a list of _relative URLs_ to the
 Service. Each item in this list can be either a string, such as `/blog`, or a

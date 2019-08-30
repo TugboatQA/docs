@@ -76,14 +76,14 @@ figuring out what's causing the Preview build to hang.
 
 If your builds are taking longer than expected, but there isn't an issue in your
 config file causing problems, take a look at
-[Optimize your Preview builds](../building-a-preview/index.md#optimize-your-preview-builds)
+[Optimize your Preview builds](../building-a-preview/optimize-preview-builds/index.md)
 for a few things you might try:
 
-- [Use Service Commands to create a Base Preview that does the heavy lifting](../building-a-preview/index.md#use-service-commands-to-create-a-base-preview-that-does-the-heavy-lifting)
-- [Use the Auto Refresh Base Preview functionality to update large assets](../building-a-preview/index.md#use-the-auto-refresh-base-preview-functionality-to-update-large-assets)
-- [Optimize Preview size](../building-a-preview/index.md#optimizing-preview-size)
-- [Contact Tugboat support for help optimizing your Config file](../building-a-preview/index.md#contact-tugboat-support-for-help-optimizing-your-config-file)
-- [Upgrade your project tier to a higher-performance tier](../building-a-preview/index.md#upgrade-your-project-tier-to-a-higher-performance-tier)
+- [Use Service Commands to create a Base Preview that does the heavy lifting](../building-a-preview/optimize-preview-builds/index.md#use-service-commands-to-create-a-base-preview-that-does-the-heavy-lifting)
+- [Use the Auto Refresh Base Preview functionality to update large assets](../building-a-preview/optimize-preview-builds/index.md#use-the-auto-refresh-base-preview-functionality-to-update-large-assets)
+- [Optimize Preview size](../building-a-preview/optimize-preview-builds/index.md#optimizing-preview-size)
+- [Contact Tugboat support for help optimizing your Config file](../building-a-preview/optimize-preview-builds/index.md#contact-tugboat-support-for-help-optimizing-your-config-file)
+- [Upgrade your project tier to a higher-performance tier](../building-a-preview/optimize-preview-builds/index.md#upgrade-your-project-tier-to-a-higher-performance-tier)
 
 #### Rebuilding
 
@@ -110,18 +110,18 @@ and figuring out what's causing the Preview rebuild to hang.
 > you start looking for problems in the config file - during `init` or skipping
 > straight to `build` commands. _BEN IS THIS RELEVANT OR TRUE?_ For more info,
 > see:
-> [The build process: explained](../building-a-preview/index.md#the-build-process-explained).
+> [The build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained).
 
 If your rebuilds are taking longer than expected, but there isn't an issue in
 your config file causing problems, take a look at
-[Optimize your Preview builds](../building-a-preview/index.md#optimize-your-preview-builds)
+[Optimize your Preview builds](../building-a-preview/optimize-preview-builds/index.md)
 for a few things you might try:
 
-- [Use Service Commands to create a Base Preview that does the heavy lifting](../building-a-preview/index.md#use-service-commands-to-create-a-base-preview-that-does-the-heavy-lifting)
-- [Use the Auto Refresh Base Preview functionality to update large assets](../building-a-preview/index.md#use-the-auto-refresh-base-preview-functionality-to-update-large-assets)
-- [Optimizing Preview size](../building-a-preview/index.md#optimizing-preview-size)
-- [Contact Tugboat support for help optimizing your Config file](../building-a-preview/index.md#contact-tugboat-support-for-help-optimizing-your-config-file)
-- [Upgrade your project tier to a higher-performance tier](../building-a-preview/index.md#upgrade-your-project-tier-to-a-higher-performance-tier)
+- [Use Service Commands to create a Base Preview that does the heavy lifting](../building-a-preview/optimize-preview-builds/index.md#use-service-commands-to-create-a-base-preview-that-does-the-heavy-lifting)
+- [Use the Auto Refresh Base Preview functionality to update large assets](../building-a-preview/optimize-preview-builds/index.md#use-the-auto-refresh-base-preview-functionality-to-update-large-assets)
+- [Optimizing Preview size](../building-a-preview/optimize-preview-builds/index.md#optimizing-preview-size)
+- [Contact Tugboat support for help optimizing your Config file](../building-a-preview/optimize-preview-builds/index.md#contact-tugboat-support-for-help-optimizing-your-config-file)
+- [Upgrade your project tier to a higher-performance tier](../building-a-preview/optimize-preview-builds/index.md#upgrade-your-project-tier-to-a-higher-performance-tier)
 
 #### Refreshing
 
@@ -239,9 +239,8 @@ update as necessary.
 
 #### Rebuild the Preview from scratch
 
-The more common issue is performing a
-[Preview Action](../building-a-preview/index.md#preview-actions) that doesn't
-actually call the Docker image specified in your config file.
+The more common issue is performing a Preview Action that doesn't actually call
+the Docker image specified in your config file.
 
 If you're building a Preview from a PR, and you've got a Base Preview set in
 your Tugboat project, the Preview from your PR only executes commands in the
@@ -254,11 +253,11 @@ Basically, this means building a Preview from a PR when you're using a Base
 Preview will never pull a new Docker image.
 
 The practical fix for this issue is to
-[build the Preview from scratch, without using the Base Preview](../building-a-preview/index.md#building-a-preview-from-scratch-after-youve-set-a-base-preview).
+[build the Preview from scratch, without using the Base Preview](../building-a-preview/work-with-base-previews/index.md#build-a-preview-with-no-base-preview).
 If you want to change the Docker image in your Base Preview, so all new Previews
 will build from the new image, you'll need to
-[Rebuild](../building-a-preview/index.md#rebuild) the
-[Base Preview](../building-a-preview/index.md#set-a-base-preview).
+[Rebuild](../building-a-preview/work-with-base-previews/index.md#change-a-base-preview)
+the Base Preview.
 
 > #### Hint:: Automatically updating the Base Preview
 >
@@ -267,9 +266,12 @@ will build from the new image, you'll need to
 > to
 > [Refresh Base Previews Automatically](../setting-up-tugboat/index.md#refresh-base-previews-automatically),
 > this does _not_ update the Docker images used in your Preview. This only kicks
-> off a [Refresh](../building-a-preview/index.md#refresh), which runs config
-> file commands from both `update` and `build`. You need to manually Rebuild a
-> Base Preview to pull a new Docker image.
+> off a
+> [Refresh](../building-a-preview/work-with-base-previews/index.md#automatically-refresh-a-base-preview),
+> which runs config file commands from both `update` and `build`. You need to
+> manually
+> [Rebuild a Base Preview](../building-a-preview/work-with-base-previews/index.md#change-a-base-preview)
+> to pull a new Docker image.
 
 ### Something in my Preview isn't right
 
@@ -347,7 +349,8 @@ doesn't match a _relative URL_ in your site, you may see visual diff panes
 generate, but with "Not Found" message inside the images. If this happens,
 [edit your config file](../setting-up-tugboat/index.md#create-a-tugboat-config-file)
 to specify the _relative URLs_ of the pages you want to diff, and then
-[Rebuild](../building-a-preview/index.md#rebuild) the Preview.
+[Rebuild](../building-a-preview/administer-previews/index.md#rebuild-previews)
+the Preview.
 
 ![URL Not Found in Visual Diff](_images/visual-diff-url-not-found.png)
 
@@ -384,8 +387,8 @@ started and debugging your initial config file:
 
 1. Create a branch within your git repository for adding Tugboat, and put your
    [config file there](../setting-up-tugboat/index.md#create-a-tugboat-config-file).
-2. [Build a Preview](../building-a-preview/index.md#how-to-build-a-preview) from
-   that branch.
+2. [Build a Preview](../building-a-preview/administer-previews/index.md#build-previews)
+   from that branch.
 3. If you get an error while building the Preview, take a
    [look at the Preview log](#how-to-check-the-preview-logs).
 4. Click **Full Log** to make sure you're viewing the entire log.
@@ -422,7 +425,7 @@ to do to make sure Tugboat is getting the changes as expected:
    [config file there](../setting-up-tugboat/index.md#create-a-tugboat-config-file).
 2. Push the branch with your config file changes.
 3. Go into Tugboat, and manually
-   [build your Preview without a Base Preview](../building-a-preview/index.md#building-a-preview-from-scratch-after-youve-set-a-base-preview).
+   [build your Preview without a Base Preview](../building-a-preview/work-with-base-previews/index.md#build-a-preview-with-no-base-preview).
 
 > #### Hint:: Building a Preview from a PR may not process changes in your config
 >
@@ -432,7 +435,7 @@ to do to make sure Tugboat is getting the changes as expected:
 > `update` commands won't be applied when automatically building a Preview from
 > a PR. You'll need to manually rebuild a Preview from scratch if you're using a
 > Base Preview in order to apply config file changes. For more info, see:
-> [The build process: explained](../building-a-preview/index.md#the-build-process-explained).
+> [The build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained).
 
 From here, if your Preview build is failing, the process is the same as above:
 
@@ -504,14 +507,14 @@ Service.
 
 If you think you know where the problem is in your config file, you can always
 make the changes, make a PR or push a branch to your git repo, and try again to
-[build the Preview](../building-a-preview/index.md#how-to-build-a-preview).
+[build the Preview](../building-a-preview/administer-previews/index.md#build-previews).
 
 The same caveats apply as in
 [Debugging changes to your Tugboat config file](#debugging-changes-to-your-tugboat-config-file)
 above; if you're making changes when a Tugboat project has a Base Preview,
 you'll need to manually rebuild a Preview from scratch if you're using a Base
 Preview in order to apply config file changes. For more info, see:
-[The build process: explained](../building-a-preview/index.md#the-build-process-explained).
+[The build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained).
 
 ## How to check the Preview logs
 

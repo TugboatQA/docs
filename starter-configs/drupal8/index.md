@@ -157,10 +157,11 @@ Check out these topics:
 - [Service commands](../../setting-up-services/index.md#service-commands)
 - [Set the document root path](../../setting-up-services/index.md#set-the-document-root-path)
 - [Set up remote SSH access](../../setting-up-tugboat/index.md#set-up-remote-ssh-access)
-- [Preview build process phases (`init`, `update`, `build`)](../../building-a-preview/index.md#the-build-process-explained)
-- [How Base Previews work](../../building-a-preview/index.md#how-base-previews-work)
+- [Preview build process phases (`init`, `update`, `build`)](../../building-a-preview/how-previews-work/index.md#the-build-process-explained)
+- [How Base Previews work](../../building-a-preview/how-previews-work/index.md#how-base-previews-work)
 
 ## Start Building Previews!
 
 Once the Tugboat configuration file is committed to your git repository, you can
-start [building previews](../../building-a-preview/index.md)!
+start
+[building previews](../../building-a-preview/administer-previews/index.md#build-previews)!

@@ -27,7 +27,7 @@ When you
 [Create a New Project](../setting-up-tugboat/index.md#create-a-new-project) in
 Tugboat, you'll select a plan based on your
 [Preview storage](#calculating-project-storage-for-tugboat-billing) and
-[build performance](../building-a-preview/index.md#optimize-your-preview-builds)
+[build performance](../building-a-preview/optimize-preview-builds/index.md)
 needs. You can then
 [link as many external repositories](../setting-up-tugboat/index.md#add-repos-to-the-project)
 as you'd like to that project, and
@@ -43,11 +43,11 @@ without affecting your other Tugboat projects.
 
 [Project storage](#how-to-view-project-storage) is calculated by adding the size
 of all of the Previews contained in a Tugboat project. This includes any
-[Base Previews](../building-a-preview/index.md#set-a-base-preview), as well as
-additional Previews that have been built from the Base Previews. Tugboat
-calculates Preview sizes across all repositories contained in a project when
-determining project storage, which may be larger than what you see when you're
-viewing an individual repository within Tugboat.
+[Base Previews](../building-a-preview/work-with-base-previews/index.md#how-to-set-a-base-preview),
+as well as additional Previews that have been built from the Base Previews.
+Tugboat calculates Preview sizes across all repositories contained in a project
+when determining project storage, which may be larger than what you see when
+you're viewing an individual repository within Tugboat.
 
 ![Storage in Repository Stats vs. Project Stats](_images/repo-stats-vs-project-stats.png)
 
@@ -60,7 +60,7 @@ viewing an individual repository within Tugboat.
 > not only the code from your linked git repo.
 >
 > If you want to reduce your Preview size, take a look at our tips in:
-> [optimize your Preview builds](../building-a-preview/index.md#optimize-your-preview-builds).
+> [optimize your Preview builds](../building-a-preview/optimize-preview-builds/index.md).
 
 ##### How to view project storage
 
