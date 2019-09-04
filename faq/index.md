@@ -18,7 +18,7 @@
 ## Does Tugboat work with...?
 
 Tugboat supports pretty much anything that runs on Linux. Look through our
-[prebuilt service images](../setting-up-services/index.md#prebuilt-service-images)
+[prebuilt service images](../setting-up-services/services-reference/index.md#tugboats-prebuilt-service-images)
 to see what we currently have available. If something that you need is missing,
 let us know, and we will work with you to get it added to the list.
 
@@ -30,7 +30,7 @@ let us know, and we will work with you to get it added to the list.
 - **Self-hosted git repositories?** Yes! See:
   [Setting up Tugboat -> Generic git server](../setting-up-tugboat/index.md#generic-git-server)
 - **My own images?** Yes! See:
-  [Setting up Services -> Specify a Service image](../setting-up-services/index.md#specify-a-service-image)
+  [Setting up Services -> Specify a Service image](../setting-up-services/how-to-set-up-services/index.md#specify-a-service-image)
 - **My existing database?** Yes! Take a look at
   [Starter Configs -> Import a MySQL Database](../starter-configs/import-mysql-database/index.md)
   for an example.

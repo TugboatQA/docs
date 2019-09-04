@@ -198,7 +198,8 @@ and make sure "Build Pull Requests Automatically" is enabled.
 ### A Preview says it is "ready", but shows a blank page
 
 When a Preview says it is "ready", that means that it successfully ran the
-[commands](../setting-up-services/index.md#service-commands) in your
+[commands](../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional)
+in your
 [configuration file](../setting-up-tugboat/index.md#create-a-tugboat-config-file),
 and none of those commands returned an error. It does not necessarily mean that
 those commands did what you expected them to do. For example, your configuration
@@ -229,7 +230,7 @@ in play here:
 
 Maybe you thought you had left a version tag off, so you'd be getting the latest
 Docker image, but you had actually called a
-[specific version of the image](../setting-up-services/index.md#specify-a-service-image)
+[specific version of the image](../setting-up-services/service-images/index.md#docker-image-version-tags-primer)
 in the config file. (Or vice versa! Maybe your config file calls `latest` or
 doesn't specify a version, but you actually need a specific image version.)
 First thing's first; double-check whether you're calling a specific version of
@@ -245,10 +246,12 @@ the Docker image specified in your config file.
 If you're building a Preview from a PR, and you've got a Base Preview set in
 your Tugboat project, the Preview from your PR only executes commands in the
 `build` portion of the config file. Your Docker image is pulled before `init`.
+
 For more info, see:
-[When does Tugboat pull a Docker image](../setting-up-services/index.md#when-does-tugboat-pull-a-docker-image),
+[When does Tugboat pull a Docker image](../setting-up-services/service-images/index.md#when-does-tugboat-pull-a-docker-image),
 and
-[When does Tugboat update a Docker image?](../setting-up-services/index.md#when-does-tugboat-update-a-docker-image)
+[When does Tugboat update a Docker image?](../setting-up-services/service-images/index.md#when-does-tugboat-update-a-docker-image)
+
 Basically, this means building a Preview from a PR when you're using a Base
 Preview will never pull a new Docker image.
 
@@ -538,7 +541,7 @@ individual Services you're running on a Preview. Alternately, you could use the
 
 If you're getting "PHP out of memory errors", you can manually set the memory
 limit higher. If you're using one of the
-[tugboatqa php images](../setting-up-services/index.md#tugboats-prebuilt-docker-images),
+[tugboatqa php images](../setting-up-services/services-reference/index.md#tugboats-prebuilt-service-images),
 use something like this in your build script:
 
 `echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/my-php.ini`
@@ -556,10 +559,11 @@ _BEN CAN WE INSERT AN EXAMPLE FOR THIS?_
 
 #### cd isn't working
 
-Each [command](../setting-up-services/index.md#service-commands) is run in its
-own context, meaning things like `cd` do not "stick" between commands. If that
-behavior is required, include an external script in the git repository and call
-it from the config file.
+Each
+[command](../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional)
+is run in its own context, meaning things like `cd` do not "stick" between
+commands. If that behavior is required, include an external script in the git
+repository and call it from the config file.
 
 _BEN CAN WE INSERT AN EXAMPLE OF THIS?_
 
@@ -619,4 +623,4 @@ and it will be stuck in the "building" state until it eventually times out and
 fails.
 
 For instructions on how to run a background within a Tugboat Preview, see:
-[Setting up Services -> Running a Background Process](../setting-up-services/index.md#running-a-background-process).
+[Setting up Services -> Running a Background Process](../setting-up-services/how-to-set-up-services/index.md#running-a-background-process-optional).

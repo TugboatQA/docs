@@ -27,6 +27,8 @@ three cases, it is a stand-alone binary.
 2. Copy it to a location that the operating system can find in its execution
    path.
 
+**Operating Systems**
+
 - [Windows](#windows)
 - [MacOS](#macos)
 - [Linux](#linux)
@@ -191,8 +193,8 @@ tugboat delete 5b02ed093558930001c04cfa -f
 #### Start a shell on the default Service of a Preview
 
 To start a shell on the
-[default Service](../setting-up-services/index.md#define-a-default-service) of a
-Preview with an ID of `5b04c7d14c3dad00016a2e80`:
+[default Service](../setting-up-services/how-to-set-up-services/index.md#define-a-default-service)
+of a Preview with an ID of `5b04c7d14c3dad00016a2e80`:
 
 ```sh
 tugboat shell 5b04c7d14c3dad00016a2e80

@@ -1,63 +1,19 @@
-# Drupal 7
+# Tugboat configuration file Services example
 
-Wondering how to configure Tugboat for a typical Drupal 7 repository? Every
-Drupal site tends to have slightly different requirements, so you may need to do
-more customizing, but this should get you started.
-
-## Configure Drupal
-
-A common practice for managing Drupal's `settings.php` is to remove sensitive
-information, such as database credentials, before committing it to git. Then,
-the sensitive information is loaded from a `settings.local.php` file that exists
-only on the Drupal installation location.
-
-This pattern works very well with Tugboat. It lets you keep a Tugboat-specific
-set of configurations in your repository where it can be copied in during the
-[Preview build process](../../building-a-preview/how-previews-work/index.md#the-build-process-explained).
-
-Add the following to the end of `settings.php`:
-
-```php
-if (file_exists(DRUPAL_ROOT . '/' . conf_path() . '/settings.local.php')) {
-  include DRUPAL_ROOT . '/' . conf_path() . '/settings.local.php';
-}
-```
-
-Add a file to the git repository at `.tugboat/settings.local.php` with the
-following content:
-
-```php
-<?php
-$databases = array (
-  'default' =>
-  array (
-    'default' =>
-    array (
-      'database' => 'tugboat',
-      'username' => 'tugboat',
-      'password' => 'tugboat',
-      'host' => 'mysql',
-      'port' => '',
-      'driver' => 'mysql',
-      'prefix' => '',
-    ),
-  ),
-);
-```
-
-## Configure Tugboat
-
-The Tugboat configuration is managed by a
-[YAML file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) at
-`.tugboat/config.yml` in the git repository. Here's a basic Drupal 7
-configuration you can use as a starting point, with comments to explain what's
-going on:
+Now that we've gone through all the components you'll need to set up Services
+for your Tugboat, let's take a look at an example
+[config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) so
+you can see Services in action. This config file is for a
+[Drupal 8](../../starter-configs/drupal8/index.md) site, but you can check out
+our [starter configuration files](../../starter-configs/index.md) to see if
+we've got a code example to kick-start your setup.
 
 ```yaml
 services:
+  # What to call the service hosting the site.
   php:
-    # Use PHP 7.1 with Apache to serve the Drupal site
-    image: tugboatqa/php:7.1-apache
+    # Use PHP 7.x with Apache to serve a Drupal 8 site
+    image: tugboatqa/php:7-apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container
@@ -76,13 +32,14 @@ services:
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
 
-        # Install drush 8.1.17
-        - composer --no-ansi global require drush/drush:8.1.17
-        - ln -sf ~/.composer/vendor/bin/drush /usr/local/bin/drush
+        # Install drush-launcher
+        - wget -O /usr/local/bin/drush
+          https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
+        - chmod +x /usr/local/bin/drush
 
-        # Link the document root to the expected path. This example links
-        # /docroot to the docroot
-        - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
+        # Link the document root to the expected path. This example links /web
+        # to the docroot
+        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
@@ -92,6 +49,13 @@ services:
         # Use the tugboat-specific Drupal settings
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php"
           "${DOCROOT}/sites/default/"
+
+        # Generate a unique hash_salt to secure the site
+        - echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >>
+          "${DOCROOT}/sites/default/settings.local.php"
+
+        # Install/update packages managed by composer, including drush
+        - composer install --no-ansi
 
         # Copy the files directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
@@ -119,7 +83,7 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
-        - drush -r "${DOCROOT}" cache-clear all
+        - drush -r "${DOCROOT}" cache-rebuild
         - drush -r "${DOCROOT}" updb -y
 
   # What to call the service hosting MySQL. This name also acts as the
@@ -142,21 +106,3 @@ services:
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz
 ```
-
-Want to know more about something mentioned in the comments of this config file?
-Check out these topics:
-
-- [Name your Service](../../setting-up-services/how-to-set-up-services/index.md#name-your-service)
-- [Specify a Service image](../../setting-up-services/how-to-set-up-services/index.md#specify-a-service-image)
-- [Leverage Service commands](../../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional)
-- [Define a default Service](../../setting-up-services/how-to-set-up-services/index.md#define-a-default-service)
-- [Set the document root path](../../setting-up-services/how-to-set-up-services/index.md#set-the-document-root-path)
-- [Set up remote SSH access](../../setting-up-tugboat/index.md#set-up-remote-ssh-access)
-- [Preview build process phases (`init`, `update`, `build`)](../../building-a-preview/how-previews-work/index.md#the-build-process-explained)
-- [How Base Previews work](../../building-a-preview/how-previews-work/index.md#how-base-previews-work)
-
-## Start Building Previews!
-
-Once the Tugboat configuration file is committed to your git repository, you can
-start
-[building previews](../../building-a-preview/administer-previews/index.md#build-previews)!

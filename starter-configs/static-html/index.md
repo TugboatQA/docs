@@ -35,11 +35,11 @@ services:
 Want to know more about something mentioned in the comments of this config file?
 Check out these topics:
 
-- [Name your Service](../../setting-up-services/index.md#name-your-service)
-- [Specify a Service image](../../setting-up-services/index.md#specify-a-service-image)
-- [Define a default Service](../../setting-up-services/index.md#define-a-default-service)
-- [Service commands](../../setting-up-services/index.md#service-commands)
-- [Set the document root path](../../setting-up-services/index.md#set-the-document-root-path)
+- [Name your Service](../../setting-up-services/how-to-set-up-services/index.md#name-your-service)
+- [Specify a Service image](../../setting-up-services/how-to-set-up-services/index.md#specify-a-service-image)
+- [Leverage Service commands](../../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional)
+- [Define a default Service](../../setting-up-services/how-to-set-up-services/index.md#define-a-default-service)
+- [Set the document root path](../../setting-up-services/how-to-set-up-services/index.md#set-the-document-root-path)
 - [Preview build process phases (`init`, `update`, `build`)](../../building-a-preview/how-previews-work/index.md#the-build-process-explained)
 
 ## Start Building Previews!

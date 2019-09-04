@@ -14,7 +14,7 @@ running in that Preview, as well as information about each of these services.
 From here, you can:
 
 - Determine which Service is the
-  [Default Service](../../setting-up-services/index.md#define-a-default-service)
+  [Default Service](../../setting-up-services/how-to-set-up-services/index.md#define-a-default-service)
 - View build logs and output logs for your Services
 - Start a Terminal in the Service
 

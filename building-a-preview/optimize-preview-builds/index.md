@@ -17,15 +17,15 @@ time-consuming Preview you only have to build once, and then use that as a base
 to iterate on with smaller, faster-building Previews.
 
 You can do this by using
-[Service Commands](../../setting-up-services/index.md#service-commands) in the
-`init` stage of the Preview build to do the resource-intensive, time-intensive
-processes - and then
+[Service Commands](../../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional)
+in the `init` stage of the Preview build to do the resource-intensive,
+time-intensive processes - and then
 [set that as your Base Preview](../work-with-base-previews/index.md#how-to-set-a-base-preview)
 so you don't have to complete those steps in every single build. This is the
 perfect time to install a large database that you won't have to update in
 subsequent Previews, or download and configure the host of
-[services](../../setting-up-services/index.md#services-in-the-context-of-tugboat)
-in your Preview.
+[services](../../setting-up-services/index.md#what-are-tugboat-services) in your
+Preview.
 
 ### Use the Auto Refresh Base Preview functionality to update large assets
 

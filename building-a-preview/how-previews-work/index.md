@@ -11,10 +11,10 @@
 When you kick off a Preview build, Tugboat grabs the
 [config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
 from your linked repository. Tugboat follows the instructions to
-[set up each Service in your config file](../../setting-up-services/index.md),
+[set up each Service in your config file](../../setting-up-services/how-to-set-up-services/index.md),
 grabbing the specified Docker images and then executing the
-[Service Commands](../../setting-up-services/index.md#service-commands) in three
-phases:
+[Service Commands](../../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional)
+in three phases:
 
 1. `init`
 2. `update`
@@ -34,10 +34,10 @@ party libraries, or running database updates that the current code in the
 preview depends on.
 
 In the process of building your Preview, you'll
-[specify a default service](../../setting-up-services/index.md#define-a-default-service),
+[specify a default service](../../setting-up-services/how-to-set-up-services/index.md#define-a-default-service),
 and that's the service where your git repository is cloned. If you want to clone
 it into other services, see:
-[cloning git repositories into your Services](../../setting-up-services/index.md#cloning-git-repositories-into-your-services).
+[cloning git repositories into your Services](../../setting-up-services/how-to-set-up-services/index.md#clone-git-repositories-into-your-services).
 
 By the time the build is complete, Tugboat has configured Services according to
 your config file, including pulling the Docker images you want it to use for
@@ -77,7 +77,7 @@ in the moment the build completed.
 ### How Base Previews work
 
 When you build a regular Preview, the
-[configuration file](../../setting-up-services/index.md#create-a-tugboat-config-file)
+[configuration file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
 typically instructs Tugboat to pull in databases, image files, or other assets.
 This process can take a while; the larger the assets, the longer the build.
 
@@ -118,7 +118,7 @@ Tugboat Dashboard.
 
 When you [set up Services](../../setting-up-services/index.md) in your Preview,
 Tugboat pulls those
-[Service images](../../setting-up-services/index.md#specify-a-service-image)
+[Service images](../../setting-up-services/how-to-set-up-services/index.md#specify-a-service-image)
 into the Preview container. Each of these Service images contributes to the
 total size of the Preview when it is fully built.
 
@@ -176,7 +176,7 @@ Preview status is indicated in a couple of different ways:
   status in yellow. This indicates a Preview that is pulling in the latest code
   from git, and then running any commands in the `update` section, followed by
   the `build` section of the
-  [Configuration file](../../setting-up-services/index.md#create-a-tugboat-config-file).
+  [Configuration file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file).
 - **Resuming:** When you've used the Action -> Start option, you'll see a
   `resuming` status in yellow while the Preview starts spinning up
   [services](../../setting-up-services/index.md) again.
