@@ -312,7 +312,7 @@ next to the repo you want to add.
 Alternately, if you're using a generic git server, select Git as the provider,
 and enter your repo name and Git URL.
 
-![Specify generic git server](../_images/add-repos-to-project-select-generic-git-provider.png)
+![Specify generic git server](../_images/add-repos-to-project-generic-git-provider.png)
 
 If you want to add repos to a project you've already created:
 
