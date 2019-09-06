@@ -80,29 +80,31 @@ To set an Access Token:
 
 Now you're all set to use the Tugboat Command Line Interface!
 
+#### Visual Walkthrough
+
 In Tugboat's web interface, go to User Name -> Access Tokens, or
 [click this link](https://dashboard2.tugboat.qa/access-tokens).
 
-![Go to Access Tokens page](_images/go-to-access-tokens.png)
+![Go to Access Tokens page](../_images/go-to-user-access-tokens.png)
 
 Click the **+ Generate New Token** option.
 
-![Click Generate new token](_images/generate-new-token.png)
+![Click Generate new token](../_images/generate-new-token.png)
 
 You'll be asked to give the Access Token a description; for example, "Command
 Line Tool"; enter a description and press the **Generate** button.
 
-![Enter token description and press Generate](_images/enter-token-description.png)
+![Enter token description and press Generate](../_images/enter-token-description-and-generate.png)
 
 Make sure you save your Access Token somewhere safe, as you won't be able to see
 it again!
 
-![Copy your new Access Token](_images/copy-new-access-token.png)
+![Copy your new Access Token](../_images/copy-new-access-token.png)
 
 When you run the CLI, and attempt to access a resource, you'll be asked for an
 Access Token; paste it in and hit `Y` to have the CLI remember it.
 
-![Enter the Access Token in the CLI](_images/enter-access-token-in-cli.png)
+![Enter the Access Token in the CLI](../_images/enter-access-token-in-cli.png)
 
 ## Review commands
 
@@ -209,28 +211,30 @@ To start a shell on Service that isn't the default:
 2. Find the Service where you want to start a shell.
 3. Start the shell using the ID of the specific Service.
 
+#### Visual Walkthrough
+
 [View the Services of a Preview](#view-the-services-of-a-preview) via its ID; in
-this case, `5d122e44a426676291ae5730`:
+this case, `5d1a5305216a15d4bf5dcbbb`:
 
 ```sh
-tugboat ls services preview=5d122e44a426676291ae5730
+tugboat ls services preview=5d1a5305216a15d4bf5dcbbb
 ```
 
 Find the Service ID for the Service where you want to start the shell; in this
 case, I want the Service ID for the Service I've named `apache`:
 
-![Find the Service ID](_images/find-service-id.png)
+![Find the Service ID](../_images/tugboat-cli-find-service-id.png)
 
 Start the shell using the ID of the specific Service; in this example,
-`5d122e46a42667d473ae5733`:
+`5d1a5307216a158a155dcbc3`:
 
 ```sh
-tugboat shell 5d122e46a42667d473ae5733
+tugboat shell 5d1a5307216a158a155dcbc3
 ```
 
 Now you've got shell access in that Service:
 
-![Shell access in the Service](_images/shell-access-in-service.png)
+![Shell access in the Service](../_images/tugboat-cli-shell-access-in-service.png)
 
 ## Running the CLI from a Tugboat Preview
 
