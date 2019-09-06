@@ -49,7 +49,7 @@ Tugboat calculates Preview sizes across all repositories contained in a project
 when determining project storage, which may be larger than what you see when
 you're viewing an individual repository within Tugboat.
 
-![Storage in Repository Stats vs. Project Stats](_images/repo-stats-vs-project-stats.png)
+![Storage in Repository Stats vs. Project Stats](../_images/billing-repo-stats-vs-project-stats.png)
 
 > #### Info:: Why is my Preview size "X"?
 >
@@ -72,7 +72,20 @@ and looking at the Project Stats section:
 2. Select the project where you want to view disk space used.
 3. Scroll down to **Project Stats**.
 
-![Project Stats -> Project Storage](_images/project-stats-project-storage.png)
+#### Visual Walkthrough
+
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+upper-right of the Tugboat dashboard.
+
+![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+
+Select the project where you want to view disk space used.
+
+![Select the project](../_images/select-a-project.png)
+
+Scroll down to **Project Stats**.
+
+![Project Stats -> Project Storage](../_images/billing-project-stats-project-storage.png)
 
 ### To view Tugboat pricing for your project:
 
@@ -90,8 +103,6 @@ From here, you'll see the pricing tiers available for your plan. You can
 [Delete the Project](#delete-your-project) if you're finished using Tugboat for
 that project.
 
-![Change Tugboat plan or Delete the Project](_images/change-plan-or-delete-project.png)
-
 If you don't have a Tugboat project, you can view current Tugboat pricing here:
 [Pricing](https://tugboat.qa/pricing/).
 
@@ -99,6 +110,25 @@ If you don't have a Tugboat project, you can view current Tugboat pricing here:
 >
 > If you're looking for a self-hosted Tugboat, or an enterprise version of the
 > app, see: [Tugboat for Enterprise](#tugboat-for-enterprise).
+
+#### Visual Walkthrough
+
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+upper-right of the Tugboat dashboard.
+
+![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+
+Select the project where you want to view and administer billing.
+
+![Select the project](../_images/select-a-project.png)
+
+Go to **Project Settings**.
+
+![Go to Project Settings](../_images/click-project-settings-link.png)
+
+Scroll down to **Your Plan**.
+
+![Scroll down to Your Plan](../_images/billing-view-tugboat-plan.png)
 
 ### Tugboat for Enterprise
 
@@ -122,25 +152,55 @@ To change your Tugboat plan:
 5. Click the radio button next to the new plan you want, and hit the **Update
    Tier** button.
 
-![Change your Tugboat plan tier](_images/change-plan-update-tier.png)
-
 You'll get info about your new plan, and if you're setting up a paid plan for
 the first time, you'll be prompted to enter your payment information. Fill this
 out, hit the **Update Tier** button again, and you'll be all set to enjoy your
 new plan.
 
-![Setting up a paid Tugboat plan](_images/setting-up-paid-tugboat-plan.png)
-
 You'll get an email confirming your changes, with a link to an online invoice
 you can download or print as needed.
-
-![Email confirmation of plan change](_images/plan-update-email.png)
 
 > #### Note:: Tugboat for Enterprise
 >
 > If you're using Tugboat's enterprise plans,
 > [reach out to us directly](mailto:support@tugboat.qa?subject=Enterprise-Plans)
 > to change your plan.
+
+#### Visual Walkthrough
+
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+upper-right of the Tugboat dashboard.
+
+![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+
+Select the project where you want to change the plan.
+
+![Select the project](../_images/select-a-project.png)
+
+Go to **Project Settings**.
+
+![Go to Project Settings](../_images/click-project-settings-link.png)
+
+Scroll down to **Your Plan**.
+
+![Scroll down to Your Plan](../_images/billing-view-tugboat-plan.png)
+
+Click the radio button next to the new plan you want, and hit the **Update
+Tier** button.
+
+![Change your Tugboat plan tier](../_images/billing-change-plan-update-tier.png)
+
+You'll get info about your new plan, and if you're setting up a paid plan for
+the first time, you'll be prompted to enter your payment information. Fill this
+out, hit the **Update Tier** button again, and you'll be all set to enjoy your
+new plan.
+
+![Setting up a paid Tugboat plan](../_images/billing-setting-up-paid-tugboat-plan.png)
+
+You'll get an email confirming your changes, with a link to an online invoice
+you can download or print as needed.
+
+![Email confirmation of plan change](../_images/billing-plan-update-email.png)
 
 ## Change billing information
 
@@ -153,7 +213,34 @@ If you need to change the billing information for your Tugboat project:
 4. Scroll down to **Your Plan**.
 5. Click the **Billing Information** link.
 
-![Change billing information](_images/change-billing-information.png)
+From here, you can:
+
+- Edit the email address associated with billing for the Tugboat project
+- Edit the payment method
+- View or print invoices
+
+#### Visual Walkthrough
+
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+upper-right of the Tugboat dashboard.
+
+![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+
+Select the project where you want to change the billing info.
+
+![Select the project](../_images/select-a-project.png)
+
+Go to **Project Settings**.
+
+![Go to Project Settings](../_images/click-project-settings-link.png)
+
+Scroll down to **Your Plan**.
+
+![Scroll down to Your Plan](../_images/billing-view-your-plan-premium.png)
+
+Click the **Billing Information** link.
+
+![Change billing information](../_images/billing-change-billing-information.png)
 
 From here, you can:
 
@@ -161,7 +248,7 @@ From here, you can:
 - Edit the payment method
 - View or print invoices
 
-![Tugboat's Billing Information options](_images/tugboat-billing-info-screen.png)
+![Tugboat's Billing Information options](../_images/billing-tugboat-billing-info-screen.png)
 
 ## Cancel billing
 
@@ -208,3 +295,26 @@ for a particular project, you can always delete your project:
 > repositories. This also does not affect other Tugboat projects; if you have
 > three projects in Tugboat, for example, and you delete one of them, you can
 > still continue working in the other two projects.
+
+#### Visual Walkthrough
+
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
+upper-right of the Tugboat dashboard.
+
+![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+
+Select the project you want to delete.
+
+![Select the project](../_images/select-a-project.png)
+
+Go to **Project Settings**.
+
+![Go to Project Settings](../_images/click-project-settings-link.png)
+
+Scroll down past **Your Plan**.
+
+![Scroll down past Your Plan](../_images/billing-scroll-past-your-plan.png)
+
+Click the red **Delete Project** button.
+
+![Click the Delete Project button](../_images/billing-delete-project.png)
