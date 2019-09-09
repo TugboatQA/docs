@@ -53,23 +53,31 @@ work!
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to build a Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click the name of the repo that contains the code you want to use to build the
 Preview.
+
+![Click into the repository](../../_images/manually-build-click-into-repo.png)
 
 Scroll down to the **Available to Build** section; by default, you'll see _Pull
 Requests_, but you can switch to view Branches or Tags that are available to
 Preview.
 
+![Scroll to Available to Build](../../_images/manually-build-scroll-to-available-to-build.png)
+
 Press the **Build Preview** button to begin the build.
 
-![Build preview](../_images/available_to_build.png)
+![Build preview](../../_images/manually-build-click-build-preview-button.png)
 
 While the Preview is building, you'll see the Preview appear in the **Latest
 Previews** section, with a yellow status indicator _building_.
 
-![Preview building](../_images/preview_building.png)
+![Preview building](../../_images/manually-build-preview-building.png)
 
 When the Preview is ready, the Preview button will turn blue, and you'll see a
 green status indicator _ready_. Press the Preview button to view the Preview.
@@ -77,7 +85,7 @@ While you're at it, go ahead and
 [share your Preview](../share-a-preview/index.md) - we know you're proud of your
 work!
 
-![Preview is ready](../_images/preview_ready.png)
+![Preview is ready](../../_images/preview-ready.png)
 
 > #### Note:: Preview size
 >
@@ -130,16 +138,28 @@ You'll now see a new Preview with the same name as the Preview you cloned.
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to duplicate a Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click the name of the repo that contains the code you want to use for the
 duplicate Preview.
 
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
+
 Select the Preview build you want to duplicate.
+
+![Select a Preview build](../../_images/select-a-preview.png)
 
 Click the **Actions** drop-down menu for that Preview, and select **Clone**.
 
+![Click the Actions drop-down, and select Clone.](../../_images/preview-action-clone.png)
+
 You'll now see a new Preview with the same name as the Preview you cloned.
+
+![Cloned Preview](../../_images/cloned-preview.png)
 
 ## Change or update Previews
 
@@ -203,16 +223,28 @@ which will change to a green _ready_ once the update is complete.
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to update a Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click the name of the repo that contains the code you want to use for the
 Preview update.
 
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
+
 Select the Preview build you want to update.
+
+![Select a Preview build](../../_images/select-a-preview.png)
 
 Click the **Actions** drop-down menu for that Preview, and select **Refresh**.
 
+![Click the Actions drop-down, and select Refresh.](../../_images/preview-action-refresh.png)
+
 Press the **Yes** button to confirm and start the Refresh process.
+
+![Press Yes to confirm and begin Refresh](../../_images/preview-action-confirm-refresh.png)
 
 You'll see a yellow _refreshing_ status while Tugboat is running the update,
 which will change to a green _ready_ once the update is complete.
@@ -264,16 +296,28 @@ To Rebuild a Preview:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to rebuild a Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click the name of the repo that contains the code you want to use for the
 Preview rebuild.
 
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
+
 Select the Preview you want to rebuild.
+
+![Select a Preview build](../../_images/select-a-preview.png)
 
 Click the **Actions** drop-down menu for that Preview, and select **Rebuild**.
 
+![Click the Actions drop-down, and select Rebuild.](../../_images/preview-action-rebuild.png)
+
 Press the **Yes** button to confirm and start the Rebuild process.
+
+![Press Yes to confirm and begin Rebuild](../../_images/preview-action-confirm-rebuild.png)
 
 You'll see a yellow _building_ status while Tugboat is rebuilding the Preview,
 which will change to a green _ready_ once the build is complete.
@@ -300,15 +344,27 @@ To delete a Preview:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to delete a Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click into the repo where you want to delete a Preview.
 
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
+
 Select the Preview you want to delete.
+
+![Select a Preview build](../../_images/select-a-preview.png)
 
 Click the **Actions** drop-down menu for that Preview, and select **Delete**.
 
+![Click the Actions drop-down, and select Delete.](../../_images/preview-action-delete.png)
+
 Press the **Yes** button to confirm.
+
+![Press Yes to confirm Delete](../../_images/preview-action-confirm-delete.png)
 
 ## Change Preview States
 
@@ -351,14 +407,24 @@ Preview will go to a green _ready_ status.
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to Stop or Start a Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click into the repo where you want to Stop/Start a Preview.
 
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
+
 Select the Preview you want to Stop or Start.
+
+![Select a Preview build](../../_images/select-a-preview.png)
 
 Click the **Actions** drop-down menu for that Preview, and select **Stop** or
 **Start**.
+
+![Click the Actions drop-down, and select Stop or Start.](../../_images/preview-action-stop.png)
 
 When the Preview is successfully stopped, you'll see a red _stopped_ status.
 When a Preview is Starting, you'll see a yellow _starting_ or _resuming_
@@ -396,14 +462,24 @@ indicator.
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to Lock or Unlock a Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click into the repo where you want to Lock/Unlock a Preview.
 
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
+
 Select the Preview you want to Lock or Unlock.
+
+![Select a Preview build](../../_images/select-a-preview.png)
 
 Click the **Actions** drop-down menu for that Preview, and select **Lock** or
 **Unlock**.
+
+![Click the Actions drop-down, and select Lock or Unlock.](../../_images/preview-action-lock.png)
 
 When the Preview is successfully locked, you'll see a closed padlock icon next
 to its status - in this example, it's a green icon next to the _ready_ status.
@@ -436,15 +512,27 @@ returned to its snapshot state, and then the Preview will become _ready_ again.
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to Reset a Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click into the repo where you want to Reset a Preview.
 
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
+
 Select the Preview you want to Reset.
+
+![Select a Preview build](../../_images/select-a-preview.png)
 
 Click the **Actions** drop-down menu for that Preview, and select **Reset**.
 
+![Click the Actions drop-down, and select Reset.](../../_images/preview-action-reset.png)
+
 Press the **Yes** button to confirm.
+
+![Press Yes to confirm Reset](../../_images/preview-action-confirm-reset.png)
 
 You'll see a yellow _resetting_ status for a moment while the Preview is
 returned to its snapshot state, and then the Preview will become _ready_ again.
