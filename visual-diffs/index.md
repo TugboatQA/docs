@@ -98,28 +98,28 @@ this build.
 
 Click into a Preview that has finished building;
 
-![Click into Preview Dashboard](_images/click-into-preview.png)
+![Click into Preview Dashboard](../_images/visual-diffs-click-into-preview.png)
 
 Scroll down past the Preview Log, and you'll see the Visual Diffs pane;
 
-![View Visual Diffs Pane](_images/scroll-down-to-view-visual-diffs-pane.png)
+![View Visual Diffs Pane](../_images/visual-diffs-scroll-to-view-visual-diffs.png)
 
 Click into the Visual Diff for **Mobile**, **Tablet** or **Desktop** to see the
 diff.
 
-![Click into the Visual Diff to see the diff](_images/click-into-mobile-to-view-diff.png)
+![Click into the Visual Diff to see the diff](../_images/visual-diffs-click-into-mobile-to-view-diff.png)
 
 Inside the diff, you'll see a **Before** visualization on the left, an **After**
 visualization on the right, and a composite in the middle, which highlights
 changes to the page.
 
-![Visual Diff Before, After and Difference](_images/visual-diff-before-after-example.png)
+![Visual Diff Before, After and Difference](../_images/visual-diffs-before-after-example.png)
 
 You'll also see an option to **Regenerate** visual diffs; use this if you've
 updated your Base Preview, and want to see a new version of the visual diffs for
 this build.
 
-![Regenerate visual diffs](_images/regenerate-visual-diffs.png)
+![Regenerate visual diffs](../_images/visual-diffs-regenerate.png)
 
 ## How are Visual Diffs calculated?
 
@@ -130,7 +130,7 @@ After. This makes it a great tool for front-end developers to visually see what
 has changed on the page, and it also helps Q/A, Product and UX spot new feature
 implementation - and also regression bugs.
 
-![Example Visual Diff with page contents moved down](_images/example-visual-diff-page-contents-moved-down.png)
+![Example Visual Diff with page contents moved down](../_images/visual-diffs-page-contents-moved-down.png)
 
 As a result of the way Visual Diffs are calculated, though, when you move
 something at the top of the page that bumps content down, the whole page may
