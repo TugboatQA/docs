@@ -65,7 +65,7 @@ If your Preview has been building for less than that time, hang in there; if it
 has been in `building` for significantly longer, it might be time to
 troubleshoot.
 
-![View average build time in Repository Stats](_images/repo-stats-build-time.png)
+![View average build time in Repository Stats](../_images/repo-stats-build-time.png)
 
 When you're ready to troubleshoot, start by taking a
 [look at the Preview's logs](#how-to-check-the-preview-logs). Logs should give
@@ -92,7 +92,7 @@ long your average build time is. If your Preview has been building for less than
 that time, hang in there; if it has been in `rebuilding` for significantly
 longer, it might be time to troubleshoot.
 
-![View average build time in Repository Stats](_images/repo-stats-build-time.png)
+![View average build time in Repository Stats](../_images/repo-stats-build-time.png)
 
 When you're ready to troubleshoot, start by taking a
 [look at the Preview's logs](#how-to-check-the-preview-logs). Logs should give
@@ -130,7 +130,7 @@ long your average build time is. If your Preview has been refreshing for less
 than that time, hang in there; if it has been in `refreshing` for significantly
 longer, it might be time to troubleshoot.
 
-![View average build time in Repository Stats](_images/repo-stats-build-time.png)
+![View average build time in Repository Stats](../_images/repo-stats-build-time.png)
 
 When you're ready to troubleshoot, start by taking a
 [look at the Preview's logs](#how-to-check-the-preview-logs). Logs should give
@@ -355,7 +355,7 @@ to specify the _relative URLs_ of the pages you want to diff, and then
 [Rebuild](../building-a-preview/administer-previews/index.md#rebuild-previews)
 the Preview.
 
-![URL Not Found in Visual Diff](_images/visual-diff-url-not-found.png)
+![URL Not Found in Visual Diff](../_images/visual-diffs-url-not-found.png)
 
 #### There was a problem generating Visual Diffs for this preview.
 
@@ -402,7 +402,7 @@ build failed. When that's the case, click the **Terminal** link next to the
 Service where the command error occurred, and you'll get a terminal directly
 into that Service.
 
-![Terminal directly into the Service](_images/terminal-in-to-service.png)
+![Terminal directly into the Service](../_images/troubleshooting-terminal-into-service.png)
 
 From here, you can go line-by-line through the commands in your config file to
 see what happens when you're running them directly in the terminal. You may want
@@ -451,7 +451,7 @@ build failed. When that's the case, click the **Terminal** link next to the
 Service where the command error occurred, and you'll get a terminal directly
 into that Service.
 
-![Terminal directly into the Service](_images/terminal-in-to-service.png)
+![Terminal directly into the Service](../_images/troubleshooting-terminal-into-service.png)
 
 From here, you can go line-by-line through the commands in your config file to
 see what happens when you're running them directly in the terminal. You may want
@@ -483,7 +483,7 @@ And you'll definitely want to know
 When you're viewing a Preview in Tugboat's web UI, you'll have the option to
 open a terminal directly into a Preview's Services:
 
-![Terminal directly into the Service](_images/terminal-in-to-service.png)
+![Terminal directly into the Service](../_images/troubleshooting-terminal-into-service.png)
 
 From here, you can manually execute lines from your config file in order to
 figure out exactly where the error is occurring. For more context when you're
@@ -527,7 +527,7 @@ individual Services you're running on a Preview. Alternately, you could use the
 [Preview logs](../tugboat-cli/index.md#view-preview-logs) and
 [Service logs](../tugboat-cli/index.md#view-services-logs).
 
-![View Preview logs](_images/click-into-preview-for-logs.png)
+![View Preview logs](../_images/troubleshooting-how-to-check-preview-logs.png)
 
 ### How to fix problem X in config file
 
