@@ -43,34 +43,39 @@ Base Preview was built.
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to set a Base Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click the name of the repo that contains Preview you want to use as a Base
 Preview.
 
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
+
 Go to the **Manage Base Previews** link on the Repository Dashboard.
 
-![Base Preview Selection](../../_images/base-preview-before.png)
+![Go to Manage Base Previews](../../_images/set-base-preview-go-to-manage-base-previews.png)
 
 Click the checkbox next to the Preview you want to use as a Base Preview.
 
+![Click the checkbox to select a Base Preview](../../_images/set-base-preview-click-checkbox.png)
+
 Press the **OK** button.
 
-![Base Preview Selection](../../_images/base-preview-select.png)
+![Press OK to confirm Base Preview](../../_images/set-base-preview-press-ok.png)
 
 That preview will be moved to the **Base Preview** section of the Repository
 Dashboard.
 
-![Base Preview Selection](../../_images/base-preview-after.png)
-
-From now on, Previews will build from the snapshot created when the Base Preview
-was built.
+![Base Preview in repository](../../_images/set-base-preview-after.png)
 
 If you're ever wondering which Base Preview was used when generating a Preview,
 check under the name of the Preview; you're looking for the "from _Base Preview
 Name_":
 
-![View Base Preview for Preview](../../_images/view_base_preview_for_preview.png)
+![View Base Preview for Preview](../../_images/view-base-preview-for-preview.png)
 
 ## Add multiple Base Previews
 
@@ -78,7 +83,7 @@ Want to use more than one Base Preview? Follow the instructions in
 [How to set a Base Preview](#how-to-set-a-base-preview), and check the
 checkboxes next to all of the Previews that you want to use as Base Previews.
 
-![Set multiple Base Previews](../../_images/set_multiple_base_previews.png)
+![Set multiple Base Previews](../../_images/set-multiple-base-previews.png)
 
 Keep in mind that when you've selected multiple Base Previews, every new Preview
 build (including automated builds from pull requests) will create a build from
@@ -86,7 +91,7 @@ _each_ Base Preview. In my sample project, I've set two base Previews, and
 building a Preview from a new PR automatically created two Previews - one for
 each Base Preview.
 
-![Multiple Base Previews generating multiple Preview builds](../../_images/multiple_base_preview_preview_builds.png)
+![Multiple Base Previews generating multiple Preview builds](../../_images/multiple-base-preview-builds.png)
 
 ## Change or update Base Previews
 
@@ -132,18 +137,30 @@ To Rebuild a Base Preview:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to change the Base Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click the name of the repo that contains Base Preview you want to change.
 
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
+
 Click the **Actions** drop-down menu for the Base Preview, and select
-**Refresh**.
+**Rebuild**.
+
+![Click the Actions drop-down, and select Rebuild.](../../_images/base-preview-actions-rebuild.png)
 
 To confirm that you actually want to change the Base Preview, rather than just
 updating it, click the checkbox next to **Yes, rebuild this preview**. You may
 also want to **Rebuild previews built from this one when finished**.
 
+![Confirm Rebuild Previews built from this Base Preview after Rebuild](../../_images/base-preview-rebuild-previews-from-base-after-rebuild.png)
+
 Press the **Rebuild** button.
+
+![Press the Rebuild button](../../_images/base-preview-press-rebuild-button.png)
 
 ### Update a Base Preview
 
@@ -201,19 +218,31 @@ To manually kick off a Base Preview update:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to update the Base Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click the name of the repo that contains Base Preview you want to update.
 
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
+
 Click the **Actions** drop-down menu for the Base Preview, and select
 **Refresh**.
+
+![Click the Actions drop-down, and select Refresh.](../../_images/base-preview-actions-refresh.png)
 
 If you want to
 [Rebuild Previews that were built from this Base Preview](#building-and-rebuilding-previews-when-youre-using-a-base-preview)
 after the update, click the checkbox next to **Rebuild Previews built from this
 one when finished**.
 
+![Confirm Rebuild Previews built from this Base Preview after Refresh](../../_images/base-preview-rebuild-previews-from-base-after-refresh.png)
+
 Press the **Refresh** button.
+
+![Press the Refresh button](../../_images/base-preview-press-refresh-button.png)
 
 #### Automatically Refresh a Base Preview
 
@@ -240,15 +269,25 @@ To change Tugboat's settings to automatically Refresh Base Previews:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to configure auto-update settings for Base
 Previews.
 
+![Select the project](../../_images/select-a-project.png)
+
 Click into **Settings** for the repository.
+
+![Go to Repository Settings](../../_images/go-to-repository-settings.png)
 
 Go to **Refresh Base Previews Automatically**. Toggle the checkbox and/or adjust
 the frequency and timing of these automatic updates.
 
+![Toggle or adjust frequency/time for Refresh Base Previews Automatically setting](../../_images/repository-settings-refresh-base-previews-automatically.png)
+
 Press the Save Configuration button to save your changes.
+
+![Repository Settings -> Press Save Configuration button](../../_images/repository-settings-press-save-configuration.png)
 
 ## Stop using a Base Preview
 
@@ -278,15 +317,27 @@ provider integrations - will no longer start from that Base Preview.
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to stop using a Base Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click into the repo where you want to stop using a Base Preview.
 
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
+
 Go to the **Manage Base Previews** link on the Repository Dashboard.
+
+![Go to Manage Base Previews](../../_images/stop-using-base-preview-manage-base-previews.png)
 
 Click the checkbox next to the Base Preview you want to stop using.
 
+![Click checkbox to deselect a Base Preview](../../_images/stop-using-base-preview-click-checkbox.png)
+
 Press the **OK** button.
+
+![Press OK](../../_images/stop-using-base-preview-press-ok.png)
 
 ## Delete a Base Preview
 
@@ -323,15 +374,25 @@ To delete a Base Preview:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to delete a Base Preview.
 
+![Select the project](../../_images/select-a-project.png)
+
 Click into the repo where you want to delete a Base Preview.
+
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
 
 Click the **Actions** drop-down menu for the Base Preview you want to delete,
 and select **Delete**.
 
+![Click the Actions drop-down, and select Delete.](../../_images/base-preview-actions-delete.png)
+
 Click the checkbox next to **Yes, delete this preview** and then press the
 **Delete** button to confirm.
+
+![Confirm Preview delete and press Delete button](../../_images/base-preview-press-delete-button.png)
 
 ## Building and Rebuilding Previews when you're using a Base Preview
 
@@ -378,13 +439,25 @@ To manually build a Preview with no Base Preview:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to build a Preview.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click into the repo where you want to build a Preview.
 
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
+
 Go to the **Available to Build** section of the Repository Dashboard.
+
+![Scroll to Available to Build](../../_images/scroll-to-available-to-build.png)
 
 Click into the drop-down next to the **Build Preview** button for the Preview
 you'd like to build from scratch.
 
+![Go to the Build Preview drop-down menu](../../_images/go-to-build-preview-drop-down.png)
+
 Select the **Build with no base preview** option.
+
+![Select Build with no base preview](../../_images/select-build-with-no-base-preview.png)
