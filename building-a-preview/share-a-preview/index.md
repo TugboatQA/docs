@@ -30,13 +30,21 @@ git repo where the code is hosted.
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project that contains the Preview you want to share.
 
+![Select the project](../../_images/select-a-project.png)
+
 Click the name of the repo that contains the Preview you want to share.
+
+![Click into Tugboat repository](../../_images/click-into-tugboat-repository.png)
 
 Go to the Preview you want to share, and either open the Preview and copy the
 URL from the browser's address bar, or use the browser options to Copy Link on
 the **Preview** button.
+
+![Manually share Preview](../../_images/manually-share-preview.png)
 
 ## Configure Tugboat to auto-post Preview links
 
@@ -69,10 +77,20 @@ To configure Tugboat to automatically post Preview links:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want Tugboat to auto-post Preview links.
+
+![Select the project](../../_images/select-a-project.png)
 
 Click into **Settings** for the repository.
 
+![Go to Repository Settings](../../_images/go-to-repository-settings.png)
+
 Click the checkbox for **Post Preview Links in Pull Request Comments**.
 
+![Click the checkbox next to Post Preview Links in Pull Request Comments](../../_images/share-preview-post-preview-links-in-pull-request-comments.png)
+
 Press the Save Configuration button to save your changes.
+
+![Press the Save Configuration button](../../_images/share-preview-repo-settings-save-configuration.png)
