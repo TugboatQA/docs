@@ -15,7 +15,7 @@ From here, you can:
 
 - Determine which Service is the
   [Default Service](../../setting-up-services/how-to-set-up-services/index.md#define-a-default-service)
-- View build logs and output logs for your Services
+- Click into Service names to view build logs and output logs for your Services
 - Start a Terminal in the Service
 
 [MATT AND BEN - I have waffled over whether we should build out each of these
@@ -25,7 +25,7 @@ these elements should be sufficient for users who have gotten to this point, but
 listing it all out with steps would be more consistent with other parts of this
 section. Thoughts?]
 
-[INSERT SCREENSHOT HERE WITH CALLOUTS TO THESE ELEMENTS]
+![View Services inside a Preview](../../_images/inside-a-preview-services.png)
 
 If you're having problems with a Preview, you may need to spend some time in a
 Preview's Services for [troubleshooting](../../troubleshooting/index.md).
@@ -37,7 +37,7 @@ Preview Log pane may not show the entirety of the log; if you've got a complex
 build, you may need to click **See Full Log** to find and diagnose something
 early in your Preview build.
 
-[INSERT SCREENSHOT HERE]
+![View the Preview Log](../../_images/inside-a-preview-log.png)
 
 These logs differ from the Service logs in that these logs reflect _all_ the
 commands in your Preview build, while the Service logs dive deep into the build
@@ -61,7 +61,7 @@ When you're using Visual Diffs with your Previews, you'll click into the Preview
 to view them. Visual Diffs are a great tool to visualize site changes, and it's
 an easy way to spot visual regression.
 
-[INSERT SCREENSHOT HERE]
+![Scroll down to view Visual Diffs](../../_images/visual-diffs-scroll-to-view-visual-diffs.png)
 
 For more on Visual Diffs, including how to set them up and use them, see:
 [Visual Diffs](../../visual-diffs/index.md).
