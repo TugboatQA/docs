@@ -55,14 +55,24 @@ To configure Tugboat to auto-generate Previews, you'll need to:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to configure auto-generate settings for
 Previews.
 
+![Select the project](../../_images/select-a-project.png)
+
 Click into **Settings** for the repository.
+
+![Go to Repository Settings](../../_images/go-to-repository-settings.png)
 
 Click the checkboxes for the auto-generate features you'd like to turn on/off.
 
+![Click the checkboxes to turn auto-build Preview options on or off](../../_images/auto-build-preview-repository-settings.png)
+
 Press the Save Configuration button to save your changes.
+
+![Press the Save Configuration button](../../_images/repository-settings-press-save-configuration.png)
 
 ## Auto-update Previews
 
@@ -104,14 +114,24 @@ Automatically rebuild Previews when the Base Preview they were built from is
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to configure auto-update settings for
 Previews.
 
+![Select the project](../../_images/select-a-project.png)
+
 Click into **Settings** for the repository.
+
+![Go to Repository Settings](../../_images/go-to-repository-settings.png)
 
 Click the checkboxes to change the settings you want to adjust.
 
+![Click the checkboxes to turn auto-update Preview options on or off](../../_images/auto-update-preview-repository-settings.png)
+
 Press the Save Configuration button to save your changes.
+
+![Press the Save Configuration button](../../_images/repository-settings-press-save-configuration.png)
 
 ## Auto-delete Previews
 
@@ -139,11 +159,21 @@ PRs are merged or closed:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
+
 Select the project where you want to configure auto-delete settings for
 Previews.
 
+![Select the project](../../_images/select-a-project.png)
+
 Click into **Settings** for the repository.
+
+![Go to Repository Settings](../../_images/go-to-repository-settings.png)
 
 Click the checkbox to change the setting.
 
+![Click the checkbox to turn auto-delete Preview on or off](../../_images/auto-delete-preview-repository-settings.png)
+
 Press the Save Configuration button to save your changes.
+
+![Press the Save Configuration button](../../_images/repository-settings-press-save-configuration.png)
