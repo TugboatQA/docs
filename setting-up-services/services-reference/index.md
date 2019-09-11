@@ -542,7 +542,7 @@ services via custom environment variables. These variables can be found on the
 [Repository Settings](../../setting-up-tugboat/index.md#change-repository-settings)
 page.
 
-![Environment Variable Configuration](_images/envvars-config.png)
+![Environment Variable Configuration](../../_images/envvars-config.png)
 
 Like the other [environment variables](#environment-variables) that Tugboat
 provides, the variables entered here are available to your Previews both while
