@@ -73,7 +73,7 @@
     - [Mirror production Services](setting-up-services/service-images/index.md#using-a-docker-image-to-mirror-your-production-services)
     - [Third-Party Docker Images](setting-up-services/service-images/index.md#third-party-docker-images)
     - [Docker pull under the hood](setting-up-services/service-images/index.md#when-does-an-image-get-pulled-or-updated)
-  - [Services reference](setting-up-services/services-reference/index.md)
+  - [Services Reference](setting-up-services/services-reference/index.md)
     - [Service Attributes](setting-up-services/services-reference/index.md#service-attributes)
     - [Environment Variables](setting-up-services/services-reference/index.md#environment-variables)
     - [Custom Environment Variables](setting-up-services/services-reference/index.md#custom-environment-variables)

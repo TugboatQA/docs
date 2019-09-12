@@ -437,7 +437,7 @@ Here's where you can enter environment variables, like API keys or passwords,
 that you wouldn't want to store in your repo. If you're looking for Tugboat's
 environment variables to add to your Build Scripts or configuration files, check
 out
-[Reference -> Environment Variables](reference/environment-variables/index.md).
+[Reference -> Environment Variables](../setting-up-services/services-reference/#environment-variables).
 
 ### Set up Remote SSH Access
 
@@ -528,7 +528,7 @@ connected to it, nor does it delete the Tugboat project that contains the repo.
 >
 > Only Admin users have the **Delete Repository** option. For more on user
 > permissions, see:
-> [User permission levels explained](../administering-tugboat-crew/user-permission-levels-explained/index.md).
+> [User permission levels explained](../administering-tugboat-crew/#user-permission-levels-explained).
 
 ### Change Repository Settings
 
@@ -564,7 +564,7 @@ engine from parts! These docs can help get you started:
 - [Setting up Services in your Tugboat](../setting-up-services/index.md)
 - [Starter Configuration files](../starter-configs/index.md) (configuration file
   code snippets with comments to help you get started)
-- [Using the Tugboat Command Line Tool](../using-the-cli/index.md)
+- [Using the Tugboat Command Line Tool](../tugboat-cli/)
 - [Service Attributes](../setting-up-services/services-reference/index.md#service-attributes)
   (detailing the attributes you can use when building Services)
 - [Debugging Config files](../troubleshooting/index.md#debugging-config-files)

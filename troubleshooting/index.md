@@ -158,7 +158,7 @@ cause of build failures is when one of the commands in the Tugboat
 exits with an error. If that is the case, it's time to start
 [debugging the configuration file](#debugging-configuration-files).
 
-![Failed Preview Log](_images/failed-log.png)
+![Failed Preview Log](../_images/failed-log.png)
 
 If you're having problems figuring out why the Preview build `failed`, we're
 happy to look into the problem with you to see whether we can help. We've gotten
@@ -173,7 +173,7 @@ check the
 [Repository Settings](../setting-up-tugboat/index.md#repository-settings-optional),
 and make sure "Build Pull Requests Automatically" is enabled.
 
-![Build Pull Requests Automatically](_images/pr-probe.png)
+![Build Pull Requests Automatically](../_images/pr-probe.png)
 
 > #### Hint:: Don't see the option to Build Pull Requests Automatically?
 >

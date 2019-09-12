@@ -1,4 +1,4 @@
-# Services reference
+# Services Reference
 
 - [Service Attributes](#service-attributes)
 - [Environment Variables](#environment-variables)
