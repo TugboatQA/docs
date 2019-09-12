@@ -126,7 +126,7 @@ In the **Manage Users** section, look for the user whose permissions you want to
 change, and select the appropriate
 [user type](#user-permission-levels-explained) from the **Access** drop-down.
 
-![Go to Manage Users, click the Access drop down and select new permissions](../_images/change-user-permissions-access-drop-down.png)
+![Go to Manage Users, click the Access drop-down and select new permissions](../_images/change-user-permissions-access-drop-down.png)
 
 ## Add a Tugboat bot to your team
 
@@ -219,8 +219,8 @@ Tugboat has three different types of users:
 
 Admin users can:
 
-- Manage billing information. This information is disabled if company is paying
-  with a purchase order.
+- Manage billing information. This information is disabled if the company is
+  paying with a purchase order.
 - Manage other users, including removing other admins, though they cannot remove
   themselves.
 - Add repositories to the project.
@@ -236,7 +236,7 @@ Tugboat's generic User's permissions include:
 - Manage the repository configuration interface. This includes things like
   [changing repository settings](../setting-up-tugboat/index.md#repository-settings-optional),
   environment variables and SSH keys.
-- Manage Previews. Create, remove, rebuild or lock Previews.
+- Manage Previews. Create, remove, rebuild, or lock Previews.
 - Manage Base Previews.
 - Shell access to previews. Manage visual diff screenshots. View build logs.
 
