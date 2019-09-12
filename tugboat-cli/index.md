@@ -5,10 +5,10 @@ search:
 
 # Using the Tugboat Command Line Interface
 
-The Tugboat [Command Line Tool](https://dashboard.tugboat.qa/downloads)
-provides access to your Tugboat account from your local command line. It allows
-you to perform all of the operations available through the web interface, as
-well as other, more advanced features of Tugboat.
+The Tugboat [Command Line Tool](https://dashboard.tugboat.qa/downloads) provides
+access to your Tugboat account from your local command line. It allows you to
+perform all of the operations available through the web interface, as well as
+other, more advanced features of Tugboat.
 
 1. [Install the CLI](#install-tugboats-command-line-interface)
 2. [Set an Access Token](#set-an-access-token)

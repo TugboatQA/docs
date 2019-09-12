@@ -23,15 +23,6 @@
 - [Troubleshooting a Preview Build failure](#troubleshooting-a-preview-build-failure)
 - [Previews are not Building automatically](#previews-are-not-building-automatically)
 
-### Can't build a Preview in the Tugboat UI
-
-If you're Building a Preview from a branch whose name includes a `/`, you may
-get a JS `Uncaught Error` and be unable to build. Until this issue is addressed,
-there are two workarounds:
-
-1. Rename the branch without the slash.
-2. Use the [Tugboat CLI](../tugboat-cli/index.md) to build the branch.
-
 ### My Preview Build is stuck at...
 
 Uh oh! Did your Preview Build get stuck?
