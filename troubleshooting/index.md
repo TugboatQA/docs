@@ -99,8 +99,7 @@ and figuring out what's causing the Preview rebuild to hang.
 > Preview that was generated from a Base Preview, rebuild starts with the
 > commands in `build`. Which type of Rebuild you're doing should tell you where
 > you start looking for problems in the config file - during `init` or skipping
-> straight to `build` commands. For more info,
-> see:
+> straight to `build` commands. For more info, see:
 > [The build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained).
 
 If your rebuilds are taking longer than expected, but there isn't an issue in
