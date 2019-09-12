@@ -242,5 +242,3 @@ If you need to do something more complex in your Preview, like kicking off a
 Tugboat build of a different repository, and grabbing the URL and other info you
 need to link the two - you can install the Tugboat CLI _inside_ a Preview, and
 execute the commands from inside the Preview.
-
-_BEN DO WE HAVE AN EXAMPLE OF THIS?_
