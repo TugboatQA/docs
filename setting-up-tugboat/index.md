@@ -472,7 +472,7 @@ use the SSH key, simply copy it to your clipboard and put it where you need it!
 > Repository Settings page is the public key from the pair.
 
 If you want Tugboat to generate a new SSH key, press the **Generate SSH Key**
-button. You'll see a dialogue box asking you to confirm that you want to
+button. You'll see a dialog box asking you to confirm that you want to
 generate a new key, as this action can't be undone.
 
 > #### Warning:: Generating a new SSH key erases the existing key
