@@ -152,7 +152,7 @@ If you've decided to cancel a Preview Action, but the Preview is stuck on
 ### Troubleshooting a Preview Build Failure
 
 If your Tugboat Preview has `failed` to build, it's time to take a
-[look at the the Preview logs](#how-to-check-the-preview-logs). The most common
+[look at the Preview logs](#how-to-check-the-preview-logs). The most common
 cause of build failures is when one of the commands in the Tugboat
 [configuration file](../setting-up-tugboat/index.md#create-a-tugboat-config-file)
 exits with an error. If that is the case, it's time to start
@@ -301,7 +301,7 @@ help.
 
 - [Visual diffs aren't displaying, or aren't displaying as I expect](#visual-diffs-arent-displaying-or-arent-displaying-as-i-expect)
 - [URL not found](#url-not-found)
-- [There was a problem generating Visual Diffs for this preview.](#there-was-a-problem-generating-visual-diffs-for-this-preview)
+- [There was a problem generating Visual Diffs for this Preview.](#there-was-a-problem-generating-visual-diffs-for-this-preview)
 
 #### Visual diffs aren't displaying, or aren't displaying as I expect
 
