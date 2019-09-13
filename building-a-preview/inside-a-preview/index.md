@@ -15,20 +15,68 @@ From here, you can:
 
 - Determine which Service is the
   [Default Service](../../setting-up-services/how-to-set-up-services/index.md#define-a-default-service)
-- Click into Service names to view build logs and output logs for your Services
-- Start a Terminal in the Service
-
-[MATT AND BEN - I have waffled over whether we should build out each of these
-items into a subsection with more info/a set of steps - i.e. "To view build logs
-and output logs for your Services". I feel a single screenshot with callouts to
-these elements should be sufficient for users who have gotten to this point, but
-listing it all out with steps would be more consistent with other parts of this
-section. Thoughts?]
+- [Click into Service names to view build logs and output logs for your Services](#click-into-services-to-view-build-and-output-logs)
+- [Using the Preview Action inside a Service](#using-the-preview-action-inside-a-service)
+- [Start a Terminal in the Service for an on-demand development environment, or to troubleshoot Preview Build failures](#start-a-terminal-in-the-service)
 
 ![View Services inside a Preview](../../_images/inside-a-preview-services.png)
 
-If you're having problems with a Preview, you may need to spend some time in a
-Preview's Services for [troubleshooting](../../troubleshooting/index.md).
+### Click into Services to view build and output logs
+
+When you click into the Service name, you're drilling into that Service's
+details. You'll see the Service Build Log and Service Output, giving you greater
+insight into what's happening within your Services. This can be useful when
+you're troubleshooting an issue with a Preview Build.
+
+![Click into Services to view logs](../../_images/inside-a-preview-service-build-and-output-logs.png)
+
+### Using the Preview Action inside a Service
+
+When a Service has an exposed port, you'll see a clickable **Preview** link for
+that Service. Clicking the **Preview** link takes you into what that Service is
+doing.
+
+The
+[`default` service](../../setting-up-services/how-to-set-up-services/index.md#define-a-default-service)
+always has an exposed port, so you'll always have the option to Preview that
+Service. If that is the only Service that has an exposed port - i.e. it's the
+only Service with the **Preview** link - what you'll see is the same as clicking
+the blue Preview button.
+
+If you manually
+[expose a port](../../setting-up-services/how-to-set-up-services/index.md#expose-a-service-http-port)
+in a Service that isn't the `default`, you'll see the Preview option for that
+Service, too. Clicking into a **Preview** link for a Service that isn't the
+_default_ shows you only what that Service is doing.
+
+![Preview inside a Service](../../_images/inside-a-preview-preview-action.png)
+
+### Start a terminal in the Service
+
+Starting a terminal inside a Service gives you two awesome abilities:
+
+1. [Utilize an on-demand development environment to collaborate with peers](#tugboat-as-an-on-demand-development-environment)
+2. [Directly troubleshoot Preview Builds from within their Services](#direct-preview-build-troubleshooting-from-within-a-service)
+
+![Open a terminal into a Service](../../_images/inside-a-preview-open-terminal-into-service.png)
+
+#### Tugboat as an on-demand development environment
+
+Imagine one of your colleagues is working on a new feature, and comes to you for
+help because you know more about using `npm`. You don't have the code installed
+locally, and it can be a hassle to replicate a colleague's local. Instead, you
+can spin up a Tugboat Preview Build that uses your colleague's code, and
+terminal directly into `apache` to team up with your colleague - developing
+right in the container. Speed up development, and take local configuration
+questions out of the equation.
+
+#### Direct Preview Build troubleshooting from within a Service
+
+Isn't it frustrating when a CI build fails, but you don't have a good way to
+find out what went wrong? If you're comfortable debugging on the command line,
+you can open a terminal directly into your Services to
+[troubleshoot](../../troubleshooting/index.md) and test fixes for Tugboat Build
+failures.
 
 ## Preview log
 

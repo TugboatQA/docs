@@ -304,22 +304,6 @@ preview is created for. The path where the git repository is cloned is available
 in an [environment variable](../reference-environment-variables/index.md) named
 `$TUGBOAT_ROOT`.
 
-To specify the destination for the git repository clone, use the
-[Service attribute `checkout_path`](../reference-service-attributes/index.md#checkoutpath).
-You'll need to set `checkout: true`, and if the path already exists, the clone
-will fail.
-
-```yaml
-services:
-  apache:
-    image: tugboatqa/httpd:2.4
-    default: true
-  mysql:
-    image: tugboatqa/mysql:5.6
-    checkout: true
-    checkout_path: /var/lib/mysql
-```
-
 ## Running a Background Process (optional)
 
 A long-running background process in Tugboat needs some special care. If you try
