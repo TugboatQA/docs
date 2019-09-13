@@ -84,7 +84,7 @@ This process can take a while; the larger the assets, the longer the build.
 When you mark a Preview as a Base Preview, Tugboat uses that Preview's
 [build snapshot](#the-build-snapshot) as a starting point for every new Preview
 build. None of the new Previews need to re-download copies of databases, image
-files, or other assets. Base Previews dramatically reduce the amount of time
+files, or other assets. Base Previews can dramatically reduce the amount of time
 required to generate a working Preview.
 
 In addition to speeding up your Preview builds, Tugboat saves disk space by

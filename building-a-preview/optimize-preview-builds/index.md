@@ -33,10 +33,10 @@ If you're updating large assets as part of the `update` stage of your Tugboat
 build, you can configure Tugboat to
 [automatically refresh your Base Preview](../work-with-base-previews/index.md#automatically-refresh-a-base-preview)
 while your crew isn't working. By default, Tugboat automatically refreshes Base
-Previews daily at 12am UTC (8pm EDT). You can set this for a time and frequency
-that works best for your team, and then you won't have to manually update your
-Base Preview when you're about to test an important build - it will already have
-the latest database, or any large assets you need, whenever you're ready.
+Previews daily at 12am UTC. You can set this for a time and frequency that works
+best for your team, and then you won't have to manually update your Base Preview
+when you're about to test an important build - it will already have the latest
+database, or any large assets you need, whenever you're ready.
 
 ### Optimizing Preview size
 

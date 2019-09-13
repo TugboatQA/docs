@@ -42,7 +42,7 @@ work!
 
 > #### Note:: Building a Preview with a Base Preview
 >
-> When you go to build a Preview, you'll see an arrow indicating a drop-down
+> When you go to build a Preview, you may see an arrow indicating a drop-down
 > menu next to the **Build Preview** button. This menu contains additional
 > options to build your Preview from a Base Preview, or build with no Base
 > Preview. For more info on these options, see:

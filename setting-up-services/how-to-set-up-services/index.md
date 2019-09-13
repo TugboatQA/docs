@@ -99,9 +99,9 @@ To dissect the key value in our Apache image key example above, we're calling:
 `httpd` : This is the specific image we're calling; in this case, it's Tugboat's
 version of the [Apache HTTP Server](https://hub.docker.com/r/tugboatqa/httpd).  
 `2.4` : **OPTIONAL** version tag; in this case, we're calling for the specific
-2.4 version of Tugboat's Apache HTTP server image. If you browse to Docker Hub's
-[Tags page for this image](https://hub.docker.com/r/tugboatqa/httpd/tags), you
-can see a list of all the version tags available for Tugboat's Apache HTTP
+2.4 version of Tugboat's Apache HTTP server image. If you browse to the
+[supported images in our GitHub repo](https://github.com/TugboatQA/dockerfiles/blob/master/httpd/TAGS.md),
+you can see a list of all the version tags available for Tugboat's Apache HTTP
 Server image.
 
 For more on version tags, take a look at our
@@ -116,11 +116,9 @@ For a full breakdown of how to pull from a different registry, check out
 Docker's Docs:
 [Pull from a different registry](https://docs.docker.com/engine/reference/commandline/pull/#pull-from-a-different-registry).
 
-_EXAMPLE PLACEHOLDER - BEN, PLEASE PROVIDE EXAMPLE_
-
 An example of this in action at Tugboat might look like:
 
-`$ docker pull myregistry.local:5000/testing/test-image`
+`image: registry.example.com:5000/path-to-image/httpd:2.4`
 
 ## Leverage Service Commands (optional)
 
@@ -233,7 +231,7 @@ port number that the HTTP service is listening on.
 ```yaml
 services:
   node:
-    image: tugboatqa/node:8
+    image: tugboatqa/node:10
     expose: 3000
 ```
 
@@ -242,8 +240,8 @@ through to a nodejs service running on port 3000.
 
 There are other options that affect how the proxy routing is handled. These
 advanced options can usually be left to their default settings. Check out our
-[Service Attributes reference](../services-reference/index.md#service-attributes)
-for a complete list.
+[Service Attributes reference](../reference-service-attributes/index.md) for a
+complete list.
 
 > #### Note:: Default Service port
 >
@@ -276,7 +274,7 @@ services:
     image: tugboatqa/httpd
     commands:
       init:
-        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+        - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
 ```
 
 ## Clone Git repositories into your Services
@@ -303,9 +301,24 @@ services:
 In this example, both the `apache` and `mysql` services get a clone of the git
 repository, checked out to the git branch, tag, commit, or pull request that the
 preview is created for. The path where the git repository is cloned is available
-in an
-[environment variable](../services-reference/index.md#environment-variables)
-named `$TUGBOAT_ROOT`.
+in an [environment variable](../reference-environment-variables/index.md) named
+`$TUGBOAT_ROOT`.
+
+To specify the destination for the git repository clone, use the
+[Service attribute `checkout_path`](../reference-service-attributes/index.md#checkoutpath).
+You'll need to set `checkout: true`, and if the path already exists, the clone
+will fail.
+
+```yaml
+services:
+  apache:
+    image: tugboatqa/httpd:2.4
+    default: true
+  mysql:
+    image: tugboatqa/mysql:5.6
+    checkout: true
+    checkout_path: /var/lib/mysql
+```
 
 ## Running a Background Process (optional)
 

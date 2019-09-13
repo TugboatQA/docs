@@ -18,7 +18,7 @@
 ## Does Tugboat work with...?
 
 Tugboat supports pretty much anything that runs on Linux. Look through our
-[prebuilt service images](../setting-up-services/services-reference/index.md#tugboats-prebuilt-service-images)
+[prebuilt service images](../setting-up-services/reference-tugboat-images/index.md)
 to see what we currently have available. If something that you need is missing,
 let us know, and we will work with you to get it added to the list.
 

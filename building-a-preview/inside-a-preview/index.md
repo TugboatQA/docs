@@ -48,12 +48,15 @@ log to dig deeper.
 
 ## Captured mail
 
-If your Preview generates email, Tugboat will not send the mail out of the
-Preview, but will instead display it in Captured Mail when you click into a
-Preview. This makes it easy for you to verify that email is sending as expected,
-but not spam potential recipients during testing or demo.
+If you're using a Tugboat-provided image, outgoing email generated within your
+Preview should forward to our SMTP proxy. Tugboat captures that outgoing email,
+and displays it in Captured Mail when you click into a Preview. This makes it
+possible for you to verify that email is sending as expected.
 
-[INSERT SCREENSHOT HERE]
+> #### Note:: Sending outgoing email from your own image
+>
+> When you use a non-Tugboat-provided image, outgoing email generated from
+> within a Preview may actually leave the Preview.
 
 ## Visual Diffs
 

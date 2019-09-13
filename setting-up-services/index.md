@@ -1,4 +1,4 @@
-# Setting up Services in your Tugboat
+# Setting up Services in Tugboat
 
 First thing's first:
 [in the context of Tugboat, what are Services, exactly?](#what-are-tugboat-services)
@@ -30,10 +30,10 @@ For a deeper dive on Service images, take a look at:
 
 Lists, lists, so many lists! For your reference:
 
-- [Service Attributes](services-reference/index.md#service-attributes)
-- [Environment Variables](services-reference/index.md#environment-variables)
-- [Custom Environment Variables](services-reference/index.md#custom-environment-variables)
-- [Tugboat's Prebuilt Service images](services-reference/index.md#tugboats-prebuilt-service-images)
+- [Service Attributes](reference-service-attributes/index.md)
+- [Environment Variables](reference-environment-variables/index.md)
+- [Custom Environment Variables](reference-environment-variables/index.md#custom-environment-variables)
+- [Tugboat's Prebuilt Service images](reference-tugboat-images/index.md#tugboats-prebuilt-service-images)
 
 ## What are Tugboat Services?
 

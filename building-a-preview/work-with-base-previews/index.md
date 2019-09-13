@@ -85,11 +85,11 @@ checkboxes next to all of the Previews that you want to use as Base Previews.
 
 ![Set multiple Base Previews](../../_images/set-multiple-base-previews.png)
 
-Keep in mind that when you've selected multiple Base Previews, every new Preview
-build (including automated builds from pull requests) will create a build from
-_each_ Base Preview. In my sample project, I've set two base Previews, and
-building a Preview from a new PR automatically created two Previews - one for
-each Base Preview.
+When you've selected multiple Base Previews, every new Preview build (including
+automated builds from pull requests) will create a build from _each_ Base
+Preview. In my sample project, I've set two base Previews, and building a
+Preview from a new PR automatically created two Previews - one for each Base
+Preview.
 
 ![Multiple Base Previews generating multiple Preview builds](../../_images/multiple-base-preview-builds.png)
 
@@ -248,7 +248,7 @@ Press the **Refresh** button.
 
 You'll generally want to keep your Base Preview up to date with your latest
 codebase, and a fresh copy of your database, image files, and other assets. By
-default, Tugboat automatically checks for updates every night at 12 am ET, and
+default, Tugboat automatically checks for updates every night at 12 am UTC, and
 refreshes your Base Preview with these updates. You can toggle this feature, or
 change the time and interval at which Tugboat does an automated Refresh of your
 Base Previews.
