@@ -18,16 +18,6 @@ are made:
 
 Tugboat automatically creates a Preview when a pull request is opened.
 
-**Build Previews for Forked Pull Requests**
-
-Tugboat builds Previews for pull requests made to the primary repo from forked
-repositories.
-
-> #### Warning:: There are security implications when using this setting
->
-> Any secrets in your Preview will be accessible by the owner of the forked
-> repository.
-
 ### To set Tugboat to automatically Build Previews
 
 To configure Tugboat to auto-generate Previews, you'll need to:
@@ -91,13 +81,33 @@ you can have Tugboat:
 
 **Rebuild Orphaned Previews Automatically**
 
-Automatically rebuild Previews when the Base Preview they were built from is
-[rebuilt](../work-with-base-previews/index.md#change-a-base-preview).
+When you
+[rebuild a Base Preview](../work-with-base-previews/index.md#change-a-base-preview),
+any changes in the Base Preview don't automatically carry over to existing child
+Previews; they become orphaned. New Previews that are built from a rebuilt Base
+Preview carry forward the changes, but existing Previews maintain the old
+configuration and data.
+
+When you enable the `Rebuild Orphaned Previews Automatically` setting, Tugboat
+automatically rebuilds child Previews when the Base Preview they were built from
+is rebuilt. This pulls in the changes that you make to the Base Preview during
+the rebuild process, and keeps child Previews in step with the Base Previews
+that generated them.
 
 **Rebuild Stale Previews Automatically**
 
-Automatically rebuild Previews when the Base Preview they were built from is
-[refreshed](../work-with-base-previews/index.md#update-a-base-preview).
+When you
+[refresh a Base Preview](../work-with-base-previews/index.md#update-a-base-preview),
+the updates that you make to the Base Preview don't automatically carry over to
+existing child Previews. The Base Preview and new Previews built on the Base
+Preview may have fresh data and other updates, while existing child Previews
+keep their stale data.
+
+When you enable the `Rebuild Stale Previews Automatically` setting, Tugboat
+automatically rebuilds child Previews when the Base Preview they were built from
+is refreshed. This pulls in the updates that you make to the Base Preview during
+the refresh process, ensuring that child Previews always have the most recent
+data and updates.
 
 ### To set Tugboat to automatically update Previews
 

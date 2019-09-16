@@ -531,7 +531,7 @@ individual Services you're running on a Preview. Alternately, you could use the
 
 If you're getting "PHP out of memory errors", you can manually set the memory
 limit higher. If you're using one of the
-[tugboatqa php images](../setting-up-services/services-reference/index.md#tugboats-prebuilt-service-images),
+[tugboatqa php images](../setting-up-services/reference-tugboat-images/index.md),
 use something like this in your build script:
 
 `echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/my-php.ini`

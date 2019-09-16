@@ -14,9 +14,6 @@ other, more advanced features of Tugboat.
 2. [Set an Access Token](#set-an-access-token)
 3. [Review commands](#review-commands)
 
-See also:
-[running the CLI from inside a Tugboat Preview](#running-the-cli-from-a-tugboat-preview)
-
 ## Install Tugboat's Command Line Interface
 
 The Tugboat Command Line Tool is available for Windows, MacOS, and Linux. In all
@@ -235,10 +232,3 @@ tugboat shell 5d1a5307216a158a155dcbc3
 Now you've got shell access in that Service:
 
 ![Shell access in the Service](../_images/tugboat-cli-shell-access-in-service.png)
-
-## Running the CLI from a Tugboat Preview
-
-If you need to do something more complex in your Preview, like kicking off a
-Tugboat build of a different repository, and grabbing the URL and other info you
-need to link the two - you can install the Tugboat CLI _inside_ a Preview, and
-execute the commands from inside the Preview.

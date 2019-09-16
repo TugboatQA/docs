@@ -564,7 +564,9 @@ engine from parts! These docs can help get you started:
 - [Setting up Services in your Tugboat](../setting-up-services/index.md)
 - [Starter Configuration files](../starter-configs/index.md) (configuration file
   code snippets with comments to help you get started)
-- [Using the Tugboat Command Line Tool](../tugboat-cli/)
+- [Using the Tugboat Command Line Tool](../tugboat-cli/index.md)
 - [Service Attributes](../setting-up-services/services-reference/index.md#service-attributes)
-  (detailing the attributes you can use when building Services)
+- [Using the Tugboat Command Line Tool](../using-the-cli/index.md)
+- [Service Attributes](../setting-up-services/reference-service-attributes/index.md)
+  (detailing the attributes you can use when building
 - [Debugging Config files](../troubleshooting/index.md#debugging-config-files)

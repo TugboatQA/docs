@@ -7,7 +7,7 @@ After you've built your Preview, there are a few ways you can share it:
 
 ## Manually share the URL of your Preview
 
-Want to share a Preview link manually with Lisa in Product, or Al the client?
+Want to share a Preview link manually with Lisa in Product, or Dan the client?
 
 To get the link to a Preview you want to share:
 

@@ -52,8 +52,8 @@ instead of `tugboatqa/mysql:5`.
 ### Major version tags
 
 If you want to make sure you're using a specific major version, but don't care
-about point releases, specify something like `tugboatqa/node:8` to ensure you
-always use the latest available minor release of node 8.x.
+about point releases, specify something like `tugboatqa/node:10` to ensure you
+always use the latest available minor release of node 10.x.
 
 ### Latest version tags
 
@@ -68,8 +68,8 @@ image.
 ## Tugboat's prebuilt Docker images
 
 Tugboat maintains several
-[prebuilt Docker images](../services-reference/index.md#tugboats-prebuilt-service-images).
-These images are extensions of
+[prebuilt Docker images](../reference-tugboat-images/index.md). These images are
+extensions of
 [official Docker images](https://docs.docker.com/docker-hub/official_repos/)
 that include tools and configurations that help them work well with Tugboat.
 Tugboat's images track the upstream images, meaning the `tugboat/httpd:2.4`
@@ -83,13 +83,12 @@ You can check out the scripts we used to create these images on
 
 > #### Note::I don't see a Service image that I need...
 >
-> We add new
-> [prebuilt service images](../services-reference/index.md#tugboats-prebuilt-service-images)
-> as users need them. If there is something you need that we have not yet added,
+> We add new [prebuilt service images](../reference-tugboat-images/index.md) as
+> users need them. If there is something you need that we have not yet added,
 > [let us know](https://tugboat.qa/support), and we will work with you to try to
 > get it added to the list. Alternatively, you are free to choose a generic
-> service image, such as `debian` or `ubuntu` and install any packages you might
-> need.
+> service image, such as `debian`, `ubuntu`, or `centos`, and install any
+> packages you might need.
 
 ## Using a Docker image to mirror your production Services
 
@@ -155,10 +154,8 @@ when:
   from scratch (without using a Base Preview)
 - You
   [Rebuild](../../building-a-preview/administer-previews/index.md#rebuild-previews)
-  a Preview or a
+  a Preview that was not built from a
   [Base Preview](../../building-a-preview/work-with-base-previews/index.md#change-a-base-preview)
-- You
-  [manually Rebuild a Preview that was built from a Base Preview - without using the Base Preview](../../building-a-preview/work-with-base-previews/index.md#build-a-preview-with-no-base-preview)
 
 Otherwise, Tugboat relies on the images you pulled when the Preview was first
 created; Preview Actions like
