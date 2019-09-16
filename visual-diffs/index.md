@@ -5,7 +5,7 @@ When a Preview is built from a
 Tugboat can generate Visual Diff images to highlight any changes between the
 Base Preview and the new Preview.
 
-![Visual Diff Example](_images/visualdiff.png)
+![Visual Diff Example](../_images/visualdiff.png)
 
 Ready to get started with Visual Diffs? Here's what you need to know:
 

@@ -5,10 +5,10 @@ search:
 
 # Using the Tugboat Command Line Interface
 
-The Tugboat [Command Line Tool](https://dashboard2.tugboat.qa/downloads)
-provides access to your Tugboat account from your local command line. It allows
-you to perform all of the operations available through the web interface, as
-well as other, more advanced features of Tugboat.
+The Tugboat [Command Line Tool](https://dashboard.tugboat.qa/downloads) provides
+access to your Tugboat account from your local command line. It allows you to
+perform all of the operations available through the web interface, as well as
+other, more advanced features of Tugboat.
 
 1. [Install the CLI](#install-tugboats-command-line-interface)
 2. [Set an Access Token](#set-an-access-token)
@@ -20,7 +20,7 @@ The Tugboat Command Line Tool is available for Windows, MacOS, and Linux. In all
 three cases, it is a stand-alone binary.
 
 1. Download the CLI from
-   [https://dashboard2.tugboat.qa/downloads](https://dashboard2.tugboat.qa/downloads).
+   [https://dashboard.tugboat.qa/downloads](https://dashboard.tugboat.qa/downloads).
 2. Copy it to a location that the operating system can find in its execution
    path.
 
@@ -66,7 +66,7 @@ Interface, you'll be asked for an Access Token.
 To set an Access Token:
 
 1. In Tugboat's web interface, go to User Name -> Access Tokens, or
-   [click this link](https://dashboard2.tugboat.qa/access-tokens).
+   [click this link](https://dashboard.tugboat.qa/access-tokens).
 2. Click the **+ Generate New Token option**.
 3. You'll be asked to give the Access Token a description; for example, "Command
    Line Tool"; enter a description and press the **Generate** button.
@@ -80,7 +80,7 @@ Now you're all set to use the Tugboat Command Line Interface!
 #### Visual Walkthrough
 
 In Tugboat's web interface, go to User Name -> Access Tokens, or
-[click this link](https://dashboard2.tugboat.qa/access-tokens).
+[click this link](https://dashboard.tugboat.qa/access-tokens).
 
 ![Go to Access Tokens page](../_images/go-to-user-access-tokens.png)
 

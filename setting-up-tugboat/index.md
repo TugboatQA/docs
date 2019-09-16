@@ -437,7 +437,7 @@ Here's where you can enter environment variables, like API keys or passwords,
 that you wouldn't want to store in your repo. If you're looking for Tugboat's
 environment variables to add to your Build Scripts or configuration files, check
 out
-[Reference -> Environment Variables](reference/environment-variables/index.md).
+[Reference -> Environment Variables](../setting-up-services/services-reference/#environment-variables).
 
 ### Set up Remote SSH Access
 
@@ -472,8 +472,8 @@ use the SSH key, simply copy it to your clipboard and put it where you need it!
 > Repository Settings page is the public key from the pair.
 
 If you want Tugboat to generate a new SSH key, press the **Generate SSH Key**
-button. You'll see a dialogue box asking you to confirm that you want to
-generate a new key, as this action can't be undone.
+button. You'll see a dialog box asking you to confirm that you want to generate
+a new key, as this action can't be undone.
 
 > #### Warning:: Generating a new SSH key erases the existing key
 >
@@ -528,7 +528,7 @@ connected to it, nor does it delete the Tugboat project that contains the repo.
 >
 > Only Admin users have the **Delete Repository** option. For more on user
 > permissions, see:
-> [User permission levels explained](../administering-tugboat-crew/user-permission-levels-explained/index.md).
+> [User permission levels explained](../administering-tugboat-crew/#user-permission-levels-explained).
 
 ### Change Repository Settings
 
@@ -564,7 +564,9 @@ engine from parts! These docs can help get you started:
 - [Setting up Services in your Tugboat](../setting-up-services/index.md)
 - [Starter Configuration files](../starter-configs/index.md) (configuration file
   code snippets with comments to help you get started)
+- [Using the Tugboat Command Line Tool](../tugboat-cli/index.md)
+- [Service Attributes](../setting-up-services/services-reference/index.md#service-attributes)
 - [Using the Tugboat Command Line Tool](../using-the-cli/index.md)
 - [Service Attributes](../setting-up-services/reference-service-attributes/index.md)
-  (detailing the attributes you can use when building Services)
+  (detailing the attributes you can use when building
 - [Debugging Config files](../troubleshooting/index.md#debugging-config-files)

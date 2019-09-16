@@ -23,15 +23,6 @@
 - [Troubleshooting a Preview Build failure](#troubleshooting-a-preview-build-failure)
 - [Previews are not Building automatically](#previews-are-not-building-automatically)
 
-### Can't build a Preview in the Tugboat UI
-
-If you're Building a Preview from a branch whose name includes a `/`, you may
-get a JS `Uncaught Error` and be unable to build. Until this issue is addressed,
-there are two workarounds:
-
-1. Rename the branch without the slash.
-2. Use the [Tugboat CLI](../tugboat-cli/index.md) to build the branch.
-
 ### My Preview Build is stuck at...
 
 Uh oh! Did your Preview Build get stuck?
@@ -108,8 +99,7 @@ and figuring out what's causing the Preview rebuild to hang.
 > Preview that was generated from a Base Preview, rebuild starts with the
 > commands in `build`. Which type of Rebuild you're doing should tell you where
 > you start looking for problems in the config file - during `init` or skipping
-> straight to `build` commands. _BEN IS THIS RELEVANT OR TRUE?_ For more info,
-> see:
+> straight to `build` commands. For more info, see:
 > [The build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained).
 
 If your rebuilds are taking longer than expected, but there isn't an issue in
@@ -152,13 +142,13 @@ If you've decided to cancel a Preview Action, but the Preview is stuck on
 ### Troubleshooting a Preview Build Failure
 
 If your Tugboat Preview has `failed` to build, it's time to take a
-[look at the the Preview logs](#how-to-check-the-preview-logs). The most common
+[look at the Preview logs](#how-to-check-the-preview-logs). The most common
 cause of build failures is when one of the commands in the Tugboat
 [configuration file](../setting-up-tugboat/index.md#create-a-tugboat-config-file)
 exits with an error. If that is the case, it's time to start
 [debugging the configuration file](#debugging-configuration-files).
 
-![Failed Preview Log](_images/failed-log.png)
+![Failed Preview Log](../_images/failed-log.png)
 
 If you're having problems figuring out why the Preview build `failed`, we're
 happy to look into the problem with you to see whether we can help. We've gotten
@@ -173,7 +163,7 @@ check the
 [Repository Settings](../setting-up-tugboat/index.md#repository-settings-optional),
 and make sure "Build Pull Requests Automatically" is enabled.
 
-![Build Pull Requests Automatically](_images/pr-probe.png)
+![Build Pull Requests Automatically](../_images/pr-probe.png)
 
 > #### Hint:: Don't see the option to Build Pull Requests Automatically?
 >
@@ -301,7 +291,7 @@ help.
 
 - [Visual diffs aren't displaying, or aren't displaying as I expect](#visual-diffs-arent-displaying-or-arent-displaying-as-i-expect)
 - [URL not found](#url-not-found)
-- [There was a problem generating Visual Diffs for this preview.](#there-was-a-problem-generating-visual-diffs-for-this-preview)
+- [There was a problem generating Visual Diffs for this Preview.](#there-was-a-problem-generating-visual-diffs-for-this-preview)
 
 #### Visual diffs aren't displaying, or aren't displaying as I expect
 
