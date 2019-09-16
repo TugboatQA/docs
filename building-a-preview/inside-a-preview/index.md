@@ -101,10 +101,18 @@ Preview should forward to our SMTP proxy. Tugboat captures that outgoing email,
 and displays it in Captured Mail when you click into a Preview. This makes it
 possible for you to verify that email is sending as expected.
 
-> #### Note:: Sending outgoing email from your own image
+Tugboat-provided images send outbound email through the Tugboat SMTP proxy by
+default. If you are using your own image, or your codebase does not use the
+underlying operating system mail configuration, use the \$TUGBOAT_SMTP
+[Environment Variable](../../setting-up-services/reference-environment-variables/index.md#tugboat-environment-variables)
+to ensure that Tugboat is able to properly capture your outbound email.
+
+> #### Warning:: Sending outgoing email from a Preview
 >
-> When you use a non-Tugboat-provided image, outgoing email generated from
-> within a Preview may actually leave the Preview.
+> Tugboat makes a best-effort attempt at capturing outbound email. Commonly used
+> outbound SMTP ports (25, 465, 587, and 2525) are blocked, and any mail sent
+> through the Tugboat SMTP proxy is captured for display with the Preview that
+> sent it.
 
 ## Visual Diffs
 
