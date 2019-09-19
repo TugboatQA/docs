@@ -1,5 +1,5 @@
 ---
-title: "Welcome to Tugboat"
+title: "Tugboat Documentation"
 date: 2019-09-17T09:34:20-04:00
 ---
 

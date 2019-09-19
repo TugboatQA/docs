@@ -24,4 +24,5 @@ engine from parts! These docs can help get you started:
 - [Debugging Config files](../troubleshooting/index.md#debugging-config-files)
 
 #### Jump Link Example
+
 - [Adding a link to a Git Provider](../connect-with-your-provider/#adding-a-link-to-a-git-provider)

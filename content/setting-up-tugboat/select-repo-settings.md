@@ -105,12 +105,10 @@ applications need to access.
 - [Use your own SSH key](#use-your-own-ssh-key)
 - [Delete an SSH key](#delete-an-ssh-key)
 
-{{% notice info %}}
-You can't SSH into a Tugboat Preview; the SSH key here is all about outbound
-requests to remote resources. If you want to get _into_ a Tugboat Preview,
-shell access is provided in both the web interface and the
-[command line tool](../tugboat-cli/index.md).
-{{% /notice %}}
+{{% notice info %}} You can't SSH into a Tugboat Preview; the SSH key here is
+all about outbound requests to remote resources. If you want to get _into_ a
+Tugboat Preview, shell access is provided in both the web interface and the
+[command line tool](../tugboat-cli/index.md). {{% /notice %}}
 
 #### Use the Tugboat SSH key
 
@@ -121,19 +119,17 @@ use the SSH key, simply copy it to your clipboard and put it where you need it!
 
 ![Copy SSH Key to Clipboard](../../_images/remote-ssh-access-copy-ssh-key.png)
 
-{{% notice info %}}
-Tugboat provides a private 4096 bit length RSA SSH key. What you see on the
-Repository Settings page is the public key from the pair.
+{{% notice info %}} Tugboat provides a private 4096 bit length RSA SSH key. What
+you see on the Repository Settings page is the public key from the pair.
 {{% /notice %}}
 
 If you want Tugboat to generate a new SSH key, press the **Generate SSH Key**
 button. You'll see a dialog box asking you to confirm that you want to generate
 a new key, as this action can't be undone.
 
-{{% notice warning %}}
-If you have Tugboat create a new SSH key, this automatically erases the
-existing SSH key. If you're using this SSH key anywhere, you'll need to update
-that when you generate a new key.
+{{% notice warning %}} If you have Tugboat create a new SSH key, this
+automatically erases the existing SSH key. If you're using this SSH key
+anywhere, you'll need to update that when you generate a new key.
 {{% /notice %}}
 
 #### Use your own SSH key
@@ -143,18 +139,15 @@ If you've got a specific SSH key you want to use, you can set that up in
 Press the **Upload SSH Key** button, and you'll be asked to enter a private key,
 or select a private key file.
 
-{{% notice info %}}
-The private key you provide here must be in PEM format. The public key will be
-automatically extracted from the private key you upload.
+{{% notice info %}} The private key you provide here must be in PEM format. The
+public key will be automatically extracted from the private key you upload.
 {{% /notice %}}
 
 ![Upload an SSH Key](../../_images/remote-ssh-access-upload-an-ssh-key.png)
 
-{{% notice warning%}}
-If you upload your own SSH key, this automatically erases the existing SSH
-key. If you're using this SSH key anywhere, you'll need to update that when
-you upload the new key.
-{{% /notice %}}
+{{% notice warning%}} If you upload your own SSH key, this automatically erases
+the existing SSH key. If you're using this SSH key anywhere, you'll need to
+update that when you upload the new key. {{% /notice %}}
 
 #### Delete an SSH key
 
@@ -179,9 +172,8 @@ connected to it, nor does it delete the Tugboat project that contains the repo.
 
 ![Delete repository](../../_images/delete-repository.png)
 
-{{% notice note %}}
-Only Admin users have the **Delete Repository** option. For more on user
-permissions, see:
+{{% notice note %}} Only Admin users have the **Delete Repository** option. For
+more on user permissions, see:
 [User permission levels explained](../administering-tugboat-crew/#user-permission-levels-explained).
 {{% /notice %}}
 
