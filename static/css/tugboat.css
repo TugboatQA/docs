@@ -1,0 +1,23 @@
+.expand-label {
+  color: var(--MAIN-TITLES-TEXT-color)
+     !important;
+  font-size: 1.5rem;
+  line-height: 110% !important;
+  margin: 1.5rem 0 0.75rem 0;
+  font-weight: 400;
+  font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -1px;
+}
+
+.ui-text {
+  background: #868c96;
+  border-radius: 1000px;
+  font-size: .9em;
+  font-style: normal;
+  color: #fff;
+  padding: 2px 12px 3px;
+  display: inline-block;
+  line-height: 1.2em;
+  letter-spacing: 0;
+}

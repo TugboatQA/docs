@@ -1,13 +1,7 @@
-node_modules
-npm-debug.log
-.npm
-yarn-error.log
 
 *.DS_Store
 *.swp
 *.swo
-
-_book
 
 # Jetbrains IDE stuff
 .idea
@@ -17,3 +11,6 @@ _book
 
 # Atom on-save plugin
 .on-save.json
+
+# Hugo dir generated from Hugo build
+public
