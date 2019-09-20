@@ -100,18 +100,17 @@ way to keep a Tugboat Project under your
 [billing tier's storage limit](../../tugboat-billing/index.md#how-does-tugboat-pricing-work),
 even when you're building multiple Previews.
 
-> #### Hint:: Base Previews and Preview Build Stages
->
-> When you set a Base Preview, new Previews you build - including Previews that
-> are built automatically from pull requests - use the Base Preview as a
-> starting point, and build only from the `build` stage. This means that if
-> you're making changes that would be processed during `init` or `update`
-> stages, or changing a Docker image, you'll need to either
-> [rebuild the Base Preview](../work-with-base-previews/index.md#change-a-base-preview),
-> or
-> [build the Preview from scratch without the Base Preview](../work-with-base-previews/index.md#build-a-preview-with-no-base-preview).
-> For more info, see:
-> [Building and Rebuilding Previews when you're using a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+{{% notice tip %}} When you set a Base Preview, new Previews you build -
+including Previews that are built automatically from pull requests - use the
+Base Preview as a starting point, and build only from the `build` stage. This
+means that if you're making changes that would be processed during `init` or
+`update` stages, or changing a Docker image, you'll need to either
+[rebuild the Base Preview](../work-with-base-previews/index.md#change-a-base-preview),
+or
+[build the Preview from scratch without the Base Preview](../work-with-base-previews/index.md#build-a-preview-with-no-base-preview).
+For more info, see:
+[Building and Rebuilding Previews when you're using a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+{{% /notice %}}
 
 ## Preview size: explained
 

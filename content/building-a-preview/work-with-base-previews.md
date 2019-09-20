@@ -115,13 +115,11 @@ current Base Preview with a new one that contains all of your changes.
 Want to know more about build phases? Check out:
 [the build process: explained](../how-previews-work/index.md#the-build-process-explained).
 
-> #### Note:: Rebuilding a Base Preview and child Previews
->
-> If you've checked the
-> [Repository Setting](../../setting-up-tugboat/index.md#repository-settings-optional)
-> to **Rebuild Orphaned Previews Automatically**, a successful Rebuild of a Base
-> Preview will kick off Rebuilds of any child Previews that were built from your
-> Base Preview.
+{{% notice note %}} If you've checked the
+[Repository Setting](../../setting-up-tugboat/index.md#repository-settings-optional)
+to **Rebuild Orphaned Previews Automatically**, a successful Rebuild of a Base
+Preview will kick off Rebuilds of any child Previews that were built from your
+Base Preview. {{% /notice %}}
 
 To Rebuild a Base Preview:
 
@@ -181,25 +179,21 @@ Refreshing a Base Preview:
 Want to know more about build phases? Check out:
 [the build process: explained](../how-previews-work/index.md#the-build-process-explained).
 
-> #### Hint:: Pulling images and changing the config.yml
->
-> If you want to pull a fresh Docker image, or if you've made changes to the
-> config.yml's `init` phase, you'll need to
-> [rebuild the Base Preview](#change-a-base-preview) in order to see those
-> changes.
+{{% notice tip %}} If you want to pull a fresh Docker image, or if you've made
+changes to the config.yml's `init` phase, you'll need to
+[rebuild the Base Preview](#change-a-base-preview) in order to see those
+changes. {{% /notice %}}
 
 Tugboat provides a couple of ways to Refresh a Base Preview:
 
 - [Manually Refresh a Base Preview](#manually-refresh-a-base-preview)
 - [Automatically Refresh Base Previews](#automatically-refresh-a-base-preview)
 
-> #### Note:: Refreshing a Base Preview and child Previews
->
-> If you've checked the
-> [Repository Setting](../../setting-up-tugboat/index.md#repository-settings-optional)
-> to **Rebuild Stale Previews Automatically**, a successful Refresh of a Base
-> Preview will kick off Rebuilds of any child Previews that were built from your
-> Base Preview.
+{{% notice note %}} If you've checked the
+[Repository Setting](../../setting-up-tugboat/index.md#repository-settings-optional)
+to **Rebuild Stale Previews Automatically**, a successful Refresh of a Base
+Preview will kick off Rebuilds of any child Previews that were built from your
+Base Preview. {{% /notice %}}
 
 #### Manually Refresh a Base Preview
 
@@ -354,13 +348,12 @@ available to the project. If you don't want this, you can
 child Previews from this Preview, but preserve the current size of existing
 child Previews.
 
-> #### Note:: Going over the project disk space limit
->
-> When you exceed the disk space limit in your project, you won't be able to
-> build new Previews until you are under the project's disk space limit again.
-> You can get under the project's space limit by
-> [deleting Previews](../administer-previews/index.md#delete-previews), or
-> [increasing your project's billing tier](../../tugboat-billing/index.md#change-your-tugboat-plan).
+{{% notice note %}} When you exceed the disk space limit in your project, you
+won't be able to build new Previews until you are under the project's disk space
+limit again. You can get under the project's space limit by
+[deleting Previews](../administer-previews/index.md#delete-previews), or
+[increasing your project's billing tier](../../tugboat-billing/index.md#change-your-tugboat-plan).
+{{% /notice %}}
 
 To delete a Base Preview:
 

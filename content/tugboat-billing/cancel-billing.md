@@ -16,17 +16,14 @@ can change your Tugboat plan to the Free tier. Simply follow
 [the instructions to change your Tugboat plan](#change-your-tugboat-plan), and
 select the Free tier.
 
-> #### Note:: things to keep in mind when downgrading
->
-> If you downgrade your Tugboat plan, the changes will take effect when the
-> currently paid cycle is complete. Whenever you view the **Your Plan** section
-> of **Project Settings**, you'll see a banner containing the date that the
-> change will take effect.
->
-> If your [project storage](#calculating-project-storage-for-tugboat-billing) is
-> over the limit of the lower-level tier, you won't be able to build any new
-> Previews until you've freed up enough space to put you under that storage
-> limit.
+{{% notice note %}} If you downgrade your Tugboat plan, the changes will take
+effect when the currently paid cycle is complete. Whenever you view the **Your
+Plan** section of **Project Settings**, you'll see a banner containing the date
+that the change will take effect. If your
+[project storage](#calculating-project-storage-for-tugboat-billing) is over the
+limit of the lower-level tier, you won't be able to build any new Previews until
+you've freed up enough space to put you under that storage limit.
+{{% /notice %}}
 
 ### Delete your project
 
@@ -40,13 +37,11 @@ for a particular project, you can always delete your project:
 4. Scroll down past **Your Plan**.
 5. Click the red **Delete Project** button.
 
-> #### Note:: deleting a project only applies to that project
->
-> When you delete a Tugboat project, you're only deleting the Previews and
-> Tugboat repositories for that project. This does not affect data in your git
-> repositories. This also does not affect other Tugboat projects; if you have
-> three projects in Tugboat, for example, and you delete one of them, you can
-> still continue working in the other two projects.
+{{% notice note %}} When you delete a Tugboat project, you're only deleting the
+Previews and Tugboat repositories for that project. This does not affect data in
+your git repositories. This also does not affect other Tugboat projects; if you
+have three projects in Tugboat, for example, and you delete one of them, you can
+still continue working in the other two projects. {{% /notice %}}
 
 #### Visual Walkthrough
 

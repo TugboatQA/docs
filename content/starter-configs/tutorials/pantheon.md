@@ -9,12 +9,11 @@ these instructions are for a Drupal 8 site, the concepts should apply for any
 PHP site hosted by Pantheon. Check out the [Drupal 7](../drupal7/index.md) and
 [WordPress](../wordpress/index.md) tutorials for comparisons.
 
-> #### Warning::Git Provider
->
-> These instructions assume you have already configured an external git
-> repository provider such as GitHub, GitLab, or BitBucket. Pantheon has
-> documentation on
-> [how to use GitHub](https://pantheon.io/docs/guides/build-tools/).
+{{% notice warning %}} These instructions assume you have already configured an
+external git repository provider such as GitHub, GitLab, or BitBucket. Pantheon
+has documentation on
+[how to use GitHub](https://pantheon.io/docs/guides/build-tools/).
+{{% /notice %}}
 
 ## Configure Terminus
 
@@ -24,13 +23,11 @@ database and files into a Tugboat Preview.
 
 ### Create a Pantheon User for Tugboat
 
-> #### Danger::Do not skip this step!
->
-> Because of how terminus machine tokens work, you cannot restrict their access
-> to a single Pantheon project. This means that by sharing your machine token
-> with Tugboat, anyone else that has access to your Tugboat project could gain
-> access to your personal Pantheon account, including any other Pantheon
-> projects that account has access to.
+{{% notice warning %}} Because of how terminus machine tokens work, you cannot
+restrict their access to a single Pantheon project. This means that by sharing
+your machine token with Tugboat, anyone else that has access to your Tugboat
+project could gain access to your personal Pantheon account, including any other
+Pantheon projects that account has access to. {{% /notice %}}
 
 By creating a Pantheon account solely for Tugboat's use, that user's access can
 be restricted to the Pantheon project connected to Tugboat. This user's machine
@@ -45,13 +42,11 @@ token can then be safely shared with Tugboat.
 
 ![Screenshot: Create a new pantheon account](_images/pantheon-register.png)
 
-> #### Hint::Use an email alias
->
-> Many email clients allow you to generate aliases, or allow you to dynamically
-> have an alias. For example, on gmail, if your email address is
-> `dorothy@gmail.com`, you could use the `+` symbol followed by a unique string
-> to create an alias for this tugboat user, e.g.
-> `dorothy+tugboat-pantheon@gmail.com`.
+{{% notice tip %}} Many email clients allow you to generate aliases, or allow
+you to dynamically have an alias. For example, on gmail, if your email address
+is `dorothy@gmail.com`, you could use the `+` symbol followed by a unique string
+to create an alias for this tugboat user, e.g.
+`dorothy+tugboat-pantheon@gmail.com`. {{% /notice %}}
 
 ### Generate a Pantheon Machine Token
 
@@ -85,11 +80,9 @@ need to add this user to your Pantheon project. To do this:
 
 ### Store the machine token as a Tugboat environment variable
 
-> #### Warning::Do not store the token in your repo
->
-> For the security of your Pantheon site, it's important to use an environment
-> variable to store the machine token, instead of committing it to your
-> repository or storing it in some other fashion.
+{{% notice warning %}} For the security of your Pantheon site, it's important to
+use an environment variable to store the machine token, instead of committing it
+to your repository or storing it in some other fashion. {{% /notice %}}
 
 ## Configure Pantheon (using a Drupal example)
 
@@ -142,10 +135,9 @@ There are three parts to configuring Tugboat to work with Pantheon.
 In order to replicate the Pantheon environment as closely as possible, we need
 to use the same version of PHP.
 
-> #### Warning::Terminus for PHP version
->
-> While in theory you could use the `terminus site:info` command to determine
-> the PHP version, we've found that may not give you accurate results.
+{{% notice warning %}} While in theory you could use the `terminus site:info`
+command to determine the PHP version, we've found that may not give you accurate
+results. {{% /notice %}}
 
 1.  Log into the [Pantheon Dashboard](https://dashboard.pantheon.io).
 2.  Navigate to the project you are trying to connect with Pantheon.

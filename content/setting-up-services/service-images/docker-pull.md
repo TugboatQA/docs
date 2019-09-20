@@ -43,18 +43,15 @@ build process from scratch again.
 For more info, see:
 [Why Build phases matter](../../building-a-preview/how-previews-work/index.md#why-build-phases-matter).
 
-> #### Hint:: Tugboat Preview isn't pulling your latest image tag?
->
-> If your Tugboat Preview isn't pulling your latest Docker image tag, it might
-> be because you're building from a Base Preview. If that's the case, you'll
-> need to
-> [Rebuild your Base Preview](../../building-a-preview/work-with-base-previews/index.md#change-a-base-preview),
-> which executes an API call to `docker pull` under the hood to grab the image
-> tag referenced in your
-> [config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file).
->
-> If that still doesn't get you the image you expect, check your
-> [config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
-> to see which [image tag](#docker-image-version-tags-primer) you're pulling;
-> you may need to change the reference to latest, or a specific image tag, to
-> get the result you want.
+{{% notice tip %}} If your Tugboat Preview isn't pulling your latest Docker
+image tag, it might be because you're building from a Base Preview. If that's
+the case, you'll need to
+[Rebuild your Base Preview](../../building-a-preview/work-with-base-previews/index.md#change-a-base-preview),
+which executes an API call to `docker pull` under the hood to grab the image tag
+referenced in your
+[config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file).
+If that still doesn't get you the image you expect, check your
+[config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) to
+see which [image tag](#docker-image-version-tags-primer) you're pulling; you may
+need to change the reference to latest, or a specific image tag, to get the
+result you want. {{% /notice %}}

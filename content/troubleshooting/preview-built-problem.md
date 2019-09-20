@@ -76,19 +76,17 @@ will build from the new image, you'll need to
 [Rebuild](../building-a-preview/work-with-base-previews/index.md#change-a-base-preview)
 the Base Preview.
 
-> #### Hint:: Automatically updating the Base Preview
->
-> If you're using the
-> [Repository Setting](../setting-up-tugboat/index.md#repository-settings-optional)
-> to
-> [Refresh Base Previews Automatically](../setting-up-tugboat/index.md#refresh-base-previews-automatically),
-> this does _not_ update the Docker images used in your Preview. This only kicks
-> off a
-> [Refresh](../building-a-preview/work-with-base-previews/index.md#automatically-refresh-a-base-preview),
-> which runs config file commands from both `update` and `build`. You need to
-> manually
-> [Rebuild a Base Preview](../building-a-preview/work-with-base-previews/index.md#change-a-base-preview)
-> to pull a new Docker image.
+{{% notice tip %}} If you're using the
+[Repository Setting](../setting-up-tugboat/index.md#repository-settings-optional)
+to
+[Refresh Base Previews Automatically](../setting-up-tugboat/index.md#refresh-base-previews-automatically),
+this does _not_ update the Docker images used in your Preview. This only kicks
+off a
+[Refresh](../building-a-preview/work-with-base-previews/index.md#automatically-refresh-a-base-preview),
+which runs config file commands from both `update` and `build`. You need to
+manually
+[Rebuild a Base Preview](../building-a-preview/work-with-base-previews/index.md#change-a-base-preview)
+to pull a new Docker image. {{% /notice %}}
 
 ### Something in my Preview isn't right
 

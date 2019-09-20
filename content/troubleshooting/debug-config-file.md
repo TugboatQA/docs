@@ -62,15 +62,15 @@ to do to make sure Tugboat is getting the changes as expected:
 3. Go into Tugboat, and manually
    [build your Preview without a Base Preview](../building-a-preview/work-with-base-previews/index.md#build-a-preview-with-no-base-preview).
 
-> #### Hint:: Building a Preview from a PR may not process changes in your config
->
-> If you're using a Base Preview in your Tugboat project, subsequent Previews
-> that are built from that Base Preview start with the commands in `build`,
-> bypassing `init` and `update`. Changes you make to a config file's `init` or
-> `update` commands won't be applied when automatically building a Preview from
-> a PR. You'll need to manually rebuild a Preview from scratch if you're using a
-> Base Preview in order to apply config file changes. For more info, see:
-> [The build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained).
+{{% notice tip %}} If you're using a Base Preview in your Tugboat project,
+subsequent Previews that are built from that Base Preview start with the
+commands in `build`, bypassing `init` and `update`. Changes you make to a config
+file's `init` or `update` commands won't be applied when automatically building
+a Preview from a PR. You'll need to manually rebuild a Preview from scratch if
+you're using a Base Preview in order to apply config file changes. For more
+info, see:
+[The build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained).
+{{% /notice %}}
 
 From here, if your Preview build is failing, the process is the same as above:
 

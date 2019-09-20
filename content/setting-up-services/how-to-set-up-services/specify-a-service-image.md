@@ -25,12 +25,11 @@ For a deeper dive on Service images in Tugboat, check out:
 - [Using a Docker image to mirror your production services](../service-images/index.md#using-a-docker-image-to-mirror-your-production-services)
 - [When does an image get pulled or updated?](../service-images/index.md#when-does-an-image-get-pulled-or-updated)
 
-> #### Info::New to Docker images?
->
-> Tugboat has abstracted away some of the technical aspects of working with
-> Docker images, but if you're new to Docker, and want to understand more about
-> Docker images,
-> [check out Docker's documentation](https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/).
+{{% notice info %}} Tugboat has abstracted away some of the technical aspects of
+working with Docker images, but if you're new to Docker, and want to understand
+more about Docker images,
+[check out Docker's documentation](https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/).
+{{% /notice %}}
 
 ### How to call a Service image from Docker Hub
 

@@ -67,14 +67,13 @@ To configure Tugboat to automatically post Preview links:
 4. Click the checkbox for **Post Preview Links in Pull Request Comments**.
 5. Press the Save Configuration button to save your changes.
 
-> #### Note:: Configure a Git Tugboat bot to post updates
->
-> By default, Tugboat's comments to a linked git provider display as the person
-> who linked the provider to Tugboat. That means the person who linked the repo
-> will get notifications for every PR where Tugboat automatically posts a
-> comment. If this person does not wish to receive notifications, you can
-> [configure a Tugboat bot](../../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team)
-> to post the comments and receive those notifications.
+{{% notice note %}} By default, Tugboat's comments to a linked git provider
+display as the person who linked the provider to Tugboat. That means the person
+who linked the repo will get notifications for every PR where Tugboat
+automatically posts a comment. If this person does not wish to receive
+notifications, you can
+[configure a Tugboat bot](../../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team)
+to post the comments and receive those notifications. {{% /notice %}}
 
 #### Visual Walkthrough
 

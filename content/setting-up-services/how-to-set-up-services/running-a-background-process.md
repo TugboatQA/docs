@@ -11,11 +11,9 @@ the conventional way, Tugboat will think the Preview has not finished building,
 and it will be stuck in the "building" state until it eventually times out and
 fails.
 
-> #### Info:: Services stop after the Preview builds
->
-> The reason Tugboat needs to wait for all of the `build` commands to finish is
-> that we stop the Services after a Preview build is finished in order to take a
-> snapshot.
+{{% notice info %}} The reason Tugboat needs to wait for all of the `build`
+commands to finish is that we stop the Services after a Preview build is
+finished in order to take a snapshot. {{% /notice %}}
 
 Our
 [prebuilt images](../service-images/index.md#tugboats-prebuilt-docker-images)

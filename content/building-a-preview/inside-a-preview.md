@@ -111,12 +111,10 @@ underlying operating system mail configuration, use the \$TUGBOAT_SMTP
 [Environment Variable](../../setting-up-services/reference-environment-variables/index.md#tugboat-environment-variables)
 to ensure that Tugboat is able to properly capture your outbound email.
 
-> #### Warning:: Sending outgoing email from a Preview
->
-> Tugboat makes a best-effort attempt at capturing outbound email. Commonly used
-> outbound SMTP ports (25, 465, 587, and 2525) are blocked, and any mail sent
-> through the Tugboat SMTP proxy is captured for display with the Preview that
-> sent it.
+{{% notice warning %}} Tugboat makes a best-effort attempt at capturing outbound
+email. Commonly used outbound SMTP ports (25, 465, 587, and 2525) are blocked,
+and any mail sent through the Tugboat SMTP proxy is captured for display with
+the Preview that sent it. {{% /notice %}}
 
 ## Visual Diffs
 

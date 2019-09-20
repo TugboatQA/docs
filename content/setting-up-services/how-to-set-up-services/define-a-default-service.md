@@ -26,14 +26,11 @@ services:
     image: tugboatqa/mysql:5.6
 ```
 
-> #### Note:: Default Service behaviors
->
-> Setting a Service as the `default` - including when the Service is
-> automatically designated `default` because it's the only Service - also
-> implies that port 80 is exposed to the Tugboat Proxy, and that the git
-> repository is cloned to /var/lib/tugboat.
->
-> To override the Service HTTP port, see:
-> [Expose a Service HTTP port](#expose-a-service-http-port)  
-> To override the git repository clone destination, see:
-> [Clone Git repositories into your Services](#clone-git-repositories-into-your-services)
+{{% notice note %}} Setting a Service as the `default` - including when the
+Service is automatically designated `default` because it's the only Service -
+also implies that port 80 is exposed to the Tugboat Proxy, and that the git
+repository is cloned to /var/lib/tugboat. To override the Service HTTP port,
+see: [Expose a Service HTTP port](#expose-a-service-http-port). To override the
+git repository clone destination, see:
+[Clone Git repositories into your Services](#clone-git-repositories-into-your-services).
+{{% /notice %}}

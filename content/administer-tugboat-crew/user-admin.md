@@ -13,13 +13,12 @@ changes to your Tugboat team?
 - [Add a Tugboat bot to your team](#add-a-tugboat-bot-to-your-team)
 - [User permission levels explained](#user-permission-levels-explained)
 
-> #### Info::Permissions and organizing projects
->
-> User permissions in Tugboat are handled on a per-project basis. When users
-> have access to a project, they have access to all the repositories within that
-> project. When inviting users to your project, consider whether any of your
-> repos contain sensitive data; you may want to split those repos out into a
-> different project, where only a subset of users get access.
+{{% notice info %}} User permissions in Tugboat are handled on a per-project
+basis. When users have access to a project, they have access to all the
+repositories within that project. When inviting users to your project, consider
+whether any of your repos contain sensitive data; you may want to split those
+repos out into a different project, where only a subset of users get access.
+{{% /notice %}}
 
 ## Add a user to a project
 

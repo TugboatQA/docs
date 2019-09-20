@@ -78,15 +78,14 @@ that the Preview build isn't progressing, checking out where it got stuck is a
 great place to start [debugging the Config file](#debugging-configuration-files)
 and figuring out what's causing the Preview rebuild to hang.
 
-> #### Hint:: Rebuilding and Base Previews
->
-> If you're rebuilding a Preview that was generated without a Base Preview, the
-> rebuild process starts with the commands in `init`. If you're rebuilding a
-> Preview that was generated from a Base Preview, rebuild starts with the
-> commands in `build`. Which type of Rebuild you're doing should tell you where
-> you start looking for problems in the config file - during `init` or skipping
-> straight to `build` commands. For more info, see:
-> [The build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained).
+{{% notice tip %}} If you're rebuilding a Preview that was generated without a
+Base Preview, the rebuild process starts with the commands in `init`. If you're
+rebuilding a Preview that was generated from a Base Preview, rebuild starts with
+the commands in `build`. Which type of Rebuild you're doing should tell you
+where you start looking for problems in the config file - during `init` or
+skipping straight to `build` commands. For more info, see:
+[The build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained).
+{{% /notice %}}
 
 If your rebuilds are taking longer than expected, but there isn't an issue in
 your config file causing problems, take a look at
@@ -151,15 +150,14 @@ and make sure "Build Pull Requests Automatically" is enabled.
 
 ![Build Pull Requests Automatically](../_images/pr-probe.png)
 
-> #### Hint:: Don't see the option to Build Pull Requests Automatically?
->
-> The option to "Build Pull Requests Automatically" only appears if you have
-> linked your Tugboat repository with a git provider repository via a
-> [git provider integration](../setting-up-tugboat/index.md#connect-with-your-provider).
-> If you haven't already connected to a git provider, you'll need to
-> [set up a git integration](../setting-up-tugboat/index.md#adding-a-link-to-a-git-provider),
-> and then
-> [delete the repository](../setting-up-tugboat/index.md#delete-the-repository)
-> from Tugboat and
-> [add it back to your project](../setting-up-tugboat/index.md#add-repos-to-the-project)
-> using the git provider integration.
+{{% notice tip %}} The option to "Build Pull Requests Automatically" only
+appears if you have linked your Tugboat repository with a git provider
+repository via a
+[git provider integration](../setting-up-tugboat/index.md#connect-with-your-provider).
+If you haven't already connected to a git provider, you'll need to
+[set up a git integration](../setting-up-tugboat/index.md#adding-a-link-to-a-git-provider),
+and then
+[delete the repository](../setting-up-tugboat/index.md#delete-the-repository)
+from Tugboat and
+[add it back to your project](../setting-up-tugboat/index.md#add-repos-to-the-project)
+using the git provider integration. {{% /notice %}}

@@ -61,12 +61,11 @@ If you're having trouble pinpointing the error, you may need to go back and
 execute your config file commands line-by-line until you find the point at which
 things stop working.
 
-> #### Hint:: Check for these issues:
->
-> A few common problems in config files include:
-> [`cd` does not "stick" between commands](#cd-isnt-working) and
-> [running a background process "breaks" the build](#running-a-background-process).
-> Check out the troubleshooting docs for info on addressing these issues.
+{{% notice tip %}} A few common problems in config files include:
+[`cd` does not "stick" between commands](#cd-isnt-working) and
+[running a background process "breaks" the build](#running-a-background-process).
+Check out the troubleshooting docs for info on addressing these issues.
+{{% /notice %}}
 
 If you've gone through the debugging process and haven't been able to figure out
 why your command is failing, reach out to us at
@@ -82,10 +81,8 @@ This setting is off by default, but when it's enabled, Tugboat builds Previews
 for pull requests made to the primary repo from forked repositories. Turning on
 this setting should correct this error.
 
-> #### Warning:: There are security implications when using this setting.
->
-> Any secrets in your Preview will be accessible by the owner of the forked
-> repository.
+{{% notice warning %}} Any secrets in your Preview will be accessible by the
+owner of the forked repository. {{% /notice %}}
 
 #### Running a background process
 

@@ -35,14 +35,12 @@ To configure Tugboat to auto-generate Previews, you'll need to:
    on/off.
 5. Press the Save Configuration button to save your changes.
 
-> ####Hint::Missing auto-generate from PR options?
->
-> Don't see the options to auto-generate Previews from pull requests? You'll
-> need to
-> [connect your preferred git provider to Tugboat](../../setting-up-tugboat/index.md#connect-with-your-provider),
-> and then [delete](../../setting-up-tugboat/index.md#delete-the-repo) and
-> [re-add the provider-specific version of the repository](../../setting-up-tugboat/index.md#add-repos-to-the-project)
-> to your Tugboat project.
+{{% notice tip %}} Don't see the options to auto-generate Previews from pull
+requests? You'll need to
+[connect your preferred git provider to Tugboat](../../setting-up-tugboat/index.md#connect-with-your-provider),
+and then [delete](../../setting-up-tugboat/index.md#delete-the-repo) and
+[re-add the provider-specific version of the repository](../../setting-up-tugboat/index.md#add-repos-to-the-project)
+to your Tugboat project. {{% /notice %}}
 
 #### Visual Walkthrough
 

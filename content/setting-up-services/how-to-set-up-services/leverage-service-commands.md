@@ -32,11 +32,10 @@ following purposes:
   include things like compiling Sass files, updating 3rd party libraries, or
   running database updates that the current code in the preview depends on.
 
-> #### Info::Command Context
->
-> Each command is run in its own context, meaning things like `cd` do not
-> "stick" between commands. If that behavior is required, an external script
-> should be included in the git repository and called from the config file.
+{{% notice info %}} Each command is run in its own context, meaning things like
+`cd` do not "stick" between commands. If that behavior is required, an external
+script should be included in the git repository and called from the config file.
+{{% /notice %}}
 
 ```yaml
 services:

@@ -1,5 +1,5 @@
 +++
-title = "Expose a Service Http Port"
+title = "Expose a Service HTTP Port"
 date = 2019-09-19T13:04:27-04:00
 weight = 5
 +++
@@ -27,8 +27,6 @@ advanced options can usually be left to their default settings. Check out our
 [Service Attributes reference](../reference-service-attributes/index.md) for a
 complete list.
 
-> #### Note:: Default Service port
->
-> When a Service is set as the `default`, port 80 is automatically exposed. You
-> can override this by using the `expose` key to explicitly set an alternate
-> port.
+{{% notice note %}} When a Service is set as the `default`, port 80 is
+automatically exposed. You can override this by using the `expose` key to
+explicitly set an alternate port. {{% /notice %}}

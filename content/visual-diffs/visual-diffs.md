@@ -68,10 +68,9 @@ services:
         - /
 ```
 
-> #### Hint:: Using php instead of apache
->
-> If you're not running an `apache` service on your Preview, but you _are_
-> running `php`, set up Visual Diffs under the `php` service.
+{{% notice tip %}} If you're not running an `apache` service on your Preview,
+but you _are_ running `php`, set up Visual Diffs under the `php` service.
+{{% /notice %}}
 
 ## How to view Visual Diffs
 
@@ -89,14 +88,13 @@ You'll also see an option to **Regenerate** visual diffs; use this if you've
 updated your Base Preview, and want to see a new version of the visual diffs for
 this build.
 
-> #### Info:: Don't see what you expect?
->
-> While the Preview is building, you'll see: "Unavailable while preview is
-> building" in the Visual Diffs pane. After the Preview build has completed, it
-> will take some time for visual diffs to generate. If you get an error message,
-> or don't see what you expect when the visual diffs generate, head over to
-> [Troubleshooting -> Visual Diffs](../troubleshooting/index.md#troubleshooting-visual-diffs)
-> for tips on figuring out what happened.
+{{% notice info %}} While the Preview is building, you'll see: "Unavailable
+while preview is building" in the Visual Diffs pane. After the Preview build has
+completed, it will take some time for visual diffs to generate. If you get an
+error message, or don't see what you expect when the visual diffs generate, head
+over to
+[Troubleshooting -> Visual Diffs](../troubleshooting/index.md#troubleshooting-visual-diffs)
+for tips on figuring out what happened. {{% /notice %}}
 
 ### Visual Walkthrough
 

@@ -43,16 +43,14 @@ you're viewing an individual repository within Tugboat.
 
 ![Storage in Repository Stats vs. Project Stats](../_images/billing-repo-stats-vs-project-stats.png)
 
-> #### Info:: Why is my Preview size "X"?
->
-> Curious about why a Preview is larger than your git repository? The Preview
-> size is the size of the entire container at the end of the Preview build
-> process. If your Preview build is pulling in large assets, such as large
-> databases or Service images, your resulting build size includes those assets -
-> not only the code from your linked git repo.
->
-> If you want to reduce your Preview size, take a look at our tips in:
-> [optimize your Preview builds](../building-a-preview/optimize-preview-builds/index.md).
+{{% notice info %}} Curious about why a Preview is larger than your git
+repository? The Preview size is the size of the entire container at the end of
+the Preview build process. If your Preview build is pulling in large assets,
+such as large databases or Service images, your resulting build size includes
+those assets - not only the code from your linked git repo. If you want to
+reduce your Preview size, take a look at our tips in:
+[optimize your Preview builds](../building-a-preview/optimize-preview-builds/index.md).
+{{% /notice %}}
 
 ##### How to view project storage
 
@@ -98,10 +96,9 @@ that project.
 If you don't have a Tugboat project, you can view current Tugboat pricing here:
 [Pricing](https://tugboat.qa/pricing/).
 
-> #### Note:: Need an enterprise version of Tugboat?
->
-> If you're looking for a self-hosted Tugboat, or an enterprise version of the
-> app, see: [Tugboat for Enterprise](#tugboat-for-enterprise).
+{{% notice note %}} If you're looking for a self-hosted Tugboat, or an
+enterprise version of the app, see:
+[Tugboat for Enterprise](#tugboat-for-enterprise). {{% /notice %}}
 
 #### Visual Walkthrough
 

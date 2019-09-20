@@ -10,12 +10,10 @@ provide a way for these tools to connect to a database in a Preview. A popular
 alternative is to use [phpMyAdmin](https://www.phpmyadmin.net/) to fill this
 gap.
 
-> #### Warning::
->
-> Exposing a phpMyAdmin service grants full access to the database for the
-> Tugboat Preview to anyone who has the link. While it is best practice to avoid
-> storing sensitive data in Tugboat, it is still a good idea to be careful about
-> sharing this link.
+{{% notice warning %}} Exposing a phpMyAdmin service grants full access to the
+database for the Tugboat Preview to anyone who has the link. While it is best
+practice to avoid storing sensitive data in Tugboat, it is still a good idea to
+be careful about sharing this link. {{% /notice %}}
 
 You can use the official phpMyAdmin
 [Docker image](https://hub.docker.com/r/phpmyadmin/phpmyadmin) can with Tugboat.
@@ -32,20 +30,19 @@ services:
     image: phpmyadmin/phpmyadmin
 ```
 
-> #### Hint::MySQL 8
->
-> MySQL 8 uses a new authentication method, which does not work with the PHP
-> mysqli extension that phpMyAdmin uses. To work around this, alter the
-> "tugboat" MySQL user with an init command for the `mysql` service.
->
-> ```yaml
-> mysql:
->   image: tugboatqa/mysql:8
->   commands:
->     init:
->       mysql -e "ALTER USER 'tugboat'@'%' IDENTIFIED WITH mysql_native_password
->       BY 'tugboat';"
-> ```
+{{% notice tip %}} MySQL 8 uses a new authentication method, which does not work
+with the PHP mysqli extension that phpMyAdmin uses. To work around this, alter
+the "tugboat" MySQL user with an init command for the `mysql` service. Your
+config.yml might look like this: {{% /notice %}}
+
+```yaml
+mysql:
+  image: tugboatqa/mysql:8
+  commands:
+    init:
+      mysql -e "ALTER USER 'tugboat'@'%' IDENTIFIED WITH mysql_native_password
+      BY 'tugboat';"
+```
 
 Once you've added the phpmyadmin service to your Tugboat config, you will need
 to follow the instructions on the

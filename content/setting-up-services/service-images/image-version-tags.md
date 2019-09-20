@@ -25,13 +25,11 @@ You can specify version tags in a few different ways:
 - [Major version tags](#major-version-tags)
 - [Latest version tags](#latest-version-tags)
 
-> #### Note:: You don't have to specify a version tag
->
-> If you don't need a specific version of a Service image, you can leave the tag
-> off the image call. When you don't specify a tag, you'll get the latest
-> version of that image. However, because `latest` pulls the newest version of
-> an image, it could introduce a breaking change, so we recommend specifying
-> major/minor versions as needed.
+{{% notice note %}} If you don't need a specific version of a Service image, you
+can leave the tag off of the image call. When you don't specify a tag, you'll
+get the latest version of that image. However, because `latest` pulls the newest
+version of an image, it could introduce a breaking change, so we recommend
+specifying major/minor versions as needed. {{% /notice %}}
 
 If you're not sure which version tag to use, you can always browse to the
 service image on [Docker Hub](https://hub.docker.com/) and check out what tags

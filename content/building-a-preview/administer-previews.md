@@ -44,13 +44,12 @@ While you're at it, go ahead and
 [share your Preview](../share-a-preview/index.md) - we know you're proud of your
 work!
 
-> #### Note:: Building a Preview with a Base Preview
->
-> When you go to build a Preview, you may see an arrow indicating a drop-down
-> menu next to the **Build Preview** button. This menu contains additional
-> options to build your Preview from a Base Preview, or build with no Base
-> Preview. For more info on these options, see:
-> [Building Previews when you're using a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+{{% notice note %}} When you go to build a Preview, you may see an arrow
+indicating a drop-down menu next to the **Build Preview** button. This menu
+contains additional options to build your Preview from a Base Preview, or build
+with no Base Preview. For more info on these options, see:
+[Building Previews when you're using a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+{{% /notice %}}
 
 #### Visual Walkthrough
 
@@ -91,21 +90,16 @@ work!
 
 ![Preview is ready](../../_images/preview-ready.png)
 
-> #### Note:: Preview size
->
-> When you look at your new Preview, you'll see the size of the Preview next to
-> the branch/tag/PR that the Preview was built from. In the example above, the
-> Preview size is 385.49MB.
->
-> Because
-> [billing for Tugboat projects is](../../tugboat-billing/index.md#how-does-tugboat-pricing-work),
-> in part, based on the total size of all the Previews contained within a
-> project, Preview size becomes an important factor when building out multiple
-> Previews.
->
-> Check out our section on
-> [Optimizing Preview builds](../optimize-preview-builds/index.md) for tips on
-> [reducing Preview size](../optimize-preview-builds/index.md#optimizing-preview-size).
+{{% notice note %}} When you look at your new Preview, you'll see the size of
+the Preview next to the branch/tag/PR that the Preview was built from. In the
+example above, the Preview size is 385.49MB. Because
+[billing for Tugboat projects is](../../tugboat-billing/index.md#how-does-tugboat-pricing-work),
+in part, based on the total size of all the Previews contained within a project,
+Preview size becomes an important factor when building out multiple Previews.
+Check out our section on
+[Optimizing Preview builds](../optimize-preview-builds/index.md) for tips on
+[reducing Preview size](../optimize-preview-builds/index.md#optimizing-preview-size).
+{{% /notice %}}
 
 ### Auto-generate a Preview
 
@@ -185,12 +179,12 @@ configured (Rebuild). For more info on what exactly is happening under the
 covers, take a look at
 [the Preview build process: explained](../how-previews-work/index.md#the-build-process-explained).
 
-> #### Note:: Rebuild and Base Previews
->
-> When you're updating a Preview that was built from a Base Preview, Rebuild
-> does not pull fresh Docker images and run commands from `init` and `update` -
-> child Previews jump directly to the `build` phase. For more info, see:
-> [rebuild Previews when working with a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+{{% notice note %}} When you're updating a Preview that was built from a Base
+Preview, Rebuild does not pull fresh Docker images and run commands from `init`
+and `update` - child Previews jump directly to the `build` phase. For more info,
+see:
+[rebuild Previews when working with a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+{{% /notice %}}
 
 ### Refresh Previews
 
@@ -285,13 +279,12 @@ To Rebuild a Preview:
 You'll see a yellow _building_ status while Tugboat is rebuilding the Preview,
 which will change to a green _ready_ once the build is complete.
 
-> #### Note:: Rebuild and Base Previews
->
-> When you Rebuild a Preview that was built from a Base Preview, Rebuild does
-> not pull fresh Docker images and run commands from `init` and `update`.
-> Instead, child Previews jump directly to the `build` phase. For more info,
-> see:
-> [updating Previews when working with a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+{{% notice note %}} When you Rebuild a Preview that was built from a Base
+Preview, Rebuild does not pull fresh Docker images and run commands from `init`
+and `update`. Instead, child Previews jump directly to the `build` phase. For
+more info, see:
+[updating Previews when working with a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+{{% /notice %}}
 
 #### Visual Walkthrough
 
