@@ -31,33 +31,33 @@ to change your plan. {{% /notice %}}
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat dashboard.
 
-![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 
 Select the project where you want to change the plan.
 
-![Select the project](../_images/select-a-project.png)
+![Select the project](../../_images/select-a-project.png)
 
 Go to **Project Settings**.
 
-![Go to Project Settings](../_images/click-project-settings-link.png)
+![Go to Project Settings](../../_images/click-project-settings-link.png)
 
 Scroll down to **Your Plan**.
 
-![Scroll down to Your Plan](../_images/billing-view-tugboat-plan.png)
+![Scroll down to Your Plan](../../_images/billing-view-tugboat-plan.png)
 
 Click the radio button next to the new plan you want, and hit the **Update
 Tier** button.
 
-![Change your Tugboat plan tier](../_images/billing-change-plan-update-tier.png)
+![Change your Tugboat plan tier](../../_images/billing-change-plan-update-tier.png)
 
 You'll get info about your new plan, and if you're setting up a paid plan for
 the first time, you'll be prompted to enter your payment information. Fill this
 out, hit the **Update Tier** button again, and you'll be all set to enjoy your
 new plan.
 
-![Setting up a paid Tugboat plan](../_images/billing-setting-up-paid-tugboat-plan.png)
+![Setting up a paid Tugboat plan](../../_images/billing-setting-up-paid-tugboat-plan.png)
 
 You'll get an email confirming your changes, with a link to an online invoice
 you can download or print as needed.
 
-![Email confirmation of plan change](../_images/billing-plan-update-email.png)
+![Email confirmation of plan change](../../_images/billing-plan-update-email.png)

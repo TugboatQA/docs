@@ -167,7 +167,7 @@ to specify the _relative URLs_ of the pages you want to diff, and then
 [Rebuild](../building-a-preview/administer-previews/index.md#rebuild-previews)
 the Preview.
 
-![URL Not Found in Visual Diff](../_images/visual-diffs-url-not-found.png)
+![URL Not Found in Visual Diff](../../_images/visual-diffs-url-not-found.png)
 
 #### There was a problem generating Visual Diffs for this preview.
 

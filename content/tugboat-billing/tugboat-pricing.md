@@ -41,7 +41,7 @@ Tugboat calculates Preview sizes across all repositories contained in a project
 when determining project storage, which may be larger than what you see when
 you're viewing an individual repository within Tugboat.
 
-![Storage in Repository Stats vs. Project Stats](../_images/billing-repo-stats-vs-project-stats.png)
+![Storage in Repository Stats vs. Project Stats](../../_images/billing-repo-stats-vs-project-stats.png)
 
 {{% notice info %}} Curious about why a Preview is larger than your git
 repository? The Preview size is the size of the entire container at the end of
@@ -67,15 +67,15 @@ and looking at the Project Stats section:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat dashboard.
 
-![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 
 Select the project where you want to view disk space used.
 
-![Select the project](../_images/select-a-project.png)
+![Select the project](../../_images/select-a-project.png)
 
 Scroll down to **Project Stats**.
 
-![Project Stats -> Project Storage](../_images/billing-project-stats-project-storage.png)
+![Project Stats -> Project Storage](../../_images/billing-project-stats-project-storage.png)
 
 ### To view Tugboat pricing for your project:
 
@@ -105,19 +105,19 @@ enterprise version of the app, see:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat dashboard.
 
-![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 
 Select the project where you want to view and administer billing.
 
-![Select the project](../_images/select-a-project.png)
+![Select the project](../../_images/select-a-project.png)
 
 Go to **Project Settings**.
 
-![Go to Project Settings](../_images/click-project-settings-link.png)
+![Go to Project Settings](../../_images/click-project-settings-link.png)
 
 Scroll down to **Your Plan**.
 
-![Scroll down to Your Plan](../_images/billing-view-tugboat-plan.png)
+![Scroll down to Your Plan](../../_images/billing-view-tugboat-plan.png)
 
 ### Tugboat for Enterprise
 

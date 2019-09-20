@@ -26,23 +26,23 @@ Now you're all set to use the Tugboat Command Line Interface!
 In Tugboat's web interface, go to User Name -> Access Tokens, or
 [click this link](https://dashboard.tugboat.qa/access-tokens).
 
-![Go to Access Tokens page](../_images/go-to-user-access-tokens.png)
+![Go to Access Tokens page](../../_images/go-to-user-access-tokens.png)
 
 Click the **+ Generate New Token** option.
 
-![Click Generate new token](../_images/generate-new-token.png)
+![Click Generate new token](../../_images/generate-new-token.png)
 
 You'll be asked to give the Access Token a description; for example, "Command
 Line Tool"; enter a description and press the **Generate** button.
 
-![Enter token description and press Generate](../_images/enter-token-description-and-generate.png)
+![Enter token description and press Generate](../../_images/enter-token-description-and-generate.png)
 
 Make sure you save your Access Token somewhere safe, as you won't be able to see
 it again!
 
-![Copy your new Access Token](../_images/copy-new-access-token.png)
+![Copy your new Access Token](../../_images/copy-new-access-token.png)
 
 When you run the CLI, and attempt to access a resource, you'll be asked for an
 Access Token; paste it in and hit `Y` to have the CLI remember it.
 
-![Enter the Access Token in the CLI](../_images/enter-access-token-in-cli.png)
+![Enter the Access Token in the CLI](../../_images/enter-access-token-in-cli.png)

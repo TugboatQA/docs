@@ -24,23 +24,23 @@ From here, you can:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat dashboard.
 
-![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 
 Select the project where you want to change the billing info.
 
-![Select the project](../_images/select-a-project.png)
+![Select the project](../../_images/select-a-project.png)
 
 Go to **Project Settings**.
 
-![Go to Project Settings](../_images/click-project-settings-link.png)
+![Go to Project Settings](../../_images/click-project-settings-link.png)
 
 Scroll down to **Your Plan**.
 
-![Scroll down to Your Plan](../_images/billing-view-your-plan-premium.png)
+![Scroll down to Your Plan](../../_images/billing-view-your-plan-premium.png)
 
 Click the **Billing Information** link.
 
-![Change billing information](../_images/billing-change-billing-information.png)
+![Change billing information](../../_images/billing-change-billing-information.png)
 
 From here, you can:
 
@@ -48,4 +48,4 @@ From here, you can:
 - Edit the payment method
 - View or print invoices
 
-![Tugboat's Billing Information options](../_images/billing-tugboat-billing-info-screen.png)
+![Tugboat's Billing Information options](../../_images/billing-tugboat-billing-info-screen.png)

@@ -40,7 +40,7 @@ token can then be safely shared with Tugboat.
 3.  Specify a unique email address, ideally using an email alias.
 4.  Name your user something recognizable, like _Tugboat User_.
 
-![Screenshot: Create a new pantheon account](_images/pantheon-register.png)
+![Screenshot: Create a new pantheon account](../../../_images/pantheon-register.png)
 
 {{% notice tip %}} Many email clients allow you to generate aliases, or allow
 you to dynamically have an alias. For example, on gmail, if your email address
@@ -57,13 +57,13 @@ to
 which is under your account settings. You can name this token whatever you'd
 like, such as `Terminus on Tugboat`:
 
-![Screenshot: New machine token form](_images/new-token.png)
+![Screenshot: New machine token form](../../../_images/pantheon-new-token.png)
 
 Once you've picked a name, click _Generate Token_. You will then be presented
 with a screen that displays your machine token. **Store this token in a secure
 place, such as a password manager or OS keychain.**
 
-![Screenshot: Token generated modal](_images/token-generated.png)
+![Screenshot: Token generated modal](../../../_images/pantheon-token-generated.png)
 
 ### Add your new Pantheon user to your Pantheon project
 
@@ -76,7 +76,7 @@ need to add this user to your Pantheon project. To do this:
 4. Enter the email address of the new Pantheon user you created above, and click
    the _Add to team_ button.
 
-![Screenshot: Pantheon Add to team](_images/add-to-team.png)
+![Screenshot: Pantheon Add to team](../../../_images/pantheon-add-to-team.png)
 
 ### Store the machine token as a Tugboat environment variable
 

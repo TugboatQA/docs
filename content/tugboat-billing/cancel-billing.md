@@ -48,20 +48,20 @@ still continue working in the other two projects. {{% /notice %}}
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat dashboard.
 
-![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 
 Select the project you want to delete.
 
-![Select the project](../_images/select-a-project.png)
+![Select the project](../../_images/select-a-project.png)
 
 Go to **Project Settings**.
 
-![Go to Project Settings](../_images/click-project-settings-link.png)
+![Go to Project Settings](../../_images/click-project-settings-link.png)
 
 Scroll down past **Your Plan**.
 
-![Scroll down past Your Plan](../_images/billing-scroll-past-your-plan.png)
+![Scroll down past Your Plan](../../_images/billing-scroll-past-your-plan.png)
 
 Click the red **Delete Project** button.
 
-![Click the Delete Project button](../_images/billing-delete-project.png)
+![Click the Delete Project button](../../_images/billing-delete-project.png)

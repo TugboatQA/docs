@@ -121,7 +121,7 @@ tugboat ls services preview=5d1a5305216a15d4bf5dcbbb
 Find the Service ID for the Service where you want to start the shell; in this
 case, I want the Service ID for the Service I've named `apache`:
 
-![Find the Service ID](../_images/tugboat-cli-find-service-id.png)
+![Find the Service ID](../../_images/tugboat-cli-find-service-id.png)
 
 Start the shell using the ID of the specific Service; in this example,
 `5d1a5307216a158a155dcbc3`:
@@ -132,4 +132,4 @@ tugboat shell 5d1a5307216a158a155dcbc3
 
 Now you've got shell access in that Service:
 
-![Shell access in the Service](../_images/tugboat-cli-shell-access-in-service.png)
+![Shell access in the Service](../../_images/tugboat-cli-shell-access-in-service.png)

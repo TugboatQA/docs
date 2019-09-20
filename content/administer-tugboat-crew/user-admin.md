@@ -39,25 +39,25 @@ to accept the invitation.
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
-![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 
 Select the project where you want to add the user.
 
-![Select the project](../_images/select-a-project.png)
+![Select the project](../../_images/select-a-project.png)
 
 Click the **Project Settings** link to the right of the project's title.
 
-![Click Project Settings](../_images/click-project-settings-link.png)
+![Click Project Settings](../../_images/click-project-settings-link.png)
 
 In the **Invite a User to This Project** section, add the recipient's email
 address, and select the appropriate
 [user type](#user-permission-levels-explained) from the drop-down.
 
-![Add user's email address and select permissions](../_images/add-user-email-and-permissions.png)
+![Add user's email address and select permissions](../../_images/add-user-email-and-permissions.png)
 
 Press the big blue **Invite** button!
 
-![Press the Invite button](../_images/add-user-press-invite-button.png)
+![Press the Invite button](../../_images/add-user-press-invite-button.png)
 
 ### User doesn't see Tugboat invite
 
@@ -69,7 +69,7 @@ If the user doesn't see the Tugboat invite:
 - Hit the **Re-send** link from the Pending Invites section of the Project
   Settings.
 
-![Copy Link or Re-Send from Pending Invites](../_images/add-user-copy-link-resend.png)
+![Copy Link or Re-Send from Pending Invites](../../_images/add-user-copy-link-resend.png)
 
 ## Remove a user from a project
 
@@ -85,20 +85,20 @@ If the user doesn't see the Tugboat invite:
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
-![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 
 Select the project where you want to remove the user.
 
-![Select the project](../_images/select-a-project.png)
+![Select the project](../../_images/select-a-project.png)
 
 Click the **Project Settings** link to the right of the project's title.
 
-![Click Project Settings](../_images/click-project-settings-link.png)
+![Click Project Settings](../../_images/click-project-settings-link.png)
 
 In the **Manage Users** section, look for the user you want to remove, and click
 the Remove link.
 
-![Go to Manage Users and click Remove](../_images/remove-user-click-remove-link.png)
+![Go to Manage Users and click Remove](../../_images/remove-user-click-remove-link.png)
 
 ## Change user permissions
 
@@ -115,21 +115,21 @@ the Remove link.
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
-![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 
 Select the project where you want to change user permissions.
 
-![Select the project](../_images/select-a-project.png)
+![Select the project](../../_images/select-a-project.png)
 
 Click the **Project Settings** link to the right of the project's title.
 
-![Click Project Settings](../_images/click-project-settings-link.png)
+![Click Project Settings](../../_images/click-project-settings-link.png)
 
 In the **Manage Users** section, look for the user whose permissions you want to
 change, and select the appropriate
 [user type](#user-permission-levels-explained) from the **Access** drop-down.
 
-![Go to Manage Users, click the Access drop-down and select new permissions](../_images/change-user-permissions-access-drop-down.png)
+![Go to Manage Users, click the Access drop-down and select new permissions](../../_images/change-user-permissions-access-drop-down.png)
 
 ## Add a Tugboat bot to your team
 
@@ -170,45 +170,45 @@ notifications from the provider.
 Create an account for your Tugboat bot at your preferred git provider; i.e.
 GitHub, GitLab, BitBucket.
 
-![Create an account for your Tugboat bot](../_images/github-account-for-tugboat-comments.png)
+![Create an account for your Tugboat bot](../../_images/github-account-for-tugboat-comments.png)
 
 Optional:
 [Download the Tugboat avatar](https://dashboard.tugboat.qa/static/Tugboat_AvatarLarge.zip)
 to use for your Tugboat bot account.
 
-![Update Tugboat bot account with the Tugboat avatar](../_images/github-account-tugboat-avatar.png)
+![Update Tugboat bot account with the Tugboat avatar](../../_images/github-account-tugboat-avatar.png)
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
 
-![Go to username -> My Projects](../_images/go-to-user-my-projects.png)
+![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 
 Select the project where you want to switch to the Tugboat bot.
 
-![Select the project](../_images/select-a-project.png)
+![Select the project](../../_images/select-a-project.png)
 
 Click the **Repository Settings** link next to the repo where you want to switch
 to the Tugboat bot.
 
-![Go to Repository Settings](../_images/go-to-repository-settings.png)
+![Go to Repository Settings](../../_images/go-to-repository-settings.png)
 
 Scroll down to the **Provider Comments** section (GitHub Comments, GitLab
 Comments or BitBucket Comments).
 
-![Scroll to Provider Comments](../_images/scroll-to-provider-comments.png)
+![Scroll to Provider Comments](../../_images/scroll-to-provider-comments.png)
 
 Press the big blue **Change** button.
 
-![Press the Change button](../_images/provider-comments-press-the-change-button.png)
+![Press the Change button](../../_images/provider-comments-press-the-change-button.png)
 
 Enter the authentication details for the Tugboat bot user you created at the git
 provider.
 
-![Enter authentication details](../_images/provider-comments-enter-authentication-details.png)
+![Enter authentication details](../../_images/provider-comments-enter-authentication-details.png)
 
 Press the **OK** button.
 
-![Press OK](../_images/provider-comments-press-ok-button.png)
+![Press OK](../../_images/provider-comments-press-ok-button.png)
 
 ### User permission levels explained
 

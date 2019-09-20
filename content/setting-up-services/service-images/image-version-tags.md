@@ -35,7 +35,7 @@ If you're not sure which version tag to use, you can always browse to the
 service image on [Docker Hub](https://hub.docker.com/) and check out what tags
 are available.
 
-![Browse image tags on Docker Hub](../../_images/browse-tags-on-docker-hub.png)
+![Browse image tags on Docker Hub](../../../_images/browse-tags-on-docker-hub.png)
 
 ### Point-release version tags:
 

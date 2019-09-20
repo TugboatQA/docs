@@ -34,7 +34,7 @@ build failed. When that's the case, click the **Terminal** link next to the
 Service where the command error occurred, and you'll get a terminal directly
 into that Service.
 
-![Terminal directly into the Service](../_images/troubleshooting-terminal-into-service.png)
+![Terminal directly into the Service](../../_images/troubleshooting-terminal-into-service.png)
 
 From here, you can go line-by-line through the commands in your config file to
 see what happens when you're running them directly in the terminal. You may want
@@ -83,7 +83,7 @@ build failed. When that's the case, click the **Terminal** link next to the
 Service where the command error occurred, and you'll get a terminal directly
 into that Service.
 
-![Terminal directly into the Service](../_images/troubleshooting-terminal-into-service.png)
+![Terminal directly into the Service](../../_images/troubleshooting-terminal-into-service.png)
 
 From here, you can go line-by-line through the commands in your config file to
 see what happens when you're running them directly in the terminal. You may want
@@ -115,7 +115,7 @@ And you'll definitely want to know
 When you're viewing a Preview in Tugboat's web UI, you'll have the option to
 open a terminal directly into a Preview's Services:
 
-![Terminal directly into the Service](../_images/troubleshooting-terminal-into-service.png)
+![Terminal directly into the Service](../../_images/troubleshooting-terminal-into-service.png)
 
 From here, you can manually execute lines from your config file in order to
 figure out exactly where the error is occurring. For more context when you're
@@ -159,4 +159,4 @@ individual Services you're running on a Preview. Alternately, you could use the
 [Preview logs](../tugboat-cli/index.md#view-preview-logs) and
 [Service logs](../tugboat-cli/index.md#view-services-logs).
 
-![View Preview logs](../_images/troubleshooting-how-to-check-preview-logs.png)
+![View Preview logs](../../_images/troubleshooting-how-to-check-preview-logs.png)

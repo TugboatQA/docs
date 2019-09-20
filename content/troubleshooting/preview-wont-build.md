@@ -42,7 +42,7 @@ If your Preview has been building for less than that time, hang in there; if it
 has been in `building` for significantly longer, it might be time to
 troubleshoot.
 
-![View average build time in Repository Stats](../_images/repo-stats-build-time.png)
+![View average build time in Repository Stats](../../_images/repo-stats-build-time.png)
 
 When you're ready to troubleshoot, start by taking a
 [look at the Preview's logs](#how-to-check-the-preview-logs). Logs should give
@@ -69,7 +69,7 @@ long your average build time is. If your Preview has been building for less than
 that time, hang in there; if it has been in `rebuilding` for significantly
 longer, it might be time to troubleshoot.
 
-![View average build time in Repository Stats](../_images/repo-stats-build-time.png)
+![View average build time in Repository Stats](../../_images/repo-stats-build-time.png)
 
 When you're ready to troubleshoot, start by taking a
 [look at the Preview's logs](#how-to-check-the-preview-logs). Logs should give
@@ -105,7 +105,7 @@ long your average build time is. If your Preview has been refreshing for less
 than that time, hang in there; if it has been in `refreshing` for significantly
 longer, it might be time to troubleshoot.
 
-![View average build time in Repository Stats](../_images/repo-stats-build-time.png)
+![View average build time in Repository Stats](../../_images/repo-stats-build-time.png)
 
 When you're ready to troubleshoot, start by taking a
 [look at the Preview's logs](#how-to-check-the-preview-logs). Logs should give
@@ -133,7 +133,7 @@ cause of build failures is when one of the commands in the Tugboat
 exits with an error. If that is the case, it's time to start
 [debugging the configuration file](#debugging-configuration-files).
 
-![Failed Preview Log](../_images/failed-log.png)
+![Failed Preview Log](../../_images/failed-log.png)
 
 If you're having problems figuring out why the Preview build `failed`, we're
 happy to look into the problem with you to see whether we can help. We've gotten
@@ -148,7 +148,7 @@ check the
 [Repository Settings](../setting-up-tugboat/index.md#repository-settings-optional),
 and make sure "Build Pull Requests Automatically" is enabled.
 
-![Build Pull Requests Automatically](../_images/pr-probe.png)
+![Build Pull Requests Automatically](../../_images/pr-probe.png)
 
 {{% notice tip %}} The option to "Build Pull Requests Automatically" only
 appears if you have linked your Tugboat repository with a git provider

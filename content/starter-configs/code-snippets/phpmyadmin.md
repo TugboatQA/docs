@@ -65,4 +65,4 @@ Preview with phpMyAdmin. Note that we are exposing port 80 in the config.yml
 above, which will give you a separate _Preview_ button on the Tugboat Preview
 Dashboard for phpMyAdmin:
 
-![Click Preview to access phpMyAdmin](_images/preview.png)
+![Click Preview to access phpMyAdmin](../../../_images/phpmyadmin-preview.png)
