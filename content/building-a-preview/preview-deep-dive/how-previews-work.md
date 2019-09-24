@@ -1,7 +1,7 @@
 ---
 title: "How Previews Work"
 date: 2019-09-19T10:21:55-04:00
-weight: 5
+weight: 1
 ---
 
 - [The Preview build process: explained](#the-build-process-explained)
@@ -10,7 +10,7 @@ weight: 5
 - [Preview size: explained](#preview-size-explained)
 - [Preview status](#preview-status)
 
-### The build process: explained
+## The build process: explained
 
 When you kick off a Preview build, Tugboat grabs the
 [config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
@@ -47,7 +47,7 @@ By the time the build is complete, Tugboat has configured Services according to
 your config file, including pulling the Docker images you want it to use for
 each Service, and has pulled in your code to execute your Preview.
 
-#### Why build phases matter
+### Why build phases matter
 
 When you're [changing](../administer-previews/index.md#rebuild-previews) or
 [updating](../administer-previews/index.md#refresh-previews) your Preview
@@ -78,7 +78,7 @@ Tugboat uses that build snapshot as the basis for those actions, enabling you to
 quickly duplicate a Preview build or reset a Preview build to the state it was
 in the moment the build completed.
 
-### How Base Previews work
+## How Base Previews work
 
 When you build a regular Preview, the
 [configuration file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)

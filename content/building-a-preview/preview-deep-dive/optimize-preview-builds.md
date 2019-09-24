@@ -1,7 +1,7 @@
 ---
 title: "Optimize Preview Builds"
 date: 2019-09-19T10:22:22-04:00
-weight: 5
+weight: 8
 ---
 
 Do your Previews take a long time to build? Some things, like importing large

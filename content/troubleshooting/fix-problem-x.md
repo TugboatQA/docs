@@ -1,5 +1,5 @@
 ---
-title: "How to Fix Problem X in Config File"
+title: "How to Fix Problem [foo]"
 date: 2019-09-19T12:39:25-04:00
 weight: 4
 ---
