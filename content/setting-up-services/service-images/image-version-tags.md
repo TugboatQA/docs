@@ -5,7 +5,7 @@ weight: 1
 ---
 
 Use tags to indicate specific versions of an image, if needed. In
-[our how to call a Service image from Docker Hub example](../how-to-set-up-services/index.md#how-to-call-a-service-image-from-docker-hub),
+[our how to call a Service image from Docker Hub example](/setting-up-services/how-to-set-up-services/specify-a-service-image/#how-to-call-a-service-image-from-docker-hub),
 we called:
 
 ```yaml

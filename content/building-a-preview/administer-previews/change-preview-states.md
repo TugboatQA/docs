@@ -125,7 +125,7 @@ indicator.
 ### Reset
 
 When a Preview build completes, Tugboat takes a
-[snapshot of the completed build](../how-previews-work/index.md#the-build-snapshot).
+[snapshot of the completed build](../../preview-deep-dive/how-previews-work/#the-build-snapshot).
 If you want to go back to that state - for example, if you want to undo any
 changes that were made during testing or a demo - you can Reset a Preview to go
 back to that post-build snapshot.

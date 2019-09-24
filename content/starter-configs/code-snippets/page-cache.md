@@ -6,8 +6,8 @@ weight: 7
 
 If your web application has a page caching layer, you can prime the cache from
 within the
-[Tugboat config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file).
-This code snippet should get you started:
+[Tugboat config file](/setting-up-tugboat/create-a-tugboat-config-file/). This
+code snippet should get you started:
 
 ```services:
   php:

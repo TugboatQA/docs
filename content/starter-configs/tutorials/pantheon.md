@@ -6,8 +6,8 @@ weight: 3
 
 Wondering how to configure Tugboat for a typical site hosted on Pantheon? While
 these instructions are for a Drupal 8 site, the concepts should apply for any
-PHP site hosted by Pantheon. Check out the [Drupal 7](../drupal7/index.md) and
-[WordPress](../wordpress/index.md) tutorials for comparisons.
+PHP site hosted by Pantheon. Check out the [Drupal 7](../drupal-7/) and
+[WordPress](../wordpress/) tutorials for comparisons.
 
 {{% notice warning %}} These instructions assume you have already configured an
 external git repository provider such as GitHub, GitLab, or BitBucket. Pantheon
@@ -40,7 +40,7 @@ token can then be safely shared with Tugboat.
 3.  Specify a unique email address, ideally using an email alias.
 4.  Name your user something recognizable, like _Tugboat User_.
 
-![Screenshot: Create a new pantheon account](../../../_images/pantheon-register.png)
+![Screenshot: Create a new pantheon account](/_images/pantheon-register.png)
 
 {{% notice tip %}} Many email clients allow you to generate aliases, or allow
 you to dynamically have an alias. For example, on gmail, if your email address
@@ -57,13 +57,13 @@ to
 which is under your account settings. You can name this token whatever you'd
 like, such as `Terminus on Tugboat`:
 
-![Screenshot: New machine token form](../../../_images/pantheon-new-token.png)
+![Screenshot: New machine token form](/_images/pantheon-new-token.png)
 
 Once you've picked a name, click _Generate Token_. You will then be presented
 with a screen that displays your machine token. **Store this token in a secure
 place, such as a password manager or OS keychain.**
 
-![Screenshot: Token generated modal](../../../_images/pantheon-token-generated.png)
+![Screenshot: Token generated modal](/_images/pantheon-token-generated.png)
 
 ### Add your new Pantheon user to your Pantheon project
 
@@ -76,7 +76,7 @@ need to add this user to your Pantheon project. To do this:
 4. Enter the email address of the new Pantheon user you created above, and click
    the _Add to team_ button.
 
-![Screenshot: Pantheon Add to team](../../../_images/pantheon-add-to-team.png)
+![Screenshot: Pantheon Add to team](/_images/pantheon-add-to-team.png)
 
 ### Store the machine token as a Tugboat environment variable
 
@@ -93,7 +93,7 @@ only on the Drupal installation location.
 
 This pattern works very well with Tugboat. It lets you keep a tugboat-specific
 set of configurations in your repository where you can copy it into place with a
-[configuration file command](../../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional).
+[configuration file command](/setting-up-services/how-to-set-up-services/leverage-service-commands/).
 
 Add or uncomment the following at the end of `settings.php`
 
@@ -127,8 +127,8 @@ There are three parts to configuring Tugboat to work with Pantheon.
 1. Figure out which version of PHP to use.
 2. Set up a few Tugboat custom environment variables.
 3. Create a
-   [configuration file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
-   to include in your git repository.
+   [configuration file](/setting-up-tugboat/create-a-tugboat-config-file/) to
+   include in your git repository.
 
 ### PHP Version
 
@@ -142,22 +142,21 @@ results. {{% /notice %}}
 1.  Log into the [Pantheon Dashboard](https://dashboard.pantheon.io).
 2.  Navigate to the project you are trying to connect with Pantheon.
 3.  Click the Settings gear in the upper right.
-    ![Click on Settings in Pantheon Dashboard](_images/pantheon-settings.png)
+    ![Click on Settings in Pantheon Dashboard](/_images/pantheon-settings.png)
 4.  Once in Settings, you should see a PHP Version tab to the far right. After
     clicking that, you should see the PHP Version.
-    ![Click on PHP Version in Pantheon Settings](_images/pantheon-php-settings.png)
+    ![Click on PHP Version in Pantheon Settings](/_images/pantheon-php-settings.png)
 
 ### Environment Variables
 
 The Tugboat configuration file below makes use of some Tugboat
-[custom environment variables](../../setting-up-services/reference-environment-variables/index.md#custom-environment-variables).
+[custom environment variables](/setting-up-services/reference/environment-variables/#custom-environment-variables).
 This is how we securely store the
 [Pantheon machine token](#generate-a-pantheon-machine-token) from above, so you
 don't have to commit it to your git repository. We also define the Pantheon site
 and environment names here to make the config file more portable.
 
-In the
-[Tugboat Repository settings](../../setting-up-tugboat/index.md#repository-settings-optional),
+In the [Tugboat Repository settings](/setting-up-tugboat/select-repo-settings/),
 create the following environment variables. In this example, we are using the
 "live" environment of a Pantheon site named "example".
 
@@ -170,7 +169,7 @@ PANTHEON_SOURCE_ENVIRONMENT=live
 ### Tugboat Configuration File
 
 The main Tugboat configuration is managed by a
-[YAML file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) at
+[YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
 `.tugboat/config.yml` in the git repository. Here's a Pantheon Drupal 8
 configuration you can use as a starting point, with comments to explain what's
 going on:
@@ -271,17 +270,17 @@ services:
 Want to know more about something mentioned in the comments of this config file?
 Check out these topics:
 
-- [Name your Service](../../setting-up-services/how-to-set-up-services/index.md#name-your-service)
-- [Specify a Service image](../../setting-up-services/how-to-set-up-services/index.md#specify-a-service-image)
-- [Leverage Service commands](../../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional)
-- [Define a default Service](../../setting-up-services/how-to-set-up-services/index.md#define-a-default-service)
-- [Set the document root path](../../setting-up-services/how-to-set-up-services/index.md#set-the-document-root-path)
-- [Set up remote SSH access](../../setting-up-tugboat/index.md#set-up-remote-ssh-access)
-- [Preview build process phases (`init`, `update`, `build`)](../../building-a-preview/how-previews-work/index.md#the-build-process-explained)
-- [How Base Previews work](../../building-a-preview/how-previews-work/index.md#how-base-previews-work)
+- [Name your Service](/setting-up-services/how-to-set-up-services/name-your-service/)
+- [Specify a Service image](/setting-up-services/how-to-set-up-services/specify-a-service-image/)
+- [Leverage Service commands](/setting-up-services/how-to-set-up-services/leverage-service-commands/)
+- [Define a default Service](/setting-up-services/how-to-set-up-services/define-a-default-service/)
+- [Set the document root path](/setting-up-services/how-to-set-up-services/set-the-document-root-path/)
+- [Set up remote SSH access](/setting-up-tugboat/select-repo-settings/#set-up-remote-ssh-access)
+- [Preview build process phases (`init`, `update`, `build`)](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained)
+- [How Base Previews work](/building-a-preview/preview-deep-dive/how-previews-work/#how-base-previews-work)
 
 ## Start Building Previews!
 
 Once the Tugboat configuration file is committed to your git repository, you can
 start
-[building previews](../../building-a-preview/administer-previews/index.md#build-previews)!
+[building previews](/building-a-preview/administer-previews/build-previews/)!

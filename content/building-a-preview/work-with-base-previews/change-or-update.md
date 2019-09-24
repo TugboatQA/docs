@@ -18,13 +18,13 @@ kicks off a fresh build process from the beginning, in effect replacing your
 current Base Preview with a new one that contains all of your changes.
 
 Want to know more about build phases? Check out:
-[the build process: explained](../how-previews-work/index.md#the-build-process-explained).
+[the build process: explained](../../preview-deep-dive/how-previews-work/#the-build-process-explained).
 
 {{% notice note %}} If you've checked the
-[Repository Setting](../../setting-up-tugboat/index.md#repository-settings-optional)
-to **Rebuild Orphaned Previews Automatically**, a successful Rebuild of a Base
-Preview will kick off Rebuilds of any child Previews that were built from your
-Base Preview. {{% /notice %}}
+[Repository Setting](/setting-up-tugboat/select-repo-settings/) to **Rebuild
+Orphaned Previews Automatically**, a successful Rebuild of a Base Preview will
+kick off Rebuilds of any child Previews that were built from your Base Preview.
+{{% /notice %}}
 
 ### To Rebuild a Base Preview:
 
@@ -72,17 +72,16 @@ Press the **Rebuild** button.
 ## Update a Base Preview
 
 If you don't need to pull a new Docker image or make changes to the `init` phase
-in your
-[config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file),
-you can do a smaller, faster update of your Base Preview using Refresh.
-Refreshing a Base Preview:
+in your [config file](/setting-up-tugboat/create-a-tugboat-config-file/), you
+can do a smaller, faster update of your Base Preview using Refresh. Refreshing a
+Base Preview:
 
 1. Pulls the latest code from git.
 2. Runs commands from the `update` section of the config.yml.
 3. Run commands from the `build` section of the config.yml.
 
 Want to know more about build phases? Check out:
-[the build process: explained](../how-previews-work/index.md#the-build-process-explained).
+[the build process: explained](../../preview-deep-dive/how-previews-work/#the-build-process-explained).
 
 {{% notice tip %}} If you want to pull a fresh Docker image, or if you've made
 changes to the config.yml's `init` phase, you'll need to
@@ -95,10 +94,10 @@ Tugboat provides a couple of ways to Refresh a Base Preview:
 - [Automatically Refresh Base Previews](#automatically-refresh-a-base-preview)
 
 {{% notice note %}} If you've checked the
-[Repository Setting](../../setting-up-tugboat/index.md#repository-settings-optional)
-to **Rebuild Stale Previews Automatically**, a successful Refresh of a Base
-Preview will kick off Rebuilds of any child Previews that were built from your
-Base Preview. {{% /notice %}}
+[Repository Setting](/setting-up-tugboat/select-repo-settings/) to **Rebuild
+Stale Previews Automatically**, a successful Refresh of a Base Preview will kick
+off Rebuilds of any child Previews that were built from your Base Preview.
+{{% /notice %}}
 
 ### Manually Refresh a Base Preview
 
@@ -111,7 +110,7 @@ To manually kick off a Base Preview update:
 4. Click the **Actions** drop-down menu for the Base Preview, and select
    **Refresh**.
 5. If you want to
-   [Rebuild Previews that were built from this Base Preview](#building-and-rebuilding-previews-when-youre-using-a-base-preview)
+   [Rebuild Previews that were built from this Base Preview](../building-new-previews/)
    after the update, click the checkbox next to **Rebuild Previews built from
    this one when finished**.
 6. Press the **Refresh** button.
@@ -137,7 +136,7 @@ Click the **Actions** drop-down menu for the Base Preview, and select
 ![Click the Actions drop-down, and select Refresh.](/_images/base-preview-actions-refresh.png)
 
 If you want to
-[Rebuild Previews that were built from this Base Preview](#building-and-rebuilding-previews-when-youre-using-a-base-preview)
+[Rebuild Previews that were built from this Base Preview](../building-new-previews/)
 after the update, click the checkbox next to **Rebuild Previews built from this
 one when finished**.
 

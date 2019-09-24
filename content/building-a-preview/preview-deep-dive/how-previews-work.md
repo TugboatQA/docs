@@ -13,11 +13,11 @@ weight: 1
 ## The build process: explained
 
 When you kick off a Preview build, Tugboat grabs the
-[config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
-from your linked repository. Tugboat follows the instructions to
-[set up each Service in your config file](../../setting-up-services/how-to-set-up-services/index.md),
+[config file](/setting-up-tugboat/create-a-tugboat-config-file/) from your
+linked repository. Tugboat follows the instructions to
+[set up each Service in your config file](/setting-up-services/how-to-set-up-services/),
 grabbing the specified Docker images and then executing the
-[Service Commands](../../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional)
+[Service Commands](/setting-up-services/how-to-set-up-services/leverage-service-commands)
 in three phases:
 
 1. `init`
@@ -38,10 +38,10 @@ party libraries, or running database updates that the current code in the
 preview depends on.
 
 In the process of building your Preview, you'll
-[specify a default service](../../setting-up-services/how-to-set-up-services/index.md#define-a-default-service),
+[specify a default service](/setting-up-services/how-to-set-up-services/define-a-default-service/),
 and that's the service where your git repository is cloned. If you want to clone
 it into other services, see:
-[cloning git repositories into your Services](../../setting-up-services/how-to-set-up-services/index.md#clone-git-repositories-into-your-services).
+[cloning git repositories into your Services](/setting-up-services/how-to-set-up-services/clone-git-repositories-into-your-services/).
 
 By the time the build is complete, Tugboat has configured Services according to
 your config file, including pulling the Docker images you want it to use for
@@ -49,10 +49,12 @@ each Service, and has pulled in your code to execute your Preview.
 
 ### Why build phases matter
 
-When you're [changing](../administer-previews/index.md#rebuild-previews) or
-[updating](../administer-previews/index.md#refresh-previews) your Preview
-builds - or
-[building new Previews from a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview) -
+When you're
+[changing](../../administer-previews/change-or-update-previews/#rebuild-previews)
+or
+[updating](../../administer-previews/change-or-update-previews/#refresh-previews)
+your Preview builds - or
+[building new Previews from a Base Preview](../../work-with-base-previews/building-new-previews/) -
 the build process may bypass some of the build phases. For example, when you
 Refresh a Preview, the build process pulls in updated code from your repo, but
 only executes Service commands from `update` and `build` - bypassing the `init`
@@ -61,7 +63,7 @@ commands.
 This can get a little complicated, so we've made a handy-dandy flowchart to help
 you keep track of where various processes start in each build phase:
 
-![Tugboat Build Phases](../../_images/tugboat-build-phases.png)
+![Tugboat Build Phases](/_images/tugboat-build-phases.png)
 
 ## The Build Snapshot
 
@@ -71,8 +73,8 @@ moment in time.
 
 When you do things like:
 
-- [Clone a Preview](../administer-previews/index.md#duplicate-a-preview)
-- [Reset a Preview](../administer-previews/index.md#reset)
+- [Clone a Preview](../../administer-previews/build-previews/#duplicate-a-preview)
+- [Reset a Preview](../../administer-previews/change-preview-states/#reset)
 
 Tugboat uses that build snapshot as the basis for those actions, enabling you to
 quickly duplicate a Preview build or reset a Preview build to the state it was
@@ -81,7 +83,7 @@ in the moment the build completed.
 ## How Base Previews work
 
 When you build a regular Preview, the
-[configuration file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
+[configuration file](/setting-up-tugboat/create-a-tugboat-config-file/)
 typically instructs Tugboat to pull in databases, image files, or other assets.
 This process can take a while; the larger the assets, the longer the build.
 
@@ -97,7 +99,7 @@ from that Base Preview. A new Preview only uses whatever space it needs that
 differs from the Base Preview. Often, this means a Base Preview might use 2-3GB
 of space, and a Preview built from it might only use 100-200MB. This is a great
 way to keep a Tugboat Project under your
-[billing tier's storage limit](../../tugboat-billing/index.md#how-does-tugboat-pricing-work),
+[billing tier's storage limit](/tugboat-billing/tugboat-pricing/#how-does-tugboat-pricing-work),
 even when you're building multiple Previews.
 
 {{% notice tip %}} When you set a Base Preview, new Previews you build -
@@ -105,11 +107,9 @@ including Previews that are built automatically from pull requests - use the
 Base Preview as a starting point, and build only from the `build` stage. This
 means that if you're making changes that would be processed during `init` or
 `update` stages, or changing a Docker image, you'll need to either
-[rebuild the Base Preview](../work-with-base-previews/index.md#change-a-base-preview),
+[rebuild the Base Preview](../../work-with-base-previews/change-or-update/#change-a-base-preview),
 or
-[build the Preview from scratch without the Base Preview](../work-with-base-previews/index.md#build-a-preview-with-no-base-preview).
-For more info, see:
-[Building and Rebuilding Previews when you're using a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+[build the Preview from scratch without the Base Preview](../../work-with-base-previews/building-new-previews/#build-a-preview-with-no-base-preview).
 {{% /notice %}}
 
 ## Preview size: explained
@@ -119,9 +119,9 @@ the Preview lives. When a Preview is done building, Tugboat takes a snapshot of
 the container at that moment in time, and that's what you're seeing in your
 Tugboat Dashboard.
 
-When you [set up Services](../../setting-up-services/index.md) in your Preview,
-Tugboat pulls those
-[Service images](../../setting-up-services/how-to-set-up-services/index.md#specify-a-service-image)
+When you [set up Services](/setting-up-services/how-to-set-up-services/) in your
+Preview, Tugboat pulls those
+[Service images](/setting-up-services/how-to-set-up-services/specify-a-service-image)
 into the Preview container. Each of these Service images contributes to the
 total size of the Preview when it is fully built.
 
@@ -171,7 +171,7 @@ Preview status is indicated in a couple of different ways:
   status in yellow. If your Preview build is taking significantly longer than
   your average build time, displayed in the Repository Stats section lower on
   the Project -> Repo page, you may want to start
-  [troubleshooting](../../troubleshooting/index.md).
+  [troubleshooting](/troubleshooting/).
 - **Rebuilding:** When a rebuild has been kicked off, you'll see a `rebuilding`
   status in yellow. This indicates a complete Preview rebuild from the beginning
   of the build process, so it should take as long as a typical build.
@@ -179,16 +179,16 @@ Preview status is indicated in a couple of different ways:
   status in yellow. This indicates a Preview that is pulling in the latest code
   from git, and then running any commands in the `update` section, followed by
   the `build` section of the
-  [Configuration file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file).
+  [Configuration file](/setting-up-tugboat/create-a-tugboat-config-file/).
 - **Resuming:** When you've used the Action -> Start option, you'll see a
   `resuming` status in yellow while the Preview starts spinning up
-  [services](../../setting-up-services/index.md) again.
+  [services](/setting-up-services/) again.
 - **Stopping:** When you've used the Action -> Stop option, you'll see a
   `stopping` status in yellow while the Preview goes through the process of
-  stopping [services](../../setting-up-services/index.md).
+  stopping [services](/setting-up-services/).
 - **Stopped:** When you've used the Action -> Stop option, you'll see a
   `stopped` status in red to indicate that the Preview has successfully stopped
-  [services](../../setting-up-services/index.md).
+  [services](/setting-up-services/).
 - **Suspended** - When Previews have been inactive for a period of time, you'll
   see a `suspended` status. Any incoming HTTP request to the preview will
   automatically start it again.
@@ -196,13 +196,13 @@ Preview status is indicated in a couple of different ways:
   taken on the Preview, you'll see a `failed` status in red. Details should be
   available in the Preview's activity logs. Sometimes a failed Preview can be
   recovered by resetting it. For more help with a `failed` preview, take a look
-  at our [troubleshooting](../../troubleshooting/index.md) docs, or go to our
-  [Help and Support](../../support/index.md) page to join our Slack support
-  channel or email us.
+  at our [troubleshooting](/troubleshooting/) docs, or go to our
+  [Help and Support](/support/) page to join our Slack support channel or email
+  us.
 - **Unavailable** - When something goes wrong trying to load the Preview, you
   may see an `unavailable` status. This usually indicates an internal Tugboat
-  error. [Resetting](../administer-previews/index.md#reset) a Preview often
-  fixes this.
+  error. [Resetting](../../administer-previews/change-preview-states/#reset) a
+  Preview often fixes this.
 - **Canceled** - When you cancel a Preview while it's building, you'll see a
   `canceled` status in red.
 

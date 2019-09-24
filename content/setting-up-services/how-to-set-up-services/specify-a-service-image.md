@@ -14,16 +14,16 @@ Here's what you need to know about working with Service images in Tugboat:
 - [How to use a Docker image from another registry](#how-to-use-a-docker-image-from-another-registry)
 
 If you want to pull a Docker image that isn't public, you'll need to
-[authenticate with the Docker Registry](../../setting-up-tugboat/index.md#authenticate-with-a-docker-registry)
+[authenticate with the Docker Registry](/setting-up-tugboat/select-repo-settings/#authenticate-with-a-docker-registry)
 from your project's
-[Repository Settings](../../setting-up-tugboat/index.md#change-repository-settings).
+[Repository Settings](/setting-up-tugboat/select-repo-settings/#change-repository-settings).
 
 For a deeper dive on Service images in Tugboat, check out:
 
-- [Using Tugboat's prebuilt Docker images](../service-images/index.md#tugboats-prebuilt-docker-images)
-- [Using Third-party Docker images](../service-images/index.md#third-party-docker-images)
-- [Using a Docker image to mirror your production services](../service-images/index.md#using-a-docker-image-to-mirror-your-production-services)
-- [When does an image get pulled or updated?](../service-images/index.md#when-does-an-image-get-pulled-or-updated)
+- [Using Tugboat's prebuilt Docker images](../../service-images/using-tugboat-images/)
+- [Using Third-party Docker images](../../service-images/third-party-docker-images/)
+- [Using a Docker image to mirror your production services](../../service-images/mirror-production-with-image/)
+- [When does an image get pulled or updated?](../../service-images/docker-pull/)
 
 {{% notice info %}} Tugboat has abstracted away some of the technical aspects of
 working with Docker images, but if you're new to Docker, and want to understand
@@ -63,7 +63,7 @@ you can see a list of all the version tags available for Tugboat's Apache HTTP
 Server image.
 
 For more on version tags, take a look at our
-[Docker image version tags primer](../service-images/index.md#docker-image-version-tags-primer).
+[Docker image version tags primer](../../service-images/image-version-tags/).
 
 ### How to use a Docker image from another registry
 

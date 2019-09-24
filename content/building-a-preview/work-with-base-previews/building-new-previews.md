@@ -6,23 +6,23 @@ weight: 9
 
 When you're building Previews after you've set a Base Preview, those Preview
 builds are child builds of the Base Preview. They use the Base Preview's
-[build snapshot](../how-previews-work/index.md#the-build-snapshot) for things
-like setting up Services, including pulling Docker images, and pulling in any
-assets that are imported during the `init` or `update` phase of the Base Preview
-build.
+[build snapshot](../../preview-deep-dive/how-previews-work/#the-build-snapshot)
+for things like setting up Services, including pulling Docker images, and
+pulling in any assets that are imported during the `init` or `update` phase of
+the Base Preview build.
 
 When you're working with Previews that are child Previews of a Base Preview,
 Build and Rebuild start from the `build` phase, bypassing the `init` and
 `refresh` phases of a build. This includes:
 
-- [Manual Preview Builds](../administer-previews/index.md#manually-build-a-preview)
+- [Manual Preview Builds](../../administer-previews/build-previews/#manually-build-a-preview)
   (when you do not specify building from scratch)
-- [Previews that are automatically built from pull requests](../automate-previews/index.md#auto-generate-previews).
-- [Rebuilding child Previews](../administer-previews/index.md#rebuild-previews)
-- [Rebuild orphaned Previews automatically](../../setting-up-tugboat/index.md#rebuild-orphaned-previews-automatically)
+- [Previews that are automatically built from pull requests](../../automate-previews/auto-generate).
+- [Rebuilding child Previews](../../administer-previews/change-or-update-previews/#rebuild-previews)
+- [Rebuild orphaned Previews automatically](../../../setting-up-tugboat/select-repo-settings/#rebuild-orphaned-previews-automatically)
 
 For more info on build phases, see:
-[the build process: explained](../how-previews-work/index.md#the-build-process-explained).
+[the build process: explained](../../preview-deep-dive/how-previews-work/#the-build-process-explained).
 
 After you've set a Base Preview, you do have one option to build new Previews
 that do not use the Base Preview: manually build a Preview from scratch. A

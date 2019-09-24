@@ -10,7 +10,7 @@ repository.
 ## Configure Tugboat
 
 The Tugboat configuration is managed by a
-[YAML file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) at
+[YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
 `.tugboat/config.yml` in the git repository. Here's a basic static HTML
 configuration you can use as a starting point, with comments to explain what's
 going on:
@@ -39,15 +39,15 @@ services:
 Want to know more about something mentioned in the comments of this config file?
 Check out these topics:
 
-- [Name your Service](../../setting-up-services/how-to-set-up-services/index.md#name-your-service)
-- [Specify a Service image](../../setting-up-services/how-to-set-up-services/index.md#specify-a-service-image)
-- [Leverage Service commands](../../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional)
-- [Define a default Service](../../setting-up-services/how-to-set-up-services/index.md#define-a-default-service)
-- [Set the document root path](../../setting-up-services/how-to-set-up-services/index.md#set-the-document-root-path)
-- [Preview build process phases (`init`, `update`, `build`)](../../building-a-preview/how-previews-work/index.md#the-build-process-explained)
+- [Name your Service](/setting-up-services/how-to-set-up-services/name-your-service/)
+- [Specify a Service image](/setting-up-services/how-to-set-up-services/specify-a-service-image/)
+- [Leverage Service commands](/setting-up-services/how-to-set-up-services/leverage-service-commands/)
+- [Define a default Service](/setting-up-services/how-to-set-up-services/define-a-default-service/)
+- [Set the document root path](/setting-up-services/how-to-set-up-services/set-the-document-root-path/)
+- [Preview build process phases (`init`, `update`, `build`)](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained)
 
 ## Start Building Previews!
 
 Once this Tugboat configuration file is committed to your git repository, you
 can start
-[building previews](../../building-a-preview/administer-previews/index.md#build-previews)!
+[building previews](/building-a-preview/administer-previews/build-previews/)!

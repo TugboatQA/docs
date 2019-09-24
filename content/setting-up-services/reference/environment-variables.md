@@ -12,7 +12,7 @@ weight: 5
   - [Git](#git)
   - [GitHub](#github)
   - [GitLab](#gitlab)
-  - [Stash/Bitbucket Server](#stash--bitbucket-server)
+  - [Stash/Bitbucket Server](#stash-bitbucket-server)
 - [Custom Environment Variables](#custom-environment-variables)
   - [Storing complex data](#storing-complex-data)
 
@@ -227,14 +227,14 @@ shared between your Previews.
 
 Tugboat provides a convenient way of injecting these values into a Preview's
 services via custom environment variables. These variables can be found on the
-[Repository Settings](../../setting-up-tugboat/index.md#change-repository-settings)
+[Repository Settings](/setting-up-tugboat/select-repo-settings/#change-repository-settings)
 page.
 
-![Environment Variable Configuration](../../_images/envvars-config.png)
+![Environment Variable Configuration](../../../_images/envvars-config.png)
 
-Like the other [environment variables](#environment-variables) that Tugboat
-provides, the variables entered here are available to your Previews both while
-they are building as well as while they are running.
+Like the other environment variables that Tugboat provides, the variables
+entered here are available to your Previews both while they are building as well
+as while they are running.
 
 ### Storing Complex Data
 
@@ -242,7 +242,7 @@ Environment variables are good at storing simple string values. However, what if
 you need to store something more complex, like an encoded JSON string, or the
 contents of an arbitrary file? One way of accomplishing that is to base64 encode
 the value, and then decode the value with a
-[configuration file command](#commands).
+[configuration file command](../service-attributes/#commands).
 
 ```sh
 $ cat file | base64

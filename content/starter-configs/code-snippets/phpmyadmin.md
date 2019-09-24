@@ -18,8 +18,8 @@ be careful about sharing this link. {{% /notice %}}
 You can use the official phpMyAdmin
 [Docker image](https://hub.docker.com/r/phpmyadmin/phpmyadmin) can with Tugboat.
 Here is an example
-[config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
-showing how you might add a phpmyadmin service to a Tugboat Preview:
+[config file](/setting-up-tugboat/create-a-tugboat-config-file/) showing how you
+might add a phpmyadmin service to a Tugboat Preview:
 
 ```yaml
 services:
@@ -46,7 +46,7 @@ mysql:
 
 Once you've added the phpmyadmin service to your Tugboat config, you will need
 to follow the instructions on the
-[Custom Environment Variables](../../setting-up-services/reference-environment-variables/index.md#custom-environment-variables)
+[Custom Environment Variables](/setting-up-services/reference/environment-variables/#custom-environment-variables)
 to add the following environment variables to your Repository Settings:
 
 - **`PMA_HOST`** - Set this to the name of the MySQL service that you would like
@@ -65,4 +65,4 @@ Preview with phpMyAdmin. Note that we are exposing port 80 in the config.yml
 above, which will give you a separate _Preview_ button on the Tugboat Preview
 Dashboard for phpMyAdmin:
 
-![Click Preview to access phpMyAdmin](../../../_images/phpmyadmin-preview.png)
+![Click Preview to access phpMyAdmin](/_images/phpmyadmin-preview.png)

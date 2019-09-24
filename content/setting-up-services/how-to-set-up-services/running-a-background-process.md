@@ -6,18 +6,17 @@ weight = 8
 
 A long-running background process in Tugboat needs some special care. If you try
 to add a background-process to your
-[config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) in
-the conventional way, Tugboat will think the Preview has not finished building,
-and it will be stuck in the "building" state until it eventually times out and
+[config file](/setting-up-tugboat/create-a-tugboat-config-file/) in the
+conventional way, Tugboat will think the Preview has not finished building, and
+it will be stuck in the "building" state until it eventually times out and
 fails.
 
 {{% notice info %}} The reason Tugboat needs to wait for all of the `build`
 commands to finish is that we stop the Services after a Preview build is
 finished in order to take a snapshot. {{% /notice %}}
 
-Our
-[prebuilt images](../service-images/index.md#tugboats-prebuilt-docker-images)
-use [runit](http://smarden.org/runit/) to start and manage background processes.
+Our [prebuilt images](../../service-images/using-tugboat-images/) use
+[runit](http://smarden.org/runit/) to start and manage background processes.
 
 To add your own background process that starts when the Service starts, create a
 directory in `/etc/service/yourprocessname` and a script at

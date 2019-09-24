@@ -5,7 +5,7 @@ weight = 7
 +++
 
 When Tugboat runs, it clones your git repository into
-[your `default` Service](#define-a-default-service). Optionally, you can also
+[your `default` Service](../define-a-default-service/). Optionally, you can also
 clone a copy of your git repository into other Services.
 
 To explicitly request that a Service has access to the git repository, specify
@@ -26,5 +26,6 @@ services:
 In this example, both the `apache` and `mysql` services get a clone of the git
 repository, checked out to the git branch, tag, commit, or pull request that the
 preview is created for. The path where the git repository is cloned is available
-in an [environment variable](../reference-environment-variables/index.md) named
-`$TUGBOAT_ROOT`.
+in an
+[environment variable](/setting-up-services/reference/environment-variables/)
+named `$TUGBOAT_ROOT`.

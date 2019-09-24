@@ -6,11 +6,11 @@ weight: 10
 
 Now that we've gone through all the components you'll need to set up Services
 for your Tugboat, let's take a look at an example
-[config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) so
-you can see Services in action. This config file is for a
-[Drupal 8](../../starter-configs/drupal8/index.md) site, but you can check out
-our [starter configuration files](../../starter-configs/index.md) to see if
-we've got a code example to kick-start your setup.
+[config file](/setting-up-tugboat/create-a-tugboat-config-file/) so you can see
+Services in action. This config file is for a
+[Drupal 8](/starter-configs/tutorials/drupal-8/) site, but you can check out our
+[starter configuration files](/starter-configs/) to see if we've got a code
+example to kick-start your setup.
 
 ```yaml
 services:

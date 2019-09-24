@@ -4,11 +4,9 @@ date = 2019-09-19T13:04:10-04:00
 weight = 4
 +++
 
-Every
-[Config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file)
-requires a default Service. The default Service is where HTTP requests are
-routed when a [Preview's URL](../../building-a-preview/share-a-preview/index.md)
-is visited by a user.
+Every [Config file](/setting-up-tugboat/create-a-tugboat-config-file/) requires
+a default Service. The default Service is where HTTP requests are routed when a
+[Preview's URL](/building-a-preview/share-a-preview/) is visited by a user.
 
 If your Config file only has one Service, that Service automatically becomes the
 default Service.
@@ -30,7 +28,7 @@ services:
 Service is automatically designated `default` because it's the only Service -
 also implies that port 80 is exposed to the Tugboat Proxy, and that the git
 repository is cloned to /var/lib/tugboat. To override the Service HTTP port,
-see: [Expose a Service HTTP port](#expose-a-service-http-port). To override the
-git repository clone destination, see:
-[Clone Git repositories into your Services](#clone-git-repositories-into-your-services).
+see: [Expose a Service HTTP port](../expose-a-service-http-port/). To override
+the git repository clone destination, see:
+[Clone Git repositories into your Services](../clone-git-repositories-into-your-services/).
 {{% /notice %}}

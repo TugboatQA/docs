@@ -8,9 +8,9 @@ weight: 8
 environment.
 
 Before you use this snippet in you own
-[Tugboat config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file),
+[Tugboat config file](/setting-up-tugboat/create-a-tugboat-config-file/),
 register for an account on Tenon.io and add your Tenon API Key to Tugboat as a
-[custom environment variable](../../setting-up-services/reference-environment-variables/index.md#custom-environment-variables)
+[custom environment variable](/setting-up-services/reference/environment-variables/#custom-environment-variables)
 called `TENON_API`.
 
 ```yaml

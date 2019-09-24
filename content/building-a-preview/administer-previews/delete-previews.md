@@ -6,7 +6,7 @@ weight: 5
 
 Need to get rid of a Preview you're not using anymore? Each Preview in your
 Tugboat project counts toward the total
-[storage size for Tugboat billing](../../tugboat-billing/index.md#how-does-tugboat-pricing-work),
+[storage size for Tugboat billing](/tugboat-billing/tugboat-pricing/#how-does-tugboat-pricing-work),
 so it's a good idea to get rid of Previews you don't need.
 
 To delete a Preview:

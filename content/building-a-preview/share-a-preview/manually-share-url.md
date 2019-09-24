@@ -19,8 +19,8 @@ Want to share a Preview link manually with Lisa in Product, or Dan the client?
 Send that link to the person who needs to look at the Preview, and they'll be
 able to view it. Tugboat links are hard-to-guess secure URLs that are accessible
 to anyone with the link; that person doesn't need to be a member of your
-[Tugboat crew](../../administering-tugboat-crew/index.md), or able to view the
-git repo where the code is hosted.
+[Tugboat crew](/administer-tugboat-crew/user-admin/), or able to view the git
+repo where the code is hosted.
 
 #### Visual Walkthrough
 

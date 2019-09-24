@@ -20,16 +20,16 @@ On a basic level, you can think of it as the difference between updating the
 code (Refresh) and making more substantial changes to the way a Service is
 configured (Rebuild). For more info on what exactly is happening under the
 covers, take a look at
-[the Preview build process: explained](../how-previews-work/index.md#the-build-process-explained).
+[the Preview build process: explained](../../preview-deep-dive/how-previews-work/#the-build-process-explained).
 
 {{% notice note %}} When you're updating a Preview that was built from a Base
 Preview, Rebuild does not pull fresh Docker images and run commands from `init`
 and `update` - child Previews jump directly to the `build` phase. For more info,
 see:
-[rebuild Previews when working with a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+[rebuild Previews when working with a Base Preview](../../work-with-base-previews/building-new-previews).
 {{% /notice %}}
 
-### Refresh Previews
+## Refresh Previews
 
 When you Refresh a Preview, Tugboat:
 
@@ -42,7 +42,7 @@ as Tugboat doesn't have to set up Services and complete all the `init` processes
 again.
 
 For more info about build phases, see:
-[the build process: explained](../how-previews-work/index.md#the-build-process-explained).
+[the build process: explained](../../preview-deep-dive/how-previews-work/#the-build-process-explained).
 
 To Refresh a Preview:
 
@@ -90,7 +90,7 @@ Press the **Yes** button to confirm and start the Refresh process.
 You'll see a yellow _refreshing_ status while Tugboat is running the update,
 which will change to a green _ready_ once the update is complete.
 
-### Rebuild Previews
+## Rebuild Previews
 
 When you Rebuild a Preview (that was not built using a Base Preview), Tugboat:
 
@@ -105,7 +105,7 @@ mainly use this if you need to pull new Docker images, or run commands from
 `init` in your config.yml.
 
 For more info about build phases, see:
-[the build process: explained](../how-previews-work/index.md#the-build-process-explained).
+[the build process: explained](../../preview-deep-dive/how-previews-work/#the-build-process-explained).
 
 To Rebuild a Preview:
 
@@ -126,7 +126,7 @@ which will change to a green _ready_ once the build is complete.
 Preview, Rebuild does not pull fresh Docker images and run commands from `init`
 and `update`. Instead, child Previews jump directly to the `build` phase. For
 more info, see:
-[updating Previews when working with a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+[updating Previews when working with a Base Preview](../../work-with-base-previews/building-new-previews/).
 {{% /notice %}}
 
 #### Visual Walkthrough

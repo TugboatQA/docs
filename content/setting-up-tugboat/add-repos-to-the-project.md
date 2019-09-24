@@ -30,7 +30,7 @@ From there, you'll be back to the 'select a provider and specify a repo' screen.
 {{% notice info %}} There is no limit to the number of repositories you can add
 to a Tugboat project. However, you may be unable to build new Previews within a
 project, if the total storage used in your project reaches the
-[billing tier storage limit for your project](../tugboat-billing/index.md#how-does-tugboat-pricing-work).
+[billing tier storage limit for your project](/tugboat-billing/tugboat-pricing/#how-does-tugboat-pricing-work).
 {{% /notice %}}
 
 #### Visual Walkthrough

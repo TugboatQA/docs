@@ -14,13 +14,13 @@ corresponding pull request is updated.
 
 Besides auto-generating Previews from pull requests, you can also auto-generate
 Previews when you make changes to a Base Preview. If you've
-[set a Base Preview](../work-with-base-previews/index.md#how-to-set-a-base-preview),
-you can have Tugboat:
+[set a Base Preview](../../work-with-base-previews/set-a-base-preview/), you can
+have Tugboat:
 
 **Rebuild Orphaned Previews Automatically**
 
 When you
-[rebuild a Base Preview](../work-with-base-previews/index.md#change-a-base-preview),
+[rebuild a Base Preview](../../work-with-base-previews/change-or-update/#change-a-base-preview),
 any changes in the Base Preview don't automatically carry over to existing child
 Previews; they become orphaned. New Previews that are built from a rebuilt Base
 Preview carry forward the changes, but existing Previews maintain the old
@@ -35,7 +35,7 @@ that generated them.
 **Rebuild Stale Previews Automatically**
 
 When you
-[refresh a Base Preview](../work-with-base-previews/index.md#update-a-base-preview),
+[refresh a Base Preview](../../work-with-base-previews/change-or-update/#update-a-base-preview),
 the updates that you make to the Base Preview don't automatically carry over to
 existing child Previews. The Base Preview and new Previews built on the Base
 Preview may have fresh data and other updates, while existing child Previews

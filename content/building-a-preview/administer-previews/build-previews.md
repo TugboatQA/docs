@@ -33,15 +33,14 @@ Previews** section, with a yellow status indicator _building_.
 
 When the Preview is ready, the Preview button will turn blue, and you'll see a
 green status indicator _ready_. Press the Preview button to view the Preview.
-While you're at it, go ahead and
-[share your Preview](../share-a-preview/index.md) - we know you're proud of your
-work!
+While you're at it, go ahead and [share your Preview](../../share-a-preview/) -
+we know you're proud of your work!
 
 {{% notice note %}} When you go to build a Preview, you may see an arrow
 indicating a drop-down menu next to the **Build Preview** button. This menu
 contains additional options to build your Preview from a Base Preview, or build
 with no Base Preview. For more info on these options, see:
-[Building Previews when you're using a Base Preview](../work-with-base-previews/index.md#building-and-rebuilding-previews-when-youre-using-a-base-preview).
+[Building Previews when you're using a Base Preview](../../work-with-base-previews/building-new-previews/).
 {{% /notice %}}
 
 #### Visual Walkthrough
@@ -77,21 +76,21 @@ Previews** section, with a yellow status indicator _building_.
 
 When the Preview is ready, the Preview button will turn blue, and you'll see a
 green status indicator _ready_. Press the Preview button to view the Preview.
-While you're at it, go ahead and
-[share your Preview](../share-a-preview/index.md) - we know you're proud of your
-work!
+While you're at it, go ahead and [share your Preview](../../share-a-preview/) -
+we know you're proud of your work!
 
 ![Preview is ready](/_images/preview-ready.png)
 
 {{% notice note %}} When you look at your new Preview, you'll see the size of
 the Preview next to the branch/tag/PR that the Preview was built from. In the
 example above, the Preview size is 385.49MB. Because
-[billing for Tugboat projects is](/tugboat-billing/index.md#how-does-tugboat-pricing-work),
+[billing for Tugboat projects is](/tugboat-billing/tugboat-pricing/#how-does-tugboat-pricing-work),
 in part, based on the total size of all the Previews contained within a project,
 Preview size becomes an important factor when building out multiple Previews.
 Check out our section on
-[Optimizing Preview builds](../optimize-preview-builds/index.md) for tips on
-[reducing Preview size](../optimize-preview-builds/index.md#optimizing-preview-size).
+[Optimizing Preview builds](../../preview-deep-dive/optimize-preview-builds/)
+for tips on
+[reducing Preview size](../../preview-deep-dive/optimize-preview-builds/#optimizing-preview-size).
 {{% /notice %}}
 
 ### Auto-generate a Preview
@@ -99,8 +98,7 @@ Check out our section on
 In addition to manually building a Preview when you've got an update, you can
 configure Tugboat to automatically build a Preview when a pull request is
 opened, or when a PR is updated with new code. For more info on this option,
-see:
-[Auto-generate Previews](../automate-previews/index.md#auto-generate-previews).
+see: [Auto-generate Previews](../../automate-previews/auto-generate/).
 
 ### Duplicate a Preview
 

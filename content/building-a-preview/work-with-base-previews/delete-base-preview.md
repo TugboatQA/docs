@@ -7,17 +7,17 @@ weight: 7
 Want to delete a Base Preview you're not using anymore? Keep in mind that if you
 delete a Base Preview that was used to generate child Previews, those child
 Previews will grow to their full size, which could put your project over the
-[limit of disk space](../../tugboat-billing/index.md#how-does-tugboat-pricing-work)
+[limit of disk space](/tugboat-billing/tugboat-pricing/#how-does-tugboat-pricing-work)
 available to the project. If you don't want this, you can
-[stop using a Base Preview](#stop-using-a-base-preview) to stop building new
+[stop using a Base Preview](../stop-using-base-preview/) to stop building new
 child Previews from this Preview, but preserve the current size of existing
 child Previews.
 
 {{% notice note %}} When you exceed the disk space limit in your project, you
 won't be able to build new Previews until you are under the project's disk space
 limit again. You can get under the project's space limit by
-[deleting Previews](../administer-previews/index.md#delete-previews), or
-[increasing your project's billing tier](../../tugboat-billing/index.md#change-your-tugboat-plan).
+[deleting Previews](../../administer-previews/delete-previews/), or
+[increasing your project's billing tier](/tugboat-billing/tugboat-pricing/#change-your-tugboat-plan).
 {{% /notice %}}
 
 ## To delete a Base Preview:

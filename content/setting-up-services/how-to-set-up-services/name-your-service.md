@@ -5,8 +5,8 @@ weight = 1
 +++
 
 The top level of your
-[Config file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) is
-a `services` key whose value is a list of Services.
+[Config file](/setting-up-tugboat/create-a-tugboat-config-file/) is a `services`
+key whose value is a list of Services.
 
 ```yaml
 services:

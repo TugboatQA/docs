@@ -16,4 +16,4 @@ files, set a Base Preview as a starting point for child Previews.
 {{% children  %}}
 
 Want to learn more about Base Previews under the cover? Check out:
-[How Base Previews work](../how-previews-work/index.md#how-base-previews-work).
+[How Base Previews work](../preview-deep-dive/how-previews-work/#how-base-previews-work).

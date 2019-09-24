@@ -6,8 +6,8 @@ weight: 5
 
 Each of the Previews in your Tugboat project count toward the total storage
 space available in your
-[project's billing tier](../../tugboat-billing/index.md). By default, Tugboat is
-configured to automatically delete Previews when their corresponding git pull
+[project's billing tier](/tugboat-billing/tugboat-pricing/). By default, Tugboat
+is configured to automatically delete Previews when their corresponding git pull
 requests are merged or closed.
 
 ### To automatically delete Previews:

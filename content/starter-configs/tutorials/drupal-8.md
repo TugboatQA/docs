@@ -18,7 +18,7 @@ only on the Drupal installation location.
 This pattern works very well with Tugboat. It lets you keep a Tugboat-specific
 set of configurations in your repository, where you can copy it into place with
 a
-[configuration file command](../../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional).
+[configuration file command](/setting-up-services/how-to-set-up-services/leverage-service-commands/).
 
 Add or uncomment the following at the end of `settings.php`
 
@@ -48,7 +48,7 @@ $databases['default']['default'] = array (
 ## Configure Tugboat
 
 The Tugboat configuration is managed by a
-[YAML file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file) at
+[YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
 `.tugboat/config.yml` in the git repository. Here's a basic Drupal 8
 configuration you can use as a starting point, with comments to explain what's
 going on:
@@ -155,17 +155,17 @@ services:
 Want to know more about something mentioned in the comments of this config file?
 Check out these topics:
 
-- [Name your Service](../../setting-up-services/how-to-set-up-services/index.md#name-your-service)
-- [Specify a Service image](../../setting-up-services/how-to-set-up-services/index.md#specify-a-service-image)
-- [Leverage Service commands](../../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional)
-- [Define a default Service](../../setting-up-services/how-to-set-up-services/index.md#define-a-default-service)
-- [Set the document root path](../../setting-up-services/how-to-set-up-services/index.md#set-the-document-root-path)
-- [Set up remote SSH access](../../setting-up-tugboat/index.md#set-up-remote-ssh-access)
-- [Preview build process phases (`init`, `update`, `build`)](../../building-a-preview/how-previews-work/index.md#the-build-process-explained)
-- [How Base Previews work](../../building-a-preview/how-previews-work/index.md#how-base-previews-work)
+- [Name your Service](/setting-up-services/how-to-set-up-services/name-your-service/)
+- [Specify a Service image](/setting-up-services/how-to-set-up-services/specify-a-service-image/)
+- [Leverage Service commands](/setting-up-services/how-to-set-up-services/leverage-service-commands/)
+- [Define a default Service](/setting-up-services/how-to-set-up-services/define-a-default-service/)
+- [Set the document root path](/setting-up-services/how-to-set-up-services/set-the-document-root-path/)
+- [Set up remote SSH access](/setting-up-tugboat/select-repo-settings/#set-up-remote-ssh-access)
+- [Preview build process phases (`init`, `update`, `build`)](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained)
+- [How Base Previews work](/building-a-preview/preview-deep-dive/how-previews-work/#how-base-previews-work)
 
 ## Start Building Previews!
 
 Once the Tugboat configuration file is committed to your git repository, you can
 start
-[building previews](../../building-a-preview/administer-previews/index.md#build-previews)!
+[building previews](/building-a-preview/administer-previews/build-previews/)!

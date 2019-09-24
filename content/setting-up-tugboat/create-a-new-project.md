@@ -9,7 +9,6 @@ create a new project!
 
 - [How to create a project](#how-to-create-a-project)
 - [Things to know about Tugboat projects](#things-to-know-about-tugboat-projects)
-- [Add repos to the project](#add-repos-to-the-project)
 
 Once you hit the **Create Project** button, it's anchors away!
 

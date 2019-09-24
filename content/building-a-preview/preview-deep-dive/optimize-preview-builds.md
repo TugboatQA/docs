@@ -21,21 +21,20 @@ time-consuming Preview you only have to build once, and then use that as a base
 to iterate on with smaller, faster-building Previews.
 
 You can do this by using
-[Service Commands](../../setting-up-services/how-to-set-up-services/index.md#leverage-service-commands-optional)
+[Service Commands](/setting-up-services/how-to-set-up-services/leverage-service-commands/)
 in the `init` stage of the Preview build to do the resource-intensive,
 time-intensive processes - and then
-[set that as your Base Preview](../work-with-base-previews/index.md#how-to-set-a-base-preview)
+[set that as your Base Preview](../../work-with-base-previews/set-a-base-preview/)
 so you don't have to complete those steps in every single build. This is the
 perfect time to install a large database that you won't have to update in
 subsequent Previews, or download and configure the host of
-[services](../../setting-up-services/index.md#what-are-tugboat-services) in your
-Preview.
+[services](/setting-up-services/) in your Preview.
 
 ### Use the Auto Refresh Base Preview functionality to update large assets
 
 If you're updating large assets as part of the `update` stage of your Tugboat
 build, you can configure Tugboat to
-[automatically refresh your Base Preview](../work-with-base-previews/index.md#automatically-refresh-a-base-preview)
+[automatically refresh your Base Preview](/setting-up-tugboat/select-repo-settings/#refresh-base-previews-automatically)
 while your crew isn't working. By default, Tugboat automatically refreshes Base
 Previews daily at 12am UTC. You can set this for a time and frequency that works
 best for your team, and then you won't have to manually update your Base Preview
@@ -51,7 +50,7 @@ use to reduce Preview size:
 - [Use dummy data](#use-dummy-data)
 
 Looking for more info about Preview size? Check out:
-[Preview size explained](../how-previews-work/index.md#preview-size-explained)
+[Preview size explained](../how-previews-work/#preview-size-explained)
 
 #### Work From Base Previews
 
@@ -65,7 +64,7 @@ In practice, this means that a Base Preview might be 3GB in size, but subsequent
 Previews might be only 100MB.
 
 Ready to set up a Base Preview? Check out:
-[How to set a Base Preview](../work-with-base-previews/index.md#how-to-set-a-base-preview).
+[How to set a Base Preview](../../work-with-base-previews/set-a-base-preview/).
 
 #### Use dummy data
 
@@ -80,8 +79,8 @@ Sometimes, speeding up your Preview builds might involve having a second set of
 eyes take a look at your Config file and make recommendations to help you
 optimize it. This might include something like running a command in `init`
 instead of `update`, or scripting a few commands. The team at Tugboat is happy
-to help; our [Support](../../support/index.md) page can direct you to our
-Tugboat support Slack, or an email address where you can reach us.
+to help; our [Support](/support/) page can direct you to our Tugboat support
+Slack, or an email address where you can reach us.
 
 ### Upgrade your project tier to a higher-performance tier
 
@@ -93,4 +92,4 @@ RAM to build your Previews, which can mildly or dramatically speed up your build
 times. When build times matter, keep this option in mind.
 
 You can
-[change your Tugboat plan in **Project Settings**](../../tugboat-billing/index.md#change-your-tugboat-plan).
+[change your Tugboat plan in **Project Settings**](/tugboat-billing/change-tugboat-plan).

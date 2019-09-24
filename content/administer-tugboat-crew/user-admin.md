@@ -237,7 +237,7 @@ Admin users can:
 Tugboat's generic User's permissions include:
 
 - Manage the repository configuration interface. This includes things like
-  [changing repository settings](../setting-up-tugboat/index.md#repository-settings-optional),
+  [changing repository settings](/setting-up-tugboat/select-repo-settings/#change-repository-settings),
   environment variables and SSH keys.
 - Manage Previews. Create, remove, rebuild, or lock Previews.
 - Manage Base Previews.

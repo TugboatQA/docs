@@ -21,8 +21,8 @@ When you're first getting Tugboat set up, here's how we recommend getting
 started and debugging your initial config file:
 
 1. Create a branch within your git repository for adding Tugboat, and put your
-   [config file there](../setting-up-tugboat/index.md#create-a-tugboat-config-file).
-2. [Build a Preview](../building-a-preview/administer-previews/index.md#build-previews)
+   [config file there](/setting-up-tugboat/create-a-tugboat-config-file/).
+2. [Build a Preview](/building-a-preview/administer-previews/build-previews/)
    from that branch.
 3. If you get an error while building the Preview, take a
    [look at the Preview log](#how-to-check-the-preview-logs).
@@ -34,7 +34,7 @@ build failed. When that's the case, click the **Terminal** link next to the
 Service where the command error occurred, and you'll get a terminal directly
 into that Service.
 
-![Terminal directly into the Service](../../_images/troubleshooting-terminal-into-service.png)
+![Terminal directly into the Service](/_images/troubleshooting-terminal-into-service.png)
 
 From here, you can go line-by-line through the commands in your config file to
 see what happens when you're running them directly in the terminal. You may want
@@ -48,7 +48,7 @@ Common problems here include:
 
 If you can't see the exact command where the Preview build failed, or if you're
 not having any luck manually debugging your config file, reach out to us via
-[Help and Support](../support/index.md) - we're happy to help!
+[Help and Support](/support/) - we're happy to help!
 
 #### Debugging changes to your Tugboat config file
 
@@ -57,10 +57,10 @@ mostly the same as when you first set it up, but there are a few things you want
 to do to make sure Tugboat is getting the changes as expected:
 
 1. Create a branch within your git repository for your changes, and put your new
-   [config file there](../setting-up-tugboat/index.md#create-a-tugboat-config-file).
+   [config file there](/setting-up-tugboat/create-a-tugboat-config-file/).
 2. Push the branch with your config file changes.
 3. Go into Tugboat, and manually
-   [build your Preview without a Base Preview](../building-a-preview/work-with-base-previews/index.md#build-a-preview-with-no-base-preview).
+   [build your Preview without a Base Preview](/building-a-preview/work-with-base-previews/building-new-previews/).
 
 {{% notice tip %}} If you're using a Base Preview in your Tugboat project,
 subsequent Previews that are built from that Base Preview start with the
@@ -69,7 +69,7 @@ file's `init` or `update` commands won't be applied when automatically building
 a Preview from a PR. You'll need to manually rebuild a Preview from scratch if
 you're using a Base Preview in order to apply config file changes. For more
 info, see:
-[The build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained).
+[The build process: explained](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained).
 {{% /notice %}}
 
 From here, if your Preview build is failing, the process is the same as above:
@@ -83,7 +83,7 @@ build failed. When that's the case, click the **Terminal** link next to the
 Service where the command error occurred, and you'll get a terminal directly
 into that Service.
 
-![Terminal directly into the Service](../../_images/troubleshooting-terminal-into-service.png)
+![Terminal directly into the Service](/_images/troubleshooting-terminal-into-service.png)
 
 From here, you can go line-by-line through the commands in your config file to
 see what happens when you're running them directly in the terminal. You may want
@@ -97,14 +97,14 @@ Common problems here include:
 
 If you can't see the exact command where the Preview build failed, or if you're
 not having any luck manually debugging your config file, reach out to us via
-[Help and Support](../support/index.md) - we're happy to help!
+[Help and Support](/support/) - we're happy to help!
 
 ### Tools for debugging Tugboat config files
 
 In terms of tools, there are three ways to debug configuration files:
 
-- [Terminal in Tugboat's Web UI](#debug-by-terminal-in-tugboats-web-ui)
-- [Tugboat's CLI](#debug-via-tugboats-cli)
+- [Terminal in Tugboat's Web UI](#debug-by-terminal-in-tugboat-s-web-ui)
+- [Tugboat's CLI](#debug-via-tugboat-s-cli)
 - [Push changes to git](#debug-via-pushing-changes-to-git)
 
 And you'll definitely want to know
@@ -115,7 +115,7 @@ And you'll definitely want to know
 When you're viewing a Preview in Tugboat's web UI, you'll have the option to
 open a terminal directly into a Preview's Services:
 
-![Terminal directly into the Service](../../_images/troubleshooting-terminal-into-service.png)
+![Terminal directly into the Service](/_images/troubleshooting-terminal-into-service.png)
 
 From here, you can manually execute lines from your config file in order to
 figure out exactly where the error is occurring. For more context when you're
@@ -124,9 +124,9 @@ pass the verbose flag.
 
 #### Debug via Tugboat's CLI
 
-If you've installed [Tugboat's CLI](../tugboat-cli/index.md), you can debug your
-Preview build from the comfort of your own terminal. Type `tugboat help` for a
-list of commands and options. Following our debug process above, you might:
+If you've installed [Tugboat's CLI](/tugboat-cli/), you can debug your Preview
+build from the comfort of your own terminal. Type `tugboat help` for a list of
+commands and options. Following our debug process above, you might:
 
 ```shell
 tugboat log 5b04c7d14c3dad00016a2e80
@@ -142,21 +142,21 @@ Service.
 
 If you think you know where the problem is in your config file, you can always
 make the changes, make a PR or push a branch to your git repo, and try again to
-[build the Preview](../building-a-preview/administer-previews/index.md#build-previews).
+[build the Preview](/building-a-preview/administer-previews/build-previews/).
 
 The same caveats apply as in
 [Debugging changes to your Tugboat config file](#debugging-changes-to-your-tugboat-config-file)
 above; if you're making changes when a Tugboat project has a Base Preview,
 you'll need to manually rebuild a Preview from scratch if you're using a Base
 Preview in order to apply config file changes. For more info, see:
-[The build process: explained](../building-a-preview/how-previews-work/index.md#the-build-process-explained).
+[The build process: explained](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained).
 
 ## How to check the Preview logs
 
 You can click into the Preview's name to view the Preview's logs _and_ logs for
 individual Services you're running on a Preview. Alternately, you could use the
-[Tugboat CLI](../tugboat-cli/index.md) to view
-[Preview logs](../tugboat-cli/index.md#view-preview-logs) and
-[Service logs](../tugboat-cli/index.md#view-services-logs).
+[Tugboat CLI](/tugboat-cli/) to view
+[Preview logs](/tugboat-cli/use-the-cli/#view-preview-logs) and
+[Service logs](/tugboat-cli/use-the-cli/#view-services-logs).
 
-![View Preview logs](../../_images/troubleshooting-how-to-check-preview-logs.png)
+![View Preview logs](/_images/troubleshooting-how-to-check-preview-logs.png)

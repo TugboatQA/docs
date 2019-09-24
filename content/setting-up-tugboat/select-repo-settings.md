@@ -15,7 +15,7 @@ repo settings. When you go into Repository Settings, you can:
 - [Modify Environment Variables](#modify-environment-variables)
 - [Set up Remote SSH Access](#set-up-remote-ssh-access)
 - [Authenticate with a Docker Registry](#authenticate-with-a-docker-registry)
-- [Delete the repo](#delete-the-repo)
+- [Delete the repo](#delete-the-repository)
 
 Don't forget to hit the **Save Configuration** button after you've checked or
 unchecked boxes to save your changes.
@@ -32,41 +32,39 @@ Request or Merge Request is opened, or post a comment to a PR with links to its
 Preview. For a full list of the provider-specific integration options, check
 out:
 
-- [Using the GitHub integration](#using-the-github-integration)
-- [Using the GitLab integration](#using-the-gitlab-integration)
-- [Using the BitBucket integration](#using-the-bitbucket-integration)
+- [Using the GitHub integration](../connect-with-your-provider/#using-the-github-integration)
+- [Using the GitLab integration](../connect-with-your-provider/#using-the-gitlab-integration)
+- [Using the BitBucket integration](../connect-with-your-provider/#using-the-bitbucket-integration)
 
 ### Rebuild Orphaned Previews Automatically
 
 When this option is selected, Tugboat automatically
-[rebuilds Previews](../building-a-preview/automate-previews/index.md#auto-update-previews)
-when the
-[Base Preview](../building-a-preview/work-with-base-previews/index.md#how-to-set-a-base-preview)
+[rebuilds Previews](/building-a-preview/automate-previews/auto-update/) when the
+[Base Preview](/building-a-preview/work-with-base-previews/set-a-base-preview/)
 they're built from is
-[rebuilt](../building-a-preview/work-with-base-previews/index.md#change-a-base-preview).
-This option is turned off by default.
+[rebuilt](/building-a-preview/work-with-base-previews/change-or-update/). This
+option is turned off by default.
 
 ### Rebuild Stale Previews Automatically
 
 When this option is selected, Tugboat automatically
-[rebuilds Previews](../building-a-preview/automate-previews/index.md#auto-update-previews)
-when the
-[Base Preview](../building-a-preview/work-with-base-previews/index.md#how-to-set-a-base-preview)
+[rebuilds Previews](/building-a-preview/automate-previews/auto-update/) when the
+[Base Preview](/building-a-preview/work-with-base-previews/set-a-base-preview/)
 they're built from is
-[refreshed](../building-a-preview/work-with-base-previews/index.md#update-a-base-preview).
+[refreshed](/building-a-preview/work-with-base-previews/change-or-update/#update-a-base-preview).
 This option is turned off by default.
 
 To unpack this a little:
 
 - When you're using a
-  [Base Preview](../building-a-preview/work-with-base-previews/index.md#how-to-set-a-base-preview)
+  [Base Preview](/building-a-preview/work-with-base-previews/set-a-base-preview)
 - And the Base Preview is
-  [refreshed](../building-a-preview/work-with-base-previews/index.md#update-a-base-preview)  
+  [refreshed](/building-a-preview/work-with-base-previews/change-or-update/#update-a-base-preview)  
   (You may manually Refresh a Base Preview, or have Tugboat
   [refresh Base Previews automatically](#refresh-base-previews-automatically),
   for example, every day at 12am UTC.)
 - The Base Preview kicks off the
-  [build process](../building-a-preview/how-previews-work/index.md#the-build-process-explained)
+  [build process](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained)
   from the `update` phase, and runs commands in both `update` and `build`
 - When the Base Preview refresh is complete, child Previews kick off a build
   process from `build`, using the Base Preview as the starting point and
@@ -92,7 +90,7 @@ Here's where you can enter environment variables, like API keys or passwords,
 that you wouldn't want to store in your repo. If you're looking for Tugboat's
 environment variables to add to your Build Scripts or configuration files, check
 out
-[Reference -> Environment Variables](../setting-up-services/services-reference/#environment-variables).
+[Reference -> Environment Variables](/setting-up-services/reference/environment-variables).
 
 ### Set up Remote SSH Access
 
@@ -108,7 +106,7 @@ applications need to access.
 {{% notice info %}} You can't SSH into a Tugboat Preview; the SSH key here is
 all about outbound requests to remote resources. If you want to get _into_ a
 Tugboat Preview, shell access is provided in both the web interface and the
-[command line tool](../tugboat-cli/index.md). {{% /notice %}}
+[command line tool](/tugboat-cli/). {{% /notice %}}
 
 #### Use the Tugboat SSH key
 
@@ -174,7 +172,7 @@ connected to it, nor does it delete the Tugboat project that contains the repo.
 
 {{% notice note %}} Only Admin users have the **Delete Repository** option. For
 more on user permissions, see:
-[User permission levels explained](../administering-tugboat-crew/#user-permission-levels-explained).
+[User permission levels explained](/administer-tugboat-crew/user-admin/#user-permission-levels-explained).
 {{% /notice %}}
 
 ### Change Repository Settings
@@ -190,7 +188,3 @@ Any time you need to make a change to Repository Settings:
 From here, you'll see all the Repository Settings you can modify. If you make
 changes to the settings, don't forget to press the **Save Configuration**
 button!
-
-If you want to dive deeper into any of these settings, you can view the full
-list of [Repository Settings](#repository-settings-optional) and drill down to
-the setting you're curious about.

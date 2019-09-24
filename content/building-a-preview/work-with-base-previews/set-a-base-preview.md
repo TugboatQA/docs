@@ -11,7 +11,7 @@ same:
 ## How to set a Base Preview
 
 To create a Base Preview, you'll first need to have a
-[Preview build](../administer-previews/index.md#build-previews) to serve as your
+[Preview build](../../administer-previews/build-previews/) to serve as your
 starting point.
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the

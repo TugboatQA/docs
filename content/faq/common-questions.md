@@ -15,28 +15,28 @@ weight: 1
 - [Can I have SSH access to a preview?](#can-i-have-ssh-access-to-a-preview)
 - [How does Tugboat deal with sending email?](#how-does-tugboat-deal-with-sending-email)
 - [Does Tugboat have a Slack integration?](#does-tugboat-have-a-slack-integration)
-- [What are Tugboat's IPs?](#whitelist-tugboats-ips)
+- [What are Tugboat's IPs?](#whitelist-tugboat-s-ips)
 
 ---
 
 ## Does Tugboat work with...?
 
 Tugboat supports pretty much anything that runs on Linux. Look through our
-[prebuilt service images](../setting-up-services/reference-tugboat-images/index.md)
-to see what we currently have available. If something that you need is missing,
-let us know, and we will work with you to get it added to the list.
+[prebuilt service images](/setting-up-services/reference/tugboat-images/) to see
+what we currently have available. If something that you need is missing, let us
+know, and we will work with you to get it added to the list.
 
 - **Acquia Cloud?** Yes!
 - **Pantheon?** Yes! We even have a
-  [tutorial](../starter-configs/pantheon/index.md) to show you how.
+  [tutorial](/starter-configs/tutorials/pantheon/) to show you how.
 - **GitHub, GitLab, BitBucket?** Yes! Check out:
-  [Setting up Tugboat -> Connect with your git provider](../setting-up-tugboat/index.md#connect-with-your-provider)
+  [Setting up Tugboat -> Connect with your git provider](/setting-up-tugboat/connect-with-your-provider/)
 - **Self-hosted git repositories?** Yes! See:
-  [Setting up Tugboat -> Generic git server](../setting-up-tugboat/index.md#generic-git-server)
+  [Setting up Tugboat -> Generic git server](/setting-up-tugboat/connect-with-your-provider/#generic-git-server)
 - **My own images?** Yes! See:
-  [Setting up Services -> Specify a Service image](../setting-up-services/how-to-set-up-services/index.md#specify-a-service-image)
+  [Setting up Services -> Specify a Service image](/setting-up-services/how-to-set-up-services/specify-a-service-image/)
 - **My existing database?** Yes! Take a look at
-  [Starter Configs -> Import a MySQL Database](../starter-configs/import-mysql-database/index.md)
+  [Starter Configs -> Import a MySQL Database](/starter-configs/code-snippets/import-mysql-database/)
   for an example.
 
 ## Do you provide production-level hosting?
@@ -47,8 +47,7 @@ stability or support guarantees needed to host a production application.
 ## Can I have SSH access to a Preview?
 
 No. Direct SSH access to a Preview is not possible. However, shell access is
-provided in both the web interface and the
-[command line tool](../tugboat-cli/index.md).
+provided in both the web interface and the [command line tool](/tugboat-cli/).
 
 ## How does Tugboat deal with sending email?
 
@@ -61,6 +60,9 @@ Tugboat does not attempt to capture any other outbound SMTP server connections,
 so if you are concerned with sending emails to customers from a QA environment,
 be sure to update your application configuration to use Tugboat's SMTP server.
 
+For more details, see:
+[Inside a Preview -> Captured Mail](/building-a-preview/preview-deep-dive/inside-a-preview/#captured-mail).
+
 ## Does Tugboat have a Slack integration?
 
 Tugboat does not currently have a direct Slack integration. However, you can get
@@ -71,7 +73,7 @@ very similar functionality if you're using a git integration with Slack:
 - [BitBucket Cloud for Slack](https://confluence.atlassian.com/bitbucket/bitbucket-cloud-for-slack-945096776.html)
 
 With one of these integrations configured, use
-[Tugboat's Repository Settings for git provider integrations](../setting-up-tugboat/index.md#modify-settings-for-your-github-gitlab-or-bitbucket-integration)
+[Tugboat's Repository Settings for git provider integrations](/setting-up-tugboat/select-repo-settings/#modify-settings-for-your-github-gitlab-or-bitbucket-integration)
 to share details about your Tugboat Previews, such as:
 
 - Set Pull Request Status

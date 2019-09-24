@@ -23,7 +23,7 @@ That said, sometimes the version of a Service doesn't really matter much. For
 example, it may not matter which version of memcached you use, and you can be
 sure you always have the most recent version available by specifying
 `tugboatqa/memcached` or `tugboatqa/memcached:latest`. See also:
-[Image version tags](../service-images/index.md#docker-image-version-tags-primer)
+[Image version tags](../../service-images/image-version-tags/)
 
 | Image                             | Usage                                  |                                                                                              |
 | :-------------------------------- | :------------------------------------- | -------------------------------------------------------------------------------------------- |

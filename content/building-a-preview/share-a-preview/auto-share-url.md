@@ -5,10 +5,11 @@ weight: 3
 ---
 
 When you're using the Tugboat integration with
-[GitHub](../../setting-up-tugboat/index.md#github),
-[GitLab](../../setting-up-tugboat/index.md#gitlab) or
-[BitBucket](../../setting-up-tugboat/index.md#bitbucket), you can configure
-Tugboat to automatically post links to Previews as comments on pull requests.
+[GitHub](/setting-up-tugboat/connect-with-your-provider/#github),
+[GitLab](/setting-up-tugboat/connect-with-your-provider/#gitlab) or
+[BitBucket](/setting-up-tugboat/connect-with-your-provider/#bitbucket), you can
+configure Tugboat to automatically post links to Previews as comments on pull
+requests.
 
 ## To configure Tugboat to automatically post Preview links:
 
@@ -24,7 +25,7 @@ display as the person who linked the provider to Tugboat. That means the person
 who linked the repo will get notifications for every PR where Tugboat
 automatically posts a comment. If this person does not wish to receive
 notifications, you can
-[configure a Tugboat bot](../../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team)
+[configure a Tugboat bot](/administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team)
 to post the comments and receive those notifications. {{% /notice %}}
 
 #### Visual Walkthrough

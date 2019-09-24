@@ -9,7 +9,7 @@ if you've moved to a new concept, want to switch to a development branch or
 otherwise want to stop using a Base Preview; you can remove that Base Preview.
 This keeps the Base Preview and child Previews in your Tugboat project, but new
 builds will no longer start with this Base Preview. If you want to delete a Base
-Preview, instead, see: [Delete a Base Preview](#delete-a-base-preview).
+Preview, instead, see: [Delete a Base Preview](../delete-base-preview/).
 
 ## To stop using a Base Preview:
 

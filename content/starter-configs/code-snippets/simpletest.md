@@ -6,7 +6,7 @@ weight: 6
 
 Here is an example of how you might use Tugboat to run automated testing with
 SimpleTest; simply add a snippet like this to your
-[configuration file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file).
+[configuration file](/setting-up-tugboat/create-a-tugboat-config-file/).
 
 ```services:
   php:

@@ -5,8 +5,7 @@ weight = 3
 +++
 
 While technically optional, Service Commands are arguably the most powerful part
-of the
-[configuration file](../../setting-up-tugboat/index.md#create-a-tugboat-config-file).
+of the [configuration file](/setting-up-tugboat/create-a-tugboat-config-file/).
 This is the set of commands that Tugboat runs in a Service container while
 creating a Preview.
 
@@ -14,7 +13,7 @@ The service commands are separated into a set of stages: `init`, `update`, and
 `build`. Each stage represents an optional set of commands that Tugboat should
 run during that stage. For more info on the stages in the Preview build process,
 check out:
-[the build process: explained](../../building-a-preview/how-previews-work/index.md#the-build-process-explained).
+[the build process: explained](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained).
 
 It may help to think of the stages as groups of commands with a particular
 purpose. While not enforced in any way, the stages roughly represent the

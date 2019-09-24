@@ -137,9 +137,9 @@ directories does not "stick" between commands. If that behavior is required, an
 external script should be called.
 
 See also:
-[Service Commands](../how-to-set-up-services/index.md#leverage-service-commands-optional)
+[Service Commands](/setting-up-services/how-to-set-up-services/leverage-service-commands/)
 and
-[Building a Preview -> The build process: explained](../../building-a-preview/how-previews-work/index.md#the-build-process-explained)
+[Building a Preview -> The build process: explained](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained)
 
 | Stage  | Description                                                                                            |
 | :----- | :----------------------------------------------------------------------------------------------------- |
@@ -154,7 +154,7 @@ The `init`, `update`, and `build` stages are related as follows:
   commands in `update`, and finally the commands in `build`.
 
 - When a Preview is
-  [refreshed](../../building-a-preview/administer-previews/index.md#refresh-previews),
+  [refreshed](/building-a-preview/administer-previews/change-or-update-previews/#refresh-previews),
   the commands in `update` are run, followed by the commands in `build`.
 
 - When a Preview is created from a Base Preview, only the commands in `build`
@@ -169,7 +169,7 @@ The `init`, `update`, and `build` stages are related as follows:
 - **Required:** Yes, if more than one service is defined.
 
 Whether this is the
-[default Service](../how-to-set-up-services/index.md#define-a-default-service)
+[default Service](/setting-up-services/how-to-set-up-services/define-a-default-service/)
 for a Preview. The default Service is where incoming HTTP requests to the
 preview URL are routed. Setting this to true also implies `expose: 80` and
 `checkout: true` unless those attributes are explicitly set otherwise.
@@ -250,7 +250,7 @@ you’ll get both `http` and `https` links.
 The Docker image to use for this Service. Tugboat maintains a set of images on
 [Dockerhub](https://hub.docker.com/u/tugboatqa). These images all extend the
 official docker images, and are configured to work well with Tugboat. See also:
-[Specify a Service image](../how-to-set-up-services/index.md#specify-a-service-image).
+[Specify a Service image](/setting-up-services/how-to-set-up-services/specify-a-service-image/).
 
 ---
 
@@ -291,11 +291,11 @@ Service. When `false`, URLs are passed through as-is.
 
 A set of visual diffs that should be generated for the Service. These visual
 diffs are generated automatically when a Preview is created with a
-[base preview](../../building-a-preview/work-with-base-previews/index.md#how-to-set-a-base-preview).
-They are then updated when the Preview is
-[refreshed](../../building-a-preview/administer-previews/index.md#refresh-previews)
+[base preview](/building-a-preview/work-with-base-previews/). They are then
+updated when the Preview is
+[refreshed](/building-a-preview/administer-previews/change-or-update-previews/#refresh-previews)
 or
-[rebuilt](../../building-a-preview/administer-previews/index.md#rebuild-previews).
+[rebuilt](/building-a-preview/administer-previews/change-or-update-previews/#rebuild-previews).
 
 The visual diffs are specified by providing a list of _relative URLs_ to the
 Service. Each item in this list can be either a string, such as `/blog`, or a

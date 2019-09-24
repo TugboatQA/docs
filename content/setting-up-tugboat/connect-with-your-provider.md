@@ -23,7 +23,7 @@ weight: 1
 3. Authorize Tugboat.
 
 Once you complete GitHub authorization, you'll be redirected to the
-[Create a Tugboat Project](#create-a-new-project) screen.
+[Create a Tugboat Project](../create-a-new-project/) screen.
 
 {{%expand "Visual Walkthrough" %}}
 
@@ -41,7 +41,7 @@ Authorize Tugboat.
 ![Authorize Tugboat](../../_images/github-authorize-tugboat.png)
 
 Once you complete GitHub authorization, you'll be redirected to the
-[Create a Tugboat Project](#create-a-new-project) screen.
+[Create a Tugboat Project](../create-a-new-project/) screen.
 
 ![Create a Tugboat Project](../../_images/create-a-tugboat-project-screen.png)
 
@@ -70,7 +70,7 @@ access in your Project -> Repository Settings:
   by default; Tugboat adds a comment to a pull request with links to its
   Preview. The comment author is the person who authenticated the git repo to
   Tugboat; to change this, see:
-  [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
+  [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
 - {{% ui-text %}}Build Previews for forked Pull Requests{{% /ui-text %}} Off by
   default; Tugboat builds Previews for pull requests made to the primary repo
   from forked repositories. **There are security implications from using this
@@ -79,7 +79,7 @@ access in your Project -> Repository Settings:
 
 You can also specify the account from which comments are posted to GitHub in
 this section. For info on customizing this, see:
-[Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
+[Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
 
 ### GitLab
 
@@ -93,7 +93,7 @@ this section. For info on customizing this, see:
 3. Authorize Tugboat.
 
 Once you complete GitLab authorization, you'll be redirected to the
-[Create a Tugboat Project](#create-a-new-project) screen.
+[Create a Tugboat Project](../create-a-new-project/) screen.
 
 #### Visual Walkthrough
 
@@ -110,7 +110,7 @@ Authorize Tugboat.
 ![Authorize Tugboat](../../_images/gitlab-authorize-tugboat.png)
 
 Once you complete GitLab authorization, you'll be redirected to the
-[Create a Tugboat Project](#create-a-new-project) screen.
+[Create a Tugboat Project](../create-a-new-project/) screen.
 
 ![Create a Tugboat Project](../../_images/create-a-tugboat-project-screen.png)
 
@@ -135,7 +135,7 @@ access in your Project -> Repository Settings:
   Off by default; Tugboat adds a comment to a merge request with links to its
   Preview. The comment author is the person who authenticated the git repo to
   Tugboat; to change this, see:
-  [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
+  [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
 - {{% ui-text %}}Build Previews for forked Merge Requests{{% /ui-text %}} Off by
   default; Tugboat builds Previews for merge requests made to the primary repo
   from forked repositories. **There are security implications from using this
@@ -144,7 +144,7 @@ access in your Project -> Repository Settings:
 
 You can also specify the account from which comments are posted to GitLab in
 this section. For info on customizing this, see:
-[Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
+[Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
 
 ### Bitbucket
 
@@ -158,7 +158,7 @@ this section. For info on customizing this, see:
 3. Grant Access to Tugboat.
 
 Once you complete Bitbucket authorization, you'll be redirected to the
-[Create a Tugboat Project](#create-a-new-project) screen.
+[Create a Tugboat Project](../create-a-new-project/) screen.
 
 #### Visual Walkthrough
 
@@ -175,7 +175,7 @@ Grant Access to Tugboat.
 ![Authorize Tugboat](../../_images/bitbucket-authorize-tugboat.png)
 
 Once you complete Bitbucket authorization, you'll be redirected to the
-[Create a Tugboat Project](#create-a-new-project) screen.
+[Create a Tugboat Project](../create-a-new-project/) screen.
 
 ![Create a Tugboat Project](../../_images/create-a-tugboat-project-screen.png)
 
@@ -199,7 +199,7 @@ access in your Project -> Repository Settings:
   by default; Tugboat adds a comment to a pull request with links to its
   Preview. The comment author is the person who authenticated the git repo to
   Tugboat; to change this, see:
-  [Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
+  [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
 - {{% ui-text %}}Build Previews for forked Pull Requests{{% /ui-text %}} Off by
   default; Tugboat builds Previews for pull requests made to the primary repo
   from forked repositories. **There are security implications from using this
@@ -208,7 +208,7 @@ access in your Project -> Repository Settings:
 
 You can also specify the account from which comments are posted to Bitbucket in
 this section. For info on customizing this, see:
-[Add a Tugboat Bot to your team](../administering-tugboat-crew/index.md#add-a-tugboat-bot-to-your-team).
+[Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
 
 ### Generic Git Server
 
