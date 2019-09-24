@@ -3,8 +3,6 @@ title: "Tugboat Documentation"
 date: 2019-09-17T09:34:20-04:00
 ---
 
-<img alt="Tugboat Logo" src="logo.png" style="padding: 0; border: none">
-
 # Welcome to Tugboat!
 
 Tugboat is a system that builds a working preview of a website for any branch,
