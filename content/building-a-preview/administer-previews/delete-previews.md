@@ -20,7 +20,7 @@ To delete a Preview:
    Preview, and select {{% ui-text %}}Delete{{% /ui-text %}}.
 6. Press the {{% ui-text %}}Yes{{% /ui-text %}} button to confirm.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -47,3 +47,5 @@ Preview, and select {{% ui-text %}}Delete{{% /ui-text %}}.
 Press the {{% ui-text %}}Yes{{% /ui-text %}} button to confirm.
 
 ![Press Yes to confirm Delete](/_images/preview-action-confirm-delete.png)
+
+{{% /expand%}}

@@ -32,7 +32,7 @@ limit again. You can get under the project's space limit by
    preview{{% /ui-text %}} and then press the
    {{% ui-text %}}Delete{{% /ui-text %}} button to confirm.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -57,3 +57,5 @@ preview{{% /ui-text %}} and then press the {{% ui-text %}}Delete{{% /ui-text %}}
 button to confirm.
 
 ![Confirm Preview delete and press Delete button](/_images/base-preview-press-delete-button.png)
+
+{{% /expand%}}

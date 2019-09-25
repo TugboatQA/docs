@@ -44,7 +44,7 @@ To manually build a Preview with no Base Preview:
    scratch.
 6. Select the {{% ui-text %}}Build with no base preview{{% /ui-text %}} option.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -72,3 +72,5 @@ Preview{{% /ui-text %}} button for the Preview you'd like to build from scratch.
 Select the {{% ui-text %}}Build with no base preview{{% /ui-text %}} option.
 
 ![Select Build with no base preview](/_images/select-build-with-no-base-preview.png)
+
+{{% /expand%}}

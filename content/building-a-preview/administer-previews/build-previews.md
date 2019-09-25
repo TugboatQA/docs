@@ -47,7 +47,7 @@ on these options, see:
 [Building Previews when you're using a Base Preview](../../work-with-base-previews/building-new-previews/).
 {{% /notice %}}
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -87,6 +87,8 @@ at it, go ahead and [share your Preview](../../share-a-preview/) - we know
 you're proud of your work!
 
 ![Preview is ready](/_images/preview-ready.png)
+
+{{% /expand%}}
 
 {{% notice note %}} When you look at your new Preview, you'll see the size of
 the Preview next to the branch/tag/PR that the Preview was built from. In the
@@ -130,7 +132,7 @@ To create a copy of a Preview:
 
 You'll now see a new Preview with the same name as the Preview you cloned.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -158,3 +160,5 @@ Preview, and select {{% ui-text %}}Clone{{% /ui-text %}}.
 You'll now see a new Preview with the same name as the Preview you cloned.
 
 ![Cloned Preview](/_images/cloned-preview.png)
+
+{{% /expand%}}

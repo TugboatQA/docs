@@ -22,7 +22,7 @@ to anyone with the link; that person doesn't need to be a member of your
 [Tugboat crew](/administer-tugboat-crew/user-admin/), or able to view the git
 repo where the code is hosted.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -42,3 +42,5 @@ URL from the browser's address bar, or use the browser options to Copy Link on
 the {{% ui-text %}}Preview{{% /ui-text %}} button.
 
 ![Manually share Preview](/_images/manually-share-preview.png)
+
+{{% /expand%}}

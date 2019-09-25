@@ -35,7 +35,7 @@ repos out into a different project, where only a subset of users get access.
 The user you've invited will get an email from `support@tugboat.qa` with a link
 to accept the invitation.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -61,6 +61,8 @@ Press the big blue {{% ui-text %}}Invite{{% /ui-text %}} button!
 
 ![Press the Invite button](../../_images/add-user-press-invite-button.png)
 
+{{% /expand%}}
+
 ### User doesn't see Tugboat invite
 
 If the user doesn't see the Tugboat invite:
@@ -83,7 +85,7 @@ If the user doesn't see the Tugboat invite:
 4. In the {{% ui-text %}}Manage Users{{% /ui-text %}} section, look for the user
    you want to remove, and click the Remove link.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -104,6 +106,8 @@ you want to remove, and click the Remove link.
 
 ![Go to Manage Users and click Remove](../../_images/remove-user-click-remove-link.png)
 
+{{% /expand%}}
+
 ## Change user permissions
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
@@ -116,7 +120,7 @@ you want to remove, and click the Remove link.
    [user type](#user-permission-levels-explained) from the
    {{% ui-text %}}Access{{% /ui-text %}} drop-down.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -138,6 +142,8 @@ whose permissions you want to change, and select the appropriate
 {{% ui-text %}}Access{{% /ui-text %}} drop-down.
 
 ![Go to Manage Users, click the Access drop-down and select new permissions](../../_images/change-user-permissions-access-drop-down.png)
+
+{{% /expand%}}
 
 ## Add a Tugboat bot to your team
 
@@ -173,7 +179,7 @@ Now, whenever Tugboat adds comments to a pull request, the comments will display
 from the Tugboat bot, and the Tugboat bot's account will get any subsequent
 notifications from the provider.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Create an account for your Tugboat bot at your preferred git provider; i.e.
 GitHub, GitLab, BitBucket.
@@ -217,6 +223,8 @@ provider.
 Press the {{% ui-text %}}OK{{% /ui-text %}} button.
 
 ![Press OK](../../_images/provider-comments-press-ok-button.png)
+
+{{% /expand%}}
 
 ### User permission levels explained
 

@@ -26,7 +26,7 @@ The deselected Preview will disappear from the Base Preview section of the
 dashboard, and subsequent Preview builds - including automated builds from git
 provider integrations - will no longer start from that Base Preview.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -53,3 +53,5 @@ Click the checkbox next to the Base Preview you want to stop using.
 Press the {{% ui-text %}}OK{{% /ui-text %}} button.
 
 ![Press OK](/_images/stop-using-base-preview-press-ok.png)
+
+{{% /expand%}}

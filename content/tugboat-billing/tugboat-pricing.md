@@ -61,7 +61,7 @@ and looking at the Project Stats section:
 2. Select the project where you want to view disk space used.
 3. Scroll down to {{% ui-text %}}Project Stats{{% /ui-text %}}.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat dashboard.
@@ -75,6 +75,8 @@ Select the project where you want to view disk space used.
 Scroll down to {{% ui-text %}}Project Stats{{% /ui-text %}}.
 
 ![Project Stats -> Project Storage](../../_images/billing-project-stats-project-storage.png)
+
+{{% /expand%}}
 
 ### To view Tugboat pricing for your project:
 
@@ -99,7 +101,7 @@ If you don't have a Tugboat project, you can view current Tugboat pricing here:
 enterprise version of the app, see:
 [Tugboat for Enterprise](#tugboat-for-enterprise). {{% /notice %}}
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat dashboard.
@@ -117,6 +119,8 @@ Go to {{% ui-text %}}Project Settings{{% /ui-text %}}.
 Scroll down to {{% ui-text %}}Your Plan{{% /ui-text %}}.
 
 ![Scroll down to Your Plan](../../_images/billing-view-tugboat-plan.png)
+
+{{% /expand%}}
 
 ### Tugboat for Enterprise
 

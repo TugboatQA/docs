@@ -95,7 +95,7 @@ this section. For info on customizing this, see:
 Once you complete GitLab authorization, you'll be redirected to the
 [Create a Tugboat Project](../create-a-new-project/) screen.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to [Sign In](https://dashboard.tugboat.qa/) and select GitLab.
 
@@ -113,6 +113,8 @@ Once you complete GitLab authorization, you'll be redirected to the
 [Create a Tugboat Project](../create-a-new-project/) screen.
 
 ![Create a Tugboat Project](../../_images/create-a-tugboat-project-screen.png)
+
+{{% /expand%}}
 
 #### Using the GitLab integration
 
@@ -160,7 +162,7 @@ this section. For info on customizing this, see:
 Once you complete Bitbucket authorization, you'll be redirected to the
 [Create a Tugboat Project](../create-a-new-project/) screen.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to [Sign In](https://dashboard.tugboat.qa/) and select Bitbucket.
 
@@ -178,6 +180,8 @@ Once you complete Bitbucket authorization, you'll be redirected to the
 [Create a Tugboat Project](../create-a-new-project/) screen.
 
 ![Create a Tugboat Project](../../_images/create-a-tugboat-project-screen.png)
+
+{{% /expand%}}
 
 #### Using the Bitbucket integration
 
@@ -241,7 +245,7 @@ your Tugboat account with additional git providers:
    [GitLab](#how-do-i-link-tugboat-to-gitlab) or
    [Bitbucket](#how-do-i-link-tugboat-to-bitbucket).
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Click the {{% ui-text %}}User{{% /ui-text %}} drop-down in the upper right-hand
 corner of the Tugboat dashboard, and select
@@ -260,3 +264,5 @@ Select the git provider whose account you'd like to connect.
 Follow the instructions to connect to  
  [GitHub](#how-do-i-link-tugboat-to-github), [GitLab](#how-do-i-link-tugboat-to-gitlab)
 or [Bitbucket](#how-do-i-link-tugboat-to-bitbucket).
+
+{{% /expand%}}

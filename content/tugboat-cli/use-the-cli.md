@@ -109,7 +109,7 @@ To start a shell on Service that isn't the default:
 2. Find the Service where you want to start a shell.
 3. Start the shell using the ID of the specific Service.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 [View the Services of a Preview](#view-the-services-of-a-preview) via its ID; in
 this case, `5d1a5305216a15d4bf5dcbbb`:
@@ -133,3 +133,5 @@ tugboat shell 5d1a5307216a158a155dcbc3
 Now you've got shell access in that Service:
 
 ![Shell access in the Service](/_images/tugboat-cli-shell-access-in-service.png)
+
+{{% /expand%}}

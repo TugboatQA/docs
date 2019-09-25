@@ -19,7 +19,7 @@ From here, you can:
 - Edit the payment method
 - View or print invoices
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat dashboard.
@@ -49,3 +49,5 @@ From here, you can:
 - View or print invoices
 
 ![Tugboat's Billing Information options](../../_images/billing-tugboat-billing-info-screen.png)
+
+{{% /expand%}}

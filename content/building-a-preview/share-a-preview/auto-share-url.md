@@ -30,7 +30,7 @@ notifications, you can
 [configure a Tugboat bot](/administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team)
 to post the comments and receive those notifications. {{% /notice %}}
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -54,3 +54,5 @@ Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save your
 changes.
 
 ![Press the Save Configuration button](/_images/share-preview-repo-settings-save-configuration.png)
+
+{{% /expand%}}

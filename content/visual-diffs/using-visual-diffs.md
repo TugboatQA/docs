@@ -96,7 +96,7 @@ over to
 [Troubleshooting -> Visual Diffs](/troubleshooting/preview-built-problem/#troubleshooting-visual-diffs)
 for tips on figuring out what happened. {{% /notice %}}
 
-### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Click into a Preview that has finished building;
 
@@ -122,6 +122,8 @@ diffs; use this if you've updated your Base Preview, and want to see a new
 version of the visual diffs for this build.
 
 ![Regenerate visual diffs](/_images/visual-diffs-regenerate.png)
+
+{{% /expand%}}
 
 ## How are Visual Diffs calculated?
 

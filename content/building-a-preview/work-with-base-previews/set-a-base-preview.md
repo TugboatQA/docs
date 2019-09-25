@@ -28,7 +28,7 @@ That preview will be moved to the {{% ui-text %}}Base Preview{{% /ui-text %}}
 section of the Repository Dashboard. From now on, Previews will build from the
 snapshot created when the Base Preview was built.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -67,6 +67,8 @@ check under the name of the Preview; you're looking for the "from _Base Preview
 Name_":
 
 ![View Base Preview for Preview](/_images/view-base-preview-for-preview.png)
+
+{{% /expand%}}
 
 ## Add multiple Base Previews
 

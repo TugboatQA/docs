@@ -40,7 +40,7 @@ Previews that were built from your Base Preview. {{% /notice %}}
    built from this one when finished{{% /ui-text %}}.
 6. Press the {{% ui-text %}}Rebuild{{% /ui-text %}} button.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -70,6 +70,8 @@ built from this one when finished{{% /ui-text %}}.
 Press the {{% ui-text %}}Rebuild{{% /ui-text %}} button.
 
 ![Press the Rebuild button](/_images/base-preview-press-rebuild-button.png)
+
+{{% /expand%}}
 
 ## Update a Base Preview
 
@@ -117,7 +119,7 @@ To manually kick off a Base Preview update:
    built from this one when finished{{% /ui-text %}}.
 6. Press the {{% ui-text %}}Refresh{{% /ui-text %}} button.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -148,6 +150,8 @@ Press the {{% ui-text %}}Refresh{{% /ui-text %}} button.
 
 ![Press the Refresh button](/_images/base-preview-press-refresh-button.png)
 
+{{% /expand%}}
+
 ### Automatically Refresh a Base Preview
 
 You'll generally want to keep your Base Preview up to date with your latest
@@ -170,7 +174,7 @@ To change Tugboat's settings to automatically Refresh Base Previews:
 5. Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save
    your changes.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -195,3 +199,5 @@ Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save your
 changes.
 
 ![Repository Settings -> Press Save Configuration button](/_images/repository-settings-press-save-configuration.png)
+
+{{% /expand%}}

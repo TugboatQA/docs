@@ -43,7 +43,7 @@ your git repositories. This also does not affect other Tugboat projects; if you
 have three projects in Tugboat, for example, and you delete one of them, you can
 still continue working in the other two projects. {{% /notice %}}
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat dashboard.
@@ -65,3 +65,5 @@ Scroll down past {{% ui-text %}}Your Plan{{% /ui-text %}}.
 Click the red {{% ui-text %}}Delete Project{{% /ui-text %}} button.
 
 ![Click the Delete Project button](../../_images/billing-delete-project.png)
+
+{{% /expand%}}

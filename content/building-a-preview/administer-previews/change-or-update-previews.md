@@ -60,7 +60,7 @@ To Refresh a Preview:
 You'll see a yellow _refreshing_ status while Tugboat is running the update,
 which will change to a green _ready_ once the update is complete.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -92,6 +92,8 @@ Refresh process.
 
 You'll see a yellow _refreshing_ status while Tugboat is running the update,
 which will change to a green _ready_ once the update is complete.
+
+{{% /expand%}}
 
 ## Rebuild Previews
 
@@ -133,7 +135,7 @@ more info, see:
 [updating Previews when working with a Base Preview](../../work-with-base-previews/building-new-previews/).
 {{% /notice %}}
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 To Rebuild a Preview:
 
@@ -167,3 +169,5 @@ Rebuild process.
 
 You'll see a yellow _building_ status while Tugboat is rebuilding the Preview,
 which will change to a green _ready_ once the build is complete.
+
+{{% /expand%}}

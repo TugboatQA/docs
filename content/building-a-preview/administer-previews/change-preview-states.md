@@ -40,7 +40,7 @@ When a Preview is Starting, you'll see a yellow _starting_ or _resuming_
 (depending on whether the Preview was Stopped or Suspended), and then the
 Preview will go to a green _ready_ status.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -70,6 +70,8 @@ When a Preview is Starting, you'll see a yellow _starting_ or _resuming_
 (depending on whether the Preview was Stopped or Suspended), and then the
 Preview will go to a green _ready_ status.
 
+{{% /expand%}}
+
 ### Lock, Unlock
 
 If you want a Preview to remain in its current state without being updated, you
@@ -97,7 +99,7 @@ to its status - in this example, it's a green icon next to the _ready_ status.
 When the Preview is unlocked, the padlock icon turns into the regular state
 indicator.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -127,6 +129,8 @@ to its status - in this example, it's a green icon next to the _ready_ status.
 When the Preview is unlocked, the padlock icon turns into the regular state
 indicator.
 
+{{% /expand%}}
+
 ### Reset
 
 When a Preview build completes, Tugboat takes a
@@ -149,7 +153,7 @@ To Reset a Preview:
 You'll see a yellow _resetting_ status for a moment while the Preview is
 returned to its snapshot state, and then the Preview will become _ready_ again.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -179,3 +183,5 @@ Press the {{% ui-text %}}Yes{{% /ui-text %}} button to confirm.
 
 You'll see a yellow _resetting_ status for a moment while the Preview is
 returned to its snapshot state, and then the Preview will become _ready_ again.
+
+{{% /expand%}}

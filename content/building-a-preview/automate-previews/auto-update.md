@@ -58,7 +58,7 @@ data and updates.
 5. Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save
    your changes.
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -82,3 +82,5 @@ Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save your
 changes.
 
 ![Press the Save Configuration button](/_images/repository-settings-press-save-configuration.png)
+
+{{% /expand%}}

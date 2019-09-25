@@ -26,7 +26,7 @@ you can download or print as needed.
 [reach out to us directly](mailto:support@tugboat.qa?subject=Enterprise-Plans)
 to change your plan. {{% /notice %}}
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat dashboard.
@@ -61,3 +61,5 @@ You'll get an email confirming your changes, with a link to an online invoice
 you can download or print as needed.
 
 ![Email confirmation of plan change](../../_images/billing-plan-update-email.png)
+
+{{% /expand%}}

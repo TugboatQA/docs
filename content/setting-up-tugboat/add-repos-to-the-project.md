@@ -33,7 +33,7 @@ project, if the total storage used in your project reaches the
 [billing tier storage limit for your project](/tugboat-billing/tugboat-pricing/#how-does-tugboat-pricing-work).
 {{% /notice %}}
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
 upper-right of the Tugboat screen.
@@ -49,3 +49,5 @@ Go to Add a Repository.
 ![Go to Add a Repository](../../_images/go-to-add-a-repository.png)
 
 From there, you'll be back to the 'select a provider and specify a repo' screen.
+
+{{% /expand%}}

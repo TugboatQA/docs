@@ -22,7 +22,7 @@ To set an Access Token:
 
 Now you're all set to use the Tugboat Command Line Interface!
 
-#### Visual Walkthrough
+{{%expand "Visual Walkthrough" %}}
 
 In Tugboat's web interface, go to User Name -> Access Tokens, or
 [click this link](https://dashboard.tugboat.qa/access-tokens).
@@ -48,3 +48,5 @@ When you run the CLI, and attempt to access a resource, you'll be asked for an
 Access Token; paste it in and hit `Y` to have the CLI remember it.
 
 ![Enter the Access Token in the CLI](../../_images/enter-access-token-in-cli.png)
+
+{{% /expand%}}
