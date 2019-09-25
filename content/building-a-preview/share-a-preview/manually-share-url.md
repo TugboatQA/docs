@@ -14,7 +14,7 @@ Want to share a Preview link manually with Lisa in Product, or Dan the client?
 3. Click the name of the repo that contains the Preview you want to share.
 4. Go to the Preview you want to share, and either open the Preview and copy the
    URL from the browser's address bar, or use the browser options to Copy Link
-   on the **Preview** button.
+   on the {{% ui-text %}}Preview{{% /ui-text %}} button.
 
 Send that link to the person who needs to look at the Preview, and they'll be
 able to view it. Tugboat links are hard-to-guess secure URLs that are accessible
@@ -39,6 +39,6 @@ Click the name of the repo that contains the Preview you want to share.
 
 Go to the Preview you want to share, and either open the Preview and copy the
 URL from the browser's address bar, or use the browser options to Copy Link on
-the **Preview** button.
+the {{% ui-text %}}Preview{{% /ui-text %}} button.
 
 ![Manually share Preview](/_images/manually-share-preview.png)

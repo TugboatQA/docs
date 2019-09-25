@@ -33,9 +33,9 @@ for a particular project, you can always delete your project:
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat dashboard.
 2. Select the project you want to delete.
-3. Go to **Project Settings**.
-4. Scroll down past **Your Plan**.
-5. Click the red **Delete Project** button.
+3. Go to {{% ui-text %}}Project Settings{{% /ui-text %}}.
+4. Scroll down past {{% ui-text %}}Your Plan{{% /ui-text %}}.
+5. Click the red {{% ui-text %}}Delete Project{{% /ui-text %}} button.
 
 {{% notice note %}} When you delete a Tugboat project, you're only deleting the
 Previews and Tugboat repositories for that project. This does not affect data in
@@ -54,14 +54,14 @@ Select the project you want to delete.
 
 ![Select the project](../../_images/select-a-project.png)
 
-Go to **Project Settings**.
+Go to {{% ui-text %}}Project Settings{{% /ui-text %}}.
 
 ![Go to Project Settings](../../_images/click-project-settings-link.png)
 
-Scroll down past **Your Plan**.
+Scroll down past {{% ui-text %}}Your Plan{{% /ui-text %}}.
 
 ![Scroll down past Your Plan](../../_images/billing-scroll-past-your-plan.png)
 
-Click the red **Delete Project** button.
+Click the red {{% ui-text %}}Delete Project{{% /ui-text %}} button.
 
 ![Click the Delete Project button](../../_images/billing-delete-project.png)

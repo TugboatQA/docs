@@ -11,9 +11,10 @@ To set an Access Token:
 
 1. In Tugboat's web interface, go to User Name -> Access Tokens, or
    [click this link](https://dashboard.tugboat.qa/access-tokens).
-2. Click the **+ Generate New Token option**.
+2. Click the {{% ui-text %}}+ Generate New Token option{{% /ui-text %}}.
 3. You'll be asked to give the Access Token a description; for example, "Command
-   Line Tool"; enter a description and press the **Generate** button.
+   Line Tool"; enter a description and press the
+   {{% ui-text %}}Generate{{% /ui-text %}} button.
 4. Make sure you save your Access Token somewhere safe, as you won't be able to
    see it again!
 5. When you run the CLI, and attempt to access a resource, you'll be asked for
@@ -28,12 +29,13 @@ In Tugboat's web interface, go to User Name -> Access Tokens, or
 
 ![Go to Access Tokens page](../../_images/go-to-user-access-tokens.png)
 
-Click the **+ Generate New Token** option.
+Click the {{% ui-text %}}+ Generate New Token{{% /ui-text %}} option.
 
 ![Click Generate new token](../../_images/generate-new-token.png)
 
 You'll be asked to give the Access Token a description; for example, "Command
-Line Tool"; enter a description and press the **Generate** button.
+Line Tool"; enter a description and press the
+{{% ui-text %}}Generate{{% /ui-text %}} button.
 
 ![Enter token description and press Generate](../../_images/enter-token-description-and-generate.png)
 

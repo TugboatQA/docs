@@ -19,13 +19,14 @@ starting point.
 2. Select the project where you want to set a Base Preview.
 3. Click the name of the repo that contains Preview you want to use as a Base
    Preview.
-4. Go to the **Manage Base Previews** link on the Repository Dashboard.
+4. Go to the {{% ui-text %}}Manage Base Previews{{% /ui-text %}} link on the
+   Repository Dashboard.
 5. Click the checkbox next to the Preview you want to use as a Base Preview.
-6. Press the **OK** button.
+6. Press the {{% ui-text %}}OK{{% /ui-text %}} button.
 
-That preview will be moved to the **Base Preview** section of the Repository
-Dashboard. From now on, Previews will build from the snapshot created when the
-Base Preview was built.
+That preview will be moved to the {{% ui-text %}}Base Preview{{% /ui-text %}}
+section of the Repository Dashboard. From now on, Previews will build from the
+snapshot created when the Base Preview was built.
 
 #### Visual Walkthrough
 
@@ -43,7 +44,8 @@ Preview.
 
 ![Click into Tugboat repository](/_images/click-into-tugboat-repository.png)
 
-Go to the **Manage Base Previews** link on the Repository Dashboard.
+Go to the {{% ui-text %}}Manage Base Previews{{% /ui-text %}} link on the
+Repository Dashboard.
 
 ![Go to Manage Base Previews](/_images/set-base-preview-go-to-manage-base-previews.png)
 
@@ -51,12 +53,12 @@ Click the checkbox next to the Preview you want to use as a Base Preview.
 
 ![Click the checkbox to select a Base Preview](/_images/set-base-preview-click-checkbox.png)
 
-Press the **OK** button.
+Press the {{% ui-text %}}OK{{% /ui-text %}} button.
 
 ![Press OK to confirm Base Preview](/_images/set-base-preview-press-ok.png)
 
-That preview will be moved to the **Base Preview** section of the Repository
-Dashboard.
+That preview will be moved to the {{% ui-text %}}Base Preview{{% /ui-text %}}
+section of the Repository Dashboard.
 
 ![Base Preview in repository](/_images/set-base-preview-after.png)
 

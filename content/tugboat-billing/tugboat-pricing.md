@@ -59,7 +59,7 @@ and looking at the Project Stats section:
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat dashboard.
 2. Select the project where you want to view disk space used.
-3. Scroll down to **Project Stats**.
+3. Scroll down to {{% ui-text %}}Project Stats{{% /ui-text %}}.
 
 #### Visual Walkthrough
 
@@ -72,7 +72,7 @@ Select the project where you want to view disk space used.
 
 ![Select the project](../../_images/select-a-project.png)
 
-Scroll down to **Project Stats**.
+Scroll down to {{% ui-text %}}Project Stats{{% /ui-text %}}.
 
 ![Project Stats -> Project Storage](../../_images/billing-project-stats-project-storage.png)
 
@@ -84,8 +84,8 @@ project:
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat dashboard.
 2. Select the project where you want to view and administer billing.
-3. Go to **Project Settings**.
-4. Scroll down to **Your Plan**.
+3. Go to {{% ui-text %}}Project Settings{{% /ui-text %}}.
+4. Scroll down to {{% ui-text %}}Your Plan{{% /ui-text %}}.
 
 From here, you'll see the pricing tiers available for your plan. You can
 [change performance tiers](../change-tugboat-plan/), or
@@ -110,11 +110,11 @@ Select the project where you want to view and administer billing.
 
 ![Select the project](../../_images/select-a-project.png)
 
-Go to **Project Settings**.
+Go to {{% ui-text %}}Project Settings{{% /ui-text %}}.
 
 ![Go to Project Settings](../../_images/click-project-settings-link.png)
 
-Scroll down to **Your Plan**.
+Scroll down to {{% ui-text %}}Your Plan{{% /ui-text %}}.
 
 ![Scroll down to Your Plan](../../_images/billing-view-tugboat-plan.png)
 

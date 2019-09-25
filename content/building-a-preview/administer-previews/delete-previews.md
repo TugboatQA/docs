@@ -16,8 +16,9 @@ To delete a Preview:
 2. Select the project where you want to delete a Preview.
 3. Click into the repo where you want to delete a Preview.
 4. Select the Preview you want to delete.
-5. Click the **Actions** drop-down menu for that Preview, and select **Delete**.
-6. Press the **Yes** button to confirm.
+5. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that
+   Preview, and select {{% ui-text %}}Delete{{% /ui-text %}}.
+6. Press the {{% ui-text %}}Yes{{% /ui-text %}} button to confirm.
 
 #### Visual Walkthrough
 
@@ -38,10 +39,11 @@ Select the Preview you want to delete.
 
 ![Select a Preview build](/_images/select-a-preview.png)
 
-Click the **Actions** drop-down menu for that Preview, and select **Delete**.
+Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that
+Preview, and select {{% ui-text %}}Delete{{% /ui-text %}}.
 
 ![Click the Actions drop-down, and select Delete.](/_images/preview-action-delete.png)
 
-Press the **Yes** button to confirm.
+Press the {{% ui-text %}}Yes{{% /ui-text %}} button to confirm.
 
 ![Press Yes to confirm Delete](/_images/preview-action-confirm-delete.png)

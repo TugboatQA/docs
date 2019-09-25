@@ -19,9 +19,10 @@ PRs are merged or closed:
    upper-right of the Tugboat screen.
 2. Select the project where you want to configure auto-delete settings for
    Previews.
-3. Click into **Settings** for the repository.
+3. Click into {{% ui-text %}}Settings{{% /ui-text %}} for the repository.
 4. Click the checkbox to change the setting.
-5. Press the Save Configuration button to save your changes.
+5. Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save
+   your changes.
 
 #### Visual Walkthrough
 
@@ -35,7 +36,7 @@ Previews.
 
 ![Select the project](/_images/select-a-project.png)
 
-Click into **Settings** for the repository.
+Click into {{% ui-text %}}Settings{{% /ui-text %}} for the repository.
 
 ![Go to Repository Settings](/_images/go-to-repository-settings.png)
 
@@ -43,6 +44,7 @@ Click the checkbox to change the setting.
 
 ![Click the checkbox to turn auto-delete Preview on or off](/_images/auto-delete-preview-repository-settings.png)
 
-Press the Save Configuration button to save your changes.
+Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save your
+changes.
 
 ![Press the Save Configuration button](/_images/repository-settings-press-save-configuration.png)

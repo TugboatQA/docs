@@ -36,22 +36,24 @@ you're troubleshooting an issue with a Preview Build.
 
 ### Using the Preview Action inside a Service
 
-When a Service has an exposed port, you'll see a clickable **Preview** link for
-that Service. Clicking the **Preview** link takes you into what that Service is
+When a Service has an exposed port, you'll see a clickable
+{{% ui-text %}}Preview{{% /ui-text %}} link for that Service. Clicking the
+{{% ui-text %}}Preview{{% /ui-text %}} link takes you into what that Service is
 doing.
 
 The
 [`default` service](/setting-up-services/how-to-set-up-services/define-a-default-service/)
 always has an exposed port, so you'll always have the option to Preview that
 Service. If that is the only Service that has an exposed port - i.e. it's the
-only Service with the **Preview** link - what you'll see is the same as clicking
-the blue Preview button.
+only Service with the {{% ui-text %}}Preview{{% /ui-text %}} link - what you'll
+see is the same as clicking the blue {{% ui-text %}}Preview{{% /ui-text %}}
+button.
 
 If you manually
 [expose a port](/setting-up-services/how-to-set-up-services/expose-a-service-http-port/)
 in a Service that isn't the `default`, you'll see the Preview option for that
-Service, too. Clicking into a **Preview** link for a Service that isn't the
-_default_ shows you only what that Service is doing.
+Service, too. Clicking into a {{% ui-text %}}Preview{{% /ui-text %}} link for a
+Service that isn't the _default_ shows you only what that Service is doing.
 
 ![Preview inside a Service](/_images/inside-a-preview-preview-action.png)
 
@@ -85,8 +87,8 @@ you can open a terminal directly into your Services to
 
 In the Preview log section, you'll see a build log for your Preview build. The
 Preview Log pane may not show the entirety of the log; if you've got a complex
-build, you may need to click **See Full Log** to find and diagnose something
-early in your Preview build.
+build, you may need to click {{% ui-text %}}See Full Log{{% /ui-text %}} to find
+and diagnose something early in your Preview build.
 
 ![View the Preview Log](/_images/inside-a-preview-log.png)
 

@@ -5,8 +5,8 @@ weight: 7
 ---
 
 When working with Previews, there are a few handy things you can do in the
-**Actions** menu beyond updating and deleting your Previews. You can change the
-states of your Previews in a few different ways:
+{{% ui-text %}}Actions{{% /ui-text %}} menu beyond updating and deleting your
+Previews. You can change the states of your Previews in a few different ways:
 
 - [Start, Stop](#start-stop)
 - [Lock, Unlock](#lock-unlock)
@@ -15,10 +15,11 @@ states of your Previews in a few different ways:
 ### Start, Stop
 
 Sometimes, you might want to stop all of a Preview's Services and take it
-offline. You can use the **Stop** option in the **Actions** drop-down menu to
-take the Preview offline. This is different from a suspended Preview, in that a
-suspended Preview will start again automatically if someone visits the Preview
-link, while a Stopped Preview remains stopped until someone manually Starts it.
+offline. You can use the {{% ui-text %}}Stop{{% /ui-text %}} option in the
+{{% ui-text %}}Actions{{% /ui-text %}} drop-down menu to take the Preview
+offline. This is different from a suspended Preview, in that a suspended Preview
+will start again automatically if someone visits the Preview link, while a
+Stopped Preview remains stopped until someone manually Starts it.
 
 On the flip side, Starting a Preview resumes all Services. You can Start a
 Preview that is suspended or Stopped.
@@ -30,8 +31,9 @@ To Start or Stop a Preview:
 2. Select the project where you want to Stop or Start a Preview.
 3. Click into the repo where you want to Stop/Start a Preview.
 4. Select the Preview you want to Stop or Start.
-5. Click the **Actions** drop-down menu for that Preview, and select **Stop** or
-   **Start**.
+5. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that
+   Preview, and select {{% ui-text %}}Stop{{% /ui-text %}} or
+   {{% ui-text %}}Start{{% /ui-text %}}.
 
 When the Preview is successfully stopped, you'll see a red _stopped_ status.
 When a Preview is Starting, you'll see a yellow _starting_ or _resuming_
@@ -57,8 +59,9 @@ Select the Preview you want to Stop or Start.
 
 ![Select a Preview build](/_images/select-a-preview.png)
 
-Click the **Actions** drop-down menu for that Preview, and select **Stop** or
-**Start**.
+Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that
+Preview, and select {{% ui-text %}}Stop{{% /ui-text %}} or
+{{% ui-text %}}Start{{% /ui-text %}}.
 
 ![Click the Actions drop-down, and select Stop or Start.](/_images/preview-action-stop.png)
 
@@ -85,8 +88,9 @@ To Lock or Unlock a Preview:
 2. Select the project where you want to Lock or Unlock a Preview.
 3. Click into the repo where you want to Lock/Unlock a Preview.
 4. Select the Preview you want to Lock or Unlock.
-5. Click the **Actions** drop-down menu for that Preview, and select **Lock** or
-   **Unlock**.
+5. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that
+   Preview, and select {{% ui-text %}}Lock{{% /ui-text %}} or
+   {{% ui-text %}}Unlock{{% /ui-text %}}.
 
 When the Preview is successfully locked, you'll see a closed padlock icon next
 to its status - in this example, it's a green icon next to the _ready_ status.
@@ -112,8 +116,9 @@ Select the Preview you want to Lock or Unlock.
 
 ![Select a Preview build](/_images/select-a-preview.png)
 
-Click the **Actions** drop-down menu for that Preview, and select **Lock** or
-**Unlock**.
+Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that
+Preview, and select {{% ui-text %}}Lock{{% /ui-text %}} or
+{{% ui-text %}}Unlock{{% /ui-text %}}.
 
 ![Click the Actions drop-down, and select Lock or Unlock.](/_images/preview-action-lock.png)
 
@@ -137,8 +142,9 @@ To Reset a Preview:
 2. Select the project where you want to Reset a Preview.
 3. Click into the repo where you want to Reset a Preview.
 4. Select the Preview you want to Reset.
-5. Click the **Actions** drop-down menu for that Preview, and select **Reset**.
-6. Press the **Yes** button to confirm.
+5. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that
+   Preview, and select {{% ui-text %}}Reset{{% /ui-text %}}.
+6. Press the {{% ui-text %}}Yes{{% /ui-text %}} button to confirm.
 
 You'll see a yellow _resetting_ status for a moment while the Preview is
 returned to its snapshot state, and then the Preview will become _ready_ again.
@@ -162,11 +168,12 @@ Select the Preview you want to Reset.
 
 ![Select a Preview build](/_images/select-a-preview.png)
 
-Click the **Actions** drop-down menu for that Preview, and select **Reset**.
+Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that
+Preview, and select {{% ui-text %}}Reset{{% /ui-text %}}.
 
 ![Click the Actions drop-down, and select Reset.](/_images/preview-action-reset.png)
 
-Press the **Yes** button to confirm.
+Press the {{% ui-text %}}Yes{{% /ui-text %}} button to confirm.
 
 ![Press Yes to confirm Reset](/_images/preview-action-confirm-reset.png)
 

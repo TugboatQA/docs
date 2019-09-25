@@ -84,9 +84,9 @@ Inside the diff, you'll see a **Before** visualization on the left, an **After**
 visualization on the right, and a composite in the middle, which highlights
 changes to the page.
 
-You'll also see an option to **Regenerate** visual diffs; use this if you've
-updated your Base Preview, and want to see a new version of the visual diffs for
-this build.
+You'll also see an option to {{% ui-text %}}Regenerate{{% /ui-text %}} visual
+diffs; use this if you've updated your Base Preview, and want to see a new
+version of the visual diffs for this build.
 
 {{% notice info %}} While the Preview is building, you'll see: "Unavailable
 while preview is building" in the Visual Diffs pane. After the Preview build has
@@ -117,9 +117,9 @@ changes to the page.
 
 ![Visual Diff Before, After and Difference](/_images/visual-diffs-before-after-example.png)
 
-You'll also see an option to **Regenerate** visual diffs; use this if you've
-updated your Base Preview, and want to see a new version of the visual diffs for
-this build.
+You'll also see an option to {{% ui-text %}}Regenerate{{% /ui-text %}} visual
+diffs; use this if you've updated your Base Preview, and want to see a new
+version of the visual diffs for this build.
 
 ![Regenerate visual diffs](/_images/visual-diffs-regenerate.png)
 

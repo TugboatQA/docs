@@ -26,13 +26,14 @@ started and debugging your initial config file:
    from that branch.
 3. If you get an error while building the Preview, take a
    [look at the Preview log](#how-to-check-the-preview-logs).
-4. Click **Full Log** to make sure you're viewing the entire log.
+4. Click {{% ui-text %}}Full Log{{% /ui-text %}} to make sure you're viewing the
+   entire log.
 5. Review the log until you see where the Preview build failed.
 
 In some cases, you'll be able to see the specific command where the Preview
-build failed. When that's the case, click the **Terminal** link next to the
-Service where the command error occurred, and you'll get a terminal directly
-into that Service.
+build failed. When that's the case, click the
+{{% ui-text %}}Terminal{{% /ui-text %}} link next to the Service where the
+command error occurred, and you'll get a terminal directly into that Service.
 
 ![Terminal directly into the Service](/_images/troubleshooting-terminal-into-service.png)
 
@@ -75,13 +76,14 @@ info, see:
 From here, if your Preview build is failing, the process is the same as above:
 
 1. Take a [look at the Preview log](#how-to-check-the-preview-logs).
-2. Click **Full Log** to make sure you're viewing the entire log.
+2. Click {{% ui-text %}}Full Log{{% /ui-text %}} to make sure you're viewing the
+   entire log.
 3. Review the log until you see where the Preview build failed.
 
 In some cases, you'll be able to see the specific command where the Preview
-build failed. When that's the case, click the **Terminal** link next to the
-Service where the command error occurred, and you'll get a terminal directly
-into that Service.
+build failed. When that's the case, click the
+{{% ui-text %}}Terminal{{% /ui-text %}} link next to the Service where the
+command error occurred, and you'll get a terminal directly into that Service.
 
 ![Terminal directly into the Service](/_images/troubleshooting-terminal-into-service.png)
 

@@ -92,4 +92,4 @@ RAM to build your Previews, which can mildly or dramatically speed up your build
 times. When build times matter, keep this option in mind.
 
 You can
-[change your Tugboat plan in **Project Settings**](/tugboat-billing/change-tugboat-plan).
+[change your Tugboat plan in {{% ui-text %}}Project Settings{{% /ui-text %}}](/tugboat-billing/change-tugboat-plan).

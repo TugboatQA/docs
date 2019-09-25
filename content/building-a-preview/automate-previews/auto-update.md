@@ -7,7 +7,7 @@ weight: 3
 You can set Tugboat to automatically update Previews in a couple of different
 ways. First is the most straightforward:
 
-**Rebuild Updated Pull Requests Automatically**
+{{% ui-text %}}Rebuild Updated Pull Requests Automatically{{% /ui-text %}}
 
 When you select this setting, Tugboat automatically rebuilds a Preview when the
 corresponding pull request is updated.
@@ -17,7 +17,7 @@ Previews when you make changes to a Base Preview. If you've
 [set a Base Preview](../../work-with-base-previews/set-a-base-preview/), you can
 have Tugboat:
 
-**Rebuild Orphaned Previews Automatically**
+{{% ui-text %}}Rebuild Orphaned Previews Automatically{{% /ui-text %}}
 
 When you
 [rebuild a Base Preview](../../work-with-base-previews/change-or-update/#change-a-base-preview),
@@ -32,7 +32,7 @@ is rebuilt. This pulls in the changes that you make to the Base Preview during
 the rebuild process, and keeps child Previews in step with the Base Previews
 that generated them.
 
-**Rebuild Stale Previews Automatically**
+{{% ui-text %}}Rebuild Stale Previews Automatically{{% /ui-text %}}
 
 When you
 [refresh a Base Preview](../../work-with-base-previews/change-or-update/#update-a-base-preview),
@@ -53,9 +53,10 @@ data and updates.
    upper-right of the Tugboat screen.
 2. Select the project where you want to configure auto-update settings for
    Previews.
-3. Click into **Settings** for the repository.
+3. Click into {{% ui-text %}}Settings{{% /ui-text %}} for the repository.
 4. Click the checkboxes to change the settings you want to adjust.
-5. Press the Save Configuration button to save your changes.
+5. Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save
+   your changes.
 
 #### Visual Walkthrough
 
@@ -69,7 +70,7 @@ Previews.
 
 ![Select the project](/_images/select-a-project.png)
 
-Click into **Settings** for the repository.
+Click into {{% ui-text %}}Settings{{% /ui-text %}} for the repository.
 
 ![Go to Repository Settings](/_images/go-to-repository-settings.png)
 
@@ -77,6 +78,7 @@ Click the checkboxes to change the settings you want to adjust.
 
 ![Click the checkboxes to turn auto-update Preview options on or off](/_images/auto-update-preview-repository-settings.png)
 
-Press the Save Configuration button to save your changes.
+Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save your
+changes.
 
 ![Press the Save Configuration button](/_images/repository-settings-press-save-configuration.png)

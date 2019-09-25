@@ -16,9 +16,11 @@ requests.
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat screen.
 2. Select the project where you want Tugboat to auto-post Preview links.
-3. Click into **Settings** for the repository.
-4. Click the checkbox for **Post Preview Links in Pull Request Comments**.
-5. Press the Save Configuration button to save your changes.
+3. Click into {{% ui-text %}}Settings{{% /ui-text %}} for the repository.
+4. Click the checkbox for {{% ui-text %}}Post Preview Links in Pull Request
+   Comments{{% /ui-text %}}.
+5. Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save
+   your changes.
 
 {{% notice note %}} By default, Tugboat's comments to a linked git provider
 display as the person who linked the provider to Tugboat. That means the person
@@ -39,14 +41,16 @@ Select the project where you want Tugboat to auto-post Preview links.
 
 ![Select the project](/_images/select-a-project.png)
 
-Click into **Settings** for the repository.
+Click into {{% ui-text %}}Settings{{% /ui-text %}} for the repository.
 
 ![Go to Repository Settings](/_images/go-to-repository-settings.png)
 
-Click the checkbox for **Post Preview Links in Pull Request Comments**.
+Click the checkbox for {{% ui-text %}}Post Preview Links in Pull Request
+Comments{{% /ui-text %}}.
 
 ![Click the checkbox next to Post Preview Links in Pull Request Comments](/_images/share-preview-post-preview-links-in-pull-request-comments.png)
 
-Press the Save Configuration button to save your changes.
+Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save your
+changes.
 
 ![Press the Save Configuration button](/_images/share-preview-repo-settings-save-configuration.png)

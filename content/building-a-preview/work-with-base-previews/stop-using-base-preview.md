@@ -17,9 +17,10 @@ Preview, instead, see: [Delete a Base Preview](../delete-base-preview/).
    upper-right of the Tugboat screen.
 2. Select the project where you want to stop using a Base Preview.
 3. Click into the repo where you want to stop using a Base Preview.
-4. Go to the **Manage Base Previews** link on the Repository Dashboard.
+4. Go to the {{% ui-text %}}Manage Base Previews{{% /ui-text %}} link on the
+   Repository Dashboard.
 5. Click the checkbox next to the Base Preview you want to stop using.
-6. Press the **OK** button.
+6. Press the {{% ui-text %}}OK{{% /ui-text %}} button.
 
 The deselected Preview will disappear from the Base Preview section of the
 dashboard, and subsequent Preview builds - including automated builds from git
@@ -40,7 +41,8 @@ Click into the repo where you want to stop using a Base Preview.
 
 ![Click into Tugboat repository](/_images/click-into-tugboat-repository.png)
 
-Go to the **Manage Base Previews** link on the Repository Dashboard.
+Go to the {{% ui-text %}}Manage Base Previews{{% /ui-text %}} link on the
+Repository Dashboard.
 
 ![Go to Manage Base Previews](/_images/stop-using-base-preview-manage-base-previews.png)
 
@@ -48,6 +50,6 @@ Click the checkbox next to the Base Preview you want to stop using.
 
 ![Click checkbox to deselect a Base Preview](/_images/stop-using-base-preview-click-checkbox.png)
 
-Press the **OK** button.
+Press the {{% ui-text %}}OK{{% /ui-text %}} button.
 
 ![Press OK](/_images/stop-using-base-preview-press-ok.png)

@@ -26,10 +26,11 @@ limit again. You can get under the project's space limit by
    upper-right of the Tugboat screen.
 2. Select the project where you want to delete a Base Preview.
 3. Click into the repo where you want to delete a Base Preview.
-4. Click the **Actions** drop-down menu for the Base Preview you want to delete,
-   and select **Delete**.
-5. Click the checkbox next to **Yes, delete this preview** and then press the
-   **Delete** button to confirm.
+4. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for the Base
+   Preview you want to delete, and select {{% ui-text %}}Delete{{% /ui-text %}}.
+5. Click the checkbox next to {{% ui-text %}}Yes, delete this
+   preview{{% /ui-text %}} and then press the
+   {{% ui-text %}}Delete{{% /ui-text %}} button to confirm.
 
 #### Visual Walkthrough
 
@@ -46,12 +47,13 @@ Click into the repo where you want to delete a Base Preview.
 
 ![Click into Tugboat repository](/_images/click-into-tugboat-repository.png)
 
-Click the **Actions** drop-down menu for the Base Preview you want to delete,
-and select **Delete**.
+Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for the Base
+Preview you want to delete, and select {{% ui-text %}}Delete{{% /ui-text %}}.
 
 ![Click the Actions drop-down, and select Delete.](/_images/base-preview-actions-delete.png)
 
-Click the checkbox next to **Yes, delete this preview** and then press the
-**Delete** button to confirm.
+Click the checkbox next to {{% ui-text %}}Yes, delete this
+preview{{% /ui-text %}} and then press the {{% ui-text %}}Delete{{% /ui-text %}}
+button to confirm.
 
 ![Confirm Preview delete and press Delete button](/_images/base-preview-press-delete-button.png)

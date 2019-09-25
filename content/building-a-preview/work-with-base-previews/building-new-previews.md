@@ -37,10 +37,12 @@ To manually build a Preview with no Base Preview:
    upper-right of the Tugboat screen.
 2. Select the project where you want to build a Preview.
 3. Click into the repo where you want to build a Preview.
-4. Go to the **Available to Build** section of the Repository Dashboard.
-5. Click into the drop-down next to the **Build Preview** button for the Preview
-   you'd like to build from scratch.
-6. Select the **Build with no base preview** option.
+4. Go to the {{% ui-text %}}Available to Build{{% /ui-text %}} section of the
+   Repository Dashboard.
+5. Click into the drop-down next to the {{% ui-text %}}Build
+   Preview{{% /ui-text %}} button for the Preview you'd like to build from
+   scratch.
+6. Select the {{% ui-text %}}Build with no base preview{{% /ui-text %}} option.
 
 #### Visual Walkthrough
 
@@ -57,15 +59,16 @@ Click into the repo where you want to build a Preview.
 
 ![Click into Tugboat repository](/_images/click-into-tugboat-repository.png)
 
-Go to the **Available to Build** section of the Repository Dashboard.
+Go to the {{% ui-text %}}Available to Build{{% /ui-text %}} section of the
+Repository Dashboard.
 
 ![Scroll to Available to Build](/_images/scroll-to-available-to-build.png)
 
-Click into the drop-down next to the **Build Preview** button for the Preview
-you'd like to build from scratch.
+Click into the drop-down next to the {{% ui-text %}}Build
+Preview{{% /ui-text %}} button for the Preview you'd like to build from scratch.
 
 ![Go to the Build Preview drop-down menu](/_images/go-to-build-preview-drop-down.png)
 
-Select the **Build with no base preview** option.
+Select the {{% ui-text %}}Build with no base preview{{% /ui-text %}} option.
 
 ![Select Build with no base preview](/_images/select-build-with-no-base-preview.png)

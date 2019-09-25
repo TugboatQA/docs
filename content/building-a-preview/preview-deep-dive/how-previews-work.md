@@ -148,69 +148,75 @@ Preview status is indicated in a couple of different ways:
 
 ### Color
 
-- **Green:** Preview has built successfully and is ready to view.
-- **Yellow:** A Preview action is in progress.
-- **Red:** Preview build has failed, or has been stopped.
+- {{% ui-text %}}Green:{{% /ui-text %}} Preview has built successfully and is
+  ready to view.
+- {{% ui-text %}}Yellow:{{% /ui-text %}} A Preview action is in progress.
+- {{% ui-text %}}Red:{{% /ui-text %}} Preview build has failed, or has been
+  stopped.
 
 ### Status message
 
-- **Ready (and active):** When your Preview finishes building successfully,
-  you'll see a green `ready` status, with a green dot to indicate that the
-  Preview is active and ready to view. When you click the link, you'll go
-  directly to your site Preview.
-- **Ready (and inactive):** After your Preview has built and some time has
-  passed, you'll see a green `ready` status, with a green half-moon to indicate
-  that the Preview is available, but is currently suspended. When you go to the
-  Preview link, you'll see a splash page while the Preview starts running again,
-  and then you'll be taken to your Preview. If you don't want to wait through
-  the splash page, you can go to the **Actions** drop-down next to the Preview
-  button, and select **Start**; this will restart the Preview. When the
+- {{% ui-text %}}Ready (and active):{{% /ui-text %}} When your Preview finishes
+  building successfully, you'll see a green `ready` status, with a green dot to
+  indicate that the Preview is active and ready to view. When you click the
+  link, you'll go directly to your site Preview.
+- {{% ui-text %}}Ready (and inactive):{{% /ui-text %}} After your Preview has
+  built and some time has passed, you'll see a green `ready` status, with a
+  green half-moon to indicate that the Preview is available, but is currently
+  suspended. When you go to the Preview link, you'll see a splash page while the
+  Preview starts running again, and then you'll be taken to your Preview. If you
+  don't want to wait through the splash page, you can go to the
+  {{% ui-text %}}Actions{{% /ui-text %}} drop-down next to the
+  {{% ui-text %}}Preview{{% /ui-text %}} button, and select
+  {{% ui-text %}}Start{{% /ui-text %}}; this will restart the Preview. When the
   half-moon switches to a green dot, you'll be able to go directly to the
   Preview, bypassing the splash screen.
-- **Building:** While your Preview build is in-progress, you'll see a `building`
-  status in yellow. If your Preview build is taking significantly longer than
-  your average build time, displayed in the Repository Stats section lower on
-  the Project -> Repo page, you may want to start
-  [troubleshooting](/troubleshooting/).
-- **Rebuilding:** When a rebuild has been kicked off, you'll see a `rebuilding`
-  status in yellow. This indicates a complete Preview rebuild from the beginning
-  of the build process, so it should take as long as a typical build.
-- **Refreshing:** When a refresh has been kicked off, you'll see a `refreshing`
-  status in yellow. This indicates a Preview that is pulling in the latest code
-  from git, and then running any commands in the `update` section, followed by
-  the `build` section of the
+- {{% ui-text %}}Building:{{% /ui-text %}} While your Preview build is
+  in-progress, you'll see a `building` status in yellow. If your Preview build
+  is taking significantly longer than your average build time, displayed in the
+  Repository Stats section lower on the Project -> Repo page, you may want to
+  start [troubleshooting](/troubleshooting/).
+- {{% ui-text %}}Rebuilding:{{% /ui-text %}} When a rebuild has been kicked off,
+  you'll see a `rebuilding` status in yellow. This indicates a complete Preview
+  rebuild from the beginning of the build process, so it should take as long as
+  a typical build.
+- {{% ui-text %}}Refreshing:{{% /ui-text %}} When a refresh has been kicked off,
+  you'll see a `refreshing` status in yellow. This indicates a Preview that is
+  pulling in the latest code from git, and then running any commands in the
+  `update` section, followed by the `build` section of the
   [Configuration file](/setting-up-tugboat/create-a-tugboat-config-file/).
-- **Resuming:** When you've used the Action -> Start option, you'll see a
-  `resuming` status in yellow while the Preview starts spinning up
-  [services](/setting-up-services/) again.
-- **Stopping:** When you've used the Action -> Stop option, you'll see a
-  `stopping` status in yellow while the Preview goes through the process of
-  stopping [services](/setting-up-services/).
-- **Stopped:** When you've used the Action -> Stop option, you'll see a
-  `stopped` status in red to indicate that the Preview has successfully stopped
-  [services](/setting-up-services/).
-- **Suspended** - When Previews have been inactive for a period of time, you'll
-  see a `suspended` status. Any incoming HTTP request to the preview will
-  automatically start it again.
-- **Failed:** When something goes wrong during the the last action that was
-  taken on the Preview, you'll see a `failed` status in red. Details should be
-  available in the Preview's activity logs. Sometimes a failed Preview can be
-  recovered by resetting it. For more help with a `failed` preview, take a look
-  at our [troubleshooting](/troubleshooting/) docs, or go to our
-  [Help and Support](/support/) page to join our Slack support channel or email
-  us.
-- **Unavailable** - When something goes wrong trying to load the Preview, you
-  may see an `unavailable` status. This usually indicates an internal Tugboat
-  error. [Resetting](../../administer-previews/change-preview-states/#reset) a
-  Preview often fixes this.
-- **Canceled** - When you cancel a Preview while it's building, you'll see a
-  `canceled` status in red.
+- {{% ui-text %}}Resuming:{{% /ui-text %}} When you've used the Action -> Start
+  option, you'll see a `resuming` status in yellow while the Preview starts
+  spinning up [services](/setting-up-services/) again.
+- {{% ui-text %}}Stopping:{{% /ui-text %}} When you've used the Action -> Stop
+  option, you'll see a `stopping` status in yellow while the Preview goes
+  through the process of stopping [services](/setting-up-services/).
+- {{% ui-text %}}Stopped:{{% /ui-text %}} When you've used the Action -> Stop
+  option, you'll see a `stopped` status in red to indicate that the Preview has
+  successfully stopped [services](/setting-up-services/).
+- {{% ui-text %}}Suspended{{% /ui-text %}} - When Previews have been inactive
+  for a period of time, you'll see a `suspended` status. Any incoming HTTP
+  request to the preview will automatically start it again.
+- {{% ui-text %}}Failed:{{% /ui-text %}} When something goes wrong during the
+  the last action that was taken on the Preview, you'll see a `failed` status in
+  red. Details should be available in the Preview's activity logs. Sometimes a
+  failed Preview can be recovered by resetting it. For more help with a `failed`
+  preview, take a look at our [troubleshooting](/troubleshooting/) docs, or go
+  to our [Help and Support](/support/) page to join our Slack support channel or
+  email us.
+- {{% ui-text %}}Unavailable{{% /ui-text %}} - When something goes wrong trying
+  to load the Preview, you may see an `unavailable` status. This usually
+  indicates an internal Tugboat error.
+  [Resetting](../../administer-previews/change-preview-states/#reset) a Preview
+  often fixes this.
+- {{% ui-text %}}Canceled{{% /ui-text %}} - When you cancel a Preview while it's
+  building, you'll see a `canceled` status in red.
 
 ### Service states
 
 A Service could be in any of the above states, as well as:
 
-- **Committing** - Tugboat is taking a snapshot of the current state of the
-  Service.
-- **Waiting** - Tugboat is performing some operation on the Service's repo, and
-  the Service is waiting for its turn.
+- {{% ui-text %}}Committing{{% /ui-text %}} - Tugboat is taking a snapshot of
+  the current state of the Service.
+- {{% ui-text %}}Waiting{{% /ui-text %}} - Tugboat is performing some operation
+  on the Service's repo, and the Service is waiting for its turn.

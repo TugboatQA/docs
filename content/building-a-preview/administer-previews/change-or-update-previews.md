@@ -52,9 +52,10 @@ To Refresh a Preview:
 3. Click the name of the repo that contains the code you want to use for the
    Preview update.
 4. Select the Preview build you want to update.
-5. Click the **Actions** drop-down menu for that Preview, and select
-   **Refresh**.
-6. Press the **Yes** button to confirm and start the Refresh process.
+5. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that
+   Preview, and select {{% ui-text %}}Refresh{{% /ui-text %}}.
+6. Press the {{% ui-text %}}Yes{{% /ui-text %}} button to confirm and start the
+   Refresh process.
 
 You'll see a yellow _refreshing_ status while Tugboat is running the update,
 which will change to a green _ready_ once the update is complete.
@@ -79,11 +80,13 @@ Select the Preview build you want to update.
 
 ![Select a Preview build](/_images/select-a-preview.png)
 
-Click the **Actions** drop-down menu for that Preview, and select **Refresh**.
+Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that
+Preview, and select {{% ui-text %}}Refresh{{% /ui-text %}}.
 
 ![Click the Actions drop-down, and select Refresh.](/_images/preview-action-refresh.png)
 
-Press the **Yes** button to confirm and start the Refresh process.
+Press the {{% ui-text %}}Yes{{% /ui-text %}} button to confirm and start the
+Refresh process.
 
 ![Press Yes to confirm and begin Refresh](/_images/preview-action-confirm-refresh.png)
 
@@ -115,9 +118,10 @@ To Rebuild a Preview:
 3. Click the name of the repo that contains the code you want to use for the
    Preview rebuild.
 4. Select the Preview you want to rebuild.
-5. Click the **Actions** drop-down menu for that Preview, and select
-   **Rebuild**.
-6. Press the **Yes** button to confirm and start the Rebuild process.
+5. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that
+   Preview, and select {{% ui-text %}}Rebuild{{% /ui-text %}}.
+6. Press the {{% ui-text %}}Yes{{% /ui-text %}} button to confirm and start the
+   Rebuild process.
 
 You'll see a yellow _building_ status while Tugboat is rebuilding the Preview,
 which will change to a green _ready_ once the build is complete.
@@ -151,11 +155,13 @@ Select the Preview you want to rebuild.
 
 ![Select a Preview build](/_images/select-a-preview.png)
 
-Click the **Actions** drop-down menu for that Preview, and select **Rebuild**.
+Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that
+Preview, and select {{% ui-text %}}Rebuild{{% /ui-text %}}.
 
 ![Click the Actions drop-down, and select Rebuild.](/_images/preview-action-rebuild.png)
 
-Press the **Yes** button to confirm and start the Rebuild process.
+Press the {{% ui-text %}}Yes{{% /ui-text %}} button to confirm and start the
+Rebuild process.
 
 ![Press Yes to confirm and begin Rebuild](/_images/preview-action-confirm-rebuild.png)
 

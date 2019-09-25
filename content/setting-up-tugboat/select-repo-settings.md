@@ -17,8 +17,8 @@ repo settings. When you go into Repository Settings, you can:
 - [Authenticate with a Docker Registry](#authenticate-with-a-docker-registry)
 - [Delete the repo](#delete-the-repository)
 
-Don't forget to hit the **Save Configuration** button after you've checked or
-unchecked boxes to save your changes.
+Don't forget to hit the {{% ui-text %}}Save Configuration{{% /ui-text %}} button
+after you've checked or unchecked boxes to save your changes.
 
 If you later need to change Repository Settings, you can do that anytime; see:
 [Change Repository Settings](#change-repository-settings).
@@ -112,8 +112,9 @@ Tugboat Preview, shell access is provided in both the web interface and the
 
 When you link a git repository to Tugboat, Tugboat automatically generates an
 SSH key for that repo. You can access this key in
-[Repository Settings](#change-repository-settings) -> **Remote SSH Access**. To
-use the SSH key, simply copy it to your clipboard and put it where you need it!
+[Repository Settings](#change-repository-settings) -> {{% ui-text %}}Remote SSH
+Access{{% /ui-text %}}. To use the SSH key, simply copy it to your clipboard and
+put it where you need it!
 
 ![Copy SSH Key to Clipboard](../../_images/remote-ssh-access-copy-ssh-key.png)
 
@@ -121,9 +122,9 @@ use the SSH key, simply copy it to your clipboard and put it where you need it!
 you see on the Repository Settings page is the public key from the pair.
 {{% /notice %}}
 
-If you want Tugboat to generate a new SSH key, press the **Generate SSH Key**
-button. You'll see a dialog box asking you to confirm that you want to generate
-a new key, as this action can't be undone.
+If you want Tugboat to generate a new SSH key, press the {{% ui-text %}}Generate
+SSH Key{{% /ui-text %}} button. You'll see a dialog box asking you to confirm
+that you want to generate a new key, as this action can't be undone.
 
 {{% notice warning %}} If you have Tugboat create a new SSH key, this
 automatically erases the existing SSH key. If you're using this SSH key
@@ -133,9 +134,10 @@ anywhere, you'll need to update that when you generate a new key.
 #### Use your own SSH key
 
 If you've got a specific SSH key you want to use, you can set that up in
-[Repository Settings](#change-repository-settings) -> **Remote SSH Access**.
-Press the **Upload SSH Key** button, and you'll be asked to enter a private key,
-or select a private key file.
+[Repository Settings](#change-repository-settings) -> {{% ui-text %}}Remote SSH
+Access{{% /ui-text %}}. Press the {{% ui-text %}}Upload SSH Key{{% /ui-text %}}
+button, and you'll be asked to enter a private key, or select a private key
+file.
 
 {{% notice info %}} The private key you provide here must be in PEM format. The
 public key will be automatically extracted from the private key you upload.
@@ -150,9 +152,10 @@ update that when you upload the new key. {{% /notice %}}
 #### Delete an SSH key
 
 Need to delete or get rid of an SSH key? Go to
-[Repository Settings](#change-repository-settings) -> **Remote SSH Access** for
-the repository whose key you want to delete, and press the **Generate SSH Key**
-button. Generating a new key permanently erases the old key.
+[Repository Settings](#change-repository-settings) -> {{% ui-text %}}Remote SSH
+Access{{% /ui-text %}} for the repository whose key you want to delete, and
+press the {{% ui-text %}}Generate SSH Key{{% /ui-text %}} button. Generating a
+new key permanently erases the old key.
 
 ### Authenticate with a Docker Registry
 
@@ -164,14 +167,15 @@ you can manage your authorization credentials from within the repo settings.
 ### Delete the Repository
 
 If you want to delete a repo from your Tugboat project, you'll go into the
-Repository Settings for that repo and press the **Delete Repository** button.
-Deleting a repo from Tugboat does not affect any data in the git provider repo
-connected to it, nor does it delete the Tugboat project that contains the repo.
+Repository Settings for that repo and press the {{% ui-text %}}Delete
+Repository{{% /ui-text %}} button. Deleting a repo from Tugboat does not affect
+any data in the git provider repo connected to it, nor does it delete the
+Tugboat project that contains the repo.
 
 ![Delete repository](../../_images/delete-repository.png)
 
-{{% notice note %}} Only Admin users have the **Delete Repository** option. For
-more on user permissions, see:
+{{% notice note %}} Only Admin users have the {{% ui-text %}}Delete
+Repository{{% /ui-text %}} option. For more on user permissions, see:
 [User permission levels explained](/administer-tugboat-crew/user-admin/#user-permission-levels-explained).
 {{% /notice %}}
 
@@ -183,8 +187,8 @@ Any time you need to make a change to Repository Settings:
    upper-right of the Tugboat screen.
 2. Select the project where you want to edit repository settings.
 3. Scroll to the linked repository whose settings you want to change, and click
-   the **Settings** link.
+   the {{% ui-text %}}Settings{{% /ui-text %}} link.
 
 From here, you'll see all the Repository Settings you can modify. If you make
-changes to the settings, don't forget to press the **Save Configuration**
-button!
+changes to the settings, don't forget to press the {{% ui-text %}}Save
+Configuration{{% /ui-text %}} button!

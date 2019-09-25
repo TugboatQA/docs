@@ -10,7 +10,8 @@ create a new project!
 - [How to create a project](#how-to-create-a-project)
 - [Things to know about Tugboat projects](#things-to-know-about-tugboat-projects)
 
-Once you hit the **Create Project** button, it's anchors away!
+Once you hit the {{% ui-text %}}Create Project{{% /ui-text %}} button, it's
+anchors away!
 
 ### How to create a project
 
@@ -18,7 +19,7 @@ The first time you sign into Tugboat, you'll go directly to the Create New
 Project screen.
 
 After you've already got a project, you can add more by going to the Tugboat
-Dashboard and selecting **Create New Project**.
+Dashboard and selecting {{% ui-text %}}Create New Project{{% /ui-text %}}.
 
 ![Select the Create New Project link](../../_images/create-a-new-project.png)
 
