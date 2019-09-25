@@ -3,14 +3,11 @@ services:
     image: tugboatqa/httpd
     commands:
       init:
-        - apt-get update
-        - apt-get install -y apt-transport-https
-        - apt-get install hugo
-      build:
         - git submodule init
         - git submodule update
         - wget https://github.com/gohugoio/hugo/releases/download/v0.58.3/hugo_0.58.3_Linux-64bit.deb
         - dpkg -i hugo_0.58.3_Linux-64bit.deb
         - rm hugo_0.58.3_Linux-64bit.deb
+      build:
         - sudo hugo
         - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
