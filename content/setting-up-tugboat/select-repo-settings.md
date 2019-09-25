@@ -112,9 +112,9 @@ Tugboat Preview, shell access is provided in both the web interface and the
 
 When you link a git repository to Tugboat, Tugboat automatically generates an
 SSH key for that repo. You can access this key in
-[Repository Settings](#change-repository-settings) -> {{% ui-text %}}Remote SSH
-Access{{% /ui-text %}}. To use the SSH key, simply copy it to your clipboard and
-put it where you need it!
+[Repository Settings](#change-repository-settings); scroll to the
+{{% ui-text %}}Remote SSH Access{{% /ui-text %}} option. To use the SSH key,
+simply copy it to your clipboard and put it where you need it!
 
 ![Copy SSH Key to Clipboard](../../_images/remote-ssh-access-copy-ssh-key.png)
 
@@ -134,10 +134,10 @@ anywhere, you'll need to update that when you generate a new key.
 #### Use your own SSH key
 
 If you've got a specific SSH key you want to use, you can set that up in
-[Repository Settings](#change-repository-settings) -> {{% ui-text %}}Remote SSH
-Access{{% /ui-text %}} . When you press the {{% ui-text %}}Upload SSH
-Key{{% /ui-text %}} button, you'll be prompted to enter a private key, or select
-a private key file.
+[Repository Settings](#change-repository-settings); scroll to the
+{{% ui-text %}}Remote SSH Access{{% /ui-text %}} option. When you press the
+{{% ui-text %}}Upload SSH Key{{% /ui-text %}} button, you'll be prompted to
+enter a private key, or select a private key file.
 
 {{% notice info %}} The private key you provide here must be in PEM format. The
 public key will be automatically extracted from the private key you upload.
@@ -152,10 +152,10 @@ update that when you upload the new key. {{% /notice %}}
 #### Delete an SSH key
 
 Need to delete or get rid of an SSH key? Go to
-[Repository Settings](#change-repository-settings) -> {{% ui-text %}}Remote SSH
-Access{{% /ui-text %}} for the repository whose key you want to delete, and
-press the {{% ui-text %}}Generate SSH Key{{% /ui-text %}} button. Generating a
-new key permanently erases the old key.
+[Repository Settings](#change-repository-settings); scroll to the
+{{% ui-text %}}Remote SSH Access{{% /ui-text %}} option for the repository whose
+key you want to delete, and press the {{% ui-text %}}Generate SSH
+Key{{% /ui-text %}} button. Generating a new key permanently erases the old key.
 
 ### Authenticate with a Docker Registry
 

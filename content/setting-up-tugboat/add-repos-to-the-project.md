@@ -25,7 +25,7 @@ and enter your repo name and Git URL.
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat screen.
 2. Select the project where you want to add the repo.
-3. Go to Add a Repository.
+3. Go to {{% ui-text %}}Add a Repository{{% /ui-text %}} .
 
 From there, you'll be back to the 'select a provider and specify a repo' screen.
 
@@ -46,7 +46,7 @@ Select the project where you want to add the repo.
 
 ![Select the project](../../_images/select-a-project.png)
 
-Go to Add a Repository.
+Go to {{% ui-text %}}Add a Repository{{% /ui-text %}} .
 
 ![Go to Add a Repository](../../_images/go-to-add-a-repository.png)
 
