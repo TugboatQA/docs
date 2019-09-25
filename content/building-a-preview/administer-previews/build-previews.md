@@ -40,10 +40,9 @@ at it, go ahead and [share your Preview](../../share-a-preview/) - we know
 you're proud of your work!
 
 {{% notice note %}} When you go to build a Preview, you may see an arrow
-indicating a drop-down menu next to the {{% ui-text %}}Build
-Preview{{% /ui-text %}} button. This menu contains additional options to build
-your Preview from a Base Preview, or build with no Base Preview. For more info
-on these options, see:
+indicating a drop-down menu next to the **Build Preview** button. This menu
+contains additional options to build your Preview from a Base Preview, or build
+with no Base Preview. For more info on these options, see:
 [Building Previews when you're using a Base Preview](../../work-with-base-previews/building-new-previews/).
 {{% /notice %}}
 

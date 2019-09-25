@@ -14,11 +14,11 @@ the automated Preview build starts from that Base Preview.
 
 {{% notice warning %}} When you enable this functionality, Tugboat does not
 automatically build pull requests from forked repositories. That requires you to
-set an additional option: {{% ui-text %}}Build Previews for Forked Pull
-Requests{{% /ui-text %}}. Any secrets in your Preview will be accessible by the
-owner of the forked repository, so this setting is turned off by default.
-Automated Preview Build requests from forked repositories appear as failed
-Preview builds in your Tugboat Dashboard. For more info, see:
+set an additional option: **Build Previews for Forked Pull Requests**. Any
+secrets in your Preview will be accessible by the owner of the forked
+repository, so this setting is turned off by default. Automated Preview Build
+requests from forked repositories appear as failed Preview builds in your
+Tugboat Dashboard. For more info, see:
 [Troubleshooting -> Tugboat Error Messages 1074](/troubleshooting/fix-problem-x/#1074-repo-configuration-does-not-allow-building-of-pull-requests-from-forks).
 {{% /notice %}}
 
