@@ -10,12 +10,12 @@ weight: 1
 - [Generic git server](#generic-git-server)
 - [Add a link to an additional git provider](#adding-a-link-to-a-git-provider)
 
-### GitHub
+## GitHub
 
 - [How to connect Tugboat to GitHub](#how-do-i-link-tugboat-to-github)
 - [Using the GitHub integration](#using-the-github-integration)
 
-#### How do I link Tugboat to GitHub?
+### How do I link Tugboat to GitHub?
 
 1. Go to [Sign In](https://dashboard.tugboat.qa/) and select GitHub.
 2. Enter your GitHub Username and Password (or Create an Account), complete
@@ -47,7 +47,7 @@ Once you complete GitHub authorization, you'll be redirected to the
 
 {{% /expand%}}
 
-#### Using the GitHub integration
+### Using the GitHub integration
 
 The GitHub integration gives Tugboat the following features, which you can
 access in your Project -> Repository Settings:
@@ -81,12 +81,12 @@ You can also specify the account from which comments are posted to GitHub in
 this section. For info on customizing this, see:
 [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
 
-### GitLab
+## GitLab
 
 - [How to connect Tugboat to GitLab](#how-do-i-link-tugboat-to-gitlab)
 - [Using the GitLab integration](#using-the-gitlab-integration)
 
-#### How do I link Tugboat to GitLab?
+### How do I link Tugboat to GitLab?
 
 1. Go to [Sign In](https://dashboard.tugboat.qa/) and select GitLab.
 2. Enter your GitLab Username and Password (or Register).
@@ -116,7 +116,7 @@ Once you complete GitLab authorization, you'll be redirected to the
 
 {{% /expand%}}
 
-#### Using the GitLab integration
+### Using the GitLab integration
 
 The GitLab integration gives your Tugboat the following features, which you can
 access in your Project -> Repository Settings:
@@ -148,12 +148,12 @@ You can also specify the account from which comments are posted to GitLab in
 this section. For info on customizing this, see:
 [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
 
-### Bitbucket
+## Bitbucket
 
 - [How to connect your Tugboat to Bitbucket](#how-do-i-link-tugboat-to-bitbucket)
 - [Using the Bitbucket integration](#using-the-bitbucket-integration)
 
-#### How do I link Tugboat to Bitbucket?
+### How do I link Tugboat to Bitbucket?
 
 1. Go to [Sign In](https://dashboard.tugboat.qa/) and select Bitbucket.
 2. Enter your Bitbucket Email and Password (or Sign up for an account).
@@ -183,7 +183,7 @@ Once you complete Bitbucket authorization, you'll be redirected to the
 
 {{% /expand%}}
 
-#### Using the Bitbucket integration
+### Using the Bitbucket integration
 
 The BitBucket integration gives Tugboat the following features, which you can
 access in your Project -> Repository Settings:
@@ -214,7 +214,7 @@ You can also specify the account from which comments are posted to Bitbucket in
 this section. For info on customizing this, see:
 [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
 
-### Generic Git Server
+## Generic Git Server
 
 If you're not using GitHub, GitLab, or Bitbucket, you can use a generic git
 server with Tugboat. You'll [sign in to Tugboat](https://dashboard.tugboat.qa/)
@@ -228,7 +228,7 @@ functionality. If you add GitHub, GitLab, or Bitbucket authentication later,
 you'll need to delete your generic git server from your project, and add it
 again to use it. {{% /notice %}}
 
-### Adding a link to a git provider
+## Adding a link to a git provider
 
 Need to add a git provider to your Tugboat account? Whether you created your
 initial Tugboat account with an email and now want to add a git provider, or

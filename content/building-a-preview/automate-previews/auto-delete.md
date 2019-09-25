@@ -10,7 +10,7 @@ space available in your
 is configured to automatically delete Previews when their corresponding git pull
 requests are merged or closed.
 
-### To automatically delete Previews:
+## To automatically delete Previews:
 
 If you want to change the setting to automatically delete Previews when their
 PRs are merged or closed:

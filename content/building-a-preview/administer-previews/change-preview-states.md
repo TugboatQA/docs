@@ -12,7 +12,7 @@ Previews. You can change the states of your Previews in a few different ways:
 - [Lock, Unlock](#lock-unlock)
 - [Reset](#reset)
 
-### Start, Stop
+## Start, Stop
 
 Sometimes, you might want to stop all of a Preview's Services and take it
 offline. You can use the {{% ui-text %}}Stop{{% /ui-text %}} option in the
@@ -24,7 +24,7 @@ Stopped Preview remains stopped until someone manually Starts it.
 On the flip side, Starting a Preview resumes all Services. You can Start a
 Preview that is suspended or Stopped.
 
-To Start or Stop a Preview:
+### To Start or Stop a Preview:
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat screen.
@@ -72,7 +72,7 @@ Preview will go to a green _ready_ status.
 
 {{% /expand%}}
 
-### Lock, Unlock
+## Lock, Unlock
 
 If you want a Preview to remain in its current state without being updated, you
 can Lock the Preview. Locking a Preview prevents Tugboat from making updates,
@@ -83,7 +83,7 @@ state for a longer review, or to avoid interruptions during a demo.
 When you're ready to make updates to the Preview again, whether manually or
 automated updates, Unlock the Preview.
 
-To Lock or Unlock a Preview:
+### To Lock or Unlock a Preview:
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat screen.
@@ -131,7 +131,7 @@ indicator.
 
 {{% /expand%}}
 
-### Reset
+## Reset
 
 When a Preview build completes, Tugboat takes a
 [snapshot of the completed build](../../preview-deep-dive/how-previews-work/#the-build-snapshot).
@@ -139,7 +139,7 @@ If you want to go back to that state - for example, if you want to undo any
 changes that were made during testing or a demo - you can Reset a Preview to go
 back to that post-build snapshot.
 
-To Reset a Preview:
+### To Reset a Preview:
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat screen.

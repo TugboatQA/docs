@@ -9,7 +9,7 @@ Tugboat project counts toward the total
 [storage size for Tugboat billing](/tugboat-billing/tugboat-pricing/#how-does-tugboat-pricing-work),
 so it's a good idea to get rid of Previews you don't need.
 
-To delete a Preview:
+### To delete a Preview:
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat screen.

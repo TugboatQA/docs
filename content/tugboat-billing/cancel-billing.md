@@ -9,7 +9,7 @@ There are a few ways you can cancel billing for your Tugboat project:
 - [Change your Tugboat plan to the Free tier](#change-your-tugboat-plan-to-the-free-tier)
 - [Delete your project](#delete-your-project)
 
-### Change your Tugboat plan to the Free tier
+## Change your Tugboat plan to the Free tier
 
 If you want to downgrade your Tugboat billing, but still keep using Tugboat, you
 can change your Tugboat plan to the Free tier. Follow
@@ -25,7 +25,7 @@ is over the limit of the lower-level tier, you won't be able to build any new
 Previews until you've freed up enough space to put you under that storage limit.
 {{% /notice %}}
 
-### Delete your project
+## Delete your project
 
 If you don't need your Tugboat Previews anymore, or are finished using Tugboat
 for a particular project, you can always delete your project:

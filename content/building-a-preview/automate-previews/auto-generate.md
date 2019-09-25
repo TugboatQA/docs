@@ -22,7 +22,7 @@ Tugboat Dashboard. For more info, see:
 [Troubleshooting -> Tugboat Error Messages 1074](/troubleshooting/fix-problem-x/#1074-repo-configuration-does-not-allow-building-of-pull-requests-from-forks).
 {{% /notice %}}
 
-### To set Tugboat to automatically Build Previews
+## To set Tugboat to automatically Build Previews
 
 To configure Tugboat to auto-generate Previews, you'll need to:
 

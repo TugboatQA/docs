@@ -10,7 +10,7 @@ weight: 1
 - [View Tugboat pricing for your project](#to-view-tugboat-pricing-for-your-project)
 - [Tugboat for Enterprise](#tugboat-for-enterprise)
 
-### How does Tugboat pricing work?
+## How does Tugboat pricing work?
 
 Tugboat's pricing isn't based on your account, number of users, or on external
 repositories; Tugboat is priced on a per-project basis.
@@ -30,7 +30,7 @@ build performance isn't what you need it to be, you can always
 [change your Tugboat project's performance tier](../change-tugboat-plan/) -
 without affecting your other Tugboat projects.
 
-#### Calculating Project storage for Tugboat billing
+### Calculating Project storage for Tugboat billing
 
 [Project storage](#how-to-view-project-storage) is calculated by adding the size
 of all of the Previews contained in a Tugboat project. This includes any
@@ -51,7 +51,7 @@ reduce your Preview size, take a look at our tips in:
 [optimize your Preview builds](/building-a-preview/preview-deep-dive/optimize-preview-builds/).
 {{% /notice %}}
 
-##### How to view project storage
+#### How to view project storage
 
 You can view how much storage you've used by going to your Project Dashboard,
 and looking at the Project Stats section:
@@ -78,7 +78,7 @@ Scroll down to {{% ui-text %}}Project Stats{{% /ui-text %}}.
 
 {{% /expand%}}
 
-### To view Tugboat pricing for your project:
+## To view Tugboat pricing for your project:
 
 If you're a current Tugboat user, here's how to view the pricing for your
 project:
@@ -122,7 +122,7 @@ Scroll down to {{% ui-text %}}Your Plan{{% /ui-text %}}.
 
 {{% /expand%}}
 
-### Tugboat for Enterprise
+## Tugboat for Enterprise
 
 If you need an enterprise or self-hosted version of Tugboat, we've got
 [Tugboat for Enterprise](https://tugboat.qa/enterprise/) for you! Tugboat's

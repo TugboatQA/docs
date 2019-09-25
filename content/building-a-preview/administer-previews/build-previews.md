@@ -14,7 +14,7 @@ option. This is a great option if you want a few copies of a Preview so QA and
 Product can both poke a Preview simultaneously, without worrying about what the
 other person is doing.
 
-### Manually build a Preview
+## Manually build a Preview
 
 To build a Preview:
 
@@ -101,14 +101,14 @@ for tips on
 [reducing Preview size](../../preview-deep-dive/optimize-preview-builds/#optimizing-preview-size).
 {{% /notice %}}
 
-### Auto-generate a Preview
+## Auto-generate a Preview
 
 In addition to manually building a Preview when you've got an update, you can
 configure Tugboat to automatically build a Preview when a pull request is
 opened, or when a PR is updated with new code. For more info on this option,
 see: [Auto-generate Previews](../../automate-previews/auto-generate/).
 
-### Duplicate a Preview
+## Duplicate a Preview
 
 When Tugboat successfully completes a Preview build, it takes a snapshot of the
 container at that moment in time. Tugboat uses this snapshot when you

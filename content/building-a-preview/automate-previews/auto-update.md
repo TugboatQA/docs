@@ -47,7 +47,7 @@ is refreshed. This pulls in the updates that you make to the Base Preview during
 the refresh process, ensuring that child Previews always have the most recent
 data and updates.
 
-### To set Tugboat to automatically update Previews
+## To set Tugboat to automatically update Previews
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat screen.

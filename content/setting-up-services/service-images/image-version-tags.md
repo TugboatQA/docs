@@ -37,19 +37,19 @@ are available.
 
 ![Browse image tags on Docker Hub](../../../_images/browse-tags-on-docker-hub.png)
 
-### Point-release version tags:
+## Point-release version tags:
 
 Using specific version tags helps prevent breaking changes that come along with
 incremental updates. In our example above, we've called `tugboatqa/mysql:5.6`
 instead of `tugboatqa/mysql:5`.
 
-### Major version tags
+## Major version tags
 
 If you want to make sure you're using a specific major version, but don't care
 about point releases, specify something like `tugboatqa/node:10` to ensure you
 always use the latest available minor release of node 10.x.
 
-### Latest version tags
+## Latest version tags
 
 In some cases, you're less likely to be worried about a specific version; for
 example, it may not matter which version of memcached you use.

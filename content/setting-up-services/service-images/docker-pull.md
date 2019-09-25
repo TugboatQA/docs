@@ -11,7 +11,7 @@ images get pulled or updated in Tugboat? Here's what you need to know about
 - [When does Tugboat pull a Docker image?](#when-does-tugboat-pull-a-docker-image)
 - [When does Tugboat update a Docker image?](#when-does-tugboat-update-a-docker-image)
 
-### When does Tugboat pull a Docker image?
+## When does Tugboat pull a Docker image?
 
 Tugboat doesn't pull the images in your config file every time you open a pull
 request, or refresh a Preview; it only does a `docker pull` (under the hood)
@@ -32,7 +32,7 @@ or
 when you're using a Base Preview - those things all keep the Docker images you
 referenced when you first built the Preview.
 
-### When does Tugboat update a Docker image?
+## When does Tugboat update a Docker image?
 
 Because Tugboat pulls your Docker images at the beginning of the Preview build
 process, it won't `docker pull` an updated image unless you kick off the Preview

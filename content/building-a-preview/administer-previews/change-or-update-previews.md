@@ -44,7 +44,7 @@ again.
 For more info about build phases, see:
 [the build process: explained](../../preview-deep-dive/how-previews-work/#the-build-process-explained).
 
-To Refresh a Preview:
+### To Refresh a Preview:
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat screen.
@@ -112,7 +112,7 @@ mainly use this if you need to pull new Docker images, or run commands from
 For more info about build phases, see:
 [the build process: explained](../../preview-deep-dive/how-previews-work/#the-build-process-explained).
 
-To Rebuild a Preview:
+### To Rebuild a Preview:
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat screen.

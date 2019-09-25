@@ -11,7 +11,7 @@ To set an Access Token:
 
 1. In Tugboat's web interface, go to User Name -> Access Tokens, or
    [click this link](https://dashboard.tugboat.qa/access-tokens).
-2. Click the {{% ui-text %}}+ Generate New Token option{{% /ui-text %}}.
+2. Click the {{% ui-text %}}Generate New Token option{{% /ui-text %}}.
 3. You'll be asked to give the Access Token a description; for example, "Command
    Line Tool"; enter a description and press the
    {{% ui-text %}}Generate{{% /ui-text %}} button.
@@ -29,7 +29,7 @@ In Tugboat's web interface, go to User Name -> Access Tokens, or
 
 ![Go to Access Tokens page](../../_images/go-to-user-access-tokens.png)
 
-Click the {{% ui-text %}}+ Generate New Token{{% /ui-text %}} option.
+Click the {{% ui-text %}}Generate New Token{{% /ui-text %}} option.
 
 ![Click Generate new token](../../_images/generate-new-token.png)
 

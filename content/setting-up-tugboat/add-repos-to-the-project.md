@@ -7,6 +7,8 @@ weight: 3
 Once you've decided how you want to structure your project, add the relevant
 repos to your project.
 
+### To add repos during project creation:
+
 When you're creating a project, select your repository host from the Provider
 drop-down, select the Organization, if applicable, and click the radio button
 next to the repo you want to add.
@@ -18,7 +20,7 @@ and enter your repo name and Git URL.
 
 ![Specify generic git server](../../_images/add-repos-to-project-generic-git-provider.png)
 
-If you want to add repos to a project you've already created:
+### To add repos to a project you've already created:
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat screen.

@@ -135,9 +135,9 @@ anywhere, you'll need to update that when you generate a new key.
 
 If you've got a specific SSH key you want to use, you can set that up in
 [Repository Settings](#change-repository-settings) -> {{% ui-text %}}Remote SSH
-Access{{% /ui-text %}}. Press the {{% ui-text %}}Upload SSH Key{{% /ui-text %}}
-button, and you'll be asked to enter a private key, or select a private key
-file.
+Access{{% /ui-text %}} . When you press the {{% ui-text %}}Upload SSH
+Key{{% /ui-text %}} button, you'll be prompted to enter a private key, or select
+a private key file.
 
 {{% notice info %}} The private key you provide here must be in PEM format. The
 public key will be automatically extracted from the private key you upload.
@@ -174,8 +174,8 @@ Tugboat project that contains the repo.
 
 ![Delete repository](../../_images/delete-repository.png)
 
-{{% notice note %}} Only Admin users have the {{% ui-text %}}Delete
-Repository{{% /ui-text %}} option. For more on user permissions, see:
+{{% notice note %}} Only Admin users have the **Delete Repository** option. For
+more on user permissions, see:
 [User permission levels explained](/administer-tugboat-crew/user-admin/#user-permission-levels-explained).
 {{% /notice %}}
 

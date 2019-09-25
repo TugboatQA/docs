@@ -21,10 +21,10 @@ Want to know more about build phases? Check out:
 [the build process: explained](../../preview-deep-dive/how-previews-work/#the-build-process-explained).
 
 {{% notice note %}} If you've checked the
-[Repository Setting](/setting-up-tugboat/select-repo-settings/) to
-{{% ui-text %}}Rebuild Orphaned Previews Automatically{{% /ui-text %}}, a
-successful Rebuild of a Base Preview will kick off Rebuilds of any child
-Previews that were built from your Base Preview. {{% /notice %}}
+[Repository Setting](/setting-up-tugboat/select-repo-settings/) to **Rebuild
+Orphaned Previews Automatically**, a successful Rebuild of a Base Preview will
+kick off Rebuilds of any child Previews that were built from your Base Preview.
+{{% /notice %}}
 
 ### To Rebuild a Base Preview:
 
@@ -33,11 +33,11 @@ Previews that were built from your Base Preview. {{% /notice %}}
 2. Select the project where you want to change the Base Preview.
 3. Click the name of the repo that contains Base Preview you want to change.
 4. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for the Base
-   Preview, and select {{% ui-text %}}Rebuild{{% /ui-text %}}.
+   Preview, and select {{% ui-text %}}Rebuild{{% /ui-text %}} .
 5. To confirm that you actually want to change the Base Preview, rather than
    just updating it, click the checkbox next to {{% ui-text %}}Yes, rebuild this
-   preview{{% /ui-text %}}. You may also want to {{% ui-text %}}Rebuild previews
-   built from this one when finished{{% /ui-text %}}.
+   preview{{% /ui-text %}} . You may also want to {{% ui-text %}}Rebuild
+   previews built from this one when finished{{% /ui-text %}} .
 6. Press the {{% ui-text %}}Rebuild{{% /ui-text %}} button.
 
 {{%expand "Visual Walkthrough" %}}
@@ -56,14 +56,14 @@ Click the name of the repo that contains Base Preview you want to change.
 ![Click into Tugboat repository](/_images/click-into-tugboat-repository.png)
 
 Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for the Base
-Preview, and select {{% ui-text %}}Rebuild{{% /ui-text %}}.
+Preview, and select {{% ui-text %}}Rebuild{{% /ui-text %}} .
 
 ![Click the Actions drop-down, and select Rebuild.](/_images/base-preview-actions-rebuild.png)
 
 To confirm that you actually want to change the Base Preview, rather than just
 updating it, click the checkbox next to {{% ui-text %}}Yes, rebuild this
-preview{{% /ui-text %}}. You may also want to {{% ui-text %}}Rebuild previews
-built from this one when finished{{% /ui-text %}}.
+preview{{% /ui-text %}} . You may also want to {{% ui-text %}}Rebuild previews
+built from this one when finished{{% /ui-text %}} .
 
 ![Confirm Rebuild Previews built from this Base Preview after Rebuild](/_images/base-preview-rebuild-previews-from-base-after-rebuild.png)
 
@@ -98,10 +98,10 @@ Tugboat provides a couple of ways to Refresh a Base Preview:
 - [Automatically Refresh Base Previews](#automatically-refresh-a-base-preview)
 
 {{% notice note %}} If you've checked the
-[Repository Setting](/setting-up-tugboat/select-repo-settings/) to
-{{% ui-text %}}Rebuild Stale Previews Automatically{{% /ui-text %}}, a
-successful Refresh of a Base Preview will kick off Rebuilds of any child
-Previews that were built from your Base Preview. {{% /notice %}}
+[Repository Setting](/setting-up-tugboat/select-repo-settings/) to **Rebuild
+Stale Previews Automatically**, a successful Refresh of a Base Preview will kick
+off Rebuilds of any child Previews that were built from your Base Preview.
+{{% /notice %}}
 
 ### Manually Refresh a Base Preview
 
@@ -112,11 +112,11 @@ To manually kick off a Base Preview update:
 2. Select the project where you want to update the Base Preview.
 3. Click the name of the repo that contains Base Preview you want to update.
 4. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for the Base
-   Preview, and select {{% ui-text %}}Refresh{{% /ui-text %}}.
+   Preview, and select {{% ui-text %}}Refresh{{% /ui-text %}} .
 5. If you want to
    [Rebuild Previews that were built from this Base Preview](../building-new-previews/)
    after the update, click the checkbox next to {{% ui-text %}}Rebuild Previews
-   built from this one when finished{{% /ui-text %}}.
+   built from this one when finished{{% /ui-text %}} .
 6. Press the {{% ui-text %}}Refresh{{% /ui-text %}} button.
 
 {{%expand "Visual Walkthrough" %}}
@@ -135,14 +135,14 @@ Click the name of the repo that contains Base Preview you want to update.
 ![Click into Tugboat repository](/_images/click-into-tugboat-repository.png)
 
 Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for the Base
-Preview, and select {{% ui-text %}}Refresh{{% /ui-text %}}.
+Preview, and select {{% ui-text %}}Refresh{{% /ui-text %}} .
 
 ![Click the Actions drop-down, and select Refresh.](/_images/base-preview-actions-refresh.png)
 
 If you want to
 [Rebuild Previews that were built from this Base Preview](../building-new-previews/)
 after the update, click the checkbox next to {{% ui-text %}}Rebuild Previews
-built from this one when finished{{% /ui-text %}}.
+built from this one when finished{{% /ui-text %}} .
 
 ![Confirm Rebuild Previews built from this Base Preview after Refresh](/_images/base-preview-rebuild-previews-from-base-after-refresh.png)
 
@@ -161,14 +161,14 @@ refreshes your Base Preview with these updates. You can toggle this feature, or
 change the time and interval at which Tugboat does an automated Refresh of your
 Base Previews.
 
-To change Tugboat's settings to automatically Refresh Base Previews:
+#### To change Tugboat's settings to automatically Refresh Base Previews:
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat screen.
 2. Select the project where you want to configure auto-update settings for Base
    Previews.
 3. Click into {{% ui-text %}}Settings{{% /ui-text %}} for the repository.
-4. Go to {{% ui-text %}}Refresh Base Previews Automatically{{% /ui-text %}}.
+4. Go to {{% ui-text %}}Refresh Base Previews Automatically{{% /ui-text %}} .
    Toggle the checkbox and/or adjust the frequency and timing of these automatic
    updates.
 5. Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save
@@ -190,8 +190,9 @@ Click into {{% ui-text %}}Settings{{% /ui-text %}} for the repository.
 
 ![Go to Repository Settings](/_images/go-to-repository-settings.png)
 
-Go to {{% ui-text %}}Refresh Base Previews Automatically{{% /ui-text %}}. Toggle
-the checkbox and/or adjust the frequency and timing of these automatic updates.
+Go to {{% ui-text %}}Refresh Base Previews Automatically{{% /ui-text %}} .
+Toggle the checkbox and/or adjust the frequency and timing of these automatic
+updates.
 
 ![Toggle or adjust frequency/time for Refresh Base Previews Automatically setting](/_images/repository-settings-refresh-base-previews-automatically.png)
 

@@ -6,7 +6,7 @@ weight: 1
 
 Want to share a Preview link manually with Lisa in Product, or Dan the client?
 
-## To manually get the link to a Preview you want to share:
+### To manually get the link to a Preview you want to share:
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat screen.

@@ -10,7 +10,7 @@ weight: 4
 - [Tugboat error messages](#tugboat-error-messages)
 - [Running a background process "breaks" the build](#running-a-background-process)
 
-#### PHP out of memory issues
+## PHP out of memory issues
 
 If you're getting "PHP out of memory errors", you can manually set the memory
 limit higher. If you're using one of the
@@ -23,14 +23,14 @@ Or you might try something like this in your drupal settings.php:
 
 `if (drupal_is_cli()) { ini_set('memory_limit', '-1');`
 
-#### MySQL server has gone away
+## MySQL server has gone away
 
 If you're getting a "MySQL server has gone away" error, you can resolve this by
 increasing the packet size for MySQL:
 
 _BEN CAN WE INSERT AN EXAMPLE FOR THIS?_
 
-#### cd isn't working
+## cd isn't working
 
 Each
 [command](/setting-up-services/how-to-set-up-services/leverage-service-commands/)
@@ -40,12 +40,12 @@ repository and call it from the config file.
 
 _BEN CAN WE INSERT AN EXAMPLE OF THIS?_
 
-#### Tugboat error messages
+## Tugboat error messages
 
 - [1064: Command Failed](#1064-command-failed)
 - [1074: Repo configuration does not allow building of pull requests from forks](#1074-repo-configuration-does-not-allow-building-of-pull-requests-from-forks)
 
-##### 1064: Command Failed
+### 1064: Command Failed
 
 This error typically occurs when a command in your config file can't be executed
 as written. When a Preview build fails with this error:
@@ -71,7 +71,7 @@ If you've gone through the debugging process and haven't been able to figure out
 why your command is failing, reach out to us at [help and support](/support/) -
 we're happy to take a look!
 
-##### 1074: Repo configuration does not allow building of pull requests from forks
+### 1074: Repo configuration does not allow building of pull requests from forks
 
 If you're getting this error message, it's because you haven't enabled the
 [repository setting](/setting-up-tugboat/select-repo-settings/) to allow
@@ -84,7 +84,7 @@ this setting should correct this error.
 {{% notice warning %}} Any secrets in your Preview will be accessible by the
 owner of the forked repository. {{% /notice %}}
 
-#### Running a background process
+## Running a background process
 
 If you try to add a background-process to your
 [config file](/setting-up-tugboat/create-a-tugboat-config-file/) in the

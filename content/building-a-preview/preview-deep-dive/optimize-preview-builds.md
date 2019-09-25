@@ -14,7 +14,7 @@ up your Preview builds:
 - [Contact Tugboat support for help optimizing your Config file](#contact-tugboat-support-for-help-optimizing-your-config-file)
 - [Upgrade your project tier to a higher-performance tier](#upgrade-your-project-tier-to-a-higher-performance-tier)
 
-### Use Service Commands to create a Base Preview that does the heavy lifting
+## Use Service Commands to create a Base Preview that does the heavy lifting
 
 The big value of using a Base Preview is that you can front-load the work into a
 time-consuming Preview you only have to build once, and then use that as a base
@@ -30,7 +30,7 @@ perfect time to install a large database that you won't have to update in
 subsequent Previews, or download and configure the host of
 [services](/setting-up-services/) in your Preview.
 
-### Use the Auto Refresh Base Preview functionality to update large assets
+## Use the Auto Refresh Base Preview functionality to update large assets
 
 If you're updating large assets as part of the `update` stage of your Tugboat
 build, you can configure Tugboat to
@@ -41,7 +41,7 @@ best for your team, and then you won't have to manually update your Base Preview
 when you're about to test an important build - it will already have the latest
 database, or any large assets you need, whenever you're ready.
 
-### Optimizing Preview size
+## Optimizing Preview size
 
 If you want to make your Previews smaller, there are a couple of tricks you can
 use to reduce Preview size:
@@ -52,7 +52,7 @@ use to reduce Preview size:
 Looking for more info about Preview size? Check out:
 [Preview size explained](../how-previews-work/#preview-size-explained)
 
-#### Work From Base Previews
+### Work From Base Previews
 
 In addition to speeding up Preview builds, Base Previews can help you
 dramatically reduce the size of Previews built from that Base Preview. This is
@@ -66,14 +66,14 @@ Previews might be only 100MB.
 Ready to set up a Base Preview? Check out:
 [How to set a Base Preview](../../work-with-base-previews/set-a-base-preview/).
 
-#### Use dummy data
+### Use dummy data
 
 Are you pulling in a large production database? You can save Preview space -
 _and_ speed up your Preview builds at the same time - by switching to a small
 dummy database that contains enough data for testing, but doesn't mirror your
 large production behemoth.
 
-### Contact Tugboat support for help optimizing your Config file
+## Contact Tugboat support for help optimizing your Config file
 
 Sometimes, speeding up your Preview builds might involve having a second set of
 eyes take a look at your Config file and make recommendations to help you
@@ -82,7 +82,7 @@ instead of `update`, or scripting a few commands. The team at Tugboat is happy
 to help; our [Support](/support/) page can direct you to our Tugboat support
 Slack, or an email address where you can reach us.
 
-### Upgrade your project tier to a higher-performance tier
+## Upgrade your project tier to a higher-performance tier
 
 If it's not a question of optimizing your Config file - for example, if you're
 building a complex or resource-intensive sequence of code in every Tugboat

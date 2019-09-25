@@ -7,7 +7,7 @@ weight: 3
 - [Process for debugging Tugboat config files](#process-for-debugging-tugboat-config-files)
 - [Tools for debugging Tugboat config files](#tools-for-debugging-tugboat-config-files)
 
-### Process for debugging Tugboat config files
+## Process for debugging Tugboat config files
 
 When you're not getting the Tugboat Preview Build you're looking for, there are
 a few ways you might approach debugging your config files:
@@ -15,7 +15,7 @@ a few ways you might approach debugging your config files:
 - [Debugging your first Tugboat build config file](#debugging-your-first-tugboat-build-config-file)
 - [Debugging changes to your Tugboat config file](#debugging-changes-to-your-tugboat-config-file)
 
-#### Debugging your first Tugboat build config file
+### Debugging your first Tugboat build config file
 
 When you're first getting Tugboat set up, here's how we recommend getting
 started and debugging your initial config file:
@@ -51,7 +51,7 @@ If you can't see the exact command where the Preview build failed, or if you're
 not having any luck manually debugging your config file, reach out to us via
 [Help and Support](/support/) - we're happy to help!
 
-#### Debugging changes to your Tugboat config file
+### Debugging changes to your Tugboat config file
 
 If you're making changes to your Tugboat config file, the debugging process is
 mostly the same as when you first set it up, but there are a few things you want
@@ -101,7 +101,7 @@ If you can't see the exact command where the Preview build failed, or if you're
 not having any luck manually debugging your config file, reach out to us via
 [Help and Support](/support/) - we're happy to help!
 
-### Tools for debugging Tugboat config files
+## Tools for debugging Tugboat config files
 
 In terms of tools, there are three ways to debug configuration files:
 
@@ -112,7 +112,7 @@ In terms of tools, there are three ways to debug configuration files:
 And you'll definitely want to know
 [how to check the Preview logs](#how-to-check-the-preview-logs).
 
-#### Debug by terminal in Tugboat's web UI
+### Debug by terminal in Tugboat's web UI
 
 When you're viewing a Preview in Tugboat's web UI, you'll have the option to
 open a terminal directly into a Preview's Services:
@@ -124,7 +124,7 @@ figure out exactly where the error is occurring. For more context when you're
 viewing the results of the commands directly in the terminal, you may want to
 pass the verbose flag.
 
-#### Debug via Tugboat's CLI
+### Debug via Tugboat's CLI
 
 If you've installed [Tugboat's CLI](/tugboat-cli/), you can debug your Preview
 build from the comfort of your own terminal. Type `tugboat help` for a list of
@@ -140,7 +140,7 @@ And once you've got a shell into the Service, you can go line-by-line debugging
 your config file, the same as if you'd used the web UI to terminal into a
 Service.
 
-#### Debug via pushing changes to git
+### Debug via pushing changes to git
 
 If you think you know where the problem is in your config file, you can always
 make the changes, make a PR or push a branch to your git repo, and try again to

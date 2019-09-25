@@ -8,7 +8,7 @@ weight: 1
 - [Troubleshooting a Preview Build failure](#troubleshooting-a-preview-build-failure)
 - [Previews are not Building automatically](#previews-are-not-building-automatically)
 
-### My Preview Build is stuck at...
+## My Preview Build is stuck at...
 
 Uh oh! Did your Preview Build get stuck?
 
@@ -18,7 +18,7 @@ Uh oh! Did your Preview Build get stuck?
 - [Refreshing](#refreshing)
 - [Canceling](#canceling)
 
-#### Pending
+### Pending
 
 First, give a `pending` Preview Build/Rebuild/Refresh a few minutes. If it's
 still not moving on, there are a few things you could do:
@@ -31,7 +31,7 @@ still not moving on, there are a few things you could do:
 Give it some time, and if you're still having issues, contact us at
 [Help and Support](/support/).
 
-#### Building
+### Building
 
 Has your Preview been building for a long time? There are a couple of things to
 check:
@@ -62,7 +62,7 @@ for a few things you might try:
 - [Contact Tugboat support for help optimizing your Config file](/building-a-preview/preview-deep-dive/optimize-preview-builds/#contact-tugboat-support-for-help-optimizing-your-config-file)
 - [Upgrade your project tier to a higher-performance tier](/building-a-preview/preview-deep-dive/optimize-preview-builds/#upgrade-your-project-tier-to-a-higher-performance-tier)
 
-#### Rebuilding
+### Rebuilding
 
 Preview hung on `rebuilding`? Take a look at your Repository Stats to see how
 long your average build time is. If your Preview has been building for less than
@@ -99,7 +99,7 @@ for a few things you might try:
 - [Contact Tugboat support for help optimizing your Config file](/building-a-preview/preview-deep-dive/optimize-preview-builds/#contact-tugboat-support-for-help-optimizing-your-config-file)
 - [Upgrade your project tier to a higher-performance tier](/building-a-preview/preview-deep-dive/optimize-preview-builds/#upgrade-your-project-tier-to-a-higher-performance-tier)
 
-#### Refreshing
+### Refreshing
 
 Preview hung on `refreshing`? Take a look at your Repository Stats to see how
 long your average build time is. If your Preview has been refreshing for less
@@ -116,7 +116,7 @@ where it got stuck is a great place to start
 [debugging the Config file](../debug-config-file/) and figuring out what's
 causing the Preview rebuild to hang.
 
-#### Canceling
+### Canceling
 
 If you've decided to cancel a Preview Action, but the Preview is stuck on
 `canceling`, there are a couple of things you can try:
@@ -125,7 +125,7 @@ If you've decided to cancel a Preview Action, but the Preview is stuck on
 2. Try canceling the Preview Action from the Tugboat CLI.
 3. If you're still having issues, contact us at [Help and Support](/support/).
 
-### Troubleshooting a Preview Build Failure
+## Troubleshooting a Preview Build Failure
 
 If your Tugboat Preview has `failed` to build, it's time to take a
 [look at the Preview logs](../debug-config-file/#how-to-check-the-preview-logs).
@@ -141,7 +141,7 @@ happy to look into the problem with you to see whether we can help. We've gotten
 good at spotting common config file issues, and we're happy to help.
 [Let us know](https://tugboat.qa/support).
 
-### Previews are not building automatically
+## Previews are not building automatically
 
 Are you expecting a Preview to build automatically? Only Previews for pull
 requests are built automatically. If Previews are not being built from your PRs,

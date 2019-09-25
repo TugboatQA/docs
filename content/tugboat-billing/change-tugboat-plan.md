@@ -4,7 +4,7 @@ date: 2019-09-19T10:49:31-04:00
 weight: 2
 ---
 
-To change your Tugboat plan:
+## To change your Tugboat plan:
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
    upper-right of the Tugboat dashboard.
