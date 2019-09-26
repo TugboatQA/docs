@@ -121,7 +121,7 @@ repository environment variables, as well as the private SSH key generated for
 the repo. The latter is mainly a problem when the repository SSH key is added to
 some other service, like to pull a database or checkout a related git repo.
 However, as an example, if the repository SSH key is allowed to _push_ changes
-to a git repo, a malicious user would then have access to that repo.
+to a git repo, a malicious user would then have access to _modify_ that repo.
 {{% /notice %}}
 
 ## Running a background process
