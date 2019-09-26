@@ -219,6 +219,14 @@ tests:
           expect_status_code: 301
           response_redirect: https?://[a-z0-9.-]+/tutorials/pantheon/$
 
+    - name: /examples/services/pantheon/add-build-script
+      uri: /examples/services/pantheon/add-build-script
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/pantheon/#configure-tugboat$
+
     - name: /examples/services/pantheon/add-services
       uri: /examples/services/pantheon/add-services
       protocol: https
@@ -226,6 +234,22 @@ tests:
       outcomes:
           expect_status_code: 301
           response_redirect: https?://[a-z0-9.-]+/tutorials/pantheon/$
+
+    - name: /examples/services/pantheon/configure-terminus
+      uri: /examples/services/pantheon/configure-terminus
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/pantheon/#configure-terminus$
+
+    - name: /examples/services/pantheon/full-makefile
+      uri: /examples/services/pantheon/full-makefile
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/pantheon/#configure-tugboat$
 
     - name: /features/base-previews
       uri: /features/base-previews
@@ -293,21 +317,13 @@ tests:
           expect_status_code: 301
           response_redirect: https?://[a-z0-9.-]+/tugboat-cli/$
 
-    #    - name: /advanced/custom-environment-variables
-    #      uri: /advanced/custom-environment-variables
-    #      protocol: https
-    #      port: 443
-    #      outcomes:
-    #          expect_status_code: 301
-    #          response_redirect: https?://[a-z0-9.-]+/setting-up-services/how-to-set-up-services/custom-environment-variables/$
-
-    - name: /concepts/base-previews
-      uri: /concepts/base-previews
+    - name: /advanced/custom-environment-variables
+      uri: /advanced/custom-environment-variables
       protocol: https
       port: 443
       outcomes:
           expect_status_code: 301
-          response_redirect: https?://[a-z0-9.-]+/building-a-preview/work-with-base-previews/$
+          response_redirect: https?://[a-z0-9.-]+/setting-up-services/how-to-set-up-services/custom-environment-variables/$
 
     - name: /concepts
       uri: /concepts
@@ -316,6 +332,14 @@ tests:
       outcomes:
           expect_status_code: 301
           response_redirect: https?://[a-z0-9.-]+/setting-up-tugboat/$
+
+    - name: /concepts/base-previews
+      uri: /concepts/base-previews
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/building-a-preview/work-with-base-previews/$
 
     - name: /concepts/previews
       uri: /concepts/previews
@@ -437,13 +461,13 @@ tests:
           expect_status_code: 301
           response_redirect: https?://[a-z0-9.-]+/reference/tugboat-images/$
 
-    #    - name: /tutorials
-    #      uri: /tutorials
-    #      protocol: https
-    #      port: 443
-    #      outcomes:
-    #          expect_status_code: 301
-    #          response_redirect: https?://[a-z0-9.-]+/starter-configs/$
+    - name: /tutorials
+      uri: /tutorials
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/$
 
     - name: /tutorials/drupal7
       uri: /tutorials/drupal7
@@ -492,3 +516,4 @@ tests:
       outcomes:
           expect_status_code: 301
           response_redirect: https?://[a-z0-9.-]+/starter-configs/tutorials/wordpress
+

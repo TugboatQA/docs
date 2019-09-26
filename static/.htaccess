@@ -10,128 +10,78 @@
     RewriteCond $0\\%{REQUEST_URI} ([^\\]*)\\(.*)\1$
     RewriteRule ^.*$ - [E=CWD:%2]
 
-    ## Redirect Chains
+    ### v1 -> v2
 
     RewriteRule ^base-previews/?$ %{ENV:CWD}features/base-previews/ [L,R=301]
-    RewriteRule ^features/base-previews/?$ %{ENV:CWD}concepts/base-previews/ [L,R=301]
-
-    RewriteRule ^makefile/?$ %{ENV:CWD}build-script/ [L,R=301]
-    RewriteRule ^build-script/?$ %{ENV:CWD}configuring-tugboat/ [L,R=301]
-
-    RewriteRule ^build-script/examples/import-mysql-database/?$ %{ENV:CWD}examples/features/import-mysql-database/ [L,R=301]
-    RewriteRule ^examples/features/import-mysql-database/?$ %{ENV:CWD}examples/import-mysql-database/ [L,R=301]
-
-    RewriteRule ^build-script/examples/install-php72/?$ %{ENV:CWD}examples/features/install-php72/ [L,R=301]
-    RewriteRule ^examples/features/install-php72/?$ %{ENV:CWD}reference/services/ [L,R=301]
-
     RewriteRule ^build-script/examples/change-docroot/?$ %{ENV:CWD}examples/features/change-docroot/ [L,R=301]
-    RewriteRule ^examples/features/change-docroot/?$ %{ENV:CWD}examples/change-docroot/ [L,R=301]
-
     RewriteRule ^build-script/examples/functional-tests/?$ %{ENV:CWD}examples/features/functional-tests/ [L,R=301]
-    RewriteRule ^examples/features/functional-tests/?$ %{ENV:CWD}examples/functional-tests/ [L,R=301]
-
+    RewriteRule ^build-script/examples/import-mysql-database/?$ %{ENV:CWD}examples/features/import-mysql-database/ [L,R=301]
+    RewriteRule ^build-script/examples/install-php72/?$ %{ENV:CWD}examples/features/install-php72/ [L,R=301]
+    RewriteRule ^makefile/?$ %{ENV:CWD}build-script/ [L,R=301]
     RewriteRule ^examples/drupal7/?$ %{ENV:CWD}examples/applications/drupal7/ [L,R=301]
-    RewriteRule ^examples/applications/drupal7/?$ %{ENV:CWD}tutorials/drupal7/ [L,R=301]
-
     RewriteRule ^examples/drupal8/?$ %{ENV:CWD}examples/applications/drupal8/ [L,R=301]
-    RewriteRule ^examples/applications/drupal8/?$ %{ENV:CWD}tutorials/drupal8/ [L,R=301]
-
     RewriteRule ^examples/generic-lamp/?$ %{ENV:CWD}examples/applications/generic-lamp/ [L,R=301]
-    RewriteRule ^examples/applications/generic-lamp/?$ %{ENV:CWD}tutorials/generic-lamp/ [L,R=301]
-
     RewriteRule ^examples/static-html/?$ %{ENV:CWD}examples/applications/static-html/ [L,R=301]
-    RewriteRule ^examples/applications/static-html/?$ %{ENV:CWD}tutorials/static-html/ [L,R=301]
-
     RewriteRule ^examples/wordpress/?$ %{ENV:CWD}examples/applications/wordpress/ [L,R=301]
-    RewriteRule ^examples/applications/wordpress/?$ %{ENV:CWD}tutorials/wordpress/ [L,R=301]
 
-    ## Redirects
+    ### v2 -> v3
 
-    RewriteRule ^build-script/environment-variables/?$ %{ENV:CWD}reference/environment-variables/ [L,R=301]
+    RewriteRule ^build-script/?$ %{ENV:CWD}configuring-tugboat/ [L,R=301]
     RewriteRule ^build-script/custom-environment-variables/?$ %{ENV:CWD}advanced/custom-environment-variables/ [L,R=301]
-    RewriteRule ^examples/features/?$ %{ENV:CWD}examples/ [L,R=301]
+    RewriteRule ^build-script/environment-variables/?$ %{ENV:CWD}reference/environment-variables/ [L,R=301]
     RewriteRule ^examples/applications/?$ %{ENV:CWD}tutorials/ [L,R=301]
+    RewriteRule ^examples/applications/drupal7/?$ %{ENV:CWD}tutorials/drupal7/ [L,R=301]
+    RewriteRule ^examples/applications/drupal8/?$ %{ENV:CWD}tutorials/drupal8/ [L,R=301]
+    RewriteRule ^examples/applications/generic-lamp/?$ %{ENV:CWD}tutorials/generic-lamp/ [L,R=301]
+    RewriteRule ^examples/applications/static-html/?$ %{ENV:CWD}tutorials/static-html/ [L,R=301]
+    RewriteRule ^examples/applications/wordpress/?$ %{ENV:CWD}tutorials/wordpress/ [L,R=301]
+    RewriteRule ^examples/features/?$ %{ENV:CWD}examples/ [L,R=301]
+    RewriteRule ^examples/features/change-docroot/?$ %{ENV:CWD}examples/change-docroot/ [L,R=301]
+    RewriteRule ^examples/features/functional-tests/?$ %{ENV:CWD}examples/functional-tests/ [L,R=301]
+    RewriteRule ^examples/features/import-mysql-database/?$ %{ENV:CWD}examples/import-mysql-database/ [L,R=301]
+    RewriteRule ^examples/features/install-php72/?$ %{ENV:CWD}reference/services/ [L,R=301]
     RewriteRule ^examples/services/?$ %{ENV:CWD}tutorials/ [L,R=301]
     RewriteRule ^examples/services/pantheon/?$ %{ENV:CWD}tutorials/pantheon/ [L,R=301]
+    RewriteRule ^examples/services/pantheon/add-build-script/?$ %{ENV:CWD}tutorials/pantheon/#configure-tugboat [NE,L,R=301]
     RewriteRule ^examples/services/pantheon/add-services/?$ %{ENV:CWD}tutorials/pantheon/ [L,R=301]
     RewriteRule ^examples/services/pantheon/configure-terminus/?$ %{ENV:CWD}tutorials/pantheon/#configure-terminus [NE,L,R=301]
-    RewriteRule ^examples/services/pantheon/add-build-script/?$ %{ENV:CWD}tutorials/pantheon/#configure-tugboat [NE,L,R=301]
     RewriteRule ^examples/services/pantheon/full-makefile/?$ %{ENV:CWD}tutorials/pantheon/#configure-tugboat [NE,L,R=301]
     RewriteRule ^features/base-previews/?$ %{ENV:CWD}concepts/base-previews/ [L,R=301]
-    RewriteRule ^troubleshooting/build-script-debug/?$ %{ENV:CWD}troubleshooting/ [L,R=301]
-    RewriteRule ^troubleshooting/debugging-previews/?$ %{ENV:CWD}troubleshooting/ [L,R=301]
     RewriteRule ^reference/faq/?$ %{ENV:CWD}faq/ [L,R=301]
     RewriteRule ^reference/support/?$ %{ENV:CWD}support/ [L,R=301]
+    RewriteRule ^troubleshooting/build-script-debug/?$ %{ENV:CWD}troubleshooting/ [L,R=301]
+    RewriteRule ^troubleshooting/debugging-previews/?$ %{ENV:CWD}troubleshooting/ [L,R=301]
 
-## Dachary's site change redirects
-
-    ## Concepts
-
-    RewriteRule ^concepts/?$ %{ENV:CWD}setting-up-tugboat/ [L,R=301]
-    RewriteRule ^concepts/projects/?$ %{ENV:CWD}setting-up-tugboat/create-a-new-project/ [L,R=301]
-    RewriteRule ^concepts/repositories/?$ %{ENV:CWD}setting-up-tugboat/select-repo-settings/ [L,R=301]
-    RewriteRule ^concepts/previews/?$ %{ENV:CWD}building-a-preview/ [L,R=301]
-    RewriteRule ^concepts/base-previews/?$ %{ENV:CWD}building-a-preview/work-with-base-previews/ [L,R=301]
-    RewriteRule ^concepts/services/?$ %{ENV:CWD}setting-up-services/ [L,R=301]
-
-    ## Configuring Tugboat
-
-    RewriteRule ^configuring-tugboat/?$ %{ENV:CWD}setting-up-tugboat/ [L,R=301]
-    RewriteRule ^configuring-tugboat/#preview-services?$ %{ENV:CWD}setting-up-services/ [L,R=301]
-    RewriteRule ^configuring-tugboat/#service-images?$ %{ENV:CWD}how-to-set-up-services/specify-a-service-image/ [L,R=301]
-    RewriteRule ^configuring-tugboat/#default-service?$ %{ENV:CWD}setting-up-services/how-to-set-up-services/define-a-default-service/ [L,R=301]
-    RewriteRule ^configuring-tugboat/#service-http-port?$ %{ENV:CWD}setting-up-services/how-to-set-up-services/expose-a-service-http-port/ [L,R=301]
-    RewriteRule ^configuring-tugboat/#git-options?$ %{ENV:CWD}setting-up-services/how-to-set-up-services/clone-git-repositories-into-your-services/ [L,R=301]
-    RewriteRule ^configuring-tugboat/#commands?$ %{ENV:CWD}setting-up-services/how-to-set-up-services/leverage-service-commands/ [L,R=301]
-    RewriteRule ^configuring-tugboat/#visual-diffs?$ %{ENV:CWD}visual-diffs/ [L,R=301]
-
-    ## Examples
-
-    RewriteRule ^examples/?$ %{ENV:CWD}starter-configs/code-snippets/ [L,R=301]
-    RewriteRule ^examples/import-mysql-database/?$ %{ENV:CWD}starter-configs/code-snippets/import-mysql-database/ [L,R=301]
-    RewriteRule ^examples/change-docroot/?$ %{ENV:CWD}setting-up-services/how-to-set-up-services/set-the-document-root-path/ [L,R=301]
-    RewriteRule ^examples/functional-tests/?$ %{ENV:CWD}starter-configs/code-snippets/functional-tests/ [L,R=301]
-    RewriteRule ^examples/simpletest/?$ %{ENV:CWD}starter-configs/code-snippets/simpletest/ [L,R=301]
-    RewriteRule ^examples/page-cache/?$ %{ENV:CWD}starter-configs/code-snippets/page-cache/ [L,R=301]
-    RewriteRule ^examples/tenon_io/?$ %{ENV:CWD}starter-configs/code-snippets/tenon-io/ [L,R=301]
-    RewriteRule ^examples/phpmyadmin/?$ %{ENV:CWD}starter-configs/code-snippets/phpmyadmin/ [L,R=301]
-
-    ## Tutorials
-
-    RewriteRule ^tutorials/?$ %{ENV:CWD}starter-configs/
-    RewriteRule ^tutorials/static-html/?$ %{ENV:CWD}starter-configs/code-snippets/static-html/ [L,R=301]
-    RewriteRule ^tutorials/generic-lamp/?$ %{ENV:CWD}starter-configs/code-snippets/generic-lamp/ [L,R=301]
-    RewriteRule ^tutorials/drupal7/?$ %{ENV:CWD}starter-configs/tutorials/drupal-7/ [L,R=301]
-    RewriteRule ^tutorials/drupal7/#configure-drupal?$ %{ENV:CWD}starter-configs/tutorials/drupal-7/#configure-drupal [L,R=301]
-    RewriteRule ^tutorials/drupal7/#configure-tugboat?$ %{ENV:CWD}starter-configs/tutorials/drupal-7/#configure-tugboat [L,R=301]
-    RewriteRule ^tutorials/drupal8/?$ %{ENV:CWD}starter-configs/tutorials/drupal-8/ [L,R=301]
-    RewriteRule ^tutorials/drupal8/?$ %{ENV:CWD}starter-configs/tutorials/drupal-8/#configure-drupal [L,R=301]
-    RewriteRule ^tutorials/drupal8/?$ %{ENV:CWD}starter-configs/tutorials/drupal-8/#configure-tugboat [L,R=301]
-    RewriteRule ^tutorials/wordpress/?$ %{ENV:CWD}starter-configs/tutorials/wordpress/ [L,R=301]
-    RewriteRule ^tutorials/wordpress/#configure-wordpress?$ %{ENV:CWD}starter-configs/tutorials/wordpress/#configure-wordpress [L,R=301]
-    RewriteRule ^tutorials/wordpress/#configure-tugboat?$ %{ENV:CWD}starter-configs/tutorials/wordpress/#configure-tugboat [L,R=301]
-    RewriteRule ^tutorials/pantheon/?$ %{ENV:CWD}starter-configs/tutorials/pantheon/ [L,R=301]
-    RewriteRule ^tutorials/pantheon/#configure-terminus?$ %{ENV:CWD}starter-configs/tutorials/pantheon/#configure-terminus [L,R=301]
-    RewriteRule ^tutorials/pantheon/#configure-drupal?$ %{ENV:CWD}starter-configs/tutorials/pantheon/#configure-drupal [L,R=301]
-    RewriteRule ^tutorials/pantheon/#configure-tugboat?$ %{ENV:CWD}starter-configs/tutorials/pantheon/#configure-tugboat [L,R=301]
-
-    ## Advanced
+    ### v3 -> v4
 
     RewriteRule ^advanced/?$ %{ENV:CWD}setting-up-services/ [L,R=301]
-    RewriteRule ^advanced/custom-environment-variables/?$ %{ENV:CWD}tugboat-cli/reference/environment-variables/ [L,R=301]
-    RewriteRule ^advanced/cli/?$ %{ENV:CWD}tugboat-cli/ [L,R=301]
     RewriteRule ^advanced/background-process/?$ %{ENV:CWD}setting-up-services/how-to-set-up-services/running-a-background-process/ [L,R=301]
-
-    ## Reference
-
-    RewriteRule ^reference/?$ %{ENV:CWD}reference/ [L,R=301]
-    RewriteRule ^reference/tugboat-configuration/?$ %{ENV:CWD}reference/service-attributes/ [L,R=301]
-    RewriteRule ^reference/reference/services/?$ %{ENV:CWD}reference/tugboat-images/ [L,R=301]
-    RewriteRule ^reference/reference/environment-variables/?$ %{ENV:CWD}reference/environment-variables/ [L,R=301]
-    RewriteRule ^reference/reference/actions-and-states/?$ %{ENV:CWD}building-a-preview/preview-deep-dive/how-previews-work/#preview-status [L,R=301]
-    RewriteRule ^reference/glossary/?$ %{ENV:CWD}reference/ [L,R=301]
-
-## End of Dachary's site change redirects
+    RewriteRule ^advanced/cli/?$ %{ENV:CWD}tugboat-cli/ [L,R=301]
+    RewriteRule ^advanced/custom-environment-variables/?$ %{ENV:CWD}tugboat-cli/reference/environment-variables/ [L,R=301]
+    RewriteRule ^concepts/?$ %{ENV:CWD}setting-up-tugboat/ [L,R=301]
+    RewriteRule ^concepts/base-previews/?$ %{ENV:CWD}building-a-preview/work-with-base-previews/ [L,R=301]
+    RewriteRule ^concepts/previews/?$ %{ENV:CWD}building-a-preview/ [L,R=301]
+    RewriteRule ^concepts/projects/?$ %{ENV:CWD}setting-up-tugboat/create-a-new-project/ [L,R=301]
+    RewriteRule ^concepts/repositories/?$ %{ENV:CWD}setting-up-tugboat/select-repo-settings/ [L,R=301]
+    RewriteRule ^concepts/services/?$ %{ENV:CWD}setting-up-services/ [L,R=301]
+    RewriteRule ^configuring-tugboat/?$ %{ENV:CWD}setting-up-tugboat/ [L,R=301]
+    RewriteRule ^examples/?$ %{ENV:CWD}starter-configs/code-snippets/ [L,R=301]
+    RewriteRule ^examples/change-docroot/?$ %{ENV:CWD}setting-up-services/how-to-set-up-services/set-the-document-root-path/ [L,R=301]
+    RewriteRule ^examples/functional-tests/?$ %{ENV:CWD}starter-configs/code-snippets/functional-tests/ [L,R=301]
+    RewriteRule ^examples/import-mysql-database/?$ %{ENV:CWD}starter-configs/code-snippets/import-mysql-database/ [L,R=301]
+    RewriteRule ^examples/page-cache/?$ %{ENV:CWD}starter-configs/code-snippets/page-cache/ [L,R=301]
+    RewriteRule ^examples/phpmyadmin/?$ %{ENV:CWD}starter-configs/code-snippets/phpmyadmin/ [L,R=301]
+    RewriteRule ^examples/simpletest/?$ %{ENV:CWD}starter-configs/code-snippets/simpletest/ [L,R=301]
+    RewriteRule ^examples/tenon_io/?$ %{ENV:CWD}starter-configs/code-snippets/tenon-io/ [L,R=301]
+    RewriteRule ^reference/actions-and-states/?$ %{ENV:CWD}building-a-preview/preview-deep-dive/how-previews-work/#preview-status [L,R=301]
+    RewriteRule ^reference/services/?$ %{ENV:CWD}reference/tugboat-images/ [L,R=301]
+    RewriteRule ^tutorials/?$ %{ENV:CWD}starter-configs/
+    RewriteRule ^tutorials/drupal7/?$ %{ENV:CWD}starter-configs/tutorials/drupal-7/ [L,R=301]
+    RewriteRule ^tutorials/drupal8/?$ %{ENV:CWD}starter-configs/tutorials/drupal-8/ [L,R=301]
+    RewriteRule ^tutorials/generic-lamp/?$ %{ENV:CWD}starter-configs/code-snippets/generic-lamp/ [L,R=301]
+    RewriteRule ^tutorials/pantheon/?$ %{ENV:CWD}starter-configs/tutorials/pantheon/ [L,R=301]
+    RewriteRule ^tutorials/static-html/?$ %{ENV:CWD}starter-configs/code-snippets/static-html/ [L,R=301]
+    RewriteRule ^tutorials/wordpress/?$ %{ENV:CWD}starter-configs/tutorials/wordpress/ [L,R=301]
 
     ## Custom 404 page
     RewriteCond %{REQUEST_FILENAME} !-f
