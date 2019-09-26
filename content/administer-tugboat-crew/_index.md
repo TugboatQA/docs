@@ -11,3 +11,5 @@ pre = "<b></b>"
 # Tugboat User Admin
 
 Add users, remove users, change permissions.
+
+{{% children  %}}
