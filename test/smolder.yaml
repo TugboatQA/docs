@@ -451,7 +451,7 @@ tests:
       port: 443
       outcomes:
           expect_status_code: 301
-          response_redirect: https?://[a-z0-9.-]+/building-a-preview/preview-deep-dive/how-previews-work/#preview-status/$
+          response_redirect: https?://[a-z0-9.-]+/building-a-preview/preview-deep-dive/how-previews-work/#preview-status$
 
     - name: /reference/services
       uri: /reference/services
