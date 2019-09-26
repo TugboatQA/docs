@@ -150,7 +150,7 @@ results. {{% /notice %}}
 ### Environment Variables
 
 The Tugboat configuration file below makes use of some Tugboat
-[custom environment variables](/setting-up-services/reference/environment-variables/#custom-environment-variables).
+[custom environment variables](/setting-up-services/how-to-set-up-services/custom-environment-variables/).
 This is how we securely store the
 [Pantheon machine token](#generate-a-pantheon-machine-token) from above, so you
 don't have to commit it to your git repository. We also define the Pantheon site

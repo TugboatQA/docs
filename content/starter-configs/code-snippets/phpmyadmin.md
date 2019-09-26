@@ -46,7 +46,7 @@ mysql:
 
 Once you've added the phpmyadmin service to your Tugboat config, you will need
 to follow the instructions on the
-[Custom Environment Variables](/setting-up-services/reference/environment-variables/#custom-environment-variables)
+[Custom Environment Variables](/setting-up-services/how-to-set-up-services/custom-environment-variables/)
 to add the following environment variables to your Repository Settings:
 
 - **`PMA_HOST`** - Set this to the name of the MySQL service that you would like

@@ -89,8 +89,7 @@ build timeout to your preferred interval.
 Here's where you can enter environment variables, like API keys or passwords,
 that you wouldn't want to store in your repo. If you're looking for Tugboat's
 environment variables to add to your Build Scripts or configuration files, check
-out
-[Reference -> Environment Variables](/setting-up-services/reference/environment-variables).
+out [Reference -> Environment Variables](/reference/environment-variables).
 
 ### Set up Remote SSH Access
 

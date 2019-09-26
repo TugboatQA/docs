@@ -1,5 +1,5 @@
 ---
-title: "Service Attributes"
+title: "Tugboat Configuration"
 date: 2019-09-17T11:26:18-04:00
 weight: 4
 ---
