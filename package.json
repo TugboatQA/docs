@@ -5,12 +5,17 @@
     "email": "tugboat@lullabot.com"
   },
   "license": "SEE LICENSE IN LICENSE",
+  "config": {
+      "hugo": "0.58.3"
+  },
   "scripts": {
     "build": "hugo",
+    "build:docker": "docker run --rm -it -v $(pwd):/src -v $(pwd)/public:/target klakegg/hugo:$npm_package_config_hugo",
     "lint": "prettier --list-different \"**/*.md\"",
     "lint-fix": "prettier --write \"**/*.md\"",
     "test": "blcl -re ./public",
-    "serve": "hugo serve"
+    "serve": "hugo serve",
+    "serve:docker": "docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:$npm_package_config_hugo server"
   },
   "devDependencies": {
     "broken-link-checker-local": "^0.2.0",
