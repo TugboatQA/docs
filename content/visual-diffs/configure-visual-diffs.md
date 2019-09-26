@@ -9,7 +9,7 @@ URLs_ of the pages in a `visualdiffs` key in the
 [service definition](/setting-up-services/). Each URL can be either a string, or
 a map that overrides the default screenshot options. For more info on exactly
 what you can use in this key, check out:
-[Service Attributes -> visualdiffs](/reference/tugboat-configuration/#visualdiffs).
+[Tugboat Configuration -> visualdiffs](/reference/tugboat-configuration/#visualdiffs).
 
 ```yaml
 services:
