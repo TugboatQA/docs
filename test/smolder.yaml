@@ -1,0 +1,39 @@
+tests:
+    ### v1 -> v4
+    ### v2 -> v4
+    ### v3 -> v4
+
+    - name: /concepts
+      uri: /concepts
+      protocol: https
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/setting-up-tugboat/$
+
+    - name: /concepts/projects
+      uri: /concepts/projects
+      protocol: https
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/setting-up-tugboat/create-a-new-project/$
+
+    - name: /concepts/repositories
+      uri: /concepts/repositories
+      protocol: https
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/setting-up-tugboat/select-repo-settings/$
+
+    - name: /concepts/previews
+      uri: /concepts/previews
+      protocol: https
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/building-a-preview/$
+
+    - name: /concepts/base-previews
+      uri: /concepts/base-previews
+      protocol: https
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/building-a-preview/work-with-base-previews/$
