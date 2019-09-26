@@ -10,7 +10,7 @@ pre = "<b>2. </b>"
 
 # Setting up Services
 
-How to set up Services, Service images, and references.
+How to set up Services, and more about images.
 
 {{% children depth="3" %}}
 
