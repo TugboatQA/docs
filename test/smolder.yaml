@@ -453,6 +453,13 @@ tests:
           expect_status_code: 301
           response_redirect: https?://[a-z0-9.-]+/building-a-preview/preview-deep-dive/how-previews-work/#preview-status$
 
+    - name: /reference/glossary
+      uri: /reference/glossary
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 404
+
     - name: /reference/services
       uri: /reference/services
       protocol: https
