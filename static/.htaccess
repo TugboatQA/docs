@@ -1,4 +1,6 @@
 <IfModule mod_rewrite.c>
+    ErrorDocument 404 /404.html
+
     RewriteEngine On
     RewriteBase /
 
@@ -82,10 +84,4 @@
     RewriteRule ^tutorials/pantheon/?$ %{ENV:CWD}starter-configs/tutorials/pantheon/ [L,R=301]
     RewriteRule ^tutorials/static-html/?$ %{ENV:CWD}starter-configs/code-snippets/static-html/ [L,R=301]
     RewriteRule ^tutorials/wordpress/?$ %{ENV:CWD}starter-configs/tutorials/wordpress/ [L,R=301]
-
-    ## Custom 404 page
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^ %{ENV:CWD}404.html [L]
-
 </IfModule>
