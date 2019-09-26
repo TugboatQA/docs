@@ -143,14 +143,8 @@
     RewriteRule ^build-script/examples/external-scripts/?$ %{ENV:CWD}examples/features/external-scripts/ [L,R=302]
 
     ## Custom 404 page
-    <IfModule mod_include.c>
-        Options +Includes
-        AddType text/html .shtml
-        AddOutputFilter INCLUDES .shtml
-
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteCond %{REQUEST_FILENAME} !-d
-        RewriteRule ^ %{ENV:CWD}404.shtml [L]
-    </IfModule>
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ %{ENV:CWD}404.shtml [L]
 
 </IfModule>
