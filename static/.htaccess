@@ -118,18 +118,18 @@
     ## Advanced
 
     RewriteRule ^advanced/?$ %{ENV:CWD}setting-up-services/ [L,R=301]
-    RewriteRule ^advanced/custom-environment-variables/?$ %{ENV:CWD}tugboat-cli/setting-up-services/reference/environment-variables/ [L,R=301]
+    RewriteRule ^advanced/custom-environment-variables/?$ %{ENV:CWD}tugboat-cli/reference/environment-variables/ [L,R=301]
     RewriteRule ^advanced/cli/?$ %{ENV:CWD}tugboat-cli/ [L,R=301]
     RewriteRule ^advanced/background-process/?$ %{ENV:CWD}setting-up-services/how-to-set-up-services/running-a-background-process/ [L,R=301]
 
     ## Reference
 
-    RewriteRule ^reference/?$ %{ENV:CWD}setting-up-services/reference/ [L,R=301]
-    RewriteRule ^reference/tugboat-configuration/?$ %{ENV:CWD}setting-up-services/reference/service-attributes/ [L,R=301]
-    RewriteRule ^reference/reference/services/?$ %{ENV:CWD}setting-up-services/reference/tugboat-images/ [L,R=301]
-    RewriteRule ^reference/reference/environment-variables/?$ %{ENV:CWD}setting-up-services/reference/environment-variables/ [L,R=301]
+    RewriteRule ^reference/?$ %{ENV:CWD}reference/ [L,R=301]
+    RewriteRule ^reference/tugboat-configuration/?$ %{ENV:CWD}reference/service-attributes/ [L,R=301]
+    RewriteRule ^reference/reference/services/?$ %{ENV:CWD}reference/tugboat-images/ [L,R=301]
+    RewriteRule ^reference/reference/environment-variables/?$ %{ENV:CWD}reference/environment-variables/ [L,R=301]
     RewriteRule ^reference/reference/actions-and-states/?$ %{ENV:CWD}building-a-preview/preview-deep-dive/how-previews-work/#preview-status [L,R=301]
-    RewriteRule ^reference/glossary/?$ %{ENV:CWD}setting-up-services/reference/ [L,R=301]
+    RewriteRule ^reference/glossary/?$ %{ENV:CWD}reference/ [L,R=301]
 
 ## End of Dachary's site change redirects
 

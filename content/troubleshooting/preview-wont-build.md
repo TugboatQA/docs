@@ -20,13 +20,10 @@ Uh oh! Did your Preview Build get stuck?
 
 ### Pending
 
-First, give a `pending` Preview Build/Rebuild/Refresh a few minutes. If it's
-still not moving on, there are a few things you could do:
-
-- Cancel the action, and then try to start it again;
-- If Cancel isn't working in the web interface, you could use the
-  [Tugboat CLI](/tugboat-cli/) to cancel the action, and then try to start it
-  again.
+Your Preview Builds/Rebuilds/Refreshes appear as `Pending` when Tugboat is
+waiting for an available slot in the build queue. If you {{% ui-text %}}Cancel
+{{% /ui-text %}} and then retry the process, most of the time, your Preview
+loses its spot in line and goes back to the end of the queue.
 
 Give it some time, and if you're still having issues, contact us at
 [Help and Support](/support/).
@@ -122,7 +119,7 @@ If you've decided to cancel a Preview Action, but the Preview is stuck on
 `canceling`, there are a couple of things you can try:
 
 1. Hang in and wait a bit longer.
-2. Try canceling the Preview Action from the Tugboat CLI.
+2. Force-delete a stuck Preview from the [Tugboat CLI](/tugboat-cli/).
 3. If you're still having issues, contact us at [Help and Support](/support/).
 
 ## Troubleshooting a Preview Build Failure

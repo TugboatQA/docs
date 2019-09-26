@@ -24,8 +24,8 @@ through to a nodejs service running on port 3000.
 
 There are other options that affect how the proxy routing is handled. These
 advanced options can usually be left to their default settings. Check out our
-[Service Attributes reference](/setting-up-services/reference/service-attributes/)
-for a complete list.
+[Tugboat Configuration reference](/reference/tugboat-configuration/) for a complete
+list.
 
 {{% notice note %}} When a Service is set as the `default`, port 80 is
 automatically exposed. You can override this by using the `expose` key to

@@ -26,6 +26,5 @@ services:
 In this example, both the `apache` and `mysql` services get a clone of the git
 repository, checked out to the git branch, tag, commit, or pull request that the
 preview is created for. The path where the git repository is cloned is available
-in an
-[environment variable](/setting-up-services/reference/environment-variables/)
-named `$TUGBOAT_ROOT`.
+in an [environment variable](/reference/environment-variables/) named
+`$TUGBOAT_ROOT`.

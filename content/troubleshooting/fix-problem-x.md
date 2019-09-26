@@ -14,8 +14,8 @@ weight: 4
 
 If you're getting "PHP out of memory errors", you can manually set the memory
 limit higher. If you're using one of the
-[tugboatqa php images](/setting-up-services/reference/tugboat-images/), use
-something like this in your build script:
+[tugboatqa php images](/reference/tugboat-images/), use something like this in
+your build script:
 
 `echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/my-php.ini`
 
@@ -26,9 +26,19 @@ Or you might try something like this in your drupal settings.php:
 ## MySQL server has gone away
 
 If you're getting a "MySQL server has gone away" error, you can resolve this by
-increasing the packet size for MySQL:
+increasing the packet size for MySQL.
 
-_BEN CAN WE INSERT AN EXAMPLE FOR THIS?_
+To increase the max_allowed_packet to 512MB during the build stages, add this
+before the mysql commands in the build script:
+
+`mysql -e "SET GLOBAL max_allowed_packet=536870912;"`
+
+If you want to do that, and make it "stick" during normal operation, use:
+
+```
+mysql -e "SET GLOBAL max_allowed_packet=536870912;"
+echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
+```
 
 ## cd isn't working
 
@@ -38,7 +48,31 @@ is run in its own context, meaning things like `cd` do not "stick" between
 commands. If that behavior is required, include an external script in the git
 repository and call it from the config file.
 
-_BEN CAN WE INSERT AN EXAMPLE OF THIS?_
+1. Add your build steps to a file; for example: `.tugboat/init.sh`
+
+```
+#!/bin/sh
+
+cd somewhere
+run-a-command
+```
+
+2. Call that script from `config.yml` for the build step:
+
+```
+commands
+  init: .tugboat/init.sh
+```
+
+Or, as a part of the build step:
+
+```
+commands:
+  init:
+    - /some/command
+    - .tugboat/init.sh
+    - /some/other/command
+```
 
 ## Tugboat error messages
 
@@ -47,8 +81,8 @@ _BEN CAN WE INSERT AN EXAMPLE OF THIS?_
 
 ### 1064: Command Failed
 
-This error typically occurs when a command in your config file can't be executed
-as written. When a Preview build fails with this error:
+This error occurs when a command in your config file can't be executed, or
+returns an error. When a Preview build fails with this error:
 
 1. [Check the Preview logs](../debug-config-file/#how-to-check-the-preview-logs)
    to see what command was running when the build failed.
@@ -81,8 +115,14 @@ This setting is off by default, but when it's enabled, Tugboat builds Previews
 for pull requests made to the primary repo from forked repositories. Turning on
 this setting should correct this error.
 
-{{% notice warning %}} Any secrets in your Preview will be accessible by the
-owner of the forked repository. {{% /notice %}}
+{{% notice warning %}} When you enable this option in a public repository,
+anyone who can submit a pull request from the fork can extract configured
+repository environment variables, as well as the private SSH key generated for
+the repo. The latter is mainly a problem when the repository SSH key is added to
+some other service, like to pull a database or checkout a related git repo.
+However, as an example, if the repository SSH key is allowed to _push_ changes
+to a git repo, a malicious user would then have access to _modify_ that repo.
+{{% /notice %}}
 
 ## Running a background process
 

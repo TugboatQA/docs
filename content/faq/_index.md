@@ -11,3 +11,5 @@ pre = "<b></b>"
 # Frequently Asked Questions
 
 You've got questions? We've got answers!
+
+{{% children  %}}

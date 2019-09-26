@@ -109,7 +109,7 @@ possible for you to verify that email is sending as expected.
 Tugboat-provided images send outbound email through the Tugboat SMTP proxy by
 default. If you are using your own image, or your codebase does not use the
 underlying operating system mail configuration, use the \$TUGBOAT_SMTP
-[Environment Variable](/setting-up-services/reference/environment-variables/#tugboat-environment-variables)
+[Environment Variable](/reference/environment-variables/#tugboat-environment-variables)
 to ensure that Tugboat is able to properly capture your outbound email.
 
 {{% notice warning %}} Tugboat makes a best-effort attempt at capturing outbound
