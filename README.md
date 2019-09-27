@@ -47,4 +47,3 @@ This document is licensed as
 
 Everything not covered above is licensed under the
 [MIT license](https://choosealicense.com/licenses/mit/).
-
