@@ -75,7 +75,10 @@ access in your Project -> Repository Settings:
   default; Tugboat builds Previews for pull requests made to the primary repo
   from forked repositories. **There are security implications from using this
   setting:** any secrets in your Preview will be accessible by the owner of the
-  forked repository.
+  forked repository. When this feature is not enabled, forked pull requests show
+  as available to build (or will attempt to build automatically if you have
+  {{% ui-text %}}Build Pull Requests Automatically{{% /ui-text %}} enabled) but
+  the Preview build will fail.
 
 You can also specify the account from which comments are posted to GitHub in
 this section. For info on customizing this, see:
@@ -142,7 +145,10 @@ access in your Project -> Repository Settings:
   default; Tugboat builds Previews for merge requests made to the primary repo
   from forked repositories. **There are security implications from using this
   setting:** any secrets in your Preview will be accessible by the owner of the
-  forked repository.
+  forked repository. When this feature is not enabled, forked merge requests
+  show as available to build (or will attempt to build automatically if you have
+  {{% ui-text %}}Build Merge Requests Automatically{{% /ui-text %}} enabled) but
+  the Preview build will fail.
 
 You can also specify the account from which comments are posted to GitLab in
 this section. For info on customizing this, see:
@@ -208,7 +214,10 @@ access in your Project -> Repository Settings:
   default; Tugboat builds Previews for pull requests made to the primary repo
   from forked repositories. **There are security implications from using this
   setting:** any secrets in your Preview will be accessible by the owner of the
-  forked repository.
+  forked repository. When this feature is not enabled, forked pull requests show
+  as available to build (or will attempt to build automatically if you have
+  {{% ui-text %}}Build Pull Requests Automatically{{% /ui-text %}} enabled) but
+  the Preview build will fail.
 
 You can also specify the account from which comments are posted to Bitbucket in
 this section. For info on customizing this, see:
