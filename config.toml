@@ -1,4 +1,4 @@
-# baseURL = "https://docs.tugboat.qa/"
+baseURL = "https://docs.tugboat.qa/"
 languageCode = "en-us"
 title = "Tugboat Documentation"
 googleAnalytics = "UA-69911960-4"
