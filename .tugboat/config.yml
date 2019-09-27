@@ -3,14 +3,9 @@ services:
     image: tugboatqa/httpd
     commands:
       init:
-        - apt-get update
-        - apt-get install -y apt-transport-https
-        - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-        - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-        - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-        - apt-get install -y nodejs yarn calibre
+        - curl -Ls https://github.com/gohugoio/hugo/releases/download/v0.58.3/hugo_0.58.3_Linux-64bit.tar.gz | tar -C /usr/local/bin -zxf - hugo
+        - sed -i '/mod_rewrite/s/#//g' /usr/local/apache2/conf/httpd.conf
+        - sed -i 's/AllowOverride None/AllowOverride All/g' /usr/local/apache2/conf/httpd.conf
       build:
-        - yarn install
-        - yarn build
-        - yarn pdf
-        - ln -snf "${TUGBOAT_ROOT}/_book" "${DOCROOT}"
+        - hugo
+        - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"

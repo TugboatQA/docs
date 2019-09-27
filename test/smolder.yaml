@@ -1,0 +1,526 @@
+tests:
+    ### v1 -> v2
+
+    - name: /base-previews
+      uri: /base-previews
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/features/base-previews/$
+
+    - name: /build-script/examples/change-docroot
+      uri: /build-script/examples/change-docroot
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/features/change-docroot/$
+
+    - name: /build-script/examples/functional-tests
+      uri: /build-script/examples/functional-tests
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/features/functional-tests/$
+
+    - name: /build-script/examples/import-mysql-database
+      uri: /build-script/examples/import-mysql-database
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/features/import-mysql-database/$
+
+    - name: /build-script/examples/install-php72
+      uri: /build-script/examples/install-php72
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/features/install-php72/$
+
+    - name: /makefile
+      uri: /makefile
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/build-script/$
+
+    - name: /examples/drupal7
+      uri: /examples/drupal7
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/applications/drupal7/$
+
+    - name: /examples/drupal8
+      uri: /examples/drupal8
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/applications/drupal8/$
+
+    - name: /examples/generic-lamp
+      uri: /examples/generic-lamp
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/applications/generic-lamp/$
+
+    - name: /examples/static-html
+      uri: /examples/static-html
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/applications/static-html/$
+
+    - name: /examples/wordpress
+      uri: /examples/wordpress
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/applications/wordpress/$
+
+    ### v2 -> v3
+
+    - name: /build-script
+      uri: /build-script
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/configuring-tugboat/$
+
+    - name: /build-script/custom-environment-variables
+      uri: /build-script/custom-environment-variables
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/advanced/custom-environment-variables/$
+
+    - name: /build-script/environment-variables
+      uri: /build-script/environment-variables
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/reference/environment-variables/$
+
+    - name: /examples/applications
+      uri: /examples/applications
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/$
+
+    - name: /examples/applications/drupal7
+      uri: /examples/applications/drupal7
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/drupal7/$
+
+    - name: /examples/applications/drupal8
+      uri: /examples/applications/drupal8
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/drupal8/$
+
+    - name: /examples/applications/generic-lamp
+      uri: /examples/applications/generic-lamp
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/generic-lamp/$
+
+    - name: /examples/applications/static-html
+      uri: /examples/applications/static-html
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/static-html/$
+
+    - name: /examples/applications/wordpress
+      uri: /examples/applications/wordpress
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/wordpress/$
+
+    - name: /examples/features
+      uri: /examples/features
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/$
+
+    - name: /examples/features/change-docroot
+      uri: /examples/features/change-docroot
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/change-docroot/$
+
+    - name: /examples/features/functional-tests
+      uri: /examples/features/functional-tests
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/functional-tests/$
+
+    - name: /examples/features/import-mysql-database
+      uri: /examples/features/import-mysql-database
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/examples/import-mysql-database/$
+
+    - name: /examples/features/install-php72
+      uri: /examples/features/install-php72
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/reference/services/$
+
+    - name: /examples/services
+      uri: /examples/services
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/$
+
+    - name: /examples/services/pantheon
+      uri: /examples/services/pantheon
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/pantheon/$
+
+    - name: /examples/services/pantheon/add-build-script
+      uri: /examples/services/pantheon/add-build-script
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/pantheon/#configure-tugboat$
+
+    - name: /examples/services/pantheon/add-services
+      uri: /examples/services/pantheon/add-services
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/pantheon/$
+
+    - name: /examples/services/pantheon/configure-terminus
+      uri: /examples/services/pantheon/configure-terminus
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/pantheon/#configure-terminus$
+
+    - name: /examples/services/pantheon/full-makefile
+      uri: /examples/services/pantheon/full-makefile
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tutorials/pantheon/#configure-tugboat$
+
+    - name: /features/base-previews
+      uri: /features/base-previews
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/concepts/base-previews/$
+
+    - name: /reference/faq
+      uri: /reference/faq
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/faq/$
+
+    - name: /reference/support
+      uri: /reference/support
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/support/$
+
+    - name: /troubleshooting/build-script-debug
+      uri: /troubleshooting/build-script-debug
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/troubleshooting/$
+
+    - name: /troubleshooting/debugging-previews
+      uri: /troubleshooting/debugging-previews
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/troubleshooting/$
+
+    ### v3 -> v4
+
+    - name: /advanced
+      uri: /advanced
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/setting-up-services/$
+
+    - name: /advanced/background-process
+      uri: /advanced/background-process
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/setting-up-services/how-to-set-up-services/running-a-background-process/$
+
+    - name: /advanced/cli
+      uri: /advanced/cli
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/tugboat-cli/$
+
+    - name: /advanced/custom-environment-variables
+      uri: /advanced/custom-environment-variables
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/setting-up-services/how-to-set-up-services/custom-environment-variables/$
+
+    - name: /concepts
+      uri: /concepts
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/setting-up-tugboat/$
+
+    - name: /concepts/base-previews
+      uri: /concepts/base-previews
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/building-a-preview/work-with-base-previews/$
+
+    - name: /concepts/previews
+      uri: /concepts/previews
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/building-a-preview/$
+
+    - name: /concepts/projects
+      uri: /concepts/projects
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/setting-up-tugboat/create-a-new-project/$
+
+    - name: /concepts/repositories
+      uri: /concepts/repositories
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/setting-up-tugboat/select-repo-settings/$
+
+    - name: /concepts/services
+      uri: /concepts/services
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/setting-up-services/$
+
+    - name: /configuring-tugboat
+      uri: /configuring-tugboat
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/setting-up-tugboat/$
+
+    - name: /examples
+      uri: /examples
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/code-snippets/$
+
+    - name: /examples/change-docroot
+      uri: /examples/change-docroot
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/setting-up-services/how-to-set-up-services/set-the-document-root-path/$
+
+    - name: /examples/functional-tests
+      uri: /examples/functional-tests
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/code-snippets/functional-tests/$
+
+    - name: /examples/import-mysql-database
+      uri: /examples/import-mysql-database
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/code-snippets/import-mysql-database/$
+
+    - name: /examples/page-cache
+      uri: /examples/page-cache
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/code-snippets/page-cache/$
+
+    - name: /examples/phpmyadmin
+      uri: /examples/phpmyadmin
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/code-snippets/phpmyadmin/$
+
+    - name: /examples/simpletest
+      uri: /examples/simpletest
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/code-snippets/simpletest/$
+
+    - name: /examples/tenon_io
+      uri: /examples/tenon_io
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/code-snippets/tenon-io/$
+
+    - name: /reference/actions-and-states
+      uri: /reference/actions-and-states
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/building-a-preview/preview-deep-dive/how-previews-work/#preview-status$
+
+    - name: /reference/glossary
+      uri: /reference/glossary
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 404
+
+    - name: /reference/services
+      uri: /reference/services
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/reference/tugboat-images/$
+
+    - name: /tutorials
+      uri: /tutorials
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/$
+
+    - name: /tutorials/drupal7
+      uri: /tutorials/drupal7
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/tutorials/drupal-7/$
+
+    - name: /tutorials/drupal8
+      uri: /tutorials/drupal8
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/tutorials/drupal-8/$
+
+    - name: /tutorials/generic-lamp
+      uri: /tutorials/generic-lamp
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/code-snippets/generic-lamp/$
+
+    - name: /tutorials/pantheon
+      uri: /tutorials/pantheon
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/tutorials/pantheon/$
+
+    - name: /tutorials/static-html
+      uri: /tutorials/static-html
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/code-snippets/static-html/$
+
+    - name: /tutorials/wordpress
+      uri: /tutorials/wordpress
+      protocol: https
+      port: 443
+      outcomes:
+          expect_status_code: 301
+          response_redirect: https?://[a-z0-9.-]+/starter-configs/tutorials/wordpress
+

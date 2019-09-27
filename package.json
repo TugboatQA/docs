@@ -5,29 +5,16 @@
     "email": "tugboat@lullabot.com"
   },
   "license": "SEE LICENSE IN LICENSE",
-  "config": {
-    "gitbook": "3.2.3"
-  },
   "scripts": {
-    "install": "cross-var gitbook install --gitbook=$npm_package_config_gitbook",
-    "build": "cross-var gitbook build --gitbook=$npm_package_config_gitbook",
-    "pdf": "cross-var gitbook pdf --gitbook=$npm_package_config_gitbook ./ _book/tugboat.pdf",
+    "build": "hugo",
     "lint": "prettier --list-different \"**/*.md\"",
     "lint-fix": "prettier --write \"**/*.md\"",
-    "test": "blcl -re --exclude /tugboat.pdf ./_book",
-    "serve": "cross-var gitbook serve --gitbook=$npm_package_config_gitbook"
-  },
-  "dependencies": {
-    "cross-var": "^1.1.0",
-    "gitbook-cli": "^2.3.2",
-    "gitbook-plugin-ga": "^2.0.0",
-    "highlight.js": "^9.12.0",
-    "html-escape": "^2.0.0"
+    "test": "blcl -re ./public",
+    "serve": "hugo serve"
   },
   "devDependencies": {
     "broken-link-checker-local": "^0.2.0",
-    "chokidar-cli": "^1.2.0",
-    "prettier": "^1.14.2"
+    "prettier": "^1.18.2"
   },
   "prettier": {
     "printWidth": 80,

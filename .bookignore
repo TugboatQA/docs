@@ -1,5 +1,0 @@
-.bookignore
-.gitignore
-.prettierignore
-package.json
-yarn.lock
