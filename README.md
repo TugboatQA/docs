@@ -18,14 +18,6 @@ other feedback about this document, we are happy to hear it!
 [Open a GitHub issue](https://github.com/TugboatQA/docs/issues/new) or email us
 at [support@tugboat.qa](mailto:support@tugboat.qa).
 
-## License Information
-
-This document is licensed as
-[Creative Commons Attribution-NonCommercial-ShareAlike CC BY-NC-SA](http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
-
-Everything not covered above is licensed under the
-[MIT license](https://choosealicense.com/licenses/mit/).
-
 ## Theme
 
 The [Hugo Learn Theme](https://github.com/matcornic/hugo-theme-learn) is
@@ -47,3 +39,12 @@ Tugboat preview.
 ```sh
 cat test/smolder.yaml | docker run -i mcameron/smolder pr125-mcktkhcj8krhxo5oaa7emgv5gcnf5e5l.tugboat.qa
 ```
+
+## License Information
+
+This document is licensed as
+[Creative Commons Attribution-NonCommercial-ShareAlike CC BY-NC-SA](http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
+
+Everything not covered above is licensed under the
+[MIT license](https://choosealicense.com/licenses/mit/).
+
