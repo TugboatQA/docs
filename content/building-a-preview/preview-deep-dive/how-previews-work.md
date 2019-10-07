@@ -80,6 +80,12 @@ Tugboat uses that build snapshot as the basis for those actions, enabling you to
 quickly duplicate a Preview build or reset a Preview build to the state it was
 in the moment the build completed.
 
+{{% notice note %}} When Tugboat creates the build snapshot, the containers are
+fully stopped while the snapshot is taken, and then restarted again once the
+data is committed. If you try to implement a script that "sleeps" in the
+background while the Preview is being built, that process will not be present
+when the Preview restarts. {{% /notice %}}
+
 ## How Base Previews work
 
 When you build a regular Preview, the

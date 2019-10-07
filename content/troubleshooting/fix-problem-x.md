@@ -9,6 +9,7 @@ weight: 4
 - [cd isn't working](#cd-isn-t-working)
 - [Tugboat error messages](#tugboat-error-messages)
 - [Running a background process "breaks" the build](#running-a-background-process)
+- [My script is missing after a Preview build completes](#my-script-is-missing-after-a-preview-build-completes)
 
 ## PHP out of memory issues
 
@@ -134,3 +135,18 @@ fails.
 
 For instructions on how to run a background within a Tugboat Preview, see:
 [Setting up Services -> Running a Background Process](/setting-up-services/how-to-set-up-services/running-a-background-process/).
+
+## My script is missing after a Preview build completes
+
+If you've created a script that "sleeps" in the background while a Preview is
+being built, but that script is missing when the Preview build completes, that's
+an expected behavior. When a Preview build completes, Tugboat stops the
+containers to take
+[the build snapshot](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-snapshot).
+After the data is committed, Tugboat restarts the containers to serve the
+Preview. Any scripts that were waiting for the build to complete will no longer
+be present when the container is restarted.
+
+To create a one-time script that runs after the Preview build completes, take a
+look at [`runit`'s documentation](http://smarden.org/runit/runsv.8.html) -
+particularly the parts about creating a `finish` script.
