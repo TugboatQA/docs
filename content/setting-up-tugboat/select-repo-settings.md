@@ -99,7 +99,6 @@ SSH key. Put this public key on the remote servers that your build scripts or
 applications need to access.
 
 - [Use the Tugboat SSH key](#use-the-tugboat-ssh-key)
-- [Use your own SSH key](#use-your-own-ssh-key)
 - [Delete an SSH key](#delete-an-ssh-key)
 
 {{% notice info %}} You can't SSH into a Tugboat Preview; the SSH key here is
@@ -129,24 +128,6 @@ that you want to generate a new key, as this action can't be undone.
 automatically erases the existing SSH key. If you're using this SSH key
 anywhere, you'll need to update that when you generate a new key.
 {{% /notice %}}
-
-#### Use your own SSH key
-
-If you've got a specific SSH key you want to use, you can set that up in
-[Repository Settings](#change-repository-settings); scroll to the
-{{% ui-text %}}Remote SSH Access{{% /ui-text %}} option. When you press the
-{{% ui-text %}}Upload SSH Key{{% /ui-text %}} button, you'll be prompted to
-enter a private key, or select a private key file.
-
-{{% notice info %}} The private key you provide here must be in PEM format. The
-public key will be automatically extracted from the private key you upload.
-{{% /notice %}}
-
-![Upload an SSH Key](../../_images/remote-ssh-access-upload-an-ssh-key.png)
-
-{{% notice warning%}} If you upload your own SSH key, this automatically erases
-the existing SSH key. If you're using this SSH key anywhere, you'll need to
-update that when you upload the new key. {{% /notice %}}
 
 #### Delete an SSH key
 
