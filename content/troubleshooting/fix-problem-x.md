@@ -20,9 +20,18 @@ your build script:
 
 `echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/my-php.ini`
 
-Or you might try something like this in your drupal settings.php:
+If you would like unlimited memory allocated to PHP command-line scripts, you can
+add the following PHP snippet:
 
-`if (drupal_is_cli()) { ini_set('memory_limit', '-1');`
+```php
+if (PHP_SAPI === 'cli') { 
+  ini_set('memory_limit', '-1');
+}
+```
+
+Or when executing PHP directly:
+
+`php -d memory_limit=-1 path/to/php-script.php`
 
 ## MySQL server has gone away
 
