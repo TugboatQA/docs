@@ -20,11 +20,11 @@ your build script:
 
 `echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/my-php.ini`
 
-If you would like unlimited memory allocated to PHP command-line scripts, you can
-add the following PHP snippet to your application:
+If you would like unlimited memory allocated to PHP command-line scripts, you
+can add the following PHP snippet to your application:
 
 ```php
-if (PHP_SAPI === 'cli') { 
+if (PHP_SAPI === 'cli') {
   ini_set('memory_limit', '-1');
 }
 ```
