@@ -24,8 +24,8 @@ covers, take a look at
 
 {{% notice note %}} When you're updating a Preview that was built from a Base
 Preview, Rebuild does not pull fresh Docker images and run commands from `init`
-and `update` - child Previews jump directly to the `build` phase. For more info,
-see:
+and `update`. Instead, child Previews jump directly to the `build` phase. For
+more info, see:
 [rebuild Previews when working with a Base Preview](../../work-with-base-previews/building-new-previews).
 {{% /notice %}}
 
@@ -37,9 +37,11 @@ When you Refresh a Preview, Tugboat:
 2. Runs commands from the `update` section of the config file.
 3. Runs commands from the `build` section of the config file.
 
-In general, this is a faster process than building the entire container again,
-as Tugboat doesn't have to set up Services and complete all the `init` processes
-again.
+When you're not [using a Base Preview](../../work-with-base-previews/),
+Refreshing is a faster process than building the entire container again, as
+Tugboat doesn't have to set up Services and complete all the `init` processes
+again. However, if you are using a Base Preview, [Rebuild](#rebuild-previews) is
+the faster update process.
 
 For more info about build phases, see:
 [the build process: explained](../../preview-deep-dive/how-previews-work/#the-build-process-explained).
@@ -105,9 +107,11 @@ When you Rebuild a Preview (that was not built using a Base Preview), Tugboat:
 4. Runs commands from the `update` section of the configuration.
 5. Runs commands from the `build` section of the configuration.
 
-This process takes longer than a [Refresh](#refresh-previews), so you should
-mainly use this if you need to pull new Docker images, or run commands from
-`init` in your config.yml.
+When you're not [using a Base Preview](../../work-with-base-previews/), this
+process takes longer than a [Refresh](#refresh-previews), so you should mainly
+use this if you need to pull new Docker images, or run commands from `init` in
+your config.yml. However, if you are using a Base Preview, Rebuild is the faster
+update process.
 
 For more info about build phases, see:
 [the build process: explained](../../preview-deep-dive/how-previews-work/#the-build-process-explained).
