@@ -36,6 +36,11 @@ out:
 - [Using the GitLab integration](../connect-with-your-provider/#using-the-gitlab-integration)
 - [Using the BitBucket integration](../connect-with-your-provider/#using-the-bitbucket-integration)
 
+{{% notice info %}} Want to create a generic user to post comments to your
+linked git provider? Take a look at
+[Add a Tugboat bot to your team](/administer-tugboat-crew/add-tugboat-bot-to-team/)
+for details. {{% /notice %}}
+
 ### Rebuild Orphaned Previews Automatically
 
 When this option is selected, Tugboat automatically
