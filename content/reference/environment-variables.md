@@ -44,8 +44,6 @@ run-time configuration files, etc.
 - **`TUGBOAT_DEFAULT_SERVICE_URL_PATH`** - The "path" part of the URL for the
   default Service of the current Preview.
 
-- **`$TUGBOAT_DOMAIN`** - The root domain of the current Tugboat Preview
-
 - **`$TUGBOAT_PREVIEW_ID`** - The ID of the current Preview.
 
 - **`$TUGBOAT_PREVIEW`** - The friendly name of the current Preview.
