@@ -23,25 +23,25 @@ variables are available for the entire lifetime of a Service. This includes both
 build-time as well as run-time. So, they can be used in Build Scripts as well as
 run-time configuration files, etc.
 
-- **`TUGBOAT_DEFAULT_SERVICE`** - The friendly name of the default Service of
+- **`$TUGBOAT_DEFAULT_SERVICE`** - The friendly name of the default Service of
   the current Preview.
 
-- **`TUGBOAT_DEFAULT_SERVICE_ID`** - The ID of the default Service of the
+- **`$TUGBOAT_DEFAULT_SERVICE_ID`** - The ID of the default Service of the
   current Preview.
 
-- **`TUGBOAT_DEFAULT_SERVICE_TOKEN`** - The authentication token for the default
+- **`$TUGBOAT_DEFAULT_SERVICE_TOKEN`** - The authentication token for the default
   Service of the current Preview.
 
-- **`TUGBOAT_DEFAULT_SERVICE_URL`** - The full URL for the default Service of
+- **`$TUGBOAT_DEFAULT_SERVICE_URL`** - The full URL for the default Service of
   the current Preview. This is also the default URL for the Preview itself.
 
-- **`TUGBOAT_DEFAULT_SERVICE_URL_HOST`** - The "host" part of the URL for the
+- **`$TUGBOAT_DEFAULT_SERVICE_URL_HOST`** - The "host" part of the URL for the
   default Service of the current Preview.
 
-- **`TUGBOAT_DEFAULT_SERVICE_URL_PROTOCOL`** - The "protocol" part of the URL
+- **`$TUGBOAT_DEFAULT_SERVICE_URL_PROTOCOL`** - The "protocol" part of the URL
   for the default Service of the current Preview.
 
-- **`TUGBOAT_DEFAULT_SERVICE_URL_PATH`** - The "path" part of the URL for the
+- **`$TUGBOAT_DEFAULT_SERVICE_URL_PATH`** - The "path" part of the URL for the
   default Service of the current Preview.
 
 - **`$TUGBOAT_DEFAULT_SERVICE_CONFIG_ALIASES`** - A comma-separated list of
