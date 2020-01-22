@@ -57,6 +57,8 @@ run-time configuration files, etc.
 - **`$TUGBOAT_PREVIEW_TYPE`** - What type of preview this is. The value will be
   one of: `branch`, `tag`, `commit`, `pullrequest`, or `mergerequest`.
 
+- **`$TUGBOAT_PREVIEW_SHA`** - The git SHA that the preview was built from.
+
 - **`$TUGBOAT_PROJECT_ID`** - The ID of the project that the current Preview
   belongs to.
 
