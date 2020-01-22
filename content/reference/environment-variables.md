@@ -23,25 +23,31 @@ variables are available for the entire lifetime of a Service. This includes both
 build-time as well as run-time. So, they can be used in Build Scripts as well as
 run-time configuration files, etc.
 
-- **`TUGBOAT_DEFAULT_SERVICE`** - The friendly name of the default Service of
+- **`$TUGBOAT_DEFAULT_SERVICE`** - The friendly name of the default Service of
   the current Preview.
 
-- **`TUGBOAT_DEFAULT_SERVICE_ID`** - The ID of the default Service of the
+- **`$TUGBOAT_DEFAULT_SERVICE_ID`** - The ID of the default Service of the
   current Preview.
 
-- **`TUGBOAT_DEFAULT_SERVICE_TOKEN`** - The authentication token for the default
-  Service of the current Preview.
-
-- **`TUGBOAT_DEFAULT_SERVICE_URL`** - The full URL for the default Service of
-  the current Preview. This is also the default URL for the Preview itself.
-
-- **`TUGBOAT_DEFAULT_SERVICE_URL_HOST`** - The "host" part of the URL for the
+- **`$TUGBOAT_DEFAULT_SERVICE_TOKEN`** - The authentication token for the
   default Service of the current Preview.
 
-- **`TUGBOAT_DEFAULT_SERVICE_URL_PROTOCOL`** - The "protocol" part of the URL
+- **`$TUGBOAT_DEFAULT_SERVICE_URL`** - The full URL for the default Service of
+  the current Preview. This is also the default URL for the Preview itself.
+
+- **`$TUGBOAT_DEFAULT_SERVICE_URL_HOST`** - The "host" part of the URL for the
+  default Service of the current Preview.
+
+- **`$TUGBOAT_DEFAULT_SERVICE_URL_PROTOCOL`** - The "protocol" part of the URL
   for the default Service of the current Preview.
 
-- **`TUGBOAT_DEFAULT_SERVICE_URL_PATH`** - The "path" part of the URL for the
+- **`$TUGBOAT_DEFAULT_SERVICE_URL_PATH`** - The "path" part of the URL for the
+  default Service of the current Preview.
+
+- **`$TUGBOAT_DEFAULT_SERVICE_CONFIG_ALIASES`** - A comma-separated list of
+  aliases configured for the default Service of the current Preview.
+
+- **`$TUGBOAT_DEFAULT_SERVICE_CONFIG_DOMAIN`** - The configured domain for the
   default Service of the current Preview.
 
 - **`$TUGBOAT_PREVIEW_ID`** - The ID of the current Preview.
@@ -50,6 +56,8 @@ run-time configuration files, etc.
 
 - **`$TUGBOAT_PREVIEW_TYPE`** - What type of preview this is. The value will be
   one of: `branch`, `tag`, `commit`, `pullrequest`, or `mergerequest`.
+
+- **`$TUGBOAT_PREVIEW_SHA`** - The git SHA that the preview was built from.
 
 - **`$TUGBOAT_PROJECT_ID`** - The ID of the project that the current Preview
   belongs to.
@@ -95,6 +103,12 @@ also available with information about the Service's public URL
 
 - **`$TUGBOAT_SERVICE_URL_PATH`** - The "path" part of the current service's
   URL.
+
+- **`$TUGBOAT_SERVICE_CONFIG_ALIASES`** - A comma-separated list of aliases
+  configured for the current service.
+
+- **`$TUGBOAT_SERVICE_CONFIG_DOMAIN`** - The configured domain for the current
+  service.
 
 ## Base Preview Environment Variables
 
