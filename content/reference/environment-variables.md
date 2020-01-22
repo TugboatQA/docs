@@ -44,10 +44,10 @@ run-time configuration files, etc.
 - **`TUGBOAT_DEFAULT_SERVICE_URL_PATH`** - The "path" part of the URL for the
   default Service of the current Preview.
 
-- **`TUGBOAT_DEFAULT_SERVICE_CONFIG_ALIASES`** - A comma-separated list of
+- **`$TUGBOAT_DEFAULT_SERVICE_CONFIG_ALIASES`** - A comma-separated list of
   aliases configured for the default Service of the current Preview.
 
-- **`TUGBOAT_DEFAULT_SERVICE_CONFIG_DOMAIN`** - The configured domain for the
+- **`$TUGBOAT_DEFAULT_SERVICE_CONFIG_DOMAIN`** - The configured domain for the
   default Service of the current Preview.
 
 - **`$TUGBOAT_PREVIEW_ID`** - The ID of the current Preview.
@@ -104,10 +104,10 @@ also available with information about the Service's public URL
 - **`$TUGBOAT_SERVICE_URL_PATH`** - The "path" part of the current service's
   URL.
 
-- **`TUGBOAT_SERVICE_CONFIG_ALIASES`** - A comma-separated list of aliases
+- **`$TUGBOAT_SERVICE_CONFIG_ALIASES`** - A comma-separated list of aliases
   configured for the current service.
 
-- **`TUGBOAT_SERVICE_CONFIG_DOMAIN`** - The configured domain for the current
+- **`$TUGBOAT_SERVICE_CONFIG_DOMAIN`** - The configured domain for the current
   service.
 
 ## Base Preview Environment Variables
