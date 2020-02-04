@@ -41,6 +41,7 @@ sure you always have the most recent version available by specifying
 | Node                              | `image: tugboatqa/node:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/node/TAGS.md)          |
 | [Percona](#mysqlmariadbpercona)   | `image: tugboatqa/percona:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/percona/TAGS.md)       |
 | [PHP](#php)                       | `image: tugboatqa/php:[TAG]`           | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/php/TAGS.md)           |
+| PostgreSQL                        | `image: tugboatqa/postgres:[TAG]`      | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/postgres/TAGS.md)      |
 | Redis                             | `image: tugboatqa/redis:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/redis/TAGS.md)         |
 | Solr                              | `image: tugboatqa/solr:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/solr/TAGS.md)          |
 | Ubuntu                            | `image: tugboatqa/ubuntu:[TAG]`        | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/master/ubuntu/TAGS.md)        |
