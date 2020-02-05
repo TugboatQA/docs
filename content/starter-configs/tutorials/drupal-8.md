@@ -55,6 +55,7 @@ The Tugboat configuration is managed by a
 configuration you can use as a starting point, with comments to explain what's
 going on:
 
+<!-- prettier-ignore-start -->
 ```yaml
 services:
   # What to call the service hosting the site.
@@ -148,6 +149,7 @@ services:
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz
 ```
+<!-- prettier-ignore-end -->
 
 Want to know more about something mentioned in the comments of this config file?
 Check out these topics:
