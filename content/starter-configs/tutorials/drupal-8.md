@@ -43,6 +43,8 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
+// Use the TUGBOAT_REPO_ID to generate a hash salt for Tugboat sites.
+$settings['hash_salt'] = hash('sha256', getenv('TUGBOAT_REPO_ID'));
 ```
 
 ## Configure Tugboat
@@ -77,13 +79,13 @@ services:
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
 
-        # Install drush-launcher
+        # Install drush-launcher, if desired.
         - wget -O /usr/local/bin/drush
           https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
         - chmod +x /usr/local/bin/drush
 
         # Link the document root to the expected path. This example links /web
-        # to the docroot
+        # to the docroot.
         - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
       # Commands that import files, databases,  or other assets. When an
@@ -91,16 +93,12 @@ services:
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-        # Use the tugboat-specific Drupal settings
+        # Use the tugboat-specific Drupal settings.
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php"
           "${DOCROOT}/sites/default/"
 
-        # Generate a unique hash_salt to secure the site
-        - echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >>
-          "${DOCROOT}/sites/default/settings.local.php"
-
-        # Install/update packages managed by composer, including drush
-        - composer install --no-ansi
+        # Install/update packages managed by composer, including drush.
+        - composer install --optimize-autoloader
 
         # Copy the files directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
@@ -116,9 +114,9 @@ services:
         # files from another publicly-accessible Drupal site instead of
         # syncing the entire files directory into the Tugboat Preview.
         # This results in smaller previews and reduces the build time.
-        - drush -r "${DOCROOT}" pm-download stage_file_proxy
-        - drush -r "${DOCROOT}" pm-enable --yes stage_file_proxy
-        - drush -r "${DOCROOT}" variable-set stage_file_proxy_origin
+        - composer require --dev drupal/stage_file_proxy
+        - drush pm:enable --yes stage_file_proxy
+        - drush config:set --yes stage_file_proxy.settings origin
           "http://www.example.com"
 
       # Commands that build the site. This is where you would add things
@@ -128,8 +126,11 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
-        - drush -r "${DOCROOT}" cache-rebuild
-        - drush -r "${DOCROOT}" updb -y
+        - composer install --optimize-autoloader
+        - drush cache:rebuild
+        - drush config:import -y
+        - drush updatedb -y
+        - drush cache:rebuild
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
