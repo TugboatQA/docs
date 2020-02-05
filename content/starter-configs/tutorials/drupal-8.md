@@ -55,7 +55,6 @@ The Tugboat configuration is managed by a
 configuration you can use as a starting point, with comments to explain what's
 going on:
 
-<!-- prettier-ignore-start -->
 ```yaml
 services:
   # What to call the service hosting the site.
@@ -81,7 +80,8 @@ services:
         - a2enmod headers rewrite
 
         # Install drush-launcher, if desired.
-        - wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
+        - wget -O /usr/local/bin/drush
+          https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
         - chmod +x /usr/local/bin/drush
 
         # Link the document root to the expected path. This example links /web
@@ -94,7 +94,8 @@ services:
       # already be present.
       update:
         # Use the tugboat-specific Drupal settings.
-        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php"
+          "${DOCROOT}/sites/default/"
 
         # Install/update packages managed by composer, including drush.
         - composer install --optimize-autoloader
@@ -102,7 +103,8 @@ services:
         # Copy the files directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.
-        - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
+        - rsync -av --delete user@example.com:/path/to/files/
+          "${DOCROOT}/sites/default/files/"
         - chgrp -R www-data "${DOCROOT}/sites/default/files"
         - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
         - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
@@ -114,7 +116,8 @@ services:
         # This results in smaller previews and reduces the build time.
         - composer require --dev drupal/stage_file_proxy
         - drush pm:enable --yes stage_file_proxy
-        - drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
+        - drush config:set --yes stage_file_proxy.settings origin
+          "http://www.example.com"
 
       # Commands that build the site. This is where you would add things
       # like feature reverts or any other drush commands required to
@@ -149,7 +152,6 @@ services:
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz
 ```
-<!-- prettier-ignore-end -->
 
 Want to know more about something mentioned in the comments of this config file?
 Check out these topics:
