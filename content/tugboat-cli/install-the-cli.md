@@ -38,6 +38,25 @@ Extract the downloaded `tugboat.tar.gz` file to `/usr/local/bin`
 tar -zxf tugboat.tar.gz -C /usr/local/bin/
 ```
 
+#### MacOS Catalina
+
+With Catalina's enhanced security features, the first time you try to execute a
+CLI command, you'll get a dialog telling you that the Tugboat CLI can't be
+opened:
+
+![Tugboat CLI can't be opened](../../_images/tugboat-cli-cant-be-opened.png)
+
+Until we're able to release a signed version of the CLI, here's how to work
+around this issue:
+
+1. Go into the Finder, and locate the `tugboat` file.
+2. Control-click or right-click the file, and then choose the **OPEN** option
+   from the drop-down menu.
+3. Press the **Open** button.
+
+This saves the Tugboat CLI as an exception to your security settings. From here,
+you should be able to use it as you normally would.
+
 ### Linux
 
 Extract the downloaded `tugboat.tar.gz` file to `/usr/local/bin`
