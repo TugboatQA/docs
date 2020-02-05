@@ -46,8 +46,8 @@ opened:
 
 ![Tugboat CLI can't be opened](../../_images/tugboat-cli-cant-be-opened.png)
 
-Until we're able to release a signed version of the CLI, here's how to
-workaround this issue:
+Until we're able to release a signed version of the CLI, here's how to work
+around this issue:
 
 1. Go into the Finder, and locate the `tugboat` file.
 2. Control-click or right-click the file, and then choose the **OPEN** option
