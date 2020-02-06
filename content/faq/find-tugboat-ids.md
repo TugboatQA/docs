@@ -161,8 +161,8 @@ tugboat.qa/ - i.e. tugboat.qa/**5e3c415e7b9f1ce8aa1c0856**.
 
 ### In the Tugboat CLI:
 
-With the Tugboat CLI installed, you can find IDs using a combination of commands
-and args.
+With the [Tugboat CLI installed](/tugboat-cli/install-the-cli/), you can find
+IDs using a combination of commands and args.
 
 - [Project ID](#project-id-in-the-cli)
 - [Repository ID](#repository-id-in-the-cli)
