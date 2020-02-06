@@ -88,6 +88,14 @@ services:
         # to the docroot.
         - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
+        # A common practice in many Drupal projects is to store the config and
+        # private files outside of the Drupal root. If that's the case for your
+        # project, you can either specify the absolute paths to those
+        # directories in your settings.local.php, or you can symlink them in
+        # here. Here is an example of the latter option:
+        - ln -snf "${TUGBOAT_ROOT/config" "${DOCROOT}/../config"
+        - ln -snf "${TUGBOAT_ROOT/files-private" "${DOCROOT}/../files-private"
+
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
       # skipping the init step, because the results of that step will
@@ -100,8 +108,8 @@ services:
         # Install/update packages managed by composer, including drush.
         - composer install --optimize-autoloader
 
-        # Copy the files directory from an external server. The public
-        # SSH key found in the Tugboat Repository configuration must be
+        # Copy Drupal's public files directory from an external server. The
+        # public SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.
         - rsync -av --delete user@example.com:/path/to/files/
           "${DOCROOT}/sites/default/files/"
