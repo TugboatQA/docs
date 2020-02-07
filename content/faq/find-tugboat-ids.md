@@ -204,7 +204,7 @@ tugboat ls repos
 You'll see a response similar to this:
 
 ```sh
-Project: 5dfic23e53my123401b8d0e5 - Company ABC Marketing Site
+   Project: 5dfic23e53my123401b8d0e5 - Company ABC Marketing Site
 
       Repository ID             Size      Previews  Provider   Name
       ------------------------  --------  --------  ---------  -----------------------
@@ -235,7 +235,7 @@ tugboat ls repos project=5dfic23e53my123401b8d0e5
 You'll see a response similar to this:
 
 ```sh
-Project: 5dfic23e53my123401b8d0e5 - Company ABC Marketing Site
+   Project: 5dfic23e53my123401b8d0e5 - Company ABC Marketing Site
 
       Repository ID             Size      Previews  Provider   Name
       ------------------------  --------  --------  ---------  -----------------------
@@ -262,7 +262,7 @@ tugboat ls previews
 You'll see a response similar to this:
 
 ```sh
-Project: 5dfic23e53my123401b8d0e5 - Company ABC Marketing Site
+   Project: 5dfic23e53my123401b8d0e5 - Company ABC Marketing Site
       Repository: 5dfic23e53my123401b8d0e7 - CompanyABC/marketing
 
          Preview ID                 OPTS     Status       Size      Name
@@ -270,7 +270,7 @@ Project: 5dfic23e53my123401b8d0e5 - Company ABC Marketing Site
          5dfic54972db400001b8d290    ⚓️ ☾️     ready        622.72MB  master
            https://master-5vt12vtfuqy0chpzdhernpafabmixrny.tugboat.qa
 
-Project: 5mdkso12376f987ckif01f10 - Company ABC Documentation Site
+   Project: 5mdkso12376f987ckif01f10 - Company ABC Documentation Site
       Repository: 5mdkso12376f987ckif0c3dd - CompanyABC/documentation-site
 
           Preview ID                 OPTS     Status       Size      Name
@@ -291,7 +291,7 @@ tugboat ls previews project=5dfic23e53my123401b8d0e5
 You'll see a response similar to this:
 
 ```sh
-Project: 5dfic23e53my123401b8d0e5 - Company ABC Marketing Site
+   Project: 5dfic23e53my123401b8d0e5 - Company ABC Marketing Site
       Repository: 5dfic23e53my123401b8d0e7 - CompanyABC/marketing
 
          Preview ID                 OPTS     Status       Size      Name
@@ -319,7 +319,7 @@ tugboat ls previews repo=5dfic23e53my123401b8d0e7
 You'll see a response similar to this:
 
 ```sh
-Project: 5mdkso12376f987ckif01f10 - Company ABC Documentation Site
+   Project: 5mdkso12376f987ckif01f10 - Company ABC Documentation Site
       Repository: 5mdkso12376f987ckif0c3dd - CompanyABC/documentation-site
 
          Preview ID                 OPTS     Status       Size      Name
@@ -343,7 +343,7 @@ tugboat ls services preview=5dfic54972db400001b8d290
 You'll see a response similar to this:
 
 ```sh
-Project: 5dfic23e53my123401b8d0e5 - Company ABC Marketing Site
+   Project: 5dfic23e53my123401b8d0e5 - Company ABC Marketing Site
       Repository: 5dfic23e53my123401b8d0e7 - CompanyABC/marketing
          Preview: 5dfic54972db400001b8d290 - master
 
