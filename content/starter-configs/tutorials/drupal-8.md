@@ -43,6 +43,8 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
+// Use the TUGBOAT_REPO_ID to generate a hash salt for Tugboat sites.
+$settings['hash_salt'] = hash('sha256', getenv('TUGBOAT_REPO_ID'));
 ```
 
 ## Configure Tugboat
@@ -77,33 +79,37 @@ services:
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
 
-        # Install drush-launcher
+        # Install drush-launcher, if desired.
         - wget -O /usr/local/bin/drush
           https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
         - chmod +x /usr/local/bin/drush
 
         # Link the document root to the expected path. This example links /web
-        # to the docroot
+        # to the docroot.
         - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+
+        # A common practice in many Drupal projects is to store the config and
+        # private files outside of the Drupal root. If that's the case for your
+        # project, you can either specify the absolute paths to those
+        # directories in your settings.local.php, or you can symlink them in
+        # here. Here is an example of the latter option:
+        - ln -snf "${TUGBOAT_ROOT/config" "${DOCROOT}/../config"
+        - ln -snf "${TUGBOAT_ROOT/files-private" "${DOCROOT}/../files-private"
 
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-        # Use the tugboat-specific Drupal settings
+        # Use the tugboat-specific Drupal settings.
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php"
           "${DOCROOT}/sites/default/"
 
-        # Generate a unique hash_salt to secure the site
-        - echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >>
-          "${DOCROOT}/sites/default/settings.local.php"
+        # Install/update packages managed by composer, including drush.
+        - composer install --optimize-autoloader
 
-        # Install/update packages managed by composer, including drush
-        - composer install --no-ansi
-
-        # Copy the files directory from an external server. The public
-        # SSH key found in the Tugboat Repository configuration must be
+        # Copy Drupal's public files directory from an external server. The
+        # public SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.
         - rsync -av --delete user@example.com:/path/to/files/
           "${DOCROOT}/sites/default/files/"
@@ -116,9 +122,9 @@ services:
         # files from another publicly-accessible Drupal site instead of
         # syncing the entire files directory into the Tugboat Preview.
         # This results in smaller previews and reduces the build time.
-        - drush -r "${DOCROOT}" pm-download stage_file_proxy
-        - drush -r "${DOCROOT}" pm-enable --yes stage_file_proxy
-        - drush -r "${DOCROOT}" variable-set stage_file_proxy_origin
+        - composer require --dev drupal/stage_file_proxy
+        - drush pm:enable --yes stage_file_proxy
+        - drush config:set --yes stage_file_proxy.settings origin
           "http://www.example.com"
 
       # Commands that build the site. This is where you would add things
@@ -128,8 +134,11 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
-        - drush -r "${DOCROOT}" cache-rebuild
-        - drush -r "${DOCROOT}" updb -y
+        - composer install --optimize-autoloader
+        - drush cache:rebuild
+        - drush config:import -y
+        - drush updatedb -y
+        - drush cache:rebuild
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.

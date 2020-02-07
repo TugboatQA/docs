@@ -6,34 +6,34 @@ weight: 4
 
 The following attributes control how a Service is built:
 
-| Key                            | Type    | Description                                         |
-| :----------------------------- | :------ | :-------------------------------------------------- |
-| [image](#image)                | String  | The Docker image to use for this Service            |
-| [checkout](#checkout)          | Boolean | Whether to clone the git repository to this Service |
-| [checkout_path](#checkoutpath) | String  | Where to clone the git repository                   |
-| [depends](#depends)            | List    | List of other Services that this Service depends on |
-| [commands](#commands)          | List    | List of commands to run for various build stages    |
-| [visualdiffs](#visualdiffs)    | List    | List of visualdiffs to generate for the Service     |
+| Key                             | Type    | Description                                         |
+| :------------------------------ | :------ | :-------------------------------------------------- |
+| [image](#image)                 | String  | The Docker image to use for this Service            |
+| [checkout](#checkout)           | Boolean | Whether to clone the git repository to this Service |
+| [checkout_path](#checkout-path) | String  | Where to clone the git repository                   |
+| [depends](#depends)             | List    | List of other Services that this Service depends on |
+| [commands](#commands)           | List    | List of commands to run for various build stages    |
+| [visualdiffs](#visualdiffs)     | List    | List of visualdiffs to generate for the Service     |
 
 The following attributes configure how Service URLs are generated
 
-| Key                      | Type    | Description                                               |
-| :----------------------- | :------ | :-------------------------------------------------------- |
-| [aliases](#aliases)      | List    | A list of aliases to generate URLs for                    |
-| [alias_type](#aliastype) | String  | What kind of aliases to generate                          |
-| [subpath](#subpath)      | Boolean | Whether subpath URLs should be generated for this Service |
+| Key                       | Type    | Description                                               |
+| :------------------------ | :------ | :-------------------------------------------------------- |
+| [aliases](#aliases)       | List    | A list of aliases to generate URLs for                    |
+| [alias_type](#alias-type) | String  | What kind of aliases to generate                          |
+| [subpath](#subpath)       | Boolean | Whether subpath URLs should be generated for this Service |
 
 The following attributes configure how the Tugboat proxy routes HTTP requests to
 the Service:
 
-| Key                        | Type    | Description                                               |
-| :------------------------- | :------ | :-------------------------------------------------------- |
-| [expose](#expose)          | Integer | Which port the Service should expose to the Tugboat proxy |
-| [default](#default)        | Boolean | Whether this is the default Service for a Preview.        |
-| [http](#http)              | Boolean | Whether the Service should be available via HTTP          |
-| [https](#https)            | Boolean | Whether the Service should be available via HTTPS         |
-| [domain](#domain)          | String  | A custom domain for Tugboat to generate URLs with         |
-| [subpath_map](#subpathmap) | Boolean | Whether to map the generated subpath to "/"               |
+| Key                         | Type    | Description                                               |
+| :-------------------------- | :------ | :-------------------------------------------------------- |
+| [expose](#expose)           | Integer | Which port the Service should expose to the Tugboat proxy |
+| [default](#default)         | Boolean | Whether this is the default Service for a Preview.        |
+| [http](#http)               | Boolean | Whether the Service should be available via HTTP          |
+| [https](#https)             | Boolean | Whether the Service should be available via HTTPS         |
+| [domain](#domain)           | String  | A custom domain for Tugboat to generate URLs with         |
+| [subpath_map](#subpath-map) | Boolean | Whether to map the generated subpath to "/"               |
 
 ---
 
@@ -98,7 +98,7 @@ domains as a `CNAME` to `previews.tugboat.qa`. A wildcard entry is required if
 A list of aliases to generate URLs for. If set, additional alias URLs will be
 generated for the service. These URLs can be used to route to different
 endpoints inside of the Service, such as for a Drupal Multisite. How the alias
-URLs are constructed depend on the value of [`alias_type`](#aliastype)
+URLs are constructed depend on the value of [`alias_type`](#alias-type)
 
 ---
 
