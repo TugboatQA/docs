@@ -1,5 +1,5 @@
 ---
-title: "Generic Lamp"
+title: "Generic LAMP"
 date: 2019-09-19T10:59:39-04:00
 weight: 2
 ---
