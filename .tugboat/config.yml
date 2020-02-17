@@ -61,12 +61,12 @@ services:
             - /setting-up-services/how-to-set-up-services/services-in-action/
             - /setting-up-services/how-to-set-up-services/set-the-document-root-path/
             - /setting-up-services/how-to-set-up-services/specify-a-service-image/
-            - /setting-up-services/
-            - /setting-up-services/docker-pull/
-            - /setting-up-services/image-version-tags/
-            - /setting-up-services/mirror-production-with-image/
-            - /setting-up-services/third-party-docker-images/
-            - /setting-up-services/using-tugboat-images/
+            - /setting-up-services/service-images/
+            - /setting-up-services/service-images/docker-pull/
+            - /setting-up-services/service-images/image-version-tags/
+            - /setting-up-services/service-images/mirror-production-with-image/
+            - /setting-up-services/service-images/third-party-docker-images/
+            - /setting-up-services/service-images/using-tugboat-images/
             - /setting-up-tugboat/
             - /setting-up-tugboat/add-repos-to-the-project/
             - /setting-up-tugboat/connect-with-your-provider/
