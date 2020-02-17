@@ -4,9 +4,8 @@ date: 2019-09-19T11:00:28-04:00
 weight: 6
 ---
 
-Here is an example of how you might use Tugboat to run automated testing with
-SimpleTest; simply add a snippet like this to your
-[configuration file](/setting-up-tugboat/create-a-tugboat-config-file/).
+Here is an example of how you might use Tugboat to run automated testing with SimpleTest; simply add a snippet like this
+to your [configuration file](/setting-up-tugboat/create-a-tugboat-config-file/).
 
 ```services:
   php:

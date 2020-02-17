@@ -4,16 +4,13 @@ date: 2019-09-19T11:00:39-04:00
 weight: 1
 ---
 
-A static HTML Tugboat Preview serves files exactly as they are found in the git
-repository.
+A static HTML Tugboat Preview serves files exactly as they are found in the git repository.
 
 ## Configure Tugboat
 
-The Tugboat configuration is managed by a
-[YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
-`.tugboat/config.yml` in the git repository. Here's a basic static HTML
-configuration you can use as a starting point, with comments to explain what's
-going on:
+The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
+`.tugboat/config.yml` in the git repository. Here's a basic static HTML configuration you can use as a starting point,
+with comments to explain what's going on:
 
 ```yaml
 services:
@@ -36,8 +33,7 @@ services:
         - ln -snf "${TUGBOAT_ROOT}" "${DOCROOT}"
 ```
 
-Want to know more about something mentioned in the comments of this config file?
-Check out these topics:
+Want to know more about something mentioned in the comments of this config file? Check out these topics:
 
 - [Name your Service](/setting-up-services/how-to-set-up-services/name-your-service/)
 - [Specify a Service image](/setting-up-services/how-to-set-up-services/specify-a-service-image/)
@@ -48,6 +44,5 @@ Check out these topics:
 
 ## Start Building Previews!
 
-Once this Tugboat configuration file is committed to your git repository, you
-can start
+Once this Tugboat configuration file is committed to your git repository, you can start
 [building previews](/building-a-preview/administer-previews/build-previews/)!

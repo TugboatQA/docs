@@ -5,23 +5,18 @@ weight: 6
 ---
 
 Tugboat maintains several Docker images. These images are extensions of
-[official Docker images](https://docs.docker.com/docker-hub/official_repos) and
-include tools and configurations that help them work well with Tugboat.
-Tugboat's images track the upstream images.
+[official Docker images](https://docs.docker.com/docker-hub/official_repos) and include tools and configurations that
+help them work well with Tugboat. Tugboat's images track the upstream images.
 
-All of our images are available on
-[Docker Hub](https://hub.docker.com/u/tugboatqa/). The source code used to
-generate these images is available on
-[GitHub](https://github.com/TugboatQA/images).
+All of our images are available on [Docker Hub](https://hub.docker.com/u/tugboatqa/). The source code used to generate
+these images is available on [GitHub](https://github.com/TugboatQA/images).
 
-It is best practice to use the most specific tag available for a given image to
-prevent any unforeseen upstream changes from affecting your Previews. For
-example, instead of `tugboatqa/mysql:5`, it is generally better to use
+It is best practice to use the most specific tag available for a given image to prevent any unforeseen upstream changes
+from affecting your Previews. For example, instead of `tugboatqa/mysql:5`, it is generally better to use
 `tugboatqa/mysql:5.6`.
 
-That said, sometimes the version of a Service doesn't really matter much. For
-example, it may not matter which version of memcached you use, and you can be
-sure you always have the most recent version available by specifying
+That said, sometimes the version of a Service doesn't really matter much. For example, it may not matter which version
+of memcached you use, and you can be sure you always have the most recent version available by specifying
 `tugboatqa/memcached` or `tugboatqa/memcached:latest`. See also:
 [Image version tags](/setting-up-services/service-images/image-version-tags/)
 
@@ -53,30 +48,26 @@ sure you always have the most recent version available by specifying
 
 #### Alpine
 
-The Alpine image is extremely minimal by nature. Unlike the other images, it
-does not have any extra tools installed except those required to use git with
-SSH.
+The Alpine image is extremely minimal by nature. Unlike the other images, it does not have any extra tools installed
+except those required to use git with SSH.
 
 #### Elastic Search
 
 The 2.x tags of this image extend the official Elast Search image on
-[Docker Hub](https://hub.docker.com/_/elasticsearch/). These images are based on
-Debian.
+[Docker Hub](https://hub.docker.com/_/elasticsearch/). These images are based on Debian.
 
-The newer tags of this image extend the official Elastic Search images
-maintained by [Elastic.co](https://www.docker.elastic.co/). These images are
-based on CentOS.
+The newer tags of this image extend the official Elastic Search images maintained by
+[Elastic.co](https://www.docker.elastic.co/). These images are based on CentOS.
 
 #### MySQL/MariaDB/Percona
 
-The MySQL, MariaDB, and Percona images are configured the same way. Each have a
-default database named `tugboat` as well as a user named `tugboat` with a
-password of `tugboat`. The `tugboat` user has full access to the `tugboat`
-database. In addition, the `root` database user does not have a password, but
-can only be used to connect to the database from the MariaDB or MySQL service.
+The MySQL, MariaDB, and Percona images are configured the same way. Each have a default database named `tugboat` as well
+as a user named `tugboat` with a password of `tugboat`. The `tugboat` user has full access to the `tugboat` database. In
+addition, the `root` database user does not have a password, but can only be used to connect to the database from the
+MariaDB or MySQL service.
 
-This means that in order to do any root-level database operations, they must be
-done by the commands defined for the MySQL or MariaDB service.
+This means that in order to do any root-level database operations, they must be done by the commands defined for the
+MySQL or MariaDB service.
 
 ```yaml
 services:
@@ -91,13 +82,11 @@ services:
 
 ##### PHP Extensions
 
-The PHP images provided [upstream](https://hub.docker.com/_/php/) do not use
-apt-get to install PHP extensions. Instead, there are helper scripts that let
-you install additional extensions as required. The images provided by Tugboat
-attempt to balance installing the most commonly used extensions with reserving
-as much disk space as possible. If an extension that you need is not installed,
-use `docker-php-ext-configure`, `docker-php-ext-install`, and
-`docker-php-ext-enable` in your Service commands.
+The PHP images provided [upstream](https://hub.docker.com/_/php/) do not use apt-get to install PHP extensions. Instead,
+there are helper scripts that let you install additional extensions as required. The images provided by Tugboat attempt
+to balance installing the most commonly used extensions with reserving as much disk space as possible. If an extension
+that you need is not installed, use `docker-php-ext-configure`, `docker-php-ext-install`, and `docker-php-ext-enable` in
+your Service commands.
 
 ```yaml
 commands:
@@ -112,9 +101,8 @@ More information about these helper scripts can be found in the
 
 ##### Apache Modules
 
-In order to keep the service containers as lean as possible, only the most basic
-apache modules are enabled in the PHP/Apache images. To enable a missing module,
-add it with a service command
+In order to keep the service containers as lean as possible, only the most basic apache modules are enabled in the
+PHP/Apache images. To enable a missing module, add it with a service command
 
 ```yaml
 commands:

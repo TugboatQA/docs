@@ -6,8 +6,7 @@ weight: 4
 
 ## How to find Tugboat IDs
 
-Whether you're reaching out to support or working in the Tugboat CLI, sometimes
-you'll need to know a Tugboat ID.
+Whether you're reaching out to support or working in the Tugboat CLI, sometimes you'll need to know a Tugboat ID.
 
 - [Find Tugboat IDs in the web interface](#in-the-tugboat-web-interface)
 - [Find Tugboat IDs in the CLI](#in-the-tugboat-cli)
@@ -21,16 +20,14 @@ you'll need to know a Tugboat ID.
 
 #### Project ID in the web interface
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
-   upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
 2. Select the project whose ID you want to know.
-3. Look in the address bar for the project ID; it's everything following
-   tugboat.qa/ - i.e. tugboat.qa/**5e3c40e79366b1c43a153f38**.
+3. Look in the address bar for the project ID; it's everything following tugboat.qa/ - i.e.
+   tugboat.qa/**5e3c40e79366b1c43a153f38**.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
-upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -38,8 +35,8 @@ Select the project whose ID you want to know.
 
 ![Select the project](/_images/select-a-project.png)
 
-Look in the address bar for the project ID; it's everything following
-tugboat.qa/ - i.e. tugboat.qa/**5e3c40e79366b1c43a153f38**.
+Look in the address bar for the project ID; it's everything following tugboat.qa/ - i.e.
+tugboat.qa/**5e3c40e79366b1c43a153f38**.
 
 ![Project ID in address bar](/_images/tugboat-project-id.png)
 
@@ -47,17 +44,15 @@ tugboat.qa/ - i.e. tugboat.qa/**5e3c40e79366b1c43a153f38**.
 
 #### Repository ID in the web interface
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
-   upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
 2. Select the project that contains the repository whose ID you want to know.
 3. Click into the repository whose ID you want to know.
-4. Look in the address bar for the repository ID; it's everything following
-   tugboat.qa/ - i.e. tugboat.qa/**5e3c414e9366b1d9e1154334**.
+4. Look in the address bar for the repository ID; it's everything following tugboat.qa/ - i.e.
+   tugboat.qa/**5e3c414e9366b1d9e1154334**.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
-upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -69,8 +64,8 @@ Click into the repository whose ID you want to know.
 
 ![Click into Tugboat repository](/_images/click-into-tugboat-repository.png)
 
-Look in the address bar for the repository ID; it's everything following
-tugboat.qa/ - i.e. tugboat.qa/**5e3c414e9366b1d9e1154334**.
+Look in the address bar for the repository ID; it's everything following tugboat.qa/ - i.e.
+tugboat.qa/**5e3c414e9366b1d9e1154334**.
 
 ![Repository ID in address bar](/_images/repository-id-in-address-bar.png)
 
@@ -78,19 +73,15 @@ tugboat.qa/ - i.e. tugboat.qa/**5e3c414e9366b1d9e1154334**.
 
 #### Preview ID in the web interface
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
-   upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
 2. Select the project that contains the Preview whose ID you want to know.
-3. Click the name of the repo that contains the Preview whose ID you want to
-   know.
-4. Click into the Preview's name, and look in the address bar for the Preview
-   ID; it's everything following tugboat.qa/ - i.e.
-   tugboat.qa/**5e3c415d9366b17547154387**.
+3. Click the name of the repo that contains the Preview whose ID you want to know.
+4. Click into the Preview's name, and look in the address bar for the Preview ID; it's everything following
+   tugboat.qa/ - i.e. tugboat.qa/**5e3c415d9366b17547154387**.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
-upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -106,8 +97,8 @@ Click into the Preview's name.
 
 ![Click into Preview name](/_images/click-into-preview-name.png)
 
-Look in the address bar for the Preview ID; it's everything following
-tugboat.qa/ - i.e. tugboat.qa/**5e3c415d9366b17547154387**.
+Look in the address bar for the Preview ID; it's everything following tugboat.qa/ - i.e.
+tugboat.qa/**5e3c415d9366b17547154387**.
 
 ![Preview ID in the address bar](/_images/preview-id-in-address-bar.png)
 
@@ -115,22 +106,16 @@ tugboat.qa/ - i.e. tugboat.qa/**5e3c415d9366b17547154387**.
 
 #### Service ID in the web interface
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
-   upper-right of the Tugboat screen.
-2. Select the project that contains the Preview whose service ID you want to
-   know.
-3. Click the name of the repo that contains the Preview whose service ID you
-   want to know.
-4. Click into the name of the Preview that contains the service whose ID you
-   want to know.
-5. Click into the service and look in the address bar for the service ID; it's
-   everything following tugboat.qa/ - i.e.
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+2. Select the project that contains the Preview whose service ID you want to know.
+3. Click the name of the repo that contains the Preview whose service ID you want to know.
+4. Click into the name of the Preview that contains the service whose ID you want to know.
+5. Click into the service and look in the address bar for the service ID; it's everything following tugboat.qa/ - i.e.
    tugboat.qa/**5e3c415e7b9f1ce8aa1c0856**.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
-upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -138,13 +123,11 @@ Select the project that contains the Preview whose service ID you want to know.
 
 ![Select the project](/_images/select-a-project.png)
 
-Click the name of the repo that contains the Preview whose service ID you want
-to know.
+Click the name of the repo that contains the Preview whose service ID you want to know.
 
 ![Click into Tugboat repository](/_images/click-into-tugboat-repository.png)
 
-Click into the name of the Preview that contains the service whose ID you want
-to know.
+Click into the name of the Preview that contains the service whose ID you want to know.
 
 ![Click into Preview name](/_images/click-into-preview-name.png)
 
@@ -152,8 +135,8 @@ Click into the service whose ID you want to know.
 
 ![Click into the service](/_images/click-into-service-name.png)
 
-Look in the address bar for the service ID; it's everything following
-tugboat.qa/ - i.e. tugboat.qa/**5e3c415e7b9f1ce8aa1c0856**.
+Look in the address bar for the service ID; it's everything following tugboat.qa/ - i.e.
+tugboat.qa/**5e3c415e7b9f1ce8aa1c0856**.
 
 ![Service ID in the address bar](/_images/service-id-in-address-bar.png)
 
@@ -161,8 +144,8 @@ tugboat.qa/ - i.e. tugboat.qa/**5e3c415e7b9f1ce8aa1c0856**.
 
 ### In the Tugboat CLI:
 
-With the [Tugboat CLI installed](/tugboat-cli/install-the-cli/), you can find
-IDs using a combination of commands and args.
+With the [Tugboat CLI installed](/tugboat-cli/install-the-cli/), you can find IDs using a combination of commands and
+args.
 
 - [Project ID](#project-id-in-the-cli)
 - [Repository ID](#repository-id-in-the-cli)
@@ -225,8 +208,7 @@ You'll see a response similar to this:
 
 ##### List the repositories in a project
 
-To list only the repository IDs for a specific project with the ID of
-`5dfic23e53my123401b8d0e5`:
+To list only the repository IDs for a specific project with the ID of `5dfic23e53my123401b8d0e5`:
 
 ```sh
 tugboat ls repos project=5dfic23e53my123401b8d0e5
@@ -281,8 +263,7 @@ You'll see a response similar to this:
 
 ##### List the Previews in a specific project
 
-To list only the Previews in a specific project with the ID of
-`5dfic23e53my123401b8d0e5`:
+To list only the Previews in a specific project with the ID of `5dfic23e53my123401b8d0e5`:
 
 ```sh
 tugboat ls previews project=5dfic23e53my123401b8d0e5
@@ -309,8 +290,7 @@ You'll see a response similar to this:
 
 ##### List the Previews in a specific repository
 
-To list only the Previews in a specific repository with the ID of
-`5dfic23e53my123401b8d0e7`:
+To list only the Previews in a specific repository with the ID of `5dfic23e53my123401b8d0e7`:
 
 ```sh
 tugboat ls previews repo=5dfic23e53my123401b8d0e7
@@ -333,8 +313,7 @@ You'll see a response similar to this:
 
 #### Service ID in the CLI
 
-To list the services in a specific Preview with the ID of
-`5dfic54972db400001b8d290`:
+To list the services in a specific Preview with the ID of `5dfic54972db400001b8d290`:
 
 ```sh
 tugboat ls services preview=5dfic54972db400001b8d290

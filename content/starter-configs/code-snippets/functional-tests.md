@@ -4,8 +4,7 @@ date: 2019-09-19T10:59:31-04:00
 weight: 5
 ---
 
-Here is an example of how you might use Tugboat to run functional tests; add a
-snippet like this to your
+Here is an example of how you might use Tugboat to run functional tests; add a snippet like this to your
 [configuration file](/setting-up-tugboat/create-a-tugboat-config-file/).
 
 In this case, the tests are run with CasperJS.

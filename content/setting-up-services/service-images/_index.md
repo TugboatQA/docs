@@ -10,7 +10,6 @@ pre = "<b></b>"
 
 # Service Images
 
-Details about Service images under the hood, including how to use your own
-Docker image and Tugboat-maintained images.
+Details about Service images under the hood, including how to use your own Docker image and Tugboat-maintained images.
 
 {{% children  %}}

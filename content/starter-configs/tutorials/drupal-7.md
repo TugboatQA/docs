@@ -4,19 +4,17 @@ date: 2019-09-19T10:59:15-04:00
 weight: 1
 ---
 
-Wondering how to configure Tugboat for a typical Drupal 7 repository? Every
-Drupal site tends to have slightly different requirements, so you may need to do
-more customizing, but this should get you started.
+Wondering how to configure Tugboat for a typical Drupal 7 repository? Every Drupal site tends to have slightly different
+requirements, so you may need to do more customizing, but this should get you started.
 
 ## Configure Drupal
 
-A common practice for managing Drupal's `settings.php` is to remove sensitive
-information, such as database credentials, before committing it to git. Then,
-the sensitive information is loaded from a `settings.local.php` file that exists
-only on the Drupal installation location.
+A common practice for managing Drupal's `settings.php` is to remove sensitive information, such as database credentials,
+before committing it to git. Then, the sensitive information is loaded from a `settings.local.php` file that exists only
+on the Drupal installation location.
 
-This pattern works very well with Tugboat. It lets you keep a Tugboat-specific
-set of configurations in your repository where it can be copied in during the
+This pattern works very well with Tugboat. It lets you keep a Tugboat-specific set of configurations in your repository
+where it can be copied in during the
 [Preview build process](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained).
 
 Add the following to the end of `settings.php`:
@@ -27,8 +25,7 @@ if (file_exists(DRUPAL_ROOT . '/' . conf_path() . '/settings.local.php')) {
 }
 ```
 
-Add a file to the git repository at `.tugboat/settings.local.php` with the
-following content:
+Add a file to the git repository at `.tugboat/settings.local.php` with the following content:
 
 ```php
 <?php
@@ -51,11 +48,9 @@ $databases = array (
 
 ## Configure Tugboat
 
-The Tugboat configuration is managed by a
-[YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
-`.tugboat/config.yml` in the git repository. Here's a basic Drupal 7
-configuration you can use as a starting point, with comments to explain what's
-going on:
+The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
+`.tugboat/config.yml` in the git repository. Here's a basic Drupal 7 configuration you can use as a starting point, with
+comments to explain what's going on:
 
 ```yaml
 services:
@@ -94,14 +89,12 @@ services:
       # already be present.
       update:
         # Use the tugboat-specific Drupal settings
-        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php"
-          "${DOCROOT}/sites/default/"
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
 
         # Copy the files directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.
-        - rsync -av --delete user@example.com:/path/to/files/
-          "${DOCROOT}/sites/default/files/"
+        - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
         - chgrp -R www-data "${DOCROOT}/sites/default/files"
         - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
         - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
@@ -113,8 +106,7 @@ services:
         # This results in smaller previews and reduces the build time.
         - drush -r "${DOCROOT}" pm-download stage_file_proxy
         - drush -r "${DOCROOT}" pm-enable --yes stage_file_proxy
-        - drush -r "${DOCROOT}" variable-set stage_file_proxy_origin
-          "http://www.example.com"
+        - drush -r "${DOCROOT}" variable-set stage_file_proxy_origin "http://www.example.com"
 
       # Commands that build the site. This is where you would add things
       # like feature reverts or any other drush commands required to
@@ -147,8 +139,7 @@ services:
         - rm /tmp/database.sql.gz
 ```
 
-Want to know more about something mentioned in the comments of this config file?
-Check out these topics:
+Want to know more about something mentioned in the comments of this config file? Check out these topics:
 
 - [Name your Service](/setting-up-services/how-to-set-up-services/name-your-service/)
 - [Specify a Service image](/setting-up-services/how-to-set-up-services/specify-a-service-image/)
@@ -161,6 +152,5 @@ Check out these topics:
 
 ## Start Building Previews!
 
-Once the Tugboat configuration file is committed to your git repository, you can
-start
+Once the Tugboat configuration file is committed to your git repository, you can start
 [building previews](/building-a-preview/administer-previews/build-previews/)!
