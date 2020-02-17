@@ -136,8 +136,7 @@ access in your Project -> Repository Settings:
 - {{% ui-text %}}Set Merge Request build status{{% /ui-text %}} On by default;
   Tugboat updates the merge request build status to reflect the state of its
   Preview.
-- {{% ui-text %}}Post Preview links in Merge Request comments{{% /ui-text %}}
-  Off by default; Tugboat adds a comment to a merge request with links to its
+- {{% ui-text %}}Post Preview links in Merge Request comments{{% /ui-text %}} Off by default; Tugboat adds a comment to a merge request with links to its
   Preview. The comment author is the person who authenticated the git repo to
   Tugboat; to change this, see:
   [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
