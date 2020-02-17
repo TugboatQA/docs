@@ -9,3 +9,5 @@ services:
       build:
         - hugo
         - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
+    visualdiffs:
+      - /setting-up-tugboat/connect-with-your-provider/
