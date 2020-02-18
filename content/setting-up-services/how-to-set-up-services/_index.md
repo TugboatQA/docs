@@ -10,7 +10,6 @@ pre = "<b></b>"
 
 # How to Set Up Services
 
-Taking you step-by-step through the process to set up Services in your
-config.yml file.
+Taking you step-by-step through the process to set up Services in your config.yml file.
 
 {{% children  %}}

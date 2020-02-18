@@ -14,8 +14,7 @@ How to set up Services, and more about images.
 
 {{% children depth="3" %}}
 
-A Tugboat Service plays the role of what a server might provide in a production
-environment. A service can be a web server, a database server, a cache store,
-etc. Services form the core of your
-[Config file](/setting-up-tugboat/create-a-tugboat-config-file/), working
-together to build a [Preview](/building-a-preview/).
+A Tugboat Service plays the role of what a server might provide in a production environment. A service can be a web
+server, a database server, a cache store, etc. Services form the core of your
+[Config file](/setting-up-tugboat/create-a-tugboat-config-file/), working together to build a
+[Preview](/building-a-preview/).

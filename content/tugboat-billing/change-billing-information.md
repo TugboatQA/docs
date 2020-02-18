@@ -6,8 +6,7 @@ weight: 3
 
 ## To change the billing information for your Tugboat project:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
-   upper-right of the Tugboat dashboard.
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat dashboard.
 2. Select the project where you want to change the billing info.
 3. Go to {{% ui-text %}}Project Settings{{% /ui-text %}}.
 4. Scroll down to {{% ui-text %}}Your Plan{{% /ui-text %}}.
@@ -21,8 +20,7 @@ From here, you can:
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the
-upper-right of the Tugboat dashboard.
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat dashboard.
 
 ![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 

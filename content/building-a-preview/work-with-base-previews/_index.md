@@ -10,8 +10,8 @@ pre = "<b></b>"
 
 # Using Base Previews
 
-To speed up your Preview builds, and reduce subsequent Preview builds to smaller
-files, set a Base Preview as a starting point for child Previews.
+To speed up your Preview builds, and reduce subsequent Preview builds to smaller files, set a Base Preview as a starting
+point for child Previews.
 
 {{% children  %}}
 

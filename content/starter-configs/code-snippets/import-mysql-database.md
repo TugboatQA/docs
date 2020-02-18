@@ -6,13 +6,11 @@ weight: 3
 
 This example assumes that there is a mysqldump file available somewhere via SSH.
 
-First, import the Tugboat Repository's
-[SSH key](/setting-up-tugboat/select-repo-settings/#set-up-remote-ssh-access) to
+First, import the Tugboat Repository's [SSH key](/setting-up-tugboat/select-repo-settings/#set-up-remote-ssh-access) to
 the server hosting the file.
 
-Then, use this snippet in your
-[configuration file](/setting-up-tugboat/create-a-tugboat-config-file/) to
-import the database into a [service](/setting-up-services/) named "mysql".
+Then, use this snippet in your [configuration file](/setting-up-tugboat/create-a-tugboat-config-file/) to import the
+database into a [service](/setting-up-services/) named "mysql".
 
 ```yaml
 services:

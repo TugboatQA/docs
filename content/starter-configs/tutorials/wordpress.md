@@ -4,20 +4,17 @@ date: 2019-09-19T11:00:57-04:00
 weight: 4
 ---
 
-Wondering how to configure Tugboat for a standard WordPress repository? Every
-site tends to have slightly different requirements, so you may need to do more
-customizing, but this should get you started.
+Wondering how to configure Tugboat for a standard WordPress repository? Every site tends to have slightly different
+requirements, so you may need to do more customizing, but this should get you started.
 
 ## Configure WordPress
 
-For WordPress to use environment-specific settings, you'll need to make some
-changes to `wp-config.php`. One way to do this is to commit a "default" version
-of the file to the git repository, and include a "local" config file with
-override options. That local file should not be included in the git repository.
+For WordPress to use environment-specific settings, you'll need to make some changes to `wp-config.php`. One way to do
+this is to commit a "default" version of the file to the git repository, and include a "local" config file with override
+options. That local file should not be included in the git repository.
 
-These are the settings we are particularly interested in for Tugboat, but the
-the concept could be extended to cover the remaining settings in
-`wp-config.php`:
+These are the settings we are particularly interested in for Tugboat, but the the concept could be extended to cover the
+remaining settings in `wp-config.php`:
 
 ```php
 if ( file_exists( dirname( __FILE__ ) . '/wp-config.local.php' ) )
@@ -41,8 +38,7 @@ if ( !defined('DB_HOST') )
     define('DB_HOST', 'localhost');
 ```
 
-Add a file to the git repository at `.tugboat/wp-config.local.php` with the
-following contents:
+Add a file to the git repository at `.tugboat/wp-config.local.php` with the following contents:
 
 ```php
 <?php
@@ -54,11 +50,9 @@ define('DB_HOST', 'mysql';
 
 ## Configure Tugboat
 
-The Tugboat configuration is managed by a
-[YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
-.tugboat/config.yml in the git repository. Here's a basic WordPress
-configuration you can use as a starting point, with comments to explain what's
-going on:
+The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
+.tugboat/config.yml in the git repository. Here's a basic WordPress configuration you can use as a starting point, with
+comments to explain what's going on:
 
 ```yaml
 services:
@@ -88,8 +82,7 @@ services:
         - docker-php-ext-install mysqli
 
         # Install wp-cli
-        - curl -O
-          https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+        - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         - cmod +x wp-cli.phar
         - mv wp-cli.phar /usr/local/bin/wp
 
@@ -109,8 +102,7 @@ services:
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.
         - mkdir -p "${DOCROOT}/wp-content/uploads" || /bin/true
-        - rsync -av --delete user@example.com:/path/to/wp-content/uploads/
-          "${DOCROOT}/wp-content/uploads/"
+        - rsync -av --delete user@example.com:/path/to/wp-content/uploads/ "${DOCROOT}/wp-content/uploads/"
         - chgrp -R www-data "${DOCROOT}/wp-content/uploads"
         - find "${DOCROOT}/wp-content/uploads" -type d -exec chmod 2775 {} \;
         - find "${DOCROOT}/wp-content/uploads" -type f -exec chmod 0664 {} \;
@@ -151,8 +143,7 @@ services:
         - rm /tmp/database.sql.gz
 ```
 
-Want to know more about something mentioned in the comments of this config file?
-Check out these topics:
+Want to know more about something mentioned in the comments of this config file? Check out these topics:
 
 - [Name your Service](/setting-up-services/how-to-set-up-services/name-your-service/)
 - [Specify a Service image](/setting-up-services/how-to-set-up-services/specify-a-service-image/)
@@ -165,6 +156,5 @@ Check out these topics:
 
 ## Start Building Previews!
 
-Once the Tugboat configuration file is committed to your git repository, you can
-start
+Once the Tugboat configuration file is committed to your git repository, you can start
 [building previews](/building-a-preview/administer-previews/build-previews/)!

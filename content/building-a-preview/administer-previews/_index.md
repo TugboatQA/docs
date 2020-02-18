@@ -10,7 +10,6 @@ pre = "<b></b>"
 
 # Administer Previews
 
-Build, update, and delete Previews. Change Preview states; Reset, Start/Stop,
-Lock/Unlock.
+Build, update, and delete Previews. Change Preview states; Reset, Start/Stop, Lock/Unlock.
 
 {{% children %}}

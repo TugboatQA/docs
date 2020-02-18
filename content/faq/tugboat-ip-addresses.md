@@ -4,10 +4,8 @@ date: 2019-09-26T15:27:00-04:00
 weight: 3
 ---
 
-Do you need to whitelist Tugboat's IP addresses so you can access something
-behind a firewall? We've got you covered! Our IPs sometimes change due to
-maintenance, so here's how you can use `dig` to perform a DNS lookup and check
-our IPs:
+Do you need to whitelist Tugboat's IP addresses so you can access something behind a firewall? We've got you covered!
+Our IPs sometimes change due to maintenance, so here's how you can use `dig` to perform a DNS lookup and check our IPs:
 
 ```sh
 $ dig txt _egress.tugboat.qa

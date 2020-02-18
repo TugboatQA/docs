@@ -4,15 +4,14 @@ date: 2019-09-19T10:59:39-04:00
 weight: 2
 ---
 
-A Generic LAMP stack should work with most PHP/MySQL web applications. You may
-need to do some customizing, but this should get you started.
+A Generic LAMP stack should work with most PHP/MySQL web applications. You may need to do some customizing, but this
+should get you started.
 
 ## Configure Tugboat
 
-The Tugboat configuration is managed by a
-[YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
-`.tugboat/config.yml` in the git repository. Here's a basic LAMP configuration
-you can use as a starting point, with comments to explain what's going on:
+The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
+`.tugboat/config.yml` in the git repository. Here's a basic LAMP configuration you can use as a starting point, with
+comments to explain what's going on:
 
 ```yaml
 services:
@@ -57,8 +56,7 @@ services:
         - rm /tmp/database.sql.gz
 ```
 
-Want to know more about something mentioned in the comments of this config file?
-Check out these topics:
+Want to know more about something mentioned in the comments of this config file? Check out these topics:
 
 - [Name your Service](/setting-up-services/how-to-set-up-services/name-your-service/)
 - [Specify a Service image](/setting-up-services/how-to-set-up-services/specify-a-service-image/)
@@ -71,6 +69,5 @@ Check out these topics:
 
 ## Start Building Previews!
 
-Once this Tugboat configuration file is committed to your git repository, you
-can start
+Once this Tugboat configuration file is committed to your git repository, you can start
 [building previews](/building-a-preview/administer-previews/build-previews/)!

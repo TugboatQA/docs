@@ -10,7 +10,7 @@ pre = "<b> </b>"
 
 # Inside Previews
 
-Learn more about how Previews work, how you can optimize your Preview builds,
-and what you'll see when you click into a Preview in the Tugboat dashboard.
+Learn more about how Previews work, how you can optimize your Preview builds, and what you'll see when you click into a
+Preview in the Tugboat dashboard.
 
 {{% children %}}

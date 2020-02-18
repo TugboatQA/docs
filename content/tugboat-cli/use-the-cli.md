@@ -6,8 +6,7 @@ weight: 3
 
 ## CLI commands
 
-Run `tugboat help` to see a list of commands you can execute. A few options
-include:
+Run `tugboat help` to see a list of commands you can execute. A few options include:
 
 #### View info
 
@@ -59,8 +58,7 @@ tugboat log 5b04c7d14c3dad00016a2e80
 
 ### View Services logs
 
-To view the logs for a Service with an ID of `5d092b16bd44cb22a498be90` that's
-running in a Preview:
+To view the logs for a Service with an ID of `5d092b16bd44cb22a498be90` that's running in a Preview:
 
 ```sh
 tugboat log 5d092b16bd44cb22a498be90
@@ -70,8 +68,7 @@ tugboat log 5d092b16bd44cb22a498be90
 
 ### Build a new Preview
 
-To build a new Preview from the master branch of a Tugboat Repository with an ID
-of `5b02ed093558930001c04cfa`:
+To build a new Preview from the master branch of a Tugboat Repository with an ID of `5b02ed093558930001c04cfa`:
 
 ```sh
 tugboat create preview master repo=5b02ed093558930001c04cfa
@@ -92,9 +89,8 @@ tugboat delete 5b02ed093558930001c04cfa -f
 
 #### Start a shell on the default Service of a Preview
 
-To start a shell on the
-[default Service](/setting-up-services/how-to-set-up-services/define-a-default-service/)
-of a Preview with an ID of `5b04c7d14c3dad00016a2e80`:
+To start a shell on the [default Service](/setting-up-services/how-to-set-up-services/define-a-default-service/) of a
+Preview with an ID of `5b04c7d14c3dad00016a2e80`:
 
 ```sh
 tugboat shell 5b04c7d14c3dad00016a2e80
@@ -104,27 +100,24 @@ tugboat shell 5b04c7d14c3dad00016a2e80
 
 To start a shell on Service that isn't the default:
 
-1. Start by
-   [viewing the Services of the Preview](#view-the-services-of-a-preview).
+1. Start by [viewing the Services of the Preview](#view-the-services-of-a-preview).
 2. Find the Service where you want to start a shell.
 3. Start the shell using the ID of the specific Service.
 
 {{%expand "Visual Walkthrough" %}}
 
-[View the Services of a Preview](#view-the-services-of-a-preview) via its ID; in
-this case, `5d1a5305216a15d4bf5dcbbb`:
+[View the Services of a Preview](#view-the-services-of-a-preview) via its ID; in this case, `5d1a5305216a15d4bf5dcbbb`:
 
 ```sh
 tugboat ls services preview=5d1a5305216a15d4bf5dcbbb
 ```
 
-Find the Service ID for the Service where you want to start the shell; in this
-case, I want the Service ID for the Service I've named `apache`:
+Find the Service ID for the Service where you want to start the shell; in this case, I want the Service ID for the
+Service I've named `apache`:
 
 ![Find the Service ID](/_images/tugboat-cli-find-service-id.png)
 
-Start the shell using the ID of the specific Service; in this example,
-`5d1a5307216a158a155dcbc3`:
+Start the shell using the ID of the specific Service; in this example, `5d1a5307216a158a155dcbc3`:
 
 ```sh
 tugboat shell 5d1a5307216a158a155dcbc3

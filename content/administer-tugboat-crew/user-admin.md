@@ -16,10 +16,8 @@ Tugboat has three different types of users:
 
 Admin users can:
 
-- Manage billing information. This information is disabled if the company is
-  paying with a purchase order.
-- Manage other users, including removing other admins, though they cannot remove
-  themselves.
+- Manage billing information. This information is disabled if the company is paying with a purchase order.
+- Manage other users, including removing other admins, though they cannot remove themselves.
 - Add repositories to the project.
 - Change repository settings.
 - Delete repositories.
@@ -31,8 +29,8 @@ Admin users can:
 Tugboat's generic User's permissions include:
 
 - Manage the repository configuration interface. This includes things like
-  [changing repository settings](/setting-up-tugboat/select-repo-settings/#change-repository-settings),
-  environment variables and SSH keys.
+  [changing repository settings](/setting-up-tugboat/select-repo-settings/#change-repository-settings), environment
+  variables and SSH keys.
 - Manage Previews. Create, remove, rebuild, or lock Previews.
 - Manage Base Previews.
 - Shell access to previews. Manage visual diff screenshots. View build logs.

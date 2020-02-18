@@ -10,7 +10,6 @@ pre = ""
 
 # Tutorials
 
-Information about configuring the frameworks, and example config.yml files to
-get you started.
+Information about configuring the frameworks, and example config.yml files to get you started.
 
 {{% children  %}}

@@ -14,6 +14,6 @@ Getting used to a new tool can sometimes be a little overwhelming.
 
 Don’t fret—we’re here for you!
 
-- Join our [Slack support channel](https://launchpass.com/tugboatqa) to connect
-  with Tugboat's developers, and fellow developers who are using Tugboat.
+- Join our [Slack support channel](https://launchpass.com/tugboatqa) to connect with Tugboat's developers, and fellow
+  developers who are using Tugboat.
 - Shoot us an email anytime at [support@tugboat.qa](mailto:support@tugboat.qa).
