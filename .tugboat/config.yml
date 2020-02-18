@@ -21,7 +21,7 @@ services:
             - /building-a-preview/administer-previews/
             - /building-a-preview/administer-previews/build-previews/
             - /building-a-preview/administer-previews/change-or-update-previews/
-            - /building-a-preview/administer-previews/change-preview-state/
+            - /building-a-preview/administer-previews/change-preview-states/
             - /building-a-preview/administer-previews/delete-previews/
             - /building-a-preview/automate-previews/
             - /building-a-preview/automate-previews/auto-delete/
@@ -74,15 +74,15 @@ services:
             - /setting-up-tugboat/create-a-tugboat-config-file/
             - /setting-up-tugboat/select-repo-settings/
             - /starter-configs/
-            - /starter-configs/code-snippits/
-            - /starter-configs/code-snippits/functional-tests/
-            - /starter-configs/code-snippits/generic-lamp/
-            - /starter-configs/code-snippits/import-mysql-database/
-            - /starter-configs/code-snippits/page-cache/
-            - /starter-configs/code-snippits/phpmyadmin/
-            - /starter-configs/code-snippits/simpletest
-            - /starter-configs/code-snippits/static-html
-            - /starter-configs/code-snippits/tennon-io
+            - /starter-configs/code-snippets/
+            - /starter-configs/code-snippets/functional-tests/
+            - /starter-configs/code-snippets/generic-lamp/
+            - /starter-configs/code-snippets/import-mysql-database/
+            - /starter-configs/code-snippets/page-cache/
+            - /starter-configs/code-snippets/phpmyadmin/
+            - /starter-configs/code-snippets/simpletest
+            - /starter-configs/code-snippets/static-html
+            - /starter-configs/code-snippets/tennon-io
             - /starter-configs/tutorials/
             - /starter-configs/tutorials/drupal-7/
             - /starter-configs/tutorials/drupal-8/
