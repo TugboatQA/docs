@@ -4,7 +4,9 @@ date: 2019-09-17T11:26:07-04:00
 weight: 5
 ---
 
-This page covers Tugboat's environment variables. If you're looking for information on how to use custom environment variables with Tugboat, see: [Create Custom Environment Variables](/setting-up-services/how-to-set-up-services/custom-environment-variables).
+This page covers Tugboat's environment variables. If you're looking for information on how to use custom environment
+variables with Tugboat, see:
+[Create Custom Environment Variables](/setting-up-services/how-to-set-up-services/custom-environment-variables).
 
 - [Tugboat Environment Variables](#tugboat-environment-variables)
 - [Exposed Service Variables](#exposed-service-variables)
