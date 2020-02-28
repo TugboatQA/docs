@@ -13,8 +13,7 @@ weight: 5
   - [GitHub](#github)
   - [GitLab](#gitlab)
   - [Stash/Bitbucket Server](#stash-bitbucket-server)
-- [Custom Environment Variables](#custom-environment-variables)
-  - [Storing complex data](#storing-complex-data)
+- [Custom Environment Variables](/setting-up-services/how-to-set-up-services/custom-environment-variables)
 
 ## Tugboat Environment Variables
 
