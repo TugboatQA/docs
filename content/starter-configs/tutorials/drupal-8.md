@@ -86,8 +86,8 @@ services:
         # project, you can either specify the absolute paths to those
         # directories in your settings.local.php, or you can symlink them in
         # here. Here is an example of the latter option:
-        - ln -snf "${TUGBOAT_ROOT/config" "${DOCROOT}/../config"
-        - ln -snf "${TUGBOAT_ROOT/files-private" "${DOCROOT}/../files-private"
+        - ln -snf "${TUGBOAT_ROOT}/config" "${DOCROOT}/../config"
+        - ln -snf "${TUGBOAT_ROOT}/files-private" "${DOCROOT}/../files-private"
 
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
