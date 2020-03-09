@@ -9,8 +9,8 @@ services:
             build:
                 - hugo
                 - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
-        #visualdiffs:
-        #    - /
+        visualdiffs:
+            - /
         #    - /administer-tugboat-crew/
         #    - /administer-tugboat-crew/add-a-user/
         #    - /administer-tugboat-crew/add-tugboat-bot-to-team/
