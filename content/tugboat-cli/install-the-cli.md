@@ -5,7 +5,9 @@ weight: 1
 ---
 
 The Tugboat Command Line Tool is available for Windows, MacOS, and Linux. In all three cases, we offer a stand-alone
-binary. MacOS and Linux users can also install and manage the Tugboat CLI via Homebrew.
+binary. MacOS users can also [install and manage the Tugboat CLI via Homebrew](#homebrew).
+
+## To use the stand-alone binary:
 
 1. Download the CLI from [https://dashboard.tugboat.qa/downloads](https://dashboard.tugboat.qa/downloads).
 2. Copy it to a location that the operating system can find in its execution path.
@@ -15,7 +17,6 @@ binary. MacOS and Linux users can also install and manage the Tugboat CLI via Ho
 - [Windows](#windows)
 - [MacOS](#macos)
 - [Linux](#linux)
-- [Homebrew](#homebrew)
 
 ### Windows
 
@@ -28,6 +29,37 @@ variable for each version of Windows can be found at
 [https://www.computerhope.com/issues/ch000549.htm](https://www.computerhope.com/issues/ch000549.htm)
 
 ### MacOS
+
+We recommend [using Homebrew to manage the Tugboat CLI](#homebrew) for MacOS users, but if you don't use brew, you can
+[install the CLI manually](#manual-install-on-macos) using the static binary.
+
+#### Homebrew
+
+With [Homebrew installed](https://brew.sh/), first enable the Tugboat Homebrew Tap:
+
+```sh
+brew tap tugboatqa/tugboat
+```
+
+##### Install the Tugboat CLI with Homebrew
+
+Once you're set up to use the Tugboat Homebrew tap, you can install the Tugboat CLI:
+
+```sh
+brew install tugboat-cli
+```
+
+##### Update the Tugboat CLI with Homebrew
+
+To update the Tugboat CLI to the latest version with Homebrew:
+
+```sh
+brew upgrade tugboat-cli
+```
+
+Happy brewing!
+
+#### Manual install on MacOS
 
 Extract the downloaded `tugboat.tar.gz` file to `/usr/local/bin`
 
