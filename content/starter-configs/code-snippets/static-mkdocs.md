@@ -35,6 +35,9 @@ services:
         # Use apt-get to download mkdocs into the Apache service
         - apt-get update
         - apt-get install -y mkdocs
+        # Clean up apt artifacts to keep the Preview small
+        - apt-get clean
+        - rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
       build:
         # Use the mkdocs command to build your static site
