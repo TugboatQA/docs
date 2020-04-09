@@ -8,6 +8,7 @@ There are a few different ways you can change or update your Base Previews:
 
 - [Change a Base Preview](#change-a-base-preview)
 - [Update a Base Preview](#update-a-base-preview)
+- [Change the Base Preview Type](#change-base-preview-type)
 
 ## Change a Base Preview
 
@@ -172,5 +173,55 @@ frequency and timing of these automatic updates.
 Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save your changes.
 
 ![Repository Settings -> Press Save Configuration button](/_images/repository-settings-press-save-configuration.png)
+
+{{% /expand%}}
+
+## Change Base Preview Type
+
+If you want to change the [Base Preview Type](../../preview-deep-dive/how-previews-work/#base-preview-auto-select) - for
+example, make a Repository Base Preview a Branch Base Preview instead:
+
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+2. Select the project where you want to change the Base Preview Type.
+3. Click the name of the repo that contains the Base Preview whose type you want to change.
+4. Find the Base Preview whose type you want to change, and go into {{% ui-text %}}Settings{{% /ui-text %}} for that
+   Base Preview.
+5. Select the radio button for the appropriate Base Preview Type.
+6. Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button.
+
+You can verify that the Base Preview Type has changed by clicking into the Repository or Branch Base Preview view filter
+to view only Base Previews of that type.
+
+{{%expand "Visual Walkthrough" %}}
+
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+
+![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
+
+Select the project where you want to change the Base Preview Type.
+
+![Select the project](/_images/select-project-to-set-base-preview.png)
+
+Click the name of the repo that contains the Base Preview whose type you want to change.
+
+![Select the Tugboat repository](/_images/select-repo-to-set-base-preview.png)
+
+Find the Base Preview whose type you want to change, and go into {{% ui-text %}}Settings{{% /ui-text %}} for that Base
+Preview.
+
+![Go into Settings for the Base Preview whose type you want to change](/_images/click-into-settings-for-base-preview-type-change.png)
+
+Select the radio button for the appropriate Base Preview Type.
+
+![Click the radio button next to the appropriate Base Preview Type](/_images/change-base-preview-type-radio-button.png)
+
+Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button.
+
+![Press the Save Configuration button to save changes](/_images/change-base-preview-type-save-configuration.png)
+
+You can verify that the Base Preview Type has changed by clicking into the Repository or Branch Base Preview view filter
+to view only Base Previews of that type.
+
+![View Base Preview Type with view filter](/_images/verify-base-preview-type-change-view-branch-base-previews.png)
 
 {{% /expand%}}

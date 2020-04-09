@@ -65,3 +65,57 @@ Select the {{% ui-text %}}Build with no base preview{{% /ui-text %}} option.
 ![Select Build with no base preview](/_images/select-build-with-no-base-preview.png)
 
 {{% /expand%}}
+
+## Build a Preview from a specific Base Preview
+
+If you want to use a Preview as a Base Preview for a specific Preview build, but don't want to set it as a [Repository]
+or [Branch Base Preview], you can manually build a Preview from a specific Base Preview.
+
+To build a Preview from a specific Base Preview:
+
+1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+2. Select the project where you want to build a Preview from a specific Base Preview.
+3. Click into the repo where you want to build a Preview from a specific Base Preview.
+4. Go to the {{% ui-text %}}Available to Build{{% /ui-text %}} section of the Repository Dashboard.
+5. Click into the drop-down next to the {{% ui-text %}}Build Preview{{% /ui-text %}} button for the Preview you'd like
+   to build from a specific Base Preview.
+6. Select the {{% ui-text %}}Select a base preview{{% /ui-text %}} option.
+7. Click the checkbox(es) next to any Base Previews you want to use as the basis for your new Preview build(s).
+8. Press the {{% ui-text %}}OK{{% /ui-text %}} button.
+
+{{%expand "Visual Walkthrough" %}}
+
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+
+![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
+
+Select the project where you want to build a Preview from a specific Base Preview.
+
+![Select the project](/_images/select-project-to-set-base-preview.png)
+
+Click into the repo where you want to build a Preview from a specific Base Preview.
+
+![Select the Tugboat repository](/_images/select-repo-to-set-base-preview.png)
+
+Go to the {{% ui-text %}}Available to Build{{% /ui-text %}} section of the Repository Dashboard.
+
+![Go to the Available to Build section of the Repository Dashboard](/_images/go-to-available-to-build.png)
+
+Click into the drop-down next to the {{% ui-text %}}Build Preview{{% /ui-text %}} button for the Preview you'd like to
+build from a specific Base Preview.
+
+![Click into the drop-down next to the Build Preview button](/_images/click-into-drop-down-next-to-build-preview.png)
+
+Select the {{% ui-text %}}Select a base preview{{% /ui-text %}} option.
+
+![Click the Select a base preview option](/_images/click-select-a-base-preview.png)
+
+Click the checkbox(es) next to any Previews you want to use as the basis for your new Preview build(s).
+
+![Click checkboxes to select the Previews you want to use as the basis for a Preview build](/_images/select-previews-to-use-as-base-preview.png)
+
+Press the {{% ui-text %}}OK{{% /ui-text %}} button.
+
+![Press the OK button](/_images/specify-base-previews-for-preview-build-press-ok.png)
+
+{{% /expand%}}
