@@ -68,8 +68,10 @@ Select the {{% ui-text %}}Build with no base preview{{% /ui-text %}} option.
 
 ## Build a Preview from a specific Base Preview
 
-If you want to use a Preview as a Base Preview for a specific Preview build, but don't want to set it as a [Repository]
-or [Branch Base Preview], you can manually build a Preview from a specific Base Preview.
+If you want to use a Preview as a Base Preview for a specific Preview build, but don't want to set it as a
+[Repository](/building-a-preview/preview-deep-dive/how-previews-work/#repository-base-preview) or
+[Branch Base Preview](/building-a-preview/preview-deep-dive/how-previews-work/#branch-base-preview), you can manually
+build a Preview from a specific Base Preview.
 
 To build a Preview from a specific Base Preview:
 
