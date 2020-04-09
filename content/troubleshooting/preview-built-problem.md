@@ -74,10 +74,10 @@ new Docker image. {{% /notice %}}
 
 When you're using Base Previews, you may experience a few different types of unexpected build results:
 
-- [A Preview that I didn't expect to see got built](#a-preview-that-i-didn-t-expect-to-see-got-built)
-- [A Preview that I did expect to see didn't build](#a-preview-that-i-did-expect-to-see-didn-t-build)
+- [A Preview that I didn't expect has built](#a-preview-that-i-didn-t-expect-has-built)
+- [A Preview I expected to build is missing](#a-preview-that-i-expected-to-build-is-missing)
 
-### A Preview that I didn't expect to see got built
+### A Preview that I didn't expect has built
 
 When you build Previews after building a Base Preview, those Previews generate new Preview builds from every Base
 Preview type that matches against the new Preview build. If you're seeing a build that you didn't expect,
@@ -95,7 +95,7 @@ or
 [change the Base Preview Type to Branch Base Preview](/building-a-preview/work-with-base-previews/change-or-update/#change-base-preview-type) -
 if you don't want every new Preview to build from both Base Previews.
 
-### A Preview that I did expect to see didn't build
+### A Preview that I expected to build is missing
 
 If you expected to see a Preview build that you don't see, there are a few different things to check:
 
