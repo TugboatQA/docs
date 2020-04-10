@@ -15,12 +15,16 @@ serve as your starting point.
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to set a Base Preview.
 3. Click the name of the repo that contains Preview you want to use as a Base Preview.
-4. Go to the {{% ui-text %}}Manage Base Previews{{% /ui-text %}} link on the Repository Dashboard.
-5. Click the checkbox next to the Preview you want to use as a Base Preview.
-6. Press the {{% ui-text %}}OK{{% /ui-text %}} button.
+4. Find the Preview you'd like to set as a Base Preview, and go into {{% ui-text %}}Settings{{% /ui-text %}} for that
+   Preview.
+5. Click the checkbox next to {{% ui-text %}}Use this Preview as a Base Preview{{% /ui-text %}}.
+6. Select the Base Preview Type. For more about Base Preview types, see:
+   [Base Preview Auto Select](../../preview-deep-dive/how-previews-work/#base-preview-auto-select).
+7. Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button.
 
 That preview will be moved to the {{% ui-text %}}Base Preview{{% /ui-text %}} section of the Repository Dashboard. From
-now on, Previews will build from the snapshot created when the Base Preview was built.
+now on, Previews that match the [Base Preview type](../../preview-deep-dive/how-previews-work/#base-preview-auto-select)
+will build from the snapshot created when that Base Preview was built.
 
 {{%expand "Visual Walkthrough" %}}
 
@@ -30,27 +34,33 @@ Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the up
 
 Select the project where you want to set a Base Preview.
 
-![Select the project](/_images/select-a-project.png)
+![Select the project](/_images/select-project-to-set-base-preview.png)
 
 Click the name of the repo that contains Preview you want to use as a Base Preview.
 
-![Click into Tugboat repository](/_images/click-into-tugboat-repository.png)
+![Select the Tugboat repository](/_images/select-repo-to-set-base-preview.png)
 
-Go to the {{% ui-text %}}Manage Base Previews{{% /ui-text %}} link on the Repository Dashboard.
+Find the Preview you'd like to set as a Base Preview, and go into {{% ui-text %}}Settings{{% /ui-text %}} for that
+Preview.
 
-![Go to Manage Base Previews](/_images/set-base-preview-go-to-manage-base-previews.png)
+![Go into Settings for the Preview you want to use as a Base Preview](/_images/set-base-preview-go-into-preview-settings.png)
 
-Click the checkbox next to the Preview you want to use as a Base Preview.
+Click the checkbox next to {{% ui-text %}}Use this Preview as a Base Preview{{% /ui-text %}}.
 
-![Click the checkbox to select a Base Preview](/_images/set-base-preview-click-checkbox.png)
+![Click the checkbox to set this Preview as a Base Preview](/_images/click-checkbox-to-use-preview-as-base-preview.png)
 
-Press the {{% ui-text %}}OK{{% /ui-text %}} button.
+Select the Base Preview Type. For more about Base Preview types, see:
+[Base Preview Auto Select](../../preview-deep-dive/how-previews-work/#base-preview-auto-select).
 
-![Press OK to confirm Base Preview](/_images/set-base-preview-press-ok.png)
+![Click the radio button next to the appropriate Base Preview Type](/_images/select-repository-base-preview.png)
+
+Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button.
+
+![Press the Save Configuration button to save changes](/_images/preview-settings-press-save-configuration-button.png)
 
 That preview will be moved to the {{% ui-text %}}Base Preview{{% /ui-text %}} section of the Repository Dashboard.
 
-![Base Preview in repository](/_images/set-base-preview-after.png)
+![View of Base Preview in repository](/_images/new-base-preview-in-base-previews.png)
 
 If you're ever wondering which Base Preview was used when generating a Preview, check under the name of the Preview;
 you're looking for the "from _Base Preview Name_":
@@ -61,13 +71,15 @@ you're looking for the "from _Base Preview Name_":
 
 ## Add multiple Base Previews
 
-To set more than one Base Preview, follow the directions above, but check the checkboxes next to all of the Previews
-that you'd like to set as Base Previews when you get to Step 5.
+You can add multiple Base Previews to a project, following the directions outlined above.
 
-![Set multiple Base Previews](/_images/set-multiple-base-previews.png)
+![Set multiple Base Previews](/_images/view-multiple-base-previews.png)
 
-When you've selected multiple Base Previews, every new Preview build (including automated builds from pull requests)
-will create a build from _each_ Base Preview. In my sample project, I've set two base Previews, and building a Preview
-from a new PR automatically created two Previews - one for each Base Preview.
+When you've set multiple Base Previews, every new Preview build (including automated builds from pull requests) will
+create a build from _all_ Base Preview Types that match the new Preview build. For more information on Base Preview
+matching, see: [Base Preview Auto Select](../../preview-deep-dive/how-previews-work/#base-preview-auto-select).
+
+In my sample project, I've set two Repository Base Previews, and building a Preview from a new PR automatically created
+two Previews - one for each Base Preview.
 
 ![Multiple Base Previews generating multiple Preview builds](/_images/multiple-base-preview-builds.png)

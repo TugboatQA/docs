@@ -14,9 +14,11 @@ Preview. If you want to delete a Base Preview, instead, see: [Delete a Base Prev
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to stop using a Base Preview.
 3. Click into the repo where you want to stop using a Base Preview.
-4. Go to the {{% ui-text %}}Manage Base Previews{{% /ui-text %}} link on the Repository Dashboard.
-5. Click the checkbox next to the Base Preview you want to stop using.
-6. Press the {{% ui-text %}}OK{{% /ui-text %}} button.
+4. Find the Preview you'd like to stop using as a Base Preview, and go into {{% ui-text %}}Settings{{% /ui-text %}} for
+   that Preview.
+5. Click the checkbox next to {{% ui-text %}}Use this Preview as a Base Preview{{% /ui-text %}} to deselect the Preview
+   as a Base Preview.
+6. Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button.
 
 The deselected Preview will disappear from the Base Preview section of the dashboard, and subsequent Preview builds -
 including automated builds from git provider integrations - will no longer start from that Base Preview.
@@ -29,22 +31,24 @@ Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the up
 
 Select the project where you want to stop using a Base Preview.
 
-![Select the project](/_images/select-a-project.png)
+![Select the project](/_images/select-project-to-set-base-preview.png)
 
 Click into the repo where you want to stop using a Base Preview.
 
-![Click into Tugboat repository](/_images/click-into-tugboat-repository.png)
+![Click into Tugboat repository](/_images/select-repo-to-set-base-preview.png)
 
-Go to the {{% ui-text %}}Manage Base Previews{{% /ui-text %}} link on the Repository Dashboard.
+Find the Preview you'd like to stop using as a Base Preview, and go into {{% ui-text %}}Settings{{% /ui-text %}} for
+that Preview.
 
-![Go to Manage Base Previews](/_images/stop-using-base-preview-manage-base-previews.png)
+![Go into Settings for the Preview you want to stop using as a Base Preview](/_images/go-into-settings-for-base-preview-you-want-to-stop-using.png)
 
-Click the checkbox next to the Base Preview you want to stop using.
+Click the checkbox next to {{% ui-text %}}Use this Preview as a Base Preview{{% /ui-text %}} to deselect the Preview as
+a Base Preview.
 
-![Click checkbox to deselect a Base Preview](/_images/stop-using-base-preview-click-checkbox.png)
+![Click checkbox to deselect a Base Preview](/_images/click-checkbox-to-deselect-base-preview.png)
 
-Press the {{% ui-text %}}OK{{% /ui-text %}} button.
+Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button.
 
-![Press OK](/_images/stop-using-base-preview-press-ok.png)
+![Press the Save Configuration button](/_images/stop-using-base-preview-press-save-configuration.png)
 
 {{% /expand%}}
