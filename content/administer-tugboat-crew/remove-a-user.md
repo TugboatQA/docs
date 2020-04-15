@@ -12,6 +12,9 @@ weight: 2
 4. In the {{% ui-text %}}Manage Users{{% /ui-text %}} section, look for the user you want to remove, and click the
    Remove link.
 
+{{% notice info %}} An [Owner user](../user-admin/#owner-permissions) cannot be removed from a Tugboat project without
+first [giving another user Owner permissions](../change-permissions/). {{% /notice %}}
+
 {{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.

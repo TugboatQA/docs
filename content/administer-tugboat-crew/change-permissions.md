@@ -10,8 +10,11 @@ weight: 3
 2. Select the project where you want to change user permissions.
 3. Click the {{% ui-text %}}Project Settings{{% /ui-text %}} link to the right of the project's title.
 4. In the {{% ui-text %}}Manage Users{{% /ui-text %}} section, look for the user whose permissions you want to change,
-   and select the appropriate [user type](#user-permission-levels-explained) from the
-   {{% ui-text %}}Access{{% /ui-text %}} drop-down.
+   and select the appropriate [user type](../user-admin/) from the {{% ui-text %}}Access{{% /ui-text %}} drop-down.
+
+{{% notice info %}} You can't downgrade an [Owner user's permissions](../user-admin/#owner-permissions) without first
+[giving another user Owner permissions](../change-permissions/). Only Owner users can give or remove Owner user
+permissions.{{% /notice %}}
 
 {{%expand "Visual Walkthrough" %}}
 
@@ -28,8 +31,7 @@ Click the {{% ui-text %}}Project Settings{{% /ui-text %}} link to the right of t
 ![Click Project Settings](../../_images/click-project-settings-link.png)
 
 In the {{% ui-text %}}Manage Users{{% /ui-text %}} section, look for the user whose permissions you want to change, and
-select the appropriate [user type](#user-permission-levels-explained) from the {{% ui-text %}}Access{{% /ui-text %}}
-drop-down.
+select the appropriate [user type](../user-admin/) from the {{% ui-text %}}Access{{% /ui-text %}} drop-down.
 
 ![Go to Manage Users, click the Access drop-down and select new permissions](../../_images/change-user-permissions-access-drop-down.png)
 
