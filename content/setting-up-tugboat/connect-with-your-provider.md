@@ -1,6 +1,7 @@
 ---
 title: "Connect With Your Provider"
 date: 2019-09-17T11:41:29-04:00
+lastmod: 2020-04-17T17:00:00-04:00
 weight: 1
 ---
 
@@ -9,6 +10,7 @@ weight: 1
 - [Bitbucket](#bitbucket)
 - [Generic git server](#generic-git-server)
 - [Add a link to an additional git provider](#adding-a-link-to-a-git-provider)
+- [Disconnect a linked git provider](#disconnect-a-linked-git-provider)
 
 ## GitHub
 
@@ -236,5 +238,39 @@ Select the git provider whose account you'd like to connect.
 
 Follow the instructions to connect to  
  [GitHub](#how-do-i-link-tugboat-to-github), [GitLab](#how-do-i-link-tugboat-to-gitlab) or [Bitbucket](#how-do-i-link-tugboat-to-bitbucket).
+
+{{% /expand%}}
+
+## Disconnect a linked git provider
+
+If you leave an organization or close a git provider account, you may want to disconnect a linked git provider from your
+Tugboat account. To do this:
+
+1. Click the {{% ui-text %}}User{{% /ui-text %}} drop-down in the upper right-hand corner of the Tugboat dashboard, and
+   select {{% ui-text %}}Profile{{% /ui-text %}}.
+2. Select the git provider whose account you'd like to disconnect.
+3. Click the {{% ui-text %}}Disconnect{{% /ui-text %}} link.
+4. You'll see a dialog box explaining what happens if you disconnect a linked account; if you want to continue, press
+   the {{% ui-text %}}Disconnect{{% /ui-text %}} button.
+
+{{%expand "Visual Walkthrough" %}}
+
+Click the {{% ui-text %}}User{{% /ui-text %}} drop-down in the upper right-hand corner of the Tugboat dashboard, and
+select {{% ui-text %}}Profile{{% /ui-text %}}.
+
+![Go to User drop-down, and select Profile](../../_images/go-to-user-select-profile.png)
+
+Select the git provider whose account you'd like to disconnect.
+
+![Click the + Connect Account link](../../_images/select-a-git-provider-to-disconnect.png)
+
+Click the {{% ui-text %}}Disconnect{{% /ui-text %}} link.
+
+![Select a git provider](../../_images/click-the-disconnect-link.png)
+
+You'll see a dialog box explaining what happens if you disconnect a linked account; if you want to continue, press the
+{{% ui-text %}}Disconnect{{% /ui-text %}} button.
+
+![Select a git provider](../../_images/press-disconnect-button.png)
 
 {{% /expand%}}
