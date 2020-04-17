@@ -262,15 +262,15 @@ select {{% ui-text %}}Profile{{% /ui-text %}}.
 
 Select the git provider whose account you'd like to disconnect.
 
-![Click the + Connect Account link](../../_images/select-a-git-provider-to-disconnect.png)
+![Tugboat's User Profile pane with a linked Bitbucket account circled](../../_images/select-a-git-provider-to-disconnect.png)
 
 Click the {{% ui-text %}}Disconnect{{% /ui-text %}} link.
 
-![Select a git provider](../../_images/click-the-disconnect-link.png)
+![Tugboat's User Profile pane with arrow to Disconnect link next to Bitbucket account](../../_images/click-the-disconnect-link.png)
 
 You'll see a dialog box explaining what happens if you disconnect a linked account; if you want to continue, press the
 {{% ui-text %}}Disconnect{{% /ui-text %}} button.
 
-![Select a git provider](../../_images/press-disconnect-button.png)
+![Dialog box explaining disconnecting a linked git provider account with arrow to "Disconnect" button](../../_images/press-disconnect-button.png)
 
 {{% /expand%}}

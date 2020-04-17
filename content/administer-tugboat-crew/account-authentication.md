@@ -70,22 +70,22 @@ To sign into Tugboat using an email address:
 Go to the {{% ui-text %}}Sign In{{% /ui-text %}} link (or if this is your first time using Tugboat, go to
 {{% ui-text %}}Create a Free Account{{% /ui-text %}}).
 
-![Create an account for your Tugboat bot](../../_images/sign-in-from-tugboat-qa.png)
+![Tugboat website sign-in and create account links](../../_images/sign-in-from-tugboat-qa.png)
 
 You'll be taken to the [Tugboat Dashboard](https://dashboard.tugboat.qa/), where you should see a {{% ui-text %}}Sign
 in{{% /ui-text %}} pane.
 
-![Update Tugboat bot account with the Tugboat avatar](../../_images/tugboat-sign-in-pane.png)
+![Tugboat's Sign In pane](../../_images/tugboat-sign-in-pane.png)
 
 Click the {{% ui-text %}}Sign in using your email address{{% /ui-text %}} button.
 
-![Go to username -> My Projects](../../_images/click-sign-in-using-your-email-address-button.png)
+![Tugboat's Sign In Pane with arrow pointing to "Sign in using your email address" button](../../_images/click-sign-in-using-your-email-address-button.png)
 
 Enter your {{% ui-text %}}Email Address{{% /ui-text %}} and {{% ui-text %}}Password{{% /ui-text %}}, and press the
 {{% ui-text %}}Sign In{{% /ui-text %}} button - or if you haven't signed in with an email address before, click the
 {{% ui-text %}}Sign up{{% /ui-text %}} link and follow the account creation instructions.
 
-![Select the project](../../_images/enter-email-address-and-password-or-click-sign-up.png)
+![Dialog box to enter email address and password, with arrows pointing to "Sign in" and "Sign Up" buttons](../../_images/enter-email-address-and-password-or-click-sign-up.png)
 
 {{% /expand%}}
 
@@ -113,16 +113,16 @@ To add a password for email-based login:
 Click the {{% ui-text %}}User{{% /ui-text %}} drop-down in the upper right-hand corner of the Tugboat dashboard, and
 select {{% ui-text %}}Profile{{% /ui-text %}}.
 
-![Go to User drop-down, and select Profile](../../_images/go-to-user-select-profile.png)
+![Tugboat Dashboard view with arrow pointing to User drop-down, and then Profile](../../_images/go-to-user-select-profile.png)
 
 Go to the {{% ui-text %}}Password{{% /ui-text %}} section of the User Profile, and click
 {{% ui-text %}}Enable{{% /ui-text %}}.
 
-![Update Tugboat bot account with the Tugboat avatar](../../_images/go-to-password-click-enable.png)
+![Tugboat's User Profile pane with Password section circled and an arrow to the enable button](../../_images/go-to-password-click-enable.png)
 
 Enter and Verify the password you want to use, and press the {{% ui-text %}}OK{{% /ui-text %}} button.
 
-![Go to username -> My Projects](../../_images/enter-and-verify-password-press-ok.png)
+![Tugboat's password dialog showing the enter and verify fields, with an arrow pointing to the OK button](../../_images/enter-and-verify-password-press-ok.png)
 
 {{% /expand%}}
 
@@ -149,27 +149,27 @@ To enable two-factor authentication on your Tugboat account:
 Click the {{% ui-text %}}User{{% /ui-text %}} drop-down in the upper right-hand corner of the Tugboat dashboard, and
 select {{% ui-text %}}Profile{{% /ui-text %}}.
 
-![Go to User drop-down, and select Profile](../../_images/go-to-user-select-profile.png)
+![Tugboat Dashboard view with arrow pointing to User drop-down, and then Profile](../../_images/go-to-user-select-profile.png)
 
 Go to the {{% ui-text %}}Two-Factor Authentication{{% /ui-text %}} section of the User Profile, and click
 {{% ui-text %}}Enable{{% /ui-text %}}.
 
-![Go to User drop-down, and select Profile](../../_images/go-to-two-factor-authentication-and-click-enable.png)
+![Tugboat's User Profile pane with Two-Factor Authentication section circled and an arrow to the enable button](../../_images/go-to-two-factor-authentication-and-click-enable.png)
 
 Use a two-factor authentication app on your mobile device to scan the QR code, or manually enter the code into your
 preferred 2FA tool.
 
-![Go to User drop-down, and select Profile](../../_images/scan-the-qr-code-or-manually-enter-it.png)
+![View of the Two-Factor Authentication dialog showing the QR code and code manually listed](../../_images/scan-the-qr-code-or-manually-enter-it.png)
 
 Enter the 6-digit code from your two-factor authentication app into the dialog box, and press the Verify button.
 
-![Go to User drop-down, and select Profile](../../_images/type-the-code-and-press-verify.png)
+![6-digit code typed into dialog box, with arrow pointing to the Verify button](../../_images/type-the-code-and-press-verify.png)
 
 You'll see a list of recovery codes for your account. You can use the {{% ui-text %}}Copy to Clipboard{{% /ui-text %}}
 link to copy the codes. **Make sure you save these in a safe place, as they will not be displayed again.** Press the
 {{% ui-text %}}Close{{% /ui-text %}} button once you've saved the codes.
 
-![Go to User drop-down, and select Profile](../../_images/copy-codes-to-clipboard-and-press-close.png)
+![List of Recovery Codes with arrows pointing to the "Copy to Clipboard" element and the "Close" button](../../_images/copy-codes-to-clipboard-and-press-close.png)
 
 {{% /expand%}}
 
@@ -188,16 +188,16 @@ To change the password on your Tugboat account:
 Click the {{% ui-text %}}User{{% /ui-text %}} drop-down in the upper right-hand corner of the Tugboat dashboard, and
 select {{% ui-text %}}Profile{{% /ui-text %}}.
 
-![Go to User drop-down, and select Profile](../../_images/go-to-user-select-profile.png)
+![Tugboat Dashboard view with arrow pointing to User drop-down, and then Profile](../../_images/go-to-user-select-profile.png)
 
 Go to the {{% ui-text %}}Password{{% /ui-text %}} section of the User Profile, and click
 {{% ui-text %}}Change{{% /ui-text %}}.
 
-![Update Tugboat bot account with the Tugboat avatar](../../_images/go-to-password-click-change.png)
+![Tugboat's User Profile pane with Password section circled and an arrow to the Change button](../../_images/go-to-password-click-change.png)
 
 Enter and Verify your new password, and press the {{% ui-text %}}OK{{% /ui-text %}} button.
 
-![Go to username -> My Projects](../../_images/enter-and-verify-new-password-press-ok.png)
+![Tugboat's password dialog showing the enter and verify fields, with an arrow pointing to the OK button](../../_images/enter-and-verify-new-password-press-ok.png)
 
 {{% /expand%}}
 
@@ -221,27 +221,27 @@ To reconfigure two-factor authentication for your Tugboat account:
 Click the {{% ui-text %}}User{{% /ui-text %}} drop-down in the upper right-hand corner of the Tugboat dashboard, and
 select {{% ui-text %}}Profile{{% /ui-text %}}.
 
-![Go to User drop-down, and select Profile](../../_images/go-to-user-select-profile.png)
+![Tugboat Dashboard view with arrow pointing to User drop-down, and then Profile](../../_images/go-to-user-select-profile.png)
 
 Go to the {{% ui-text %}}Two-Factor Authentication{{% /ui-text %}} section of the User Profile, and click
 {{% ui-text %}}Reconfigure{{% /ui-text %}}.
 
-![Go to User drop-down, and select Profile](../../_images/go-to-two-factor-authentication-and-click-reconfigure.png)
+![Tugboat's User Profile pane with Two-Factor Authentication section circled and an arrow to the Reconfigure button](../../_images/go-to-two-factor-authentication-and-click-reconfigure.png)
 
 Use a two-factor authentication app on your mobile device to scan the QR code, or manually enter the code into your
 preferred 2FA tool.
 
-![Go to User drop-down, and select Profile](../../_images/scan-new-qr-code-or-manually-enter-it.png)
+![View of the Two-Factor Authentication dialog showing the QR code and code manually listed](../../_images/scan-new-qr-code-or-manually-enter-it.png)
 
 Enter the 6-digit code from your two-factor authentication app into the dialog box, and press the Verify button.
 
-![Go to User drop-down, and select Profile](../../_images/enter-new-code-and-press-verify-button.png)
+![6-digit code typed into dialog box, with arrow pointing to the Verify button](../../_images/enter-new-code-and-press-verify-button.png)
 
 You'll see a list of recovery codes for your account. You can use the {{% ui-text %}}Copy to Clipboard{{% /ui-text %}}
 link to copy the codes. **Make sure you save these in a safe place, as they will not be displayed again.** Press the
 {{% ui-text %}}Close{{% /ui-text %}} button once you've saved the codes.
 
-![Go to User drop-down, and select Profile](../../_images/copy-codes-to-clipboard-and-press-close.png)
+![List of Recovery Codes with arrows pointing to the "Copy to Clipboard" UI element and the "Close" button](../../_images/copy-codes-to-clipboard-and-press-close.png)
 
 {{% /expand%}}
 
@@ -267,27 +267,27 @@ To renew two-factor authentication codes for your Tugboat account:
 Click the {{% ui-text %}}User{{% /ui-text %}} drop-down in the upper right-hand corner of the Tugboat dashboard, and
 select {{% ui-text %}}Profile{{% /ui-text %}}.
 
-![Go to User drop-down, and select Profile](../../_images/go-to-user-select-profile.png)
+![Tugboat Dashboard view with arrow pointing to User drop-down, and then Profile](../../_images/go-to-user-select-profile.png)
 
 Go to the {{% ui-text %}}Two-Factor Authentication{{% /ui-text %}} section of the User Profile, and click
 {{% ui-text %}}Renew{{% /ui-text %}}.
 
-![Go to User drop-down, and select Profile](../../_images/go-two-factor-authentication-click-renew.png)
+![Tugboat's User Profile pane with Two-Factor Authentication section circled and an arrow to the Renew link](../../_images/go-two-factor-authentication-click-renew.png)
 
 Use a two-factor authentication app on your mobile device to scan the QR code, or manually enter the code into your
 preferred 2FA tool.
 
-![Go to User drop-down, and select Profile](../../_images/scan-new-qr-code-or-manually-enter-it.png)
+![View of the Two-Factor Authentication dialog showing the QR code and code manually listed](../../_images/scan-new-qr-code-or-manually-enter-it.png)
 
 Enter the 6-digit code from your two-factor authentication app into the dialog box, and press the Verify button.
 
-![Go to User drop-down, and select Profile](../../_images/verify-new-2fa-recovery-codes.png)
+![6-digit code typed into dialog box, with arrow pointing to the Verify button](../../_images/verify-new-2fa-recovery-codes.png)
 
 You'll see a new list of recovery codes for your account. You can use the {{% ui-text %}}Copy to
 Clipboard{{% /ui-text %}} link to copy the codes. **Make sure you save these in a safe place, as they will not be
 displayed again.** Press the {{% ui-text %}}Close{{% /ui-text %}} button once you've saved the codes.
 
-![Go to User drop-down, and select Profile](../../_images/copy-new-codes-to-clipboard-and-press-close-button.png)
+![List of Recovery Codes with arrows pointing to the "Copy to Clipboard" UI element and the "Close" button](../../_images/copy-new-codes-to-clipboard-and-press-close-button.png)
 
 {{% /expand%}}
 
@@ -310,17 +310,17 @@ Do you need to disconnect a git provider account that is linked to your Tugboat 
 Click the {{% ui-text %}}User{{% /ui-text %}} drop-down in the upper right-hand corner of the Tugboat dashboard, and
 select {{% ui-text %}}Profile{{% /ui-text %}}.
 
-![Go to User drop-down, and select Profile](../../_images/go-to-user-select-profile.png)
+![Tugboat Dashboard view with arrow pointing to User drop-down, and then Profile](../../_images/go-to-user-select-profile.png)
 
 Go to the {{% ui-text %}}Two-Factor Authentication{{% /ui-text %}} section of the User Profile, and click
 {{% ui-text %}}Disable{{% /ui-text %}}.
 
-![Go to User drop-down, and select Profile](../../_images/go-to-two-factor-authentication-click-disable.png)
+![Tugboat's User Profile pane with Two-Factor Authentication section circled and an arrow to the Disable button](../../_images/go-to-two-factor-authentication-click-disable.png)
 
 You'll see a dialog box asking you to confirm you want to turn off two-factor authentication. Press the
 {{% ui-text %}}OK{{% /ui-text %}} button.
 
-![Go to User drop-down, and select Profile](../../_images/disable-2fa-press-ok-button.png)
+![Dialog box asking user to confirm turning off two-factor authentication, with an arrow to the OK button](../../_images/disable-2fa-press-ok-button.png)
 
 {{% /expand%}}
 
@@ -344,16 +344,16 @@ To disable the password on your Tugboat account:
 Click the {{% ui-text %}}User{{% /ui-text %}} drop-down in the upper right-hand corner of the Tugboat dashboard, and
 select {{% ui-text %}}Profile{{% /ui-text %}}.
 
-![Go to User drop-down, and select Profile](../../_images/go-to-user-select-profile.png)
+![Tugboat Dashboard view with arrow pointing to User drop-down, and then Profile](../../_images/go-to-user-select-profile.png)
 
 Go to the {{% ui-text %}}Password{{% /ui-text %}} section of the User Profile, and click
 {{% ui-text %}}Disable{{% /ui-text %}}.
 
-![Update Tugboat bot account with the Tugboat avatar](../../_images/go-to-password-click-disable.png)
+![Tugboat's User Profile pane with Password section circled and an arrow to the Disable button](../../_images/go-to-password-click-disable.png)
 
 You'll see a dialog box asking you to confirm you want to disable your password. Press the
 {{% ui-text %}}OK{{% /ui-text %}} button.
 
-![Go to username -> My Projects](../../_images/press-ok-to-confirm-password-disable.png)
+![Dialog box asking user to confirm disabling the password, with an arrow to the OK button](../../_images/press-ok-to-confirm-password-disable.png)
 
 {{% /expand%}}
