@@ -1,36 +1,50 @@
 ---
 title: "User Permission Levels"
 date: 2019-09-19T10:36:14-04:00
+lastmod: 2020-04-17T17:00:00-04:00
 weight: 4
 ---
 
 ### User permission levels explained
 
-Tugboat has three different types of users:
+Tugboat has four different types of users:
 
+- [Owner](#owner-permissions)
 - [Admin](#admin-permissions)
 - [User](#user-permissions)
 - [Read-only](#read-only-permissions)
+
+#### Owner permissions
+
+Owner users can:
+
+- Manage billing information. This information is disabled if the company is paying with a purchase order.
+
+Owners can also do everything the [admin user](#admin-permissions) and [general user](#user-permissions) can do.
 
 #### Admin permissions
 
 Admin users can:
 
-- Manage billing information. This information is disabled if the company is paying with a purchase order.
-- Manage other users, including removing other admins, though they cannot remove themselves.
+- Add and remove users from a project, and change user permissions. Admin users can administer other admin users, though
+  they cannot remove themselves from a project.
 - Add repositories to the project.
-- Change repository settings.
+- Manage the repository configuration interface. This includes things like
+  [changing repository settings](/setting-up-tugboat/select-repo-settings/#change-repository-settings), environment
+  variables and SSH keys.
 - Delete repositories.
 - Delete the entire project.
 - Rename the project.
 
+Admin can also do everything the [general user](#user-permissions) can do.
+
 #### User permissions
 
-Tugboat's generic User's permissions include:
+Tugboat's general User's permissions include:
 
-- Manage the repository configuration interface. This includes things like
-  [changing repository settings](/setting-up-tugboat/select-repo-settings/#change-repository-settings), environment
-  variables and SSH keys.
+- View the repository configuration interface. This includes things like
+  [repository settings](/setting-up-tugboat/select-repo-settings/#change-repository-settings), environment variables and
+  SSH keys.
 - Manage Previews. Create, remove, rebuild, or lock Previews.
 - Manage Base Previews.
 - Shell access to previews. Manage visual diff screenshots. View build logs.
