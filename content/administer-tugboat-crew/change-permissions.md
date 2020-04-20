@@ -7,16 +7,13 @@ weight: 3
 
 ## Change user permissions
 
+To change user permissions:
+
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to change user permissions.
 3. Click the {{% ui-text %}}Project Settings{{% /ui-text %}} link to the right of the project's title.
 4. In the {{% ui-text %}}Manage Users{{% /ui-text %}} section, look for the user whose permissions you want to change,
    and select the appropriate [user type](../user-admin/) from the {{% ui-text %}}Access{{% /ui-text %}} drop-down.
-
-{{% notice info %}} There must always be an [Owner user](../user-admin/#owner-permissions) for a Tugboat project. Only
-Owner users can give or remove Owner user permissions. In order to downgrade or remove an Owner user, a second user must
-have Owner user permissions, and then the second Owner user can make changes to the first Owner user's
-permissions.{{% /notice %}}
 
 {{%expand "Visual Walkthrough" %}}
 
