@@ -10,7 +10,7 @@ weight: 1
 2. Select the project where you want to add the user.
 3. Click the {{% ui-text %}}Project Settings{{% /ui-text %}} link to the right of the project's title.
 4. In the {{% ui-text %}}Invite a User to This Project{{% /ui-text %}} section, add the recipient's email address, and
-   select the appropriate [user type](#user-permission-levels-explained) from the drop-down.
+   select the appropriate [user type](../user-admin/) from the drop-down.
 5. Press the big blue {{% ui-text %}}Invite{{% /ui-text %}} button!
 
 The user you've invited will get an email from `support@tugboat.qa` with a link to accept the invitation.
@@ -35,7 +35,7 @@ Click the {{% ui-text %}}Project Settings{{% /ui-text %}} link to the right of t
 ![Click Project Settings](../../_images/click-project-settings-link.png)
 
 In the {{% ui-text %}}Invite a User to This Project{{% /ui-text %}} section, add the recipient's email address, and
-select the appropriate [user type](#user-permission-levels-explained) from the drop-down.
+select the appropriate [user type](../user-admin/) from the drop-down.
 
 ![Add user's email address and select permissions](../../_images/add-user-email-and-permissions.png)
 
