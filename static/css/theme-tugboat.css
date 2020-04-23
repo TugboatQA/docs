@@ -177,6 +177,18 @@ a:hover {
     opacity: 1;
 }
 
+#sidebar ul.topics ul {
+    padding-bottom: 0;
+}
+
+#sidebar .topics ul li:first-child a {
+    padding-top: .5rem;
+}
+
+#sidebar .topics ul li:last-child a {
+    padding-bottom: .5rem;
+}
+
 #sidebar .highlightable {
     padding: 0;
 }
