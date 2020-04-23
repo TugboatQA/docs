@@ -39,6 +39,10 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     justify-content: normal;
 }
 
+#chapter #body-inner h3:first-child {
+    font-style: italic;
+}
+
 h1, #chapter * {
     text-align: left !important;
 }
