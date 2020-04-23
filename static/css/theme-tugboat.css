@@ -78,6 +78,9 @@ a:hover {
 #logo {
     padding-bottom: 4em;
 }
+#grav-logo {
+    max-width: 100%;
+}
 #sidebar .searchbox {
     border: none;
     background: var(--MENU-SEARCH-BG-color);
