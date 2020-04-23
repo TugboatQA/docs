@@ -7,6 +7,7 @@ weight: 1
 - [The Preview build process: explained](#the-build-process-explained)
 - [The Build snapshot](#the-build-snapshot)
 - [How Base Previews work](#how-base-previews-work)
+- [Base Preview Auto Select](#base-preview-auto-select)
 - [Preview size: explained](#preview-size-explained)
 - [Preview status](#preview-status)
 
@@ -77,8 +78,9 @@ instructs Tugboat to pull in databases, image files, or other assets. This proce
 assets, the longer the build.
 
 When you mark a Preview as a Base Preview, Tugboat uses that Preview's [build snapshot](#the-build-snapshot) as a
-starting point for every new Preview build. None of the new Previews need to re-download copies of databases, image
-files, or other assets. Base Previews can dramatically reduce the amount of time required to generate a working Preview.
+starting point for every new Preview build that matches that [Base Preview type](#base-preview-auto-select). None of the
+new Previews need to re-download copies of databases, image files, or other assets. Base Previews can dramatically
+reduce the amount of time required to generate a working Preview.
 
 In addition to speeding up your Preview builds, Tugboat saves disk space by storing only a binary difference between the
 Base Preview and Previews built from that Base Preview. A new Preview only uses whatever space it needs that differs
@@ -87,12 +89,68 @@ use 100-200MB. This is a great way to keep a Tugboat Project under your
 [billing tier's storage limit](/tugboat-billing/tugboat-pricing/#how-does-tugboat-pricing-work), even when you're
 building multiple Previews.
 
-{{% notice tip %}} When you set a Base Preview, new Previews you build - including Previews that are built automatically
-from pull requests - use the Base Preview as a starting point, and build only from the `build` stage. This means that if
-you're making changes that would be processed during `init` or `update` stages, or changing a Docker image, you'll need
-to either [rebuild the Base Preview](../../work-with-base-previews/change-or-update/#change-a-base-preview), or
-[build the Preview from scratch without the Base Preview](../../work-with-base-previews/building-new-previews/#build-a-preview-with-no-base-preview).
+{{% notice tip %}} When you set a Base Preview, new Previews that match that Base Preview type - including Previews that
+are built automatically from pull requests - use the Base Preview as a starting point, and build only from the `build`
+stage. This means that if you're making changes that would be processed during `init` or `update` stages, or changing a
+Docker image, you'll need to either
+[rebuild the Base Preview](../../work-with-base-previews/change-or-update/#change-a-base-preview), or
+[build the Preview from scratch without the Base Preview](/building-a-preview/work-with-base-previews/building-new-previews/#build-a-preview-with-no-base-preview).
 {{% /notice %}}
+
+### Base Preview Auto Select
+
+Tugboat automatically selects the appropriate Base Preview for your new Preview Builds. When you're using Base Previews,
+and you build a new Preview, Tugboat automatically starts that Preview build from all Base Preview types that match it.
+New Preview builds can match against these Base Preview types:
+
+- [Repository Base Preview](#repository-base-preview)
+- [Branch Base Preview](#branch-base-preview)
+
+#### Repository Base Preview
+
+When you set a Base Preview as a Repository Base Preview, you're telling Tugboat to build every new Preview within this
+repository from this Base Preview.
+
+![Set Repository Base Preview](/_images/specify-repository-base-preview-type.png)
+
+You can still manually build a Preview without a Base Preview; see: manually
+[Build a Preview with no Base Preview](/building-a-preview/work-with-base-previews/building-new-previews/#build-a-preview-with-no-base-preview).
+
+You can set multiple Repository Base Previews. When you do that, a new pull request generates a Preview build from every
+Repository Base Preview. If you have two Repository Base Previews, and you make a pull request with new code, Tugboat
+kicks off two new Preview builds - one from each Repository Base Preview.
+
+You can narrow your view to see only the Repository Base Previews by selecting the Repository view filter.
+
+![Select the Repository view filter to see only Repository Base Previews](/_images/view-repository-base-previews.png)
+
+The default Preview Type for all Base Previews is Repository Base Preview.
+
+When you set a pull request Preview build as a Base Preview, you'll only see the option to make it a Repository Base
+Preview. You won't see the option to designate it a Branch Base Preview because it's not a Branch in the linked git
+repository.
+
+![Set Base Preview type - no Branch option](/_images/no-branch-base-preview-option.png)
+
+#### Branch Base Preview
+
+When you set a Base Preview as a Branch Base Preview, you're telling Tugboat to use this Base Preview as the starting
+point for every Preview built from a pull request that merges into this Branch.
+
+![Set Branch Base Preview](/_images/specify-branch-base-preview-type.png)
+
+If you have set both a Branch Base Preview and a Repository Base Preview, Tugboat generates builds from both of these
+Base Previews, because both Base Preview types would match new Preview builds.
+
+A Branch Base Preview gives you flexibility to have Tugboat automatically select the appropriate starting Base Preview
+for different configurations. For example, you could set Branch Base Previews for different versions of a framework; for
+example, Drupal 8.7 and Drupal 9.0. When a pull request is merged into one of these branches; i.e. a contributor request
+to merge a pull request into the Drupal 8.7 branch, the Tugboat Preview uses the Drupal 8.7 Branch Base Preview as the
+starting point for that Preview build.
+
+You can narrow your view to see only the Branch Base Previews by selecting the Branch view filter.
+
+![Select the Branch view filter to see only Branch Base Previews](/_images/view-branch-base-previews.png)
 
 ## Preview size: explained
 

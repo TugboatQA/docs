@@ -95,9 +95,6 @@ services:
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.
         - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
-        - chgrp -R www-data "${DOCROOT}/sites/default/files"
-        - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
-        - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
 
         # Alternatively, another common practice is to use the
         # stage_file_proxy Drupal module. This module lets Drupal serve
@@ -107,6 +104,11 @@ services:
         - drush -r "${DOCROOT}" pm-download stage_file_proxy
         - drush -r "${DOCROOT}" pm-enable --yes stage_file_proxy
         - drush -r "${DOCROOT}" variable-set stage_file_proxy_origin "http://www.example.com"
+
+        # Set file permissions such that Drupal will not complain
+        - chgrp -R www-data "${DOCROOT}/sites/default/files"
+        - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
+        - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
 
       # Commands that build the site. This is where you would add things
       # like feature reverts or any other drush commands required to
