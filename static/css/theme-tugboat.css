@@ -68,6 +68,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     border-left: solid .5rem #E8F0F5;
     padding-left: .5rem;
     margin: 0;
+    color: #07688C;
 }
 
 h1, #chapter * {
