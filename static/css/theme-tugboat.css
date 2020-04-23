@@ -47,8 +47,9 @@ h1, h2, h3, h4, h5 {
     color: var(--MAIN-TITLES-TEXT-color) !important;
 }
 
-h1 {
+h1, #chapter h1, body #chapter h1 {
     font-size: 3.14rem;
+    border-bottom: none;
 }
 
 h2 {
