@@ -19,7 +19,7 @@
     --MENU-SECTIONS-LINK-color: #535B60; /* Color of links in menu */
     --MENU-SECTIONS-LINK-HOVER-color: #07688C;  /* Color of links in menu, when hovered */
     --MENU-SECTION-ACTIVE-CATEGORY-color: #03384B; /* Color of active category text */
-    --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #fff; /* Color of background for the active category (only) */
+    --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #E8F0F5; /* Color of background for the active category (only) */
 
     --MENU-VISITED-color: #33a1ff; /* Color of 'page visited' icons in menu */
     --MENU-SECTION-HR-color: #20272b; /* Color of <hr> separator in menu */
@@ -96,6 +96,7 @@ a:hover {
 #sidebar ul li.active > a {
     background: var(--MENU-SECTION-ACTIVE-CATEGORY-BG-color);
     color: var(--MENU-SECTION-ACTIVE-CATEGORY-color) !important;
+    font-style: italic;
 }
 
 #sidebar hr {
