@@ -35,8 +35,12 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     box-shadow: none;
 }
 
-h1 {
-    text-align: left;
+#chapter {
+    justify-content: normal;
+}
+
+h1, #chapter * {
+    text-align: left !important;
 }
 
 h1, h2, h3, h4, h5 {
