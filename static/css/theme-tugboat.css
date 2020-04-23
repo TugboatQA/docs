@@ -39,6 +39,10 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     margin: 8.4rem 0 5rem;
 }
 
+#body-inner p {
+    max-width: 56em;
+}
+
 #chapter #body-inner {
     margin: 5rem 0;
 }
