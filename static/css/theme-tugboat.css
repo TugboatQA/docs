@@ -39,12 +39,22 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     margin: 8.4rem 0 5rem;
 }
 
-#body-inner p {
-    max-width: 56em;
-}
-
 #chapter #body-inner {
     margin: 5rem 0;
+}
+
+@media only all and (max-width: 59.938em) {
+    #body-inner {
+        margin-top: 4rem;
+    }
+
+    #chapter #body-inner {
+        margin-top: 1.6rem;
+    }
+}
+
+#body-inner p {
+    max-width: 56em;
 }
 
 #chapter {
@@ -115,6 +125,7 @@ a:hover {
     transition: width 0.5s ease;
     background-color: var(--MAIN-LINK-HOVER-color);
 }
+
 #sidebar {
 	background-color: var(--MENU-SECTIONS-BG-color);
 }
@@ -163,4 +174,8 @@ a:hover {
 
 #sidebar ul.topics > li > a b {
     opacity: 1;
+}
+
+#sidebar .highlightable {
+    padding: 0;
 }
