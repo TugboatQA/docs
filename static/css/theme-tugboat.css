@@ -35,12 +35,21 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     box-shadow: none;
 }
 
+#body-inner {
+    margin: 5rem 0;
+}
+
 #chapter {
     justify-content: normal;
+    padding: 0;
+    align-items: unset;
 }
 
 #chapter #body-inner h3:first-child {
     font-style: italic;
+    border-left: solid .5rem #E8F0F5;
+    padding-left: .5rem;
+    margin: 0;
 }
 
 h1, #chapter * {
