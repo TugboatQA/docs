@@ -35,7 +35,11 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     box-shadow: none;
 }
 
-h2, h3, h4, h5 {
+h1 {
+    text-align: left;
+}
+
+h1, h2, h3, h4, h5 {
     color: var(--MAIN-TITLES-TEXT-color) !important;
 }
 
@@ -94,7 +98,6 @@ a:hover {
 #sidebar .searchbox input {
     color: #1C4248;
 }
-
 #sidebar a {
     color: var(--MENU-SECTIONS-LINK-color);
 }
