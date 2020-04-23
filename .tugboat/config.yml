@@ -14,3 +14,4 @@ services:
             - /setting-up-services/
             - /setting-up-tugboat/
             - /starter-configs/
+            - /troubleshooting/fix-problem-x/
