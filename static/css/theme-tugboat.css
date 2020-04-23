@@ -78,13 +78,11 @@ a:hover {
 	background-color: var(--MENU-SECTIONS-BG-color);
 }
 #sidebar #header-wrapper {
-    background-image: linear-gradient(to bottom right, #112d3e, #086689);
+    background-image: linear-gradient(to bottom right, #112d3e, #0e3a4f);
     color: var(--MENU-SEARCH-BOX-color);
     border-color: var(--MENU-HEADER-BORDER-color);
     text-align: left;
-}
-#logo {
-    padding-bottom: 4em;
+    padding: .9375rem 1rem;
 }
 #grav-logo {
     max-width: 100%;
@@ -92,6 +90,8 @@ a:hover {
 #sidebar .searchbox {
     border: none;
     background: var(--MENU-SEARCH-BG-color);
+    margin-top: 0;
+    border-radius: unset;
 }
 #sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
     background: var(--MENU-SECTIONS-ACTIVE-BG-color);
