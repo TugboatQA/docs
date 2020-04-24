@@ -258,9 +258,14 @@ a:hover {
     line-height: 2;
 }
 
-#body .expand-content img {
+#body a img {
+    margin-left: 0;
+    margin-right: 0;
     border: solid 1px #ededed;
     box-shadow: 2px 2px 20px 4px rgba(200, 200, 200, 0.1);
+}
+
+#body .expand-content img {
     margin: 1em 0 6em;
 }
 
