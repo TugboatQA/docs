@@ -178,6 +178,7 @@ a:hover {
 .autocomplete-suggestions {
     border: 0;
     border-top: solid 1px var(--MENU-SEARCH-BG-color);
+    box-shadow: 0 2em 2em rgba(180,180,180,.1);
 }
 .autocomplete-suggestion {
     font-weight: bold;
