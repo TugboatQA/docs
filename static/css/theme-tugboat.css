@@ -208,6 +208,15 @@ a:hover {
 
 .expand-label {
     margin: 0;
+    font-family: inherit;
+    font-weight: bold;
+    color: #07688C !important;
+    letter-spacing: inherit;
+    text-rendering: inherit;
+}
+
+.expand-label:hover {
+    color: #0098CB !important;
 }
 
 .expand-content {
