@@ -272,3 +272,12 @@ a:hover {
 mark {
     background: #FBE7CB;
 }
+
+:not(pre) > code {
+    border: none;
+    display: inline;
+    padding: .4375rem .3125rem;
+    white-space: normal;
+    background: #f7f7f7;
+    color: #1C4248;
+}
