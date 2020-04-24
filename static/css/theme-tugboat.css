@@ -36,20 +36,20 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #body-inner {
-    margin: 8.4rem 0 5rem;
+    margin: 7.2em 0 5em;
 }
 
 #chapter #body-inner {
-    margin: 5rem 0;
+    margin: 5em 0;
 }
 
 @media only all and (max-width: 59.938em) {
     #body-inner {
-        margin-top: 4rem;
+        margin-top: 4em;
     }
 
     #chapter #body-inner {
-        margin-top: 1.6rem;
+        margin-top: 1.6em;
     }
 }
 
