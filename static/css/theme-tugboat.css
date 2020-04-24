@@ -178,18 +178,23 @@ a:hover {
 .autocomplete-suggestions {
     border: 0;
     border-top: solid 1px var(--MENU-SEARCH-BG-color);
+    border-bottom: solid 1px #eee;
     box-shadow: 0 2em 2em rgba(180,180,180,.1);
 }
 .autocomplete-suggestion {
-    font-weight: bold;
+    color: #3E4548;
+}
+.autocomplete-suggestion .context {
+    color: #777C7E;
 }
 .autocomplete-suggestion.selected,
 .autocomplete-suggestion:hover {
     background: #0098CB;
     color: #fff;
 }
-.autocomplete-suggestion .context {
-    font-weight: normal;
+.autocomplete-suggestion.selected .context,
+.autocomplete-suggestion:hover .context {
+    color: #CCEAF5;
 }
 
 #sidebar a {
