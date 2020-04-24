@@ -136,7 +136,7 @@ a:hover {
 	background-color: var(--MENU-SECTIONS-BG-color);
 }
 #sidebar #header-wrapper {
-    background: #112d3e;
+    background: #03384B;
     color: var(--MENU-SEARCH-BOX-color);
     border-color: var(--MENU-HEADER-BORDER-color);
     text-align: left;
@@ -173,7 +173,7 @@ a:hover {
     height: auto;
     padding: 0 1.8rem 0 2rem;
     line-height: 2.4;
-    background: rgba(0, 0, 0, 0.2);
+    background: #112d3e;
 }
 .autocomplete-suggestions {
     border: 0;
