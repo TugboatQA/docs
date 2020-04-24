@@ -192,3 +192,11 @@ a:hover {
 #sidebar .highlightable {
     padding: 0;
 }
+
+.ui-text {
+    background: #cdd7db;
+    border-radius: .1875rem;
+    color: #03384B;
+    padding: .125rem .5rem;
+    font-weight: 500;
+}
