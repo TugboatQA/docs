@@ -287,3 +287,7 @@ a:hover {
 #body .expand-content p:last-child img {
     margin-bottom: 0;
 }
+
+mark {
+    background: #FBE7CB;
+}
