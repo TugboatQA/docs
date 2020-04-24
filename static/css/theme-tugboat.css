@@ -163,10 +163,8 @@ a:hover {
 #sidebar .searchbox * {
     color: var(--MENU-SEARCH-BOX-ICONS-color);
 }
-#sidebar .searchbox label {
-    top: .4rem;
-}
-#sidebar .searchbox {
+#sidebar .searchbox label,
+#sidebar .searchbox span {
     top: .4rem;
 }
 #sidebar .searchbox input {
