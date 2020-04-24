@@ -177,7 +177,6 @@ a:hover {
 }
 .autocomplete-suggestions {
     border: 0;
-    border-top: solid 1px var(--MENU-SEARCH-BG-color);
     border-bottom: solid 1px #eee;
     box-shadow: 0 2em 2em rgba(180,180,180,.1);
 }
