@@ -175,6 +175,21 @@ a:hover {
     line-height: 2.4;
     background: rgba(0, 0, 0, 0.2);
 }
+.autocomplete-suggestions {
+    border: 0;
+    border-top: solid 1px var(--MENU-SEARCH-BG-color);
+}
+.autocomplete-suggestion {
+    font-weight: bold;
+}
+.autocomplete-suggestion.selected,
+.autocomplete-suggestion:hover {
+    background: #0098CB;
+    color: #fff;
+}
+.autocomplete-suggestion .context {
+    font-weight: normal;
+}
 
 #sidebar a {
     color: var(--MENU-SECTIONS-LINK-color);
