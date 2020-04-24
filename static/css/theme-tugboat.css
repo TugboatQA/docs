@@ -137,7 +137,6 @@ a:hover {
     background: #03384B;
     color: var(--MENU-SEARCH-BOX-color);
     border-color: var(--MENU-HEADER-BORDER-color);
-    text-align: left;
     border-bottom: 0;
 }
 #sidebar #header a {
