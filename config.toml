@@ -14,7 +14,7 @@ home = [ "HTML", "RSS", "JSON"]
 
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
 
-  themeVariant = "blue"
+  themeVariant = "tugboat"
 
   # Set this to true to disable copy-to-clipboard button for inline code.
 
