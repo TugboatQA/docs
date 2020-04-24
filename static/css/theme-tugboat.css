@@ -208,6 +208,12 @@ a:hover {
     padding: 2rem;
 }
 
+@media only all and (max-width: 59.938em) {
+    .expand {
+        left: 0;
+    }
+}
+
 .expand-label {
     margin: 0;
 }
