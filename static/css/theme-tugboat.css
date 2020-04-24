@@ -200,3 +200,20 @@ a:hover {
     padding: .125rem .5rem;
     font-weight: 500;
 }
+
+.expand {
+    background: #F9F6F2;
+    position: relative;
+    left: -2rem;
+    padding: 2rem;
+}
+
+.expand-label {
+    margin: 0;
+}
+
+.expand-content {
+    padding: 3em;
+    background: #fff;
+    margin-top: 2rem;
+}
