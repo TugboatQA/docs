@@ -60,7 +60,12 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 #chapter {
     justify-content: normal;
     padding: 0;
-    align-items: unset;
+    align-items: initial;
+    display: initial;
+}
+
+#chapter p {
+    font-size: 1rem;
 }
 
 #chapter #body-inner h3:first-child {
@@ -135,7 +140,15 @@ a:hover {
     color: var(--MENU-SEARCH-BOX-color);
     border-color: var(--MENU-HEADER-BORDER-color);
     text-align: left;
+    padding: 0;
+    border-bottom: 0;
+}
+#sidebar #header {
     padding: .9375rem 1rem;
+}
+#sidebar #header a {
+    display: block;
+    line-height: 0;
 }
 #grav-logo {
     max-width: 100%;
@@ -222,13 +235,13 @@ a:hover {
 .expand-content {
     padding: 3em;
     background: #fff;
-    margin-top: 2rem;
+    margin-top: 2em;
 }
 
 #body .expand-content img {
     border: solid 1px #ededed;
     box-shadow: 2px 2px 20px 4px rgba(200, 200, 200, 0.1);
-    margin: 1rem 0 6rem;
+    margin: 1em 0 6em;
 }
 
 #body .expand-content p:last-child img {
