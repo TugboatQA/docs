@@ -230,3 +230,7 @@ a:hover {
     box-shadow: 2px 2px 20px 4px rgba(200, 200, 200, 0.1);
     margin: 1rem 0 6rem;
 }
+
+#body .expand-content p:last-child img {
+    margin-bottom: 0;
+}
