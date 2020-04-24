@@ -12,7 +12,7 @@
 
     --MENU-SEARCH-BG-color: #112d3e; /* Search field background color (by default borders + icons) */
     --MENU-SEARCH-BOX-color: #E8F0F5; /* Override search field border color */
-    --MENU-SEARCH-BOX-ICONS-color: #fff; /* Override search field icons color */
+    --MENU-SEARCH-BOX-ICONS-color: #1C4248; /* Override search field icons color */
 
     --MENU-SECTIONS-ACTIVE-BG-color:#F9FCFE; /* Background color of the active section and its childs */
     --MENU-SECTIONS-BG-color:#E8F0F5; /* Background color of other sections */
@@ -70,8 +70,6 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 
 #chapter #body-inner h3:first-child {
     font-style: italic;
-    border-left: solid .5rem #E8F0F5;
-    padding-left: .5rem;
     margin: 0;
     color: #07688C;
 }
@@ -86,7 +84,7 @@ h1, h2, h3, h4, h5 {
 
 h1, #chapter h1, body #chapter h1 {
     font-size: 3.14rem;
-    border-bottom: none;
+    border-bottom: solid .25rem #E8F0F5;
 }
 
 h2 {
@@ -140,11 +138,7 @@ a:hover {
     color: var(--MENU-SEARCH-BOX-color);
     border-color: var(--MENU-HEADER-BORDER-color);
     text-align: left;
-    padding: 0;
     border-bottom: 0;
-}
-#sidebar #header {
-    padding: .9375rem 1rem;
 }
 #sidebar #header a {
     display: block;
@@ -158,24 +152,16 @@ a:hover {
 
 #sidebar .searchbox {
     border: none;
-    background: none;
-    margin-top: 0;
-    border-radius: unset;
 }
 #sidebar .searchbox * {
     color: var(--MENU-SEARCH-BOX-ICONS-color);
 }
-#sidebar .searchbox label,
-#sidebar .searchbox span {
-    top: .4rem;
-}
 #sidebar .searchbox input {
-    color: #fff;
-    border-radius: 0;
-    height: auto;
-    padding: 0 1.8rem 0 2rem;
-    line-height: 2.4;
-    background: #112d3e;
+    color: #1C4248;
+    background: #F9FCFE;
+}
+.searchbox input::placeholder {
+    color: #9AAFB7;
 }
 .autocomplete-suggestions {
     border: 0;
