@@ -217,3 +217,9 @@ a:hover {
     background: #fff;
     margin-top: 2rem;
 }
+
+#body .expand-content img {
+    border: solid 1px #ededed;
+    box-shadow: 2px 2px 20px 4px rgba(200, 200, 200, 0.1);
+    margin: 1rem 0 6rem;
+}
