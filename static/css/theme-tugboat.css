@@ -152,6 +152,8 @@ a:hover {
 }
 #grav-logo {
     max-width: 100%;
+    width: 168px;
+    height: 56px;
 }
 
 #sidebar .searchbox {
