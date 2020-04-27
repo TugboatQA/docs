@@ -1,0 +1,128 @@
+# This code is from "More flexible Twitter cards in Hugo":
+# https://dereckcurry.com/posts/more-flexible-twitter-cards-in-hugo/
+# The starting point for this code is Hugo's "Twitter cards partials for Hugo": 
+# https://gohugohq.com/partials/twitter-cards-partials-for-hugo/
+
+
+{{  $generate := true -}}
+{{- if isset $.Params.twitterCard "generate" }}
+{{-     $generate = $.Params.twitterCard.generate -}}
+{{- else -}}
+{{-     if isset $.Site.Params.twitterCard "generate" -}}
+{{-          $generate = $.Site.Params.twitterCard.generate }}
+{{-     end -}}
+{{- end -}}
+{{- if eq $generate true -}}
+{{-     $card := "summary" -}}
+{{-     $image := false -}}
+{{-     with $.Site.Params.images -}}
+{{-         $card = "summary_large_image" -}}
+{{-         $image = (index . 0 | absURL) -}}
+{{-     end -}}
+{{-     $imageAlt := false -}}
+{{-     $title := false -}}
+{{-     $description := false -}}
+{{-     with $.Site.Params.description -}}
+{{-         $description = . }}
+{{-     end -}}
+{{-     $creator := false -}}
+{{-     if isset $.Site.Author "twitter" -}}
+{{-         $creator = $.Site.Author.twitter -}}
+{{-     end -}}
+{{-     $site := false -}}
+{{-     with $.Site.Social.twitter -}}
+{{-         $site = . -}}
+{{-     end -}}
+{{-     if isset $.Site.Params "twittercard" -}}
+{{-         if isset $.Site.Params.twitterCard "card" -}}
+{{-             $card = $.Site.Params.twitterCard.card -}}
+{{-         end -}}
+{{-         if isset $.Site.Params.twitterCard "image" -}}
+{{-             $image = ($.Site.Params.twitterCard.image | absURL) -}}
+{{-         end -}}
+{{-         if isset $.Site.Params.twitterCard "imagealt" -}}
+{{-             $imageAlt = $.Site.Params.twitterCard.imageAlt -}}
+{{-         end -}}
+{{-         if isset $.Site.Params.twitterCard "title" -}}
+{{-             $title = $.Site.Params.twitterCard.title -}}
+{{-         end -}}
+{{-         if isset $.Site.Params.twitterCard "description" -}}
+{{-             $description = $.Site.Params.twitterCard.description -}}
+{{-         end -}}
+{{-         if isset $.Site.Params.twitterCard "creator" -}}
+{{-             $creator = $.Site.Params.twitterCard.creator -}}
+{{-         end -}}
+{{-         if isset $.Site.Params.twitterCard "site" -}}
+{{-             $site = $.Site.Params.twitterCard.site -}}
+{{-         end -}}
+{{-     end -}}
+{{-     $images := $.Resources.ByType "image" -}}
+{{-     $featured := $images.GetMatch "*feature*" -}}
+{{-     $featured = cond (ne $featured nil) $featured ($images.GetMatch "*cover*") -}}
+{{-     with $featured -}}
+{{-         $card = "summary_large_image" -}}
+{{-         $image = $featured.Permalink -}}
+{{-         $imageAlt = false -}}
+{{-     else -}}
+{{-         $thumbnail := $images.GetMatch "*thumbnail*" -}}
+{{-         with $thumbnail -}}
+{{-             $card = "summary" -}}
+{{-             $image = $thumbnail.Permalink -}}
+{{-             $imageAlt = false -}}
+{{-         end -}}
+{{-     end -}}
+{{-     with .Title -}}
+{{-         $title = . -}}
+{{-     end -}}
+{{-     with .Description -}}
+{{-         $description = . -}}
+{{-     else -}}
+{{-         if .IsPage -}}
+{{-              $description = .Summary -}}
+{{-         end -}}
+{{-     end -}}
+{{-     if isset $.Params "twittercard" -}}
+{{-         if isset $.Params.twitterCard "card" -}}
+{{-             $card = $.Params.twitterCard.card -}}
+{{-         end -}}
+{{-         if isset $.Params.twitterCard "image" -}}
+{{-             $image = ($.Params.twitterCard.image | absURL) -}}
+{{-         end -}}
+{{-         if isset $.Params.twitterCard "imagealt" -}}
+{{-             $imageAlt = $.Params.twitterCard.imageAlt -}}
+{{-         end -}}
+{{-         if isset $.Params.twitterCard "title" -}}
+{{-             $title = $.Params.twitterCard.title -}}
+{{-         end -}}
+{{-         if isset $.Params.twitterCard "description" -}}
+{{-             $description = $.Params.twitterCard.description -}}
+{{-         end -}}
+{{-         if isset $.Params.twitterCard "creator" -}}
+{{-             $creator = $.Params.twitterCard.creator -}}
+{{-         end -}}
+{{-         if isset $.Params.twitterCard "site" -}}
+{{-             $site = $.Params.twitterCard.site -}}
+{{-         end -}}
+{{-     end -}}
+{{-     if ne $card false }}
+    <meta name="twitter:card" content="{{- $card -}}" />
+{{-         if ne $image false }}
+    <meta name="twitter:image" content="{{- $image -}}" />
+{{-             if ne $imageAlt false }}
+    <meta name="twitter:image:alt" content="{{- $imageAlt -}}" />
+{{-             end }}
+{{-         end }}
+{{-         if ne $title false }}
+    <meta name="twitter:title" content="{{- $title -}}" />
+{{-         end }}
+{{-         if ne $description false }}
+    <meta name="twitter:description" content="{{- $description -}}" />
+{{-         end }}
+{{-         if ne $creator false }}
+    <meta name="twitter:creator" content="{{- $creator -}}" />
+{{-         end }}
+{{-         if ne $site false }}
+    <meta name="twitter:site" content="{{- $site -}}" />
+{{-          end }}
+{{-      end }}
+{{  end }}
