@@ -274,11 +274,6 @@ Go to the {{% ui-text %}}Two-Factor Authentication{{% /ui-text %}} section of th
 
 ![Tugboat's User Profile pane with Two-Factor Authentication section circled and an arrow to the Renew link](../../_images/go-two-factor-authentication-click-renew.png)
 
-Use a two-factor authentication app on your mobile device to scan the QR code, or manually enter the code into your
-preferred 2FA tool.
-
-![View of the Two-Factor Authentication dialog showing the QR code and code manually listed](../../_images/scan-new-qr-code-or-manually-enter-it.png)
-
 Enter the 6-digit code from your two-factor authentication app into the dialog box, and press the Verify button.
 
 ![6-digit code typed into dialog box, with arrow pointing to the Verify button](../../_images/verify-new-2fa-recovery-codes.png)
