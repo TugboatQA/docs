@@ -9,6 +9,11 @@
     <title>{{ .Title }} :: {{ .Site.Title }}</title>
 
     {{ $assetBusting := not .Site.Params.disableAssetsBusting }}
+    <link rel="preload" href="{{"fonts/poppins/poppins-v6-latin-300.woff2" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="{{"fonts/poppins/poppins-v6-latin-italic.woff2" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="{{"fonts/poppins/poppins-v6-latin-regular.woff2" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="{{"fonts/poppins/poppins-v6-latin-500.woff2" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="{{"fonts/poppins/poppins-v6-latin-600.woff2" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" as="font" type="font/woff2" crossorigin="">
     <link href="{{"css/nucleus.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
     <link href="{{"css/fontawesome-all.min.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
     <link href="{{"css/hybrid.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
