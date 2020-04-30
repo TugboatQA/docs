@@ -19,3 +19,14 @@ home = [ "HTML", "RSS", "JSON"]
   # Set this to true to disable copy-to-clipboard button for inline code.
 
   disableInlineCopyToClipBoard = true
+
+# Set Twitter card defaults for documentation site
+
+[params.twitterCard]
+    card = "summary"
+    image = "https://docs.tugboat.qa/_images/twitter-card-summary-image.png"
+    imageAlt = "TugboatQA Documentation Site"
+    site = "@TugboatQA"
+    creator = "@TugboatQA"
+    title = "Tugboat Documentation"
+    description = "How to use Tugboat to build a working Preview from every pull request, branch, or tag."
