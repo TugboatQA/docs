@@ -24,7 +24,7 @@ home = [ "HTML", "RSS", "JSON"]
 
 [params.twitterCard]
     card = "summary"
-    image = "_images/twitter-card-summary-image.jpg"
+    image = "_images/twitter-card-summary-image.png"
     imageAlt = "TugboatQA Documentation Site"
     site = "@TugboatQA"
     creator = "@TugboatQA"
