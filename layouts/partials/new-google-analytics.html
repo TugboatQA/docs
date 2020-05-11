@@ -21,8 +21,8 @@ if (!doNotTrack) {
    }
 	{{ else }}
 	ga('create', '{{ . }}', 'auto', {'allowLinker': true});
-  ga('require', 'linker');
-  ga('linker:autoLink', ['tugboat.qa', 'dashboard.tugboat.qa', 'api.tugboat.qa'] );
+  	ga('require', 'linker');
+  	ga('linker:autoLink', ['tugboat.qa', 'dashboard.tugboat.qa', 'api.tugboat.qa'] );
 	{{ end -}}
 	{{ if $pc.AnonymizeIP }}ga('set', 'anonymizeIp', true);{{ end }}
 	ga('send', 'pageview');
