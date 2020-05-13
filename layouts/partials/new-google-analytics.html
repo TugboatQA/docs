@@ -17,7 +17,7 @@ if (!doNotTrack) {
 	    'allowLinker': true
 	   });
 	   ga('require', 'linker');
-	   ga('linker:autoLink', ['tugboat.qa', 'dashboard.tugboat.qa', 'api.tugboat.qa'] );
+	   ga('linker:autoLink', ['www.tugboat.qa', 'dashboard.tugboat.qa', 'preview.tugboat.qa', 'api.tugboat.qa'] );
 	   ga(function(tracker) {
 	    sessionStorage.setItem(GA_SESSION_STORAGE_KEY, tracker.get('clientId'));
 	   });
@@ -25,7 +25,7 @@ if (!doNotTrack) {
 	{{ else }}
 	ga('create', '{{ . }}', 'auto', {'allowLinker': true});
   	ga('require', 'linker');
-  	ga('linker:autoLink', ['tugboat.qa', 'dashboard.tugboat.qa', 'api.tugboat.qa'] );
+  	ga('linker:autoLink', ['www.tugboat.qa', 'dashboard.tugboat.qa', 'preview.tugboat.qa', 'api.tugboat.qa'] );
 	{{ end -}}
 	{{ if $pc.AnonymizeIP }}ga('set', 'anonymizeIp', true);{{ end }}
 	ga('send', 'pageview');
