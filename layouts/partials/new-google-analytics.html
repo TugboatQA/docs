@@ -13,8 +13,11 @@ if (!doNotTrack) {
 		var GA_SESSION_STORAGE_KEY = 'ga:clientId';
 		ga('create', '{{ . }}', {
 	    'storage': 'none',
-	    'clientId': sessionStorage.getItem(GA_SESSION_STORAGE_KEY)
+	    'clientId': sessionStorage.getItem(GA_SESSION_STORAGE_KEY),
+	    'allowLinker': true
 	   });
+	   ga('require', 'linker');
+	   ga('linker:autoLink', ['tugboat.qa', 'dashboard.tugboat.qa', 'api.tugboat.qa'] );
 	   ga(function(tracker) {
 	    sessionStorage.setItem(GA_SESSION_STORAGE_KEY, tracker.get('clientId'));
 	   });
