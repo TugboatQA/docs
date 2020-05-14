@@ -21,6 +21,11 @@ if (!doNotTrack) {
    }
 	{{ else }}
 	ga('create', '{{ . }}', 'auto');
+	/* This session storage stuff above is super confusing, so we only send the
+	 * rollup pageview if it's off. */
+	ga('create', 'UA-69911960-7', 'auto', 'rollup');
+	ga('rollup.send', 'pageview');
+	{{ if $pc.AnonymizeIP }}ga('rollup.set', 'anonymizeIp', true); {{ end }}
 	{{ end -}}
 	{{ if $pc.AnonymizeIP }}ga('set', 'anonymizeIp', true);{{ end }}
 	ga('send', 'pageview');
