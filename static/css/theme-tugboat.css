@@ -189,6 +189,11 @@ a:hover {
 #sidebar a:hover {
     color: var(--MENU-SECTIONS-LINK-HOVER-color);
 }
+
+#sidebar ul.topics {
+    margin: 1rem 1rem 0 1rem;
+}
+
 #sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
     background: var(--MENU-SECTIONS-ACTIVE-BG-color);
 }
@@ -284,4 +289,36 @@ mark {
     white-space: normal;
     background: #f7f7f7;
     color: #1C4248;
+}
+
+.btn-default {
+    border-width: 2px !important;
+    font-size: 1rem !important;
+    color: #fff !important;
+    background-color: #0098CB !important;
+    border-color: #0098CB !important;
+    font-weight: 600 !important;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active {
+    color: #fff!important;
+    background-color: #007ba5 !important;
+    border-color: #007298 !important;
+}
+
+.btn.btn-learn-more,
+.btn.btn-learn-more:focus,
+.btn.btn-learn-more:active {
+    color: #0098CB !important;
+    border-color: #0098CB !important;
+    background-color: #fff !important;
+}
+
+.btn.btn-learn-more:hover {
+    color: #fff !important;
+    background-color: #0098CB !important;
+    border-color: #0098CB !important;
 }
