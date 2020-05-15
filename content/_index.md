@@ -10,7 +10,7 @@ repository. It can automatically create these previews for pull requests by inte
 Bitbucket git repositories.
 
 {{% button icon="fas fa-external-link-alt" class="btn-learn-more" href="https://www.tugboat.qa" %}}Learn more{{% /button %}}&nbsp;
-{{% button icon="fas fa-external-link-alt" class="btn-sign-up" href="https://dashboard.tugboat.qa/new-project" %}}Sign up{{% /button %}}
+{{% button icon="fas fa-external-link-alt" class="btn-sign-up" href="https://dashboard.tugboat.qa" %}}Sign in{{% /button %}}
 
 This website aims to provide the information required to use Tugboat. It includes tutorials, examples, and references
 for all experience levels.
