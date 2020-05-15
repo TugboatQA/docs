@@ -9,10 +9,10 @@ Tugboat is a system that builds a working preview of a website for any branch, t
 repository. It can automatically create these previews for pull requests by integrating with GitHub, GitLab, or
 Bitbucket git repositories.
 
-{{% button icon="fas fa-external-link-alt" class="btn-learn-more" href="https://www.tugboat.qa" %}}Learn
-more{{% /button %}}&nbsp;
-{{% button icon="fas fa-external-link-alt" class="btn-sign-up" href="https://dashboard.tugboat.qa" %}}Sign
-in{{% /button %}}
+<!-- prettier-ignore-start -->
+{{% button icon="fas fa-external-link-alt" class="btn-learn-more" href="https://www.tugboat.qa" %}}Learn more{{% /button %}}&nbsp;
+{{% button icon="fas fa-external-link-alt" class="btn-sign-up" href="https://dashboard.tugboat.qa" %}}Sign in{{% /button %}}
+<!-- prettier-ignore-end -->
 
 This website aims to provide the information required to use Tugboat. It includes tutorials, examples, and references
 for all experience levels.
