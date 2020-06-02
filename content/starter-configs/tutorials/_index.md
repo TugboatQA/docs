@@ -1,15 +1,16 @@
 +++
 title = "Tutorials"
 date = 2019-09-19T11:07:43-04:00
-weight = 1
+lastmod = 2020-06-02T09:00:00-04:00
+weight = 2
 chapter = true
 pre = ""
 +++
 
-### Reference
+### Starter Configs
 
 # Tutorials
 
-Information about configuring the frameworks, and example config.yml files to get you started.
+Information about configuring frameworks to work with Tugboat, and example config.yml files to get you started.
 
 {{% children  %}}
