@@ -1,7 +1,7 @@
 ---
 title: "Generic LAMP"
 date: 2019-09-19T10:59:39-04:00
-weight: 2
+weight: 5
 ---
 
 A Generic LAMP stack should work with most PHP/MySQL web applications. You may need to do some customizing, but this
