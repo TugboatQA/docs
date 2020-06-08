@@ -85,12 +85,12 @@
     RewriteRule ^tutorials/static-html/?$ %{ENV:CWD}starter-configs/code-snippets/static-html/ [L,R=301]
     RewriteRule ^tutorials/wordpress/?$ %{ENV:CWD}starter-configs/tutorials/wordpress/ [L,R=301]
 
-    ### v4 -> v5
+    ### v4
 
-    RewriteRule ^starter-configs/code-snippets/static-html/?$ /starter-configs/examples/static-html/ [L,R=301]
-    RewriteRule ^starter-configs/code-snippets/static-mkdocs/?$ /starter-configs/examples/static-mkdocs/ [L,R=301]
-    RewriteRule ^starter-configs/code-snippets/static-hugo/?$ /starter-configs/examples/static-hugo/ [L,R=301]
-    RewriteRule ^starter-configs/code-snippets/generic-lamp/?$ /starter-configs/examples/generic-lamp/ [L,R=301]
-    RewriteRule ^starter-configs/code-snippets/static-jekyll/?$ /starter-configs/examples/static-jekyll/ [L,R=301]
+    RewriteRule ^starter-configs/code-snippets/static-html/?$ %{ENV:CWD}starter-configs/examples/static-html/ [L,R=301]
+    RewriteRule ^starter-configs/code-snippets/static-mkdocs/?$ %{ENV:CWD}starter-configs/examples/static-mkdocs/ [L,R=301]
+    RewriteRule ^starter-configs/code-snippets/static-hugo/?$ %{ENV:CWD}starter-configs/examples/static-hugo/ [L,R=301]
+    RewriteRule ^starter-configs/code-snippets/generic-lamp/?$ %{ENV:CWD}starter-configs/examples/generic-lamp/ [L,R=301]
+    RewriteRule ^starter-configs/code-snippets/static-jekyll/?$ %{ENV:CWD}starter-configs/examples/static-jekyll/ [L,R=301]
 
 </IfModule>
