@@ -68,10 +68,10 @@ tugboat log 5d092b16bd44cb22a498be90
 
 ### Build a new Preview
 
-To build a new Preview from the master branch of a Tugboat Repository with an ID of `5b02ed093558930001c04cfa`:
+To build a new Preview from the `main` branch of a Tugboat Repository with an ID of `5b02ed093558930001c04cfa`:
 
 ```sh
-tugboat create preview master repo=5b02ed093558930001c04cfa
+tugboat create preview main repo=5b02ed093558930001c04cfa
 ```
 
 ### Delete a Preview

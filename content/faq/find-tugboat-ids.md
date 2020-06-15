@@ -249,16 +249,16 @@ You'll see a response similar to this:
 
          Preview ID                 OPTS     Status       Size      Name
          ------------------------  --------  -----------  --------  ---------------------
-         5dfic54972db400001b8d290    ⚓️ ☾️     ready        622.72MB  master
-           https://master-5vt12vtfuqy0chpzdhernpafabmixrny.tugboat.qa
+         5dfic54972db400001b8d290    ⚓️ ☾️     ready        622.72MB  main
+           https://main-5vt12vtfuqy0chpzdhernpafabmixrny.tugboat.qa
 
    Project: 5mdkso12376f987ckif01f10 - Company ABC Documentation Site
       Repository: 5mdkso12376f987ckif0c3dd - CompanyABC/documentation-site
 
           Preview ID                 OPTS     Status       Size      Name
           ------------------------  --------  -----------  --------  ---------------------
-          5d3750bee9b02644d56b0a89    ⚓️ ☾️     ready         435.9MB  master
-            https://master-kkmsgw224wtjtlbqviabxqitakcfvrdv.tugboat.qa
+          5d3750bee9b02644d56b0a89    ⚓️ ☾️     ready         435.9MB  main
+            https://main-kkmsgw224wtjtlbqviabxqitakcfvrdv.tugboat.qa
 ```
 
 ##### List the Previews in a specific project
@@ -277,15 +277,15 @@ You'll see a response similar to this:
 
          Preview ID                 OPTS     Status       Size      Name
          ------------------------  --------  -----------  --------  ---------------------
-         5dfic54972db400001b8d290    ⚓️ ☾️     ready        622.72MB  master
-           https://master-5vt12vtfuqy0chpzdhernpafabmixrny.tugboat.qa
+         5dfic54972db400001b8d290    ⚓️ ☾️     ready        622.72MB  main
+           https://main-5vt12vtfuqy0chpzdhernpafabmixrny.tugboat.qa
 
       Repository: 5dfic6be53my123401b8df5d - CompanyABC/marketing-assets
 
          Preview ID                 OPTS     Status       Size      Name
          ------------------------  --------  -----------  --------  ---------------------
-         5dfic0761394630860890c88    ⚓️ ☾️     ready        554.15MB  master
-           https://master-eza4ulhhdmye7lixxpqjvhn6toduj4qg.tugboat.qa
+         5dfic0761394630860890c88    ⚓️ ☾️     ready        554.15MB  main
+           https://main-eza4ulhhdmye7lixxpqjvhn6toduj4qg.tugboat.qa
 ```
 
 ##### List the Previews in a specific repository
@@ -304,8 +304,8 @@ You'll see a response similar to this:
 
          Preview ID                 OPTS     Status       Size      Name
          ------------------------  --------  -----------  --------  ---------------------
-         5d3750bee9b02644d56b0a89    ⚓️ ☾️     ready         435.9MB  master
-           https://master-kmyugw294wtjtlbqviabxqinwecfvrdv.tugboat.qa
+         5d3750bee9b02644d56b0a89    ⚓️ ☾️     ready         435.9MB  main
+           https://main-kmyugw294wtjtlbqviabxqinwecfvrdv.tugboat.qa
 
          5d8a44a86ada2349d59d309e      ☾️     failed             0B  readme change
            undefined
@@ -324,19 +324,19 @@ You'll see a response similar to this:
 ```sh
    Project: 5dfic23e53my123401b8d0e5 - Company ABC Marketing Site
       Repository: 5dfic23e53my123401b8d0e7 - CompanyABC/marketing
-         Preview: 5dfic54972db400001b8d290 - master
+         Preview: 5dfic54972db400001b8d290 - main
 
             Service ID                State        Size      Name
             ------------------------  -----------  --------  -------------------------------
             5e3b45fa9366b18e6412206a  suspended    413.94MB  companyabc-redis
-              https://master-mj9lot9hdvlbf1ztqw2zsmdhbasge0i5.tugboat.qa
+              https://main-mj9lot9hdvlbf1ztqw2zsmdhbasge0i5.tugboat.qa
 
             5e3b45fa9366b18b8612206c  suspended    1.58GB    companyabc-mongo
-              https://master-siza3cf9u5pc5u9qnba3ukd0s63djski.tugboat.qa
+              https://main-siza3cf9u5pc5u9qnba3ukd0s63djski.tugboat.qa
 
             5e3b45fa9366b1583412206e  suspended    1.81GB    companyabc-ui
-              https://preview.tugboat.qa/master-9a7qh5wgc5w2n738andbu9hlobe8xmdk
+              https://preview.tugboat.qa/main-9a7qh5wgc5w2n738andbu9hlobe8xmdk
 
             5e3b45fa9366b1579f122070  suspended    501.52MB  companyabc-api
-              https://master-amduoolpi4kaldvbrvamdkobnvwcbn8m.tugboat.qa
+              https://main-amduoolpi4kaldvbrvamdkobnvwcbn8m.tugboat.qa
 ```
