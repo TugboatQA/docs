@@ -53,7 +53,7 @@ To dissect the key value in our Apache image key example above, we're calling:
 [Apache HTTP Server](https://hub.docker.com/r/tugboatqa/httpd).  
 `2.4` : **OPTIONAL** version tag; in this case, we're calling for the specific 2.4 version of Tugboat's Apache HTTP
 server image. If you browse to the
-[supported images in our GitHub repo](https://github.com/TugboatQA/dockerfiles/blob/master/httpd/TAGS.md), you can see a
+[supported images in our GitHub repo](https://github.com/TugboatQA/dockerfiles/blob/main/httpd/TAGS.md), you can see a
 list of all the version tags available for Tugboat's Apache HTTP Server image.
 
 For more on version tags, take a look at our
