@@ -177,3 +177,5 @@ press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button!
 ![Press the Save Configuration button](../../_images/repository-settings-press-save-configuration.png)
 
 {{% /expand%}}
+
+.
