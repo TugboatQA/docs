@@ -1,6 +1,7 @@
 ---
 title: "Select Repo Settings"
 date: 2019-09-17T11:42:15-04:00
+lastmod: 2020-06-29T10:00:00-04:00
 weight: 4
 ---
 
@@ -125,6 +126,12 @@ credentials from within the repo settings.
 
 ![Authenticate with a Docker registry](../../_images/authenticate-with-a-docker-registry-add-credentials.png)
 
+### Preview IP Filters
+
+Want to restrict access to a Preview URL to only allow a specified set of IP addresses or subnets to view a Tugboat
+Preview? Press the {{% ui-text %}}+ Add{{% ui-text %}} button to specify IPv4 or IPv6 addresses or subnets that should
+be allowed to access Previews built from this repository.
+
 ### Delete the Repository
 
 If you want to delete a repo from your Tugboat project, you'll go into the Repository Settings for that repo and press
@@ -148,3 +155,25 @@ Any time you need to make a change to Repository Settings:
 
 From here, you'll see all the Repository Settings you can modify. If you make changes to the settings, don't forget to
 press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button!
+
+{{%expand "Visual Walkthrough" %}}
+
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+
+![My Projects](../../_images/go-to-user-my-projects.png)
+
+Select the project where you want to edit repository settings.
+
+![Select the project](../../_images/select-a-project.png)
+
+Scroll to the linked repository whose settings you want to change, and click the {{% ui-text %}}Settings{{% /ui-text %}}
+link.
+
+![Click the Repository Settings link](../../_images/go-to-repository-settings.png)
+
+From here, you'll see all the Repository Settings you can modify. If you make changes to the settings, don't forget to
+press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button!
+
+![Press the Save Configuration button](../../_images/repository-settings-press-save-configuration.png)
+
+{{% /expand%}}
