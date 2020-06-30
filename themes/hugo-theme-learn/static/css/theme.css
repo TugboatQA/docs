@@ -535,6 +535,13 @@ div.notices.tip p {
 div.notices.tip p:first-child:after {
     content: 'Tip';
 }
+div.notices.tier p {
+    border-top: 30px solid #8F269E;
+    background: #F1D6F5;
+}
+div.notices.tier p:first-child:after {
+    content: 'Premium Tier Feature';
+}
 
 /* attachments shortcode */
 
