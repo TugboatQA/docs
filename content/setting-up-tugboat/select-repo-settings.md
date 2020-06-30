@@ -129,9 +129,51 @@ credentials from within the repo settings.
 
 ### Configure Preview IP Filtering
 
+{{% notice tier %}} This feature is only available to [Tugboat Enterprise](https://www.tugboat.qa/enterprise) or
+On-Premise subscribers. If you'd like to use Preview IP Filtering, update your project to an Enterprise
+subscription.{{% /notice %}}
+
 Want to restrict access to a Preview URL to only allow a specified set of IP addresses or subnets to view a Tugboat
 Preview? Press the {{% ui-text %}}+ Add{{% /ui-text %}} button to specify IPv4 or IPv6 addresses or subnets that should
 be allowed to access Previews built from this repository.
+
+#### How to format config values for Preview IP filtering
+
+The config can accept any of the following
+
+- Any valid IPv4 subnet, using CIDR notation
+- Any valid IPv6 subnet, using CIDR notation
+- Any valid IPv4 address. We will automatically append a /32 CIDR subnet mask
+- Any valid IPv6 address. We will automatically append a /128 CIDR subnet mask
+
+For more information about CIDR notation, take a look at
+[the Wikipedia article: Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+
+#### How Preview IP filtering works
+
+When no filters are provided, no filtering is done. A Preview URL is publicly accessible to anyone who has the link.
+This is how Tugboat has always worked. However, we do programmatically add an unguessable hash to the URL to prevent
+"guessing" Preview URLs by looking for an exploiting a pattern to the URL.
+
+##### Allow filters
+
+When using Preview IP filtering, if one or more filters are provided, ONLY requests coming from an address that matches
+one of those filters are allowed access to the Preview URLs. Any other requests get a 404 - Preview Not Found.
+
+An address "matches" if it is a member of any of the subnets in the list of filters.
+
+##### Optional Deny filters
+
+In addition to _allow_ filters, Tugboat also offers _deny_ filters. However, those can only be managed by the API or
+CLI. When using _deny_ filters, they are processed **after** _allow_ filters.
+
+If both _allow_ and _deny_ filters are present, a source IP must match an _allow_ filter, but must **not** match a
+_deny_ filter in order to access a Preview URL.
+
+If only _deny_ filters are present, a source IP must **not** match a deny filter in order to access a Preview URL.
+
+Ultimately, _deny_ filters are not very useful on their own, but provide a way for advanced users to _allow_ access to a
+large subnet, and then specify exceptions to that _allow_ list.
 
 ### Delete the Repository
 
