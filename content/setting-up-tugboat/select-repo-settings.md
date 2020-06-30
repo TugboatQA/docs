@@ -16,6 +16,7 @@ Repository Settings, you can:
 - [Modify Environment Variables](#modify-environment-variables)
 - [Set up Remote SSH Access](#set-up-remote-ssh-access)
 - [Authenticate with a Docker Registry](#authenticate-with-a-docker-registry)
+- [Configure Preview IP Filtering](#configure-preview-ip-filtering)
 - [Delete the repo](#delete-the-repository)
 
 Don't forget to hit the {{% ui-text %}}Save Configuration{{% /ui-text %}} button after you've checked or unchecked boxes
@@ -126,10 +127,10 @@ credentials from within the repo settings.
 
 ![Authenticate with a Docker registry](../../_images/authenticate-with-a-docker-registry-add-credentials.png)
 
-### Preview IP Filters
+### Configure Preview IP Filtering
 
 Want to restrict access to a Preview URL to only allow a specified set of IP addresses or subnets to view a Tugboat
-Preview? Press the {{% ui-text %}}+ Add{{% ui-text %}} button to specify IPv4 or IPv6 addresses or subnets that should
+Preview? Press the {{% ui-text %}}+ Add{{% /ui-text %}} button to specify IPv4 or IPv6 addresses or subnets that should
 be allowed to access Previews built from this repository.
 
 ### Delete the Repository
