@@ -58,6 +58,7 @@ services:
       init:
         ...
         # Install pip so you can get the Testery CLI
+        - apt-get update
         - apt-get install -y python3 python3-pip
 
       # Commands that build the site. This is where you would add things
