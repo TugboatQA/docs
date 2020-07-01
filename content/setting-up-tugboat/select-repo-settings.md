@@ -1,6 +1,7 @@
 ---
 title: "Select Repo Settings"
 date: 2019-09-17T11:42:15-04:00
+lastmod: 2020-06-29T10:00:00-04:00
 weight: 4
 ---
 
@@ -15,6 +16,7 @@ Repository Settings, you can:
 - [Modify Environment Variables](#modify-environment-variables)
 - [Set up Remote SSH Access](#set-up-remote-ssh-access)
 - [Authenticate with a Docker Registry](#authenticate-with-a-docker-registry)
+- [Configure Preview IP Filtering](#configure-preview-ip-filtering)
 - [Delete the repo](#delete-the-repository)
 
 Don't forget to hit the {{% ui-text %}}Save Configuration{{% /ui-text %}} button after you've checked or unchecked boxes
@@ -125,6 +127,54 @@ credentials from within the repo settings.
 
 ![Authenticate with a Docker registry](../../_images/authenticate-with-a-docker-registry-add-credentials.png)
 
+### Configure Preview IP Filtering
+
+{{% notice tier %}} This feature is only available to [Tugboat Enterprise](https://www.tugboat.qa/enterprise) or
+On-Premise subscribers. If you'd like to use Preview IP Filtering, update your project to an Enterprise
+subscription.{{% /notice %}}
+
+Want to restrict access to a Preview URL to only allow a specified set of IP addresses or subnets to view a Tugboat
+Preview? Press the {{% ui-text %}}+ Add{{% /ui-text %}} button to specify IPv4 or IPv6 addresses or subnets that should
+be allowed to access Previews built from this repository.
+
+#### How to format config values for Preview IP filtering
+
+The config can accept any of the following
+
+- Any valid IPv4 subnet, using CIDR notation
+- Any valid IPv6 subnet, using CIDR notation
+- Any valid IPv4 address. We will automatically append a /32 CIDR subnet mask
+- Any valid IPv6 address. We will automatically append a /128 CIDR subnet mask
+
+For more information about CIDR notation, take a look at
+[the Wikipedia article: Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+
+#### How Preview IP filtering works
+
+When no filters are provided, no filtering is done. A Preview URL is publicly accessible to anyone who has the link.
+This is how Tugboat has always worked. However, we do programmatically add an unguessable hash to the URL to prevent
+"guessing" Preview URLs by looking for an exploiting a pattern to the URL.
+
+##### Allow filters
+
+When using Preview IP filtering, if one or more filters are provided, ONLY requests coming from an address that matches
+one of those filters are allowed access to the Preview URLs. Any other requests get a 404 - Preview Not Found.
+
+An address "matches" if it is a member of any of the subnets in the list of filters.
+
+##### Optional Deny filters
+
+In addition to _allow_ filters, Tugboat also offers _deny_ filters. However, those can only be managed by the API or
+CLI. When using _deny_ filters, they are processed **after** _allow_ filters.
+
+If both _allow_ and _deny_ filters are present, a source IP must match an _allow_ filter, but must **not** match a
+_deny_ filter in order to access a Preview URL.
+
+If only _deny_ filters are present, a source IP must **not** match a deny filter in order to access a Preview URL.
+
+Ultimately, _deny_ filters are not very useful on their own, but provide a way for advanced users to _allow_ access to a
+large subnet, and then specify exceptions to that _allow_ list.
+
 ### Delete the Repository
 
 If you want to delete a repo from your Tugboat project, you'll go into the Repository Settings for that repo and press
@@ -148,3 +198,27 @@ Any time you need to make a change to Repository Settings:
 
 From here, you'll see all the Repository Settings you can modify. If you make changes to the settings, don't forget to
 press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button!
+
+{{%expand "Visual Walkthrough" %}}
+
+Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+
+![My Projects](../../_images/go-to-user-my-projects.png)
+
+Select the project where you want to edit repository settings.
+
+![Select the project](../../_images/select-a-project.png)
+
+Scroll to the linked repository whose settings you want to change, and click the {{% ui-text %}}Settings{{% /ui-text %}}
+link.
+
+![Click the Repository Settings link](../../_images/go-to-repository-settings.png)
+
+From here, you'll see all the Repository Settings you can modify. If you make changes to the settings, don't forget to
+press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button!
+
+![Press the Save Configuration button](../../_images/repository-settings-press-save-configuration.png)
+
+{{% /expand%}}
+
+.
