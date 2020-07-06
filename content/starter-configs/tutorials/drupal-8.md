@@ -1,7 +1,7 @@
 ---
 title: "Drupal 8"
 date: 2019-09-19T10:59:21-04:00
-weight: 2
+weight: 1
 ---
 
 Wondering how to configure Tugboat for a typical Drupal 8 repository? Every Drupal site tends to have slightly different
