@@ -7,9 +7,9 @@ weight: 7
 In addition to our officially maintained [Tugboat Docker images](/reference/tugboat-images/), these unofficial Docker
 images created by community Tugboat users may be useful when building your Tugboat Previews.
 
-| Image Purpose                                                                                             | Usage                                | Documentation                                                                 |
-| :-------------------------------------------------------------------------------------------------------- | :----------------------------------- | ----------------------------------------------------------------------------- |
-| **Drupal Module or Theme** [{{< icon class="fas fa-link" title="Anchor link" >}}](#q0rban-tugboat-drupal) | `image: q0rban/tugboat-drupal:[TAG]` | [Documentation](https://github.com/q0rban/tugboat-drupal/blob/main/README.md) |
+| Image Purpose                                                                                             | Usage                                | Documentation                                                          |
+| :-------------------------------------------------------------------------------------------------------- | :----------------------------------- | ---------------------------------------------------------------------- |
+| **Drupal Module or Theme** [{{< icon class="fas fa-link" title="Anchor link" >}}](#q0rban-tugboat-drupal) | `image: q0rban/tugboat-drupal:[TAG]` | [README](https://github.com/q0rban/tugboat-drupal/blob/main/README.md) |
 
 {{% notice info %}} These are unofficial images that we do not maintain, so Tugboat's Support service does not cover
 these images. To request changes or updates to the images, or information and documentation on how to use them, please
