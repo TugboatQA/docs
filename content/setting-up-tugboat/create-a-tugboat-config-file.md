@@ -19,4 +19,5 @@ you started:
   started)
 - [Using the Tugboat Command Line Tool](/tugboat-cli/)
 - [Tugboat Configuration](/reference/tugboat-configuration/) (detailing the attributes you can use when building
+  Previews with Tugboat)
 - [Debugging Config files](/troubleshooting/debug-config-file/)
