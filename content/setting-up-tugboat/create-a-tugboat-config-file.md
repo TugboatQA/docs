@@ -18,6 +18,6 @@ you started:
 - [Starter Configuration files](/starter-configs/) (configuration file code snippets with comments to help you get
   started)
 - [Using the Tugboat Command Line Tool](/tugboat-cli/)
-- [Tugboat Configuration](/reference/tugboat-configuration/) (detailing the attributes you can use when building
-  Previews with Tugboat)
+- [Tugboat Configuration Reference](/reference/tugboat-configuration/) (detailing the attributes you can use when
+  building Previews with Tugboat)
 - [Debugging Config files](/troubleshooting/debug-config-file/)
