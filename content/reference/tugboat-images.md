@@ -36,7 +36,7 @@ of memcached you use, and you can be sure you always have the most recent versio
 | Node                              | `image: tugboatqa/node:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/node/TAGS.md)          |
 | [Percona](#mysqlmariadbpercona)   | `image: tugboatqa/percona:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/percona/TAGS.md)       |
 | [PHP](#php)                       | `image: tugboatqa/php:[TAG]`           | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/php/TAGS.md)           |
-| PostgreSQL                        | `image: tugboatqa/postgres:[TAG]`      | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/postgres/TAGS.md)      |
+| [PostgreSQL](#postgresql)         | `image: tugboatqa/postgres:[TAG]`      | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/postgres/TAGS.md)      |
 | Redis                             | `image: tugboatqa/redis:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/redis/TAGS.md)         |
 | Solr                              | `image: tugboatqa/solr:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/solr/TAGS.md)          |
 | Ubuntu                            | `image: tugboatqa/ubuntu:[TAG]`        | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/ubuntu/TAGS.md)        |
@@ -110,3 +110,9 @@ commands:
     # Enable mod_rewrite and mod_headers
     - a2enmod rewrite headers
 ```
+
+#### PostgreSQL
+
+The PostgreSQL images have a default database named `tugboat` as well as a user named `tugboat` with a password of
+`tugboat`. The `tugboat` user has full access to the `tugboat` database. In addition, the default superuser password is
+set to `tugboat`.
