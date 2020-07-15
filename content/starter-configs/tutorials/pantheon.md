@@ -1,7 +1,7 @@
 ---
 title: "Pantheon"
 date: 2019-09-19T11:00:09-04:00
-weight: 3
+weight: 5
 ---
 
 Wondering how to configure Tugboat for a typical site hosted on Pantheon? While these instructions are for a Drupal 8

@@ -1,7 +1,7 @@
 ---
 title: "Testery.io Integration"
 date: 2020-06-30T11:00:00-04:00
-weight: 5
+weight: 6
 ---
 
 Wondering how to set up automated testing against your dynamically-generated Tugboat environment? Here's one way to get
