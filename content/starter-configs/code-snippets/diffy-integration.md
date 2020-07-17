@@ -52,5 +52,5 @@ services:
 
         # Compare this service with the base preview
         - if [ "x$TUGBOAT_BASE_PREVIEW_URL" != "x" ]; then diffy project:compare $DIFFY_PROJECT_ID custom custom
-          --env1Url=$TUGBOAT_BASE_PREVIEW_URL --env2Url=$TUGBOAT_SERVICE_URL ;fi
+          --env1Url=$TUGBOAT_BASE_PREVIEW_URL --env2Url=$TUGBOAT_SERVICE_URL; fi
 ```
