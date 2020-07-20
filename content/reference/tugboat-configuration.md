@@ -1,6 +1,7 @@
 ---
 title: "Tugboat Configuration"
 date: 2019-09-17T11:26:18-04:00
+lastmod: 2020-07-20T15:00:00-04:00
 weight: 4
 ---
 
@@ -134,6 +135,9 @@ See also: [Service Commands](/setting-up-services/how-to-set-up-services/leverag
 | update | Commands that import data or other assets into a service, such as a database or image files            |
 | build  | Commands that build or generate the site, such as compiling Sass or running database updates from code |
 | ready  | Commands that indicate that a service is "ready", such as checking for a listening TCP port            |
+| online | Commands to run once, after a Preview has built, is online, and is ready to accept incoming requests   |
+| start  | Commands that should be run every time a Preview starts                                                |
+| clone  | Commands that should be run on the cloned (new) Preview that has been created from an existing Preview |
 
 The `init`, `update`, and `build` stages are related as follows:
 
@@ -144,6 +148,10 @@ The `init`, `update`, and `build` stages are related as follows:
   the commands in `update` are run, followed by the commands in `build`.
 
 - When a Preview is created from a Base Preview, only the commands in `build` are run.
+
+The `online`, `start`, and `clone` commands all run after the build snapshot, so these commands are executed after the
+build is complete (although `clone`ed commands are committed as a second build snapshot). For more info on the build
+snapshot, see: [The Build Snapshot](/building-a-preview/preview-deep-dive/how-previews-work#the-build-snapshot).
 
 ---
 
