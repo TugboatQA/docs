@@ -1,6 +1,7 @@
 +++
 title = "Running a Background Process"
 date = 2019-09-19T13:05:11-04:00
+lastmod = 2020-07-20T15:00:00-04:00
 weight = 8
 +++
 
@@ -10,6 +11,13 @@ has not finished building, and it will be stuck in the "building" state until it
 
 {{% notice info %}} The reason Tugboat needs to wait for all of the `build` commands to finish is that we stop the
 Services after a Preview build is finished in order to take a snapshot. {{% /notice %}}
+
+You can use two techniques to run a background process:
+
+- [Use a Tugboat image that contains `runit` to start a build script independent of the Preview build process.](#use-runit-in-an-official-tugboat-image)
+- [Use the `start` command to start a background process](#use-the-start-command)
+
+## Use runit in an official Tugboat image
 
 Our [prebuilt images](../../service-images/using-tugboat-images/) use [runit](http://smarden.org/runit/) to start and
 manage background processes.
@@ -25,7 +33,7 @@ For example, the following `run` script would start Apache:
 exec httpd-foreground
 ```
 
-Below is an example of how you might configure a NodeJS process to start. Keep in mind that `runit` will try to start
+Below is an example of how you might configure a Node.JS process to start. Keep in mind that `runit` will try to start
 the process as soon as the `run` script is present in the Service directory. So, set it up after any other build steps
 that it might depend on.
 
@@ -39,4 +47,23 @@ services:
           - echo "#!/bin/sh" > /etc/service/node/run
           - echo "npm start --prefix ${TUGBOAT_ROOT}" >> /etc/service/node/run
           - chmod +x /etc/service/node/run
+```
+
+## Use the start command
+
+If you're not using a Tugboat image that contains `runit` to start a long-running background process, another option is
+to use the `start` service command. Commands that you include in `start` in your `.tugboat/config.yml` will run every
+time the container starts. You might use this to warm a page cache, for example.
+
+Start works like other
+[service commands](/setting-up-services/how-to-set-up-services/leverage-service-commands/#service-commands-to-run-after-preview-build),
+so if you wanted to do something like starting a Node.JS process above but _without_ using `runit`, your config might
+look something like this:
+
+```yaml
+services:
+  php:
+    commands:
+      start:
+        - npm start --prefix ${TUGBOAT_ROOT} &
 ```

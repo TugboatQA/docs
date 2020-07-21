@@ -1,6 +1,7 @@
 ---
 title: "Preview has built incorrectly"
 date: 2019-09-19T12:38:53-04:00
+lastmod: 2020-07-20T15:00:00-04:00
 weight: 2
 ---
 
@@ -162,6 +163,13 @@ To troubleshoot where this might have gone wrong:
 
 If you can't figure out why something isn't as you expect in your Preview, let us know! Visit us at
 [Help and Support](/support/); we're happy to help.
+
+{{% notice tip %}} If you're using the `online`, `start`, or `clone` service commands to run additional commands after a
+Preview has built, and you're not getting the expected result, you may be running into a caveat about the conditions
+under which the commands run. Take a look at
+[service commands to run after Preview build](/setting-up-services/how-to-set-up-services/leverage-service-commands/#service-commands-to-run-after-preview-build),
+and feel free to reach out at [Help and Support](/support/) if you can't figure out which command is problematic.
+{{% /notice %}}
 
 ## Troubleshooting Visual Diffs
 

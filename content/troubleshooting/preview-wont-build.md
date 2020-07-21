@@ -1,6 +1,7 @@
 ---
 title: "Preview Won't Build"
 date: 2019-09-19T12:38:29-04:00
+lastmod: 2020-07-20T15:00:00-04:00
 weight: 1
 ---
 
@@ -41,6 +42,11 @@ When you're ready to troubleshoot, start by taking a
 into where the Preview is in the build process. If you see that the Preview build isn't progressing, checking out where
 it got stuck is a great place to start [debugging the Config file](../debug-config-file/) and figuring out what's
 causing the Preview build to hang.
+
+{{% notice tip %}} If your build is getting "stuck" and you're trying to run a background process, there may be an issue
+with the command you're trying to execute not being possible until the app has built. Take a look at
+[running a background process](/setting-up-services/how-to-set-up-services/running-a-background-process/), and feel free
+to reach out at [Help and Support](/support/) if you can't figure out where it's hanging. {{% /notice %}}
 
 If your builds are taking longer than expected, but there isn't an issue in your config file causing problems, take a
 look at [Optimize your Preview builds](/building-a-preview/preview-deep-dive/optimize-preview-builds/) for a few things
