@@ -33,7 +33,7 @@ For example, the following `run` script would start Apache:
 exec httpd-foreground
 ```
 
-Below is an example of how you might configure a NodeJS process to start. Keep in mind that `runit` will try to start
+Below is an example of how you might configure a Node.JS process to start. Keep in mind that `runit` will try to start
 the process as soon as the `run` script is present in the Service directory. So, set it up after any other build steps
 that it might depend on.
 
@@ -57,14 +57,13 @@ time the container starts. You might use this to warm a page cache, for example.
 
 Start works like other
 [service commands](/setting-up-services/how-to-set-up-services/leverage-service-commands/#service-commands-to-run-after-preview-build),
-so your config might look something like this:
+so if you wanted to do something like starting a Node.JS process above but _without_ using `runit`, your config might
+look something like this:
 
 ```yaml
 services:
   php:
     commands:
       start:
-        # Warm the cache
-        - sudo -u www-data /var/lib/tugboat/vendor/bin/drush --root /var/lib/tugboat/web warmer:enqueue -l localhost
-          --verbose --run-queue
+        - npm start --prefix ${TUGBOAT_ROOT} &
 ```

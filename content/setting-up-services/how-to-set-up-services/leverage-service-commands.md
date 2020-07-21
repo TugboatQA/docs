@@ -77,7 +77,7 @@ after the build process are:
   snapshot, when a Preview has been through **Build**, **Rebuild** or **Refresh**. For more info on the build process
   and build snapshots, see: [How Previews Work](/building-a-preview/preview-deep-dive/how-previews-work/).
 
-For an example of the `online` command, here's a sample code snippet from
+For an example of the `online` and `start` commands, here's a sample code snippet from
 [our Diffy integration](/starter-configs/code-snippets/diffy-integration/):
 
 ```yaml
@@ -87,22 +87,16 @@ services:
     default: true
     commands:
       init:
-        # The Diffy CLI tool requires PHP. If the service image does not have PHP
-        # installed, do it here
-        #- apt-get update
-        #- apt-get install php-cli
-
-        # Download the Diffy CLI tool, and authenticate. The latest version can be
-        # found at https://github.com/DiffyWebsite/diffy-cli/releases
+        # Download the Diffy CLI tool, and authenticate.
         - curl -L https://github.com/DiffyWebsite/diffy-cli/releases/download/0.1.2/diffy.phar -o /usr/local/bin/diffy
         - chmod +x /usr/local/bin/diffy
         - diffy auth:login $DIFFY_API_KEY
-
-        # Clean up after apt-get, if it was used
-        #- apt-get clean
-        #- rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+      start:
+        # Warm the cache
+        - sudo -u www-data /var/lib/tugboat/vendor/bin/drush --root /var/lib/tugboat/web warmer:enqueue -l localhost
+          --verbose --run-queue
       online:
-        # Compare this service with production
+        # Compare this service with production using Diffy
         - diffy project:compare $DIFFY_PROJECT_ID prod custom --env2Url=$TUGBOAT_SERVICE_URL
 
         # Compare this service with the base preview
