@@ -72,11 +72,20 @@ services:
         # Check for upgrades to the Testery command line interface
         - pip3 install testery --upgrade
         # Set up Testery to run tests against the Tugboat environment, using Tugboat environment variables
-        - testery update-environment --create-if-not-exists --token "$TESTERY_TOKEN" --key "${TUGBOAT_PREVIEW}" --name
-          "${TUGBOAT_PREVIEW}" --variable "TUGBOAT_DEFAULT_SERVICE_URL=${TUGBOAT_DEFAULT_SERVICE_URL}"
-        # Start a test run.
-        - testery create-test-run --token "$TESTERY_TOKEN" --git-ref "$TUGBOAT_PREVIEW_SHA" --project "testery"
-          --environment "${TUGBOAT_PREVIEW}"
+        - testery update-environment
+            --create-if-not-exists
+            --token "$TESTERY_TOKEN"
+            --key "${TUGBOAT_PREVIEW}"
+            --name "${TUGBOAT_PREVIEW}"
+            --variable "TUGBOAT_DEFAULT_SERVICE_URL=${TUGBOAT_DEFAULT_SERVICE_URL}"
+      # Commands that run after the build has completed and the Preview is accepting connections.
+      online:
+        # Trigger a test run on Testery against this Preview URL.
+        - testery create-test-run
+            --token "$TESTERY_TOKEN"
+            --git-ref "$TUGBOAT_PREVIEW_SHA"
+            --project "testery"
+            --environment "${TUGBOAT_PREVIEW}"
 ```
 
 Want to know more about something mentioned in the comments of this config file? Check out these topics:
@@ -85,7 +94,7 @@ Want to know more about something mentioned in the comments of this config file?
 - [Specify a Service image](/setting-up-services/how-to-set-up-services/specify-a-service-image/)
 - [Leverage Service commands](/setting-up-services/how-to-set-up-services/leverage-service-commands/)
 - [Define a default Service](/setting-up-services/how-to-set-up-services/define-a-default-service/)
-- [Preview build process phases (`init`, `update`, `build`)](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained)
+- [Preview build process phases (`init`, `update`, `build`, `online`)](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained)
 
 ## Start testing against your Preview environments
 
