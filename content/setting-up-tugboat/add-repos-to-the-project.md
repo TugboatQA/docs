@@ -13,7 +13,7 @@ applicable, and click the radio button next to the repo you want to add.
 
 ![Select Provider and repo](../../_images/add-repos-to-project-select-repo.png)
 
-Alternately, if you're using a generic git server, select Git as the provider, and enter your repo name and Git URL.
+Alternately, if you're using a generic git server, select Git as the provider, and enter your Git URL.
 
 ![Specify generic git server](../../_images/add-repos-to-project-generic-git-provider.png)
 
