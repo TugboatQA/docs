@@ -128,6 +128,20 @@ commands that you run in `clone` get committed as part of the build snapshot, so
 Preview. Things like [Reset](/building-a-preview/administer-previews/change-preview-states/#reset) do not erase `clone`
 commands, and those commands would carry over if you made a Preview cloned in this way a Base Preview.
 
+You might use the `clone` command in cases where your running Previews depend on something written to disk that is
+derived from the [Preview ID](/faq/find-tugboat-ids/) or [Service URL](/reference/environment-variables/); or anything
+that will have new values in the newly-cloned Preview.
+
+A good use case for the `clone` command would be updating a WordPress database to work with the new URL. From our
+[WordPress tutorial](/starter-configs/tutorials/wordpress/), you might execute this on a cloned Preview:
+
+```yaml
+clone:
+  ## Set the DOCROOT to reflect the new Preview and Service URL
+  wp --allow-root --path="${DOCROOT}" search-replace "${TUGBOAT_BASE_PREVIEW_URL_HOST}" "${TUGBOAT_SERVICE_URL_HOST}"
+  --skip-columns=guid
+```
+
 ### The `ready` command
 
 An additional service command you might find useful in some cases is the `ready` command. When you use `ready` as a
