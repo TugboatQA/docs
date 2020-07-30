@@ -129,7 +129,7 @@ Preview. Things like [Reset](/building-a-preview/administer-previews/change-prev
 commands, and those commands would carry over if you made a Preview cloned in this way a Base Preview.
 
 You might use the `clone` command in cases where your running Previews depend on something written to disk that is
-derived from the [Preview ID](/faq/find-tugboat-ids/) or [Service URL](reference/environment-variables/); or anything that will have new values in the
+derived from the [Preview ID](/faq/find-tugboat-ids/) or [Service URL](/reference/environment-variables/); or anything that will have new values in the
 newly-cloned Preview.
 
 A good use case for the `clone` command would be updating a WordPress database to work with the new URL. From our
