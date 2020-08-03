@@ -66,8 +66,9 @@ services:
 
       # Commands that should happen every time the Preview starts.
       start:
-        # Start the Rails server
-        - bin/rails s -b 0.0.0.0 -p 80
+        # Start the Rails server. The '&' trailing this statement puts the process
+        # in the background.
+        - bin/rails s -b 0.0.0.0 -p 80 &
 
   # What to call the service hosting the database. This name also acts as the
   # hostname to access the service by from the 'rails' service.
