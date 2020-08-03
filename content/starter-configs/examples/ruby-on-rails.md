@@ -87,12 +87,6 @@ services:
         # Give the default Tugboat user the permission to create a database.
         # This is only required if using 'rails db:setup'
         - psql -U postgres -d tugboat -c "ALTER USER tugboat WITH CREATEDB;"
-
-      # Tugboat runs these commands once, after the Preview comes online for the first time
-      online:
-        # For security purposes, remove the extra permissions we gave the
-        # Tugboat user to create the database in 'init'
-        - psql -U postgres -d tugboat -c "ALTER USER tugboat WITH NOCREATEDB;"
 ```
 
 Want to know more about something mentioned in the comments of this config file? Check out these topics:
