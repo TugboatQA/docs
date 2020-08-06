@@ -17,6 +17,10 @@ Bitbucket git repositories.
 This website aims to provide the information required to use Tugboat. It includes tutorials, examples, and references
 for all experience levels.
 
+## API Documentation
+
+If you're looking for our API documentation, check out [Tugboat's API Documentation Portal](https://api.tugboat.qa).
+
 ## Contributing
 
 This document is open-source, and is available on [GitHub](https://github.com/TugboatQA/docs). If you have any
