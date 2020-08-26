@@ -6,9 +6,20 @@ services:
                 - curl -Ls https://github.com/gohugoio/hugo/releases/download/v0.58.3/hugo_0.58.3_Linux-64bit.tar.gz | tar -C /usr/local/bin -zxf - hugo
                 - sed -i '/mod_rewrite/s/#//g' /usr/local/apache2/conf/httpd.conf
                 - sed -i 's/AllowOverride None/AllowOverride All/g' /usr/local/apache2/conf/httpd.conf
+                # Download the FeaturePeek shell script.
+                - curl -o /usr/local/bin/peek https://peek.run/ci
+                - shasum -a 256 /usr/local/bin/peek | grep 4677b20042d4573a83bda84ef0ae06d7a9fb3a6c63dc6c29ca29134050c45c33
+                - chmod +x /usr/local/bin/peek
             build:
                 - hugo
                 - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
+                # Run FeaturePeek by simulating Docker repo CI with environment
+                # variables. See https://peek.run/ci for details.
+                - DOCKER_REPO="$TUGBOAT_REPO"
+                  SOURCE_BRANCH="$TUGBOAT_GITHUB_HEAD"
+                  SOURCE_COMMIT="$TUGBOAT_PREVIEW_SHA"
+                  peek
+
         visualdiffs:
             - /
             - /setting-up-services/
