@@ -1,7 +1,7 @@
 ---
 title: "Connect With Your Provider"
 date: 2019-09-17T11:41:29-04:00
-lastmod: 2020-04-17T17:00:00-04:00
+lastmod: 2020-08-28T18:00:00-04:00
 weight: 1
 ---
 
@@ -11,6 +11,7 @@ weight: 1
 - [Generic git server](#generic-git-server)
 - [Add a link to an additional git provider](#adding-a-link-to-a-git-provider)
 - [Disconnect a linked git provider](#disconnect-a-linked-git-provider)
+- [Authenticating using an API access token](#authenticating-using-an-api-access-token)
 
 ## GitHub
 
@@ -274,3 +275,103 @@ You'll see a dialog box explaining what happens if you disconnect a linked accou
 ![Dialog box explaining disconnecting a linked git provider account with arrow to "Disconnect" button](../../_images/press-disconnect-button.png)
 
 {{% /expand%}}
+
+## Authenticating using an API access token
+
+By default, Tugboat uses OAuth to authenticate to git hosting providers. However, there may be times when GitHub,
+GitLab, or Bitbucket organizations take too long to approve org-level OAuth applications. As a workaround, you can use a
+git provider's API access token to add a GitHub, GitLab, or Bitbucket repo to Tugboat.
+
+You'll need to use the [Tugboat API](https://api.tugboat.qa/) to pass an alternate authentication method.
+
+This example shows how to implement this workaround for a GitHub repository, but you can do the same thing using a
+slightly different syntax for GitLab or Bitbucket repositories. If you need help with the syntax for GitLab or
+Bitbucket, or have questions about this workaround, reach out to us for [support](/support).
+
+### Prerequisites
+
+1. You must have administrator permissions on GitHub for the repo you would like to add to Tugboat.
+2. You must already have an account on Tugboat and have created a Tugboat project. More on this below.
+3. You must be an Admin or Owner on Tugboat for the aforementioned project in #2.
+
+### Implementation Instructions
+
+#### Open a command-line shell / terminal on your local computer
+
+You'll need some environment variables to make this API call.
+
+First, export the Tugboat Project ID for the Project that you'd like to add this GitHub repo to. To find the project ID,
+see [How to find Tugboat IDs -> Project ID](/faq/find-tugboat-ids). Then run the following command in your shell,
+replacing `[tugboat-project-id]` with this ID.
+
+```
+export PROJECT=[tugboat-project-id]
+```
+
+If you don't have a Tugboat project, you'll need to create one by connecting any other repository to Tugboat. You can
+then remove the repo from the Tugboat Project afterward.
+
+#### Create a Tugboat API access token
+
+Generate an access token in order to use the Tugboat API. Follow the instructions at
+[Set an Access Token](/tugboat-cli/set-an-access-token/) to generate your access token.
+
+Once you have the access token, switch back to your terminal and paste in the following line, replacing
+`[your-tugboat-token]` with this access token.
+
+```
+export TUGBOAT_TOKEN=[your-tugboat-token]
+```
+
+#### Create a GitHub personal access token
+
+1. Go to [GitHub -> Personal access tokens](https://github.com/settings/tokens) and click Generate new token.
+2. Name your token something recognizable, such as "Tugboat for ExampleOrg/ExampleRepo"
+3. Under _Select scopes_, check the checkbox next to _repo_.
+4. Save the token, switch back to your terminal, and export the token as an environment variable, replacing
+   `[github-api-token]` with your new token.
+
+```
+export GH_TOKEN=[github-api-token]
+```
+
+#### Export additional environment variables
+
+Export the GitHub organization that owns the repository as an environment variable, replacing `[github-organization]`
+with your organization.
+
+```
+export GH_ORG=[github-organization]
+```
+
+Export the Repo name as an environment variable, replacing `[github-repo-name]` with the name of the repository you want
+to connect to Tugboat.
+
+```
+export GH_REPO=[github-repo-name]
+```
+
+Once you've done all the above, you can create an environment variable to integrate a few of these into a JSON payload
+that will be sent to the Tugboat API. Copy and paste this directly into your shell:
+
+```
+export PAYLOAD=`printf '{ \
+  "project": "%s",\
+  "provider": { "name": "github" },\
+  "repository": { "name": "%s", "group": "%s" },\
+  "auth": { "token": "%s" },\
+  "name": "%s/%s"\
+}' "$PROJECT" "$GH_REPO" "$GH_ORG" "$GH_TOKEN" "$GH_ORG" "$GH_REPO"`
+```
+
+#### Make cURL request to the Tugboat API
+
+Once that is complete, you are ready to make the cURL request to the [Tugboat API](https://api.tugboat.qa/) to connect
+the GitHub Repo to Tugboat. Copy and paste this directly into your shell:
+
+````
+curl -H "Authorization: Bearer $TUGBOAT_TOKEN" \
+     -H "Content-Type: application/json" \
+     -X POST -d "$PAYLOAD" \
+     https://api.tugboat.qa/v3/repos```
+````
