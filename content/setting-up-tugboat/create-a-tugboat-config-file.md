@@ -20,8 +20,25 @@ built.
 
 ## Passing a Tugboat config as a parameter
 
-The other way to manage your Tugboat config is to pass it to the [Tugboat API](https://api.tugboat.qa/) as a parameter
-when building Previews using the API. This option is available
+You can pass a Tugboat config file as a parameter in two ways:
+
+- [Tugboat CLI config file argument](#tugboat-cli-config-file-argument)
+- [Tugboat API config file parameter](#tugboat-api-config-file-parameter)
+
+### Tugboat CLI config file argument
+
+When you're making changes to your config file, you can iterate quickly by passing the config file with the Tugboat CLI.
+When you `create` a Preview through the CLI, you can pass your config file as an argument, using this syntax:
+
+`tugboat create preview main repo=[repoid] config=./config.yml`
+
+Once you've iterated your way to a `config.yml` that functions as desired, you can commit the file to the repository to
+power your Preview builds.
+
+### Tugboat API config file parameter
+
+If you're using the [Tugboat API](https://api.tugboat.qa/) to build Previews, you can pass the config information as a
+JSON object when building Previews using the API. This option is available
 [on POST when creating Previews](https://api.tugboat.qa/v3#tag/Previews/paths/~1previews/post).
 
 ## What's in the config.yml file?
