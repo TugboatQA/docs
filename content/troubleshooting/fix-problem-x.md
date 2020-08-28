@@ -10,6 +10,7 @@ weight: 4
 - [Tugboat error messages](#tugboat-error-messages)
 - [Running a background process "breaks" the build](#running-a-background-process)
 - [My script is missing after a Preview build completes](#my-script-is-missing-after-a-preview-build-completes)
+- [I'm not seeing GitHub repositories I expect to see](#missing-github-repositories)
 
 ## PHP out of memory issues
 
@@ -140,3 +141,25 @@ build to complete will no longer be present when the container is restarted.
 To create a one-time script that runs after the Preview build completes, take a look at
 [`runit`'s documentation](http://smarden.org/runit/runsv.8.html) - particularly the parts about creating a `finish`
 script.
+
+## Missing GitHub Repositories
+
+Some Tugboat users have run into a case where they expect to see GitHub repositories in Tugboat, but those repositories
+appear to be missing. These are the steps our support team was able to take to reproduce the issue:
+
+1. Tugboat is already authorized to GitHub.
+2. Create a new GitHub org.
+3. Create a new repo in that org.
+
+Expected Behavior is that the new repository would show up in the list of available repos in Tugboat's "Create a Repo"
+form. However, extra steps are required on the GitHub side before this works. This appears to be a known issue for some
+products that use GitHub OAuth in integrations.
+
+Short-term, the workaround for this issue is:
+
+1. Go into [GitHub's Settings -> Applications](https://github.com/settings/applications);
+2. Click into _Tugboat_ in the list of _Authorized OAuth Apps_, and authorize it for the missing organizations.
+
+Now, the organizations and their repositories should appear in the Tugboat UI.
+
+If this still doesn't fix the issue, some users have had success with revoking and re-connecting GitHub to Tugboat.
