@@ -278,15 +278,17 @@ You'll see a dialog box explaining what happens if you disconnect a linked accou
 
 ## Authenticating using an API access token
 
-By default, Tugboat uses OAuth to authenticate to git hosting providers. However, there may be times when GitHub,
-GitLab, or Bitbucket organizations take too long to approve org-level OAuth applications. As a workaround, you can use a
+By default, Tugboat uses OAuth to authenticate to git hosting providers. However, there may be times when organization
+administrators can't or won't approve Tugboat as an organization-level OAuth application. As a workaround, you can use a
 git provider's API access token to add a GitHub, GitLab, or Bitbucket repo to Tugboat.
 
 You'll need to use the [Tugboat API](https://api.tugboat.qa/) to pass an alternate authentication method.
 
 This example shows how to implement this workaround for a GitHub repository, but you can do the same thing using a
 slightly different syntax for GitLab or Bitbucket repositories. If you need help with the syntax for GitLab or
-Bitbucket, or have questions about this workaround, reach out to us for [support](/support).
+Bitbucket, take a look at
+[the API documentation for the `Create a Repository` endpoint](https://api.tugboat.qa/v3#tag/Repositories/paths/~1repos/post).
+If you have other questions about this workaround, feel free to reach out to us for [support](/support).
 
 ### Prerequisites
 
