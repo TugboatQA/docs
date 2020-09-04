@@ -145,15 +145,23 @@ script.
 ## Missing GitHub Repositories
 
 Some Tugboat users have run into a case where they expect to see GitHub repositories in Tugboat, but those repositories
-appear to be missing. These are the steps our support team was able to take to reproduce the issue:
+appear to be missing. There are a couple of ways this condition could manifest, and the fix for it depends on why the
+GitHub repositories aren't visible.
+
+### Tugboat had previously been authorized, but isn't anymore
+
+If Tugboat has previously been authorized, but that authorization is revoked or expires, you'll no longer see an
+organization's repositories in Tugboat's "Create a Repo" form. Our support team was able to take these steps to
+reproduce the issue:
 
 1. Tugboat is already authorized to GitHub.
 2. Create a new GitHub org.
 3. Create a new repo in that org.
 
 Expected Behavior is that the new repository would show up in the list of available repos in Tugboat's "Create a Repo"
-form. However, extra steps are required on the GitHub side before this works. This appears to be a known issue for some
-products that use GitHub OAuth in integrations.
+form. However, the authorizing org must take extra steps on the GitHub side to restore the repositories. This state can
+occur if someone at the authorizing org mistakenly revokes Tugboat's authorization, but it also appears to be a known
+issue for some products that use GitHub OAuth in integrations.
 
 Short-term, the workaround for this issue is:
 
@@ -163,3 +171,10 @@ Short-term, the workaround for this issue is:
 Now, the organizations and their repositories should appear in the Tugboat UI.
 
 If this still doesn't fix the issue, some users have had success with revoking and re-connecting GitHub to Tugboat.
+
+### Authorizing organization can't or won't grant org-level authorization
+
+A different condition can cause a similar result; when you go to Tugboat's "Create a Repo" form, if you don't see a
+repository you expect to see, it may be because an organization can't or won't grant organization-level OAuth
+authorization. If you need to use an alternative method to authenticate with a git provider, see:
+[Connect with Your Provider -> Authenticating using an API access token](/setting-up-tugboat/connect-with-your-provider/#authenticating-using-an-api-access-token).
