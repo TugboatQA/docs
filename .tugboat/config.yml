@@ -16,7 +16,8 @@ services:
                   SOURCE_COMMIT="$TUGBOAT_PREVIEW_SHA"
                   .tugboat/peek.sh
 
-        visualdiffs:
+        web:
+          urls:
             - /
             - /setting-up-services/
             - /setting-up-tugboat/
