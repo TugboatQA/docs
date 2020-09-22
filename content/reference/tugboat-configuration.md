@@ -14,7 +14,6 @@ The following attributes control how a Service is built:
 | [checkout_path](#checkout-path) | String  | Where to clone the git repository                   |
 | [depends](#depends)             | List    | List of other Services that this Service depends on |
 | [commands](#commands)           | List    | List of commands to run for various build stages    |
-| [visualdiffs](#visualdiffs)     | List    | List of visualdiffs to generate for the Service     |
 
 The following attributes configure how Service URLs are generated
 
@@ -34,6 +33,21 @@ The following attributes configure how the Tugboat proxy routes HTTP requests to
 | [https](#https)             | Boolean | Whether the Service should be available via HTTPS         |
 | [domain](#domain)           | String  | A custom domain for Tugboat to generate URLs with         |
 | [subpath_map](#subpath-map) | Boolean | Whether to map the generated subpath to "/"               |
+
+The following attributes control which Service URLs are processed after a Preview is built, rebuilt, or refreshed.
+
+| Key                       | Type | Description                                                              |
+| :------------------------ | :--- | :----------------------------------------------------------------------- |
+| [lighthouse](#lighthouse) | List | Lighthouse configurations to use for all URLs processed for the Service  |
+| [screenshot](#screenshot) | List | Screenshot configurations to use for all URLs processed for the Service  |
+| [visualdiff](#visualdiff) | List | Visual Diff configurations to use for all URLs processed for the Service |
+| [urls](#urls)             | List | Which URLs should be processed for the Service                           |
+
+The following attributes have been deprecated
+
+| Key                         | Type | Description                                     |
+| :-------------------------- | :--- | :---------------------------------------------- |
+| [visualdiffs](#visualdiffs) | List | List of visualdiffs to generate for the Service |
 
 ---
 
@@ -266,7 +280,171 @@ with `/` before being forwarded to the Service. When `false`, URLs are passed th
 
 ---
 
+#### `lighthouse`
+
+- **Type:** List
+- **Default:** _no default_
+- **Required:** No
+
+Lighthouse configurations that affect all of the URLs defined for this Service. Values configured here override the
+Tugboat default values, but can also be overridden per-URL.
+
+| Option    | Type    | Default | Description                                                                                                              |
+| :-------- | :------ | :------ | :----------------------------------------------------------------------------------------------------------------------- |
+| `enabled` | Boolean | `true`  | Whether to render Lighthouse Reports for the URLs defined for this Service                                               |
+| `config`  | Object  |         | A custom Lighthouse configuration object to use while rendering Lighthouse Reports for the URLs defined for this Service |
+
+Tugboat uses the default Lighthouse configuration, but disables a few of the server performance metrics. These metrics
+tend to be inaccurate due to the shared nature of the Tugboat infrastructure, and can negatively impact the overall
+Lighthouse score.
+
+Documentation for creating a custom Lighthouse configuration can be found at
+https://github.com/GoogleChrome/lighthouse/blob/HEAD/docs/configuration.md
+
+---
+
+#### `screenshot`
+
+- **Type:** List
+- **Default:** _no default_
+- **Required:** No
+
+Screenshot configurations that affect all of the URLs defined for this Service. Values configured here override the
+Tugboat default values, and can also be overridden per-URL.
+
+| Option      | Type    | Default | Description                                                                                                                                                                      |
+| :---------- | :------ | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enabled`   | Boolean | `true`  | Whether to render Screenshots for the URLs defined for this Service                                                                                                              |
+| `fullPage`  | Boolean | `true`  | Whether to use the default `fullPage` method. Disabling this uses an alternative that is more friendly to elements that have `vh` CSS Styles, but can sometimes be less accurate |
+| `timeout`   | Number  | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                                                       |
+| `waitUntil` | String  | `load`  | Which browser event to wait for before creating a screenshot of the page                                                                                                         |
+
+The `waitUntil` option can be one of, or a list of, the following events. If a list of events is given, the screenshot
+is created after all of the specified events have fired
+
+| Event            | Description                                                                |
+| :--------------- | :------------------------------------------------------------------------- |
+| load             | Fires when the `load` event is fired                                       |
+| domcontentloaded | Fires when the `DOMContentLoaded` event is fired                           |
+| networkidle0     | Fires when there are no more than 0 network connections for at least 500ms |
+| networkidle2     | Fires when there are no more than 2 network connections for at least 500ms |
+
+---
+
+#### `visualdiff`
+
+- **Type:** List
+- **Default:** _no default_
+- **Required:** No
+
+Visual Diff configurations tha affect all of the URLs defined for this Service. Values configured here override the
+Tugboat default values, and can also be overridden per-URL.
+
+Visual Diffs can only be automatically generated for Previews built from a Base Preview. These options apply to
+screenshots taken of the Base Preview used to compare to screenshots taken of this Preview.
+
+| Option      | Type    | Default | Description                                                                                                                                                                      |
+| :---------- | :------ | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enabled`   | Boolean | `true`  | Whether to render Visual Diffs for the URLs defined for this Service. Visual Diffs depend on Screenshots being enabled. If Screenshots are disabled, this setting has no effect. |
+| `fullPage`  | Boolean | `true`  | Whether to use the default `fullPage` method. Disabling this uses an alternative that is more friendly to elements that have `vh` CSS Styles, but can sometimes be less accurate |
+| `timeout`   | Number  | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                                                       |
+| `waitUntil` | String  | `load`  | Which browser event to wait for before creating a screenshot of the page                                                                                                         |
+
+The `waitUntil` option can be one of, or a list of, the following events. If a list of events is given, the screenshot
+is created after all of the specified events have fired
+
+| Event            | Description                                                                |
+| :--------------- | :------------------------------------------------------------------------- |
+| load             | Fires when the `load` event is fired                                       |
+| domcontentloaded | Fires when the `DOMContentLoaded` event is fired                           |
+| networkidle0     | Fires when there are no more than 0 network connections for at least 500ms |
+| networkidle2     | Fires when there are no more than 2 network connections for at least 500ms |
+
+---
+
+#### `urls`
+
+- **Type:** List
+- **Default:** _no default_
+- **Required:** No
+
+Which URLs should be processed when a Preview has finished building. The URLs can be specified using one of the
+following formats
+
+##### Simple URL List
+
+A simple list of strings can be provided. Each of the URLs will be processed according to the default Tugboat
+configurations, or by Service-level `lighthouse`, `screenshot`, or `visualdiff` configurations
+
+```yaml
+urls:
+  - /
+  - /blog
+  - /about
+```
+
+##### Advanced URL List
+
+Each URL can be given configuration options that override the Tugboat defaults, or any Service-level configurations.
+
+| Option     | Type   | Default    | Description                                                                                                                      |
+| :--------- | :----- | :--------- | :------------------------------------------------------------------------------------------------------------------------------- |
+| url        | String | _none_     | The relative URL to process. This option is required.                                                                            |
+| aliases    | List   | `:default` | Use this list of [Service aliases](#aliases) when processing this URL. Each alias listed will be processed as an individual URL  |
+| lighthouse | List   |            | Lighthouse configurations for this URL that override the Tugboat default, and specified Service-level lighthouse configurations  |
+| screenshot | List   |            | Screenshot configurations for this URL that override the Tugboat default, and specified Service-level lighthouse configurations  |
+| visualdiff | List   |            | Visual Diff configurations for this URL that override the Tugboat default, and specified Service-level lighthouse configurations |
+
+The special `:default` alias tells Tugboat to use the default Service URL with no alias.
+
+[lighthouse](#lighthouse), [screenshot](#screenshot), and [visualdiff](#visualdiff) configuration options are the same
+as the Service-level options
+
+Advanced URLs can be mixed with Simple URLs.
+
+```yaml
+urls:
+  - /
+  - /blog
+  - url: /about
+    aliases:
+      - :default
+      - foo
+      - bar
+    lighthouse:
+      enabled: false
+    screenshot:
+      timeout: 45
+    visualdiff:
+      fullPage: false
+```
+
+##### Alias Groups
+
+URLs can be grouped by alias, which is particularly useful if the aliases have different URL structures. Alias groups
+can contain any combination of Simple or Advanced URL definitions as described above. The special `:default` alias means
+to use the default Service URL with no alias.
+
+```yaml
+urls:
+  :default:
+    - /
+    - /about
+  foo:
+    - url: /about
+      lighthouse:
+        enabled: false
+  bar:
+    - /
+    - /blog
+```
+
+---
+
 #### `visualdiffs`
+
+{{% notice warning %}} This configuration is deprecated. Please use [urls](#urls) instead.  
+{{% /notice %}}
 
 - **Type:** List
 - **Default:** _no default_
@@ -288,8 +466,8 @@ either a string, such as `/blog`, or a map overriding the following screenshot o
 | waitUntil | `load`     | Which event to wait for before creating a screenshot of a page.                                                                                          |
 | fullPage  | `true`     | Disable this to use an alternate screenshot method that is more friendly to elements that have `vh` CSS styles                                           |
 
-The `waitUntil` option can be one of the following events. If a list of events is given, the screenshot is created after
-all of the listed events have fired
+The `waitUntil` option can be one of, or a list of, the following events. If a list of events is given, the screenshot
+is created after all of the specified events have fired
 
 | Event            | Description                                                                |
 | :--------------- | :------------------------------------------------------------------------- |
