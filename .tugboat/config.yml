@@ -17,6 +17,12 @@ services:
                   .tugboat/peek.sh
 
         web:
+          lighthouse:
+            enabled: true
+          screenshot:
+            enabled: true
+          visualdiff:
+            enabled: true
           urls:
             - /
             - /setting-up-services/
