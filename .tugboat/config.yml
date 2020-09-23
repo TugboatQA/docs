@@ -16,34 +16,33 @@ services:
                   SOURCE_COMMIT="$TUGBOAT_PREVIEW_SHA"
                   .tugboat/peek.sh
 
-        web:
-          urls:
-            - /
-            - url: /setting-up-services/
-              screenshot:
-                enabled: true
-                timeout: 30
-                waitUntil:
-                  - load
-                fullPage: true
-                waitFor:
-                  - delay: 0
-                  - selector: .burt
-                    hidden: false
-                    visible: false
-              visualdiff:
-                enabled: true
-                timeout: 30
-                waitUntil:
-                  - load
-                fullPage: true
-                waitFor:
-                  - delay: 0
-                  - selector: .burt
-                    hidden: false
-                    visible: false
-              lighthouse:
-                enabled: true
-            - /setting-up-tugboat/
-            - /starter-configs/
-            - /troubleshooting/fix-problem-x/
+        urls:
+          - /
+          - url: /setting-up-services/
+            screenshot:
+              enabled: true
+              timeout: 30
+              waitUntil:
+                - load
+              fullPage: true
+              waitFor:
+                - delay: 0
+                - selector: .burt
+                  hidden: false
+                  visible: false
+            visualdiff:
+              enabled: true
+              timeout: 30
+              waitUntil:
+                - load
+              fullPage: true
+              waitFor:
+                - delay: 0
+                - selector: .burt
+                  hidden: false
+                  visible: false
+            lighthouse:
+              enabled: true
+          - /setting-up-tugboat/
+          - /starter-configs/
+          - /troubleshooting/fix-problem-x/
