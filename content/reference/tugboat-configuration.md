@@ -337,7 +337,7 @@ is created after all of the specified events have fired
 - **Default:** _no default_
 - **Required:** No
 
-Visual Diff configurations tha affect all of the URLs defined for this Service. Values configured here override the
+Visual Diff configurations that affect all of the URLs defined for this Service. Values configured here override the
 Tugboat default values, and can also be overridden per-URL.
 
 Visual Diffs can only be automatically generated for Previews built from a Base Preview. These options apply to
