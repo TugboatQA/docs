@@ -17,6 +17,7 @@ In order to configure Tugboat's visual diffs, you must be using at least one
 - [Group visualdiffs via service alias](#group-visualdiffs-via-service-alias)
 - [Use advanced visualdiff configuration options](#use-advanced-visualdiff-configuration-options)
 - [Specify screenshot and visualdiff settings explicitly](#specify-screenshot-and-visualdiff-settings-explictly)
+- [Turn off visual diffs](#turn-off-visual-diffs)
 
 ## Simple visualdiff configuration
 
@@ -139,4 +140,36 @@ services:
       waitUntil:
         - load
       fullPage: true
+```
+
+## Turn off visual diffs
+
+By default, Tugboat's [URL configuration](/reference/tugboat-configuration/#urls) enables `screenshot`, `visualdiff`,
+_and_ `lighthouse` functionality. If you only want to view Lighthouse audits for a URL or group of URLs, but want to
+explicitly turn visual diffs off for one or all pages, you can do that by setting `enabled: false`. In a `config.yml`,
+this might look like:
+
+```yaml
+services:
+  apache:
+    # Turn off screenshots for all of the defined service URLs.
+    # Visual Diffs depend on Screenshots being enabled. If Screenshots
+    # are disabled for this Service, Visual Diffs are also disabled.
+    # This overrides our defaults, and can also be overridden per-URL
+    screenshot:
+      enabled: false
+
+    urls:
+      # Lighthouse reports will be generated for all URLs. However,
+      # with screenshot disabled at the Service level, these pages will
+      # not generate visual diffs.
+      - /
+      - /about
+      # Create a visual diff of /blog, overriding the Service-level
+      # disabling of screenshots & visual diffs
+      - url: /blog
+        screenshot:
+          enabled: true
+        visualdiff:
+          enabled: true
 ```

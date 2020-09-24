@@ -15,6 +15,9 @@ How to configure Lighthouse accessibility, SEO, and web-development best-practic
 On-Premise subscribers. If you'd like to run Lighthouse audits against your Tugboat Previews,
 [contact us](https://www.tugboat.qa/contact/) to update your project to an Enterprise subscription.{{% /notice %}}
 
+If you want to generate Lighthouse reports for specific URLs, but turn visual diffs off for those urls, see:
+[Turn off visual diffs](/visual-diffs/configure-visual-diffs/#turn-off-visual-diffs).
+
 ## Simple Lighthouse configuration
 
 To configure which pages get Lighthouse accessibility, SEO, and best practices audits, specify the _relative URLs_ of
