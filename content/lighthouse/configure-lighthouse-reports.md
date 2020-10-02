@@ -46,10 +46,10 @@ You can find documentation for creating a custom Lighthouse config at:
 ```yaml
 services:
   apache:
+    # Specify a custom config object to use to conduct Lighthouse audits
+    lighthouse:
+      config: --config-path=path/to/custom-config.js
     urls:
-      # Specify a custom config object to use to conduct Lighthouse audits
-      config:
-        --config-path=path/to/custom-config.js
       # Conduct Lighthouse audits of the these URLs using the custom config
       - /
       - /blog
@@ -100,10 +100,6 @@ services:
       foo:
         - /
         - /about
-
-      # This will be ignored because there is no matching "bar" service alias
-      bar:
-        - /
 ```
 
 {{% notice tip %}} If you're not running an `apache` service on your Preview, but you _are_ running `php`, set up

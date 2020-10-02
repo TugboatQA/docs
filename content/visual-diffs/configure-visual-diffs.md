@@ -55,10 +55,6 @@ services:
       foo:
         - /
         - /about
-
-      # This will be ignored because there is no matching "bar" service alias
-      bar:
-        - /
 ```
 
 {{% notice tip %}} If you're not running an `apache` service on your Preview, but you _are_ running `php`, set up Visual

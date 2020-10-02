@@ -368,8 +368,8 @@ is created after all of the specified events have fired
 - **Default:** _no default_
 - **Required:** No
 
-Which URLs should be processed when a Preview has finished building. The URLs can be specified using one of the
-following formats
+Which URLs should be processed when a Preview has finished building. You can define URLs on any service that has an
+exposed port. The URLs can be specified using one of the following formats:
 
 ##### Simple URL List
 

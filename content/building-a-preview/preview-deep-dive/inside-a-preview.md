@@ -79,10 +79,10 @@ comfortable debugging on the command line, you can open a terminal directly into
 When you're using Lighthouse to audit your Previews, you'll click into the Preview to view the Lighthouse audit reports.
 Lighthouse audits are a great way to check for common accessibility, performance, SEO, and best practices issues.
 
-![Scroll down to view Visual Diffs](/_images/lighthouse-reports-in-preview-dashboard.png)
+![Scroll down to view Lighthouse reports](/_images/lighthouse-reports-in-preview-dashboard.png)
 
-For more on Visual Diffs, including how to set them up and use them, see:
-[Visual Diffs](/visual-diffs/using-visual-diffs/).
+For more on Lighthouse reports, including how to set them up and use them, see:
+[Using Lighthouse](/lighthouse/using-lighthouse/).
 
 ## Visual Diffs
 

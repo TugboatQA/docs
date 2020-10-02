@@ -45,9 +45,9 @@ Tugboat's Lighthouse integration uses the default Lighthouse config, which audit
 However, because Tugboat runs on shared infrastructure, our configuration disables a few server performance metrics that
 would not provide an accurate representation of your website or web app's performance.
 
-If you'd prefer to audit other metrics, or disable or change threshholds for specific metrics, you can
-[use a custom Lighthouse configuration file](../configure-lighthouse-reports/#use-a-custom-lighthouse-configuration-file)
-in your Tugboat Lighthouse integration.
+If you'd prefer to audit other metrics, or disable or change thresholds for specific metrics, you can
+[use a custom Lighthouse configuration](../configure-lighthouse-reports/#use-a-custom-lighthouse-configuration-file) in
+your Tugboat Lighthouse integration.
 
 For more on what these metrics mean, how they're scored, and how to address issues identified in Lighthouse reports,
 see: [Lighthouse audit documentation](https://web.dev/learn/#lighthouse).
