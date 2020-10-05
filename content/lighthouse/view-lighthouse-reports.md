@@ -4,7 +4,13 @@ date: 2020-09-23T15:30:03-04:00
 weight: 2
 ---
 
-To view Lighthouse reports, you'll need to go to the Preview Dashboard.
+When you configure Tugboat to generate Google Lighthouse reports for your web app or website, you'll see a Lighthouse
+Reports status on your pull requests. You can click the **Details** link to go directly to the Lighthouse reports in the
+Tugboat Preview Dashboard.
+
+![Screenshot showing a "Tugboat - Lighthouse Reports" passed status](/_images/lighthouse-reports-on-github-pr.png)
+
+Alternately, to view Lighthouse reports from within Tugboat, here's how to get to the Preview Dashboard:
 
 ## To view Lighthouse reports:
 

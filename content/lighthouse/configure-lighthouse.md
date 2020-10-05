@@ -1,5 +1,5 @@
 ---
-title: "Configure Lighthouse Audits"
+title: "Configure Lighthouse"
 date: 2020-09-23T15:29:49-04:00
 weight: 1
 ---
@@ -7,15 +7,19 @@ weight: 1
 How to configure Lighthouse accessibility, SEO, and web-development best-practices audits against your Tugboat Previews
 
 - [Simple Lighthouse configuration](#simple-lighthouse-configuration)
-- [Use a custom Lighthouse configuration file](#use-a-custom-lighthouse-configuration-file)
+- [Use a custom Lighthouse configuration](#use-a-custom-lighthouse-configuration)
 - [Specify Lighthouse settings per-URL](#specify-lighthouse-settings-per-url)
 - [Group Lighthouse reports via service alias](#group-lighthouse-reports-via-service-alias)
+
+When Tugboat completes Google Lighthouse audits of your specified URLs, you'll be able to view the Lighthouse reports
+right in the Tugboat Dashboard. For more info about what you'll see, check out:
+[View Lighthouse Reports](../view-lighthouse-reports/).
 
 {{% notice tier %}} This feature is only available to [Tugboat Enterprise](https://www.tugboat.qa/enterprise) or
 On-Premise subscribers. If you'd like to run Lighthouse audits against your Tugboat Previews,
 [contact us](https://www.tugboat.qa/contact/) to update your project to an Enterprise subscription.{{% /notice %}}
 
-If you want to generate Lighthouse reports for specific URLs, but turn visual diffs off for those urls, see:
+If you want to trigger Lighthouse audits for specific URLs, but turn visual diffs off for those urls, see:
 [Turn off visual diffs](/visual-diffs/configure-visual-diffs/#turn-off-visual-diffs).
 
 ## Simple Lighthouse configuration
@@ -34,10 +38,10 @@ services:
       - /about
 ```
 
-## Use a custom Lighthouse configuration file
+## Use a custom Lighthouse configuration
 
 Tugboat uses the default Lighthouse configuration, but disables some server performance metrics. If you'd like to use a
-custom Lighthouse configuration file, to tweak audit scoring or add custom checks, you can pass a custom Lighthouse
+custom Lighthouse configuration, to tweak audit scoring or add custom checks, you can pass a custom Lighthouse
 configuration object to use when generating reports.
 
 You can find documentation for creating a custom Lighthouse config at:
@@ -65,15 +69,15 @@ You can also specify `lighthouse` configuration options on a per `url` basis. Fo
 services:
   apache:
     urls:
-      # Create a Lighthouse report for the home page using the default options
+      # Trigger a Lighthouse audit of the home page using the default options
       - url: /
 
-      # Create a Lighthouse report for /blog, but override the default config with a custom config object
+      # Trigger a Lighthouse audit for /blog, but override the default config with a custom config object
       - url: /blog
         lighthouse:
           config: --config-path=path/to/custom-config.js
 
-      # Turn off Lighthouse reports for /about, but leave the URL in the list for other Service URL activities, such as generating visual diffs
+      # Turn off Lighthouse audits for /about, but leave the URL in the list for other Service URL activities, such as generating visual diffs
       - url: /about
         lighthouse:
           enabled: false
@@ -91,12 +95,12 @@ services:
       - foo
 
     urls:
-      # Create Lighthouse reports for the default alias
+      # Trigger Lighthouse audits for the default alias
       :default:
         - /
         - /blog
 
-      # Create Lighthouse reports for the "foo" alias
+      # Trigger Lighthouse audits for the "foo" alias
       foo:
         - /
         - /about
