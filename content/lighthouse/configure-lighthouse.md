@@ -44,21 +44,33 @@ Tugboat uses the default Lighthouse configuration, but disables some server perf
 custom Lighthouse configuration, to tweak audit scoring or add custom checks, you can pass a custom Lighthouse
 configuration object to use when generating reports.
 
-You can find documentation for creating a custom Lighthouse config at:
-[GoogleChrome/lighthouse blob on GitHub](https://github.com/GoogleChrome/lighthouse/blob/HEAD/docs/configuration.md).
+Check out
+[the `GoogleChrome/Lighthouse` blob on GitHub](https://github.com/GoogleChrome/lighthouse/blob/HEAD/docs/configuration.md)
+for more information about creating a custom Lighthouse config.
 
 ```yaml
 services:
   apache:
     # Specify a custom config object to use to conduct Lighthouse audits
     lighthouse:
-      config: --config-path=path/to/custom-config.js
+      config:
+        extends: lighthouse:default
+        settings:
+          onlyAudits:
+            - first-meaningful-paint
+            - speed-index
+            - first-cpu-idle
+            - interactive
     urls:
       # Conduct Lighthouse audits of the these URLs using the custom config
       - /
       - /blog
       - /about
 ```
+
+{{% notice tip %}} In addition to formatting the Lighthouse custom config object as YAML in the example above, you can
+also copy/paste JSON directly from the Google Lighthouse blob into your Tugboat config, since YAML is a superset of
+JSON. Example follows.{{% /notice %}}
 
 ## Specify Lighthouse settings per-URL
 
@@ -75,7 +87,16 @@ services:
       # Trigger a Lighthouse audit for /blog, but override the default config with a custom config object
       - url: /blog
         lighthouse:
-          config: --config-path=path/to/custom-config.js
+          config: {
+            extends: 'lighthouse:default',
+            settings: {
+              onlyAudits: [
+                'first-meaningful-paint',
+                'speed-index',
+                'first-cpu-idle',
+                'interactive',
+              ],
+            }
 
       # Turn off Lighthouse audits for /about, but leave the URL in the list for other Service URL activities, such as generating visual diffs
       - url: /about
