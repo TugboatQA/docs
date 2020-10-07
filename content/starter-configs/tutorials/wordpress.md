@@ -18,7 +18,7 @@ remaining settings in `wp-config.php`:
 
 ```php
 if ( file_exists( dirname( __FILE__ ) . '/wp-config.local.php' ) )
-    include(dirname(__file__) . '/wp-config.local.php');
+    include(dirname(__FILE__) . '/wp-config.local.php');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -83,7 +83,7 @@ services:
 
         # Install wp-cli
         - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-        - cmod +x wp-cli.phar
+        - chmod +x wp-cli.phar
         - mv wp-cli.phar /usr/local/bin/wp
 
         # Use the tugboat-specific wp-config.local.php
