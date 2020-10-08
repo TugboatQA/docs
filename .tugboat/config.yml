@@ -11,14 +11,14 @@ services:
                 - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
                 # Run FeaturePeek by simulating Docker repo CI with environment
                 # variables. See https://peek.run/ci for details.
-                - DOCKER_REPO="$TUGBOAT_REPO"
-                  SOURCE_BRANCH="$TUGBOAT_GITHUB_HEAD"
-                  SOURCE_COMMIT="$TUGBOAT_PREVIEW_SHA"
-                  .tugboat/peek.sh
+                #- DOCKER_REPO="$TUGBOAT_REPO"
+                #  SOURCE_BRANCH="$TUGBOAT_GITHUB_HEAD"
+                #  SOURCE_COMMIT="$TUGBOAT_PREVIEW_SHA"
+                #  .tugboat/peek.sh
 
-        visualdiffs:
-            - /
-            - /setting-up-services/
-            - /setting-up-tugboat/
-            - /starter-configs/
-            - /troubleshooting/fix-problem-x/
+        urls:
+          - /
+          - /setting-up-services/
+          - /setting-up-tugboat/
+          - /starter-configs/
+          - /troubleshooting/fix-problem-x/

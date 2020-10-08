@@ -9,7 +9,7 @@ To view Visual Diffs, you'll need to go to the Preview Dashboard.
 ## To view Visual Diffs:
 
 1. Click into a Preview that has finished building.
-2. Scroll down past the Preview Log and you'll see the Visual Diffs pane.
+2. Scroll down past the Services and Lighthouse Reports, and you'll see the Visual Diffs pane.
 3. Click into the Visual Diff for Mobile, Tablet or Desktop to see the diff.
 
 Inside the diff, you'll see a **Before** visualization on the left, an **After** visualization on the right, and a
@@ -30,7 +30,7 @@ Click into a Preview that has finished building;
 
 ![Click into Preview Dashboard](/_images/visual-diffs-click-into-preview.png)
 
-Scroll down past the Preview Log, and you'll see the Visual Diffs pane;
+Scroll down past the Services and Lighthouse Reports, and you'll see the Visual Diffs pane;
 
 ![View Visual Diffs Pane](/_images/visual-diffs-scroll-to-view-visual-diffs.png)
 

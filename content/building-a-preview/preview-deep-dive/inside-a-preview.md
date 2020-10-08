@@ -7,9 +7,11 @@ weight: 5
 When you click into a Preview, you'll find a few different things:
 
 - [Services and their logs](#services)
-- [Preview log](#preview-log)
-- [Captured mail](#captured-mail)
+- [Lighthouse reports](#lighthouse-reports)
 - [Visual Diffs](#visual-diffs)
+- [Captured mail](#captured-mail)
+- [Preview log](#preview-log)
+- [Preview Statistics](#preview-statistics)
 
 ## Services
 
@@ -72,6 +74,26 @@ Isn't it frustrating when a CI build fails, but you don't have a good way to fin
 comfortable debugging on the command line, you can open a terminal directly into your Services to
 [troubleshoot](/troubleshooting/) and test fixes for Tugboat Build failures.
 
+## Lighthouse Reports
+
+When you're using Lighthouse to audit your Previews, you'll click into the Preview to view the Lighthouse audit reports.
+Lighthouse audits are a great way to check for common accessibility, performance, SEO, and best practices issues.
+
+![Scroll down to view Lighthouse reports](/_images/lighthouse-reports-in-preview-dashboard.png)
+
+For more on Lighthouse reports, including how to set them up and use them, see:
+[Using Lighthouse](/lighthouse/using-lighthouse/).
+
+## Visual Diffs
+
+When you're using Visual Diffs with your Previews, you'll click into the Preview to view them. Visual Diffs are a great
+tool to visualize site changes, and it's an easy way to spot visual regression.
+
+![Scroll down to view Visual Diffs](/_images/visual-diffs-scroll-to-view-visual-diffs.png)
+
+For more on Visual Diffs, including how to set them up and use them, see:
+[Visual Diffs](/visual-diffs/using-visual-diffs/).
+
 ## Preview log
 
 In the Preview log section, you'll see a build log for your Preview build. The Preview Log pane may not show the
@@ -100,12 +122,14 @@ to properly capture your outbound email.
 ports (25, 465, 587, and 2525) are blocked, and any mail sent through the Tugboat SMTP proxy is captured for display
 with the Preview that sent it. {{% /notice %}}
 
-## Visual Diffs
+## Preview Statistics
 
-When you're using Visual Diffs with your Previews, you'll click into the Preview to view them. Visual Diffs are a great
-tool to visualize site changes, and it's an easy way to spot visual regression.
+As with the Project and Repository views, when you drill down into a Preview, you can view Preview Statistics. These
+statistics illustrate things like how the size of the Preview has changed over time, as well as how the average build
+time and average refresh time has changed. These are useful metrics to spot changes that might indicate regressions, or
+opportunities to optimize your web app or website to reduce asset size or improve build and deploy speeds.
 
-![Scroll down to view Visual Diffs](/_images/visual-diffs-scroll-to-view-visual-diffs.png)
+When you click into the drop-down at the upper right-hand corner of the Preview Statistics pane, you can change the
+view. Options include Day, Week, Month, and Year.
 
-For more on Visual Diffs, including how to set them up and use them, see:
-[Visual Diffs](/visual-diffs/using-visual-diffs/).
+![Screenshot of Preview statistics for a Base Preview](/_images/preview-statistics.png)
