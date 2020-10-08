@@ -15,9 +15,9 @@ When Tugboat completes Google Lighthouse audits of your specified URLs, you'll b
 right in the Tugboat Dashboard. For more info about what you'll see, check out:
 [View Lighthouse Reports](../view-lighthouse-reports/).
 
-{{% notice tier %}} This feature is available for all [paid Tugboat pricing tiers](https://www.tugboat.qa/pricing). If
-you'd like to run Lighthouse audits against your Tugboat Previews, but you're on the Free plan, you'll need to upgrade
-your project to a paying tier.{{% /notice %}}
+{{% notice tier %}} This feature is available for [Tugboat Enterprise plans](https://www.tugboat.qa/enterprise). If
+you'd like to run Lighthouse audits against your Tugboat Previews, but you're on a different tier, you'll need to
+upgrade your project to Enterprise.{{% /notice %}}
 
 If you want to trigger Lighthouse audits for specific URLs, but turn visual diffs off for those urls, see:
 [Turn off visual diffs](/visual-diffs/configure-visual-diffs/#turn-off-visual-diffs).
