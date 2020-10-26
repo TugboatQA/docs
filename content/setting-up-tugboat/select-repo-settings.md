@@ -128,16 +128,24 @@ credentials from within the repo settings.
 ![Authenticate with a Docker registry](../../_images/authenticate-with-a-docker-registry-add-credentials.png)
 
 By default, when you
-[specify a public image to use in Tugboat builds](/setting-up-services/how-to-set-up-services/specify-a-service-image),
-we use a Tugboat-authenticated user to pull images from Docker Hub.
+[specify a Docker Hub image to use in Tugboat builds](/setting-up-services/how-to-set-up-services/specify-a-service-image),
+we use a Tugboat-authenticated user to pull those images. This authentication only applies to Docker Hub; Tugboat pulls
+from other registries anonymously.
 
-If you need to pull an image that requires authentication, adding your Docker Registry Authentication credentials to the
-repository settings will use those credentials for every Docker pull made from this repository, overriding Tugboat's
-default user.
+If you need to pull an image from a registry that requires specific authentication credentials, adding your Registry
+Authentication credentials to the repository settings will use those credentials for every image pull made from this
+repository, overriding Tugboat's default or anonymous user.
+
+{{% notice info %}} If you are setting credentials to authorize with Docker Hub, leave the `Server` field blank.
+{{% /notice %}}
 
 By managing these credentials on the repository-level, there's no need to specify credentials in your Tugboat
 `config.yml` file. Setting those credentials here automatically applies them
 [when Tugboat pulls images](/setting-up-services/service-images/docker-pull/) to build your previews.
+
+You can specify multiple authentications for the same registry. When multiple authentications are provided, Tugboat
+attempts to use each one in turn until it can successfully pull the image. If none of the credentials work, Tugboat
+cannot pull the image and will instead throw an error.
 
 ### Configure Preview IP Filtering
 
