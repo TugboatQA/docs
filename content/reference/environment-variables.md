@@ -47,7 +47,11 @@ as run-time configuration files, etc.
 
 - **`$TUGBOAT_PREVIEW_ID`** - The ID of the current Preview.
 
-- **`$TUGBOAT_PREVIEW`** - The friendly name of the current Preview.
+- **`$TUGBOAT_PREVIEW`** - The ref name used to build the current Preview. This is an alias of `$TUGBOAT_PREVIEW_REF`.
+
+- **`$TUGBOAT_PREVIEW_NAME`** - The friendly name of the current Preview.
+
+- **`$TUGBOAT_PREVIEW_REF`** - The ref name used to build the current Preview.
 
 - **`$TUGBOAT_PREVIEW_TYPE`** - What type of preview this is. The value will be one of: `branch`, `tag`, `commit`,
   `pullrequest`, or `mergerequest`.
@@ -98,9 +102,17 @@ Service's public URL
 If a Preview was built from a Base Preview, the following variables are also available with information about the Base
 Preview.
 
-- **`$TUGBOAT_BASE_PREVIEW`** - The friendly name of the Base Preview.
+- **`$TUGBOAT_BASE_PREVIEW`** - The ref name used to build the Base Preview. This is an alias of
+  `$TUGBOAT_BASE_PREVIEW_REF`
 
 - **`$TUGBOAT_BASE_PREVIEW_ID`** - The ID of the Base Preview.
+
+- **`$TUGBOAT_BASE_PREVIEW_NAME`** - The friendly name of the Base Preview.
+
+- **`$TUGBOAT_BASE_PREVIEW_REF`** - The ref name used to build the Base Preview.
+
+- **`$TUGBOAT_BASE_PREVIEW_TYPE`** - What type of preview the Base Preview is. The value will be one of: `branch`,
+  `tag`, `commit`, `pullrequest`, or `mergerequest`.
 
 - **`$TUGBOAT_BASE_PREVIEW_TOKEN`** - The authentication token of the Base Preview's default Service.
 
