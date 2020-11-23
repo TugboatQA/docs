@@ -343,12 +343,13 @@ Tugboat default values, and can also be overridden per-URL.
 Visual Diffs can only be automatically generated for Previews built from a Base Preview. These options apply to
 screenshots taken of the Base Preview used to compare to screenshots taken of this Preview.
 
-| Option      | Type    | Default | Description                                                                                                                                                                      |
-| :---------- | :------ | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enabled`   | Boolean | `true`  | Whether to render Visual Diffs for the URLs defined for this Service. Visual Diffs depend on Screenshots being enabled. If Screenshots are disabled, this setting has no effect. |
-| `fullPage`  | Boolean | `true`  | Whether to use the default `fullPage` method. Disabling this uses an alternative that is more friendly to elements that have `vh` CSS Styles, but can sometimes be less accurate |
-| `timeout`   | Number  | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                                                       |
-| `waitUntil` | String  | `load`  | Which browser event to wait for before creating a screenshot of the page                                                                                                         |
+| Option      | Type    | Default | Description                                                                                                                                                                          |
+| :---------- | :------ | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enabled`   | Boolean | `true`  | Whether to render Visual Diffs for the URLs defined for this Service. Visual Diffs depend on Screenshots being enabled. If Screenshots are disabled, this setting has no effect.     |
+| `fullPage`  | Boolean | `true`  | Whether to use the default `fullPage` method. Disabling this uses an alternative that is more friendly to elements that have `vh` CSS Styles, but can sometimes be less accurate     |
+| `timeout`   | Number  | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                                                           |
+| `waitUntil` | String  | `load`  | Which browser event to wait for before creating a screenshot of the page                                                                                                             |
+| `threshold` | Number  | `0`     | What percent similar a Visual Diff must be to the base preview in order to "pass". Visual Diffs that are less similar than this will generate an error. Minimum: `0`, Maximum: `100` |
 
 The `waitUntil` option can be one of, or a list of, the following events. If a list of events is given, the screenshot
 is created after all of the specified events have fired
