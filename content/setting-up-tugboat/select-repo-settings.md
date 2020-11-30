@@ -149,9 +149,9 @@ cannot pull the image and will instead throw an error.
 
 ### Configure Preview IP Filtering
 
-{{% notice tier %}} This feature is only available to [Tugboat Enterprise](https://www.tugboat.qa/enterprise) or
-On-Premise subscribers. If you'd like to use Preview IP Filtering, update your project to an Enterprise
-subscription.{{% /notice %}}
+{{% notice tier %}} This feature is only available to [Tugboat Premium](https://www.tugboat.qa/premium) or On-Premise
+subscribers. If you'd like to use Preview IP Filtering, [contact us](https://www.tugboat.qa/contact) to upgrade your
+project to a Premium subscription.{{% /notice %}}
 
 Want to restrict access to a Preview URL to only allow a specified set of IP addresses or subnets to view a Tugboat
 Preview? Press the {{% ui-text %}}+ Add{{% /ui-text %}} button to specify IPv4 or IPv6 addresses or subnets that should

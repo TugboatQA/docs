@@ -18,8 +18,8 @@ you'll be all set to enjoy your new plan.
 
 You'll get an email confirming your changes, with a link to an online invoice you can download or print as needed.
 
-{{% notice note %}} If you're using Tugboat's enterprise plans,
-[reach out to us directly](mailto:support@tugboat.qa?subject=Enterprise-Plans) to change your plan. {{% /notice %}}
+{{% notice note %}} If you're using Tugboat's Premium plans, [reach out to us directly](https://www.tugboat.qa/contact)
+to change your plan. {{% /notice %}}
 
 {{%expand "Visual Walkthrough" %}}
 
