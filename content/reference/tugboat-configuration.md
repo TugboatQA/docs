@@ -289,10 +289,11 @@ with `/` before being forwarded to the Service. When `false`, URLs are passed th
 Lighthouse configurations that affect all of the URLs defined for this Service. Values configured here override the
 Tugboat default values, but can also be overridden per-URL.
 
-| Option    | Type    | Default | Description                                                                                                              |
-| :-------- | :------ | :------ | :----------------------------------------------------------------------------------------------------------------------- |
-| `enabled` | Boolean | `true`  | Whether to render Lighthouse Reports for the URLs defined for this Service                                               |
-| `config`  | Object  |         | A custom Lighthouse configuration object to use while rendering Lighthouse Reports for the URLs defined for this Service |
+| Option    | Type    | Default   | Description                                                                                                              |
+| :-------- | :------ | :-------- | :----------------------------------------------------------------------------------------------------------------------- |
+| `enabled` | Boolean | `true`    | Whether to render Lighthouse Reports for the URLs defined for this Service                                               |
+| `config`  | Object  |           | A custom Lighthouse configuration object to use while rendering Lighthouse Reports for the URLs defined for this Service |
+| `screen`  | List    | `desktop` | Which screens should be used when rendering Lighthouse Reports. Valid options are `desktop` and/or `mobile`              |
 
 Tugboat uses the default Lighthouse configuration, but disables a few of the server performance metrics. These metrics
 tend to be inaccurate due to the shared nature of the Tugboat infrastructure, and can negatively impact the overall
