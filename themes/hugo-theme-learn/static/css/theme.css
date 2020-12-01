@@ -540,7 +540,7 @@ div.notices.tier p {
     background: #F1D6F5;
 }
 div.notices.tier p:first-child:after {
-    content: 'Premium Tier Feature';
+    content: 'Available on Select Tiers';
 }
 
 /* attachments shortcode */

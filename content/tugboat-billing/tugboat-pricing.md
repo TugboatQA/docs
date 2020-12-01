@@ -8,7 +8,7 @@ weight: 1
   - [Calculating project storage for Tugboat billing](#calculating-project-storage-for-tugboat-billing)
   - [How to view project storage](#how-to-view-project-storage)
 - [View Tugboat pricing for your project](#to-view-tugboat-pricing-for-your-project)
-- [Tugboat for Enterprise](#tugboat-for-enterprise)
+- [Tugboat Premium](#tugboat-premium)
 
 ## How does Tugboat pricing work?
 
@@ -81,8 +81,8 @@ you're finished using Tugboat for that project.
 
 If you don't have a Tugboat project, you can view current Tugboat pricing here: [Pricing](https://tugboat.qa/pricing/).
 
-{{% notice note %}} If you're looking for a self-hosted Tugboat, or an enterprise version of the app, see:
-[Tugboat for Enterprise](#tugboat-for-enterprise). {{% /notice %}}
+{{% notice note %}} If you're looking for Tugboat Premium and Premium On-Premise, see:
+[Tugboat Premium](#tugboat-premium). {{% /notice %}}
 
 {{%expand "Visual Walkthrough" %}}
 
@@ -104,11 +104,10 @@ Scroll down to {{% ui-text %}}Your Plan{{% /ui-text %}}.
 
 {{% /expand%}}
 
-## Tugboat for Enterprise
+## Tugboat Premium
 
-If you need an enterprise or self-hosted version of Tugboat, we've got
-[Tugboat for Enterprise](https://tugboat.qa/enterprise/) for you! Tugboat's enterprise version comes with significantly
-more Preview storage and RAM, and can be hosted in Tugboat's Cloud or behind your firewall.
+If you need dedicated hardware or to host on-premise, we've got [Tugboat Premium](https://www.tugboat.qa/premium) for
+you! Tugboat's Premium version comes with significantly more Preview storage and RAM, and can be hosted in Tugboat's
+Cloud or behind your firewall.
 
-To view pricing and change your Tugboat enterprise plan,
-[contact us](mailto:support@tugboat.qa?subject=Enterprise-Plans).
+To learn more and change your Tugboat Premium plan, [contact us](https://www.tugboat.qa/contact).
