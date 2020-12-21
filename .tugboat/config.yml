@@ -22,3 +22,6 @@ services:
           - /setting-up-tugboat/
           - /starter-configs/
           - /troubleshooting/fix-problem-x/
+          - url: /visual-diffs/configure-visual-diffs/
+              visualdiff:
+                threshold: 97
