@@ -320,6 +320,8 @@ Tugboat default values, and can also be overridden per-URL.
 | `timeout`   | Number  | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                                                       |
 | `waitUntil` | String  | `load`  | Which browser event to wait for before creating a screenshot of the page                                                                                                         |
 
+##### `waitUntil`
+
 The `waitUntil` option can be one of, or a list of, the following events. If a list of events is given, the screenshot
 is created after all of the specified events have fired
 
@@ -344,16 +346,27 @@ Tugboat default values, and can also be overridden per-URL.
 Visual Diffs can only be automatically generated for Previews built from a Base Preview. These options apply to
 screenshots taken of the Base Preview used to compare to screenshots taken of this Preview.
 
-| Option      | Type    | Default | Description                                                                                                                                                                          |
-| :---------- | :------ | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enabled`   | Boolean | `true`  | Whether to render Visual Diffs for the URLs defined for this Service. Visual Diffs depend on Screenshots being enabled. If Screenshots are disabled, this setting has no effect.     |
-| `fullPage`  | Boolean | `true`  | Whether to use the default `fullPage` method. Disabling this uses an alternative that is more friendly to elements that have `vh` CSS Styles, but can sometimes be less accurate     |
-| `timeout`   | Number  | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                                                           |
-| `waitUntil` | String  | `load`  | Which browser event to wait for before creating a screenshot of the page                                                                                                             |
-| `threshold` | Number  | `0`     | What percent similar a Visual Diff must be to the base preview in order to "pass". Visual Diffs that are less similar than this will generate an error. Minimum: `0`, Maximum: `100` |
+| Option      | Type             | Default | Description                                                                                                                                                                          |
+| :---------- | :--------------- | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enabled`   | Boolean          | `true`  | Whether to render Visual Diffs for the URLs defined for this Service. Visual Diffs depend on Screenshots being enabled. If Screenshots are disabled, this setting has no effect.     |
+| `fullPage`  | Boolean          | `true`  | Whether to use the default `fullPage` method. Disabling this uses an alternative that is more friendly to elements that have `vh` CSS Styles, but can sometimes be less accurate     |
+| `timeout`   | Number           | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                                                           |
+| `waitUntil` | String           | `load`  | Which browser event to wait for before creating a screenshot of the page                                                                                                             |
+| `threshold` | Number or Object | `0`     | What percent similar a Visual Diff must be to the base preview in order to "pass". Visual Diffs that are less similar than this will generate an error. Minimum: `0`, Maximum: `100` |
 
-The `waitUntil` option can be one of, or a list of, the following events. If a list of events is given, the screenshot
-is created after all of the specified events have fired
+```yaml
+visualdiff:
+  enablled: true
+  fullPage: true
+  timeout: 30
+  waitUntil: load
+  threshold: 0
+```
+
+##### `waitUntil`
+
+The visualdiff `waitUntil` option can be one of, or a list of, the following events. If a list of events is given, the
+screenshot is created after all of the specified events have fired
 
 | Event            | Description                                                                |
 | :--------------- | :------------------------------------------------------------------------- |
@@ -361,6 +374,36 @@ is created after all of the specified events have fired
 | domcontentloaded | Fires when the `DOMContentLoaded` event is fired                           |
 | networkidle0     | Fires when there are no more than 0 network connections for at least 500ms |
 | networkidle2     | Fires when there are no more than 2 network connections for at least 500ms |
+
+```yaml
+waitUntil:
+  - load
+  - networkidle0
+```
+
+##### `threshold`
+
+The visualdiff `threshold` option can be either an integer or an object. If it is an object, granular thresholds can be
+defined for each of the following screen types
+
+- `desktop`
+- `tablet`
+- `mobile`
+
+If any of the screen types are not present, the threshold for that screen is set to `0`.
+
+```yaml
+threshold:
+  desktop: 99
+  tablet: 95
+  mobile: 90
+```
+
+If `threshold` is set to an integer, each of the above values are set to that value.
+
+```yaml
+threshold: 99
+```
 
 ---
 
