@@ -1,7 +1,7 @@
 ---
 title: "Configure Visual Diffs"
 date: 2019-09-26T15:29:49-04:00
-lastmod: 2020-09-24T10:00:00-04:00
+lastmod: 2020-12-21T14:00:00-04:00
 weight: 1
 ---
 
@@ -22,6 +22,7 @@ project.{{% /notice %}}
 - [Use advanced visualdiff configuration options](#use-advanced-visualdiff-configuration-options)
 - [Specify screenshot and visualdiff settings explicitly](#specify-screenshot-and-visualdiff-settings-explictly)
 - [Turn off visual diffs](#turn-off-visual-diffs)
+- [Set thresholds for pass/fail](#set-thresholds-for-pass-fail)
 
 ## Simple visualdiff configuration
 
@@ -172,4 +173,33 @@ services:
           enabled: true
         visualdiff:
           enabled: true
+```
+
+## Set thresholds for pass/fail
+
+If you'd like to specify a pass/fail threshold for visual diffs, you can define a similarity threshold in your Tugboat
+config. If the visual diff meets or exceeds your similarity threshold, it sets a "Pass" status; if it does not meet your
+similarity threshold, the visual diff will register as a "Fail."
+
+To set the similarity threshold for visual diffs:
+
+```yaml
+services:
+  apache:
+    urls:
+      # Create a visualdiff of the home page using the default options
+      - url: /
+
+      # Create a visualdiff of /blog, but set a similarity threshold of 90%
+      - url: /blog
+        visualdiff:
+          threshold: 90
+
+      # Create a visualdiff of /about, but specify different similarity thresholds depending on the breakpoint
+      - url: /about
+        visualdiff:
+          threshold:
+            desktop: 90
+            mobile: 80
+            tablet: 99
 ```
