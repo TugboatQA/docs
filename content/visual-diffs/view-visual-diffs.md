@@ -1,6 +1,7 @@
 ---
 title: "View Visual Diffs"
 date: 2019-09-26T15:30:03-04:00
+lastmod: 2020-12-22T11:30:00-04:00
 weight: 2
 ---
 
@@ -36,7 +37,7 @@ Scroll down past the Services and Lighthouse Reports, and you'll see the Visual 
 
 Click into the Visual Diff for **Mobile**, **Tablet** or **Desktop** to see the diff.
 
-![Click into the Visual Diff to see the diff](/_images/visual-diffs-click-into-mobile-to-view-diff.png)
+![Click into the Visual Diff to see the diff](/_images/visual-diffs-click-into-desktop-to-view-diff.png)
 
 Inside the diff, you'll see a **Before** visualization on the left, an **After** visualization on the right, and a
 composite in the middle, which highlights changes to the page.
@@ -44,8 +45,8 @@ composite in the middle, which highlights changes to the page.
 ![Visual Diff Before, After and Difference](/_images/visual-diffs-before-after-example.png)
 
 You'll also see an option to {{% ui-text %}}Regenerate{{% /ui-text %}} visual diffs; use this if you've updated your
-Base Preview, and want to see a new version of the visual diffs for this build.
+Preview or Base Preview, and want to see a new version of the visual diffs for this build.
 
-![Regenerate visual diffs](/_images/visual-diffs-regenerate.png)
+![Regenerate visual diffs](/_images/visual-diffs-regenerate-single.png)
 
 {{% /expand%}}

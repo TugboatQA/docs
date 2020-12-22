@@ -9,16 +9,12 @@ services:
             build:
                 - hugo
                 - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
-                # Run FeaturePeek by simulating Docker repo CI with environment
-                # variables. See https://peek.run/ci for details.
-                #- DOCKER_REPO="$TUGBOAT_REPO"
-                #  SOURCE_BRANCH="$TUGBOAT_GITHUB_HEAD"
-                #  SOURCE_COMMIT="$TUGBOAT_PREVIEW_SHA"
-                #  .tugboat/peek.sh
+
 
         urls:
           - /
           - /setting-up-services/
           - /setting-up-tugboat/
-          - /starter-configs/
-          - /troubleshooting/fix-problem-x/
+          - url: /visual-diffs/configure-visual-diffs/
+            visualdiff:
+              threshold: 97
