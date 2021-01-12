@@ -34,18 +34,32 @@ Or when executing PHP directly:
 
 ## MySQL server has gone away
 
-If you're getting a "MySQL server has gone away" error, you can resolve this by increasing the packet size for MySQL.
+If you're getting a "MySQL server has gone away" error, you can often resolve this by increasing the packet size for
+MySQL.
 
-To increase the max_allowed_packet to 512MB during the build stages, add this before the mysql commands in the build
-script:
+To increase the `max_allowed_packet` to `512MB` you can add the following command to your MySQL service in the Tugboat
+config.
 
 `mysql -e "SET GLOBAL max_allowed_packet=536870912;"`
 
-If you want to do that, and make it "stick" during normal operation, use:
+If you want this setting to persist after the build process, you can also add that setting to a MySQL cnf file that is
+added to the [`init`](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained) command
+group of your MySQL service.
 
-```
-mysql -e "SET GLOBAL max_allowed_packet=536870912;"
-echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
+`echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf`
+
+Here is an example Tugboat config implementing the above techniques.
+
+```yaml
+services:
+  mysql:
+    ...
+    commands:
+      init:
+        # Increase the allowed packet size to 512MB.
+        - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
+        # Ensure this packet size persists even if MySQL restarts.
+        - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
 ```
 
 ## cd isn't working
