@@ -21,7 +21,7 @@ services:
         - apt-get update
         - apt-get install -y jq
 
-      build:
+      online:
         # Tenon Integration
         - touch results.json
         - curl -d "url=${TUGBOAT_PREVIEW_URL}&key=${TENON_API}" -H Content-Type:application/x-www-form-urlencoded -H
