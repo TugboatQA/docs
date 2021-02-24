@@ -356,7 +356,7 @@ screenshots taken of the Base Preview used to compare to screenshots taken of th
 
 ```yaml
 visualdiff:
-  enablled: true
+  enabled: true
   fullPage: true
   timeout: 30
   waitUntil: load
