@@ -14,7 +14,7 @@ In addition to these code snippets and tutorials, we also maintain repositories 
 [starter configuration files](https://github.com/search?q=topic%3Astarter-kit+org%3ATugboatQA&type=Repositories) for
 other frameworks and Content Management Systems in our [GitHub account](https://github.com/TugboatQA).
 
-See our blog post: [10 Tips for Writing Your Tugboat YAML Config](https://www.tugboat.qa/2021/02/02/Ten-Tips-For-Writing-Your-Tugboat-YAML-Config.html).
+See our blog post:
+[10 Tips for Writing Your Tugboat YAML Config](https://www.tugboat.qa/2021/02/02/Ten-Tips-For-Writing-Your-Tugboat-YAML-Config.html).
 
 {{% children depth="4" %}}
-
