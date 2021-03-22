@@ -45,7 +45,7 @@ Add a file to the git repository at `.tugboat/wp-config.local.php` with the foll
 define('DB_NAME', 'tugboat');
 define('DB_USER', 'tugboat');
 define('DB_PASSWORD', 'tugboat');
-define('DB_HOST', 'mysql';
+define('DB_HOST', 'mysql');
 ```
 
 ## Configure Tugboat
