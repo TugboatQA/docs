@@ -16,7 +16,7 @@ Repository Settings, you can:
 - [Modify Environment Variables](#modify-environment-variables)
 - [Set up Remote SSH Access](#set-up-remote-ssh-access)
 - [Authenticate with a Docker Registry](#authenticate-with-a-docker-registry)
-- [Configure Preview IP Filtering](#configure-preview-ip-filtering)
+- [Configure Private Previews (IP Filtering)](#configure-private-previews-ip-filtering)
 - [Delete the repo](#delete-the-repository)
 
 Don't forget to hit the {{% ui-text %}}Save Configuration{{% /ui-text %}} button after you've checked or unchecked boxes
