@@ -16,7 +16,7 @@ Repository Settings, you can:
 - [Modify Environment Variables](#modify-environment-variables)
 - [Set up Remote SSH Access](#set-up-remote-ssh-access)
 - [Authenticate with a Docker Registry](#authenticate-with-a-docker-registry)
-- [Configure Preview IP Filtering](#configure-preview-ip-filtering)
+- [Configure Private Previews (IP Filtering)](#configure-private-previews-ip-filtering)
 - [Delete the repo](#delete-the-repository)
 
 Don't forget to hit the {{% ui-text %}}Save Configuration{{% /ui-text %}} button after you've checked or unchecked boxes
@@ -147,11 +147,11 @@ You can specify multiple authentications for the same registry. When multiple au
 attempts to use each one in turn until it can successfully pull the image. If none of the credentials work, Tugboat
 cannot pull the image and will instead throw an error.
 
-### Configure Preview IP Filtering
+### Configure Private Previews (IP Filtering)
 
-{{% notice tier %}} This feature is only available to [Tugboat Premium](https://www.tugboat.qa/premium) or On-Premise
-subscribers. If you'd like to use Preview IP Filtering, [contact us](https://www.tugboat.qa/contact) to upgrade your
-project to a Premium subscription.{{% /notice %}}
+{{% notice tier %}} Private Previews are only available to [Tugboat Premium](https://www.tugboat.qa/premium) or
+On-Premise subscribers. If you'd like to use Preview IP Filtering, [contact us](https://www.tugboat.qa/contact) to
+upgrade your project to a Premium subscription.{{% /notice %}}
 
 Want to restrict access to a Preview URL to only allow a specified set of IP addresses or subnets to view a Tugboat
 Preview? Press the {{% ui-text %}}+ Add{{% /ui-text %}} button to specify IPv4 or IPv6 addresses or subnets that should
