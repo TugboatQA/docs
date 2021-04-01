@@ -39,6 +39,10 @@ services:
         - cp -r ${TUGBOAT_ROOT}/.tugboat/resources/.m2 ~/.m2
         - mvn help:effective-settings
 
+        # Cleanup
+        - apt-get clean
+        - rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
         # Start aem for the first time and wait for a 200, authenticated response
         - CQ_PORT=4502 /opt/aem/author/crx-quickstart/bin/start
         - while [ "$(curl -u admin:admin --head --location --connect-timeout 5 -s -o /dev/null -w ''%{http_code}''
