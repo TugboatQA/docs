@@ -31,7 +31,7 @@ Slack via the [service](/setting-up-services/) you want to respond from.
 services:
   apache:
     commands:
-      ready:
+      online:
         # Send a slack notification.
         - |
           WEBHOOK=$SLACK_WEBHOOK_URL
