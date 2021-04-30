@@ -7,9 +7,9 @@ weight: 3
 Incoming Webhooks are a simple way to post messages from Tugboat into [Slack](https://slack.com/). Creating an Incoming
 Webhook gives you a unique URL to which you send a JSON payload with the message text and some options.
 
-## Prerequisites
+## Prerequisites: Slack and GitHub
 
-1. So, you'll need a [Slack](https://slack.com/) account and workspace to post the Tugboat update to. You'll also need a
+1. So, you'll need a [GitHub](https://github.com/) repository, a [Slack](https://slack.com/) account and workspace, and
    Tugboat account and project.
 2. You'll need to [create a Slack App](https://api.slack.com/messaging/webhooks) from within your Slack account, and
    enable _Incoming Webhooks_.
@@ -32,13 +32,14 @@ services:
   apache:
     commands:
       online:
-        # Send a slack notification.
+        # Send a slack notification if we're on a PR build
         - |
-          WEBHOOK=$SLACK_WEBHOOK_URL
-          PR_URL="https://github.com/$TUGBOAT_REPO/pull/$TUGBOAT_GITHUB_PR"
-          DASHBOARD_URL="https://dashboard.tugboat.qa/$TUGBOAT_PREVIEW_ID"
-          MESSAGE="*Tugboat URL:* $TUGBOAT_SERVICE_URL\n*PR:* $PR_URL\n*Dashboard:* $DASHBOARD_URL"
-          curl -X POST --data-urlencode "payload={\"username\": \"Tugboat\", \"text\": \"$MESSAGE\", \"icon_emoji\": \":tugboat_qa:\"}" "$WEBHOOK"
+          if [ ! -z "${TUGBOAT_GITHUB_PR}" ]; then
+           WEBHOOK=$SLACK_WEBHOOK_URL
+            PR_URL="https://github.com/$TUGBOAT_REPO/pull/$TUGBOAT_GITHUB_PR"
+            DASHBOARD_URL="https://dashboard.tugboat.qa/$TUGBOAT_PREVIEW_ID"
+            MESSAGE="*Tugboat URL:* $TUGBOAT_SERVICE_URL\n*PR:* $PR_URL\n*Dashboard:* $DASHBOARD_URL"
+            curl -X POST --data-urlencode "payload={\"username\": \"Tugboat\", \"text\": \"$MESSAGE\", \":boat:\": \":tugboat_qa:\"}" "$WEBHOOK"
 ```
 
 Voila! You Slack integration will look like this:
