@@ -40,6 +40,7 @@ of memcached you use, and you can be sure you always have the most recent versio
 | RabbitMQ                          | `image: tugboatqa/rabbitmq:[TAG]`      | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/rabbitmq/TAGS.md)      |
 | Redis                             | `image: tugboatqa/redis:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/redis/TAGS.md)         |
 | Solr                              | `image: tugboatqa/solr:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/solr/TAGS.md)          |
+| Traefik                           | `image: tugboatqa/traefik:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/traefik/TAGS.md)       |
 | Ubuntu                            | `image: tugboatqa/ubuntu:[TAG]`        | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/ubuntu/TAGS.md)        |
 | Varnish                           | `image: tugboatqa/varnish:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/varnish/TAGS.md)       |
 
