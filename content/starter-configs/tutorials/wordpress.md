@@ -76,10 +76,17 @@ services:
       init:
         # Install prerequisite packages
         - apt-get update
-        - apt-get install -y rsync
+        - apt-get install -y rsync libzip-dev
 
-        # Install the PHP mysqli extension
-        - docker-php-ext-install mysqli
+        # Enable extra apache modules.
+        - a2enmod rewrite headers
+
+        # Install the PHP extensions
+        - docker-php-ext-install mysqli exif zip
+        # Install imagick
+        - apt-get install -y libmagickwand-dev --no-install-recommends
+        - pecl install imagick-beta -y
+        - docker-php-ext-enable imagick
 
         # Install wp-cli
         - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
