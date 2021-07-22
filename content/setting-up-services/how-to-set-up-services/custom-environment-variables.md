@@ -52,19 +52,19 @@ runtime variables.
 Global environment variable example:
 
 ```sh
-tugboat id=repository_id envvars=foo=bar=,key=value
+tugboat update [repository_id] envvars=foo=bar,key=value
 ```
 
 Build-time-scoped environment variable example:
 
 ```sh
-tugboat id=repository_id buildvars=foo=bar=,key=value
+tugboat update [repository_id] buildvars=foo=bar,key=value
 ```
 
 Runtime-scoped environment variable example:
 
 ```sh
-tugboat id=repository_id runvars=foo=bar,key=value
+tugboat update [repository_id] runvars=foo=bar,key=value
 ```
 
 If you're using [the API](https://api.tugboat.qa/), you can pass an environment variable array, including scope, via the
