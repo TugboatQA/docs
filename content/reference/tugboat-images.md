@@ -40,21 +40,21 @@ of memcached you use, and you can be sure you always have the most recent versio
 | RabbitMQ                          | `image: tugboatqa/rabbitmq:[TAG]`      | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/rabbitmq/TAGS.md)      |
 | Redis                             | `image: tugboatqa/redis:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/redis/TAGS.md)         |
 | Ruby                              | `image: tugboatqa/ruby:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/ruby/TAGS.md)          |
-| Solr                              | `image: tugboatqa/solr:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/solr/TAGS.md)          |
+| [Solr](#solr)                     | `image: tugboatqa/solr:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/solr/TAGS.md)          |
 | Traefik                           | `image: tugboatqa/traefik:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/traefik/TAGS.md)       |
 | Ubuntu                            | `image: tugboatqa/ubuntu:[TAG]`        | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/ubuntu/TAGS.md)        |
 | Varnish                           | `image: tugboatqa/varnish:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/varnish/TAGS.md)       |
 
 ---
 
-### Additional Information
+## Additional Information
 
-#### Alpine
+### Alpine
 
 The Alpine image is extremely minimal by nature. Unlike the other images, it does not have any extra tools installed
 except those required to use git with SSH.
 
-#### Elastic Search
+### Elastic Search
 
 The 2.x tags of this image extend the official Elast Search image on
 [Docker Hub](https://hub.docker.com/_/elasticsearch/). These images are based on Debian.
@@ -62,7 +62,7 @@ The 2.x tags of this image extend the official Elast Search image on
 The newer tags of this image extend the official Elastic Search images maintained by
 [Elastic.co](https://www.docker.elastic.co/). These images are based on CentOS.
 
-#### MySQL/MariaDB/Percona
+### MySQL/MariaDB/Percona
 
 The MySQL, MariaDB, and Percona images are configured the same way. Each have a default database named `tugboat` as well
 as a user named `tugboat` with a password of `tugboat`. The `tugboat` user has full access to the `tugboat` database. In
@@ -81,9 +81,9 @@ services:
         - mysql -e "CREATE DATABASE foo;"
 ```
 
-#### PHP
+### PHP
 
-##### PHP Extensions
+#### PHP Extensions
 
 The PHP images provided [upstream](https://hub.docker.com/_/php/) do not use apt-get to install PHP extensions. Instead,
 there are helper scripts that let you install additional extensions as required. The images provided by Tugboat attempt
@@ -102,7 +102,7 @@ commands:
 More information about these helper scripts can be found in the
 [upstream documentation](https://github.com/docker-library/docs/blob/master/php/README.md#how-to-install-more-php-extensions).
 
-##### Apache Modules
+#### Apache Modules
 
 In order to keep the service containers as lean as possible, only the most basic apache modules are enabled in the
 PHP/Apache images. To enable a missing module, add it with a service command
@@ -114,8 +114,81 @@ commands:
     - a2enmod rewrite headers
 ```
 
-#### PostgreSQL
+### PostgreSQL
 
 The PostgreSQL images have a default database named `tugboat` as well as a user named `tugboat` with a password of
 `tugboat`. The `tugboat` user has full access to the `tugboat` database. In addition, the default superuser password is
 set to `tugboat`.
+
+### Solr
+
+Using the official Solr image inside of Tugboat requires creating the cores as the `solr` user.
+
+```yaml
+services:
+  ...
+  solr:
+    image: tugboatqa/solr:8.6
+    checkout: true
+    commands:
+      init:
+        - su -s /bin/sh -c "solr create_core -c [CORE] -force" solr
+```
+
+#### Drupal and Search API Solr
+
+The following is an example setup for use with Drupal's
+[Search API Solr module](https://www.drupal.org/project/search_api_solr).
+
+##### 1. Create a new Solr service in your Tugboat config.yml
+
+```yaml
+services:
+  ...
+  solr:
+    image: tugboatqa/solr:8.6
+    checkout: true
+    commands:
+      init:
+        - su -s /bin/sh -c "solr create_core -c [CORE] -force" solr
+
+      build:
+        - cd "${SOLR_HOME}/[CORE]" && rm -rf conf
+        - cd "${SOLR_HOME}/[CORE]" && ln -snf "${TUGBOAT_ROOT}/path/to/solr/config" conf
+```
+
+You will need to replace `[CORE]` with the name of your solr core configured in Search API Solr. You will also need to
+export the `config.zip` configset from the Search API Solr module, extract the archive, and store it in version control
+in your project for Tugboat to use (you also should do this for your other environments) in order to remove the
+"Incompatible configset" error message in the Drupal admin UI.
+
+The `${SOLR_HOME}` environment variable may not be available with some Solr images, in which case you would need to
+hard-code the path:
+
+```shell
+cd "/opt/solr/server/solr/[CORE]" && rm -rf conf
+```
+
+##### 2. Depend on the Solr service
+
+Make sure to add the `solr` service (or whatever you call your Solr service) to the `depends` directive under the
+default application.
+
+```yaml
+  php:
+    ...
+    depends:
+      - mysql
+      - solr
+```
+
+##### 3. Configure Search API with the Solr service hostname
+
+One way to accomplish this is to add the following to a `settings.php` file that's loaded specifically for Tugboat:
+
+```php
+$config['search_api.server.default']['backend_config']['connector_config']['host'] = 'solr';
+```
+
+Note: `solr` here is the service name in `.tugboat/config.yml`. If you name your service something different, make sure
+to use that service name as the host.
