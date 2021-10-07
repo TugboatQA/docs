@@ -53,7 +53,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     }
 }
 
-#body-inner p {
+#body-inner p, #body-inner ul {
     max-width: 56em;
 }
 

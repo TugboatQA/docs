@@ -11,6 +11,7 @@ variables with Tugboat, see:
 - [Tugboat Environment Variables](#tugboat-environment-variables)
 - [Exposed Service Variables](#exposed-service-variables)
 - [Base Preview Environment Variables](#base-preview-environment-variables)
+- [Image-specific Environment Variables](#image-specific-environment-variables)
 - [Provider-specific environment variables](#provider-specific-environment-variables)
   - [Bitbucket](#bitbucket)
   - [Git](#git)
@@ -123,6 +124,15 @@ Preview.
 - **`$TUGBOAT_BASE_PREVIEW_URL_HOST`** - The "host" part of the Base Preview's default Service URL.
 
 - **`$TUGBOAT_BASE_PREVIEW_URL_PATH`** - The "path" part of the Base Preview's default Service URL.
+
+## Image-specific Environment Variables
+
+These variables are added to some of [Tugboat's images](/reference/tugboat-images).
+
+- **`$DOCROOT`** - On images that provide a webserver (such as `tugboatqa/httpd`, `tugboatqa/nginx`, or `tugboatqa/php`
+  images that have Apache installed), the `$DOCROOT` environment variable points to the full path that Tugboat expects
+  your document root to live. It's recommended to symlink your assets directory into place: e.g.
+  `ln -snf "${TUGBOAT_ROOT}/build" "${DOCROOT}"`.
 
 ## Provider-specific Environment Variables
 
