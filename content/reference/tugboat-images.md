@@ -37,6 +37,7 @@ of memcached you use, and you can be sure you always have the most recent versio
 | [Percona](#mysqlmariadbpercona)   | `image: tugboatqa/percona:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/percona/TAGS.md)       |
 | [PHP](#php)                       | `image: tugboatqa/php:[TAG]`           | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/php/TAGS.md)           |
 | [PostgreSQL](#postgresql)         | `image: tugboatqa/postgres:[TAG]`      | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/postgres/TAGS.md)      |
+| Python                            | `image: tugboatqa/python:[TAG]`        | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/python/TAGS.md)        |
 | RabbitMQ                          | `image: tugboatqa/rabbitmq:[TAG]`      | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/rabbitmq/TAGS.md)      |
 | Redis                             | `image: tugboatqa/redis:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/redis/TAGS.md)         |
 | Ruby                              | `image: tugboatqa/ruby:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/ruby/TAGS.md)          |
