@@ -6,7 +6,10 @@ weight: 3
 
 ## CLI commands
 
-Run `tugboat help` to see a list of commands you can execute. A few options include:
+Run `tugboat help` to see a list of commands you can execute. You can view the help of any command by passing the `-h`
+or `--help` option. Most of the commands support returning JSON by passing the `-j` or `--json` option.
+
+A few common commands include:
 
 #### View info
 
