@@ -26,3 +26,13 @@ server.
 
 For more details, see:
 [Inside a Preview -> Captured Mail](/building-a-preview/preview-deep-dive/inside-a-preview/#captured-mail).
+
+## Why don't you have Alpine versions of some Docker images?
+
+We've run into issues with some packages not working on Alpine, because it uses `musl` and not `glibc`. Many developers
+don't know how to solve these sorts of issues. We've chosen to default to Ubuntu / Debian for Tugboat instead. While
+that can result in larger disk usage, when using a [Base Preview](/building-a-preview/work-with-base-previews), that
+additional disk usage becomes negligible.
+
+You can use your own images with Tugboat, and we do offer an empty
+[Alpine image](https://hub.docker.com/r/tugboatqa/alpine) as well.
