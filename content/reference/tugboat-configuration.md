@@ -503,13 +503,13 @@ Preview is [refreshed](/building-a-preview/administer-previews/change-or-update-
 The visual diffs are specified by providing a list of _relative URLs_ to the Service. Each item in this list can be
 either a string, such as `/blog`, or a map overriding the following screenshot options:
 
-| Option    | Default    | Description                                                                                                                                              |
-| :-------- | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| url       | _none_     | The relative URL to create the visual diff for. This option is required                                                                                  |
-| aliases   | `:default` | Only create visual diffs for these [Service aliases](#aliases). The special `:default` alias can be used to also generate a visual diff without an alias |
-| timeout   | `30`       | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                               |
-| waitUntil | `load`     | Which event to wait for before creating a screenshot of a page.                                                                                          |
-| fullPage  | `true`     | Disable this to use an alternate screenshot method that is more friendly to elements that have `vh` CSS styles                                           |
+| Option    | Default    | Description                                                                                                                                               |
+| :-------- | :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| url       | _none_     | The relative URL to create the visual diff for. This option is required                                                                                   |
+| aliases   | `:default` | Only create visual diffs for these [Service aliases](#aliases). The special `:default` alias can be used to target the default Service URL with no alias. |
+| timeout   | `30`       | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                                |
+| waitUntil | `load`     | Which event to wait for before creating a screenshot of a page.                                                                                           |
+| fullPage  | `true`     | Disable this to use an alternate screenshot method that is more friendly to elements that have `vh` CSS styles                                            |
 
 The `waitUntil` option can be one of, or a list of, the following events. If a list of events is given, the screenshot
 is created after all of the specified events have fired
