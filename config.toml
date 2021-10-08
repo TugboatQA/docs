@@ -20,6 +20,8 @@ home = [ "HTML", "RSS", "JSON"]
 
   disableInlineCopyToClipBoard = true
 
+  editURL = "https://github.com/TugboatQA/docs/edit/main/content/"
+
 # Set Twitter card defaults for documentation site
 
 [params.twitterCard]
