@@ -4,6 +4,10 @@ date: 2019-09-19T10:50:09-04:00
 weight: 4
 ---
 
+{{% notice tier %}} The following instructions do not apply to subscriptions to
+[Tugboat Premium](https://www.tugboat.qa/pricing). For those subscriptions, please contact your Tugboat account
+executive or [Tugboat Support](https://www.tugboat.qa/support). {{% /notice %}}
+
 There are a few ways you can cancel billing for your Tugboat project:
 
 - [Change your Tugboat plan to the Free tier](#change-your-tugboat-plan-to-the-free-tier)

@@ -4,6 +4,10 @@ date: 2019-09-19T10:49:31-04:00
 weight: 2
 ---
 
+{{% notice tier %}} The following instructions do not apply to subscriptions to
+[Tugboat Premium](https://www.tugboat.qa/pricing). For those subscriptions, please contact your Tugboat account
+executive or [Tugboat Support](https://www.tugboat.qa/support). {{% /notice %}}
+
 ## To change your Tugboat plan:
 
 1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat dashboard.
