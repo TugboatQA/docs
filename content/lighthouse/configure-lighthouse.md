@@ -59,7 +59,6 @@ services:
           onlyAudits:
             - first-meaningful-paint
             - speed-index
-            - first-cpu-idle
             - interactive
     urls:
       # Conduct Lighthouse audits of the these URLs using the custom config
@@ -93,7 +92,6 @@ services:
               onlyAudits: [
                 'first-meaningful-paint',
                 'speed-index',
-                'first-cpu-idle',
                 'interactive',
               ],
             }
