@@ -86,15 +86,13 @@ services:
       # Trigger a Lighthouse audit for /blog, but override the default config with a custom config object
       - url: /blog
         lighthouse:
-          config: {
-            extends: 'lighthouse:default',
-            settings: {
-              onlyAudits: [
-                'first-meaningful-paint',
-                'speed-index',
-                'interactive',
-              ],
-            }
+          config:
+            extends: lighthouse:default
+            settings:
+              onlyAudits:
+                - first-meaningful-paint
+                - speed-index
+                - interactive
 
       # Turn off Lighthouse audits for /about, but leave the URL in the list for other Service URL activities, such as generating visual diffs
       - url: /about
