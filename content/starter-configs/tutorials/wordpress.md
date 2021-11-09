@@ -84,7 +84,7 @@ services:
         # Install the PHP extensions
         - docker-php-ext-install mysqli exif zip
         # Install imagick
-        - apt-get install -y libmagickwand-dev --no-install-recommends
+        - apt-get install -y libmagickwand-dev
         - pecl install imagick-beta -y
         - docker-php-ext-enable imagick
 
