@@ -371,9 +371,9 @@ export PAYLOAD=`printf '{ \
 Once that is complete, you are ready to make the cURL request to the [Tugboat API](https://api.tugboat.qa/) to connect
 the GitHub Repo to Tugboat. Copy and paste this directly into your shell:
 
-````
+```
 curl -H "Authorization: Bearer $TUGBOAT_TOKEN" \
      -H "Content-Type: application/json" \
      -X POST -d "$PAYLOAD" \
-     https://api.tugboat.qa/v3/repos```
-````
+     https://api.tugboat.qa/v3/repos
+```
