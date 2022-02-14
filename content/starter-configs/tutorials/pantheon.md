@@ -101,6 +101,8 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
+// Use the TUGBOAT_REPO_ID to generate a hash salt for Tugboat sites.
+$settings['hash_salt'] = hash('sha256', getenv('TUGBOAT_REPO_ID'));
 ```
 
 ## Configure Tugboat
@@ -145,18 +147,17 @@ PANTHEON_SOURCE_ENVIRONMENT=live
 ### Tugboat Configuration File
 
 The main Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
-`.tugboat/config.yml` in the git repository. Here's a Pantheon Drupal 8 configuration you can use as a starting point,
-with comments to explain what's going on:
+`.tugboat/config.yml` in the git repository. Here's a Pantheon Drupal 9 configuration you can use as a starting point,
+with comments to explain what's going on. Please also refer to the generic
+[Drupal 9 starter config](/starter-configs/tutorials/drupal-9/).
 
 ```yaml
 services:
-
   # What to call the service hosting the site
   php:
-
-    # Use PHP 7.x with Apache. Be sure this matches the version of PHP used by
+    # Use PHP 8.0.x with Apache. Be sure this matches the version of PHP used by
     # Pantheon, which you discovered in the PHP version step above.
-    image: tugboatqa/php:7.2-apache
+    image: tugboatqa/php:8.0-apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container
@@ -169,54 +170,66 @@ services:
 
     # A set of commands to run while building this service
     commands:
-
       # Commands that set up the basic preview infrastructure. This is where we
       # install the tools that need to be present before building the site, such
       # as Drush and Terminus.
       init:
+        # If your project uses Imagemagick, uncomment these lines:
+        #- apt-get update
+        #- apt-get install -y imagemagick
+
+        # Install opcache and mod-rewrite.
+        - docker-php-ext-install opcache
+        - a2enmod headers rewrite
+
+        # Link the document root to the expected path. This example links /web
+        # to the docroot
+        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+
+        # Create the Drupal private and public files directories if they aren't
+        # already present.
+        - mkdir -p "${TUGBOAT_ROOT}/files-private" "${DOCROOT}/sites/default/files"
 
         # Install drush-launcher
         - wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
         - chmod +x /usr/local/bin/drush
 
-        # Install the latest version of terminus
-        - wget -O /tmp/installer.phar https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar
-        - php /tmp/installer.phar install
+        # Install the latest version of terminus as standalone to avoid OOMs.
+        # https://pantheon.io/docs/terminus/install#standalone-terminus-phar
+        - |
+          set -eo pipefail
+          TERMINUS_RELEASE=$(curl --silent "https://api.github.com/repos/pantheon-systems/terminus/releases/latest" | perl -nle'print $& while m#"tag_name": "\K[^"]*#g')
+          curl -L https://github.com/pantheon-systems/terminus/releases/download/$TERMINUS_RELEASE/terminus.phar --output /usr/local/bin/terminus
+          chmod +x /usr/local/bin/terminus
 
-        # Link the document root to the expected path. This example links /web
-        # to the docroot
-    	- ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
-
-    	# Authenticate to terminus. Note this command uses a Tugboat environment
-    	# variable named PANTHEON_MACHINE_TOKEN
-    	- terminus auth:login --machine-token=${PANTHEON_MACHINE_TOKEN}
+        # Authenticate to terminus. Note this command uses a Tugboat environment
+        # variable named PANTHEON_MACHINE_TOKEN
+        - terminus auth:login --machine-token=${PANTHEON_MACHINE_TOKEN}
 
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-
         # Use the tugboat-specific Drupal settings
-    	- cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
 
-        # Generate a unique hash_salt to secure the site
-    	- echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >> "${DOCROOT}/sites/default/settings.local.php"
-
-        # Install/update packages managed by composer
-        - composer install --no-ansi
+        # Install/update packages managed by composer, including drush.
+        - composer install --optimize-autoloader
 
         # Import and sanitize a database backup from Pantheon
-        - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/database.sql.gz --element=db
-        - drush -r "${DOCROOT}" sql-drop
-        - zcat /tmp/database.sql.gz | drush -r "${DOCROOT}" sql-cli
-        - drush -r "${DOCROOT}" sqlsan --sanitize-password=tugboat
+        - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/database.sql.gz
+          --element=db
+        - drush --yes sql-drop
+        - zcat /tmp/database.sql.gz | drush sql-cli
 
         # Import the files from Pantheon. Alternatively, the stage_file_proxy
         # Drupal module could be enabled & configured here using Drush commands
-        - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/files.tar.gz --element=files
+        - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/files.tar.gz
+          --element=files
         - tar -C /tmp -zxf /tmp/files.tar.gz
-        - rsync -av --exclude=.htaccess --delete --no-owner --no-group --no-perms /tmp/files_${PANTHEON_SOURCE_ENVIRONMENT}/ "${DOCROOT}/sites/default/files/"
+        - rsync -av --exclude=.htaccess --delete --no-owner --no-group --no-perms
+          /tmp/files_${PANTHEON_SOURCE_ENVIRONMENT}/ "${DOCROOT}/sites/default/files/"
 
       # Commands that build the site. This is where you would add things
       # like feature reverts or any other drush commands required to
@@ -225,10 +238,11 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
-
-        # Clear the cache, and update the database
-        - drush -r "${DOCROOT}" cache-rebuild
-        - drush -r "${DOCROOT}" updb
+        - composer install --optimize-autoloader
+        - vendor/bin/drush cache:rebuild
+        - vendor/bin/drush config:import -y
+        - vendor/bin/drush updatedb -y
+        - vendor/bin/drush cache:rebuild
 
         # Clean up temp files used during the build
         - rm -rf /tmp/* /var/tmp/*
@@ -236,9 +250,8 @@ services:
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
   mysql:
-
-    # Use the latest available 5.x version of MySQL
-    image: tugboatqa/mysql:5
+    # Use the latest available 5.x version of MariaDB
+    image: tugboatqa/mariadb:10.5
 ```
 
 Want to know more about something mentioned in the comments of this config file? Check out these topics:
