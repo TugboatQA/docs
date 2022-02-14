@@ -177,6 +177,10 @@ services:
       # install the tools that need to be present before building the site, such
       # as Drush and Terminus.
       init:
+        # If your project uses Imagemagick, uncomment these lines:
+        #- apt-get update
+        #- apt-get install -y imagemagick
+
         # Install opcache and mod-rewrite.
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
