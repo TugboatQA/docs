@@ -205,9 +205,9 @@ services:
           curl -L https://github.com/pantheon-systems/terminus/releases/download/$TERMINUS_RELEASE/terminus.phar --output /usr/local/bin/terminus
           chmod +x /usr/local/bin/terminus
 
-    	# Authenticate to terminus. Note this command uses a Tugboat environment
-    	# variable named PANTHEON_MACHINE_TOKEN
-    	- terminus auth:login --machine-token=${PANTHEON_MACHINE_TOKEN}
+        # Authenticate to terminus. Note this command uses a Tugboat environment
+        # variable named PANTHEON_MACHINE_TOKEN
+        - terminus auth:login --machine-token=${PANTHEON_MACHINE_TOKEN}
 
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
@@ -216,7 +216,7 @@ services:
       update:
 
         # Use the tugboat-specific Drupal settings
-    	- cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
 
         # Install/update packages managed by composer, including drush.
         - composer install --optimize-autoloader
