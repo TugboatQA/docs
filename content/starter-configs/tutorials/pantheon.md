@@ -147,8 +147,9 @@ PANTHEON_SOURCE_ENVIRONMENT=live
 ### Tugboat Configuration File
 
 The main Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
-`.tugboat/config.yml` in the git repository. Here's a Pantheon Drupal 8 configuration you can use as a starting point,
-with comments to explain what's going on:
+`.tugboat/config.yml` in the git repository. Here's a Pantheon Drupal 9 configuration you can use as a starting point,
+with comments to explain what's going on. Please also refer to the generic
+[Drupal 9 starter config](/starter-configs/tutorials/drupal-9/).
 
 ```yaml
 services:
