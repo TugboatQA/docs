@@ -153,10 +153,8 @@ with comments to explain what's going on. Please also refer to the generic
 
 ```yaml
 services:
-
   # What to call the service hosting the site
   php:
-
     # Use PHP 8.0.x with Apache. Be sure this matches the version of PHP used by
     # Pantheon, which you discovered in the PHP version step above.
     image: tugboatqa/php:8.0-apache
@@ -172,7 +170,6 @@ services:
 
     # A set of commands to run while building this service
     commands:
-
       # Commands that set up the basic preview infrastructure. This is where we
       # install the tools that need to be present before building the site, such
       # as Drush and Terminus.
@@ -214,7 +211,6 @@ services:
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-
         # Use the tugboat-specific Drupal settings
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
 
@@ -222,15 +218,18 @@ services:
         - composer install --optimize-autoloader
 
         # Import and sanitize a database backup from Pantheon
-        - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/database.sql.gz --element=db
+        - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/database.sql.gz
+          --element=db
         - drush --yes sql-drop
         - zcat /tmp/database.sql.gz | drush sql-cli
 
         # Import the files from Pantheon. Alternatively, the stage_file_proxy
         # Drupal module could be enabled & configured here using Drush commands
-        - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/files.tar.gz --element=files
+        - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/files.tar.gz
+          --element=files
         - tar -C /tmp -zxf /tmp/files.tar.gz
-        - rsync -av --exclude=.htaccess --delete --no-owner --no-group --no-perms /tmp/files_${PANTHEON_SOURCE_ENVIRONMENT}/ "${DOCROOT}/sites/default/files/"
+        - rsync -av --exclude=.htaccess --delete --no-owner --no-group --no-perms
+          /tmp/files_${PANTHEON_SOURCE_ENVIRONMENT}/ "${DOCROOT}/sites/default/files/"
 
       # Commands that build the site. This is where you would add things
       # like feature reverts or any other drush commands required to
