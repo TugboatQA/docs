@@ -156,7 +156,7 @@ services:
   # What to call the service hosting the site
   php:
 
-    # Use PHP 7.x with Apache. Be sure this matches the version of PHP used by
+    # Use PHP 8.0.x with Apache. Be sure this matches the version of PHP used by
     # Pantheon, which you discovered in the PHP version step above.
     image: tugboatqa/php:8.0-apache
 
