@@ -9,7 +9,8 @@ We love automatically generating Previews from new pull requests - we think it's
 is opened in your linked git repository.
 
 If you're [using a Base Preview](/building-a-preview/work-with-base-previews/), the automated Preview build starts from
-that Base Preview.
+that Base Preview. When building previews from pull requests, Tugboat will locally merge the pull request into it's
+destination branch, and build from the merged result.
 
 {{% notice warning %}} When you enable this functionality, Tugboat does not automatically build pull requests from
 forked repositories. That requires you to set an additional option: **Build Previews for Forked Pull Requests**. Any
@@ -58,3 +59,9 @@ Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save your 
 ![Press the Save Configuration button](/_images/repository-settings-press-save-configuration.png)
 
 {{% /expand%}}
+
+## To Build a Preview with Conflicts
+
+Sometimes you may want to build a preview in a pull request, even if it has conflicts with the destination branch.
+To build the preview without first merging, delete the automatically created preview and then
+[Build a Preview](/building-a-preview/administer-previews/build-previews/) from the _branch_ instead of the  _pull request_.
