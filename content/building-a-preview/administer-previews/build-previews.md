@@ -94,7 +94,6 @@ generated files like package manager lock files. To trigger a build without a me
 1. Delete any existing pull request previews.
 2. In Tugboat, build a preview from the _branch_ or _tag_ instead of from a _pull request_. Since there's no implicit merge
    destination, Tugboat will build without a merge.
-3. In the case of a branch, Tugboat will still post environment URLs to the pull request.
 
 ## Auto-generate a Preview
 
