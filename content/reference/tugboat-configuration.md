@@ -70,13 +70,13 @@ make the host name a maximum of 63 characters. If `subpath` is `true`, the alias
 
 If `aliases` is set to `['foo', 'bar']`, alias URLs look like the following
 
-- https://foo-4vdrhxvyddvr5tne7zcr4y72vzowqohj.tugboat.qa
-- https://bar-4vdrhxvyddvr5tne7zcr4y72vzowqohj.tugboat.qa
+- https://foo-4vdrhxvyddvr5tne7zcr4y72vzowqohj.tugboatqa.com
+- https://bar-4vdrhxvyddvr5tne7zcr4y72vzowqohj.tugboatqa.com
 
 or
 
-- https://previews.tugboat.qa/foo-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
-- https://previews.tugboat.qa/bar-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+- https://previews.tugboatqa.com/foo-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+- https://previews.tugboatqa.com/bar-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
 
 **`domain`**
 
@@ -93,7 +93,7 @@ or
 - https://bar.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
 
 In order for these domains to resolve, a DNS entry must be added to the alias domains as a `CNAME` to
-`previews.tugboat.qa`. A wildcard entry is required if `subpath` is set to `false`.
+`previews.tugboatqa.com`. A wildcard entry is required if `subpath` is set to `false`.
 
 ---
 
@@ -262,10 +262,10 @@ to work well with Tugboat. See also:
 When `true`, the URL generated for this Service will be a subpath of the root Preview domain instead of a subdomain.
 Using a subpath URL is not common, but can solve problems with testing advertisements or using OAuth
 
-| subpath | URL Example                                                        |
-| :------ | :----------------------------------------------------------------- |
-| `true`  | https://preview.tugboat.qa/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/ |
-| `false` | https://pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj.tugboat.qa          |
+| subpath | URL Example                                                           |
+| :------ | :-------------------------------------------------------------------- |
+| `true`  | https://preview.tugboatqa.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/ |
+| `false` | https://pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj.tugboatqa.com          |
 
 ---
 

@@ -17,7 +17,7 @@ you are under the project's disk space limit again. You can get under the projec
 
 ## To delete a Base Preview:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to delete a Base Preview.
 3. Click into the repo where you want to delete a Base Preview.
 4. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for the Base Preview you want to delete, and select
@@ -27,7 +27,7 @@ you are under the project's disk space limit again. You can get under the projec
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 

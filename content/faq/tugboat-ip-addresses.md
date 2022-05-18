@@ -9,6 +9,6 @@ you covered! Our IPs sometimes change due to maintenance, so here's how you can 
 check our IPs:
 
 ```sh
-$ dig txt +noall +answer  _egress.tugboat.qa
-_egress.tugboat.qa.	2417	IN	TXT	"198.74.59.242,96.126.107.6,45.56.103.116,45.79.187.95,50.116.61.225,45.79.132.116,66.228.45.165"
+$ dig txt +noall +answer  _egress.tugboatqa.com
+_egress.tugboatqa.com.	2417	IN	TXT	"198.74.59.242,96.126.107.6,45.56.103.116,45.79.187.95,50.116.61.225,45.79.132.116,66.228.45.165"
 ```

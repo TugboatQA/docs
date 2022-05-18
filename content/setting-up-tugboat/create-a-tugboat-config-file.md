@@ -37,9 +37,9 @@ power your Preview builds.
 
 ### Tugboat API config file parameter
 
-If you're using the [Tugboat API](https://api.tugboat.qa/) to build Previews, you can pass the config information as a
-JSON object when building Previews using the API. This option is available
-[on POST when creating Previews](https://api.tugboat.qa/v3#tag/Previews/paths/~1previews/post).
+If you're using the [Tugboat API](https://api.tugboatqa.com/) to build Previews, you can pass the config information as
+a JSON object when building Previews using the API. This option is available
+[on POST when creating Previews](https://api.tugboatqa.com/v3#tag/Previews/paths/~1previews/post).
 
 ## What's in the config.yml file?
 

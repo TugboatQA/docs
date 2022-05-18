@@ -8,7 +8,7 @@ Want to share a Preview link manually with Lisa in Product, or Dan the client?
 
 ### To manually get the link to a Preview you want to share:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project that contains the Preview you want to share.
 3. Click the name of the repo that contains the Preview you want to share.
 4. Go to the Preview you want to share, and either open the Preview and copy the URL from the browser's address bar, or
@@ -20,7 +20,7 @@ hard-to-guess secure URLs that are accessible to anyone with the link; that pers
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 

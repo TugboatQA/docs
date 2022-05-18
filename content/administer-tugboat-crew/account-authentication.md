@@ -54,8 +54,8 @@ To sign into Tugboat using an email address:
 
 1. Go to the {{% ui-text %}}Sign In{{% /ui-text %}} link (or if this is your first time using Tugboat, go to
    {{% ui-text %}}Create a Free Account{{% /ui-text %}}).
-2. You'll be taken to the [Tugboat Dashboard](https://dashboard.tugboat.qa/), where you should see a {{% ui-text %}}Sign
-   in{{% /ui-text %}} pane.
+2. You'll be taken to the [Tugboat Dashboard](https://dashboard.tugboatqa.com/), where you should see a
+   {{% ui-text %}}Sign in{{% /ui-text %}} pane.
 3. Click the {{% ui-text %}}Sign in using your email address{{% /ui-text %}} button.
 4. Enter your {{% ui-text %}}Email Address{{% /ui-text %}} and {{% ui-text %}}Password{{% /ui-text %}}, and press the
    {{% ui-text %}}Sign In{{% /ui-text %}} button - or if you haven't signed in with an email address before, click the
@@ -63,7 +63,7 @@ To sign into Tugboat using an email address:
 
 {{% notice info %}}If you are already signed into Tugboat via a connected git provider, you'll need to go to
 {{% ui-text %}}username -> Sign Out{{% /ui-text %}} at the upper right corner of the
-[Tugboat dashboard](https://dashboard.tugboat.qa/) in order to see the Sign in pane.{{% /notice %}}
+[Tugboat dashboard](https://dashboard.tugboatqa.com/) in order to see the Sign in pane.{{% /notice %}}
 
 {{%expand "Visual Walkthrough" %}}
 
@@ -72,7 +72,7 @@ Go to the {{% ui-text %}}Sign In{{% /ui-text %}} link (or if this is your first 
 
 ![Tugboat website sign-in and create account links](../../_images/sign-in-from-tugboat-qa.png)
 
-You'll be taken to the [Tugboat Dashboard](https://dashboard.tugboat.qa/), where you should see a {{% ui-text %}}Sign
+You'll be taken to the [Tugboat Dashboard](https://dashboard.tugboatqa.com/), where you should see a {{% ui-text %}}Sign
 in{{% /ui-text %}} pane.
 
 ![Tugboat's Sign In pane](../../_images/tugboat-sign-in-pane.png)

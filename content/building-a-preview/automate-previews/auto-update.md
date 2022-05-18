@@ -37,7 +37,7 @@ the refresh process, ensuring that child Previews always have the most recent da
 
 ## To set Tugboat to automatically update Previews
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to configure auto-update settings for Previews.
 3. Click into {{% ui-text %}}Settings{{% /ui-text %}} for the repository.
 4. Click the checkboxes to change the settings you want to adjust.
@@ -45,7 +45,7 @@ the refresh process, ensuring that child Previews always have the most recent da
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 

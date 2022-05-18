@@ -29,7 +29,7 @@ Building or Rebuilding.
 
 To manually build a Preview with no Base Preview:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to build a Preview.
 3. Click into the repo where you want to build a Preview.
 4. Go to the {{% ui-text %}}Available to Build{{% /ui-text %}} section of the Repository Dashboard.
@@ -39,7 +39,7 @@ To manually build a Preview with no Base Preview:
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -75,7 +75,7 @@ build a Preview from a specific Base Preview.
 
 To build a Preview from a specific Base Preview:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to build a Preview from a specific Base Preview.
 3. Click into the repo where you want to build a Preview from a specific Base Preview.
 4. Go to the {{% ui-text %}}Available to Build{{% /ui-text %}} section of the Repository Dashboard.
@@ -87,7 +87,7 @@ To build a Preview from a specific Base Preview:
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 

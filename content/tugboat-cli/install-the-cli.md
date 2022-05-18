@@ -17,7 +17,7 @@ to execute it from the directory where you downloaded it, or copy it to a direct
 
 To copy the Tugboat CLI into a directory in the system PATH variable:
 
-1. Download the CLI from [https://dashboard.tugboat.qa/downloads](https://dashboard.tugboat.qa/downloads).
+1. Download the CLI from [https://dashboard.tugboatqa.com/downloads](https://dashboard.tugboatqa.com/downloads).
 2. Create a new folder at `C:\Program Files\Tugboat`, and copy the downloaded `tugboat.exe` to that folder.
 3. Add `C:\Program Files\Tugboat` to your system PATH variable.
 
@@ -57,7 +57,7 @@ Happy brewing!
 
 ### Manual install on MacOS
 
-1. Download the CLI from [https://dashboard.tugboat.qa/downloads](https://dashboard.tugboat.qa/downloads).
+1. Download the CLI from [https://dashboard.tugboatqa.com/downloads](https://dashboard.tugboatqa.com/downloads).
 2. Extract the downloaded `tugboat.tar.gz` file to `/usr/local/bin`
 
 ```sh
@@ -79,7 +79,7 @@ normally would.
 
 ## Linux
 
-1. Download the CLI from [https://dashboard.tugboat.qa/downloads](https://dashboard.tugboat.qa/downloads).
+1. Download the CLI from [https://dashboard.tugboatqa.com/downloads](https://dashboard.tugboatqa.com/downloads).
 2. Extract the downloaded `tugboat.tar.gz` file to `/usr/local/bin`
 
 ```sh

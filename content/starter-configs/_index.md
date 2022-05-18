@@ -15,6 +15,6 @@ In addition to these code snippets and tutorials, we also maintain repositories 
 other frameworks and Content Management Systems in our [GitHub account](https://github.com/TugboatQA).
 
 See our blog post:
-[10 Tips for Writing Your Tugboat YAML Config](https://www.tugboat.qa/2021/02/02/Ten-Tips-For-Writing-Your-Tugboat-YAML-Config.html).
+[10 Tips for Writing Your Tugboat YAML Config](https://www.tugboatqa.com/2021/02/02/Ten-Tips-For-Writing-Your-Tugboat-YAML-Config.html).
 
 {{% children depth="4" %}}

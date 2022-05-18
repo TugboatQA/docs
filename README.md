@@ -14,7 +14,7 @@ for all experience levels.
 This document is open-source, and is available on [GitHub](https://github.com/TugboatQA/docs). If you have any
 suggestions or other feedback about this document, we are happy to hear it!
 [Open a GitHub issue](https://github.com/TugboatQA/docs/issues/new) or email us at
-[support@tugboat.qa](mailto:support@tugboat.qa).
+[support@tugboatqa.com](mailto:support@tugboatqa.com).
 
 ## Theme
 
@@ -33,7 +33,7 @@ Redirects for historic URLs are maintained in `static/.htaccess`. These can be t
 live instance, like a Tugboat preview.
 
 ```sh
-cat test/smolder.yaml | docker run -i mcameron/smolder pr125-mcktkhcj8krhxo5oaa7emgv5gcnf5e5l.tugboat.qa
+cat test/smolder.yaml | docker run -i mcameron/smolder pr125-mcktkhcj8krhxo5oaa7emgv5gcnf5e5l.tugboatqa.com
 ```
 
 ## License Information

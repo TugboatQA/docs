@@ -9,7 +9,7 @@ weight: 3
 
 To change user permissions:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to change user permissions.
 3. Click the {{% ui-text %}}Project Settings{{% /ui-text %}} link to the right of the project's title.
 4. In the {{% ui-text %}}Manage Users{{% /ui-text %}} section, look for the user whose permissions you want to change,
@@ -17,7 +17,7 @@ To change user permissions:
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 

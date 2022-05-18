@@ -20,14 +20,14 @@ Whether you're reaching out to support or working in the Tugboat CLI, sometimes 
 
 #### Project ID in the web interface
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project whose ID you want to know.
-3. Look in the address bar for the project ID; it's everything following tugboat.qa/ - i.e.
-   tugboat.qa/**5e3c40e79366b1c43a153f38**.
+3. Look in the address bar for the project ID; it's everything following tugboatqa.com/ - i.e.
+   tugboatqa.com/**5e3c40e79366b1c43a153f38**.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -35,8 +35,8 @@ Select the project whose ID you want to know.
 
 ![Select the project](/_images/select-a-project.png)
 
-Look in the address bar for the project ID; it's everything following tugboat.qa/ - i.e.
-tugboat.qa/**5e3c40e79366b1c43a153f38**.
+Look in the address bar for the project ID; it's everything following tugboatqa.com/ - i.e.
+tugboatqa.com/**5e3c40e79366b1c43a153f38**.
 
 ![Project ID in address bar](/_images/tugboat-project-id.png)
 
@@ -44,15 +44,15 @@ tugboat.qa/**5e3c40e79366b1c43a153f38**.
 
 #### Repository ID in the web interface
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project that contains the repository whose ID you want to know.
 3. Click into the repository whose ID you want to know.
-4. Look in the address bar for the repository ID; it's everything following tugboat.qa/ - i.e.
-   tugboat.qa/**5e3c414e9366b1d9e1154334**.
+4. Look in the address bar for the repository ID; it's everything following tugboatqa.com/ - i.e.
+   tugboatqa.com/**5e3c414e9366b1d9e1154334**.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -64,8 +64,8 @@ Click into the repository whose ID you want to know.
 
 ![Click into Tugboat repository](/_images/click-into-tugboat-repository.png)
 
-Look in the address bar for the repository ID; it's everything following tugboat.qa/ - i.e.
-tugboat.qa/**5e3c414e9366b1d9e1154334**.
+Look in the address bar for the repository ID; it's everything following tugboatqa.com/ - i.e.
+tugboatqa.com/**5e3c414e9366b1d9e1154334**.
 
 ![Repository ID in address bar](/_images/repository-id-in-address-bar.png)
 
@@ -73,15 +73,15 @@ tugboat.qa/**5e3c414e9366b1d9e1154334**.
 
 #### Preview ID in the web interface
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project that contains the Preview whose ID you want to know.
 3. Click the name of the repo that contains the Preview whose ID you want to know.
 4. Click into the Preview's name, and look in the address bar for the Preview ID; it's everything following
-   tugboat.qa/ - i.e. tugboat.qa/**5e3c415d9366b17547154387**.
+   tugboatqa.com/ - i.e. tugboatqa.com/**5e3c415d9366b17547154387**.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -97,8 +97,8 @@ Click into the Preview's name.
 
 ![Click into Preview name](/_images/click-into-preview-name.png)
 
-Look in the address bar for the Preview ID; it's everything following tugboat.qa/ - i.e.
-tugboat.qa/**5e3c415d9366b17547154387**.
+Look in the address bar for the Preview ID; it's everything following tugboatqa.com/ - i.e.
+tugboatqa.com/**5e3c415d9366b17547154387**.
 
 ![Preview ID in the address bar](/_images/preview-id-in-address-bar.png)
 
@@ -106,16 +106,16 @@ tugboat.qa/**5e3c415d9366b17547154387**.
 
 #### Service ID in the web interface
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project that contains the Preview whose service ID you want to know.
 3. Click the name of the repo that contains the Preview whose service ID you want to know.
 4. Click into the name of the Preview that contains the service whose ID you want to know.
-5. Click into the service and look in the address bar for the service ID; it's everything following tugboat.qa/ - i.e.
-   tugboat.qa/**5e3c415e7b9f1ce8aa1c0856**.
+5. Click into the service and look in the address bar for the service ID; it's everything following tugboatqa.com/ -
+   i.e. tugboatqa.com/**5e3c415e7b9f1ce8aa1c0856**.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -135,8 +135,8 @@ Click into the service whose ID you want to know.
 
 ![Click into the service](/_images/click-into-service-name.png)
 
-Look in the address bar for the service ID; it's everything following tugboat.qa/ - i.e.
-tugboat.qa/**5e3c415e7b9f1ce8aa1c0856**.
+Look in the address bar for the service ID; it's everything following tugboatqa.com/ - i.e.
+tugboatqa.com/**5e3c415e7b9f1ce8aa1c0856**.
 
 ![Service ID in the address bar](/_images/service-id-in-address-bar.png)
 
@@ -250,7 +250,7 @@ You'll see a response similar to this:
          Preview ID                 OPTS     Status       Size      Name
          ------------------------  --------  -----------  --------  ---------------------
          5dfic54972db400001b8d290    ⚓️ ☾️     ready        622.72MB  main
-           https://main-5vt12vtfuqy0chpzdhernpafabmixrny.tugboat.qa
+           https://main-5vt12vtfuqy0chpzdhernpafabmixrny.tugboatqa.com
 
    Project: 5mdkso12376f987ckif01f10 - Company ABC Documentation Site
       Repository: 5mdkso12376f987ckif0c3dd - CompanyABC/documentation-site
@@ -258,7 +258,7 @@ You'll see a response similar to this:
           Preview ID                 OPTS     Status       Size      Name
           ------------------------  --------  -----------  --------  ---------------------
           5d3750bee9b02644d56b0a89    ⚓️ ☾️     ready         435.9MB  main
-            https://main-kkmsgw224wtjtlbqviabxqitakcfvrdv.tugboat.qa
+            https://main-kkmsgw224wtjtlbqviabxqitakcfvrdv.tugboatqa.com
 ```
 
 ##### List the Previews in a specific project
@@ -278,14 +278,14 @@ You'll see a response similar to this:
          Preview ID                 OPTS     Status       Size      Name
          ------------------------  --------  -----------  --------  ---------------------
          5dfic54972db400001b8d290    ⚓️ ☾️     ready        622.72MB  main
-           https://main-5vt12vtfuqy0chpzdhernpafabmixrny.tugboat.qa
+           https://main-5vt12vtfuqy0chpzdhernpafabmixrny.tugboatqa.com
 
       Repository: 5dfic6be53my123401b8df5d - CompanyABC/marketing-assets
 
          Preview ID                 OPTS     Status       Size      Name
          ------------------------  --------  -----------  --------  ---------------------
          5dfic0761394630860890c88    ⚓️ ☾️     ready        554.15MB  main
-           https://main-eza4ulhhdmye7lixxpqjvhn6toduj4qg.tugboat.qa
+           https://main-eza4ulhhdmye7lixxpqjvhn6toduj4qg.tugboatqa.com
 ```
 
 ##### List the Previews in a specific repository
@@ -305,7 +305,7 @@ You'll see a response similar to this:
          Preview ID                 OPTS     Status       Size      Name
          ------------------------  --------  -----------  --------  ---------------------
          5d3750bee9b02644d56b0a89    ⚓️ ☾️     ready         435.9MB  main
-           https://main-kmyugw294wtjtlbqviabxqinwecfvrdv.tugboat.qa
+           https://main-kmyugw294wtjtlbqviabxqinwecfvrdv.tugboatqa.com
 
          5d8a44a86ada2349d59d309e      ☾️     failed             0B  readme change
            undefined
@@ -329,14 +329,14 @@ You'll see a response similar to this:
             Service ID                State        Size      Name
             ------------------------  -----------  --------  -------------------------------
             5e3b45fa9366b18e6412206a  suspended    413.94MB  companyabc-redis
-              https://main-mj9lot9hdvlbf1ztqw2zsmdhbasge0i5.tugboat.qa
+              https://main-mj9lot9hdvlbf1ztqw2zsmdhbasge0i5.tugboatqa.com
 
             5e3b45fa9366b18b8612206c  suspended    1.58GB    companyabc-mongo
-              https://main-siza3cf9u5pc5u9qnba3ukd0s63djski.tugboat.qa
+              https://main-siza3cf9u5pc5u9qnba3ukd0s63djski.tugboatqa.com
 
             5e3b45fa9366b1583412206e  suspended    1.81GB    companyabc-ui
-              https://preview.tugboat.qa/main-9a7qh5wgc5w2n738andbu9hlobe8xmdk
+              https://preview.tugboatqa.com/main-9a7qh5wgc5w2n738andbu9hlobe8xmdk
 
             5e3b45fa9366b1579f122070  suspended    501.52MB  companyabc-api
-              https://main-amduoolpi4kaldvbrvamdkobnvwcbn8m.tugboat.qa
+              https://main-amduoolpi4kaldvbrvamdkobnvwcbn8m.tugboatqa.com
 ```

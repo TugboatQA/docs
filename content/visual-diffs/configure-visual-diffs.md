@@ -11,8 +11,8 @@ In order to configure Tugboat's visual diffs, you must be using at least one
 [Base Preview](/building-a-preview/work-with-base-previews/). For more info, see:
 [How Visual Diffs work](../using-visual-diffs/).
 
-{{% notice tier %}} This feature is available for [Tugboat Plus and Premium plans](https://www.tugboat.qa/pricing). If
-you'd like to run visual diffs on your Tugboat Previews, but you're on a different tier, you'll need to upgrade your
+{{% notice tier %}} This feature is available for [Tugboat Plus and Premium plans](https://www.tugboatqa.com/pricing).
+If you'd like to run visual diffs on your Tugboat Previews, but you're on a different tier, you'll need to upgrade your
 project.{{% /notice %}}
 
 ### How to configure visual diffs

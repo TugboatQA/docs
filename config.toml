@@ -1,4 +1,4 @@
-#baseURL = "https://docs.tugboat.qa/"
+#baseURL = "https://docs.tugboatqa.com/"
 languageCode = "en-us"
 title = "Tugboat Documentation"
 #googleAnalytics = "UA-69911960-4"
@@ -26,7 +26,7 @@ home = [ "HTML", "RSS", "JSON"]
 
 [params.twitterCard]
     card = "summary"
-    image = "https://docs.tugboat.qa/_images/twitter-card-summary-image.png"
+    image = "https://docs.tugboatqa.com/_images/twitter-card-summary-image.png"
     imageAlt = "TugboatQA Documentation Site"
     site = "@TugboatQA"
     creator = "@TugboatQA"

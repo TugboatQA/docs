@@ -10,7 +10,7 @@ Token.
 To set an Access Token:
 
 1. In Tugboat's web interface, go to User Name -> Access Tokens, or
-   [click this link](https://dashboard.tugboat.qa/access-tokens).
+   [click this link](https://dashboard.tugboatqa.com/access-tokens).
 2. Click the {{% ui-text %}}Generate New Token option{{% /ui-text %}}.
 3. You'll be asked to give the Access Token a description; for example, "Command Line Tool"; enter a description and
    press the {{% ui-text %}}Generate{{% /ui-text %}} button.
@@ -23,7 +23,7 @@ Now you're all set to use the Tugboat Command Line Interface!
 {{%expand "Visual Walkthrough" %}}
 
 In Tugboat's web interface, go to User Name -> Access Tokens, or
-[click this link](https://dashboard.tugboat.qa/access-tokens).
+[click this link](https://dashboard.tugboatqa.com/access-tokens).
 
 ![Go to Access Tokens page](../../_images/go-to-user-access-tokens.png)
 

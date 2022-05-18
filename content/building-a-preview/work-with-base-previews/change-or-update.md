@@ -26,7 +26,7 @@ that were built from your Base Preview. {{% /notice %}}
 
 ### To Rebuild a Base Preview:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to change the Base Preview.
 3. Click the name of the repo that contains Base Preview you want to change.
 4. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for the Base Preview, and select
@@ -38,7 +38,7 @@ that were built from your Base Preview. {{% /notice %}}
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -96,7 +96,7 @@ were built from your Base Preview. {{% /notice %}}
 
 To manually kick off a Base Preview update:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to update the Base Preview.
 3. Click the name of the repo that contains Base Preview you want to update.
 4. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for the Base Preview, and select
@@ -107,7 +107,7 @@ To manually kick off a Base Preview update:
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -144,7 +144,7 @@ Tugboat does an automated Refresh of your Base Previews.
 
 #### To change Tugboat's settings to automatically Refresh Base Previews:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to configure auto-update settings for Base Previews.
 3. Click into {{% ui-text %}}Settings{{% /ui-text %}} for the repository.
 4. Go to {{% ui-text %}}Refresh Base Previews Automatically{{% /ui-text %}} . Toggle the checkbox and/or adjust the
@@ -153,7 +153,7 @@ Tugboat does an automated Refresh of your Base Previews.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -181,7 +181,7 @@ Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save your 
 If you want to change the [Base Preview Type](../../preview-deep-dive/how-previews-work/#base-preview-auto-select) - for
 example, make a Repository Base Preview a Branch Base Preview instead:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to change the Base Preview Type.
 3. Click the name of the repo that contains the Base Preview whose type you want to change.
 4. Find the Base Preview whose type you want to change, and go into {{% ui-text %}}Settings{{% /ui-text %}} for that
@@ -194,7 +194,7 @@ to view only Base Previews of that type.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
