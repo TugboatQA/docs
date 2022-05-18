@@ -11,7 +11,7 @@ links to Previews as comments on pull requests.
 
 ### To configure Tugboat to automatically post Preview links:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want Tugboat to auto-post Preview links.
 3. Click into {{% ui-text %}}Settings{{% /ui-text %}} for the repository.
 4. Click the checkbox for {{% ui-text %}}Post Preview Links in Pull Request Comments{{% /ui-text %}} .
@@ -25,7 +25,7 @@ receive those notifications. {{% /notice %}}
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 

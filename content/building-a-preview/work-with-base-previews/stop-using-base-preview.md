@@ -11,7 +11,7 @@ Preview. If you want to delete a Base Preview, instead, see: [Delete a Base Prev
 
 ## To stop using a Base Preview:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to stop using a Base Preview.
 3. Click into the repo where you want to stop using a Base Preview.
 4. Find the Preview you'd like to stop using as a Base Preview, and go into {{% ui-text %}}Settings{{% /ui-text %}} for
@@ -25,7 +25,7 @@ including automated builds from git provider integrations - will no longer start
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 

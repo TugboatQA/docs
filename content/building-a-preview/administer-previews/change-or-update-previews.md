@@ -41,7 +41,7 @@ For more info about build phases, see:
 
 ### To Refresh a Preview:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to update a Preview.
 3. Click the name of the repo that contains the code you want to use for the Preview update.
 4. Select the Preview build you want to update.
@@ -54,7 +54,7 @@ the update is complete.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -103,7 +103,7 @@ For more info about build phases, see:
 
 ### To Rebuild a Preview:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to rebuild a Preview.
 3. Click the name of the repo that contains the code you want to use for the Preview rebuild.
 4. Select the Preview you want to rebuild.
@@ -123,7 +123,7 @@ info, see: [updating Previews when working with a Base Preview](../../work-with-
 
 To Rebuild a Preview:
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 

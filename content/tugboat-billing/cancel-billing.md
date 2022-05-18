@@ -5,8 +5,8 @@ weight: 4
 ---
 
 {{% notice tier %}} The following instructions do not apply to subscriptions to
-[Tugboat Premium](https://www.tugboat.qa/pricing). For those subscriptions, please contact your Tugboat account
-executive or [Tugboat Support](https://www.tugboat.qa/support). {{% /notice %}}
+[Tugboat Premium](https://www.tugboatqa.com/pricing). For those subscriptions, please contact your Tugboat account
+executive or [Tugboat Support](https://www.tugboatqa.com/support). {{% /notice %}}
 
 There are a few ways you can cancel billing for your Tugboat project:
 
@@ -30,7 +30,8 @@ storage limit. {{% /notice %}}
 If you don't need your Tugboat Previews anymore, or are finished using Tugboat for a particular project, you can always
 delete your project:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat dashboard.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat
+   dashboard.
 2. Select the project you want to delete.
 3. Go to {{% ui-text %}}Project Settings{{% /ui-text %}}.
 4. Scroll down past {{% ui-text %}}Your Plan{{% /ui-text %}}.
@@ -43,7 +44,7 @@ two projects. {{% /notice %}}
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat dashboard.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat dashboard.
 
 ![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 

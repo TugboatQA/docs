@@ -6,14 +6,14 @@ weight: 1
 
 ## To add a user to a project
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to add the user.
 3. Click the {{% ui-text %}}Project Settings{{% /ui-text %}} link to the right of the project's title.
 4. In the {{% ui-text %}}Invite a User to This Project{{% /ui-text %}} section, add the recipient's email address, and
    select the appropriate [user type](../user-admin/) from the drop-down.
 5. Press the big blue {{% ui-text %}}Invite{{% /ui-text %}} button!
 
-The user you've invited will get an email from `support@tugboat.qa` with a link to accept the invitation.
+The user you've invited will get an email from `support@tugboatqa.com` with a link to accept the invitation.
 
 {{% notice info %}} User permissions in Tugboat are handled on a per-project basis. When users have access to a project,
 they have access to all the repositories within that project. When inviting users to your project, consider whether any
@@ -22,7 +22,7 @@ subset of users get access. {{% /notice %}}
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 

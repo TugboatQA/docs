@@ -19,7 +19,7 @@ Alternately, if you're using a generic git server, select Git as the provider, a
 
 ### To add repos to a project you've already created:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to add the repo.
 3. Go to {{% ui-text %}}Add a Repository{{% /ui-text %}} .
 
@@ -32,7 +32,7 @@ be unable to build new Previews within a project, if the total storage used in y
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![My Projects](../../_images/go-to-user-my-projects.png)
 

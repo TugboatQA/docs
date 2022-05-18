@@ -22,7 +22,7 @@ On the flip side, Starting a Preview resumes all Services. You can Start a Previ
 
 ### To Start or Stop a Preview:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to Stop or Start a Preview.
 3. Click into the repo where you want to Stop/Start a Preview.
 4. Select the Preview you want to Stop or Start.
@@ -35,7 +35,7 @@ go to a green _ready_ status.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -73,7 +73,7 @@ When you're ready to make updates to the Preview again, whether manually or auto
 
 ### To Lock or Unlock a Preview:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to Lock or Unlock a Preview.
 3. Click into the repo where you want to Lock/Unlock a Preview.
 4. Select the Preview you want to Lock or Unlock.
@@ -86,7 +86,7 @@ indicator.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -122,7 +122,7 @@ Preview to go back to that post-build snapshot.
 
 ### To Reset a Preview:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to Reset a Preview.
 3. Click into the repo where you want to Reset a Preview.
 4. Select the Preview you want to Reset.
@@ -135,7 +135,7 @@ Preview will become _ready_ again.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 

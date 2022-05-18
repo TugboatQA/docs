@@ -49,7 +49,7 @@ blocks bots and crawlers by sending the `X-Robots-Tag: noindex, nofollow` HTTP h
 
 ### Private Previews
 
-On our [Premium tiers](https://www.tugboat.qa/product/premium), you can take this one step further by configuring
+On our [Premium tiers](https://www.tugboatqa.com/product/premium), you can take this one step further by configuring
 [IP filtering](#setting-up-tugboat/select-repo-settings/#configure-private-previews-ip-filtering). That allows you to
 specify the IP ranges or addresses that are allowed to access your Tugboat previews. You might have a company VPN that
 you would like to require a connection to prior to accessing your Tugboat Previews.

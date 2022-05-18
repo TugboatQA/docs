@@ -37,7 +37,7 @@ services:
           if [ ! -z "${TUGBOAT_GITHUB_PR}" ]; then
            WEBHOOK=$SLACK_WEBHOOK_URL
             PR_URL="https://github.com/$TUGBOAT_REPO/pull/$TUGBOAT_GITHUB_PR"
-            DASHBOARD_URL="https://dashboard.tugboat.qa/$TUGBOAT_PREVIEW_ID"
+            DASHBOARD_URL="https://dashboard.tugboatqa.com/$TUGBOAT_PREVIEW_ID"
             MESSAGE="*Tugboat URL:* $TUGBOAT_SERVICE_URL\n*PR:* $PR_URL\n*Dashboard:* $DASHBOARD_URL"
             curl -X POST --data-urlencode "payload={\"username\": \"Tugboat\", \"text\": \"$MESSAGE\", \":boat:\": \":tugboat_qa:\"}" "$WEBHOOK"
 ```

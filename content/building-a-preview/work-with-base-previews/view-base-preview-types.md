@@ -8,7 +8,7 @@ Do you want to view all Base Previews of a specific type?
 
 ## To view all Base Previews of a specific type:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to view Base Previews of a given type.
 3. Click into the repo where you want to view Base Previews of a specific type.
 4. By default, you'll see {{% ui-text %}}All{{% /ui-text %}} Base Previews. Select
@@ -20,7 +20,7 @@ For details about Base Preview Types, see:
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 

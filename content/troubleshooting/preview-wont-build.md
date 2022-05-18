@@ -123,7 +123,7 @@ with an error. If that is the case, it's time to start [debugging the configurat
 
 If you're having problems figuring out why the Preview build `failed`, we're happy to look into the problem with you to
 see whether we can help. We've gotten good at spotting common config file issues, and we're happy to help.
-[Let us know](https://tugboat.qa/support).
+[Let us know](https://www.tugboatqa.com/support).
 
 ## Previews are not building automatically
 

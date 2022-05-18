@@ -14,6 +14,6 @@ Installing and using Tugboat's CLI.
 
 {{% children %}}
 
-The Tugboat [Command Line Tool](https://dashboard.tugboat.qa/downloads) provides access to your Tugboat account from
+The Tugboat [Command Line Tool](https://dashboard.tugboatqa.com/downloads) provides access to your Tugboat account from
 your local command line. It allows you to perform all of the operations available through the web interface, as well as
 other, more advanced features of Tugboat.

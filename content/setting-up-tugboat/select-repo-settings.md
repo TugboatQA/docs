@@ -149,8 +149,8 @@ cannot pull the image and will instead throw an error.
 
 ### Configure Private Previews (IP Filtering)
 
-{{% notice tier %}} Private Previews are only available to [Tugboat Premium](https://www.tugboat.qa/premium) or
-On-Premise subscribers. If you'd like to use Preview IP Filtering, [contact us](https://www.tugboat.qa/contact) to
+{{% notice tier %}} Private Previews are only available to [Tugboat Premium](https://www.tugboatqa.com/premium) or
+On-Premise subscribers. If you'd like to use Preview IP Filtering, [contact us](https://www.tugboatqa.com/contact) to
 upgrade your project to a Premium subscription.{{% /notice %}}
 
 Want to restrict access to a Preview URL to only allow a specified set of IP addresses or subnets to view a Tugboat
@@ -211,7 +211,7 @@ the git provider repo connected to it, nor does it delete the Tugboat project th
 
 Any time you need to make a change to Repository Settings:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to edit repository settings.
 3. Scroll to the linked repository whose settings you want to change, and click the
    {{% ui-text %}}Settings{{% /ui-text %}} link.
@@ -221,7 +221,7 @@ press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button!
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![My Projects](../../_images/go-to-user-my-projects.png)
 

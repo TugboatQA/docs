@@ -46,13 +46,14 @@ git repo. If you want to reduce your Preview size, take a look at our tips in:
 
 You can view how much storage you've used by going to your Project Dashboard, and looking at the Project Stats section:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat dashboard.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat
+   dashboard.
 2. Select the project where you want to view disk space used.
 3. Scroll down to {{% ui-text %}}Project Stats{{% /ui-text %}}.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat dashboard.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat dashboard.
 
 ![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 
@@ -70,7 +71,8 @@ Scroll down to {{% ui-text %}}Project Stats{{% /ui-text %}}.
 
 If you're a current Tugboat user, here's how to view the pricing for your project:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat dashboard.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat
+   dashboard.
 2. Select the project where you want to view and administer billing.
 3. Go to {{% ui-text %}}Project Settings{{% /ui-text %}}.
 4. Scroll down to {{% ui-text %}}Your Plan{{% /ui-text %}}.
@@ -79,14 +81,15 @@ From here, you'll see the pricing tiers available for your plan. You can
 [change performance tiers](../change-tugboat-plan/), or [Delete the Project](../cancel-billing/#delete-your-project) if
 you're finished using Tugboat for that project.
 
-If you don't have a Tugboat project, you can view current Tugboat pricing here: [Pricing](https://tugboat.qa/pricing/).
+If you don't have a Tugboat project, you can view current Tugboat pricing here:
+[Pricing](https://www.tugboatqa.com/pricing/).
 
 {{% notice note %}} If you're looking for Tugboat Premium and Premium On-Premise, see:
 [Tugboat Premium](#tugboat-premium). {{% /notice %}}
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat dashboard.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat dashboard.
 
 ![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 
@@ -106,8 +109,8 @@ Scroll down to {{% ui-text %}}Your Plan{{% /ui-text %}}.
 
 ## Tugboat Premium
 
-If you need dedicated hardware or to host on-premise, we've got [Tugboat Premium](https://www.tugboat.qa/premium) for
+If you need dedicated hardware or to host on-premise, we've got [Tugboat Premium](https://www.tugboatqa.com/premium) for
 you! Tugboat's Premium version comes with significantly more Preview storage and RAM, and can be hosted in Tugboat's
 Cloud or behind your firewall.
 
-To learn more and change your Tugboat Premium plan, [contact us](https://www.tugboat.qa/contact).
+To learn more and change your Tugboat Premium plan, [contact us](https://www.tugboatqa.com/contact).

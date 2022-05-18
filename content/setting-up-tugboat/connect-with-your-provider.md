@@ -20,7 +20,7 @@ weight: 1
 
 ### How do I link Tugboat to GitHub?
 
-1. Go to [Sign In](https://dashboard.tugboat.qa/) and select GitHub.
+1. Go to [Sign In](https://dashboard.tugboatqa.com/) and select GitHub.
 2. Enter your GitHub Username and Password (or Create an Account), complete Two-Factor Authentication.
 3. Authorize Tugboat.
 
@@ -29,7 +29,7 @@ screen.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to [Sign In](https://dashboard.tugboat.qa/) and select GitHub.
+Go to [Sign In](https://dashboard.tugboatqa.com/) and select GitHub.
 
 ![Select GitHub sign in](../../_images/github-sign-in.png)
 
@@ -83,7 +83,7 @@ see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#
 
 ### How do I link Tugboat to GitLab?
 
-1. Go to [Sign In](https://dashboard.tugboat.qa/) and select GitLab.
+1. Go to [Sign In](https://dashboard.tugboatqa.com/) and select GitLab.
 2. Enter your GitLab Username and Password (or Register).
 3. Authorize Tugboat.
 
@@ -92,7 +92,7 @@ screen.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to [Sign In](https://dashboard.tugboat.qa/) and select GitLab.
+Go to [Sign In](https://dashboard.tugboatqa.com/) and select GitLab.
 
 ![Select GitLab sign in](../../_images/gitlab-sign-in.png)
 
@@ -144,7 +144,7 @@ see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#
 
 ### How do I link Tugboat to Bitbucket?
 
-1. Go to [Sign In](https://dashboard.tugboat.qa/) and select Bitbucket.
+1. Go to [Sign In](https://dashboard.tugboatqa.com/) and select Bitbucket.
 2. Enter your Bitbucket Email and Password (or Sign up for an account).
 3. Grant Access to Tugboat.
 
@@ -153,7 +153,7 @@ Once you complete Bitbucket authorization, you'll be redirected to the
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to [Sign In](https://dashboard.tugboat.qa/) and select Bitbucket.
+Go to [Sign In](https://dashboard.tugboatqa.com/) and select Bitbucket.
 
 ![Select Bitbucket sign in](../../_images/bitbucket-sign-in.png)
 
@@ -201,7 +201,7 @@ this, see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-a
 ## Generic Git Server
 
 If you're not using GitHub, GitLab, or Bitbucket, you can use a generic git server with Tugboat. You'll
-[sign in to Tugboat](https://dashboard.tugboat.qa/) using an email address, and when you go to add a repo to your
+[sign in to Tugboat](https://dashboard.tugboatqa.com/) using an email address, and when you go to add a repo to your
 Tugboat project, you can link to a Git URL.
 
 {{% notice warning %}} If your repo isn't connected via Tugboat's GitHub, GitLab, or Bitbucket authentication, you won't
@@ -282,12 +282,12 @@ By default, Tugboat uses OAuth to authenticate to git hosting providers. However
 administrators can't or won't approve Tugboat as an organization-level OAuth application. As a workaround, you can use a
 git provider's API access token to add a GitHub, GitLab, or Bitbucket repo to Tugboat.
 
-You'll need to use the [Tugboat API](https://api.tugboat.qa/) to pass an alternate authentication method.
+You'll need to use the [Tugboat API](https://api.tugboatqa.com/) to pass an alternate authentication method.
 
 This example shows how to implement this workaround for a GitHub repository, but you can do the same thing using a
 slightly different syntax for GitLab or Bitbucket repositories. If you need help with the syntax for GitLab or
 Bitbucket, take a look at
-[the API documentation for the `Create a Repository` endpoint](https://api.tugboat.qa/v3#tag/Repositories/paths/~1repos/post).
+[the API documentation for the `Create a Repository` endpoint](https://api.tugboatqa.com/v3#tag/Repositories/paths/~1repos/post).
 If you have other questions about this workaround, feel free to reach out to us for [support](/support).
 
 ### Prerequisites
@@ -368,12 +368,12 @@ export PAYLOAD=`printf '{ \
 
 #### Make cURL request to the Tugboat API
 
-Once that is complete, you are ready to make the cURL request to the [Tugboat API](https://api.tugboat.qa/) to connect
-the GitHub Repo to Tugboat. Copy and paste this directly into your shell:
+Once that is complete, you are ready to make the cURL request to the [Tugboat API](https://api.tugboatqa.com/) to
+connect the GitHub Repo to Tugboat. Copy and paste this directly into your shell:
 
 ```
 curl -H "Authorization: Bearer $TUGBOAT_TOKEN" \
      -H "Content-Type: application/json" \
      -X POST -d "$PAYLOAD" \
-     https://api.tugboat.qa/v3/repos
+     https://api.tugboatqa.com/v3/repos
 ```

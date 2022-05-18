@@ -10,8 +10,8 @@ repository. It can automatically create these previews for pull requests by inte
 Bitbucket git repositories.
 
 <!-- prettier-ignore-start -->
-{{% button icon="fas fa-external-link-alt" class="btn-learn-more" href="https://www.tugboat.qa" %}}Learn more{{% /button %}}&nbsp;
-{{% button icon="fas fa-external-link-alt" class="btn-sign-up" href="https://dashboard.tugboat.qa" %}}Sign in{{% /button %}}
+{{% button icon="fas fa-external-link-alt" class="btn-learn-more" href="https://www.tugboatqa.com" %}}Learn more{{% /button %}}&nbsp;
+{{% button icon="fas fa-external-link-alt" class="btn-sign-up" href="https://dashboard.tugboatqa.com" %}}Sign in{{% /button %}}
 <!-- prettier-ignore-end -->
 
 This website aims to provide the information required to use Tugboat. It includes tutorials, examples, and references
@@ -19,14 +19,14 @@ for all experience levels.
 
 ## API Documentation
 
-If you're looking for our API documentation, check out [Tugboat's API Documentation Portal](https://api.tugboat.qa).
+If you're looking for our API documentation, check out [Tugboat's API Documentation Portal](https://api.tugboatqa.com).
 
 ## Contributing
 
 This document is open-source, and is available on [GitHub](https://github.com/TugboatQA/docs). If you have any
 suggestions or other feedback about this document, we are happy to hear it!
 [Open a GitHub issue](https://github.com/TugboatQA/docs/issues/new) or email us at
-[support@tugboat.qa](mailto:support@tugboat.qa).
+[support@tugboatqa.com](mailto:support@tugboatqa.com).
 
 ## License Information
 

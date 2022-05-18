@@ -163,7 +163,7 @@ Want to know more about something mentioned in the comments of this config file?
 - [Set up remote SSH access](/setting-up-tugboat/select-repo-settings/#set-up-remote-ssh-access)
 - [Preview build process phases (`init`, `update`, `build`)](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained)
 - [How Base Previews work](/building-a-preview/preview-deep-dive/how-previews-work/#how-base-previews-work)
-- [Multisite with Tugboat](https://www.tugboat.qa/blog/multisite-with-tugboat)
+- [Multisite with Tugboat](https://www.tugboatqa.com/blog/multisite-with-tugboat)
 
 ## Start Building Previews!
 

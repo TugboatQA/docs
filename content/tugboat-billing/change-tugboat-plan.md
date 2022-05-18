@@ -5,12 +5,13 @@ weight: 2
 ---
 
 {{% notice tier %}} The following instructions do not apply to subscriptions to
-[Tugboat Premium](https://www.tugboat.qa/pricing). For those subscriptions, please contact your Tugboat account
-executive or [Tugboat Support](https://www.tugboat.qa/support). {{% /notice %}}
+[Tugboat Premium](https://www.tugboatqa.com/pricing). For those subscriptions, please contact your Tugboat account
+executive or [Tugboat Support](https://www.tugboatqa.com/support). {{% /notice %}}
 
 ## To change your Tugboat plan:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat dashboard.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat
+   dashboard.
 2. Select the project where you want to change the plan.
 3. Go to {{% ui-text %}}Project Settings{{% /ui-text %}}.
 4. Scroll down to {{% ui-text %}}Your Plan{{% /ui-text %}}.
@@ -22,12 +23,12 @@ you'll be all set to enjoy your new plan.
 
 You'll get an email confirming your changes, with a link to an online invoice you can download or print as needed.
 
-{{% notice note %}} If you're using Tugboat's Premium plans, [reach out to us directly](https://www.tugboat.qa/contact)
-to change your plan. {{% /notice %}}
+{{% notice note %}} If you're using Tugboat's Premium plans,
+[reach out to us directly](https://www.tugboatqa.com/contact) to change your plan. {{% /notice %}}
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat dashboard.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat dashboard.
 
 ![Go to username -> My Projects](../../_images/go-to-user-my-projects.png)
 

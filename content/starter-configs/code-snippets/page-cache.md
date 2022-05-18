@@ -13,8 +13,8 @@ services:
     commands:
       build:
         # Warm the cache
-        - 'wget -e robots=off --quiet --page-requisites --delete-after --header "Host: tugboat.qa" http://localhost ||
-          /bin/true'
+        - 'wget -e robots=off --quiet --page-requisites --delete-after --header "Host: tugboatqa.com" http://localhost
+          || /bin/true'
 ```
 
 Calling `localhost` will cause Tugboat to load the front page of your application. `page-requisites` loads all images,

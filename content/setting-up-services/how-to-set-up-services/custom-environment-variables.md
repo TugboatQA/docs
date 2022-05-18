@@ -67,8 +67,8 @@ Runtime-scoped environment variable example:
 tugboat update [repository_id] runvars=foo=bar,key=value
 ```
 
-If you're using [the API](https://api.tugboat.qa/), you can pass an environment variable array, including scope, via the
-Create a Repository POST or the Update a Repository PATCH endpoints.
+If you're using [the API](https://api.tugboatqa.com/), you can pass an environment variable array, including scope, via
+the Create a Repository POST or the Update a Repository PATCH endpoints.
 
 ## Storing Complex Data
 

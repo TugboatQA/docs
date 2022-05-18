@@ -12,7 +12,7 @@ the same:
 To create a Base Preview, you'll first need to have a [Preview build](../../administer-previews/build-previews/) to
 serve as your starting point.
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to set a Base Preview.
 3. Click the name of the repo that contains Preview you want to use as a Base Preview.
 4. Find the Preview you'd like to set as a Base Preview, and go into {{% ui-text %}}Settings{{% /ui-text %}} for that
@@ -28,7 +28,7 @@ will build from the snapshot created when that Base Preview was built.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 

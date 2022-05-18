@@ -17,7 +17,7 @@ other person is doing.
 
 To build a Preview:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to build a Preview.
 3. Click the name of the repo that contains the code you want to use to build the Preview.
 4. Scroll down to the {{% ui-text %}}Available to Build{{% /ui-text %}} section; by default, you'll see _Pull Requests_,
@@ -39,7 +39,7 @@ Preview. For more info on these options, see:
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
@@ -97,7 +97,7 @@ interfering with what the other folks are doing.
 
 To create a copy of a Preview:
 
-1. Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 2. Select the project where you want to duplicate a Preview.
 3. Click the name of the repo that contains the code you want to use for the duplicate Preview.
 4. Select the Preview build you want to duplicate.
@@ -108,7 +108,7 @@ You'll now see a new Preview with the same name as the Preview you cloned.
 
 {{%expand "Visual Walkthrough" %}}
 
-Go to username -> [My Projects](https://dashboard.tugboat.qa/projects) at the upper-right of the Tugboat screen.
+Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
 
 ![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
 
