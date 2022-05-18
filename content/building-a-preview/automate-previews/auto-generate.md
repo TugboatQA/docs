@@ -9,7 +9,7 @@ We love automatically generating Previews from new pull requests - we think it's
 is opened in your linked git repository.
 
 If you're [using a Base Preview](/building-a-preview/work-with-base-previews/), the automated Preview build starts from
-that Base Preview. When building previews from pull requests, Tugboat will locally merge the pull request into it's
+that Base Preview. When building previews from pull requests, Tugboat will locally merge the pull request into its
 destination branch, and build from the merged result.
 
 {{% notice warning %}} When you enable this functionality, Tugboat does not automatically build pull requests from
