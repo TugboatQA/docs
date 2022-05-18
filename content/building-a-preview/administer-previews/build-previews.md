@@ -83,17 +83,17 @@ out multiple Previews. Check out our section on
 
 ### Pull Request Merging Behavior
 
-When building a preview from a pull request, Tugboat will first merge the branch locally before building the preview. This
-allows you to test your project in the state it will be in after the pull request is merged. In particular, this is useful
-for identifying bugs and regressions that only happen when code in your main or other branch exposes bugs only in combination
-with the changes in the pull request.
+When building a preview from a pull request, Tugboat will first merge the branch locally before building the preview.
+This allows you to test your project in the state it will be in after the pull request is merged. In particular, this is
+useful for identifying bugs and regressions that only happen when code in your main or other branch exposes bugs only in
+combination with the changes in the pull request.
 
 Sometimes, it can be useful to test a pull request without first merging code, such as when the only conflicts are in
 generated files like package manager lock files. To trigger a build without a merge:
 
 1. Delete any existing pull request previews.
-2. In Tugboat, build a preview from the _branch_ or _tag_ instead of from a _pull request_. Since there's no implicit merge
-   destination, Tugboat will build without a merge.
+2. In Tugboat, build a preview from the _branch_ or _tag_ instead of from a _pull request_. Since there's no implicit
+   merge destination, Tugboat will build without a merge.
 
 ## Auto-generate a Preview
 

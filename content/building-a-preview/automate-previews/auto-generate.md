@@ -62,6 +62,7 @@ Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save your 
 
 ## To Build a Preview with Conflicts
 
-Sometimes you may want to build a preview in a pull request, even if it has conflicts with the destination branch.
-To build the preview without first merging, delete the automatically created preview and then
-[Build a Preview](/building-a-preview/administer-previews/build-previews/) from the _branch_ instead of the  _pull request_.
+Sometimes you may want to build a preview in a pull request, even if it has conflicts with the destination branch. To
+build the preview without first merging, delete the automatically created preview and then
+[Build a Preview](/building-a-preview/administer-previews/build-previews/) from the _branch_ instead of the _pull
+request_.
