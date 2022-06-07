@@ -31,7 +31,7 @@ of memcached you use, and you can be sure you always have the most recent versio
 | [MariaDB](#mysqlmariadbpercona)   | `image: tugboatqa/mariadb:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/mariadb/TAGS.md)       |
 | Memcached                         | `image: tugboatqa/memcached:[TAG]`     | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/memcached/TAGS.md)     |
 | MongoDB                           | `image: tugboatqa/mongo:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/mongo/TAGS.md)         |
-| [MySQL](#mysqlmariadbpercona)     | `image: tugboatqa/mysql:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/mysql/TAGS.md)         |
+| [MySQL](#mysql-mariadb-percona)     | `image: tugboatqa/mysql:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/mysql/TAGS.md)         |
 | Nginx                             | `image: tugboatqa/nginx:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/nginx/TAGS.md)         |
 | Node                              | `image: tugboatqa/node:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/node/TAGS.md)          |
 | [Percona](#mysqlmariadbpercona)   | `image: tugboatqa/percona:[TAG]`       | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/percona/TAGS.md)       |
