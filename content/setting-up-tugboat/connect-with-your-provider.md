@@ -65,8 +65,7 @@ Settings:
   the pull request when a Preview is built.
 - {{% ui-text %}}Post Preview links in Pull Request comments{{% /ui-text %}} Off by default; Tugboat adds a comment to a
   pull request with links to its Preview. The comment author is the person who authenticated the git repo to Tugboat; to
-  change this, see:
-  [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tugboat-bot-to-team).
+  change this, see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tugboat-bot-to-team).
 - {{% ui-text %}}Build Previews for forked Pull Requests{{% /ui-text %}} Off by default; Tugboat builds Previews for
   pull requests made to the primary repo from forked repositories. **There are security implications from using this
   setting:** any secrets in your Preview will be accessible by the owner of the forked repository. When this feature is
@@ -126,8 +125,7 @@ Settings:
   status to reflect the state of its Preview.
 - {{% ui-text %}}Post Preview links in Merge Request comments{{% /ui-text %}} Off by default; Tugboat adds a comment to
   a merge request with links to its Preview. The comment author is the person who authenticated the git repo to Tugboat;
-  to change this, see:
-  [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tugboat-bot-to-team).
+  to change this, see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tugboat-bot-to-team).
 - {{% ui-text %}}Build Previews for forked Merge Requests{{% /ui-text %}} Off by default; Tugboat builds Previews for
   merge requests made to the primary repo from forked repositories. **There are security implications from using this
   setting:** any secrets in your Preview will be accessible by the owner of the forked repository. When this feature is
@@ -187,8 +185,7 @@ Settings:
   reflect the state of its Preview.
 - {{% ui-text %}}Post Preview links in Pull Request comments{{% /ui-text %}} Off by default; Tugboat adds a comment to a
   pull request with links to its Preview. The comment author is the person who authenticated the git repo to Tugboat; to
-  change this, see:
-  [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tugboat-bot-to-team).
+  change this, see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tugboat-bot-to-team).
 - {{% ui-text %}}Build Previews for forked Pull Requests{{% /ui-text %}} Off by default; Tugboat builds Previews for
   pull requests made to the primary repo from forked repositories. **There are security implications from using this
   setting:** any secrets in your Preview will be accessible by the owner of the forked repository. When this feature is

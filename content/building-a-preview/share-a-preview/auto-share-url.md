@@ -20,8 +20,8 @@ links to Previews as comments on pull requests.
 {{% notice note %}} By default, Tugboat's comments to a linked git provider display as the person who linked the
 provider to Tugboat. That means the person who linked the repo will get notifications for every PR where Tugboat
 automatically posts a comment. If this person does not wish to receive notifications, you can
-[configure a Tugboat bot](/administer-tugboat-crew/add-tugboat-bot-to-team) to post the comments and
-receive those notifications. {{% /notice %}}
+[configure a Tugboat bot](/administer-tugboat-crew/add-tugboat-bot-to-team) to post the comments and receive those
+notifications. {{% /notice %}}
 
 {{%expand "Visual Walkthrough" %}}
 
