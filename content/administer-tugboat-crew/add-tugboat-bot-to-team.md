@@ -14,7 +14,7 @@ barrage of notifications - you can add a Tugboat bot to your team.
 
 ## To add a Tugboat bot to your team
 
-1. Create an account for your Tugboat bot at your preferred git provider; i.e. GitHub, GitLab, BitBucket. and invite
+1. Create an account for your Tugboat bot at your preferred git provider (i.e. GitHub, GitLab, BitBucket) and invite
    that user to the repository as an administrator.
 2. Optional: [Download the tugboat avatar](https://dashboard.tugboatqa.com/tugboat-avatar.png) to use for your Tugboat
    bot account.
