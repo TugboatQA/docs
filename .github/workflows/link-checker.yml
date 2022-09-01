@@ -9,20 +9,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Hugo
+      - name: install hugo
         # Equivalent to peaceiris/actions-hugo@v2.5.0
         uses: peaceiris/actions-hugo@c03b5dbed22245418539b65eb9a3b1d5fdd9a0a6
         with:
           hugo-version: '0.58.3'
+      - name: build hugo
+        run: hugo
       - name: yarn install
         # Equivalent to borales/actions-yarn@v3.0.0
         uses: borales/actions-yarn@d8ce577a6f5d99a459fc7fdf2a86844617e353e4
         with:
           cmd: install
-      - name: yarn build
-        uses: borales/actions-yarn@d8ce577a6f5d99a459fc7fdf2a86844617e353e4
-        with:
-          cmd: build
       - name: yarn test
         uses: borales/actions-yarn@d8ce577a6f5d99a459fc7fdf2a86844617e353e4
         with:
