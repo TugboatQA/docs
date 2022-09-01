@@ -5,7 +5,7 @@ lastmod: 2020-06-29T10:00:00-04:00
 weight: 4
 ---
 
-sldkfjsdlkfjsdlfkjsdlkfjsdlkfjsd After you've created a project, you might want to go in and tweak your Tugboat repo settings. When you go into
+After you've created a project, you might want to go in and tweak your Tugboat repo settings. When you go into
 Repository Settings, you can:
 
 - [Modify settings for your GitHub, GitLab, or Bitbucket integration](#modify-settings-for-your-github-gitlab-or-bitbucket-integration)
