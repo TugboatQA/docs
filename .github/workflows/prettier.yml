@@ -17,4 +17,4 @@ jobs:
     - uses: actionsx/prettier@13639c769e72c3e51d53ae383b681a684c883233
       with:
         # prettier CLI arguments.
-        args: '--list-different "**/*.md"'
+        args: '--check "**/*.md"'
