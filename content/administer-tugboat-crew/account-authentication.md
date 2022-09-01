@@ -37,7 +37,7 @@ Finally, to remove or disconnect an authentication method:
 
 ## Sign in using a git provider account
 
-For instructions on how to sign in to Tugboat using a git provider account, which for many people is the default way of
+For instructions on how to sign into Tugboat using a git provider account, which for many people is the default way of
 creating a Tugboat account, view our [Connect with your provider](/setting-up-tugboat/connect-with-your-provider/) page.
 Or for provider-specific instructions, jump right to:
 
@@ -46,7 +46,7 @@ Or for provider-specific instructions, jump right to:
 - [Bitbucket authentication](/setting-up-tugboat/connect-with-your-provider/#bitbucket)
 
 To connect with a [generic git server](/setting-up-tugboat/connect-with-your-provider/#generic-git-server), you'll first
-need to [sign in to Tugboat using an email address](#sign-in-using-an-email-address).
+need to [sign into Tugboat using an email address](#sign-in-using-an-email-address).
 
 ## Sign in using an email address
 
