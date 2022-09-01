@@ -20,7 +20,7 @@ project.{{% /notice %}}
 - [Simple visualdiff configuration](#simple-visualdiff-configuration)
 - [Group visualdiffs via service alias](#group-visualdiffs-via-service-alias)
 - [Use advanced visualdiff configuration options](#use-advanced-visualdiff-configuration-options)
-- [Specify screenshot and visualdiff settings explicitly](#specify-screenshot-and-visualdiff-settings-explictly)
+- [Specify screenshot and visualdiff settings explicitly](#specify-screenshot-and-visualdiff-settings-explicitly)
 - [Turn off visual diffs](#turn-off-visual-diffs)
 - [Set thresholds for pass/fail](#set-thresholds-for-pass-fail)
 
