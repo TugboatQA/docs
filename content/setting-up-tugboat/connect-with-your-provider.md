@@ -35,7 +35,7 @@ Go to [Sign In](https://dashboard.tugboatqa.com/) and select GitHub.
 
 Enter your GitHub Username and Password (or Create an Account), complete Two-Factor Authentication.
 
-![Sign in to GitHub](../../_images/github-sign-in-button.png)
+![Sign into GitHub](../../_images/github-sign-in-button.png)
 
 Authorize Tugboat.
 
@@ -97,7 +97,7 @@ Go to [Sign In](https://dashboard.tugboatqa.com/) and select GitLab.
 
 Enter your GitLab Username and Password (or Register).
 
-![Sign in to GitLab](../../_images/gitlab-sign-in-button.png)
+![Sign into GitLab](../../_images/gitlab-sign-in-button.png)
 
 Authorize Tugboat.
 
@@ -157,7 +157,7 @@ Go to [Sign In](https://dashboard.tugboatqa.com/) and select Bitbucket.
 
 Enter your Bitbucket Email and Password (or Sign up for an account).
 
-![Sign in to Bitbucket](../../_images/bitbucket-sign-in-button.png)
+![Sign into Bitbucket](../../_images/bitbucket-sign-in-button.png)
 
 Grant Access to Tugboat.
 
@@ -198,7 +198,7 @@ this, see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tu
 ## Generic Git Server
 
 If you're not using GitHub, GitLab, or Bitbucket, you can use a generic git server with Tugboat. You'll
-[sign in to Tugboat](https://dashboard.tugboatqa.com/) using an email address, and when you go to add a repo to your
+[sign into Tugboat](https://dashboard.tugboatqa.com/) using an email address, and when you go to add a repo to your
 Tugboat project, you can link to a Git URL.
 
 {{% notice warning %}} If your repo isn't connected via Tugboat's GitHub, GitLab, or Bitbucket authentication, you won't

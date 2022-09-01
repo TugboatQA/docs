@@ -27,7 +27,7 @@ has access to. {{% /notice %}}
 By creating a Pantheon account solely for Tugboat's use, that user's access can be restricted to the Pantheon project
 connected to Tugboat. This user's machine token can then be safely shared with Tugboat.
 
-1.  If you're logged in to your personal account on Pantheon, [log out](https://dashboard.pantheon.io/logout).
+1.  If you're logged into your personal account on Pantheon, [log out](https://dashboard.pantheon.io/logout).
 2.  [Register a new account](https://dashboard.pantheon.io/register) on Pantheon.
 3.  Specify a unique email address, ideally using an email alias.
 4.  Name your user something recognizable, like _Tugboat User_.

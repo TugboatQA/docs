@@ -216,9 +216,9 @@ Preview status is indicated in a couple of different ways:
   red to indicate that the Preview has successfully stopped [services](/setting-up-services/).
 - {{% ui-text %}}Suspended{{% /ui-text %}} - When Previews have been inactive for a period of time, you'll see a
   `suspended` status. Any incoming HTTP request to the preview will automatically start it again.
-- {{% ui-text %}}Failed:{{% /ui-text %}} When something goes wrong during the the last action that was taken on the
-  Preview, you'll see a `failed` status in red. Details should be available in the Preview's activity logs. Sometimes a
-  failed Preview can be recovered by resetting it. For more help with a `failed` preview, take a look at our
+- {{% ui-text %}}Failed:{{% /ui-text %}} When something goes wrong during the last action that was taken on the Preview,
+  you'll see a `failed` status in red. Details should be available in the Preview's activity logs. Sometimes a failed
+  Preview can be recovered by resetting it. For more help with a `failed` preview, take a look at our
   [troubleshooting](/troubleshooting/) docs, or go to our [Help and Support](/support/) page to join our Slack support
   channel or email us.
 - {{% ui-text %}}Unavailable{{% /ui-text %}} - When something goes wrong trying to load the Preview, you may see an
