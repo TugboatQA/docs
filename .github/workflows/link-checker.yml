@@ -1,0 +1,21 @@
+name: link checker
+
+on:
+  - push
+
+jobs:
+  link-checker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      # Equivalent to borales/actions-yarn@v3.0.0
+      - uses: borales/actions-yarn@d8ce577a6f5d99a459fc7fdf2a86844617e353e4
+        with:
+          cmd: install
+      - uses: borales/actions-yarn@d8ce577a6f5d99a459fc7fdf2a86844617e353e4
+        with:
+          cmd: build
+      - uses: borales/actions-yarn@d8ce577a6f5d99a459fc7fdf2a86844617e353e4
+        with:
+          cmd: test
