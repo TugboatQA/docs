@@ -35,7 +35,7 @@ Go to [Sign In](https://dashboard.tugboatqa.com/) and select GitHub.
 
 Enter your GitHub Username and Password (or Create an Account), complete Two-Factor Authentication.
 
-![Sign in to GitHub](../../_images/github-sign-in-button.png)
+![Sign into GitHub](../../_images/github-sign-in-button.png)
 
 Authorize Tugboat.
 
@@ -65,8 +65,7 @@ Settings:
   the pull request when a Preview is built.
 - {{% ui-text %}}Post Preview links in Pull Request comments{{% /ui-text %}} Off by default; Tugboat adds a comment to a
   pull request with links to its Preview. The comment author is the person who authenticated the git repo to Tugboat; to
-  change this, see:
-  [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
+  change this, see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tugboat-bot-to-team).
 - {{% ui-text %}}Build Previews for forked Pull Requests{{% /ui-text %}} Off by default; Tugboat builds Previews for
   pull requests made to the primary repo from forked repositories. **There are security implications from using this
   setting:** any secrets in your Preview will be accessible by the owner of the forked repository. When this feature is
@@ -74,7 +73,7 @@ Settings:
   {{% ui-text %}}Build Pull Requests Automatically{{% /ui-text %}} enabled) but the Preview build will fail.
 
 You can also specify the account from which comments are posted to GitHub in this section. For info on customizing this,
-see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
+see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tugboat-bot-to-team).
 
 ## GitLab
 
@@ -98,7 +97,7 @@ Go to [Sign In](https://dashboard.tugboatqa.com/) and select GitLab.
 
 Enter your GitLab Username and Password (or Register).
 
-![Sign in to GitLab](../../_images/gitlab-sign-in-button.png)
+![Sign into GitLab](../../_images/gitlab-sign-in-button.png)
 
 Authorize Tugboat.
 
@@ -126,8 +125,7 @@ Settings:
   status to reflect the state of its Preview.
 - {{% ui-text %}}Post Preview links in Merge Request comments{{% /ui-text %}} Off by default; Tugboat adds a comment to
   a merge request with links to its Preview. The comment author is the person who authenticated the git repo to Tugboat;
-  to change this, see:
-  [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
+  to change this, see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tugboat-bot-to-team).
 - {{% ui-text %}}Build Previews for forked Merge Requests{{% /ui-text %}} Off by default; Tugboat builds Previews for
   merge requests made to the primary repo from forked repositories. **There are security implications from using this
   setting:** any secrets in your Preview will be accessible by the owner of the forked repository. When this feature is
@@ -135,7 +133,7 @@ Settings:
   {{% ui-text %}}Build Merge Requests Automatically{{% /ui-text %}} enabled) but the Preview build will fail.
 
 You can also specify the account from which comments are posted to GitLab in this section. For info on customizing this,
-see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
+see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tugboat-bot-to-team).
 
 ## Bitbucket
 
@@ -159,7 +157,7 @@ Go to [Sign In](https://dashboard.tugboatqa.com/) and select Bitbucket.
 
 Enter your Bitbucket Email and Password (or Sign up for an account).
 
-![Sign in to Bitbucket](../../_images/bitbucket-sign-in-button.png)
+![Sign into Bitbucket](../../_images/bitbucket-sign-in-button.png)
 
 Grant Access to Tugboat.
 
@@ -187,8 +185,7 @@ Settings:
   reflect the state of its Preview.
 - {{% ui-text %}}Post Preview links in Pull Request comments{{% /ui-text %}} Off by default; Tugboat adds a comment to a
   pull request with links to its Preview. The comment author is the person who authenticated the git repo to Tugboat; to
-  change this, see:
-  [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
+  change this, see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tugboat-bot-to-team).
 - {{% ui-text %}}Build Previews for forked Pull Requests{{% /ui-text %}} Off by default; Tugboat builds Previews for
   pull requests made to the primary repo from forked repositories. **There are security implications from using this
   setting:** any secrets in your Preview will be accessible by the owner of the forked repository. When this feature is
@@ -196,12 +193,12 @@ Settings:
   {{% ui-text %}}Build Pull Requests Automatically{{% /ui-text %}} enabled) but the Preview build will fail.
 
 You can also specify the account from which comments are posted to Bitbucket in this section. For info on customizing
-this, see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/user-admin/#add-a-tugboat-bot-to-your-team).
+this, see: [Add a Tugboat Bot to your team](../../administer-tugboat-crew/add-tugboat-bot-to-team).
 
 ## Generic Git Server
 
 If you're not using GitHub, GitLab, or Bitbucket, you can use a generic git server with Tugboat. You'll
-[sign in to Tugboat](https://dashboard.tugboatqa.com/) using an email address, and when you go to add a repo to your
+[sign into Tugboat](https://dashboard.tugboatqa.com/) using an email address, and when you go to add a repo to your
 Tugboat project, you can link to a Git URL.
 
 {{% notice warning %}} If your repo isn't connected via Tugboat's GitHub, GitLab, or Bitbucket authentication, you won't

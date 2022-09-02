@@ -1,0 +1,20 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: prettier
+
+on:
+ - push
+
+jobs:
+  prettier:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    # Equivalent to actionsx/prettier@v2
+    - uses: actionsx/prettier@13639c769e72c3e51d53ae383b681a684c883233
+      with:
+        # prettier CLI arguments.
+        args: '--check "**/*.md"'

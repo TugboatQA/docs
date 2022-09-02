@@ -12,7 +12,7 @@ we called:
 services:
   apache:
     image: tugboatqa/httpd:2.4
-  msyql:
+  mysql:
     image: tugboatqa/mysql:5.6
 ```
 

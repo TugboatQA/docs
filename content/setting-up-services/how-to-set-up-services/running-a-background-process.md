@@ -22,7 +22,7 @@ You can use two techniques to run a background process:
 Our [prebuilt images](../../service-images/using-tugboat-images/) use [runit](http://smarden.org/runit/) to start and
 manage background processes.
 
-To add your own background process that starts when the Service starts, create a directory in
+To add your own background process that starts when the Service starts, create a directory
 `/etc/service/yourprocessname` and a script at `/etc/service/yourprocessname/run` to tell `runit` how to start your
 process.
 
