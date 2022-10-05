@@ -188,8 +188,22 @@ default application.
 One way to accomplish this is to add the following to a `settings.php` file that's loaded specifically for Tugboat:
 
 ```php
-$config['search_api.server.default']['backend_config']['connector_config']['host'] = 'solr';
+$config['search_api.server.SERVER_MACHINE_NAME'] = [
+  'backend_config' => [
+    'connector' => 'standard',
+    'connector_config' => [
+      'scheme' => 'http',
+      'host' => 'solr',
+      'path' => '',
+      'core' => [CORE], # Matches core name created in Solr setup in Tugboat config.yml
+      'port' => '8983',
+    ],
+  ],
+];
 ```
 
 Note: `solr` here is the service name in `.tugboat/config.yml`. If you name your service something different, make sure
 to use that service name as the host.
+
+The Search API UI for editing the doesn't show overwritten changes. To validate the overrides, run the following
+command: `drush cget search_api.server.SERVER_MACHINE_NAME --include-overridden`.
