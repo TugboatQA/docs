@@ -205,4 +205,5 @@ $config['search_api.server.SERVER_MACHINE_NAME'] = [
 Note: `solr` here is the service name in `.tugboat/config.yml`. If you name your service something different, make sure
 to use that service name as the host.
 
-The Search API UI for editing the doesn't show overwritten changes.  To validate the overrides run the following command `drush cget search_api.server.SERVER_MACHINE_NAME --include-overridden`
+The Search API UI for editing the doesn't show overwritten changes.  To validate the overrides, run the following
+command: `drush cget search_api.server.SERVER_MACHINE_NAME --include-overridden`.
