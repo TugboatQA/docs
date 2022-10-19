@@ -11,7 +11,7 @@ pre = "<b></b>"
 # Starter Configs
 
 In addition to these code snippets and tutorials, we also maintain repositories with
-[starter configuration files](https://github.com/search?q=topic%3Astarter-kit+org%3ATugboatQA&type=Repositories) for
+[starter configuration files](https://github.com/search?q=topic%3Atugboat-starter-kit&type=Repositories) for
 other frameworks and Content Management Systems in our [GitHub account](https://github.com/TugboatQA).
 
 See our blog post:
