@@ -14,9 +14,15 @@ To set an Access Token:
 2. Click the {{% ui-text %}}Generate New Token option{{% /ui-text %}}.
 3. You'll be asked to give the Access Token a description; for example, "Command Line Tool"; enter a description and
    press the {{% ui-text %}}Generate{{% /ui-text %}} button.
-4. Make sure you save your Access Token somewhere safe, as you won't be able to see it again!
+4. Make sure you save your Access Token somewhere safe, such as [1Password](https://1password.com/) or other password
+   manager.
 5. When you run the CLI, and attempt to access a resource, you'll be asked for an Access Token; paste it in and hit `Y`
    to remember it.
+
+{{% notice tip %}} 1Password users can install
+[a shell plugin for the 1Password CLI](https://developer.1password.com/docs/cli/shell-plugins/tugboat) so that your
+Tugboat token will be encrypted, stored securely, and accessible from any machine. Thank you to Mark Dorison of
+[Chromatic](https://chromatichq.com) for contributing this plugin. {{% /notice %}}
 
 Now you're all set to use the Tugboat Command Line Interface!
 
