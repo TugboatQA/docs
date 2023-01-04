@@ -82,6 +82,19 @@ services:
         - mysql -e "CREATE DATABASE foo;"
 ```
 
+If MySQL or MariaDB daemon configuration needs to be changed, create or modify the configuration file and
+restart the service ([which is managed using runit](/setting-up-services/how-to-set-up-services/running-a-background-process/)):
+
+```
+services:
+  mysql:
+    image: tugboatqa/mysql
+    commands:
+      init:
+        - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
+        - sv restart mysql
+```
+
 ### PHP
 
 #### PHP Extensions
