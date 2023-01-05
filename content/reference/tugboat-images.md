@@ -95,6 +95,9 @@ services:
         - sv restart mysql
 ```
 
+Note the service restarts when the preview is committed, restarting may only be necessary when wanting the configuration
+to be applied before other actions, such as importing the database.
+
 ### PHP
 
 #### PHP Extensions
