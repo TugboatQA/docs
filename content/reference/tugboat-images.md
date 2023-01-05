@@ -82,8 +82,8 @@ services:
         - mysql -e "CREATE DATABASE foo;"
 ```
 
-If MySQL or MariaDB daemon configuration needs to be changed, create or modify the configuration file and
-restart the service ([which is managed using runit](/setting-up-services/how-to-set-up-services/running-a-background-process/)):
+If MySQL or MariaDB daemon configuration needs to be changed, create or modify the configuration file and restart the
+service ([which is managed using runit](/setting-up-services/how-to-set-up-services/running-a-background-process/)):
 
 ```
 services:
