@@ -37,8 +37,8 @@ To manually build a Preview with no Base Preview:
    to build from scratch.
 6. Select the {{% ui-text %}}Build with no base preview{{% /ui-text %}} option.
 
-**Note:**
-If you build with no base preview from a pull request, you will _not_ see the following options in the base preview settings for your pull request preview. These options are only available for branch-based previews or tag-based previews:
+{{% notice info %}}
+If you build with no base preview from a pull request or tag, you will _not_ see the following options in the base preview settings for your pull request preview. These options are only available for branch-based previews:
 
         [ ] Repository Base Preview
             Use this Preview as a Base Preview for all new Previews built for this Repository.
