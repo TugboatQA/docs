@@ -128,14 +128,12 @@ The default Preview Type for all Base Previews is Repository Base Preview.
 
 {{% notice info %}} When you set a pull request Preview build as a Base Preview, you'll only see the option to make it a
 Repository Base Preview. You won't see the option to designate it a Branch Base Preview because it's not a Branch in the
-linked git repository.
-{{% /notice %}}
+linked git repository. {{% /notice %}}
 
 {{% notice tip %}} If you want to work with multiple integration branches, we recommend you first manually build a
 branch-based Preview for each of the integration branches you will be working with. Configuring each to be a
 branch-based Preview will then allow your pull-request-based Previews that are branched off from those integration
-branches to automatically use the correct base Preview.
-{{% /notice %}}
+branches to automatically use the correct base Preview. {{% /notice %}}
 
 ![Set Base Preview type - no Branch option](/_images/no-branch-base-preview-option.png)
 
