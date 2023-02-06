@@ -37,6 +37,16 @@ To manually build a Preview with no Base Preview:
    to build from scratch.
 6. Select the {{% ui-text %}}Build with no base preview{{% /ui-text %}} option.
 
+{{% notice info %}} If you build with no base preview from a pull request or tag, you will _not_ see the following
+options in the base preview settings for your pull request preview. These options are only available for branch-based
+previews:
+
+        [ ] Repository Base Preview
+            Use this Preview as a Base Preview for all new Previews built for this Repository.
+        [ ] Branch Base Preview
+            Only use this Preview as a Base Preview for new pull request Previews that merge into the main branch.
+{{% /notice %}}
+
 {{%expand "Visual Walkthrough" %}}
 
 Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
