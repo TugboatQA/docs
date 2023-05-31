@@ -12,13 +12,15 @@ All of our images are available on [Docker Hub](https://hub.docker.com/u/tugboat
 these images is available on [GitHub](https://github.com/TugboatQA/images).
 
 It is best practice to use the most specific tag available for a given image to prevent any unforeseen upstream changes
-from affecting your Previews. For example, instead of `tugboatqa/mysql:5`, it is generally better to use
-`tugboatqa/mysql:5.6`.
+from affecting your Previews. For example, instead of `tugboatqa/mysql:5-debian`, it is generally better to use
+`tugboatqa/mysql:5.6-debian`.
 
 That said, sometimes the version of a Service doesn't really matter much. For example, it may not matter which version
 of memcached you use, and you can be sure you always have the most recent version available by specifying
 `tugboatqa/memcached` or `tugboatqa/memcached:latest`. See also:
-[Image version tags](/setting-up-services/service-images/image-version-tags/)
+[Image version tags](/setting-up-services/service-images/image-version-tags/). There may be exceptions to this, such as
+the `tugboatqa/mysql` image, which does not have a `latest` tag (more on that [below](#mysqlmariadbpercona)). Be sure to
+look at the **Supported Tags** linked below for the image you plan on using.
 
 | Image                                 | Usage                                     |                                                                                               |
 | :------------------------------------ | :---------------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -32,7 +34,7 @@ of memcached you use, and you can be sure you always have the most recent versio
 | [MariaDB](#mysqlmariadbpercona)       | `image: tugboatqa/mariadb:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/mariadb/TAGS.md)          |
 | Memcached                             | `image: tugboatqa/memcached:[TAG]`        | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/memcached/TAGS.md)        |
 | MongoDB                               | `image: tugboatqa/mongo:[TAG]`            | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/mongo/TAGS.md)            |
-| [MySQL](#mysql-mariadb-percona)       | `image: tugboatqa/mysql:[TAG]`            | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/mysql/TAGS.md)            |
+| [MySQL](#mysqlmariadbpercona)         | `image: tugboatqa/mysql:[TAG]`            | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/mysql/TAGS.md)            |
 | Nginx                                 | `image: tugboatqa/nginx:[TAG]`            | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/nginx/TAGS.md)            |
 | Node                                  | `image: tugboatqa/node:[TAG]`             | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/node/TAGS.md)             |
 | [Percona](#mysqlmariadbpercona)       | `image: tugboatqa/percona:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/percona/TAGS.md)          |
@@ -88,10 +90,17 @@ The newer tags of this image extend the official Elastic Search images maintaine
 
 ### MySQL/MariaDB/Percona
 
-The MySQL, MariaDB, and Percona images are configured the same way. Each have a default database named `tugboat` as well
-as a user named `tugboat` with a password of `tugboat`. The `tugboat` user has full access to the `tugboat` database. In
-addition, the `root` database user does not have a password, but can only be used to connect to the database from the
-MariaDB or MySQL service.
+The MySQL, MariaDB, and Percona images are all configured similarly.
+
+{{% notice warning %}} While each of these images are configured similarly, they do have different tags. It's best to
+look at the list of **Supported Tags** in the table above to be sure you're using the correct version for your
+application. The `tugboatqa/mysql` image, for example, does **not** have a `latest` tag. This is because the official
+mysql image's `latest` tag uses Oracle Linux.{{% /notice %}}
+
+Whether you use MySQL, MariaDB, or Percona, they all have a default database named `tugboat` as well as a user named
+`tugboat` with a password of `tugboat`. The `tugboat` user has full access to the `tugboat` database. In addition, the
+`root` database user does not have a password, but can only be used to connect to the database from the MariaDB or MySQL
+service.
 
 This means that in order to do any root-level database operations, they must be done by the commands defined for the
 MySQL or MariaDB service.
@@ -99,7 +108,7 @@ MySQL or MariaDB service.
 ```yaml
 services:
   mysql:
-    image: tugboatqa/mysql
+    image: tugboatqa/mysql:5-debian
     commands:
       init:
         - mysql -e "CREATE DATABASE foo;"
@@ -111,7 +120,7 @@ service ([which is managed using runit](/setting-up-services/how-to-set-up-servi
 ```
 services:
   mysql:
-    image: tugboatqa/mysql
+    image: tugboatqa/mysql:5-debian
     commands:
       init:
         - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
