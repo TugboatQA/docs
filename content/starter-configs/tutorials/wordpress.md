@@ -133,7 +133,7 @@ services:
   # hostname to access the service by from the php service.
   mysql:
     # Use the latest available 5.x version of MySQL
-    image: tugboatqa/mysql:5
+    image: tugboatqa/mysql:5-debian
 
     # A set of commands to run while building this service
     commands:

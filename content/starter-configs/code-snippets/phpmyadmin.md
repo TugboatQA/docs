@@ -19,7 +19,7 @@ phpmyadmin service to a Tugboat Preview:
 ```yaml
 services:
   mysql:
-    image: tugboatqa/mysql:5
+    image: tugboatqa/mysql:5-debian
   phpmyadmin:
     expose: 80
     image: phpmyadmin/phpmyadmin
@@ -31,7 +31,7 @@ config.yml might look like this: {{% /notice %}}
 
 ```yaml
 mysql:
-  image: tugboatqa/mysql:8
+  image: tugboatqa/mysql:8-debian
   commands:
     init: mysql -e "ALTER USER 'tugboat'@'%' IDENTIFIED WITH mysql_native_password BY 'tugboat';"
 ```

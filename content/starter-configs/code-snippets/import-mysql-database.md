@@ -15,7 +15,7 @@ database into a [service](/setting-up-services/) named "mysql".
 ```yaml
 services:
   mysql:
-    image: tugboatqa/mysql
+    image: tugboatqa/mysql:5-debian
     commands:
       init:
         - scp example.com/database.sql.gz /tmp/

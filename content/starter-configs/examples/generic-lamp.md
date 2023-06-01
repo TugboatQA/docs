@@ -39,7 +39,7 @@ services:
   mysql:
     # Use the latest available version of MySQL by not specifying a
     # version
-    image: tugboatqa/mysql
+    image: tugboatqa/mysql:5-debian
 
     # A set of commands to run while building this service
     commands:
