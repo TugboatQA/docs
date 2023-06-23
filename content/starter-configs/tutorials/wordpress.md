@@ -14,7 +14,14 @@ We'll be following best practices of keeping Wordpress Core in a separate direct
 /.git
 /.tugboat
 /docroot
+    +wp-admin
+    +wp-content
+    +wp-includes
+    +index.php
+    ...
 /src
+/README.md
+/LICENSE
 ...
 ```
 
