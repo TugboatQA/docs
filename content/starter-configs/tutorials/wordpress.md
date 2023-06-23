@@ -28,11 +28,12 @@ We'll be following best practices of keeping Wordpress Core in a separate direct
 If you haven't yet, add a `.tugboat` directory to the root of your repo.  This is where Tugboat will look for configuration files and custom scripts.
 
 ## Configure WordPress For Tugboat
-A standard Wordpress configuration has a `wp-config.php` file at its root.  While you can do really anything with this file, the Wordpress CLI tool will start to throw warnings and errors if it deviates too much from its default configuration.  Tugboat will overwrite your current `wp-config.php` file with its own from the default config, so here's what we recommend:
+A standard Wordpress configuration has a `wp-config.php` file at its root.  Best practice is to not commit this file to your repo as it contains sensitive information.  If this file does exist, Tugboat will overwrite it with its own from the default config, so here's what we recommend:
 
 1. Copy `wp-config-sample.php` from Wordpress Core to `.tugboat/wp-config.tugboat.php`.
 1. Copy any custom, non-sensitive config from your current `wp-config.php` file into your `.tugboat/wp-config.tugboat.php` file.
-1. Replace the database credentials with these.
+1. Replace the database credentials with these:
+
 
 ```php
 <?php
@@ -42,18 +43,17 @@ define('DB_PASSWORD', 'tugboat');
 define('DB_HOST', 'mysql');
 ```
 
-***🐙 Note:** Make sure your `wp-config.php` is formatted as close to the sample file as possible.  The Wordpress CLI gets angry when it's not and will release the Kraken on your Tugboat builds.*
+_**🐙 Note:** Make sure your `wp-config.php` is formatted as close to the sample file as possible.  The Wordpress CLI gets angry when it's not and will release the Kraken on your Tugboat builds._
 
 ## Configure Tugboat for Wordpress
 
 The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
-`.tugboat/config.yml` in the git repository. Here's a basic WordPress configuration you can use as a starting point, with
-comments to explain what's going on.  There are a couple of things you'll need to change to match your current setup.
+`.tugboat/config.yml` in the git repository. Copy the code below into that file as a starting point.  Then, you'll need to tweak a few things for your particular installation.
 
-There are three phases to creating a Tugboat preview: init, update, and build.
+For each service (php, mysql, etc) Tugboat runs three phases to build your preview: [init, update, and build](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained).
 
 ### Phase 1: INIT
-In the INIT phase, Tugboat creates the docker containers for your services.
+In the INIT phase, Tugboat sets up your server and creates the docker containers for your services.
 1. If you're using composer to install Wordpress Core, uncomment that line in the `init` phase.
 2. Just after that, make sure that you're mapping the `${DOCROOT}` to whatever you named the directory where you downloaded Wordpress.
 
@@ -69,6 +69,9 @@ In the BUILD phase, run any commands that your site needs to prepare itself to r
 
 ### The `mysql` Service
 At the bottom, in the `mysql` service, update the settings to fetch a database from a remote source and import it into Tugboat.
+
+### Wordpress Starter Config
+Copy this into `.tugboat/config.yml`
 
 ```yaml
 services:
