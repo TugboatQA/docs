@@ -1,6 +1,6 @@
 ---
 title: "Wordpress"
-date: 2023-06-22T13:28:00-06:00
+date: 2019-09-19T11:00:57-04:00
 weight: 4
 ---
 
@@ -84,8 +84,8 @@ Copy this into `.tugboat/config.yml`
 services:
   # What to call the service hosting the site.
   php:
-    # Use PHP 8.x with Apache to serve the WordPress site; this syntax pulls in the latest version of PHP 8.1
-    image: tugboatqa/php:8.1-apache
+    # Use PHP 7.x with Apache to serve the WordPress site; this syntax pulls in the latest version of PHP 7
+    image: tugboatqa/php:7-apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container
@@ -93,16 +93,16 @@ services:
     #   3. Routes requests to the preview URL to this service
     default: true
 
-    # Wait until the mysql service is done building so we have a database.
+    # Wait until the mysql service is done building
     depends: mysql
 
-    # A set of commands to run while building this service.
+    # A set of commands to run while building this service
     commands:
-      # Phase 1 (init): Configure the server infrastructure.
+      # Commands that set up the basic preview infrastructure
       init:
-        # Install prerequisite packages.
+        # Install prerequisite packages
         - apt-get update
-        - apt-get install -y rsync
+        - apt-get install -y rsync libzip-dev
 
         # Turn on URL rewriting.
         - a2enmod rewrite headers
@@ -112,16 +112,20 @@ services:
         - pecl install imagick-beta -y
         - docker-php-ext-enable imagick
 
-        # Install PHP mysqli extension.
-        - docker-php-ext-install mysqli
+        # Install the PHP extensions
+        - docker-php-ext-install mysqli exif zip
+        # Install imagick
+        - apt-get install -y libmagickwand-dev
+        - pecl install imagick-beta -y
+        - docker-php-ext-enable imagick
 
-        # Install the Wordpress CLI tool.
+        # Install wp-cli
         - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         - chmod +x wp-cli.phar
         - mv wp-cli.phar /usr/local/bin/wp
 
-        # If using composer to install Wordpress, uncomment this line.
-        # - composer install --optimize-autoloader
+        # Use the tugboat-specific wp-config.local.php
+        - cp "${TUGBOAT_ROOT}/.tugboat/wp-config.local.php" "${DOCROOT}/"
 
         ## STOP HERE! Define your Wordpress Core docroot.
         ## Uncomment line in either Option 1 or Option 2, depending on your setup.
@@ -148,6 +152,7 @@ services:
       # Phase 2 (update): Import files, database, or any other assets that your
       # website needs to run.
       # When you refresh a Tugboat Preview, the process starts here, skipping `init`.
+
       update:
         # Copy the uploads directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
@@ -162,9 +167,9 @@ services:
         - apt-get clean
         - rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-      # Phase 3 (build): Run commands to build your site after everything has been imported.
-      # When a Preview is built from a Base Preview, the build workflow starts here,
-      # skipping the init and update steps, because the results of those are inherited
+      # Commands that build the site. When a Preview is built from a
+      # Base Preview, the build workflow starts here, skipping the init
+      # and update steps, because the results of those are inherited
       # from the base preview.
       build: |
         if [ "x${TUGBOAT_BASE_PREVIEW}" != "x" ]; then
