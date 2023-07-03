@@ -11,7 +11,7 @@ requirements, so you may need to do more customizing, but this should get you st
 
 We'll provide 2 sets of instructions below for configuring your Wordpress site to work with Tugboat:
 
-- Wne placing Wordpress Core at the repo root,
+- One placing Wordpress Core at the repo root,
 - and one with Wordpress Core in a subdirectory (recommended).
 
 When you copy the config file below, make sure you follow the instructions to adjust the config to your setup.
@@ -55,8 +55,8 @@ For each service (php, mysql, etc) Tugboat runs three phases to build your previ
 In the INIT phase, Tugboat sets up your server and creates the docker containers for your services.
 
 1. If you're using composer to install Wordpress Core, uncomment that line in the `init` phase.
-2. Just after that there are two options defined depending our your file structure. Comment out the lines in the option
-   that you're not using.
+2. Just after that there are two options defined depending our your file structure. Uncomment the option that represents
+   your setup.
 
 ### Phase 2: UPDATE
 
@@ -106,7 +106,7 @@ services:
 
         # Turn on URL rewriting.
         - a2enmod rewrite headers
-        
+
         # Install imagick
         - apt-get install -y libmagickwand-dev
         - pecl install imagick-beta -y
@@ -129,8 +129,8 @@ services:
         # OPTION 1: Wordpress Core is at the repo root.
         # - ln -snf "${TUGBOAT_ROOT}" "${DOCROOT}"
 
-        # OPTION 2: Wordpress Core lives in a subdirectory.
-        # - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
+        # OPTION 2: Wordpress Core lives in a subdirectory (in this example, 'wp-core').
+        # - ln -snf "${TUGBOAT_ROOT}/wp-core" "${DOCROOT}"
 
         # Set the wp-config.php file with the one you defined for Tugboat.
         - rm -rf ${DOCROOT}/wp-config.php
