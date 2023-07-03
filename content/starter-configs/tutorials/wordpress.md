@@ -105,7 +105,12 @@ services:
         - apt-get install -y rsync
 
         # Turn on URL rewriting.
-        - a2enmod rewrite
+        - a2enmod rewrite headers
+          
+         # Install imagick
+        - apt-get install -y libmagickwand-dev
+        - pecl install imagick-beta -y
+        - docker-php-ext-enable imagick
 
         # Install PHP mysqli extension.
         - docker-php-ext-install mysqli
