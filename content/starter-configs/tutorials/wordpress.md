@@ -106,8 +106,7 @@ services:
 
         # Turn on URL rewriting.
         - a2enmod rewrite headers
-          
-         # Install imagick
+          # Install imagick
         - apt-get install -y libmagickwand-dev
         - pecl install imagick-beta -y
         - docker-php-ext-enable imagick
