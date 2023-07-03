@@ -9,24 +9,12 @@ requirements, so you may need to do more customizing, but this should get you st
 
 ## First Things First
 
-We'll be following best practices of keeping Wordpress Core in a separate directory within the repo (for example,
-`/docroot`). If you have Wordpress Core files at the root of your directory, you'll need to restructure your repo to
-look more like this:
+We'll provide 2 sets of instructions below for configuring your Wordpress site to work with Tugboat:
 
-```
-/.git
-/.tugboat
-/docroot
-    +wp-admin
-    +wp-content
-    +wp-includes
-    +index.php
-    ...
-/src
-/README.md
-/LICENSE
-...
-```
+- Wne placing Wordpress Core at the repo root,
+- and one with Wordpress Core in a subdirectory (recommended).
+
+When you copy the config file below, make sure you follow the instructions to adjust the config to your setup.
 
 If you haven't yet, add a `.tugboat` directory to the root of your repo. This is where Tugboat will look for
 configuration files and custom scripts.
@@ -50,8 +38,8 @@ define('DB_PASSWORD', 'tugboat');
 define('DB_HOST', 'mysql');
 ```
 
-_**🐙 Note:** Make sure your `wp-config.php` is formatted as close to the sample file as possible. The Wordpress CLI
-gets angry when it's not and will release the Kraken on your Tugboat builds._
+_**Note:** Make sure your `wp-config.php` is formatted as close to the sample file as possible. The Wordpress CLI gets
+angry when it's not and will release the Kraken on your Tugboat builds._
 
 ## Configure Tugboat for Wordpress
 
@@ -67,8 +55,8 @@ For each service (php, mysql, etc) Tugboat runs three phases to build your previ
 In the INIT phase, Tugboat sets up your server and creates the docker containers for your services.
 
 1. If you're using composer to install Wordpress Core, uncomment that line in the `init` phase.
-2. Just after that, make sure that you're mapping the `${DOCROOT}` to whatever you named the directory where you
-   downloaded Wordpress.
+2. Just after that there are two options defined depending our your file structure. Comment out the lines in the option
+   that you're not using.
 
 ### Phase 2: UPDATE
 
@@ -130,13 +118,18 @@ services:
         # If using composer to install Wordpress, uncomment this line.
         # - composer install --optimize-autoloader
 
-        # Link Wordpress core as the docroot.
-        - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
+        ## STOP HERE! Define your Wordpress Core docroot.
+        ## Uncomment line in either Option 1 or Option 2, depending on your setup.
 
-        # Copy and link the Tugboat config file into the Wordpress core directory.
-        - rm -rf ${TUGBOAT_ROOT}/wp-config.php; rm -rf ${DOCROOT}/wp-config.php; cp
-          ${TUGBOAT_ROOT}/.tugboat/wp-config.tugboat.php ${TUGBOAT_ROOT}/wp-config.php
-        - ln -snf ${TUGBOAT_ROOT}/wp-config.php ${DOCROOT}/wp-config.php
+        # OPTION 1: Wordpress Core is at the repo root.
+        # - ln -snf "${TUGBOAT_ROOT}" "${DOCROOT}"
+
+        # OPTION 2: Wordpress Core lives in a subdirectory.
+        # - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
+
+        # Set the wp-config.php file with the one you defined for Tugboat.
+        - rm -rf ${DOCROOT}/wp-config.php
+        - cp ${TUGBOAT_ROOT}/.tugboat/wp-config.tugboat.php ${DOCROOT}/wp-config.php
 
         # Install wp-cli.
         - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
