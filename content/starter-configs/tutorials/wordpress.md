@@ -55,7 +55,7 @@ For each service (php, mysql, etc) Tugboat runs three phases to build your previ
 In the INIT phase, Tugboat sets up your server and creates the docker containers for your services.
 
 1. If you're using composer to install Wordpress Core, uncomment that line in the `init` phase.
-2. Just after that there are two options defined depending our your file structure. Uncomment the option that represents
+2. Just after that there are two options defined depending on your file structure. Uncomment the option that represents
    your setup.
 
 ### Phase 2: UPDATE
@@ -128,7 +128,7 @@ services:
         - cp "${TUGBOAT_ROOT}/.tugboat/wp-config.local.php" "${DOCROOT}/"
 
         ## STOP HERE! Define your Wordpress Core docroot.
-        ## Uncomment line in either Option 1 or Option 2, depending on your setup.
+        ## Uncomment the line in either Option 1 or Option 2, depending on your setup.
 
         # OPTION 1: Wordpress Core is at the repo root.
         # - ln -snf "${TUGBOAT_ROOT}" "${DOCROOT}"
