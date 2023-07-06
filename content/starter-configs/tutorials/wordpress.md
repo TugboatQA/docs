@@ -119,7 +119,7 @@ services:
         - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         - chmod +x wp-cli.phar
         - mv wp-cli.phar /usr/local/bin/wp
-          
+
         # TODO: Uncomment this line if you're installing Wordpress via composer.
         # - composer install --optimize-autoloader
 
@@ -147,7 +147,7 @@ services:
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.
         - mkdir -p "${DOCROOT}/wp-content/uploads" || /bin/true
-          
+
         # TODO: Set the user credentials and path to where your remote files live.
         - rsync -avz --delete user@example.com:/path/to/wp-content/uploads/ "${DOCROOT}/wp-content/uploads/"
         - chgrp -R www-data "${DOCROOT}/wp-content/uploads"
