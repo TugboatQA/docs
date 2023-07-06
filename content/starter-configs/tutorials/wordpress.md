@@ -127,7 +127,7 @@ services:
         # Use the tugboat-specific wp-config.local.php
         - cp "${TUGBOAT_ROOT}/.tugboat/wp-config.local.php" "${DOCROOT}/"
 
-        ## STOP HERE! Define your Wordpress Core docroot.
+        ## TODO: Define your Wordpress Core docroot.
         ## Uncomment the line in either Option 1 or Option 2, depending on your setup.
 
         # OPTION 1: Wordpress Core is at the repo root.
@@ -152,13 +152,14 @@ services:
       # Phase 2 (update): Import files, database, or any other assets that your
       # website needs to run.
       # When you refresh a Tugboat Preview, the process starts here, skipping `init`.
-
       update:
         # Copy the uploads directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.
         - mkdir -p "${DOCROOT}/wp-content/uploads" || /bin/true
-        - rsync -av --delete user@example.com:/path/to/wp-content/uploads/ "${DOCROOT}/wp-content/uploads/"
+          
+        # TODO: Set the user credentials and path to where your remote files live.
+        - rsync -avz --delete user@example.com:/path/to/wp-content/uploads/ "${DOCROOT}/wp-content/uploads/"
         - chgrp -R www-data "${DOCROOT}/wp-content/uploads"
         - find "${DOCROOT}/wp-content/uploads" -type d -exec chmod 2775 {} \;
         - find "${DOCROOT}/wp-content/uploads" -type f -exec chmod 0664 {} \;
@@ -194,6 +195,7 @@ services:
         # Copy a database dump from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use scp.
+        # TODO: Set the user credentials and path to your remote database file.
         - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz
