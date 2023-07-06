@@ -114,36 +114,26 @@ services:
 
         # Install the PHP extensions
         - docker-php-ext-install mysqli exif zip
-        # Install imagick
-        - apt-get install -y libmagickwand-dev
-        - pecl install imagick-beta -y
-        - docker-php-ext-enable imagick
 
         # Install wp-cli
         - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         - chmod +x wp-cli.phar
         - mv wp-cli.phar /usr/local/bin/wp
+          
+        # TODO: Uncomment this line if you're installing Wordpress via composer.
+        # - composer install --optimize-autoloader
 
-        # Use the tugboat-specific wp-config.local.php
-        - cp "${TUGBOAT_ROOT}/.tugboat/wp-config.local.php" "${DOCROOT}/"
-
-        ## TODO: Define your Wordpress Core docroot.
-        ## Uncomment the line in either Option 1 or Option 2, depending on your setup.
+        # TODO: Define your Wordpress Core docroot.
 
         # OPTION 1: Wordpress Core is at the repo root.
         # - ln -snf "${TUGBOAT_ROOT}" "${DOCROOT}"
 
-        # OPTION 2: Wordpress Core lives in a subdirectory (in this example, 'wp-core').
-        # - ln -snf "${TUGBOAT_ROOT}/wp-core" "${DOCROOT}"
+        # OPTION 2: Wordpress Core lives in a subdirectory (in this example, 'docroot').
+        # - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
 
         # Set the wp-config.php file with the one you defined for Tugboat.
         - rm -rf ${DOCROOT}/wp-config.php
         - cp ${TUGBOAT_ROOT}/.tugboat/wp-config.tugboat.php ${DOCROOT}/wp-config.php
-
-        # Install wp-cli.
-        - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-        - chmod +x wp-cli.phar
-        - mv wp-cli.phar /usr/local/bin/wp
 
         # Update permalinks to remove the index.php.  These can't run until the database is imported.  How do we do that?
         - wp --allow-root --path="${DOCROOT}" option set permalink_structure /%postname%/
