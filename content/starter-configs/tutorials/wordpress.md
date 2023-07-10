@@ -84,8 +84,8 @@ Copy this into `.tugboat/config.yml`
 services:
   # What to call the service hosting the site.
   php:
-    # Use PHP 7.x with Apache to serve the WordPress site; this syntax pulls in the latest version of PHP 7
-    image: tugboatqa/php:7-apache
+    # Use PHP 8.1 with Apache to serve the WordPress site; this syntax pulls in the latest version of PHP 8.1
+    image: tugboatqa/php:8.1-apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container
