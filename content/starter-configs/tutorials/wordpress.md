@@ -1,5 +1,5 @@
 ---
-title: "Wordpress"
+title: "WordPress"
 date: 2019-09-19T11:00:57-04:00
 weight: 4
 ---
@@ -9,10 +9,10 @@ requirements, so you may need to do more customizing, but this should get you st
 
 ## First Things First
 
-We'll provide 2 sets of instructions below for configuring your Wordpress site to work with Tugboat:
+We'll provide 2 sets of instructions below for configuring your WordPress site to work with Tugboat:
 
-- One placing Wordpress Core at the repo root,
-- and one with Wordpress Core in a subdirectory (recommended).
+- One placing WordPress Core at the repo root,
+- and one with WordPress Core in a subdirectory (recommended).
 
 When you copy the config file below, make sure you follow the instructions to adjust the config to your setup.
 
@@ -21,11 +21,11 @@ configuration files and custom scripts.
 
 ## Configure WordPress For Tugboat
 
-A standard Wordpress configuration has a `wp-config.php` file at its root. Best practice is to not commit this file to
+A standard WordPress configuration has a `wp-config.php` file at its root. Best practice is to not commit this file to
 your repo as it contains sensitive information. If this file does exist, Tugboat will overwrite it with its own from the
 default config, so here's what we recommend:
 
-1. Copy `wp-config-sample.php` from Wordpress Core to `.tugboat/wp-config.tugboat.php`.
+1. Copy `wp-config-sample.php` from WordPress Core to `.tugboat/wp-config.tugboat.php`.
 1. Copy any custom, non-sensitive config from your current `wp-config.php` file into your
    `.tugboat/wp-config.tugboat.php` file.
 1. Replace the database credentials with these:
@@ -38,10 +38,10 @@ define('DB_PASSWORD', 'tugboat');
 define('DB_HOST', 'mysql');
 ```
 
-_**Note:** Make sure your `wp-config.php` is formatted as close to the sample file as possible. The Wordpress CLI gets
+_**Note:** Make sure your `wp-config.php` is formatted as close to the sample file as possible. The WordPress CLI gets
 angry when it's not and will release the Kraken on your Tugboat builds._
 
-## Configure Tugboat for Wordpress
+## Configure Tugboat for WordPress
 
 The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
 `.tugboat/config.yml` in the git repository. Copy the code below into that file as a starting point. Then, you'll need
@@ -54,7 +54,7 @@ For each service (php, mysql, etc) Tugboat runs three phases to build your previ
 
 In the INIT phase, Tugboat sets up your server and creates the docker containers for your services.
 
-1. If you're using composer to install Wordpress Core, uncomment that line in the `init` phase.
+1. If you're using composer to install WordPress Core, uncomment that line in the `init` phase.
 2. Just after that there are two options defined depending on your file structure. Uncomment the option that represents
    your setup.
 
@@ -76,7 +76,7 @@ In the BUILD phase, run any commands that your site needs to prepare itself to r
 At the bottom, in the `mysql` service, update the settings to fetch a database from a remote source and import it into
 Tugboat.
 
-### Wordpress Starter Config
+### WordPress Starter Config
 
 Copy this into `.tugboat/config.yml`
 
@@ -120,15 +120,15 @@ services:
         - chmod +x wp-cli.phar
         - mv wp-cli.phar /usr/local/bin/wp
 
-        # TODO: Uncomment this line if you're installing Wordpress via composer.
+        # TODO: Uncomment this line if you're installing WordPress via composer.
         # - composer install --optimize-autoloader
 
-        # TODO: Define your Wordpress Core docroot.
+        # TODO: Define your WordPress Core docroot.
 
-        # OPTION 1: Wordpress Core is at the repo root.
+        # OPTION 1: WordPress Core is at the repo root.
         # - ln -snf "${TUGBOAT_ROOT}" "${DOCROOT}"
 
-        # OPTION 2: Wordpress Core lives in a subdirectory (in this example, 'docroot').
+        # OPTION 2: WordPress Core lives in a subdirectory (in this example, 'docroot').
         # - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
 
         # Set the wp-config.php file with the one you defined for Tugboat.
@@ -166,7 +166,7 @@ services:
         if [ "x${TUGBOAT_BASE_PREVIEW}" != "x" ]; then
             wp --allow-root --path="${DOCROOT}" search-replace "${TUGBOAT_BASE_PREVIEW_URL_HOST}" "${TUGBOAT_SERVICE_URL_HOST}" --skip-columns=guid
         else
-            wp --allow-root --path="${DOCROOT}" search-replace 'wordpress.local' "${TUGBOAT_SERVICE_URL_HOST}" --skip-columns=guid
+            wp --allow-root --path="${DOCROOT}" search-replace 'WordPress.local' "${TUGBOAT_SERVICE_URL_HOST}" --skip-columns=guid
         fi
 
   # What to call the service hosting MySQL. This name also acts as the
