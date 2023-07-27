@@ -4,8 +4,8 @@ date: 2020-07-15T11:14:19-04:00
 weight: 1
 ---
 
-Wondering how to configure Tugboat for a typical Drupal 10 repository? Every Drupal site tends to have slightly different
-requirements, so you may need to do more customizing, but this should get you started.
+Wondering how to configure Tugboat for a typical Drupal 10 repository? Every Drupal site tends to have slightly
+different requirements, so you may need to do more customizing, but this should get you started.
 
 The following documentation assumes you are using Composer to manage your Drupal 9 project (typically with either the
 `drupal/recommended-project` or the `drupal-composer/drupal-project` projects).
@@ -104,8 +104,8 @@ services:
         # directories in your settings.local.php, or you can symlink them in
         # here. Here is an example of the latter option:
         - ln -snf "${TUGBOAT_ROOT}/files-private" "${DOCROOT}/../files-private"
-          
-        # TODO: Map custom modules and themes into the Drupal structure. 
+
+        # TODO: Map custom modules and themes into the Drupal structure.
         #- ln -snf "${TUGBOAT_ROOT}/custom/themes" "${DOCROOT}/themes/custom"
         #- ln -snf "${TUGBOAT_ROOT}/custom/modules" "${DOCROOT}/modules/custom"
 
