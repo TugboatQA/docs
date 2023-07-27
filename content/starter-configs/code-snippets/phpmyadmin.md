@@ -1,7 +1,7 @@
 ---
 title: "Add a phpMyAdmin service"
 date: 2019-09-19T11:00:19-04:00
-weight: 4
+weight: 1
 ---
 
 Database management tools such as MySQL Workbench or Sequel Pro are commonly used by developers to work with a MySQL
