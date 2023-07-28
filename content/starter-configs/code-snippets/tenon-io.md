@@ -1,7 +1,7 @@
 ---
 title: "Tenon.io Integration"
 date: 2019-09-19T11:00:49-04:00
-weight: 8
+weight: 1
 ---
 
 [Tenon.io](https://tenon.io) can identify 508 and WCAG 2.0 issues in any environment.

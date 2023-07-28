@@ -1,7 +1,7 @@
 ---
 title: "Warm a Page Cache Within Tugboat"
 date: 2019-09-19T11:00:02-04:00
-weight: 7
+weight: 1
 ---
 
 If your web application has a page caching layer, you can prime the cache from within the

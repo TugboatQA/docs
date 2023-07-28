@@ -1,7 +1,7 @@
 ---
 title: "Diffy Integration"
 date: 2020-07-17T17:00:00-04:00
-weight: 3
+weight: 1
 ---
 
 Tugboat does not provide `visualdiffs` for pages behind authentication. If you need to generate visual diffs from pages
