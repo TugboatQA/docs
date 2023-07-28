@@ -23,4 +23,4 @@ php:
 _Note: This snippet will make your aliases and programs available within the terminal utility from the UI only. They
 will not be available within the `config.yml` file itself._
 
-![code-snippets--bash-aliases--terminal.png](..%2F..%2F_images%2Fcode-snippets--bash-aliases--terminal.png)
+![code-snippets--bash-aliases--terminal.png](/_images/code-snippets--bash-aliases--terminal.png)
