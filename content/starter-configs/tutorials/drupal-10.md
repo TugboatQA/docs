@@ -72,9 +72,6 @@ services:
     commands:
       # Commands that set up the basic preview infrastructure
       init:
-        # Bump the memory limit to help Drupal along.
-        - echo "memory_limit = 10240M" >> /usr/local/etc/php/conf.d/my-php.ini
-
         # Install opcache and mod-rewrite.
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
