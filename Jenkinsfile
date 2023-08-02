@@ -14,8 +14,8 @@ pipeline {
       steps {
         echo 'Deploying....'
         sh 'curl -Ls "$HUGO" | tar -zxf - hugo'
-        sh 'sed -i '/baseURL/s/#//g' config.toml'
-        sh 'sed -i '/googleAnalytics/s/#//g' config.toml'
+        sh "sed -i '/baseURL/s/#//g' config.toml"
+        sh "sed -i '/googleAnalytics/s/#//g' config.toml"
         sh './hugo'
         sh 'rsync -a --delete public/ /var/www/docs.tugboat.qa/'
       }
