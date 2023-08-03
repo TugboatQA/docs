@@ -3,37 +3,51 @@ title: "Lagoon"
 date: 2023-08-03T11:00:09-04:00
 weight: 6
 ---
-So you'd like to start testing your Lagoon-hosted website with Tugboat.  While both systems are Docker based, they use different architectures under the hood.  This tutorial will help you configure your Lagoon project to talk to Tugboat, and define your Tugboat configuration to read from Lagoon and build previews of your site.
+
+So you'd like to start testing your Lagoon-hosted website with Tugboat. While both systems are Docker based, they use
+different architectures under the hood. This tutorial will help you configure your Lagoon project to talk to Tugboat,
+and define your Tugboat configuration to read from Lagoon and build previews of your site.
 
 ## Configure Lagoon to Talk to Tugboat
+
 ### Steps
+
 1. Find and copy for Tugboat SSH key
 2. Add it to your SSH keys in Lagoon
 
 ### Details
-1. Tugboat generates an SSH key for every repository you connect to it.  After connecting your Lagoon repository, open the repository settings, find the SSH key, and copy it.
 
-2. In your Lagoon UI, under your username in the menu, choose [Settings](https://dashboard.amazeeio.cloud/settings).  Add a new SSH key for Tugboat and paste the value from the repository settings.
+1. Tugboat generates an SSH key for every repository you connect to it. After connecting your Lagoon repository, open
+   the repository settings, find the SSH key, and copy it.
+
+2. In your Lagoon UI, under your username in the menu, choose [Settings](https://dashboard.amazeeio.cloud/settings). Add
+   a new SSH key for Tugboat and paste the value from the repository settings.
 
 ## Configure Tugboat to Pull From Lagoon
 
 ### Steps
+
 1. Define your project and default environment
 2. Create your `config.yml` file.
 
 ### 1. Set your project and environment
 
-We'll configure Tugboat to pull a database, files, and anything else we need directly from Lagoon.  First, choose the Lagoon environment that you want to pull from.  As close to production is best, but we don't recommend using the production environment itself so Tugboat may make frequent requests which could slow the system down.
+We'll configure Tugboat to pull a database, files, and anything else we need directly from Lagoon. First, choose the
+Lagoon environment that you want to pull from. As close to production is best, but we don't recommend using the
+production environment itself so Tugboat may make frequent requests which could slow the system down.
 
-In your Tugboat Repository Settings, find the Environment Variables section.  Here we'll define the project and environment in Lagoon that we want to pull from.
+In your Tugboat Repository Settings, find the Environment Variables section. Here we'll define the project and
+environment in Lagoon that we want to pull from.
 
 1. Create a new environment variable and name it `LAGOON_PROJECT`
-2. Set the value to the name of the project.  Ex. `demo-lullabot-drupalfull`
+2. Set the value to the name of the project. Ex. `demo-lullabot-drupalfull`
 3. Create another new environment variable and name it `LAGOON_ENV`
-4. Set the value to the name of the environment you want to pull from.  Ex. `main`
+4. Set the value to the name of the environment you want to pull from. Ex. `main`
 
 ### 2. Create your config.yml
-If you haven't already, create a directory called `.tugboat` at the root of your repository and place a file called `config.yml` in it.
+
+If you haven't already, create a directory called `.tugboat` at the root of your repository and place a file called
+`config.yml` in it.
 
 Copy this starter config into your `.tugboat/config.yml` file:
 
@@ -114,7 +128,6 @@ services:
         - vendor/bin/drush updatedb -y
         - vendor/bin/drush cache:rebuild
 
-
   # Define our database.
   database:
     #image: uselagoon/mariadb-10.6-drupal:latest
@@ -134,16 +147,21 @@ services:
         - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
 
         # Install the Lagoon CLI.
-        - curl -L "https://github.com/uselagoon/lagoon-cli/releases/download/v0.18.1/lagoon-cli-v0.18.1-linux-amd64" -o /usr/local/bin/lagoon
+        - curl -L "https://github.com/uselagoon/lagoon-cli/releases/download/v0.18.1/lagoon-cli-v0.18.1-linux-amd64" -o
+          /usr/local/bin/lagoon
         - chmod +x /usr/local/bin/lagoon
 
         # Create the ~/.lagoon.yml file, configure Lagoon, and authenticate.
-        - lagoon config add --force --lagoon "${LAGOON_PROJECT_NAME}" --graphql https://api.lagoon.amazeeio.cloud/graphql --hostname ssh.lagoon.amazeeio.cloud --port 32222 --ui https://dashboard.amazeeio.cloud
+        - lagoon config add --force --lagoon "${LAGOON_PROJECT_NAME}" --graphql
+          https://api.lagoon.amazeeio.cloud/graphql --hostname ssh.lagoon.amazeeio.cloud --port 32222 --ui
+          https://dashboard.amazeeio.cloud
         - lagoon config default --lagoon "${LAGOON_PROJECT_NAME}"
         - lagoon login
 
         # Install Lagoon Sync so we can fetch a database.
-        - DOWNLOAD_PATH=$(curl -sL "https://api.github.com/repos/uselagoon/lagoon-sync/releases/latest" | grep "browser_download_url" | cut -d \" -f 4 | grep linux_amd64) && wget -O /usr/local/bin/lagoon-sync $DOWNLOAD_PATH && chmod a+x /usr/local/bin/lagoon-sync
+        - DOWNLOAD_PATH=$(curl -sL "https://api.github.com/repos/uselagoon/lagoon-sync/releases/latest" | grep
+          "browser_download_url" | cut -d \" -f 4 | grep linux_amd64) && wget -O /usr/local/bin/lagoon-sync
+          $DOWNLOAD_PATH && chmod a+x /usr/local/bin/lagoon-sync
         - lagoon-sync sync mariadb -e "${LAGOON_PROD_ENV}" --no-interaction
 
       # The UPDATE phase downloads and installs and assets, libraries, and dependencies.
@@ -160,7 +178,6 @@ services:
   solr:
     #image: uselagoon/solr-8-drupal:latest
     image: tugboatqa/solr:8
-
 
   # Define our caching service.
   redis:
