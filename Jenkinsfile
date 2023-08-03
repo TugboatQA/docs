@@ -11,25 +11,26 @@ pipeline {
         HUGO = 'https://github.com/gohugoio/hugo/releases/download/v0.58.3/hugo_0.58.3_Linux-64bit.tar.gz'
       }
 
+      parameters {
+        string(name: 'EMAIL_TO', defaultValue: 'admin@example.com', description: '')
+      }
+
       steps {
-        echo 'Deploying....'
-        sh 'curl -Ls "$HUGO" | tar -zxf - hugo'
+        sh 'curl -Ls "${HUGO}" | tar -zxf - hugo'
         sh "sed -i '/baseURL/s/#//g' config.toml"
         sh "sed -i '/googleAnalytics/s/#//g' config.toml"
         sh './hugo'
-        sh 'rsync -a --delete public/ /var/www/docs.tugboat.qa/'
       }
-    }
-  }
 
-  post {
-    unsuccessful {
-      mail (
-        to: 'tugboat@lullabot.com',
-        from: 'jenkins@lullabot.com',
-        subject: "Build: ${env.JOB_NAME} - Failed",
-        body: "Job Failed - \"${env.JOB_NAME}\" build: ${env.BUILD_NUMBER}\n\nView the log at:\n ${env.BUILD_URL}\n\nBlue Ocean:\n${env.RUN_DISPLAY_URL}"
-      );
+      post {
+        unsuccessful {
+          mail (
+            to: "${EMAIL_TO}",
+            subject: "Build: ${env.JOB_NAME} - Deployment failed",
+            body: "Job Failed - \"${env.JOB_NAME}\" build: ${env.BUILD_NUMBER}\n\nView the log at:\n ${env.BUILD_URL}"
+          );
+        }
+      }
     }
   }
 }
