@@ -100,15 +100,15 @@ services:
         - docker-php-ext-install opcache
 
         # Install Lagoon Sync so we can fetch the files.
-        - DOWNLOAD_PATH=$(curl -sL "https://api.github.com/repos/uselagoon/lagoon-sync/releases/latest" | grep
-          "browser_download_url" | cut -d \" -f 4 | grep linux_amd64) && wget -O /usr/local/bin/lagoon-sync
-          $DOWNLOAD_PATH && chmod a+x /usr/local/bin/lagoon-sync
+        - DOWNLOAD_PATH=$(curl -sL "https://api.github.com/repos/uselagoon/lagoon-sync/releases/latest" | grep "browser_download_url" | cut -d \" -f 4 | grep linux_amd64) && wget -O /usr/local/bin/lagoon-sync $DOWNLOAD_PATH && chmod a+x /usr/local/bin/lagoon-sync
 
         # This may not be needed as lagoon-sync can handle getting assets from the Lagoon system.  This CLI allows us
         # to interact with the Lagoon environments for all sorts of other things.
+        
         # Install the Lagoon CLI.
         #- curl -L "https://github.com/uselagoon/lagoon-cli/releases/download/v0.18.1/lagoon-cli-v0.18.1-linux-amd64" -o /usr/local/bin/lagoon
         #- chmod +x /usr/local/bin/lagoon
+        
         # Create the ~/.lagoon.yml file, configure Lagoon, and authenticate.
         #- lagoon config add --force --lagoon "${LAGOON_PROJECT}" --graphql https://api.lagoon.amazeeio.cloud/graphql --hostname ssh.lagoon.amazeeio.cloud --port 32222 --ui https://dashboard.amazeeio.cloud
         #- lagoon config default --lagoon "${LAGOON_PROJECT}"
@@ -185,26 +185,25 @@ services:
         - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
 
         # Install Lagoon Sync so we can fetch a database.
-        - DOWNLOAD_PATH=$(curl -sL "https://api.github.com/repos/uselagoon/lagoon-sync/releases/latest" | grep
-          "browser_download_url" | cut -d \" -f 4 | grep linux_amd64) && wget -O /usr/local/bin/lagoon-sync
-          $DOWNLOAD_PATH && chmod a+x /usr/local/bin/lagoon-sync
+        - DOWNLOAD_PATH=$(curl -sL "https://api.github.com/repos/uselagoon/lagoon-sync/releases/latest" | grep "browser_download_url" | cut -d \" -f 4 | grep linux_amd64) && wget -O /usr/local/bin/lagoon-sync $DOWNLOAD_PATH && chmod a+x /usr/local/bin/lagoon-sync
 
       # The UPDATE phase downloads and installs databases, assets, libraries, and dependencies.
       update:
         # Fetch the database from Lagoon and import it.
         # @TODO: Change this to rsync a pre-dumped file so we're not dumping the database on every build.
-        - lagoon-sync sync mariadb -e "${LAGOON_ENV}" --skip-target-cleanup=true --skip-target-import=true
-          --no-interaction
+        - lagoon-sync sync mariadb -e "${LAGOON_ENV}" --skip-target-cleanup=true --skip-target-import=true --no-interaction
         - zcat /tmp/lagoon_sync_mariadb_*.sql.gz | mysql tugboat
         - rm /tmp/lagoon_sync_mariadb_*.sql.gz
+    
     # Define our search engine.
     #solr:
-    #image: uselagoon/solr-8-drupal:latest
-    #image: tugboatqa/solr:8
+      #image: uselagoon/solr-8-drupal:latest
+      #image: tugboatqa/solr:8
+    
     # Define our caching service.
     #redis:
-    #image: uselagoon/redis-6:latest
-    #image: tugboatqa/redis:6
+      #image: uselagoon/redis-6:latest
+      #image: tugboatqa/redis:6
 ```
 
 Want to know more about something mentioned in the comments of this config file? Check out these topics:
