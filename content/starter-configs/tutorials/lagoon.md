@@ -4,9 +4,12 @@ date: 2023-08-03T11:00:09-04:00
 weight: 6
 ---
 
-So you'd like to start testing your Lagoon-hosted website with Tugboat. While both systems are Docker based, they use
-different architectures under the hood. This tutorial will help you configure your Lagoon project to talk to Tugboat,
-and define your Tugboat configuration to read from Lagoon and build previews of your site.
+[Lagoon](https://lagoon.sh/) is a Docker-based hosting service from our friends at [Amazee.io](https://www.amazee.io/).
+If you'd like to start testing your Lagoon-hosted website with Tugboat, follow the tutorial below.
+
+While both systems are Docker based, they use different architectures under the hood. This tutorial will help you
+configure your Lagoon project to talk to Tugboat, and define your Tugboat configuration to read from Lagoon and build
+previews of your site.
 
 ## Configure Lagoon to Talk to Tugboat
 
