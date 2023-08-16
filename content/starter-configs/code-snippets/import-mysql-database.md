@@ -1,7 +1,7 @@
 ---
 title: "Import a MySQL Database"
 date: 2019-09-19T10:59:51-04:00
-weight: 3
+weight: 1
 ---
 
 This example assumes that there is a mysqldump file available somewhere via SSH.

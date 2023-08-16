@@ -1,7 +1,7 @@
 ---
 title: "Install Node.js"
 date: 2021-10-07T14:13:47-04:00
-weight: 5
+weight: 1
 ---
 
 If you need a specific version of Node.js on an image other than the `tugboatqa/nodejs` image, we recommend using
