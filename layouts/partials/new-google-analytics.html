@@ -1,6 +1,8 @@
 {{- $pc := .Site.Config.Privacy.GoogleAnalytics -}}
 {{- if not $pc.Disable -}}
 {{ with .Site.GoogleAnalytics }}
+
+<!-- Old UA / gtag implementation. Delete after migration is complete -->
 <script type="application/javascript">
 {{ template "__ga_js_set_doNotTrack" $ }}
 if (!doNotTrack) {
@@ -29,7 +31,20 @@ if (!doNotTrack) {
 	{{ end -}}
 	{{ if $pc.AnonymizeIP }}ga('set', 'anonymizeIp', true);{{ end }}
 	ga('send', 'pageview');
+  <!-- Google tag (gtag.js) -->
 }
+</script>
+<!-- end old UA / gtag implementation -->
+<!-- New GA4 implementation -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7LBY47YH"></script>
+<script>
+  if (!doNotTrack) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1K7LBY47YH');
+  }
 </script>
 {{ end }}
 {{- end -}}
