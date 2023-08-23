@@ -106,7 +106,7 @@ services:
         #  If you rarely modify your composer.json file, this line can be moved
         #  to the `init` phase to speed up refreshes and rebuilds that use base
         #  previews.
-        #- composer install --optimize-autoloader
+        # - composer install --optimize-autoloader
 
         ## @TODO: Install the WordPress CLI utility with composer.
         #
@@ -140,8 +140,8 @@ services:
 
         # Add an SSH key to your source server if needed.  The Environment Variable
         # here can be added in the Tugboat Repository settings.
-        #- echo "${MY_PRODUCTION_SSH_KEY}" > ~/.ssh/production_ssh_key
-        #- chmod 600 ~/.ssh/production_ssh_key
+        # - echo "${MY_PRODUCTION_SSH_KEY}" > ~/.ssh/production_ssh_key
+        # - chmod 600 ~/.ssh/production_ssh_key
 
         # OPTION 1: Import a tarball from a remote source.
         #  Periodically bundling your assets on production-like server and placing
@@ -205,12 +205,14 @@ services:
         # - rm /tmp/database.sql.gz
         # OPTION 2: Sync the database directly from another environment with wp-cli.
         #  This is not the recommended option as you'll need to install wp-cli on this service
-        #  in addition to the webserver, and it performs a database dump on each build, which can be
-        #  time-consuming and expensive for big databases.
+        #  in addition to the webserver, and it performs a database dump on each build, which
+        #  can be time-consuming and expensive for big databases.
         # - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         # - chmod +x wp-cli.phar
         # - mv wp-cli.phar /usr/local/bin/wp
-        #  NOTE: This can be simplified by defining an alias for the source server in your `wp-cli.yml` file.
+
+        #  NOTE: This can be simplified by defining an alias for the source server in
+        #  your `wp-cli.yml` file.
         # - wp --allow-root --ssh=example@www.example.com:22/var/www/html/docroot/wp  db export - > prod.sql
         # - wp --allow-root db import prod.sql
         # - rm prod.sql
