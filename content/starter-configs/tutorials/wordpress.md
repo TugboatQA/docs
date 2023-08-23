@@ -57,7 +57,6 @@ to tweak a few things for your particular installation.
 For each service (php, mysql, etc) Tugboat runs three phases to build your preview:
 [init, update, and build](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained).
 
-
 ### WordPress Starter Config
 
 Copy this into `.tugboat/config.yml` and uncomment the options that fit your setup.
@@ -81,7 +80,7 @@ services:
 
     # Configure the webserver.
     commands:
-       # The INIT phase is for initializing the server itself.
+      # The INIT phase is for initializing the server itself.
       init:
         # Install prerequisite packages.
         - apt-get update
@@ -89,17 +88,17 @@ services:
 
         # Turn on URL rewriting.
         - a2enmod expires headers rewrite
- 
+
         # Install the PHP extensions.
         - docker-php-ext-install mysqli exif zip
-          
+
         ## @TODO: Install the WordPress CLI utility with Tugboat.
         #  NOTE: If you are installing this via composer, comment these lines out and
         #  follow the instructions in the `update` phase below.
         # - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         # - chmod +x wp-cli.phar
         # - mv wp-cli.phar /usr/local/bin/wp
-        
+
       # The UPDATE phase is for importing assets and dependencies.
       # When you refresh a Tugboat Preview, the process starts here, skipping `init`.
       update:
@@ -120,15 +119,13 @@ services:
         #  install the tool only when the server is configured, speeding up builds
         #  that use base previews.
 
-
         ## @TODO: Define your site's docroot.
-        # 
+        #
         # OPTION 1: WordPress is at the repo root.
         # - ln -snf "${TUGBOAT_ROOT}" "${DOCROOT}"
 
         # OPTION 2: WordPress lives in a subdirectory (in this example, 'docroot').
         # - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
-
 
         ## @TODO: Include your custom WordPress config.
         #  This will depend on your setup.  Here our default WordPress config is looking
@@ -136,12 +133,11 @@ services:
         #  Tugboat config files there.
         - cp ${TUGBOAT_ROOT}/.tugboat/wp-config.tugboat.php ${DOCROOT}/wp-config.local.php
         - cp ${TUGBOAT_ROOT}/.tugboat/.htaccess ${DOCROOT}/.htaccess
-        
-        
+
         ## @TODO: Import WordPress files (uploads).
         # Ensure the destination directory exists.
         - mkdir -p "${DOCROOT}/wp-content/uploads" || /bin/true
-          
+
         # Add an SSH key to your source server if needed.  The Environment Variable
         # here can be added in the Tugboat Repository settings.
         #- echo "${MY_PRODUCTION_SSH_KEY}" > ~/.ssh/production_ssh_key
@@ -149,16 +145,16 @@ services:
 
         # OPTION 1: Import a tarball from a remote source.
         #  Periodically bundling your assets on production-like server and placing
-        #  them somewhere Tugboat can access them can decrease build times and 
+        #  them somewhere Tugboat can access them can decrease build times and
         #  improve security.
         # - curl -O https://example.com/path/to/remote/source/uploads.tar.gz
         # - tar -C /tmp -zxf uploads.tar.gz
         # - rsync -avz --delete /tmp/uploads/ "${DOCROOT}/wp-content/uploads/"
-        
+
         # OPTION 2: Manually sync files from a remote server.
         # Adjust the port value, user credentials, and path values as needed.
         # - rsync --archive --verbose --delete \
-        #    -e "ssh -p 22 -o ConnectTimeout=120" \ 
+        #    -e "ssh -p 22 -o ConnectTimeout=120" \
         #    --exclude={'*.zip','*.gz', '*.tgz'} \
         #    example@example.com:/var/www/html/docroot/wp-content/uploads/ \
         #    "${DOCROOT}/wp-content/uploads"
@@ -180,7 +176,6 @@ services:
         # Flush WordPress Cache.
         - wp cache flush
 
-
   # Define the database server.
   # This name also acts as the hostname to access the service.
   mysql:
@@ -191,24 +186,23 @@ services:
     commands:
       # Initialize and configure the database Server.
       init: []
-      
+
       # Commands that import files, databases, or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
       # skipping the init step, because the results of that step will
       # already be present.
       update:
         ## @TODO: Import a database.
-        # 
+        #
         # OPTION 1: Fetch a dump file from a remote source.
         #  Periodically running a database dump from a production-like environment
         #  to a place where Tugboat can access it can drastically reduce build times
-        #  and the strain on the source server.  The public SSH key found in the 
+        #  and the strain on the source server.  The public SSH key found in the
         #  Tugboat Repository configuration must be added to the external server
         #  in order to use scp.
         # - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         # - zcat /tmp/database.sql.gz | mysql tugboat
         # - rm /tmp/database.sql.gz
-        
         # OPTION 2: Sync the database directly from another environment with wp-cli.
         #  This is not the recommended option as you'll need to install wp-cli on this service
         #  in addition to the webserver, and it performs a database dump on each build, which can be
@@ -216,7 +210,6 @@ services:
         # - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         # - chmod +x wp-cli.phar
         # - mv wp-cli.phar /usr/local/bin/wp
- 
         #  NOTE: This can be simplified by defining an alias for the source server in your `wp-cli.yml` file.
         # - wp --allow-root --ssh=example@www.example.com:22/var/www/html/docroot/wp  db export - > prod.sql
         # - wp --allow-root db import prod.sql
