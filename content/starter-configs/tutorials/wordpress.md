@@ -25,10 +25,9 @@ A standard WordPress configuration has a `wp-config.php` file at its root. Best 
 your repo as it contains sensitive information. If this file does exist, Tugboat will overwrite it with its own from the
 default config, so here's what we recommend:
 
-1. Copy `wp-config-sample.php` from WordPress Core to `.tugboat/wp-config.tugboat.php`.
-1. Copy any custom, non-sensitive config from your current `wp-config.php` file into your
-   `.tugboat/wp-config.tugboat.php` file.
-1. Replace the database credentials with these:
+1. Add `wp-config.tugboat.php` to your `.tugboat` directory.
+1. Add any specific config needed to your `.tugboat/wp-config.tugboat.php` file.
+1. Set these values specifically:
 
 ```php
 <?php
