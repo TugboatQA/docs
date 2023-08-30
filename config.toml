@@ -1,7 +1,6 @@
 #baseURL = "https://docs.tugboatqa.com/"
 languageCode = "en-us"
 title = "Tugboat Documentation"
-#googleAnalytics = "UA-69911960-4"
 
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
