@@ -2,7 +2,7 @@
 {{- if not $pc.Disable -}}
 {{ with .Site.GoogleAnalytics }}
 <!-- New GA4 implementation -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7LBY47YH"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
 <script>
   {{ template "__ga_js_set_doNotTrack" $ }}
   if (!doNotTrack) {
@@ -10,7 +10,7 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-1K7LBY47YH');
+    gtag('config', '{{ . }}');
     // Rollup property.
     gtag('config', 'G-R64FCH65H2');
   }
