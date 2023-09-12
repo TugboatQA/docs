@@ -38,19 +38,25 @@ services:
 
         # Download the Diffy CLI tool, and authenticate. The latest version can be
         # found at https://github.com/DiffyWebsite/diffy-cli/releases
-        - curl -L https://github.com/DiffyWebsite/diffy-cli/releases/download/0.1.2/diffy.phar -o /usr/local/bin/diffy
+        - curl -L https://github.com/DiffyWebsite/diffy-cli/releases/download/0.1.33/diffy.phar -o /usr/local/bin/diffy
         - chmod +x /usr/local/bin/diffy
-        - diffy auth:login $DIFFY_API_KEY
+        - diffy auth:login ${DIFFY_API_KEY}
 
         # Clean up after apt-get, if it was used
         #- apt-get clean
         #- rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
       online:
-        # Compare this service with production
-        - diffy project:compare $DIFFY_PROJECT_ID prod custom --env2Url=$TUGBOAT_SERVICE_URL
+        # If you would like to compare this service with production
+        - diffy project:compare ${DIFFY_PROJECT_ID} prod custom --env2Url="${TUGBOAT_SERVICE_URL}"
+          --commit-sha=${TUGBOAT_PREVIEW_SHA}
 
-        # Compare this service with the base preview
-        - if [ "x$TUGBOAT_BASE_PREVIEW_URL" != "x" ]; then diffy project:compare $DIFFY_PROJECT_ID custom custom
-          --env1Url=$TUGBOAT_BASE_PREVIEW_URL --env2Url=$TUGBOAT_SERVICE_URL; fi
+        # If you would like to compare this service with its base preview
+        - |
+          if [[ -n "$TUGBOAT_BASE_PREVIEW_URL" ]]; then
+            diffy project:compare $DIFFY_PROJECT_ID custom custom \
+              --env1Url=$TUGBOAT_BASE_PREVIEW_URL \
+              --env2Url=$TUGBOAT_SERVICE_URL \
+              --commit-sha=${TUGBOAT_PREVIEW_SHA}
+          fi
 ```
