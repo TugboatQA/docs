@@ -49,7 +49,7 @@ on the Testery setup:
 ```yaml
 services:
   php:
-    image: tugboatqa/php:7-apache
+    image: tugboatqa/php:8.1-apache
     default: true
     depends: mysql
     # A set of commands to run while building this service

@@ -1,7 +1,8 @@
 #baseURL = "https://docs.tugboatqa.com/"
 languageCode = "en-us"
 title = "Tugboat Documentation"
-#googleAnalytics = "UA-69911960-4"
+# Uncomment the following to enable GA.
+#googleAnalytics = "G-1K7LBY47YH"
 
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
@@ -11,19 +12,15 @@ theme = "hugo-theme-learn"
 home = [ "HTML", "RSS", "JSON"]
 
 [params]
-
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
-
   themeVariant = "tugboat"
 
   # Set this to true to disable copy-to-clipboard button for inline code.
-
   disableInlineCopyToClipBoard = true
 
   editURL = "https://github.com/TugboatQA/docs/edit/main/content/"
 
 # Set Twitter card defaults for documentation site
-
 [params.twitterCard]
     card = "summary"
     image = "https://docs.tugboatqa.com/_images/twitter-card-summary-image.png"

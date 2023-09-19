@@ -55,8 +55,8 @@ comments to explain what's going on:
 ```yaml
 services:
   php:
-    # Use PHP 7.1 with Apache to serve the Drupal site
-    image: tugboatqa/php:7.1-apache
+    # This uses PHP 8.1.x with Apache: update to match your version of PHP
+    image: tugboatqa/php:8.1-apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container

@@ -13,8 +13,8 @@ file is for a [Drupal 8](/starter-configs/tutorials/drupal-8/) site, but you can
 services:
   # What to call the service hosting the site.
   php:
-    # Use PHP 7.x with Apache to serve a Drupal 8 site
-    image: tugboatqa/php:7-apache
+    # Use PHP 8.1.x with Apache to serve a Drupal 8 site
+    image: tugboatqa/php:8.1-apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container

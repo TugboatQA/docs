@@ -14,7 +14,7 @@ register for an account on Tenon.io and add your Tenon API Key to Tugboat as a
 ```yaml
 services:
   php:
-    image: tugboatqa/php:7-apache
+    image: tugboatqa/php:8.1-apache
 
     commands:
       init:
