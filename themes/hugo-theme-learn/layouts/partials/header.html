@@ -23,7 +23,7 @@
     {{end}}
 
     <script src="{{"js/jquery-3.3.1.min.js"| relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}"></script>
-    <script src="https://raw.githubusercontent.com/github/docs/774c5d0d9d75f4e62296e1b007c22e4f99010cda/src/content-render/unified/annotate.js"></script>
+    <script src="{{"js/annotate.js"| relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
