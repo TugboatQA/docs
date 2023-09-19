@@ -11,8 +11,8 @@ requirements, so you may need to do more customizing, but this should get you st
 
 We'll provide 2 sets of instructions below for configuring your WordPress site to work with Tugboat:
 
-- One placing WordPress Core at the repo root,
-- and one with WordPress Core in a subdirectory (recommended).
+- Where WordPress Core is committed at the root of your repo,
+- and where WordPress is installed using Composer into a subdirectory.
 
 When you copy the config file below, make sure you follow the instructions to adjust the config to your setup.
 
