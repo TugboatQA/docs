@@ -63,7 +63,7 @@ There are two starter configs provided here.  Copy the appropriate one into `.tu
 
 #### A. Without Composer
 
-```yaml
+```yaml annotate
 services:
   # Define our webserver service.
   php:
