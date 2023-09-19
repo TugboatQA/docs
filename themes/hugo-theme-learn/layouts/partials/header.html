@@ -23,6 +23,7 @@
     {{end}}
 
     <script src="{{"js/jquery-3.3.1.min.js"| relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}"></script>
+    <script src="https://raw.githubusercontent.com/github/docs/774c5d0d9d75f4e62296e1b007c22e4f99010cda/src/content-render/unified/annotate.js"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -71,7 +72,7 @@
                  {{if $showBreadcrumb}}
                     {{ template "breadcrumb" dict "page" . "value" .Title }}
                  {{ else }}
-                   {{ .Title }} 
+                   {{ .Title }}
                  {{ end }}
                   </span>
                 </div>
@@ -101,7 +102,7 @@
           {{$parent := .page.Parent }}
           {{ if $parent }}
             {{ $value := (printf "<a href='%s'>%s</a> > %s" $parent.RelPermalink $parent.Title .value) }}
-            {{ template "breadcrumb" dict "page" $parent "value" $value }} 
+            {{ template "breadcrumb" dict "page" $parent "value" $value }}
           {{else}}
             {{.value|safeHTML}}
           {{end}}
