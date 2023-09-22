@@ -7,7 +7,7 @@ weight: 6
 [Lagoon](https://lagoon.sh/) is a Docker-based hosting service from our friends at [Amazee.io](https://www.amazee.io/).
 If you'd like to start testing your Lagoon-hosted website with Tugboat, follow the tutorial below.
 
-While both systems are Docker based, they use different architectures under the hood. This tutorial will help you
+While both systems are Docker-based, they use different architectures under the hood. This tutorial will help you
 configure your Lagoon project to talk to Tugboat, and define your Tugboat configuration to read from Lagoon and build
 previews of your site.
 
@@ -15,7 +15,7 @@ previews of your site.
 
 ### Steps
 
-1. Find and copy for Tugboat SSH key
+1. Find and copy your [Tugboat Repository SSH key](/setting-up-tugboat/select-repo-settings/#set-up-remote-ssh-access)
 2. Add it to your SSH keys in Lagoon
 
 ### Details
@@ -77,9 +77,6 @@ Copy this starter config into your `.tugboat/config.yml` file then make the nece
 services:
   # Define our standard webserver.
   webserver:
-    #image: uselagoon/php-8.1-cli-drupal:latest
-    #image: uselagoon/nginx-drupal:latest
-    #image: uselagoon/php-8.1-fpm:latest
     image: tugboatqa/php-nginx:8.1-fpm
 
     # Set this service as the default to handle HTTP requests.
@@ -131,10 +128,6 @@ services:
         # Use the tugboat-specific Drupal settings.
         - ln -snf "${TUGBOAT_ROOT}/.tugboat/settings.tugboat.php" "${DOCROOT}/sites/default/settings.local.php"
 
-        # Symlink your custom code into Drupal's installation.
-        #- ln -snf "${TUGBOAT_ROOT}/custom/themes" "${DOCROOT}/themes/custom"
-        #- ln -snf "${TUGBOAT_ROOT}/custom/modules" "${DOCROOT}/modules/custom"
-
         # Set public file permissions such that Drupal will not complain.
         # A translations folder is needed to enable Stage File Proxy.
         - mkdir -p "${DOCROOT}/sites/default/files/translations"
@@ -165,7 +158,6 @@ services:
 
   # Define our database service.
   database:
-    #image: uselagoon/mariadb-10.6-drupal:latest
     image: tugboatqa/mariadb:10.6
 
     # Checkout the codebase so we have access to the .lagoon.yml file to sync the DB.
@@ -192,7 +184,7 @@ services:
       # The UPDATE phase downloads and installs databases, assets, libraries, and dependencies.
       update:
         # Fetch the database from Lagoon and import it.
-        # @TODO: Change this to rsync a pre-dumped file so we're not dumping the database on every build.
+        # @TODO: Change this to rsync a pre-dumped file so we're not dumping the database on every Refresh.
         - lagoon-sync sync mariadb -e "${LAGOON_ENV}" --skip-target-cleanup=true --skip-target-import=true
           --no-interaction
         - zcat /tmp/lagoon_sync_mariadb_*.sql.gz | mysql tugboat
