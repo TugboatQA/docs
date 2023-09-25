@@ -7,7 +7,7 @@ weight: 1
 Wondering how to configure Tugboat for a typical Drupal 10 repository? Every Drupal site tends to have slightly
 different requirements, so you may need to do more customizing, but this should get you started.
 
-The following documentation assumes you are using Composer to manage your Drupal 9 project (typically with either the
+The following documentation assumes you are using Composer to manage your Drupal 10 project (typically with either the
 `drupal/recommended-project` or the `drupal-composer/drupal-project` projects).
 
 ## Configure Drupal
@@ -42,6 +42,7 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
+
 // Use the TUGBOAT_REPO_ID to generate a hash salt for Tugboat sites.
 $settings['hash_salt'] = hash('sha256', getenv('TUGBOAT_REPO_ID'));
 ```
@@ -93,10 +94,10 @@ services:
         - composer install --optimize-autoloader
 
         # Use the tugboat-specific Drupal settings.
-        - cp "${TUGBOAT_ROOT}/.tugboat/default.settings.php" "${DOCROOT}/sites/default/settings.php"
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
 
         # A common practice in many Drupal projects is to store the config and
-        # private files outside of the Drupal root. If that's the case for your
+        # private files outside the Drupal root. If that's the case for your
         # project, you can either specify the absolute paths to those
         # directories in your settings.local.php, or you can symlink them in
         # here. Here is an example of the latter option:
