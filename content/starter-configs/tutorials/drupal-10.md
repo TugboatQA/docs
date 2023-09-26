@@ -55,9 +55,9 @@ comments to explain what's going on:
 
 ```yaml
 services:
-  # What to call the service hosting the site.
+  # Define the webserver service.
   php:
-    # This uses PHP 8.1.x with Apache: update to match your version of PHP
+    # This uses PHP 8.1.x with Apache: update to match your version of PHP.
     image: tugboatqa/php:8.1-apache
 
     # Set this as the default service. This does a few things
@@ -71,7 +71,7 @@ services:
 
     # A set of commands to run while building this service
     commands:
-      # Commands that set up the basic preview infrastructure
+      # The INIT command configures the webserver.
       init:
         # Install opcache and mod-rewrite.
         - docker-php-ext-install opcache
