@@ -59,7 +59,8 @@ For each service (php, mysql, etc) Tugboat runs three phases to build your previ
 
 ### WordPress Starter Config
 
-There are two starter configs provided here.  Copy the appropriate one into `.tugboat/config.yml` and uncomment the options that fit your setup.
+There are two starter configs provided here. Copy the appropriate one into `.tugboat/config.yml` and uncomment the
+options that fit your setup.
 
 #### A. Without Composer
 
@@ -186,7 +187,6 @@ services:
         # - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         # - zcat /tmp/database.sql.gz | mysql tugboat
         # - rm /tmp/database.sql.gz
-
         # OPTION 2: Sync the database directly from another environment with wp-cli.
         #  This is not the recommended option as you'll need to install wp-cli on this service
         #  in addition to the webserver, and it performs a database dump on each build, which
@@ -194,7 +194,6 @@ services:
         # - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         # - chmod +x wp-cli.phar
         # - mv wp-cli.phar /usr/local/bin/wp
-
         #  NOTE: This can be simplified by defining an alias for the source server in
         #  your `wp-cli.yml` file.
         # - wp --allow-root --ssh=example@www.example.com:22/var/www/html/docroot/wp  db export - > prod.sql
@@ -333,7 +332,6 @@ services:
         # - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         # - zcat /tmp/database.sql.gz | mysql tugboat
         # - rm /tmp/database.sql.gz
-
         # OPTION 2: Sync the database directly from another environment with wp-cli.
         #  This is not the recommended option as you'll need to install wp-cli on this service
         #  in addition to the webserver, and it performs a database dump on each build, which
@@ -341,7 +339,6 @@ services:
         # - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         # - chmod +x wp-cli.phar
         # - mv wp-cli.phar /usr/local/bin/wp
-
         #  NOTE: This can be simplified by defining an alias for the source server in
         #  your `wp-cli.yml` file.
         # - wp --allow-root --ssh=example@www.example.com:22/var/www/html/docroot/wp  db export - > prod.sql
