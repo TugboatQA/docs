@@ -37,7 +37,7 @@ $databases['default']['default'] = array (
   'username' => 'tugboat',
   'password' => 'tugboat',
   'prefix' => '',
-  'host' => 'mysql',
+  'host' => 'database',
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
@@ -54,95 +54,11 @@ The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create
 comments to explain what's going on:
 
 ```yaml
+# Default Drupal 10 Tugboat starter config.
+# https://docs.tugboatqa.com/starter-configs/tutorials/drupal-10/
 services:
-  # Define the webserver service.
-  php:
-    # This uses PHP 8.1.x with Apache: update to match your version of PHP.
-    image: tugboatqa/php:8.1-apache
-
-    # Set this as the default service. This does a few things
-    #   1. Clones the git repository into the service container
-    #   2. Exposes port 80 to the Tugboat HTTP proxy
-    #   3. Routes requests to the preview URL to this service
-    default: true
-
-    # Wait until the mysql service is done building
-    depends: mysql
-
-    # A set of commands to run while building this service
-    commands:
-      # The INIT command configures the webserver.
-      init:
-        # Install opcache and mod-rewrite.
-        - docker-php-ext-install opcache
-        - a2enmod headers rewrite
-
-        # Link the document root to the expected path. This example links /web
-        # to the docroot.
-        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
-
-        # Create the Drupal private files and config directories if they aren't
-        # already present.
-        - mkdir -p "${TUGBOAT_ROOT}/files-private" "${TUGBOAT_ROOT}/config"
-
-      # Commands that import files, databases,  or other assets. When an
-      # existing preview is refreshed, the build workflow starts here,
-      # skipping the init step, because the results of that step will
-      # already be present.
-      update:
-        # Install/update packages managed by composer, including drush.
-        - composer install --optimize-autoloader
-
-        # Use the tugboat-specific Drupal settings.
-        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
-
-        # A common practice in many Drupal projects is to store the config and
-        # private files outside the Drupal root. If that's the case for your
-        # project, you can either specify the absolute paths to those
-        # directories in your settings.local.php, or you can symlink them in
-        # here. Here is an example of the latter option:
-        - ln -snf "${TUGBOAT_ROOT}/files-private" "${DOCROOT}/../files-private"
-
-        # TODO: Map custom modules and themes into the Drupal structure.
-        #- ln -snf "${TUGBOAT_ROOT}/custom/themes" "${DOCROOT}/themes/custom"
-        #- ln -snf "${TUGBOAT_ROOT}/custom/modules" "${DOCROOT}/modules/custom"
-
-        # Set up the Drupal public files directory.
-        - mkdir -p "${DOCROOT}/sites/default/files"
-        - chgrp -R www-data "${DOCROOT}/sites/default/files"
-
-        # TODO: Copy Drupal's public files directory from an external server. The
-        # public SSH key found in the Tugboat Repository configuration must be
-        # copied to the external server in order to use rsync over SSH.
-        - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"       
-        
-        # Set the file permissions to keep Drupal from yelling.
-        - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
-        - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
-
-        # Alternatively, another common practice is to use the
-        # stage_file_proxy Drupal module. This module lets Drupal serve
-        # files from another publicly-accessible Drupal site instead of
-        # syncing the entire files directory into the Tugboat Preview.
-        # This results in smaller previews and reduces the build time.
-        - composer require --dev drupal/stage_file_proxy
-        - vendor/bin/drush pm:enable --yes stage_file_proxy
-        - vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
-
-      # Commands that build the site. This is where you would add things
-      # like feature reverts or any other drush commands required to
-      # set up or configure the site. When a preview is built from a
-      # base preview, the build workflow starts here, skipping the init
-      # and update steps, because the results of those are inherited
-      # from the base preview.
-      build:
-        - vendor/bin/drush cache:rebuild
-        - vendor/bin/drush config:import -y
-        - vendor/bin/drush updatedb -y
-        - vendor/bin/drush cache:rebuild
-
-  # This 'mysql' key acts as the hostname to access the service by from the php service.
-  mysql:
+  # Define the database service.
+  database:
     # Use the latest available 5.x version of MySQL
     image: tugboatqa/mariadb:10.5
 
@@ -166,6 +82,94 @@ services:
         - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz
+
+      # Run any commands needed to prepare the site.  This is generally not needed
+      # for database services.
+      build: []
+
+  # Define the webserver service.
+  webserver:
+    # This uses PHP 8.1.x with Apache: update to match your version of PHP.
+    image: tugboatqa/php:8.1-apache
+
+    # Set this as the default service. This does a few things
+    #   1. Clones the git repository into the service container
+    #   2. Exposes port 80 to the Tugboat HTTP proxy
+    #   3. Routes requests to the preview URL to this service
+    default: true
+
+    # Wait until the mysql service is done building.
+    depends: database
+
+    # A set of commands to run while building this service
+    commands:
+      # The INIT command configures the webserver.
+      init:
+        # Install opcache and mod-rewrite.
+        - docker-php-ext-install opcache
+        - a2enmod headers rewrite
+
+        # Link the document root to the expected path. This example links /web
+        # to the docroot.
+        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+
+        # Create any required directories that don't exist.
+        # - mkdir -p "${TUGBOAT_ROOT}/files-private"
+
+      # Commands that import files, databases,  or other assets. When an
+      # existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
+      update:
+        # Install/update packages managed by composer, including drush and Stage File Proxy.
+        - composer install --optimize-autoloader
+        - composer require --dev drupal/stage_file_proxy
+
+        # Set the tugboat-specific Drupal settings.
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
+
+        # A common practice in many Drupal projects is to store the config and
+        # private files outside the Drupal root. If that's the case for your
+        # project, you can either specify the absolute paths to those
+        # directories in your settings.local.php, or you can symlink them in
+        # here. Here is an example of the latter option:
+        - ln -snf "${TUGBOAT_ROOT}/files-private" "${DOCROOT}/../files-private"
+
+        # Map your custom modules and themes into the Drupal structure.
+        #- ln -snf "${TUGBOAT_ROOT}/custom/themes" "${DOCROOT}/themes/custom"
+        #- ln -snf "${TUGBOAT_ROOT}/custom/modules" "${DOCROOT}/modules/custom"
+
+        # Make sure our files and translations folders exists and are writable.
+        - mkdir -p "${DOCROOT}/sites/default/files/translations"
+        - chgrp -R www-data "${DOCROOT}/sites/default/files"
+        - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
+        - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
+
+        # Optional: Copy Drupal's public files directory from an external server. The
+        # public SSH key found in the Tugboat Repository configuration must be
+        # copied to the external server in order to use rsync over SSH.  More commonly
+        # we use Stage File Proxy, which we enable in the `build` step below.
+        - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
+
+      # Commands that build the site. This is where you would add things
+      # like feature reverts or any other drush commands required to
+      # set up or configure the site. When a preview is built from a
+      # base preview, the build workflow starts here, skipping the init
+      # and update steps, because the results of those are inherited
+      # from the base preview.
+      build:
+        # Install new configuration and database updates.
+        - vendor/bin/drush cache:rebuild
+        - vendor/bin/drush config:import -y
+        - vendor/bin/drush updatedb -y
+
+        # If you are downloading your files from a remove server, you won't need
+        # to enable Stage File Proxy.
+        - vendor/bin/drush pm:enable --yes stage_file_proxy
+        - vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
+
+        # One last cache rebuild.
+        - vendor/bin/drush cache:rebuild
 ```
 
 Want to know more about something mentioned in the comments of this config file? Check out these topics:
