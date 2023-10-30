@@ -160,8 +160,8 @@ services:
       build:
         # Install new configuration and database updates.
         - vendor/bin/drush cache:rebuild
-        - vendor/bin/drush config:import -y
-        - vendor/bin/drush updatedb -y
+        - vendor/bin/drush config:import --yes
+        - vendor/bin/drush updatedb --yes
 
         # If you are downloading your files from a remove server, you won't need
         # to enable Stage File Proxy.
