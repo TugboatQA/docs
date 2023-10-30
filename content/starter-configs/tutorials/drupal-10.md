@@ -167,6 +167,7 @@ services:
         # to enable Stage File Proxy.
         - vendor/bin/drush pm:enable --yes stage_file_proxy
         - vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
+        - vendor/bin/drush config:set --yes stage_file_proxy.settings origin_dir "sites/default/files"
 
         # One last cache rebuild.
         - vendor/bin/drush cache:rebuild
