@@ -45,7 +45,7 @@ custom Lighthouse configuration, to tweak audit scoring or add custom checks, yo
 configuration object to use when generating reports.
 
 Check out
-[the `GoogleChrome/Lighthouse` blob on GitHub](https://github.com/GoogleChrome/lighthouse/blob/HEAD/docs/configuration.md)
+[the `GoogleChrome/Lighthouse` blob on GitHub](https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md)
 for more information about creating a custom Lighthouse config.
 
 ```yaml
