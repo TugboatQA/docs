@@ -82,7 +82,7 @@ services:
         - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
 
         # A common practice in many Drupal projects is to store the config and
-        # private files outside of the Drupal root. If that's the case for your
+        # private files outside the Drupal root. If that's the case for your
         # project, you can either specify the absolute paths to those
         # directories in your settings.local.php, or you can symlink them in
         # here. Here is an example of the latter option:
