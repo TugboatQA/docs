@@ -45,6 +45,16 @@ $databases['default']['default'] = array (
 
 // Use the TUGBOAT_REPO_ID to generate a hash salt for Tugboat sites.
 $settings['hash_salt'] = hash('sha256', getenv('TUGBOAT_REPO_ID'));
+
+// If your Drupal config directory is outside of the Drupal web root, it's
+// recommended to uncomment and adapt the following. Note: the TUGBOAT_ROOT
+// environment variable is equivalent to the git repo root.
+# $settings['config_sync_directory'] = getenv('TUGBOAT_ROOT') . '/config';
+
+// If you are using private files, and that directory is outside of the Drupal
+// web root, it's recommended to uncomment and adapt the following. Note: the
+// TUGBOAT_ROOT environment variable is equivalent to the git repo root.
+# $settings['file_private_path'] = getenv('TUGBOAT_ROOT') . '/files-private';
 ```
 
 ## Configure Tugboat
@@ -127,13 +137,6 @@ services:
 
         # Set the tugboat-specific Drupal settings.
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
-
-        # A common practice in many Drupal projects is to store the config and
-        # private files outside the Drupal root. If that's the case for your
-        # project, you can either specify the absolute paths to those
-        # directories in your settings.local.php, or you can symlink them in
-        # here. Here is an example of the latter option:
-        - ln -snf "${TUGBOAT_ROOT}/files-private" "${DOCROOT}/../files-private"
 
         # Map your custom modules and themes into the Drupal structure.
         #- ln -snf "${TUGBOAT_ROOT}/custom/themes" "${DOCROOT}/themes/custom"
