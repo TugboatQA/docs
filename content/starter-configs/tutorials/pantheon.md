@@ -190,9 +190,8 @@ services:
         # already present.
         - mkdir -p "${TUGBOAT_ROOT}/files-private" "${DOCROOT}/sites/default/files"
 
-        # Install drush-launcher
-        - wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
-        - chmod +x /usr/local/bin/drush
+        # If desired, create a global drush symlink
+        - ln -snf "${TUGBOAT_ROOT}/vendor/bin/drush" /usr/local/bin/drush
 
         # Install the latest version of terminus as standalone to avoid OOMs.
         # https://pantheon.io/docs/terminus/install#standalone-terminus-phar
