@@ -56,27 +56,15 @@ as run-time configuration files, etc.
 If a Service has an exposed HTTP port configured, the following variables are also available with information about the
 Service's public URL
 
-- **`$TUGBOAT_SERVICE_TOKEN`** - The authentication token for the Tugboat Service. This is used by the Tugboat HTTP
-  proxy to grant access to a Service and is passed through mostly as an informational value. Additional verification
-  could be done in the application if necessary.
-
-- **`$TUGBOAT_SERVICE_URL`** - The full URL of the current Service.  
-  _**Ex:**_ ``
-
-- **`$TUGBOAT_SERVICE_URL_PROTOCOL`** - The "protocol" part of the current service's URL.  
-  _**Ex:**_ ``
-
-- **`$TUGBOAT_SERVICE_URL_HOST`** - The "host" part of the current service's URL.  
-  _**Ex:**_ ``
-
-- **`$TUGBOAT_SERVICE_URL_PATH`** - The "path" part of the current service's URL.  
-  _**Ex:**_ ``
-
-- **`$TUGBOAT_SERVICE_CONFIG_ALIASES`** - A comma-separated list of aliases configured for the current service.  
-  _**Ex:**_ ``
-
-- **`$TUGBOAT_SERVICE_CONFIG_DOMAIN`** - The configured domain for the current service.  
-  _**Ex:**_ ``
+| Variable Name                         | Description                                                                                                                                                                                                                                          | Example Value                                                 |
+|---------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------|
+| **`$TUGBOAT_SERVICE_TOKEN`**          | The authentication token for the Tugboat Service. This is used by the Tugboat HTTP proxy to grant access to a Service and is passed through mostly as an informational value. Additional verification could be done in the application if necessary. | `t8ag0o7dzbw3ullyv41eg6e6jewzpqhe`                            |
+| **`$TUGBOAT_SERVICE_URL`**            | The full URL of the current Service.                                                                                                                                                                                                                 | `https://pr2-t8ag0o7dzbw3ullyv41eg6e6jewzpqhe.tugboatqa.com/` |
+| **`$TUGBOAT_SERVICE_URL_PROTOCOL`**   | The "protocol" part of the current service's URL.                                                                                                                                                                                                    | `https`                                                       |
+| **`$TUGBOAT_SERVICE_URL_HOST`**       | The "host" part of the current service's URL.                                                                                                                                                                                                        | `pr2-t8ag0o7dzbw3ullyv41eg6e6jewzpqhe.tugboatqa.com`          |
+| **`$TUGBOAT_SERVICE_URL_PATH`**       | The "path" part of the current service's URL.                                                                                                                                                                                                        | `/`                                                           |
+| **`$TUGBOAT_SERVICE_CONFIG_ALIASES`** | A comma-separated list of aliases configured for the current service.                                                                                                                                                                                | `foo,bar,storybook`                                           |
+| **`$TUGBOAT_SERVICE_CONFIG_DOMAIN`**  | The configured domain for the current service.                                                                                                                                                                                                       | `tugboatqa.com`                                               |
 
 ## Base Preview Environment Variables
 
