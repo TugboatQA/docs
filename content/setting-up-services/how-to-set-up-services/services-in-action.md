@@ -6,14 +6,46 @@ weight: 11
 
 Now that we've gone through all the components you'll need to set up Services for your Tugboat, let's take a look at an
 example [config file](/setting-up-tugboat/create-a-tugboat-config-file/) so you can see Services in action. This config
-file is for a [Drupal 8](/starter-configs/tutorials/drupal-8/) site, but you can check out our
+file is for a [Drupal 10](/starter-configs/tutorials/drupal-10/) site, but you can check out our
 [starter configuration files](/starter-configs/) to see if we've got a code example to kick-start your setup.
 
 ```yaml
+# Default Drupal 10 Tugboat starter config.
+# https://docs.tugboatqa.com/starter-configs/tutorials/drupal-10/
 services:
-  # What to call the service hosting the site.
-  php:
-    # Use PHP 8.1.x with Apache to serve a Drupal 8 site
+  # Define the database service.
+  database:
+    # Use the latest available 5.x version of MySQL
+    image: tugboatqa/mariadb:10.5
+
+    # A set of commands to run while building this service
+    commands:
+      # Configure the server for the site to run on.
+      init:
+        # Increase the allowed packet size to 512MB.
+        - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
+        # Ensure this packet size persists even if MySQL restarts.
+        - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
+
+      # Commands that import files, databases,  or other assets. When an
+      # existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
+      update:
+        # TODO: Copy a database dump from an external server. The public
+        # SSH key found in the Tugboat Repository configuration must be
+        # copied to the external server in order to use scp.
+        - scp user@example.com:database.sql.gz /tmp/database.sql.gz
+        - zcat /tmp/database.sql.gz | mysql tugboat
+        - rm /tmp/database.sql.gz
+
+      # Run any commands needed to prepare the site.  This is generally not needed
+      # for database services.
+      build: []
+
+  # Define the webserver service.
+  webserver:
+    # This uses PHP 8.1.x with Apache: update to match your version of PHP.
     image: tugboatqa/php:8.1-apache
 
     # Set this as the default service. This does a few things
@@ -22,55 +54,51 @@ services:
     #   3. Routes requests to the preview URL to this service
     default: true
 
-    # Wait until the mysql service is done building
-    depends: mysql
+    # Wait until the mysql service is done building.
+    depends: database
 
     # A set of commands to run while building this service
     commands:
-      # Commands that set up the basic preview infrastructure
+      # The INIT command configures the webserver.
       init:
-        # Install opcache and enable mod-rewrite.
+        # Install opcache and mod-rewrite.
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
 
-        # Install drush-launcher
-        - wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
-        - chmod +x /usr/local/bin/drush
-
         # Link the document root to the expected path. This example links /web
-        # to the docroot
+        # to the docroot.
         - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+
+        # Create any required directories that don't exist.
+        # - mkdir -p "${TUGBOAT_ROOT}/files-private"
 
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-        # Use the tugboat-specific Drupal settings
-        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
+        # Install/update packages managed by composer, including drush and Stage File Proxy.
+        - composer install --optimize-autoloader
+        - composer require --dev drupal/stage_file_proxy
 
-        # Generate a unique hash_salt to secure the site
-        - echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >> "${DOCROOT}/sites/default/settings.local.php"
+        # Set the tugboat-specific Drupal settings.
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
 
-        # Install/update packages managed by composer, including drush
-        - composer install --no-ansi
+        # Map your custom modules and themes into the Drupal structure.
+        #- ln -snf "${TUGBOAT_ROOT}/custom/themes" "${DOCROOT}/themes/custom"
+        #- ln -snf "${TUGBOAT_ROOT}/custom/modules" "${DOCROOT}/modules/custom"
 
-        # Copy the files directory from an external server. The public
-        # SSH key found in the Tugboat Repository configuration must be
-        # copied to the external server in order to use rsync over SSH.
-        - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
+        # Make sure our files and translations folders exists and are writable.
+        - mkdir -p "${DOCROOT}/sites/default/files/translations"
         - chgrp -R www-data "${DOCROOT}/sites/default/files"
         - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
         - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
 
-        # Alternatively, another common practice is to use the
-        # stage_file_proxy Drupal module. This module lets Drupal serve
-        # files from another publicly-accessible Drupal site instead of
-        # syncing the entire files directory into the Tugboat Preview.
-        # This results in smaller previews and reduces the build time.
-        - drush -r "${DOCROOT}" pm-download stage_file_proxy
-        - drush -r "${DOCROOT}" pm-enable --yes stage_file_proxy
-        - drush -r "${DOCROOT}" variable-set stage_file_proxy_origin "http://www.example.com"
+        # Optional: Copy Drupal's public files directory from an external server. The
+        # public SSH key found in the Tugboat Repository configuration must be
+        # copied to the external server in order to use rsync over SSH.  More commonly
+        # we use Stage File Proxy, which we enable in the `build` step below.
+        - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
 
       # Commands that build the site. This is where you would add things
       # like feature reverts or any other drush commands required to
@@ -79,26 +107,17 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
-        - drush -r "${DOCROOT}" cache-rebuild
-        - drush -r "${DOCROOT}" updb -y
+        # Install new configuration and database updates.
+        - vendor/bin/drush cache:rebuild
+        - vendor/bin/drush config:import --yes
+        - vendor/bin/drush updatedb --yes
 
-  # What to call the service hosting MySQL. This name also acts as the
-  # hostname to access the service by from the php service.
-  mysql:
-    # Use the latest available 5.x version of MySQL
-    image: tugboatqa/mysql:5-debian
+        # If you are downloading your files from a remove server, you won't need
+        # to enable Stage File Proxy.
+        - vendor/bin/drush pm:enable --yes stage_file_proxy
+        - vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
+        - vendor/bin/drush config:set --yes stage_file_proxy.settings origin_dir "sites/default/files"
 
-    # A set of commands to run while building this service
-    commands:
-      # Commands that import files, databases,  or other assets. When an
-      # existing preview is refreshed, the build workflow starts here,
-      # skipping the init step, because the results of that step will
-      # already be present.
-      update:
-        # Copy a database dump from an external server. The public
-        # SSH key found in the Tugboat Repository configuration must be
-        # copied to the external server in order to use scp.
-        - scp user@example.com:database.sql.gz /tmp/database.sql.gz
-        - zcat /tmp/database.sql.gz | mysql tugboat
-        - rm /tmp/database.sql.gz
+        # One last cache rebuild.
+        - vendor/bin/drush cache:rebuild
 ```
