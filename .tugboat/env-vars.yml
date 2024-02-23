@@ -104,40 +104,46 @@ sections:
       - name: "Bitbucket"
         vars:
           - name: "TUGBOAT_BITBUCKET_OWNER"
-            #override: "TUGBOAT_GITHUB_OWNER"
+            override: "TUGBOAT_GITHUB_OWNER"
             desc: "The owner of the Bitbucket repository."
 
           - name: "TUGBOAT_BITBUCKET_SLUG"
             desc: "The URL-friendly name of the Bitbucket repository. See https://confluence.atlassian.com/bitbucket/what-is-a-slug-224395839.html"
+            override: "TUGBOAT_GITHUB_REPO"
 
           - name: "TUGBOAT_BITBUCKET_PR"
-            #override: "TUGBOAT_GITHUB_PR"
+            override: "TUGBOAT_GITHUB_PR"
             desc: "**PRs Only** - The Bitbucket pull request number."
 
           - name: "TUGBOAT_BITBUCKET_TITLE"
-            #override: "TUGBOAT_GITHUB_TITLE"
+            override: "TUGBOAT_GITHUB_TITLE"
             desc: "**PRs Only** - The title of the Bitbucket pull request."
 
           - name: "TUGBOAT_BITBUCKET_SOURCE"
             desc: "**PRs Only** - The name of the pull request source branch."
-            #override: "TUGBOAT_GITHUB_HEAD"
+            override: "TUGBOAT_GITHUB_HEAD"
 
           - name: "TUGBOAT_BITBUCKET_DESTINATION"
             desc: "**PRs Only** - The name of the pull request destination branch."
-            #override: "TUGBOAT_GITHUB_BASE"
+            override: "TUGBOAT_GITHUB_BASE"
 
       - name: "GitHub"
         vars: 
           - name: "TUGBOAT_GITHUB_OWNER"
             desc: "The owner of the GitHub repository."
+
           - name: "TUGBOAT_GITHUB_REPO"
             desc: "The name of the GitHub repository.  "
+
           - name: "TUGBOAT_GITHUB_PR"
             desc: "**PRs Only** - The GitHub pull request number."
+
           - name: "TUGBOAT_GITHUB_TITLE"
             desc: "**PRs Only** - The title of the GitHub pull request."
+
           - name: "TUGBOAT_GITHUB_HEAD"
             desc: "**PRs Only** - The name of the pull request head branch."
+
           - name: "TUGBOAT_GITHUB_BASE"
             desc: "**PRs Only** - The name of the pull request base branch."
 
@@ -145,28 +151,50 @@ sections:
         vars:
           - name: "TUGBOAT_GITLAB_NAMESPACE"
             desc: "The namespace of the GitLab repository."
+            override: "TUGBOAT_GITHUB_OWNER"
+
           - name: "TUGBOAT_GITLAB_PROJECT"
             desc: "The project name of the GitLab repository."
+            override: "TUGBOAT_GITHUB_REPO"
+
           - name: "TUGBOAT_GITLAB_MR"
             desc: "**MRs Only** - The GitLab merge request number."
+            override: "TUGBOAT_GITHUB_PR"
+
           - name: "TUGBOAT_GITLAB_TITLE"
             desc: "**MRs Only** - The title of the GitLab merge request."
+            override: "TUGBOAT_GITHUB_TITLE"
+
           - name: "TUGBOAT_GITLAB_SOURCE"
             desc: "**MRs Only** - The name of the merge request source branch."
+            override: "TUGBOAT_GITHUB_HEAD"
+
           - name: "TUGBOAT_GITLAB_TARGET"
             desc: "**MRs Only** - The name of the merge request target branch."
+            override: "TUGBOAT_GITHUB_BASE"
 
       - name: "Stash / Bitbucket Server"
         vars:
           - name: "TUGBOAT_STASH_PROJECT"
             desc: "The project where the repository lives."
+            override: "TUGBOAT_GITHUB_OWNER"
+
           - name: "TUGBOAT_STASH_SLUG"
             desc: "The URL-friendly name of the repository. See https://confluence.atlassian.com/bitbucket/what-is-a-slug-224395839.html"
+            override: "TUGBOAT_GITHUB_REPO"
+
           - name: "TUGBOAT_STASH_PR"
             desc: "**PRs Only** - The pull request number."
+            override: "TUGBOAT_GITHUB_PR"
+
           - name: "TUGBOAT_STASH_TITLE"
             desc: "**PRs Only** - The title of the pull request."
+            override: "TUGBOAT_GITHUB_TITLE"
+
           - name: "TUGBOAT_STASH_SOURCE"
             desc: "**PRs Only** - The name of the pull request source branch."
+            override: "TUGBOAT_GITHUB_HEAD"
+
           - name: "TUGBOAT_STASH_DESTINATION"
             desc: "**PRs Only** - The name of the pull request destination branch."
+            override: "TUGBOAT_GITHUB_BASE"
