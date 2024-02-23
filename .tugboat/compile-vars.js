@@ -66,7 +66,7 @@ const Renderer = {
       let envVarVal = Renderer.getEnvVarVal(variable);
 
       // Add the row to the table.
-      output.push(`| **\`${variable.name}\`** | ${variable.desc} | ${envVarVal} |`);
+      output.push(`| **\`$${variable.name}\`** | ${variable.desc} | ${envVarVal} |`);
     });
 
     output.push("");
