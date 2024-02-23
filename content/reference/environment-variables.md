@@ -13,11 +13,11 @@ variables with Tugboat, see:
 - [Exposed Service Variables](#exposed-service-variables)
 - [Base Preview Variables](#base-preview-variables)
 - [Git Provider Variables](#git-provider-variables)
-    - [Git](#git-raw-git-repo)
-    - [Bitbucket](#bitbucket)
-    - [GitHub](#github)
-    - [GitLab](#gitlab)
-    - [Stash/Bitbucket Server](#stash-bitbucket-server)
+  - [Git](#git-raw-git-repo)
+  - [Bitbucket](#bitbucket)
+  - [GitHub](#github)
+  - [GitLab](#gitlab)
+  - [Stash/Bitbucket Server](#stash-bitbucket-server)
 
 <!-- START: Replace from auto-generated content in https://[tugboat-preview].tugboatqa.com/vars.md -->
 
@@ -26,7 +26,7 @@ variables with Tugboat, see:
 These variables are added to some of [Tugboat's images](/reference/tugboat-images).
 
 | Variable Name  | Description                                                                                                                                                                                                                                                                                                                                                              | Example Value               |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------- |
 | **`$DOCROOT`** | On images that provide a webserver (such as `tugboatqa/httpd`, `tugboatqa/nginx`, or `tugboatqa/php` images that have Apache installed), the `$DOCROOT` environment variable points to the full path that Tugboat expects your document root to live. It's recommended to symlink your assets directory into place: e.g. `ln -snf "${TUGBOAT_ROOT}/build" "${DOCROOT}"`. | `/usr/local/apache2/htdocs` |
 
 ## Tugboat Environment Variables
@@ -36,7 +36,7 @@ lifetime of a Service. This includes both build-time as well as run-time. So, th
 as run-time configuration files, etc.
 
 | Variable Name                                 | Description                                                                                                                       | Example Value                                                   |
-|:----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|
+| :-------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------- |
 | **`$TUGBOAT_DEFAULT_SERVICE`**                | The friendly name of the default Service of the current Preview.                                                                  | `apache`                                                        |
 | **`$TUGBOAT_DEFAULT_SERVICE_ID`**             | The ID of the default Service of the current Preview.                                                                             | `65d80b183a26bc1dcec69e21`                                      |
 | **`$TUGBOAT_DEFAULT_SERVICE_TOKEN`**          | The authentication token for the default Service of the current Preview.                                                          | `jkm6qcfq2nutbqjrqdlo66n7zmwbnubb`                              |
@@ -47,7 +47,7 @@ as run-time configuration files, etc.
 | **`$TUGBOAT_DEFAULT_SERVICE_CONFIG_ALIASES`** | A comma-separated list of aliases configured for the default Service of the current Preview.                                      | `foo,bar,baz.example.com`                                       |
 | **`$TUGBOAT_DEFAULT_SERVICE_CONFIG_DOMAIN`**  | The configured domain for the default Service of the current Preview.                                                             | `tugboatqa.com`                                                 |
 | **`$TUGBOAT_PREVIEW_ID`**                     | The ID of the current Preview.                                                                                                    | `65d80b17a79d4412414fa382`                                      |
-| **`$TUGBOAT_PREVIEW`**                        | The ref name used to build the current Preview. This is an alias of $TUGBOAT_PREVIEW_REF.                                         | `pr381`                                                         |
+| **`$TUGBOAT_PREVIEW`**                        | The ref name used to build the current Preview. This is an alias of \$TUGBOAT_PREVIEW_REF.                                        | `pr381`                                                         |
 | **`$TUGBOAT_PREVIEW_NAME`**                   | The friendly name of the current Preview.                                                                                         | `DRAFT: Add examples to environment variables.`                 |
 | **`$TUGBOAT_PREVIEW_REF`**                    | The ref name used to build the current Preview.                                                                                   | `pr381`                                                         |
 | **`$TUGBOAT_PREVIEW_TYPE`**                   | What type of preview this is.                                                                                                     | `pullrequest`                                                   |
@@ -67,7 +67,7 @@ If a Service has an exposed HTTP port configured, the following variables are al
 Service's public URL.
 
 | Variable Name                         | Description                                                                                                                                                                                                                                          | Example Value                                                   |
-|:--------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|
+| :------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------- |
 | **`$TUGBOAT_SERVICE_TOKEN`**          | The authentication token for the Tugboat Service. This is used by the Tugboat HTTP proxy to grant access to a Service and is passed through mostly as an informational value. Additional verification could be done in the application if necessary. | `jkm6qcfq2nutbqjrqdlo66n7zmwbnubb`                              |
 | **`$TUGBOAT_SERVICE_URL`**            | The full URL of the current Service.                                                                                                                                                                                                                 | `https://pr381-jkm6qcfq2nutbqjrqdlo66n7zmwbnubb.tugboatqa.com/` |
 | **`$TUGBOAT_SERVICE_URL_PROTOCOL`**   | The "protocol" part of the current service's URL.                                                                                                                                                                                                    | `https`                                                         |
@@ -82,7 +82,7 @@ If a Preview was built from a Base Preview, the following variables are also ava
 Preview.
 
 | Variable Name                            | Description                                                                                                                      | Example Value                                                       |
-|:-----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
+| :--------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ |
 | **`$TUGBOAT_BASE_PREVIEW`**              | The ref name used to build the Base Preview. This is an alias of `$TUGBOAT_BASE_PREVIEW_REF`.                                    | `main-node`                                                         |
 | **`$TUGBOAT_BASE_PREVIEW_ID`**           | The ID of the Base Preview.                                                                                                      | `65d809f03a26bc1dcec697d9`                                          |
 | **`$TUGBOAT_BASE_PREVIEW_NAME`**         | The friendly name of the Base Preview.                                                                                           | `main-node`                                                         |
@@ -101,13 +101,13 @@ These variables are injected into Tugboat Previews that are built from a specifi
 ### Git (Raw git repo)
 
 | Variable Name           | Description                        | Example Value                       |
-|:------------------------|:-----------------------------------|:------------------------------------|
+| :---------------------- | :--------------------------------- | :---------------------------------- |
 | **`$TUGBOAT_GIT_REPO`** | The address of the git repository. | git@myserver.com:TugboatQA/docs.git |
 
 ### Bitbucket
 
 | Variable Name                        | Description                                                                                                                     | Example Value                                   |
-|:-------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
+| :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------- |
 | **`$TUGBOAT_BITBUCKET_OWNER`**       | The owner of the Bitbucket repository.                                                                                          | `TugboatQA`                                     |
 | **`$TUGBOAT_BITBUCKET_SLUG`**        | The URL-friendly name of the Bitbucket repository. See https://confluence.atlassian.com/bitbucket/what-is-a-slug-224395839.html | `docs`                                          |
 | **`$TUGBOAT_BITBUCKET_PR`**          | **PRs Only** - The Bitbucket pull request number.                                                                               | `381`                                           |
@@ -118,7 +118,7 @@ These variables are injected into Tugboat Previews that are built from a specifi
 ### GitHub
 
 | Variable Name               | Description                                              | Example Value                                   |
-|:----------------------------|:---------------------------------------------------------|:------------------------------------------------|
+| :-------------------------- | :------------------------------------------------------- | :---------------------------------------------- |
 | **`$TUGBOAT_GITHUB_OWNER`** | The owner of the GitHub repository.                      | `TugboatQA`                                     |
 | **`$TUGBOAT_GITHUB_REPO`**  | The name of the GitHub repository.                       | `docs`                                          |
 | **`$TUGBOAT_GITHUB_PR`**    | **PRs Only** - The GitHub pull request number.           | `381`                                           |
@@ -129,7 +129,7 @@ These variables are injected into Tugboat Previews that are built from a specifi
 ### GitLab
 
 | Variable Name                   | Description                                                 | Example Value                                   |
-|:--------------------------------|:------------------------------------------------------------|:------------------------------------------------|
+| :------------------------------ | :---------------------------------------------------------- | :---------------------------------------------- |
 | **`$TUGBOAT_GITLAB_NAMESPACE`** | The namespace of the GitLab repository.                     | `TugboatQA`                                     |
 | **`$TUGBOAT_GITLAB_PROJECT`**   | The project name of the GitLab repository.                  | `docs`                                          |
 | **`$TUGBOAT_GITLAB_MR`**        | **MRs Only** - The GitLab merge request number.             | `381`                                           |
@@ -140,7 +140,7 @@ These variables are injected into Tugboat Previews that are built from a specifi
 ### Stash / Bitbucket Server
 
 | Variable Name                    | Description                                                                                                           | Example Value                                   |
-|:---------------------------------|:----------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
+| :------------------------------- | :-------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------- |
 | **`$TUGBOAT_STASH_PROJECT`**     | The project where the repository lives.                                                                               | `TugboatQA`                                     |
 | **`$TUGBOAT_STASH_SLUG`**        | The URL-friendly name of the repository. See https://confluence.atlassian.com/bitbucket/what-is-a-slug-224395839.html | `docs`                                          |
 | **`$TUGBOAT_STASH_PR`**          | **PRs Only** - The pull request number.                                                                               | `381`                                           |
