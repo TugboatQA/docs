@@ -8,13 +8,13 @@ This page covers Tugboat's environment variables. If you're looking for informat
 variables with Tugboat, see:
 [Create Custom Environment Variables](/setting-up-services/how-to-set-up-services/custom-environment-variables).
 
+- [Image Specific Environment Variables](#image-specific-variables)
 - [Tugboat Environment Variables](#tugboat-environment-variables)
 - [Exposed Service Variables](#exposed-service-variables)
-- [Base Preview Environment Variables](#base-preview-environment-variables)
-- [Image-specific Environment Variables](#image-specific-environment-variables)
-- [Provider-specific environment variables](#provider-specific-environment-variables)
+- [Base Preview Variables](#base-preview-variables)
+- [Git Provider Variables](#git-provider-variables)
+    - [Git](#git-raw-git-repo)
     - [Bitbucket](#bitbucket)
-    - [Git](#git)
     - [GitHub](#github)
     - [GitLab](#gitlab)
     - [Stash/Bitbucket Server](#stash-bitbucket-server)
@@ -96,13 +96,13 @@ Preview.
 
 ## Git Provider Variables
 
-These variables are injected into Tugboat Previews that are built from a a specific provider repository.
+These variables are injected into Tugboat Previews that are built from a specific provider repository.
 
 ### Git (Raw git repo)
 
-| Variable Name           | Description                        | Example Value |
-|:------------------------|:-----------------------------------|:--------------|
-| **`$TUGBOAT_GIT_REPO`** | The address of the git repository. |               |
+| Variable Name           | Description                        | Example Value                       |
+|:------------------------|:-----------------------------------|:------------------------------------|
+| **`$TUGBOAT_GIT_REPO`** | The address of the git repository. | git@myserver.com:TugboatQA/docs.git |
 
 ### Bitbucket
 
