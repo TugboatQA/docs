@@ -9,7 +9,18 @@ const sourceFile = ".tugboat/env-vars.yml";
 const destFile = "public/vars.md";
 const output = [];
 
+/**
+ * Helper to render the sections of tables of variables.
+ *
+ * @type {{getEnvVarVal: (function(*): string), printVars: Renderer.printVars, printSection: Renderer.printSection}}
+ */
 const Renderer = {
+  /**
+   * Print a section of variables.
+   *
+   * @param section
+   * @param headerLevel
+   */
   printSection: (section, headerLevel) => {
     const head = "".padStart(headerLevel, "#");
 
@@ -36,6 +47,11 @@ const Renderer = {
     }
   },
 
+  /**
+   * Generate the table of variables.
+   *
+   * @param vars
+   */
   printVars: (vars) => {
     // Protect against empty sections.
     vars = vars || [];
@@ -56,6 +72,12 @@ const Renderer = {
     output.push("");
   },
 
+  /**
+   * Get the value of a particular variable or its override.
+   *
+   * @param envVar
+   * @returns {string}
+   */
   getEnvVarVal: (envVar) => {
     let envVarValName = typeof envVar.override !== 'undefined' ? envVar.override : envVar.name;
     let envVarValRefName = `process.env.${envVarValName}`;
@@ -69,6 +91,7 @@ const Renderer = {
   }
 };
 
+// Run it!
 try {
   // Read the variable data.
   const data = Yaml.load(fs.readFileSync(sourceFile, "utf8"));

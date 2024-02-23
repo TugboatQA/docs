@@ -102,7 +102,6 @@ sections:
             desc: "The address of the git repository."
       
       - name: "Bitbucket"
-        desc: ""
         vars:
           - name: "TUGBOAT_BITBUCKET_OWNER"
             override: "TUGBOAT_GITHUB_OWNER"
@@ -128,7 +127,6 @@ sections:
             override: "TUGBOAT_GITHUB_BASE"
 
       - name: "GitHub"
-        desc: ""
         vars: 
           - name: "TUGBOAT_GITHUB_OWNER"
             desc: "The owner of the GitHub repository."
@@ -144,7 +142,6 @@ sections:
             desc: "**PRs Only** - The name of the pull request base branch."
 
       - name: "GitLab"
-        desc: ""
         vars:
           - name: "TUGBOAT_GITLAB_NAMESPACE"
             desc: "The namespace of the GitLab repository."
@@ -160,7 +157,6 @@ sections:
             desc: "**MRs Only** - The name of the merge request target branch."
 
       - name: "Stash / Bitbucket Server"
-        desc: ""
         vars:
           - name: "TUGBOAT_STASH_PROJECT"
             desc: "The project where the repository lives."
