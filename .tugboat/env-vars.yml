@@ -3,7 +3,7 @@ sections:
     desc: "These variables are added to some of [Tugboat's images](/reference/tugboat-images)."
     vars:
       - name: "DOCROOT"
-        desc: "On images that provide a webserver (such as `tugboatqa/httpd`, `tugboatqa/nginx`, or `tugboatqa/php` images that have Apache installed), the `$DOCROOT` environment variable points to the full path that Tugboat expects your document root to live. It's recommended to symlink your assets directory into place: e.g. `ln -snf "${TUGBOAT_ROOT}/build" "${DOCROOT}"`."
+        desc: "On images that provide a webserver (such as `tugboatqa/httpd`, `tugboatqa/nginx`, or `tugboatqa/php` images that have Apache installed), the `$DOCROOT` environment variable points to the full path that Tugboat expects your document root to live. It's recommended to symlink your assets directory into place: e.g. `ln -snf \"${TUGBOAT_ROOT}/build\" \"${DOCROOT}\"`."
 
   - name: "Tugboat Environment Variables"
     desc: "Tugboat injects the following environment variables into every Service. These variables are available for the entire lifetime of a Service. This includes both build-time as well as run-time. So, they can be used in Build Scripts as well as run-time configuration files, etc."
