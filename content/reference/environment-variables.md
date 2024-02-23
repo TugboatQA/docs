@@ -13,72 +13,78 @@ variables with Tugboat, see:
 - [Base Preview Environment Variables](#base-preview-environment-variables)
 - [Image-specific Environment Variables](#image-specific-environment-variables)
 - [Provider-specific environment variables](#provider-specific-environment-variables)
-  - [Bitbucket](#bitbucket)
-  - [Git](#git)
-  - [GitHub](#github)
-  - [GitLab](#gitlab)
-  - [Stash/Bitbucket Server](#stash-bitbucket-server)
+    - [Bitbucket](#bitbucket)
+    - [Git](#git)
+    - [GitHub](#github)
+    - [GitLab](#gitlab)
+    - [Stash/Bitbucket Server](#stash-bitbucket-server)
+
+<!-- START: Replace from auto-generated content in https://[tugboat-preview].tugboatqa.com/vars.md -->
 
 ## Tugboat Environment Variables
 
-Tugboat injects the following environment variables into every Service. These variables are available for the entire lifetime of a Service. This includes both build-time as well as run-time. So, they can be used in Build Scripts as well as run-time configuration files, etc.
+Tugboat injects the following environment variables into every Service. These variables are available for the entire
+lifetime of a Service. This includes both build-time as well as run-time. So, they can be used in Build Scripts as well
+as run-time configuration files, etc.
 
-| Variable Name                                | Description                                                                                                                       | Example Value                                                 |
-|:---------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------|
-| **`TUGBOAT_DEFAULT_SERVICE`**                | The friendly name of the default Service of the current Preview.                                                                  | apache                                                        |
-| **`TUGBOAT_DEFAULT_SERVICE_ID`**             | The ID of the default Service of the current Preview.                                                                             | 65d80b183a26bc1dcec69e21                                      |
-| **`TUGBOAT_DEFAULT_SERVICE_TOKEN`**          | The authentication token for the default Service of the current Preview.                                                          | jkm6qcfq2nutbqjrqdlo66n7zmwbnubb                              |
-| **`TUGBOAT_DEFAULT_SERVICE_URL`**            | The full URL for the default Service of the current Preview. This is also the default URL for the Preview itself.                 | https://pr381-jkm6qcfq2nutbqjrqdlo66n7zmwbnubb.tugboatqa.com/ |
-| **`TUGBOAT_DEFAULT_SERVICE_URL_HOST`**       | The "host" part of the URL for the default Service of the current Preview.                                                        | pr381-jkm6qcfq2nutbqjrqdlo66n7zmwbnubb.tugboatqa.com          |
-| **`TUGBOAT_DEFAULT_SERVICE_URL_PROTOCOL`**   | The "protocol" part of the URL for the default Service of the current Preview.                                                    | https                                                         |
-| **`TUGBOAT_DEFAULT_SERVICE_URL_PATH`**       | The "path" part of the URL for the default Service of the current Preview.                                                        | /                                                             |
-| **`TUGBOAT_DEFAULT_SERVICE_CONFIG_ALIASES`** | A comma-separated list of aliases configured for the default Service of the current Preview.                                      |                                                               |
-| **`TUGBOAT_DEFAULT_SERVICE_CONFIG_DOMAIN`**  | The configured domain for the default Service of the current Preview.                                                             | tugboatqa.com                                                 |
-| **`TUGBOAT_PREVIEW_ID`**                     | The ID of the current Preview.                                                                                                    | 65d80b17a79d4412414fa382                                      |
-| **`TUGBOAT_PREVIEW`**                        | The ref name used to build the current Preview. This is an alias of $TUGBOAT_PREVIEW_REF.                                         | pr381                                                         |
-| **`TUGBOAT_PREVIEW_NAME`**                   | The friendly name of the current Preview.                                                                                         | DRAFT: Add examples to environment variables.                 |
-| **`TUGBOAT_PREVIEW_REF`**                    | The ref name used to build the current Preview.                                                                                   | pr381                                                         |
-| **`TUGBOAT_PREVIEW_TYPE`**                   | What type of preview this is.                                                                                                     | pullrequest                                                   |
-| **`TUGBOAT_PREVIEW_SHA`**                    | The git SHA that the preview was built from.                                                                                      | 30c5199dd385fdf59a8376602fcddb4a8d9f1976                      |
-| **`TUGBOAT_PROJECT_ID`**                     | The ID of the project that the current Preview belongs to.                                                                        | 5bedc23e72db400001b8d0e5                                      |
-| **`TUGBOAT_PROJECT`**                        | The friendly name of the project that the current Preview belongs to.                                                             | TugboatQA                                                     |
-| **`TUGBOAT_REPO_ID`**                        | The ID of the repo that the current Preview belongs to.                                                                           | 6067617b65f817042a1c367e                                      |
-| **`TUGBOAT_REPO`**                           | The friendly name of the repo that the current Preview belongs to.                                                                | TugboatQA/docs                                                |
-| **`TUGBOAT_ROOT`**                           | The filesystem location where the git repository is cloned.                                                                       | /var/lib/tugboat                                              |
-| **`TUGBOAT_SERVICE_ID`**                     | The ID of the current service.                                                                                                    | 65d80b183a26bc1dcec69e21                                      |
-| **`TUGBOAT_SERVICE`**                        | The friendly name of the current Service. This is also the hostname used to reference this Service container from other Services. | apache                                                        |
-| **`TUGBOAT_SMTP`**                           | The hostname of a Tugboat SMTP server that can be used to capture outbound email from the Preview.                                | tugboat-agent-proxy.tugboatqa.tugboat.qa                      |
+| Variable Name                                | Description                                                                                                                       | Example Value                                                   |
+|:---------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|
+| **`TUGBOAT_DEFAULT_SERVICE`**                | The friendly name of the default Service of the current Preview.                                                                  | `apache`                                                        |
+| **`TUGBOAT_DEFAULT_SERVICE_ID`**             | The ID of the default Service of the current Preview.                                                                             | `65d80b183a26bc1dcec69e21`                                      |
+| **`TUGBOAT_DEFAULT_SERVICE_TOKEN`**          | The authentication token for the default Service of the current Preview.                                                          | `jkm6qcfq2nutbqjrqdlo66n7zmwbnubb`                              |
+| **`TUGBOAT_DEFAULT_SERVICE_URL`**            | The full URL for the default Service of the current Preview. This is also the default URL for the Preview itself.                 | `https://pr381-jkm6qcfq2nutbqjrqdlo66n7zmwbnubb.tugboatqa.com/` |
+| **`TUGBOAT_DEFAULT_SERVICE_URL_HOST`**       | The "host" part of the URL for the default Service of the current Preview.                                                        | `pr381-jkm6qcfq2nutbqjrqdlo66n7zmwbnubb.tugboatqa.com`          |
+| **`TUGBOAT_DEFAULT_SERVICE_URL_PROTOCOL`**   | The "protocol" part of the URL for the default Service of the current Preview.                                                    | `https`                                                         |
+| **`TUGBOAT_DEFAULT_SERVICE_URL_PATH`**       | The "path" part of the URL for the default Service of the current Preview.                                                        | `/`                                                             |
+| **`TUGBOAT_DEFAULT_SERVICE_CONFIG_ALIASES`** | A comma-separated list of aliases configured for the default Service of the current Preview.                                      | `foo,bar,baz.example.com`                                       |
+| **`TUGBOAT_DEFAULT_SERVICE_CONFIG_DOMAIN`**  | The configured domain for the default Service of the current Preview.                                                             | `tugboatqa.com`                                                 |
+| **`TUGBOAT_PREVIEW_ID`**                     | The ID of the current Preview.                                                                                                    | `65d80b17a79d4412414fa382`                                      |
+| **`TUGBOAT_PREVIEW`**                        | The ref name used to build the current Preview. This is an alias of $TUGBOAT_PREVIEW_REF.                                         | `pr381`                                                         |
+| **`TUGBOAT_PREVIEW_NAME`**                   | The friendly name of the current Preview.                                                                                         | `DRAFT: Add examples to environment variables.`                 |
+| **`TUGBOAT_PREVIEW_REF`**                    | The ref name used to build the current Preview.                                                                                   | `pr381`                                                         |
+| **`TUGBOAT_PREVIEW_TYPE`**                   | What type of preview this is.                                                                                                     | `pullrequest`                                                   |
+| **`TUGBOAT_PREVIEW_SHA`**                    | The git SHA that the preview was built from.                                                                                      | `76599d0accca8860eef2c2713e7a4e8f94a0caf9`                      |
+| **`TUGBOAT_PROJECT_ID`**                     | The ID of the project that the current Preview belongs to.                                                                        | `5bedc23e72db400001b8d0e5`                                      |
+| **`TUGBOAT_PROJECT`**                        | The friendly name of the project that the current Preview belongs to.                                                             | `TugboatQA`                                                     |
+| **`TUGBOAT_REPO_ID`**                        | The ID of the repo that the current Preview belongs to.                                                                           | `6067617b65f817042a1c367e`                                      |
+| **`TUGBOAT_REPO`**                           | The friendly name of the repo that the current Preview belongs to.                                                                | `TugboatQA/docs`                                                |
+| **`TUGBOAT_ROOT`**                           | The filesystem location where the git repository is cloned.                                                                       | `/var/lib/tugboat`                                              |
+| **`TUGBOAT_SERVICE_ID`**                     | The ID of the current service.                                                                                                    | `65d80b183a26bc1dcec69e21`                                      |
+| **`TUGBOAT_SERVICE`**                        | The friendly name of the current Service. This is also the hostname used to reference this Service container from other Services. | `apache`                                                        |
+| **`TUGBOAT_SMTP`**                           | The hostname of a Tugboat SMTP server that can be used to capture outbound email from the Preview.                                | `tugboat-agent-proxy.tugboatqa.tugboat.qa`                      |
 
 ## Exposed Service Variables
 
-If a Service has an exposed HTTP port configured, the following variables are also available with information about the Service's public URL.
+If a Service has an exposed HTTP port configured, the following variables are also available with information about the
+Service's public URL.
 
-| Variable Name                        | Description                                                                                                                                                                                                                                          | Example Value                                                 |
-|:-------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------|
-| **`TUGBOAT_SERVICE_TOKEN`**          | The authentication token for the Tugboat Service. This is used by the Tugboat HTTP proxy to grant access to a Service and is passed through mostly as an informational value. Additional verification could be done in the application if necessary. | jkm6qcfq2nutbqjrqdlo66n7zmwbnubb                              |
-| **`TUGBOAT_SERVICE_URL`**            | The full URL of the current Service.                                                                                                                                                                                                                 | https://pr381-jkm6qcfq2nutbqjrqdlo66n7zmwbnubb.tugboatqa.com/ |
-| **`TUGBOAT_SERVICE_URL_PROTOCOL`**   | The "protocol" part of the current service's URL.                                                                                                                                                                                                    | https                                                         |
-| **`TUGBOAT_SERVICE_URL_HOST`**       | The "host" part of the current service's URL.                                                                                                                                                                                                        | pr381-jkm6qcfq2nutbqjrqdlo66n7zmwbnubb.tugboatqa.com          |
-| **`TUGBOAT_SERVICE_URL_PATH`**       | The "path" part of the current service's URL.                                                                                                                                                                                                        | /                                                             |
-| **`TUGBOAT_SERVICE_CONFIG_ALIASES`** | A comma-separated list of aliases configured for the current service.                                                                                                                                                                                |                                                               |
-| **`TUGBOAT_SERVICE_CONFIG_DOMAIN`**  | The configured domain for the current service.                                                                                                                                                                                                       | tugboatqa.com                                                 |
+| Variable Name                        | Description                                                                                                                                                                                                                                          | Example Value                                                   |
+|:-------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|
+| **`TUGBOAT_SERVICE_TOKEN`**          | The authentication token for the Tugboat Service. This is used by the Tugboat HTTP proxy to grant access to a Service and is passed through mostly as an informational value. Additional verification could be done in the application if necessary. | `jkm6qcfq2nutbqjrqdlo66n7zmwbnubb`                              |
+| **`TUGBOAT_SERVICE_URL`**            | The full URL of the current Service.                                                                                                                                                                                                                 | `https://pr381-jkm6qcfq2nutbqjrqdlo66n7zmwbnubb.tugboatqa.com/` |
+| **`TUGBOAT_SERVICE_URL_PROTOCOL`**   | The "protocol" part of the current service's URL.                                                                                                                                                                                                    | `https`                                                         |
+| **`TUGBOAT_SERVICE_URL_HOST`**       | The "host" part of the current service's URL.                                                                                                                                                                                                        | `pr381-jkm6qcfq2nutbqjrqdlo66n7zmwbnubb.tugboatqa.com`          |
+| **`TUGBOAT_SERVICE_URL_PATH`**       | The "path" part of the current service's URL.                                                                                                                                                                                                        | `/`                                                             |
+| **`TUGBOAT_SERVICE_CONFIG_ALIASES`** | A comma-separated list of aliases configured for the current service.                                                                                                                                                                                | `foo,bar,baz.example.com`                                       |
+| **`TUGBOAT_SERVICE_CONFIG_DOMAIN`**  | The configured domain for the current service.                                                                                                                                                                                                       | `tugboatqa.com`                                                 |
 
 ## Base Preview Variables
 
-If a Preview was built from a Base Preview, the following variables are also available with information about the Base Preview.
+If a Preview was built from a Base Preview, the following variables are also available with information about the Base
+Preview.
 
-| Variable Name                           | Description                                                                                                                      | Example Value                                                     |
-|:----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|
-| **`TUGBOAT_BASE_PREVIEW`**              | The ref name used to build the Base Preview. This is an alias of `$TUGBOAT_BASE_PREVIEW_REF`.                                    | main-node                                                         |
-| **`TUGBOAT_BASE_PREVIEW_ID`**           | The ID of the Base Preview.                                                                                                      | 65d809f03a26bc1dcec697d9                                          |
-| **`TUGBOAT_BASE_PREVIEW_NAME`**         | The friendly name of the Base Preview.                                                                                           | main-node                                                         |
-| **`TUGBOAT_BASE_PREVIEW_REF`**          | The ref name used to build the Base Preview.                                                                                     | main-node                                                         |
-| **`TUGBOAT_BASE_PREVIEW_TYPE`**         | What type of preview the Base Preview is. The value will be one of: `branch`, `tag`, `commit`, `pullrequest`, or `mergerequest`. | branch                                                            |
-| **`TUGBOAT_BASE_PREVIEW_TOKEN`**        | The authentication token of the Base Preview's default Service.                                                                  | k6qz9y79gupbfr4lqko7xaofbazl28em                                  |
-| **`TUGBOAT_BASE_PREVIEW_URL`**          | The public URL for the Base Preview's default Service.                                                                           | https://main-node-k6qz9y79gupbfr4lqko7xaofbazl28em.tugboatqa.com/ |
-| **`TUGBOAT_BASE_PREVIEW_URL_PROTOCOL`** | The "protocol" part of the Base Preview's default Service URL.                                                                   | https                                                             |
-| **`TUGBOAT_BASE_PREVIEW_URL_HOST`**     | The "host" part of the Base Preview's default Service URL.                                                                       | main-node-k6qz9y79gupbfr4lqko7xaofbazl28em.tugboatqa.com          |
-| **`TUGBOAT_BASE_PREVIEW_URL_PATH`**     | The "path" part of the Base Preview's default Service URL.                                                                       | /                                                                 |
+| Variable Name                           | Description                                                                                                                      | Example Value                                                       |
+|:----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
+| **`TUGBOAT_BASE_PREVIEW`**              | The ref name used to build the Base Preview. This is an alias of `$TUGBOAT_BASE_PREVIEW_REF`.                                    | `main-node`                                                         |
+| **`TUGBOAT_BASE_PREVIEW_ID`**           | The ID of the Base Preview.                                                                                                      | `65d809f03a26bc1dcec697d9`                                          |
+| **`TUGBOAT_BASE_PREVIEW_NAME`**         | The friendly name of the Base Preview.                                                                                           | `main-node`                                                         |
+| **`TUGBOAT_BASE_PREVIEW_REF`**          | The ref name used to build the Base Preview.                                                                                     | `main-node`                                                         |
+| **`TUGBOAT_BASE_PREVIEW_TYPE`**         | What type of preview the Base Preview is. The value will be one of: `branch`, `tag`, `commit`, `pullrequest`, or `mergerequest`. | `branch`                                                            |
+| **`TUGBOAT_BASE_PREVIEW_TOKEN`**        | The authentication token of the Base Preview's default Service.                                                                  | `k6qz9y79gupbfr4lqko7xaofbazl28em`                                  |
+| **`TUGBOAT_BASE_PREVIEW_URL`**          | The public URL for the Base Preview's default Service.                                                                           | `https://main-node-k6qz9y79gupbfr4lqko7xaofbazl28em.tugboatqa.com/` |
+| **`TUGBOAT_BASE_PREVIEW_URL_PROTOCOL`** | The "protocol" part of the Base Preview's default Service URL.                                                                   | `https`                                                             |
+| **`TUGBOAT_BASE_PREVIEW_URL_HOST`**     | The "host" part of the Base Preview's default Service URL.                                                                       | `main-node-k6qz9y79gupbfr4lqko7xaofbazl28em.tugboatqa.com`          |
+| **`TUGBOAT_BASE_PREVIEW_URL_PATH`**     | The "path" part of the Base Preview's default Service URL.                                                                       | `/`                                                                 |
 
 ## Git Provider Variables
 
@@ -89,6 +95,8 @@ If a Preview was built from a Base Preview, the following variables are also ava
 
 | Variable Name | Description | Example Value |
 |:--------------|:------------|:--------------|
+
+<!-- END: Replace from auto-generated file. -->
 
 ## Image-specific Environment Variables
 
@@ -112,7 +120,7 @@ These variables are injected into Tugboat Previews that are built from a Bitbuck
   https://confluence.atlassian.com/bitbucket/what-is-a-slug-224395839.html
 
 These variables are only injected into Tugboat Previews that are built from a Bitbucket pull request.  
-  _**Ex:**_ ``
+_**Ex:**_ ``
 
 - **`$TUGBOAT_BITBUCKET_PR`** - The Bitbucket pull request number.  
   _**Ex:**_ ``
