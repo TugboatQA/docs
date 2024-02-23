@@ -1,6 +1,11 @@
 services:
   apache:
     image: tugboatqa/httpd
+    aliases:
+      - foo
+      - bar
+      - baz.example.com
+
     commands:
       init:
         - curl -Ls https://github.com/gohugoio/hugo/releases/download/v0.58.3/hugo_0.58.3_Linux-64bit.tar.gz | tar -C /usr/local/bin -zxf - hugo
