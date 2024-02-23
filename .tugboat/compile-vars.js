@@ -6,7 +6,7 @@ const fs = require('fs');
 const Yaml = require('js-yaml');
 
 const sourceFile = '.tugboat/env-vars.yml';
-const destFile = 'content/vars.md';
+const destFile = 'public/vars.md';
 const output = [];
 
 try {
