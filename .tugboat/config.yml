@@ -25,7 +25,7 @@ services:
 
         # Get a list of all environment vars and their example values.
         - npm install
-        - node ${TUGBOAT_ROOT}/.tugboat/compile_vars.js
+        - node ${TUGBOAT_ROOT}/.tugboat/compile-vars.js
 
     urls:
       - /
