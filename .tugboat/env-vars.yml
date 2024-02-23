@@ -96,7 +96,6 @@ sections:
     desc: "These variables are injected into Tugboat Previews that are built from a a specific provider repository."
     sections:
       - name: "Git (Raw git repo)"
-        desc: ""
         vars:
           - name: "TUGBOAT_GIT_REPO"
             desc: "The address of the git repository."
