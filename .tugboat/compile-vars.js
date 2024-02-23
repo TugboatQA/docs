@@ -42,6 +42,7 @@ const Renderer = {
       });
     }
 
+    // Print the variables for this section.
     if (typeof section.vars !== "undefined") {
       Renderer.printVars(section.vars);
     }
@@ -79,12 +80,15 @@ const Renderer = {
    * @returns {string}
    */
   getEnvVarVal: (envVar) => {
-    let envVarValName = typeof envVar.override !== 'undefined' ? envVar.override : envVar.name;
+    let envVarValName = envVar?.override ? envVar.override : envVar.name;
     let envVarValRefName = `process.env.${envVarValName}`;
 
     let envVarVal = "";
     if (typeof eval(envVarValRefName) !== "undefined") {
       envVarVal = '`' + eval(envVarValRefName) + '`';
+    }
+    else if (envVar?.default) {
+      envVarVal = envVar.default;
     }
 
     return envVarVal;

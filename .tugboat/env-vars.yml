@@ -99,12 +99,13 @@ sections:
         desc: "The \"path\" part of the Base Preview's default Service URL.  "
   
   - name: "Git Provider Variables"
-    desc: "These variables are injected into Tugboat Previews that are built from a a specific provider repository."
+    desc: "These variables are injected into Tugboat Previews that are built from a specific provider repository."
     sections:
       - name: "Git (Raw git repo)"
         vars:
           - name: "TUGBOAT_GIT_REPO"
             desc: "The address of the git repository."
+            default: "git@myserver.com:TugboatQA/docs.git"
       
       - name: "Bitbucket"
         vars:
