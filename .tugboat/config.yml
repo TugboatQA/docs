@@ -6,6 +6,7 @@ services:
         - curl -Ls https://github.com/gohugoio/hugo/releases/download/v0.58.3/hugo_0.58.3_Linux-64bit.tar.gz | tar -C /usr/local/bin -zxf - hugo
         - sed -i '/mod_rewrite/s/#//g' /usr/local/apache2/conf/httpd.conf
         - sed -i 's/AllowOverride None/AllowOverride All/g' /usr/local/apache2/conf/httpd.conf
+        - npm install
       build:
         - hugo
         - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
