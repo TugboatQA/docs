@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Run node commands
+## Usage: node [filename]
+## Example: ddev node [filename]
+
+ddev exec node "@$"

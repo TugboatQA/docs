@@ -11,10 +11,7 @@ services:
         - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
 
         # Get a list of all environment vars and their example values.
-        # Make commands executable.
-#        - chgrp -R www-data "${TUGBOAT_ROOT}/.tugboat/commands"
-#        - find "${TUGBOAT_ROOT}/.tugboat/commands" -type f -exec chmod 0775 {} \;
-        - ${TUGBOAT_ROOT}/.tugboat/list-envs.sh
+        - node ${TUGBOAT_ROOT}/.tugboat/compile_vars.js
 
     urls:
       - /
