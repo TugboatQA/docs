@@ -19,7 +19,7 @@ variables with Tugboat, see:
   - [GitLab](#gitlab)
   - [Stash/Bitbucket Server](#stash-bitbucket-server)
 
-<!-- START: Replace from auto-generated content in https://[tugboat-preview].tugboatqa.com/vars.md -->
+<!-- START: Replace from auto-generated content. See CONTRIBUTING.md for instructions. -->
 
 ## Image Specific Variables
 
