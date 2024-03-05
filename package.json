@@ -19,5 +19,8 @@
   "prettier": {
     "printWidth": 120,
     "proseWrap": "always"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
   }
 }
