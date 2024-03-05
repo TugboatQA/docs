@@ -1,10 +1,10 @@
 services:
   apache:
     image: tugboatqa/httpd
-    aliases:
-      - foo
-      - bar
-      - baz.example.com
+#    aliases:
+#      - foo
+#      - bar
+#      - baz.example.com
 
     commands:
       init:

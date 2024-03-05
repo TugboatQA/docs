@@ -40,6 +40,7 @@ look at the **Supported Tags** linked below for the image you plan on using.
 | [Percona](#mysqlmariadbpercona)       | `image: tugboatqa/percona:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/percona/TAGS.md)          |
 | [PHP](#php)                           | `image: tugboatqa/php:[TAG]`              | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/php/TAGS.md)              |
 | [PostgreSQL](#postgresql)             | `image: tugboatqa/postgres:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/postgres/TAGS.md)         |
+| [PostGIS](#postgresql)                | `image: tugboatqa/postgis:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/postgis/TAGS.md)          |
 | Python                                | `image: tugboatqa/python:[TAG]`           | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/python/TAGS.md)           |
 | RabbitMQ                              | `image: tugboatqa/rabbitmq:[TAG]`         | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/rabbitmq/TAGS.md)         |
 | Redis                                 | `image: tugboatqa/redis:[TAG]`            | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/redis/TAGS.md)            |
@@ -165,9 +166,9 @@ commands:
 
 ### PostgreSQL
 
-The PostgreSQL images have a default database named `tugboat` as well as a user named `tugboat` with a password of
-`tugboat`. The `tugboat` user has full access to the `tugboat` database. In addition, the default superuser password is
-set to `tugboat`.
+The PostgreSQL / PostGIS images have a default database named `tugboat` as well as a user named `tugboat` with a
+password of `tugboat`. The `tugboat` user has full access to the `tugboat` database. In addition, the default superuser
+password is set to `tugboat`.
 
 ### Solr
 

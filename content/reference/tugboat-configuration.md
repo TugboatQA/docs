@@ -317,7 +317,7 @@ Tugboat default values, and can also be overridden per-URL.
 | :---------- | :------ | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enabled`   | Boolean | `true`  | Whether to render Screenshots for the URLs defined for this Service                                                                                                              |
 | `fullPage`  | Boolean | `true`  | Whether to use the default `fullPage` method. Disabling this uses an alternative that is more friendly to elements that have `vh` CSS Styles, but can sometimes be less accurate |
-| `timeout`   | Number  | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                                                       |
+| `timeout`   | Number  | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `120`                                                                       |
 | `waitUntil` | String  | `load`  | Which browser event to wait for before creating a screenshot of the page                                                                                                         |
 
 ##### `waitUntil`
@@ -350,7 +350,7 @@ screenshots taken of the Base Preview used to compare to screenshots taken of th
 | :---------- | :--------------- | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enabled`   | Boolean          | `true`  | Whether to render Visual Diffs for the URLs defined for this Service. Visual Diffs depend on Screenshots being enabled. If Screenshots are disabled, this setting has no effect.     |
 | `fullPage`  | Boolean          | `true`  | Whether to use the default `fullPage` method. Disabling this uses an alternative that is more friendly to elements that have `vh` CSS Styles, but can sometimes be less accurate     |
-| `timeout`   | Number           | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                                                           |
+| `timeout`   | Number           | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `120`                                                                           |
 | `waitUntil` | String           | `load`  | Which browser event to wait for before creating a screenshot of the page                                                                                                             |
 | `threshold` | Number or Object | `0`     | What percent similar a Visual Diff must be to the base preview in order to "pass". Visual Diffs that are less similar than this will generate an error. Minimum: `0`, Maximum: `100` |
 
@@ -507,7 +507,7 @@ either a string, such as `/blog`, or a map overriding the following screenshot o
 | :-------- | :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | url       | _none_     | The relative URL to create the visual diff for. This option is required                                                                                                             |
 | aliases   | `:default` | Only create visual diffs for these [Service aliases](#aliases). The special `:default` alias can be used to target the automatically generated Service URL (the one with no alias). |
-| timeout   | `30`       | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `300`                                                                          |
+| timeout   | `30`       | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `120`                                                                          |
 | waitUntil | `load`     | Which event to wait for before creating a screenshot of a page.                                                                                                                     |
 | fullPage  | `true`     | Disable this to use an alternate screenshot method that is more friendly to elements that have `vh` CSS styles                                                                      |
 
