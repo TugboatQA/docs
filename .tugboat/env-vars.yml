@@ -29,7 +29,7 @@ sections:
       - name: "TUGBOAT_PREVIEW_ID"
         desc: "The ID of the current Preview."
       - name: "TUGBOAT_PREVIEW"
-        desc: "The ref name used to build the current Preview. This is an alias of $TUGBOAT_PREVIEW_REF."
+        desc: "The ref name used to build the current Preview. This is an alias of `$TUGBOAT_PREVIEW_REF`."
       - name: "TUGBOAT_PREVIEW_NAME"
         desc: "The friendly name of the current Preview."
       - name: "TUGBOAT_PREVIEW_REF"
