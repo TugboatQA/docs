@@ -12,4 +12,4 @@ pre = "<b></b>"
 
 Add users, remove users, change permissions.
 
-{{% children  %}}
+{{% children  /%}}

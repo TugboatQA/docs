@@ -12,4 +12,4 @@ pre = "<b></b>"
 
 Audit your Tugboat Previews for accessibility, SEO, and more using our Google Lighthouse integration.
 
-{{% children  %}}
+{{% children  /%}}

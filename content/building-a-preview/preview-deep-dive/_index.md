@@ -13,4 +13,4 @@ pre = "<b> </b>"
 Learn more about how Previews work, how you can optimize your Preview builds, and what you'll see when you click into a
 Preview in the Tugboat dashboard.
 
-{{% children %}}
+{{% children /%}}
