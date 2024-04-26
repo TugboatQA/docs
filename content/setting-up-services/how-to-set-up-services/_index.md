@@ -12,4 +12,4 @@ pre = "<b></b>"
 
 Taking you step-by-step through the process to set up Services in your config.yml file.
 
-{{% children  %}}
+{{% children  /%}}

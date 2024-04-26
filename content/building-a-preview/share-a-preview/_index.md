@@ -12,4 +12,4 @@ pre = "<b></b>"
 
 How to manually share a Preview, or configure automated posting of Preview URLs.
 
-{{% children %}}
+{{% children /%}}

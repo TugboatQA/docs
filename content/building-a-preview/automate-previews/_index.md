@@ -12,4 +12,4 @@ pre = "<b></b>"
 
 Automatically build, update, and delete Previews.
 
-{{% children %}}
+{{% children /%}}

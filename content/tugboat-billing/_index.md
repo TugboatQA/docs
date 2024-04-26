@@ -12,4 +12,4 @@ pre = "<b></b>"
 
 Tugboat pricing, how to change your Tugboat plan and billing information, and how to cancel Tugboat billing.
 
-{{% children %}}
+{{% children /%}}

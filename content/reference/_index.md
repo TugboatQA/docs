@@ -12,4 +12,4 @@ pre = "<b></b>"
 
 Sometimes you just need to know more about a parameter or environment variable.
 
-{{% children  %}}
+{{% children  /%}}
