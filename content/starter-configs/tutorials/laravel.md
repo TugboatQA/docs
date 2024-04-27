@@ -5,29 +5,29 @@ draft: true
 weight: 5
 ---
 
+Wondering how to configure Tugboat for a Laravel project? One of the claims of Laravel is "One Framework, Many Flavors",
+so every Laravel project tends to have different requirements. You may need to do some customizing, but this should get
+you started.
 
-Wondering how to configure Tugboat for a Laravel project? One of the claims of Laravel is "One Framework, Many Flavors", so
-every Laravel project tends to have different requirements. You may need to do some customizing, but this should get you started.
+The following documentation assumes you are using Composer to manage your Laravel project, and that you are using
+[Blade templates](https://laravel.com/docs/11.x/blade) styled with [Tailwind CSS](https://tailwindcss.com/); as frontend
+tooling, your choice is [Vite](https://vitejs.dev/).
 
-The following documentation assumes you are using Composer to manage your Laravel project, and that you are using 
-[Blade templates](https://laravel.com/docs/11.x/blade) styled with [Tailwind CSS](https://tailwindcss.com/); as frontend tooling, 
-your choice is [Vite](https://vitejs.dev/).
-
-If you are using [Livewire](https://livewire.laravel.com/) or [Inertia](https://inertiajs.com/), or any other option, it should be
-pretty similar.
+If you are using [Livewire](https://livewire.laravel.com/) or [Inertia](https://inertiajs.com/), or any other option, it
+should be pretty similar.
 
 ## Configuring Laravel
 
-A common practice for managing Laravel settings is to leave sensitive information, such as database credentials, in environment variables.
-For development, you might have a an `.env.dev` or `.env.example` file on git. 
+A common practice for managing Laravel settings is to leave sensitive information, such as database credentials, in
+environment variables. For development, you might have a an `.env.dev` or `.env.example` file on git.
 
 This pattern works very well with Tugboat. It lets you keep a Tugboat-specific set of configurations in your repository,
 where you can copy it into place with a
 [configuration file command](/setting-up-services/how-to-set-up-services/leverage-service-commands/).
 
-So let's create a `.tugboat/.env.tugboat` with your variables, and customize it for tugboat. 
-You might want to base it on your production values, or, less common, your dev environment values as a basis. 
-The choice is yours. But for sure you want to configure these values:
+So let's create a `.tugboat/.env.tugboat` with your variables, and customize it for tugboat. You might want to base it
+on your production values, or, less common, your dev environment values as a basis. The choice is yours. But for sure
+you want to configure these values:
 
 ```dotenv
 APP_URL=${TUGBOAT_DEFAULT_SERVICE_URL_HOST}
@@ -48,20 +48,21 @@ CACHE_STORE=database
 CACHE_PREFIX=
 ```
 
-* The `APP_URL` will use an environment variable for setting the url host.
-* The `LOG_CHANNEL` will be the standard output, as this way we will see it more 
-easily on the Tugboat UI or via the Tugboat CLI without needing to open a shell on it.
-* The `DB_*` variables will depend on the database engine you pick on your `config.yml`, this assumes mysql.
-* For files and queue system, you will use the local filesystem and database, but more complex options are also supported.
-* You could also set your `APP_KEY` here with `${TUGBOAT_REPO_ID}`.
+- The `APP_URL` will use an environment variable for setting the url host.
+- The `LOG_CHANNEL` will be the standard output, as this way we will see it more easily on the Tugboat UI or via the
+  Tugboat CLI without needing to open a shell on it.
+- The `DB_*` variables will depend on the database engine you pick on your `config.yml`, this assumes mysql.
+- For files and queue system, you will use the local filesystem and database, but more complex options are also
+  supported.
+- You could also set your `APP_KEY` here with `${TUGBOAT_REPO_ID}`.
 
 See [Enviroment variables](/reference/environment-variables) for more options on environment variables available.
 
 ## Configure Tugboat
 
 The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
-`.tugboat/config.yml` in the git repository. Here's a basic configuration you can use as a starting point, with
-comments to explain what's going on:
+`.tugboat/config.yml` in the git repository. Here's a basic configuration you can use as a starting point, with comments
+to explain what's going on:
 
 ```yaml
 # Default Laravel 11 Tugboat starter config.
