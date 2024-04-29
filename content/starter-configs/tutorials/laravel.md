@@ -107,7 +107,12 @@ services:
         - composer install --optimize-autoloader
         # Generate the random key if you didn't set APP_KEY before.
         - php artisan key:generate
-        # Generate the db structure with some data.
+        # Generate the db structure with some data. Here you have several choices:
+        # 1. If you have seeders on your project, you might just run migrate with --seed.
+        # - php artisan migrate --seed
+        # 2. You might want just the structure without any test data.
+        # - php artisan migrate
+        # 3. Or you might load a database dump from somewhere else. That's up to you.
         - php artisan migrate --seed
         # Compile vite resources
         - npm install
@@ -118,7 +123,8 @@ services:
         - composer install --optimize-autoloader
         # Clear caches.
         - php artisan config:cache
-        # Run any pending migrations.
+        # Run any pending migrations. This will ensure your data has the last
+        # migrations applied.
         - php artisan migrate --force
         # Ensure storage permissions
         - chgrp -R www-data "${TUGBOAT_ROOT}/storage"
