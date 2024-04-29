@@ -133,6 +133,18 @@ services:
         # Compile vite templates
         - npm install
         - npm run build
+      build:
+        # Include the APP URL in .env
+        - echo "APP_URL=${TUGBOAT_DEFAULT_SERVICE_URL_HOST}" >> "${TUGBOAT_ROOT}/.env"
+        - composer install --optimize-autoloader
+        # Clear caches.
+        - php artisan config:cache
+        # Run any pending migrations. This will ensure your data has the last
+        # migrations applied.
+        - php artisan migrate --force
+        # Compile vite templates
+        - npm install
+        - npm run build
 
   database:
     # Use the latest available version of MariaDB by not specifying a
