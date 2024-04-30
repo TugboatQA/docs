@@ -119,8 +119,8 @@ or your codebase does not use the underlying operating system mail configuration
 to properly capture your outbound email.
 
 {{% notice warning %}} Tugboat makes a best-effort attempt at capturing outbound email. Commonly used outbound SMTP
-ports (25, 465, 587, and 2525) are blocked, and any mail sent through the Tugboat SMTP proxy is captured for display
-with the Preview that sent it. {{% /notice %}}
+ports (25, 465, 587, and 2525) are blocked, and any mail sent through the Tugboat SMTP proxy (on ports 25 and 587) is
+captured for display with the Preview that sent it. {{% /notice %}}
 
 ## Preview Statistics
 
