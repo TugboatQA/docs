@@ -41,6 +41,10 @@ DB_DATABASE=tugboat
 DB_USERNAME=tugboat
 DB_PASSWORD=tugboat
 
+MAIL_MAILER=smtp
+MAIL_HOST=${TUGBOAT_SMTP}
+MAIL_PORT=25
+
 FILESYSTEM_DISK=local
 QUEUE_CONNECTION=database
 
@@ -52,8 +56,10 @@ CACHE_PREFIX=
 - The `LOG_CHANNEL` will be the standard output, as this way we will see it more easily on the Tugboat UI or via the
   Tugboat CLI without needing to open a shell on it.
 - The `DB_*` variables will depend on the database engine you pick on your `config.yml`, this assumes mysql.
-- For files and queue system, you will use the local filesystem and database, but more complex options are also
-  supported.
+- The `MAIL_*` variables will point to tugboat SMTP server, so the mails are never delivered but instead captured and
+  visible on your preview dashboard.
+- For files and queue system, you will use the local filesystem and database respectively, but more complex options are
+  also supported.
 - You could also set your `APP_KEY` here with `${TUGBOAT_REPO_ID}`.
 
 See [Enviroment variables](/reference/environment-variables) for more options on environment variables available.
