@@ -1,7 +1,6 @@
 ---
 title: "Laravel"
 date: 2024-04-27T00:25:10Z
-draft: true
 weight: 5
 ---
 
