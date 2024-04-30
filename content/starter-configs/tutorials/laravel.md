@@ -123,32 +123,17 @@ services:
         # - php artisan migrate
         # 3. Or you might load a database dump from somewhere else. That's up to you.
         - php artisan migrate --seed
-        # Compile vite resources
-        - npm install
-        - npm run build
         # Install the workers
         - mkdir -p /etc/service/webserver
         - cp .tugboat/etc/service/webserver/run /etc/service/webserver/run
         - chmod +x /etc/service/webserver/run
       update:
-        # Include the APP URL in .env
-        - echo "APP_URL=${TUGBOAT_DEFAULT_SERVICE_URL_HOST}" >> "${TUGBOAT_ROOT}/.env"
-        - composer install --optimize-autoloader
         # Clear caches.
         - php artisan config:cache
-        # Run any pending migrations. This will ensure your data has the last
-        # migrations applied.
-        - php artisan migrate --force
-        # Ensure storage permissions
-        - chgrp -R www-data "${TUGBOAT_ROOT}/storage"
-        - find "${TUGBOAT_ROOT}/storage" -type d -exec chmod 2775 {} \;
-        - find "${TUGBOAT_ROOT}/storage" -type f -exec chmod 0664 {} \;
         # Compile vite templates
         - npm install
         - npm run build
       build:
-        # Include the APP URL in .env
-        - echo "APP_URL=${TUGBOAT_DEFAULT_SERVICE_URL_HOST}" >> "${TUGBOAT_ROOT}/.env"
         - composer install --optimize-autoloader
         # Clear caches.
         - php artisan config:cache
