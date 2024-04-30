@@ -162,8 +162,8 @@ services:
 
 ## Configuring queue runners
 
-At the end of the `init` step, you can see that we are copying a `.tugboat/etc/service/webserver/run` file and marking it as executable.
-This is a quick way of having a background process.
+At the end of the `init` step, you can see that we are copying a `.tugboat/etc/service/webserver/run` file and marking
+it as executable. This is a quick way of having a background process.
 
 In this `.tugboat/etc/service/webserver/run` we are going to run the default worker of your Laravel application:
 
@@ -173,8 +173,8 @@ su -s /bin/bash -c 'cd ${TUGBOAT_ROOT} && php artisan queue:work' www-data
 ```
 
 If you want to customize your queue runners, have separate runners per queue, or any other customization, read
-[Running a Background Process](/setting-up-services/how-to-set-up-services/running-a-background-process/) for more information. 
-
+[Running a Background Process](/setting-up-services/how-to-set-up-services/running-a-background-process/) for more
+information.
 
 Want to know more about something mentioned in the comments of this config file? Check out these topics:
 
