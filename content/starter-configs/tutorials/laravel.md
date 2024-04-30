@@ -103,6 +103,10 @@ services:
         # Link the document root to the expected path. This example links
         # /public to the docroot
         - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
+        # Ensure storage permissions
+        - chgrp -R www-data "${TUGBOAT_ROOT}/storage"
+        - find "${TUGBOAT_ROOT}/storage" -type d -exec chmod 2775 {} \;
+        - find "${TUGBOAT_ROOT}/storage" -type f -exec chmod 0664 {} \;
         # Composer install
         - composer install --optimize-autoloader
         # Generate the random key if you didn't set APP_KEY before.
@@ -117,6 +121,10 @@ services:
         # Compile vite resources
         - npm install
         - npm run build
+        # Install the workers
+        - mkdir -p /etc/service/webserver
+        - cp .tugboat/etc/service/webserver/run /etc/service/webserver/run
+        - chmod +x /etc/service/webserver/run
       update:
         # Include the APP URL in .env
         - echo "APP_URL=${TUGBOAT_DEFAULT_SERVICE_URL_HOST}" >> "${TUGBOAT_ROOT}/.env"
@@ -152,7 +160,21 @@ services:
     image: tugboatqa/mariadb:10.5
 ```
 
-@TODO: Queue task runners.
+## Configuring queue runners
+
+At the end of the `init` step, you can see that we are copying a `.tugboat/etc/service/webserver/run` file and marking it as executable.
+This is a quick way of having a background process.
+
+In this `.tugboat/etc/service/webserver/run` we are going to run the default worker of your Laravel application:
+
+```shell
+#!/bin/sh
+su -s /bin/bash -c 'cd ${TUGBOAT_ROOT} && php artisan queue:work' www-data
+```
+
+If you want to customize your queue runners, have separate runners per queue, or any other customization, read
+[Running a Background Process](/setting-up-services/how-to-set-up-services/running-a-background-process/) for more information. 
+
 
 Want to know more about something mentioned in the comments of this config file? Check out these topics:
 
@@ -164,7 +186,7 @@ Want to know more about something mentioned in the comments of this config file?
 - [Set up remote SSH access](/setting-up-tugboat/select-repo-settings/#set-up-remote-ssh-access)
 - [Preview build process phases (`init`, `update`, `build`)](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained)
 - [How Base Previews work](/building-a-preview/preview-deep-dive/how-previews-work/#how-base-previews-work)
-- [Multisite with Tugboat](https://www.tugboatqa.com/blog/multisite-with-tugboat)
+- [Running a Background Process](/setting-up-services/how-to-set-up-services/running-a-background-process/)
 
 ## Start Building Previews!
 
