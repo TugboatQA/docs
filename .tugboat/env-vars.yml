@@ -1,0 +1,206 @@
+sections:
+  - name: "Image Specific Variables"
+    desc: "These variables are added to some of [Tugboat's images](/reference/tugboat-images)."
+    vars:
+      - name: "DOCROOT"
+        desc: "On images that provide a webserver (such as `tugboatqa/httpd`, `tugboatqa/nginx`, or `tugboatqa/php` images that have Apache installed), the `$DOCROOT` environment variable points to the full path that Tugboat expects your document root to live. It's recommended to symlink your assets directory into place: e.g. `ln -snf \"${TUGBOAT_ROOT}/build\" \"${DOCROOT}\"`."
+
+  - name: "Tugboat Environment Variables"
+    desc: "Tugboat injects the following environment variables into every Service. These variables are available for the entire lifetime of a Service. This includes both build-time as well as run-time. So, they can be used in Build Scripts as well as run-time configuration files, etc."
+    vars:
+      - name: "TUGBOAT_DEFAULT_SERVICE"
+        desc: "The friendly name of the default Service of the current Preview."
+      - name: "TUGBOAT_DEFAULT_SERVICE_ID"
+        desc: "The ID of the default Service of the current Preview."
+      - name: "TUGBOAT_DEFAULT_SERVICE_TOKEN"
+        desc: "The authentication token for the default Service of the current Preview."
+      - name: "TUGBOAT_DEFAULT_SERVICE_URL"
+        desc: "The full URL for the default Service of the current Preview. This is also the default URL for the Preview itself."
+      - name: "TUGBOAT_DEFAULT_SERVICE_URL_HOST"
+        desc: "The \"host\" part of the URL for the default Service of the current Preview."
+      - name: "TUGBOAT_DEFAULT_SERVICE_URL_PROTOCOL"
+        desc: "The \"protocol\" part of the URL for the default Service of the current Preview."
+      - name: "TUGBOAT_DEFAULT_SERVICE_URL_PATH"
+        desc: "The \"path\" part of the URL for the default Service of the current Preview."
+      - name: "TUGBOAT_DEFAULT_SERVICE_CONFIG_ALIASES"
+        desc: "A comma-separated list of aliases configured for the default Service of the current Preview."
+      - name: "TUGBOAT_DEFAULT_SERVICE_CONFIG_DOMAIN"
+        desc: "The configured domain for the default Service of the current Preview."
+      - name: "TUGBOAT_PREVIEW_ID"
+        desc: "The ID of the current Preview."
+      - name: "TUGBOAT_PREVIEW"
+        desc: "The ref name used to build the current Preview. This is an alias of `$TUGBOAT_PREVIEW_REF`."
+      - name: "TUGBOAT_PREVIEW_NAME"
+        desc: "The friendly name of the current Preview."
+      - name: "TUGBOAT_PREVIEW_REF"
+        desc: "The ref name used to build the current Preview."
+      - name: "TUGBOAT_PREVIEW_TYPE"
+        desc: "What type of preview this is."
+      - name: "TUGBOAT_PREVIEW_SHA"
+        desc: "The git SHA that the preview was built from."
+      - name: "TUGBOAT_PROJECT_ID"
+        desc: "The ID of the project that the current Preview belongs to."
+      - name: "TUGBOAT_PROJECT"
+        desc: "The friendly name of the project that the current Preview belongs to."
+      - name: "TUGBOAT_REPO_ID"
+        desc: "The ID of the repo that the current Preview belongs to."
+      - name: "TUGBOAT_REPO"
+        desc: "The friendly name of the repo that the current Preview belongs to."
+      - name: "TUGBOAT_ROOT"
+        desc: "The filesystem location where the git repository is cloned."
+      - name: "TUGBOAT_SERVICE_ID"
+        desc: "The ID of the current service."
+      - name: "TUGBOAT_SERVICE"
+        desc: "The friendly name of the current Service. This is also the hostname used to reference this Service container from other Services."
+      - name: "TUGBOAT_SMTP"
+        desc: "The hostname of a Tugboat SMTP server that can be used to capture outbound email from the Preview."
+
+  - name: "Exposed Service Variables"
+    desc: "If a Service has an exposed HTTP port configured, the following variables are also available with information about the Service's public URL."
+    vars:
+      - name: "TUGBOAT_SERVICE_TOKEN"
+        desc: "The authentication token for the Tugboat Service. This is used by the Tugboat HTTP proxy to grant access to a Service and is passed through mostly as an informational value. Additional verification could be done in the application if necessary."
+      - name: "TUGBOAT_SERVICE_URL"
+        desc: "The full URL of the current Service."
+      - name: "TUGBOAT_SERVICE_URL_PROTOCOL"
+        desc: "The \"protocol\" part of the current service's URL."
+      - name: "TUGBOAT_SERVICE_URL_HOST"
+        desc: "The \"host\" part of the current service's URL."
+      - name: "TUGBOAT_SERVICE_URL_PATH"
+        desc: "The \"path\" part of the current service's URL."
+      - name: "TUGBOAT_SERVICE_CONFIG_ALIASES"
+        desc: "A comma-separated list of aliases configured for the current service."
+      - name: "TUGBOAT_SERVICE_CONFIG_DOMAIN"
+        desc: "The configured domain for the current service."
+  
+  
+  - name: "Base Preview Variables"
+    desc: "If a Preview was built from a Base Preview, the following variables are also available with information about the Base Preview."
+    vars:
+      - name: "TUGBOAT_BASE_PREVIEW"
+        desc: "The ref name used to build the Base Preview. This is an alias of `$TUGBOAT_BASE_PREVIEW_REF`."
+      - name: "TUGBOAT_BASE_PREVIEW_ID"
+        desc: "The ID of the Base Preview."
+      - name: "TUGBOAT_BASE_PREVIEW_NAME"
+        desc: "The friendly name of the Base Preview."
+      - name: "TUGBOAT_BASE_PREVIEW_REF"
+        desc: "The ref name used to build the Base Preview."
+      - name: "TUGBOAT_BASE_PREVIEW_TYPE"
+        desc: "What type of preview the Base Preview is. The value will be one of: `branch`, `tag`, `commit`, `pullrequest`, or `mergerequest`."
+      - name: "TUGBOAT_BASE_PREVIEW_TOKEN"
+        desc: "The authentication token of the Base Preview's default Service."
+      - name: "TUGBOAT_BASE_PREVIEW_URL"
+        desc: "The public URL for the Base Preview's default Service."
+      - name: "TUGBOAT_BASE_PREVIEW_URL_PROTOCOL"
+        desc: "The \"protocol\" part of the Base Preview's default Service URL."
+      - name: "TUGBOAT_BASE_PREVIEW_URL_HOST"
+        desc: "The \"host\" part of the Base Preview's default Service URL."
+      - name: "TUGBOAT_BASE_PREVIEW_URL_PATH"
+        desc: "The \"path\" part of the Base Preview's default Service URL.  "
+  
+  - name: "Git Provider Variables"
+    desc: "These variables are injected into Tugboat Previews that are built from a specific provider repository."
+    sections:
+      - name: "Git (Raw git repo)"
+        vars:
+          - name: "TUGBOAT_GIT_REPO"
+            desc: "The address of the git repository."
+            default: "git@myserver.com:TugboatQA/docs.git"
+      
+      - name: "Bitbucket"
+        vars:
+          - name: "TUGBOAT_BITBUCKET_OWNER"
+            override: "TUGBOAT_GITHUB_OWNER"
+            desc: "The owner of the Bitbucket repository."
+
+          - name: "TUGBOAT_BITBUCKET_SLUG"
+            desc: "The URL-friendly name of the Bitbucket repository. See https://confluence.atlassian.com/bitbucket/what-is-a-slug-224395839.html"
+            override: "TUGBOAT_GITHUB_REPO"
+
+          - name: "TUGBOAT_BITBUCKET_PR"
+            override: "TUGBOAT_GITHUB_PR"
+            desc: "**PRs Only** - The Bitbucket pull request number."
+
+          - name: "TUGBOAT_BITBUCKET_TITLE"
+            override: "TUGBOAT_GITHUB_TITLE"
+            desc: "**PRs Only** - The title of the Bitbucket pull request."
+
+          - name: "TUGBOAT_BITBUCKET_SOURCE"
+            desc: "**PRs Only** - The name of the pull request source branch."
+            override: "TUGBOAT_GITHUB_HEAD"
+
+          - name: "TUGBOAT_BITBUCKET_DESTINATION"
+            desc: "**PRs Only** - The name of the pull request destination branch."
+            override: "TUGBOAT_GITHUB_BASE"
+
+      - name: "GitHub"
+        vars: 
+          - name: "TUGBOAT_GITHUB_OWNER"
+            desc: "The owner of the GitHub repository."
+
+          - name: "TUGBOAT_GITHUB_REPO"
+            desc: "The name of the GitHub repository.  "
+
+          - name: "TUGBOAT_GITHUB_PR"
+            desc: "**PRs Only** - The GitHub pull request number."
+
+          - name: "TUGBOAT_GITHUB_TITLE"
+            desc: "**PRs Only** - The title of the GitHub pull request."
+
+          - name: "TUGBOAT_GITHUB_HEAD"
+            desc: "**PRs Only** - The name of the pull request head branch."
+
+          - name: "TUGBOAT_GITHUB_BASE"
+            desc: "**PRs Only** - The name of the pull request base branch."
+
+      - name: "GitLab"
+        vars:
+          - name: "TUGBOAT_GITLAB_NAMESPACE"
+            desc: "The namespace of the GitLab repository."
+            override: "TUGBOAT_GITHUB_OWNER"
+
+          - name: "TUGBOAT_GITLAB_PROJECT"
+            desc: "The project name of the GitLab repository."
+            override: "TUGBOAT_GITHUB_REPO"
+
+          - name: "TUGBOAT_GITLAB_MR"
+            desc: "**MRs Only** - The GitLab merge request number."
+            override: "TUGBOAT_GITHUB_PR"
+
+          - name: "TUGBOAT_GITLAB_TITLE"
+            desc: "**MRs Only** - The title of the GitLab merge request."
+            override: "TUGBOAT_GITHUB_TITLE"
+
+          - name: "TUGBOAT_GITLAB_SOURCE"
+            desc: "**MRs Only** - The name of the merge request source branch."
+            override: "TUGBOAT_GITHUB_HEAD"
+
+          - name: "TUGBOAT_GITLAB_TARGET"
+            desc: "**MRs Only** - The name of the merge request target branch."
+            override: "TUGBOAT_GITHUB_BASE"
+
+      - name: "Stash / Bitbucket Server"
+        vars:
+          - name: "TUGBOAT_STASH_PROJECT"
+            desc: "The project where the repository lives."
+            override: "TUGBOAT_GITHUB_OWNER"
+
+          - name: "TUGBOAT_STASH_SLUG"
+            desc: "The URL-friendly name of the repository. See https://confluence.atlassian.com/bitbucket/what-is-a-slug-224395839.html"
+            override: "TUGBOAT_GITHUB_REPO"
+
+          - name: "TUGBOAT_STASH_PR"
+            desc: "**PRs Only** - The pull request number."
+            override: "TUGBOAT_GITHUB_PR"
+
+          - name: "TUGBOAT_STASH_TITLE"
+            desc: "**PRs Only** - The title of the pull request."
+            override: "TUGBOAT_GITHUB_TITLE"
+
+          - name: "TUGBOAT_STASH_SOURCE"
+            desc: "**PRs Only** - The name of the pull request source branch."
+            override: "TUGBOAT_GITHUB_HEAD"
+
+          - name: "TUGBOAT_STASH_DESTINATION"
+            desc: "**PRs Only** - The name of the pull request destination branch."
+            override: "TUGBOAT_GITHUB_BASE"
