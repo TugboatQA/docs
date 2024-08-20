@@ -2,6 +2,8 @@
 title: "Add a Tugboat Bot to your Team"
 date: 2019-09-26T15:16:12-04:00
 weight: 5
+aliases:
+  - "/administer-tugboat-crew/add-tugboat-bot-to-team"
 ---
 
 When Tugboat posts comments to a pull request, those comments show as being made by the user who linked Tugboat to the

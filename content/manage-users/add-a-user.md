@@ -2,6 +2,8 @@
 title: "Add a User"
 date: 2019-09-26T15:15:25-04:00
 weight: 1
+aliases:
+  - "/administer-tugboat-crew/add-a-user"
 ---
 
 ## To add a user to a project

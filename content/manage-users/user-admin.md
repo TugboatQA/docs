@@ -3,6 +3,8 @@ title: "User Permission Levels"
 date: 2019-09-19T10:36:14-04:00
 lastmod: 2020-04-17T17:00:00-04:00
 weight: 4
+aliases:
+  - "/administer-tugboat-crew/user-admin"
 ---
 
 ### User permission levels explained
