@@ -24,7 +24,7 @@ services:
       online:
         # Tenon Integration
         - touch results.json
-        - curl -d "url=${TUGBOAT_PREVIEW_URL}&key=${TENON_API}" -H Content-Type:application/x-www-form-urlencoded -H
+        - curl -d "url=${TUGBOAT_SERVICE_URL}&key=${TENON_API}" -H Content-Type:application/x-www-form-urlencoded -H
           Cache-Control:no-cache -X POST https://tenon.io/api/ > results.json
         - "jq '{Summary: [.resultSummary .tests], title: .resultSet[] .errorTitle, description: .resultSet[]
           .errorDescription, snippet: .resultSet[] .errorSnippet, ref: .resultSet[] .ref, resultTitle: .resultSet[]
