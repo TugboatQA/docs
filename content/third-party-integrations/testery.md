@@ -45,8 +45,8 @@ environment that’s automatically generated from your pull requests.
 The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
 `.tugboat/config.yml` in the git repository. In this example Tugboat + Testery configuration, we're setting up automated
 testing for a WordPress site. If you want to see more about the WordPress config details, check out the
-[WordPress tutorial](../wordpress); here we've redacted some of the WordPress-specific comments and build steps to focus
-on the Testery setup:
+[WordPress tutorial](/starter-configs/tutorials/wordpress); here we've redacted some of the WordPress-specific comments
+and build steps to focus on the Testery setup:
 
 ```yaml
 services:
