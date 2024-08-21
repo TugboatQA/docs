@@ -2,6 +2,8 @@
 title: "Account Authentication"
 date: 2020-04-17T17:00:00-04:00
 weight: 6
+aliases:
+  - "/administer-tugboat-crew/account-authentication"
 ---
 
 #### Authenticate a Tugboat account

@@ -3,6 +3,8 @@ title: "Change User Permissions"
 date: 2019-09-26T15:15:58-04:00
 lastmod: 2020-04-17T17:00:00-04:00
 weight: 3
+aliases:
+  - "/administer-tugboat-crew/change-permissions"
 ---
 
 ## Change user permissions

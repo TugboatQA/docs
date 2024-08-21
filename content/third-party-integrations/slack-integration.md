@@ -1,7 +1,9 @@
 ---
 title: "Slack Webhook Integration"
 date: Thu, Apr 29 2021
-weight: 1
+weight: 20
+aliases:
+  - /starter-configs/code-snippets/slack-integration
 ---
 
 Incoming Webhooks are a simple way to post messages from Tugboat into [Slack](https://slack.com/). Creating an Incoming

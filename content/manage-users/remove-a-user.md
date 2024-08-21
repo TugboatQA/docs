@@ -2,6 +2,8 @@
 title: "Remove a User"
 date: 2019-09-26T15:15:49-04:00
 weight: 2
+aliases:
+  - "/administer-tugboat-crew/remove-a-user"
 ---
 
 ## To remove a user from a project
