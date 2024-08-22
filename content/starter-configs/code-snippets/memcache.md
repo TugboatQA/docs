@@ -1,8 +1,8 @@
 # Adding Memcache
 
-If you work on a hosting platform like Acquia you may want to also integrate Memcache into your tugboat setup.
+If you work on a hosting platform like Acquia you may want to also integrate Memcache into your Tugboat setup.
 
-In your tugboat config.yml.   Install the memcached library and pecl driver.  Also add a memcache container.
+In your Tugboat config.yml.   Install the memcached library and pecl driver.  Also add a memcache container.
 ```
 services:  
   php:
@@ -21,7 +21,7 @@ services:
   
 ```
 
-In your tugboat settings.php.  Reference the memcache container in the servers section and set to the defaults.
+In your Tugboat Drupal `settings.php` add the reference to the memcache container with default options.
 ```
 // Memcache on Tugboat
 $settings['memcache']['servers'] = ['memcached:11211' => 'default'];
@@ -29,4 +29,3 @@ $settings['memcache']['bins'] = ['default' => 'default'];
 $settings['memcache']['key_prefix'] = '';
 $settings['cache']['default'] = 'cache.backend.memcache';
 ```
-
