@@ -37,11 +37,11 @@ services:
         # Send a slack notification if we're on a PR build
         - |
           if [ ! -z "${TUGBOAT_GITHUB_PR}" ]; then
-           WEBHOOK=$SLACK_WEBHOOK_URL
             PR_URL="https://github.com/$TUGBOAT_REPO/pull/$TUGBOAT_GITHUB_PR"
             DASHBOARD_URL="https://dashboard.tugboatqa.com/$TUGBOAT_PREVIEW_ID"
             MESSAGE="*Tugboat URL:* $TUGBOAT_SERVICE_URL\n*PR:* $PR_URL\n*Dashboard:* $DASHBOARD_URL"
-            curl -X POST --data-urlencode "payload={\"username\": \"Tugboat\", \"text\": \"$MESSAGE\", \":boat:\": \":tugboat_qa:\"}" "$WEBHOOK"
+            curl -X POST --data-urlencode "payload={\"username\": \"Tugboat\", \"text\": \"$MESSAGE\", \":boat:\": \":tugboat_qa:\"}" "$SLACK_WEBHOOK_URL"
+          fi
 ```
 
 Voila! You Slack integration will look like this:
