@@ -26,7 +26,6 @@ look at the **Supported Tags** linked below for the image you plan on using.
 | :------------------------------------ | :---------------------------------------- | --------------------------------------------------------------------------------------------- |
 | [Alpine](#alpine)                     | `image: tugboatqa/alpine:[TAG]`           | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/alpine/TAGS.md)           |
 | Apache                                | `image: tugboatqa/httpd:[TAG]`            | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/httpd/TAGS.md)            |
-| CentOS                                | `image: tugboatqa/centos:[TAG]`           | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/centos/TAGS.md)           |
 | CouchDB                               | `image: tugboatqa/couchdb:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/couchdb/TAGS.md)          |
 | [Cypress/Included](#cypress-included) | `image: tugboatqa/cypress-included:[TAG]` | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/cypress-included/TAGS.md) |
 | Debian                                | `image: tugboatqa/debian:[TAG]`           | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/debian/TAGS.md)           |
