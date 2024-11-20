@@ -60,7 +60,7 @@ $settings['hash_salt'] = hash('sha256', getenv('TUGBOAT_REPO_ID'));
 ## Configure Tugboat
 
 The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
-`.tugboat/config.yml` in the git repository. Here's a basic Drupal 9 configuration you can use as a starting point, with
+`.tugboat/config.yml` in the git repository. Here's a basic Drupal 10 configuration you can use as a starting point, with
 comments to explain what's going on:
 
 ```yaml
