@@ -103,7 +103,7 @@ services:
         # Use the tugboat-specific Drupal settings.
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
 
-        # Install/update packages managed by composer, including drush.
+        # Install/update packages managed by composer.
         - composer install --optimize-autoloader
 
         # Copy Drupal's public files directory from an external server. The
@@ -116,7 +116,7 @@ services:
         # files from another publicly-accessible Drupal site instead of
         # syncing the entire files directory into the Tugboat Preview.
         # This results in smaller previews and reduces the build time.
-        - composer require --dev drupal/stage_file_proxy
+        # You will need stage_file_proxy in your composer dependencies.
         - vendor/bin/drush pm:enable --yes stage_file_proxy
         - vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
 
