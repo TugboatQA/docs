@@ -131,9 +131,8 @@ services:
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-        # Install/update packages managed by composer, including drush and Stage File Proxy.
+        # Install/update packages managed by composer.
         - composer install --optimize-autoloader
-        - composer require --dev drupal/stage_file_proxy
 
         # Set the tugboat-specific Drupal settings.
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
@@ -161,6 +160,9 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
+        # Install/update packages managed by composer.
+        - composer install --optimize-autoloader
+
         # Install new configuration and database updates.
         - vendor/bin/drush cache:rebuild
         - vendor/bin/drush config:import --yes
