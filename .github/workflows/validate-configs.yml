@@ -1,10 +1,6 @@
 name: Validate TugboatQA/tugboat-test configs against schema
 
 on:
-  push:
-    paths:
-      - '.github/workflows/validate-configs.yml'
-      - 'static/config-schema.json'
   pull_request:
     paths:
       - '.github/workflows/validate-configs.yml'
