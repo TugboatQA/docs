@@ -2,7 +2,7 @@
   "title": "Tugboat QA Configuration",
   "description": "Schema for Tugboat QA config.yml",
   "$id": "https://docs.tugboatqa.com/config-schema.json",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "additionalProperties": false,
   "required": ["services"],
@@ -231,7 +231,7 @@
                 },
                 "config": {
                   "description": "A custom Lighthouse configuration object to use while rendering Lighthouse Reports",
-                  "$ref": "#/$defs/lighthouseConfig"
+                  "$ref": "#/definitions/lighthouseConfig"
                 },
                 "screen": {
                   "description": "Which screen sizes to generate Lighthouse Reports for",
@@ -249,12 +249,12 @@
             "visualdiff": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#visualdiff",
               "description": "Visual Diff configurations to use for all URLs processed for the Service",
-              "$ref": "#/$defs/visualDiffConfig"
+              "$ref": "#/definitions/visualDiffConfig"
             },
             "screenshot": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#screenshot",
               "description": "Screenshot configurations to use for all URLs processed for the Service",
-              "$ref": "#/$defs/screenshotConfig"
+              "$ref": "#/definitions/screenshotConfig"
             },
             "urls": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#urls",
@@ -296,15 +296,15 @@
                           },
                           "lighthouse": {
                             "description": "Lighthouse configurations for this URL that override the Tugboat default and Service-level configurations",
-                            "$ref": "#/$defs/lighthouseConfig"
+                            "$ref": "#/definitions/lighthouseConfig"
                           },
                           "screenshot": {
                             "description": "Screenshot configurations for this URL that override the Tugboat default and Service-level configurations",
-                            "$ref": "#/$defs/screenshotConfig"
+                            "$ref": "#/definitions/screenshotConfig"
                           },
                           "visualdiff": {
                             "description": "Visual Diff configurations for this URL that override the Tugboat default and Service-level configurations",
-                            "$ref": "#/$defs/visualDiffConfig"
+                            "$ref": "#/definitions/visualDiffConfig"
                           }
                         },
                         "additionalProperties": false
@@ -344,15 +344,15 @@
                                   },
                                   "lighthouse": {
                                     "description": "Lighthouse configurations for this URL that override the Tugboat default and Service-level configurations",
-                                    "$ref": "#/$defs/lighthouseConfig"
+                                    "$ref": "#/definitions/lighthouseConfig"
                                   },
                                   "screenshot": {
                                     "description": "Screenshot configurations for this URL that override the Tugboat default and Service-level configurations",
-                                    "$ref": "#/$defs/screenshotConfig"
+                                    "$ref": "#/definitions/screenshotConfig"
                                   },
                                   "visualdiff": {
                                     "description": "Visual Diff configurations for this URL that override the Tugboat default and Service-level configurations",
-                                    "$ref": "#/$defs/visualDiffConfig"
+                                    "$ref": "#/definitions/visualDiffConfig"
                                   }
                                 },
                                 "additionalProperties": false
@@ -372,7 +372,7 @@
       }
     }
   },
-  "$defs": {
+  "definitions": {
     "screenshotConfig": {
       "type": "object",
       "additionalProperties": false,
@@ -419,7 +419,7 @@
     },
     "visualDiffConfig": {
       "allOf": [
-        { "$ref": "#/$defs/screenshotConfig" },
+        { "$ref": "#/definitions/screenshotConfig" },
         {
           "type": "object",
           "properties": {

@@ -12,22 +12,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  get-branches:
-    runs-on: ubuntu-latest
-    outputs:
-      branches: ${{ steps.set-branches.outputs.branches }}
-    steps:
-      - id: set-branches
-        run: |
-          BRANCHES=$(git ls-remote --heads https://github.com/TugboatQA/tugboat-test.git | cut -d/ -f 3 | jq --raw-input --slurp --compact-output 'split("\n")[:-1]')
-          echo "branches=$BRANCHES" >> $GITHUB_OUTPUT
-
   validate:
-    needs: get-branches
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        branch: ${{ fromJson(needs.get-branches.outputs.branches) }}
     steps:
       - name: Checkout schema repository
         uses: actions/checkout@v4
@@ -39,7 +25,7 @@ jobs:
         with:
           repository: TugboatQA/tugboat-test
           path: test-repo
-          ref: ${{ matrix.branch }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -50,23 +36,36 @@ jobs:
         run: |
           npm install -g ajv-cli@5.0.0
 
-      - name: Validate config
+      - name: Validate configs
         working-directory: test-repo
         run: |
-          if [ -f .tugboat/config.yml ]; then
-            echo "Validating config.yml in branch ${{ matrix.branch }}"
-            if [ "${{ matrix.branch }}" = "yaml-fail" ]; then
-              # For yaml-fail branch, we expect validation to fail
-              if ajv validate -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml; then
-                echo "Error: Branch yaml-fail was expected to fail validation but passed"
-                exit 1
+          # Get all remote branches
+          git ls-remote --heads https://github.com/TugboatQA/tugboat-test.git | cut -d/ -f 3 | while read -r branch; do
+            echo "::group::Checking branch: $branch"
+            
+            # Checkout branch
+            git checkout "$branch"
+            
+            # If config.yml exists, validate it
+            if [ -f .tugboat/config.yml ]; then
+              echo "Validating config.yml in branch $branch"
+              if [ "$branch" = "yaml-fail" ]; then
+                # For yaml-fail branch, we expect validation to fail
+                if ajv validate --all-errors -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml; then
+                  echo "::error::Branch yaml-fail was expected to fail validation but passed"
+                  exit 1
+                else
+                  echo "Branch yaml-fail failed validation as expected"
+                fi
               else
-                echo "Branch yaml-fail failed validation as expected"
+                # For all other branches, validation should pass
+                if ! ajv validate --all-errors -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml; then
+                  echo "::error::Schema validation failed for branch $branch"
+                  exit 1
+                fi
               fi
             else
-              # For all other branches, validation should pass
-              ajv validate -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml || exit 1
+              echo "::warning::No config.yml found in branch $branch"
             fi
-          else
-            echo "No config.yml found in branch ${{ matrix.branch }}"
-          fi 
+            echo "::endgroup::"
+          done
