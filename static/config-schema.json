@@ -325,50 +325,39 @@
                   "type": "object",
                   "patternProperties": {
                     "^(:default|[a-z0-9-]+)$": {
-                      "oneOf": [
-                        {
-                          "type": "array",
-                          "items": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
                             "type": "string",
                             "pattern": "^/"
-                          }
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "oneOf": [
-                              {
+                          },
+                          {
+                            "type": "object",
+                            "required": ["url"],
+                            "properties": {
+                              "url": {
                                 "type": "string",
-                                "pattern": "^/"
+                                "pattern": "^/",
+                                "description": "The relative URL to process"
                               },
-                              {
-                                "type": "object",
-                                "required": ["url"],
-                                "properties": {
-                                  "url": {
-                                    "type": "string",
-                                    "pattern": "^/",
-                                    "description": "The relative URL to process"
-                                  },
-                                  "lighthouse": {
-                                    "description": "Lighthouse configurations for this URL that override the Tugboat default and Service-level configurations",
-                                    "$ref": "#/definitions/lighthouseConfig"
-                                  },
-                                  "screenshot": {
-                                    "description": "Screenshot configurations for this URL that override the Tugboat default and Service-level configurations",
-                                    "$ref": "#/definitions/screenshotConfig"
-                                  },
-                                  "visualdiff": {
-                                    "description": "Visual Diff configurations for this URL that override the Tugboat default and Service-level configurations",
-                                    "$ref": "#/definitions/visualDiffConfig"
-                                  }
-                                },
-                                "additionalProperties": false
+                              "lighthouse": {
+                                "description": "Lighthouse configurations for this URL that override the Tugboat default and Service-level configurations",
+                                "$ref": "#/definitions/lighthouseConfig"
+                              },
+                              "screenshot": {
+                                "description": "Screenshot configurations for this URL that override the Tugboat default and Service-level configurations",
+                                "$ref": "#/definitions/screenshotConfig"
+                              },
+                              "visualdiff": {
+                                "description": "Visual Diff configurations for this URL that override the Tugboat default and Service-level configurations",
+                                "$ref": "#/definitions/visualDiffConfig"
                               }
-                            ]
+                            },
+                            "additionalProperties": false
                           }
-                        }
-                      ]
+                        ]
+                      }
                     }
                   },
                   "additionalProperties": false
