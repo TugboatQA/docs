@@ -529,15 +529,7 @@
     "urlsConfig": {
       "oneOf": [
         {
-          "description": "Simple URL List - URLs processed with default or Service-level configurations",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^/"
-          }
-        },
-        {
-          "description": "Mixed Simple and Advanced URL List",
+          "description": "URL List - URLs processed with default or Service-level configurations",
           "type": "array",
           "items": {
             "oneOf": [
