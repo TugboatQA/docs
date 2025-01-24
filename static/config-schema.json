@@ -117,53 +117,32 @@
                 "init": {
                   "title": "Initialization commands",
                   "description": "Commands that set up the basic Preview infrastructure. These typically include installing required packages, configuring tools, and setting up the environment. These commands run first, before any other build stages. These commands are not run for Previews built from a Base Preview.",
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "$ref": "#/definitions/commandGroup"
                 },
                 "update": {
                   "title": "Update commands",
                   "description": "Commands that import data or other assets into a service, such as a database or image files. These commands are not run for Previews built from a Base Preview.",
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "$ref": "#/definitions/commandGroup"
                 },
                 "build": {
                   "description": "Commands that build or generate the site, such as compiling styles or running database updates from code",
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "$ref": "#/definitions/commandGroup"
                 },
                 "ready": {
                   "description": "Commands that indicate that a service is ready, such as checking for a listening TCP port",
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "$ref": "#/definitions/commandGroup"
                 },
                 "online": {
                   "description": "Commands to run once, after a Preview has built, is online, and is ready to accept incoming requests",
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "$ref": "#/definitions/commandGroup"
                 },
                 "start": {
                   "description": "Commands that should be run every time a Preview starts",
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "$ref": "#/definitions/commandGroup"
                 },
                 "clone": {
                   "description": "Commands that should be run on the cloned (new) Preview that has been created from an existing Preview",
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "$ref": "#/definitions/commandGroup"
                 }
               }
             },
@@ -627,6 +606,19 @@
             }
           },
           "additionalProperties": false
+        }
+      ]
+    },
+    "commandGroup": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       ]
     }
