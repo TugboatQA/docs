@@ -48,7 +48,7 @@ jobs:
 
       - name: Install ajv-cli
         run: |
-          npm install -g ajv-cli@aa7c5062a2d6a8413fcb1274a8d3bd1a3fda4b54
+          npm install -g ajv-cli@5.0.0
 
       - name: Validate config
         working-directory: test-repo
