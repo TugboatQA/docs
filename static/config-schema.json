@@ -320,50 +320,50 @@
       }
     },
     "visualDiffConfig": {
-      "allOf": [
-        { "$ref": "#/definitions/screenshotConfig" },
-        {
-          "type": "object",
-          "properties": {
-            "threshold": {
-              "description": "The maximum allowed difference between two screenshots before considering them different. Can be a single value for all screen types, or specific values per screen type",
-              "oneOf": [
-                {
+      "type": "object",
+      "properties": {
+        "enabled": { "$ref": "#/definitions/screenshotConfig/properties/enabled" },
+        "fullPage": { "$ref": "#/definitions/screenshotConfig/properties/fullPage" },
+        "timeout": { "$ref": "#/definitions/screenshotConfig/properties/timeout" },
+        "waitUntil": { "$ref": "#/definitions/screenshotConfig/properties/waitUntil" },
+        "threshold": {
+          "description": "The maximum allowed difference between two screenshots before considering them different. Can be a single value for all screen types, or specific values per screen type",
+          "oneOf": [
+            {
+              "type": "integer",
+              "description": "Use the same threshold value for all screen types",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "type": "object",
+              "description": "Set different threshold values for specific screen types. Any omitted screen type defaults to 0",
+              "properties": {
+                "desktop": {
                   "type": "integer",
-                  "description": "Use the same threshold value for all screen types",
+                  "description": "Threshold for desktop screen size",
                   "minimum": 0,
                   "maximum": 100
                 },
-                {
-                  "type": "object",
-                  "description": "Set different threshold values for specific screen types. Any omitted screen type defaults to 0",
-                  "properties": {
-                    "desktop": {
-                      "type": "integer",
-                      "description": "Threshold for desktop screen size",
-                      "minimum": 0,
-                      "maximum": 100
-                    },
-                    "tablet": {
-                      "type": "integer",
-                      "description": "Threshold for tablet screen size",
-                      "minimum": 0,
-                      "maximum": 100
-                    },
-                    "mobile": {
-                      "type": "integer",
-                      "description": "Threshold for mobile screen size",
-                      "minimum": 0,
-                      "maximum": 100
-                    }
-                  }
+                "tablet": {
+                  "type": "integer",
+                  "description": "Threshold for tablet screen size",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "mobile": {
+                  "type": "integer",
+                  "description": "Threshold for mobile screen size",
+                  "minimum": 0,
+                  "maximum": 100
                 }
-              ]
+              },
+              "additionalProperties": false
             }
-          }
+          ]
         }
-      ],
-      "unevaluatedProperties": false
+      },
+      "additionalProperties": false
     },
     "lighthouseConfig": {
       "type": "object",
