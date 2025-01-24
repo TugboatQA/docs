@@ -57,7 +57,7 @@ jobs:
             echo "Validating config.yml in branch ${{ matrix.branch }}"
             if [ "${{ matrix.branch }}" = "yaml-fail" ]; then
               # For yaml-fail branch, we expect validation to fail
-              if ajv validate -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml --spec=2020; then
+              if ajv validate -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml; then
                 echo "Error: Branch yaml-fail was expected to fail validation but passed"
                 exit 1
               else
@@ -65,7 +65,7 @@ jobs:
               fi
             else
               # For all other branches, validation should pass
-              ajv validate -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml --spec=2020 || exit 1
+              ajv validate -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml || exit 1
             fi
           else
             echo "No config.yml found in branch ${{ matrix.branch }}"
