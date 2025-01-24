@@ -290,24 +290,30 @@
           "maximum": 120
         },
         "waitUntil": {
-          "type": "string",
-          "description": "Which browser event to wait for before creating a screenshot of the page",
+          "description": "Which browser event(s) to wait for before creating a screenshot of the page. If multiple events are specified, the screenshot is created after all events have fired",
           "oneOf": [
             {
-              "const": "load",
-              "description": "Consider navigation successful when the load event is fired - when all resources like images and CSS have been loaded"
+              "type": "string",
+              "enum": [
+                "load",
+                "domcontentloaded",
+                "networkidle0",
+                "networkidle2"
+              ]
             },
             {
-              "const": "domcontentloaded",
-              "description": "Consider navigation successful when the DOMContentLoaded event is fired - when the HTML is completely loaded and parsed"
-            },
-            {
-              "const": "networkidle0",
-              "description": "Consider navigation successful when there are no network connections for at least 500ms"
-            },
-            {
-              "const": "networkidle2",
-              "description": "Consider navigation successful when there are no more than 2 network connections for at least 500ms"
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "load",
+                  "domcontentloaded",
+                  "networkidle0",
+                  "networkidle2"
+                ]
+              },
+              "uniqueItems": true,
+              "minItems": 1
             }
           ]
         }
