@@ -250,7 +250,8 @@
             "screenshot": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#screenshot",
               "description": "Screenshot configurations to use for all URLs processed for the Service",
-              "$ref": "#/definitions/screenshotConfig"
+              "$ref": "#/definitions/screenshotConfig",
+              "additionalProperties": false
             },
             "urls": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#urls",
@@ -271,7 +272,6 @@
   "definitions": {
     "screenshotConfig": {
       "type": "object",
-      "additionalProperties": false,
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -558,7 +558,8 @@
                     "$ref": "#/definitions/lighthouseConfig"
                   },
                   "screenshot": {
-                    "$ref": "#/definitions/screenshotConfig"
+                    "$ref": "#/definitions/screenshotConfig",
+                    "additionalProperties": false
                   },
                   "visualdiff": {
                     "$ref": "#/definitions/visualDiffConfig"
@@ -594,7 +595,8 @@
                         "$ref": "#/definitions/lighthouseConfig"
                       },
                       "screenshot": {
-                        "$ref": "#/definitions/screenshotConfig"
+                        "$ref": "#/definitions/screenshotConfig",
+                        "additionalProperties": false
                       },
                       "visualdiff": {
                         "$ref": "#/definitions/visualDiffConfig"
