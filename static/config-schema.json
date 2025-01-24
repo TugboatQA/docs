@@ -390,7 +390,6 @@
                   }
                 },
                 {
-                  "description": "Alias Groups - URLs grouped by alias",
                   "type": "object",
                   "patternProperties": {
                     "^(:default|[a-z0-9-]+)$": {
@@ -409,15 +408,6 @@
                                 "type": "string",
                                 "pattern": "^/"
                               },
-                              "aliases": {
-                                "type": "array",
-                                "description": "Only create visual diffs for these Service aliases. The special :default alias can be used to target the automatically generated Service URL (the one with no alias).",
-                                "items": {
-                                  "type": "string",
-                                  "pattern": "^[a-z0-9-]+$"
-                                },
-                                "default": [":default"]
-                              },
                               "waitUntil": {
                                 "$ref": "#/definitions/screenshotConfig/properties/waitUntil"
                               },
@@ -430,7 +420,8 @@
                                 "minimum": 1,
                                 "maximum": 120
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           }
                         ]
                       }
