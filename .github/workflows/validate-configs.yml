@@ -1,0 +1,72 @@
+name: Validate TugboatQA/tugboat-test configs against schema
+
+on:
+  push:
+    paths:
+      - '.github/workflows/validate-configs.yml'
+      - 'static/config-schema.json'
+  pull_request:
+    paths:
+      - '.github/workflows/validate-configs.yml'
+      - 'static/config-schema.json'
+  workflow_dispatch:
+
+jobs:
+  get-branches:
+    runs-on: ubuntu-latest
+    outputs:
+      branches: ${{ steps.set-branches.outputs.branches }}
+    steps:
+      - id: set-branches
+        run: |
+          BRANCHES=$(git ls-remote --heads https://github.com/TugboatQA/tugboat-test.git | cut -d/ -f 3 | jq --raw-input --slurp --compact-output 'split("\n")[:-1]')
+          echo "branches=$BRANCHES" >> $GITHUB_OUTPUT
+
+  validate:
+    needs: get-branches
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch: ${{ fromJson(needs.get-branches.outputs.branches) }}
+    steps:
+      - name: Checkout schema repository
+        uses: actions/checkout@v4
+        with:
+          path: schema-repo
+
+      - name: Checkout test repository
+        uses: actions/checkout@v4
+        with:
+          repository: TugboatQA/tugboat-test
+          path: test-repo
+          ref: ${{ matrix.branch }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install ajv-cli
+        run: |
+          npm install -g ajv-cli@aa7c5062a2d6a8413fcb1274a8d3bd1a3fda4b54
+
+      - name: Validate config
+        working-directory: test-repo
+        run: |
+          if [ -f .tugboat/config.yml ]; then
+            echo "Validating config.yml in branch ${{ matrix.branch }}"
+            if [ "${{ matrix.branch }}" = "yaml-fail" ]; then
+              # For yaml-fail branch, we expect validation to fail
+              if ajv validate -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml --spec=2020; then
+                echo "Error: Branch yaml-fail was expected to fail validation but passed"
+                exit 1
+              else
+                echo "Branch yaml-fail failed validation as expected"
+              fi
+            else
+              # For all other branches, validation should pass
+              ajv validate -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml --spec=2020 || exit 1
+            fi
+          else
+            echo "No config.yml found in branch ${{ matrix.branch }}"
+          fi 
