@@ -169,12 +169,20 @@
             },
             "aliases": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#aliases",
-              "description": "A list of aliases to generate URLs for",
-              "type": "array",
-              "items": {
-                "type": "string",
-                "pattern": "^[a-z0-9-]+$"
-              }
+              "description": "A list of aliases to generate URLs for. Can be a single alias or an array of aliases",
+              "oneOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[a-z0-9-]+$"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9-]+$"
+                  }
+                }
+              ]
             },
             "alias-type": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#alias-type",
