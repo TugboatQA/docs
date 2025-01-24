@@ -101,10 +101,19 @@
             "depends": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#depends",
               "description": "List of other Services that this Service depends on",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "oneOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[a-z0-9_-]+$"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9_-]+$"
+                  }
+                }
+              ]
             },
             "commands": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#commands",
