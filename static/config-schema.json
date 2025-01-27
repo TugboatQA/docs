@@ -1,0 +1,715 @@
+{
+  "title": "Tugboat QA Configuration",
+  "description": "Schema for Tugboat QA config.yml",
+  "$id": "https://docs.tugboatqa.com/config-schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["services"],
+  "properties": {
+    "services": {
+      "description": "A list of service configurations",
+      "type": "object",
+      "minProperties": 1,
+      "allOf": [
+        {
+          "if": {
+            "maxProperties": 1
+          },
+          "then": {
+            "patternProperties": {
+              "^[a-z0-9_-]+$": {
+                "properties": {
+                  "default": {
+                    "default": true
+                  }
+                }
+              }
+            }
+          },
+          "else": {
+            "patternProperties": {
+              "^[a-z0-9_-]+$": {
+                "properties": {
+                  "default": {
+                    "default": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "patternProperties": {
+        "^[a-z0-9_-]+$": {
+          "description": "Configuration for a single service",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["image"],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "default": { "const": true }
+                }
+              },
+              "then": {
+                "properties": {
+                  "checkout": {
+                    "default": true
+                  },
+                  "expose": {
+                    "default": 80
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "checkout": {
+                    "default": false
+                  },
+                  "expose": {
+                    "default": null
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "image": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#image",
+              "description": "The Docker image to use for this service",
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9/_:.-]+$"
+            },
+            "default": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#default",
+              "description": "Whether this is the default Service for a Preview",
+              "type": "boolean"
+            },
+            "checkout": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#checkout",
+              "description": "Whether to clone the git repository to this Service",
+              "type": "boolean"
+            },
+            "checkout-path": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#checkout-path",
+              "description": "Where to clone the git repository",
+              "type": "string",
+              "default": "/var/lib/tugboat"
+            },
+            "depends": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#depends",
+              "description": "List of other Services that this Service depends on",
+              "oneOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[a-z0-9_-]+$"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9_-]+$"
+                  }
+                }
+              ]
+            },
+            "commands": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#commands",
+              "title": "Build stage commands",
+              "description": "Commands to run at different stages of the Preview lifecycle. These commands run in sequence: init → update → build → ready → online. Start commands run every time a Preview starts, and clone commands run when creating a new Preview from an existing one.",
+              "type": "object",
+              "additionalProperties": false,
+              "minProperties": 1,
+              "properties": {
+                "init": {
+                  "title": "Initialization commands",
+                  "description": "Commands that set up the basic Preview infrastructure. These typically include installing required packages, configuring tools, and setting up the environment. These commands run first, before any other build stages. These commands are not run for Previews built from a Base Preview.",
+                  "$ref": "#/definitions/commandGroup"
+                },
+                "update": {
+                  "title": "Update commands",
+                  "description": "Commands that import data or other assets into a service, such as a database or image files. These commands are not run for Previews built from a Base Preview.",
+                  "$ref": "#/definitions/commandGroup"
+                },
+                "build": {
+                  "description": "Commands that build or generate the site, such as compiling styles or running database updates from code",
+                  "$ref": "#/definitions/commandGroup"
+                },
+                "ready": {
+                  "description": "Commands that indicate that a service is ready, such as checking for a listening TCP port",
+                  "$ref": "#/definitions/commandGroup"
+                },
+                "online": {
+                  "description": "Commands to run once, after a Preview has built, is online, and is ready to accept incoming requests",
+                  "$ref": "#/definitions/commandGroup"
+                },
+                "start": {
+                  "description": "Commands that should be run every time a Preview starts",
+                  "$ref": "#/definitions/commandGroup"
+                },
+                "clone": {
+                  "description": "Commands that should be run on the cloned (new) Preview that has been created from an existing Preview",
+                  "$ref": "#/definitions/commandGroup"
+                }
+              }
+            },
+            "aliases": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#aliases",
+              "description": "A list of aliases to generate URLs for. Can be a single alias or an array of aliases",
+              "oneOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[a-z0-9-]+$"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9-]+$"
+                  }
+                }
+              ]
+            },
+            "alias-type": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#alias-type",
+              "description": "What kind of aliases to generate",
+              "enum": [
+                "default",
+                "domain"
+              ],
+              "default": "default"
+            },
+            "subpath": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#subpath",
+              "description": "Whether subpath URLs should be generated for this Service",
+              "type": "boolean"
+            },
+            "subpath-map": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#subpath-map",
+              "description": "Whether to map the generated subpath to /",
+              "type": "boolean",
+              "default": true
+            },
+            "expose": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#expose",
+              "description": "Which port the Service should expose to the Tugboat proxy",
+              "type": "integer"
+            },
+            "http": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#http",
+              "description": "Whether the Service should be available via HTTP",
+              "type": "boolean",
+              "default": false
+            },
+            "https": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#https",
+              "description": "Whether the Service should be available via HTTPS",
+              "type": "boolean",
+              "default": true
+            },
+            "domain": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#domain",
+              "description": "A custom domain for Tugboat to generate URLs with",
+              "type": "string"
+            },
+            "lighthouse": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#lighthouse",
+              "description": "Lighthouse configurations that affect all of the URLs defined for this Service. Values configured here override the Tugboat default values, but can also be overridden per-URL.",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enabled": {
+                  "description": "Whether to render Lighthouse Reports for the URLs defined for this Service",
+                  "type": "boolean",
+                  "default": true
+                },
+                "config": {
+                  "description": "A custom Lighthouse configuration object to use while rendering Lighthouse Reports",
+                  "$ref": "#/definitions/lighthouseConfig"
+                },
+                "screen": {
+                  "description": "Which screen sizes to generate Lighthouse Reports for",
+                  "type": "array",
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "enum": ["desktop", "mobile"]
+                  },
+                  "default": ["desktop"]
+                }
+              }
+            },
+            "visualdiff": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#visualdiff",
+              "description": "Visual Diff configurations to use for all URLs processed for the Service",
+              "$ref": "#/definitions/visualDiffConfig"
+            },
+            "screenshot": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#screenshot",
+              "description": "Screenshot configurations to use for all URLs processed for the Service",
+              "$ref": "#/definitions/screenshotConfig",
+              "additionalProperties": false
+            },
+            "urls": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#urls",
+              "description": "Which URLs should be processed when a Preview has finished building",
+              "oneOf": [
+                {
+                  "description": "URL List - URLs processed with default or Service-level configurations",
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^/"
+                      },
+                      {
+                        "type": "object",
+                        "required": ["url"],
+                        "properties": {
+                          "url": {
+                            "type": "string",
+                            "pattern": "^/",
+                            "description": "The relative URL to process"
+                          },
+                          "aliases": {
+                            "type": "array",
+                            "description": "Use this list of Service aliases when processing this URL",
+                            "items": {
+                              "type": "string"
+                            },
+                            "default": [":default"]
+                          },
+                          "lighthouse": {
+                            "$ref": "#/definitions/lighthouseConfig"
+                          },
+                          "screenshot": {
+                            "$ref": "#/definitions/screenshotConfig",
+                            "additionalProperties": false
+                          },
+                          "visualdiff": {
+                            "$ref": "#/definitions/visualDiffConfig"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                {
+                  "description": "Alias Groups - URLs grouped by alias",
+                  "type": "object",
+                  "patternProperties": {
+                    "^(:default|[a-z0-9-]+)$": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^/"
+                          },
+                          {
+                            "type": "object",
+                            "required": ["url"],
+                            "properties": {
+                              "url": {
+                                "type": "string",
+                                "pattern": "^/",
+                                "description": "The relative URL to process"
+                              },
+                              "lighthouse": {
+                                "$ref": "#/definitions/lighthouseConfig"
+                              },
+                              "screenshot": {
+                                "$ref": "#/definitions/screenshotConfig",
+                                "additionalProperties": false
+                              },
+                              "visualdiff": {
+                                "$ref": "#/definitions/visualDiffConfig"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "visualdiffs": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#visualdiffs",
+              "description": "DEPRECATED: Use the 'urls' property instead. Which URLs should be processed for visual diffs when a Preview has finished building",
+              "deprecated": true,
+              "oneOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^/"
+                      },
+                      {
+                        "type": "object",
+                        "required": ["url"],
+                        "properties": {
+                          "url": {
+                            "type": "string",
+                            "pattern": "^/"
+                          },
+                          "aliases": {
+                            "type": "array",
+                            "description": "Only create visual diffs for these Service aliases. The special :default alias can be used to target the automatically generated Service URL (the one with no alias).",
+                            "items": {
+                              "type": "string",
+                              "pattern": "^[a-z0-9-]+$"
+                            },
+                            "default": [":default"]
+                          },
+                          "waitUntil": {
+                            "$ref": "#/definitions/screenshotConfig/properties/waitUntil"
+                          },
+                          "fullPage": {
+                            "$ref": "#/definitions/screenshotConfig/properties/fullPage"
+                          },
+                          "timeout": {
+                            "type": "integer",
+                            "description": "How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: 1, Maximum: 120",
+                            "minimum": 1,
+                            "maximum": 120
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "object",
+                  "patternProperties": {
+                    "^(:default|[a-z0-9-]+)$": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^/"
+                          },
+                          {
+                            "type": "object",
+                            "required": ["url"],
+                            "properties": {
+                              "url": {
+                                "type": "string",
+                                "pattern": "^/"
+                              },
+                              "waitUntil": {
+                                "$ref": "#/definitions/screenshotConfig/properties/waitUntil"
+                              },
+                              "fullPage": {
+                                "$ref": "#/definitions/screenshotConfig/properties/fullPage"
+                              },
+                              "timeout": {
+                                "type": "integer",
+                                "description": "How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: 1, Maximum: 120",
+                                "minimum": 1,
+                                "maximum": 120
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "screenshotConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether to render Screenshots for the URLs defined for this Service",
+          "default": true
+        },
+        "fullPage": {
+          "type": "boolean",
+          "description": "Whether to use the default fullPage method. Disabling this uses an alternative that is more friendly to elements that have vh CSS Styles, but can sometimes be less accurate",
+          "default": true
+        },
+        "timeout": {
+          "type": "integer",
+          "description": "How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: 1, Maximum: 120",
+          "minimum": 1,
+          "maximum": 120
+        },
+        "waitUntil": {
+          "description": "Which browser event(s) to wait for before creating a screenshot of the page. If multiple events are specified, the screenshot is created after all events have fired",
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "load",
+                "domcontentloaded",
+                "networkidle0",
+                "networkidle2"
+              ]
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "load",
+                  "domcontentloaded",
+                  "networkidle0",
+                  "networkidle2"
+                ]
+              },
+              "uniqueItems": true,
+              "minItems": 1
+            }
+          ]
+        }
+      }
+    },
+    "visualDiffConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": { "$ref": "#/definitions/screenshotConfig/properties/enabled" },
+        "fullPage": { "$ref": "#/definitions/screenshotConfig/properties/fullPage" },
+        "timeout": { "$ref": "#/definitions/screenshotConfig/properties/timeout" },
+        "waitUntil": { "$ref": "#/definitions/screenshotConfig/properties/waitUntil" },
+        "threshold": {
+          "description": "The maximum allowed difference between two screenshots before considering them different. Can be a single value for all screen types, or specific values per screen type",
+          "oneOf": [
+            {
+              "type": "integer",
+              "description": "Use the same threshold value for all screen types",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "type": "object",
+              "description": "Set different threshold values for specific screen types. Any omitted screen type defaults to 0",
+              "properties": {
+                "desktop": {
+                  "type": "integer",
+                  "description": "Threshold for desktop screen size",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "tablet": {
+                  "type": "integer",
+                  "description": "Threshold for tablet screen size",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "mobile": {
+                  "type": "integer",
+                  "description": "Threshold for mobile screen size",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "lighthouseConfig": {
+      "type": "object",
+      "description": "Configuration options to control Lighthouse's behavior",
+      "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md",
+      "properties": {
+        "extends": {
+          "description": "Base configuration to extend from. Currently only 'lighthouse:default' is supported",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md#extends",
+          "type": "string",
+          "enum": ["lighthouse:default"]
+        },
+        "settings": {
+          "type": "object",
+          "description": "Global settings that control how Lighthouse runs and what audits it includes",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md#settings",
+          "properties": {
+            "onlyCategories": {
+              "description": "Only run the specified categories. If both onlyCategories and onlyAudits are present, onlyCategories takes precedence",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["performance", "accessibility", "best-practices", "seo", "pwa"]
+              }
+            },
+            "onlyAudits": {
+              "description": "Only run the specified audits. If both onlyCategories and onlyAudits are present, onlyCategories takes precedence",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "skipAudits": {
+              "description": "Skip the specified audits. Takes precedence over onlyAudits and onlyCategories",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "passes": {
+          "description": "Controls how to load the page and what information to gather about it. Each pass loads the page with different settings and gathers different information",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md#passes",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["passName", "gatherers"],
+            "properties": {
+              "passName": {
+                "type": "string",
+                "description": "Unique identifier for the pass. Used to match gatherer results with the pass"
+              },
+              "recordTrace": {
+                "type": "boolean",
+                "description": "Whether to record a trace during this pass for later analysis"
+              },
+              "useThrottling": {
+                "type": "boolean",
+                "description": "Whether to apply CPU and network throttling during this pass"
+              },
+              "pauseAfterLoadMs": {
+                "type": "number",
+                "description": "How long to wait after the load event before running pass",
+                "default": 0
+              },
+              "networkQuietThresholdMs": {
+                "type": "number",
+                "description": "Wait for this amount of network quiet before continuing",
+                "default": 5000
+              },
+              "pauseAfterNetworkQuietMs": {
+                "type": "number",
+                "description": "How long to wait after network quiet before continuing",
+                "default": 0
+              },
+              "blockedUrlPatterns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Block any network requests to URLs matching these patterns"
+              },
+              "gatherers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "List of gatherers to run during this pass. Gatherers collect information about the page"
+              }
+            }
+          }
+        },
+        "audits": {
+          "description": "List of audit IDs to run. Only audits referenced by a category will appear in the report",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md#audits",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "categories": {
+          "type": "object",
+          "description": "Categories group audit results into sections in the report. Each category is organized by a set of audit references with their individual scores and grouped by audit groups",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md#categories",
+          "patternProperties": {
+            "^[a-zA-Z0-9-]+$": {
+              "type": "object",
+              "required": ["title", "auditRefs"],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "The display name of the category"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "A more detailed description of the category's purpose"
+                },
+                "auditRefs": {
+                  "type": "array",
+                  "description": "References to audits to include in this category",
+                  "items": {
+                    "type": "object",
+                    "required": ["id", "weight"],
+                    "properties": {
+                      "id": {
+                        "description": "The ID of the audit to include in this category",
+                        "type": "string"
+                      },
+                      "weight": {
+                        "description": "The relative weight of this audit in computing the category score. Higher values mean the audit is more important to the category score",
+                        "type": "number"
+                      },
+                      "group": {
+                        "description": "The ID of the group to place this audit in",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "groups": {
+          "type": "object",
+          "description": "Groups organize audits in categories into expandable sections",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md#groups",
+          "patternProperties": {
+            "^[a-zA-Z0-9-]+$": {
+              "type": "object",
+              "required": ["title"],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "The display name of the group"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "A more detailed description of the group's purpose"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "commandGroup": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  }
+}

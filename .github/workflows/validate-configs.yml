@@ -1,0 +1,67 @@
+name: Validate TugboatQA/tugboat-test configs against schema
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/validate-configs.yml'
+      - 'static/config-schema.json'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout schema repository
+        uses: actions/checkout@v4
+        with:
+          path: schema-repo
+
+      - name: Checkout test repository
+        uses: actions/checkout@v4
+        with:
+          repository: TugboatQA/tugboat-test
+          path: test-repo
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install ajv-cli
+        run: |
+          npm install -g ajv-cli@5.0.0
+
+      - name: Validate configs
+        working-directory: test-repo
+        run: |
+          # Get all remote branches
+          git ls-remote --heads https://github.com/TugboatQA/tugboat-test.git | sed 's|^.*refs/heads/||' | while read -r branch; do
+            echo "::group::Checking branch: $branch"
+            
+            # Checkout branch
+            git checkout "$branch"
+            
+            # If config.yml exists, validate it
+            if [ -f .tugboat/config.yml ]; then
+              echo "Validating config.yml in branch $branch"
+              if [ "$branch" = "yaml-fail" ] || [ "$branch" = "invalid-yaml" ]; then
+                # For yaml-fail and invalid-yaml branches, we expect validation to fail
+                if ajv validate --all-errors -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml; then
+                  echo "::error::Branch $branch was expected to fail validation but passed"
+                  exit 1
+                else
+                  echo "Branch $branch failed validation as expected"
+                fi
+              else
+                # For all other branches, validation should pass
+                if ! ajv validate --all-errors -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml; then
+                  echo "::error::Schema validation failed for branch $branch"
+                  exit 1
+                fi
+              fi
+            else
+              echo "::warning::No config.yml found in branch $branch"
+            fi
+            echo "::endgroup::"
+          done
