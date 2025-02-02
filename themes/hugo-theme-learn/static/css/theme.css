@@ -1137,3 +1137,7 @@ pre .copy-to-clipboard:hover {
 #searchResults {
     text-align: left;
 }
+
+option {
+    color: initial;
+}
