@@ -2,6 +2,7 @@ name: link checker
 
 on:
   - push
+  - pull_request
 
 jobs:
   link-checker:
