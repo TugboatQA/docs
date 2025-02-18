@@ -379,9 +379,9 @@
                           },
                           "timeout": {
                             "type": "integer",
-                            "description": "How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: 1, Maximum: 120",
+                            "description": "How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: 1, Maximum: 60",
                             "minimum": 1,
-                            "maximum": 120
+                            "maximum": 60
                           }
                         },
                         "additionalProperties": false
@@ -416,9 +416,9 @@
                               },
                               "timeout": {
                                 "type": "integer",
-                                "description": "How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: 1, Maximum: 120",
+                                "description": "How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: 1, Maximum: 60",
                                 "minimum": 1,
-                                "maximum": 120
+                                "maximum": 60
                               }
                             },
                             "additionalProperties": false
@@ -452,9 +452,9 @@
         },
         "timeout": {
           "type": "integer",
-          "description": "How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: 1, Maximum: 120",
+          "description": "How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: 1, Maximum: 60",
           "minimum": 1,
-          "maximum": 120
+          "maximum": 60
         },
         "waitUntil": {
           "description": "Which browser event(s) to wait for before creating a screenshot of the page. If multiple events are specified, the screenshot is created after all events have fired",
