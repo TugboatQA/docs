@@ -60,8 +60,8 @@ $settings['hash_salt'] = hash('sha256', getenv('TUGBOAT_REPO_ID'));
 ## Configure Tugboat
 
 The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
-`.tugboat/config.yml` in the git repository. Here's a basic Drupal 9 configuration you can use as a starting point, with
-comments to explain what's going on:
+`.tugboat/config.yml` in the git repository. Here's a basic Drupal 10 configuration you can use as a starting point,
+with comments to explain what's going on:
 
 ```yaml
 # Default Drupal 10 Tugboat starter config.
@@ -131,9 +131,8 @@ services:
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-        # Install/update packages managed by composer, including drush and Stage File Proxy.
+        # Install/update packages managed by composer.
         - composer install --optimize-autoloader
-        - composer require --dev drupal/stage_file_proxy
 
         # Set the tugboat-specific Drupal settings.
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
@@ -161,6 +160,9 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
+        # Install/update packages managed by composer.
+        - composer install --optimize-autoloader
+
         # Install new configuration and database updates.
         - vendor/bin/drush cache:rebuild
         - vendor/bin/drush config:import --yes

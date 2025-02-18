@@ -17,7 +17,7 @@ weight: 4
 If you're getting "PHP out of memory errors", you can manually set the memory limit higher. If you're using one of the
 [tugboatqa php images](/reference/tugboat-images/), use something like this in your build script:
 
-`echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/my-php.ini`
+`echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/tugboat.ini`
 
 If you would like unlimited memory allocated to PHP command-line scripts, you can add the following PHP snippet to your
 application:
