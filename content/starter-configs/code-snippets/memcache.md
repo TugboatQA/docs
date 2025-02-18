@@ -1,10 +1,11 @@
-# Adding Memcache
+# Adding Memcached to Drupal Previews
 
-If you work on a hosting platform like Acquia you may want to also integrate Memcache into your Tugboat setup.
+If your Drupal site uses memcached in production, you may also want to add a memcached service to your Tugboat Previews.
 
-In your Tugboat config.yml.   Install the memcached library and pecl driver.  Also add a memcache container.
-```
-services:  
+In your Tugboat config.yml. Install the memcached library and pecl driver. Also add a memcached service.
+
+```yaml
+services:
   php:
     image: tugboatqa/php:8.3-apache
     commands:
@@ -13,16 +14,15 @@ services:
         - apt-get install libzip-dev libmemcached-dev zlib1g-dev libssl-dev
         - echo yes '' | pecl install -f memcached-3.2.0
         - docker-php-ext-enable opcache zip memcached
-        
+
   # Add a memcached container
   memcached:
     image: tugboatqa/memcached:latest
-
-  
 ```
 
 In your Tugboat Drupal `settings.php` add the reference to the memcache container with default options.
-```
+
+```php
 // Memcache on Tugboat
 $settings['memcache']['servers'] = ['memcached:11211' => 'default'];
 $settings['memcache']['bins'] = ['default' => 'default'];
