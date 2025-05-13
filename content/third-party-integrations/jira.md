@@ -49,7 +49,7 @@ By default, Jira may show deployments as "unmapped" unless you configure environ
    Once configured, deployments will appear in Jira under the correct environment labels. For example, a deployment to
    Tugboat will show up as "Testing" in Jira.
 
-   ![Example screenshot of deployment mapping in Jira](https://private-user-images.githubusercontent.com/66118/358018257-834857fc-fae1-47cd-beef-02f2b8e34fdb.png)
+   ![Example screenshot of deployment mapping in Jira](/_images/jira-env-mapped.png)
 
 ## References
 
