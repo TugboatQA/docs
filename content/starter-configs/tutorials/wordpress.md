@@ -64,7 +64,7 @@ options that fit your setup.
 
 #### A. Without Composer
 
-```yaml
+```yaml annotate
 services:
   # Define our webserver service.
   php:
