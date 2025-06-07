@@ -13,4 +13,4 @@ pre = "<b></b>"
 The following provide reference material for various aspects of Tugboat, such as Tugboat configuration, Docker images,
 environment variables, and the like.
 
-{{% children  /%}}
+{{%children%}}

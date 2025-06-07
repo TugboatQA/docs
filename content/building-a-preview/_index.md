@@ -12,4 +12,4 @@ pre = "<b>3. </b>"
 
 How to build and update a Preview, administer Previews, and use Base Previews.
 
-{{% children depth="2" /%}}
+{{%children depth="2"%}}

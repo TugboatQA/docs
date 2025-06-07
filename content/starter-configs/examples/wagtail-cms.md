@@ -1,6 +1,6 @@
 ---
 title: "Wagtail CMS"
-date: Fri, Apr 16 2021
+date: 2021-04-16T10:00:00-04:00
 weight: 7
 ---
 

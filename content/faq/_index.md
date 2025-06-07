@@ -12,4 +12,4 @@ pre = "<b></b>"
 
 You've got questions? We've got answers!
 
-{{% children  /%}}
+{{%children%}}

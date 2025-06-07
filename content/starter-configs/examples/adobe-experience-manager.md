@@ -1,6 +1,6 @@
 ---
 title: "Adobe Experience Manager"
-date: Tue, Mar 23 2021
+date: 2021-03-23T10:00:00-04:00
 weight: 7
 ---
 

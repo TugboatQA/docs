@@ -12,4 +12,4 @@ pre = "<b></b>"
 
 Details about Service images under the hood, including how to use your own Docker image and Tugboat-maintained images.
 
-{{% children  /%}}
+{{%children%}}

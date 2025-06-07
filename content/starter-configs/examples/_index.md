@@ -12,4 +12,4 @@ pre = ""
 
 Example config.yml files to get you started with common frameworks or configurations.
 
-{{% children  /%}}
+{{%children%}}

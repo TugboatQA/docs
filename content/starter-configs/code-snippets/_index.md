@@ -13,4 +13,4 @@ pre = "<b></b>"
 
 Example config.yml code stubs to use when adding functionality to your projects.
 
-{{% children  /%}}
+{{%children%}}
