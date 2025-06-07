@@ -6,10 +6,6 @@ chapter: true
 pre: "<b>1. </b>"
 ---
 
-### Chapter 1
-
-# Setting up Tugboat
-
 Connecting Tugboat to your git provider, creating projects, adding repositories.
 
 {{%children%}}

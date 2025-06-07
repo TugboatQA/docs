@@ -6,10 +6,6 @@ chapter = true
 pre = "<b>2. </b>"
 +++
 
-### Chapter 2
-
-# Setting up Services
-
 How to set up Services, and more about images.
 
 {{%children depth="3"%}}
