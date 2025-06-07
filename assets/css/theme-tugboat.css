@@ -1,6 +1,5 @@
 
-/* Import Poppins font for headings */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* Poppins font loaded via local @font-face in head-fonts.html partial for better performance */
 
 :root{
 
