@@ -32,6 +32,9 @@ home = [ "HTML", "RSS", "JSON"]
   # Hide the Home button in the sidebar navigation
   disableLandingPageButton = true
 
+  # Hide date display on documents
+  hideAuthorDate = true
+
   editURL = "https://github.com/TugboatQA/docs/edit/main/content/"
 
 # Set Twitter card defaults for documentation site
