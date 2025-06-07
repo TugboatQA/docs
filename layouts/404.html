@@ -1,31 +1,51 @@
-{{ partial "header.html" . }}
+<!DOCTYPE html>
+{{- .Store.Set "relearnOutputFormat" "html" }}
+<html lang="{{ .Page.Language.LanguageCode }}" dir="{{ .Page.Language.LanguageDirection | default (T "Reading-direction") | default "ltr" }}" itemscope itemtype="http://schema.org/Article" data-r-output-format="{{ with .Store.Get "relearnOutputFormat" }}{{ . }}{{ else }}html{{ end }}">
+  <head>
+    {{- partial "meta.html" . }}
+    {{- $title := partial "title.gotmpl" (dict "page" . "fullyQualified" true "reverse" true) }}
+    <title>{{ $title }}</title>
 
-          <pre class="language-bash"><code>
-  # Ah, dang. We tried to look up that page but all we found was this Tub Goat.
-                ___.
-               //  \\
-              ((   ''
-               \\__,
-              /6 (%)\,
-             (__/:";,;\--____----_
-              ;; :';,:';`;,';,;';`,`_
-                ;:,;;';';,;':,';';,-Y\
-                 ;,;,;';';,;':;';'; Z/
-                 / ;,';';,;';,;';;'
-          o8o   / / |';/~~~~~\,oO8/(
-         o8o8O ( K  | |      Oo8OOo8Oo
-        Oo(""o8""""""""""""""""8oo""""""")
-           `\`'                  `'   /'
-             \                       /
-              \           _         /
-               `-. .----<(o)_--. .-'
-        --------(_/------(_<_/--\_)-----------
+    {{- /* because this file can be called from literally any URL inside your project, we need to base all relative URLs to make them work */}}
+    <base href="{{ .Site.BaseURL }}">
 
-  # Try using the search in the upper left.
-  # Or contact support at www.tugboatqa.com/support.
-  # Or...
-  open https://github.com/TugboatQA/docs
-          </code></pre>
-          <p><a href='{{ "" | relLangURL }}'>{{T "Go-to-homepage"}}</a></p>
-
-{{ partial "footer.html" . }}
+    {{- partialCached "favicon.html" . }}
+    {{- partial "stylesheet.html" . }}
+    {{- partial "custom-header.html" . }}
+  </head>
+  <body class="mobile-support {{ with .Store.Get "relearnOutputFormat" }}{{ . }}{{ else }}html{{ end }} notfound" data-url="{{ partial "permalink.gotmpl" (dict "to" .) }}">
+    <div id="R-body" class="default-animation">
+      <main id="R-body-inner" class="highlightable chapter" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article>
+            <h1 id="404"><span>404</span></h1>
+            <h2 id="{{ T "title-404" | plainify | anchorize }}">{{ T "title-404" }}</h2>
+            <p></p>
+            <pre class="language-bash"><code>
+              # Ah, dang. We tried to look up that page but all we found was this Tub Goat.
+                                        ___.
+                                      //  \\
+                                      ((   ''
+                                      \\__,
+                                      /6 (%)\,
+                                    (__/:";,;\--____----_
+                                      ;; :';,:';`;,';,;';`,`_
+                                        ;:,;;';';,;':,';';,-Y\
+                                        ;,;,;';';,;':;';'; Z/
+                                        / ;,';';,;';,;';;'
+                                  o8o   / / |';/~~~~~\,oO8/(
+                                o8o8O ( K  | |      Oo8OOo8Oo
+                                Oo(""o8""""""""""""""""8oo""""""")
+                                  `\`'                  `'   /'
+                                    \                       /
+                                      \           _         /
+                                      `-. .----<(o)_--. .-'
+                                --------(_/------(_<_/--\_)-----------
+            </code></pre>
+            <p><a href="{{ partial "permalink.gotmpl" (dict "to" .Site.Home) }}">{{ T "Go-to-homepage" }}</a></p>
+          </article>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
