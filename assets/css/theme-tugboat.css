@@ -12,9 +12,12 @@
     --MAIN-TITLES-font: "Poppins", sans-serif;
     --MAIN-TITLES-font-weight: 500; /* Medium weight for headings */
     --MAIN-TITLES-H1-font: "Poppins", sans-serif;
-    --MAIN-TITLES-H1-font-weight: 600; /* Semibold for H1 */
+    --MAIN-TITLES-H1-font-weight: 700; /* Bold for H1 */
+    --MAIN-TITLES-H1-letter-spacing: -0.02em;
+    --MAIN-TITLES-H1-text-transform: none;
     --MAIN-TITLES-H2-font: "Poppins", sans-serif;
-    --MAIN-TITLES-H2-font-weight: 500; /* Medium weight for H2 */
+    --MAIN-TITLES-H2-font-weight: 700; /* Bold weight for H2 */
+    --MAIN-TITLES-H2-letter-spacing: -0.02em;
 
     --MAIN-TEXT-color:#1C4248; /* Color of text by default */
     --MAIN-TITLES-TEXT-color: #1C4248; /* Color of titles h2-h3-h4-h5 */
@@ -91,6 +94,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 
 h1, #chapter * {
     text-align: left !important;
+    text-transform: none;
 }
 
 h1, h2, h3, h4, h5 {
