@@ -55,6 +55,9 @@ $settings['hash_salt'] = hash('sha256', getenv('TUGBOAT_REPO_ID'));
 // web root, it's recommended to uncomment and adapt the following. Note: the
 // TUGBOAT_ROOT environment variable is equivalent to the git repo root.
 # $settings['file_private_path'] = getenv('TUGBOAT_ROOT') . '/files-private';
+
+// Prevent Drupal from making the sites/default directory unwritable.
+$settings['skip_permissions_hardening'] = TRUE;
 ```
 
 ## Configure Tugboat
