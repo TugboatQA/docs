@@ -6,10 +6,6 @@ chapter = true
 pre = "<b></b>"
 +++
 
-### Reference
-
-# Starter Configs
-
 In addition to these code snippets and tutorials, we also maintain repositories with
 [starter configuration files](https://github.com/search?q=topic%3Atugboat-starter-kit&type=Repositories) for other
 frameworks and Content Management Systems in our [GitHub account](https://github.com/TugboatQA).

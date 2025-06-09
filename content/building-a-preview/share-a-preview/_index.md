@@ -6,10 +6,6 @@ chapter = true
 pre = "<b></b>"
 +++
 
-### Working with Previews
-
-# Share a Preview
-
 How to manually share a Preview, or configure automated posting of Preview URLs.
 
 {{%children%}}

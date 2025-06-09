@@ -6,10 +6,6 @@ chapter = true
 pre = "<b></b>"
 +++
 
-### Working with Previews
-
-# Automate Previews
-
 Automatically build, update, and delete Previews.
 
 {{%children%}}

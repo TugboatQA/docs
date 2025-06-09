@@ -6,10 +6,6 @@ chapter = true
 pre = "<b></b>"
 +++
 
-### Deep Dive
-
-# Visual Diffs
-
 Use Tugboat's visual regression tools to visually diff changes to your sites.
 
 {{%children%}}

@@ -7,10 +7,6 @@ pre = "<b></b>"
 aliases = ['/administer-tugboat-crew']
 +++
 
-### Tugboat Admin
-
-# Manage Tugboat Users
-
 Add users, remove users, or change user permissions.
 
 {{%children%}}

@@ -6,10 +6,6 @@ chapter = true
 pre = "<b></b>"
 +++
 
-### Working with Previews
-
-# Administer Previews
-
 Build, update, and delete Previews. Change Preview states; Reset, Start/Stop, Lock/Unlock.
 
 {{%children%}}

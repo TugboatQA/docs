@@ -6,10 +6,6 @@ chapter = true
 pre = "<b></b>"
 +++
 
-### Reference
-
-# Troubleshooting
-
 How to figure out what went wrong, and fixes for common issues.
 
 {{%children%}}

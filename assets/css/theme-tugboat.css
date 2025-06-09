@@ -11,12 +11,16 @@
     --MAIN-TITLES-font: "Poppins", sans-serif;
     --MAIN-TITLES-font-weight: 500; /* Medium weight for headings */
     --MAIN-TITLES-H1-font: "Poppins", sans-serif;
-    --MAIN-TITLES-H1-font-weight: 700; /* Bold for H1 */
-    --MAIN-TITLES-H1-letter-spacing: -0.02em;
+    --MAIN-TITLES-H1-font-weight: 900; /* Bold for H1 */
+    --MAIN-TITLES-H1-letter-spacing: -0.03em;
     --MAIN-TITLES-H1-text-transform: none;
     --MAIN-TITLES-H2-font: "Poppins", sans-serif;
     --MAIN-TITLES-H2-font-weight: 700; /* Bold weight for H2 */
     --MAIN-TITLES-H2-letter-spacing: -0.02em;
+
+    --PRIMARY-color: #0098CB;
+    --SECONDARY-color: #07688C;
+    --ACCENT-color: #03384B;
 
     --MAIN-TEXT-color:#1C4248; /* Color of text by default */
     --MAIN-TITLES-TEXT-color: #1C4248; /* Color of titles h2-h3-h4-h5 */
@@ -27,7 +31,7 @@
     --MENU-HEADER-BG-color:#07536F; /* Background color of menu header */
     --MENU-HEADER-BORDER-color:#07688C; /*Color of menu header border */
 
-    --MENU-SEARCH-BG-color: #112d3e; /* Search field background color (by default borders + icons) */
+    --MENU-SEARCH-BG-color: #E8F0F5; /* Search field background color (by default borders + icons) */
     --MENU-SEARCH-BOX-color: #E8F0F5; /* Override search field border color */
     --MENU-SEARCH-BOX-ICONS-color: #1C4248; /* Override search field icons color */
 
@@ -40,11 +44,12 @@
 
     --MENU-VISITED-color: #33a1ff; /* Color of 'page visited' icons in menu */
     --MENU-SECTION-HR-color: #20272b; /* Color of <hr> separator in menu */
-
 }
+
 
 body {
     color: var(--MAIN-TEXT-color) !important;
+    line-height: 2.5;
 }
 
 textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
@@ -53,24 +58,20 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #R-body-inner {
-    margin: 7.4em 0 5em;
-}
-
-#chapter #body-inner {
-    margin: 5em 0;
+    padding-top: 5em;
 }
 
 @media only all and (max-width: 59.938em) {
-    #body-inner {
-        margin-top: 4em;
+    #R-body-inner {
+        padding-top: 4em;
     }
 
-    #chapter #body-inner {
-        margin-top: 1.6em;
+    #chapter #Rbody-inner {
+        padding-top: 1.6em;
     }
 }
 
-#body-inner p, #body-inner ul {
+#R-body-inner p, #R-body-inner ul {
     max-width: 56em;
 }
 
@@ -85,10 +86,14 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     font-size: 1rem;
 }
 
-#chapter #body-inner h3:first-child {
+#chapter #R-body-inner h3:first-child {
     font-style: italic;
     margin: 0;
     color: #07688C;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
 }
 
 h1, #chapter * {
@@ -96,13 +101,8 @@ h1, #chapter * {
     text-transform: none;
 }
 
-h1, h2, h3, h4, h5 {
-    color: var(--MAIN-TITLES-TEXT-color) !important;
-}
-
 h1, #chapter h1, body #chapter h1 {
     font-size: 3.14rem;
-    border-bottom: solid .25rem #E8F0F5;
 }
 
 h2 {
@@ -110,18 +110,16 @@ h2 {
 }
 
 h3 {
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.6rem;
 }
 
 h4 {
-    font-size: 1.333rem;
-    font-weight: normal;
-    color: #535B60;
+    font-size: 1.4rem;
 }
 
 a {
     color: var(--MAIN-LINK-color);
+    font-weight: 600;
 }
 
 .anchor {
@@ -309,33 +307,33 @@ mark {
     color: #1C4248;
 }
 
-.btn-default {
+.btn > * {
     border-width: 2px !important;
     font-size: 1rem !important;
     color: #fff !important;
     background-color: #0098CB !important;
     border-color: #0098CB !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
 }
 
-.btn-default:hover,
-.btn-default:focus,
-.btn-default:active {
+.btn.primary:hover > *,
+.btn.primary:focus > *,
+.btn.primary:active > * {
     color: #fff!important;
     background-color: #007ba5 !important;
     border-color: #007298 !important;
 }
 
-.btn.btn-learn-more,
-.btn.btn-learn-more:focus,
-.btn.btn-learn-more:active {
+.btn.transparent > *,
+.btn.transparent:focus > *,
+.btn.transparent:active > * {
     color: #0098CB !important;
     border-color: #0098CB !important;
     background-color: #fff !important;
 }
 
-.btn.btn-learn-more:hover {
+.btn.transparent:hover > * {
     color: #fff !important;
     background-color: #0098CB !important;
     border-color: #0098CB !important;

@@ -6,10 +6,6 @@ chapter = true
 pre = "<b></b>"
 +++
 
-### Deep Dive
-
-# Tugboat's Command Line Interface Tool
-
 Installing and using Tugboat's CLI.
 
 {{%children%}}

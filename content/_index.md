@@ -9,7 +9,7 @@ Bitbucket git repositories.
 
 <!-- prettier-ignore-start -->
 {{% button icon="fas fa-external-link-alt" class="btn-learn-more" href="https://www.tugboatqa.com" %}}Learn more{{% /button %}}&nbsp;
-{{% button icon="fas fa-external-link-alt" class="btn-sign-up" href="https://dashboard.tugboatqa.com" %}}Sign in{{% /button %}}
+{{% button style="primary" icon="fas fa-external-link-alt" class="btn-sign-up" href="https://dashboard.tugboatqa.com" %}}Sign in{{% /button %}}
 <!-- prettier-ignore-end -->
 
 This website aims to provide the information required to use Tugboat. It includes tutorials, examples, and references

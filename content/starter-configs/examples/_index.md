@@ -6,10 +6,6 @@ chapter = true
 pre = ""
 +++
 
-### Starter Configs
-
-# Examples
-
 Example config.yml files to get you started with common frameworks or configurations.
 
 {{%children%}}
