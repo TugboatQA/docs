@@ -14,7 +14,7 @@ jobs:
         # Equivalent to peaceiris/actions-hugo@v2.5.0
         uses: peaceiris/actions-hugo@c03b5dbed22245418539b65eb9a3b1d5fdd9a0a6
         with:
-          hugo-version: '0.58.3'
+          hugo-version: '0.147.8'
       - name: build hugo
         run: hugo
       - name: yarn install
