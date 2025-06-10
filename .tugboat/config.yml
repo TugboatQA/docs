@@ -20,6 +20,7 @@ services:
         - npm install
 
       build:
+        - git submodule init && git submodule update
         - hugo
         - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
 
