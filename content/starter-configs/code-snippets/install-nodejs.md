@@ -4,7 +4,7 @@ date: 2023-09-11T17:04:07-04:00
 weight: 1
 ---
 
-If you need a specific version of Node.js on an image other than the `tugboatqa/nodejs` image, we recommend using
+If you need a specific version of Node.js on an image other than the `tugboatqa/node` image, we recommend using
 [NodeSource distributions](https://github.com/nodesource/distributions) to do so. The majority of Tugboat images are
 Debian-based.
 
