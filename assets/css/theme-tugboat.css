@@ -1,9 +1,7 @@
-
 /* Poppins font loaded via local @font-face in head-fonts.html partial for better performance */
 
-:root{
-
-    /* Font customizations */
+:root {
+    /* Font customizations - these remain the same for both modes */
     --MAIN-font-weight: 400; /* Regular weight instead of light (300) */
     --MAIN-BOLD-font-weight: 600; /* Semibold for emphasis */
     
@@ -18,42 +16,100 @@
     --MAIN-TITLES-H2-font-weight: 700; /* Bold weight for H2 */
     --MAIN-TITLES-H2-letter-spacing: -0.02em;
 
-    --PRIMARY-color: #0098CB;
-    --SECONDARY-color: #07688C;
-    --ACCENT-color: #03384B;
-
-    --MAIN-TEXT-color:#1C4248; /* Color of text by default */
-    --MAIN-TITLES-TEXT-color: #1C4248; /* Color of titles h2-h3-h4-h5 */
-    --MAIN-LINK-color:#0098CB; /* Color of links */
-    --MAIN-LINK-HOVER-color:#167ad0; /* Color of hovered links */
-    --MAIN-ANCHOR-color: #1C90F3; /* color of anchors on titles */
-
-    --MENU-HEADER-BG-color:#07536F; /* Background color of menu header */
-    --MENU-HEADER-BORDER-color:#07688C; /*Color of menu header border */
-
-    --MENU-SEARCH-BG-color: #E8F0F5; /* Search field background color (by default borders + icons) */
-    --MENU-SEARCH-BOX-color: #E8F0F5; /* Override search field border color */
-    --MENU-SEARCH-BOX-ICONS-color: #1C4248; /* Override search field icons color */
-
-    --MENU-SECTIONS-ACTIVE-BG-color:#F9FCFE; /* Background color of the active section and its childs */
-    --MENU-SECTIONS-BG-color:#E8F0F5; /* Background color of other sections */
-    --MENU-SECTIONS-LINK-color: #535B60; /* Color of links in menu */
-    --MENU-SECTIONS-LINK-HOVER-color: #07688C;  /* Color of links in menu, when hovered */
-    --MENU-SECTION-ACTIVE-CATEGORY-color: #03384B; /* Color of active category text */
-    --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #dde7ee; /* Color of background for the active category (only) */
-
-    --MENU-VISITED-color: #33a1ff; /* Color of 'page visited' icons in menu */
-    --MENU-SECTION-HR-color: #20272b; /* Color of <hr> separator in menu */
+    /* Chroma theme selection */
+    --CODE-theme: relearn-light; /* Light syntax highlighting by default */
 }
 
+/* Light mode colors */
+@media (prefers-color-scheme: light) {
+    :root {
+        --PRIMARY-color: #0098CB;
+        --SECONDARY-color: #07688C;
+        --ACCENT-color: #03384B;
+
+        --MAIN-TEXT-color: #1C4248; /* Color of text by default */
+        --MAIN-TITLES-TEXT-color: #1C4248; /* Color of titles h2-h3-h4-h5 */
+        --MAIN-LINK-color: #0098CB; /* Color of links */
+        --MAIN-LINK-HOVER-color: #167ad0; /* Color of hovered links */
+        --MAIN-ANCHOR-color: #1C90F3; /* color of anchors on titles */
+        --MAIN-BG-color: #ffffff; /* Main content background */
+
+        --MENU-HEADER-BG-color: #E8F0F5; /* Background color of menu header */
+        --MENU-HEADER-BORDER-color: #E8F0F5; /*Color of menu header border */
+
+        --MENU-SEARCH-BG-color: #E8F0F5; /* Search field background color (by default borders + icons) */
+        --MENU-SEARCH-BG-color: #F9FCFE; /* Search field background color (by default borders + icons) */
+        --MENU-SEARCH-BOX-color: #E8F0F5; /* Override search field border color */
+        --MENU-SEARCH-BOX-ICONS-color: #1C4248; /* Override search field icons color */
+
+        --MENU-SECTIONS-ACTIVE-BG-color: #fff; /* Background color of the active section and its childs */
+        --MENU-SECTIONS-BG-color: #E8F0F5; /* Background color of other sections */
+        --MENU-SECTIONS-LINK-color: #535B60; /* Color of links in menu */
+        --MENU-SECTIONS-LINK-HOVER-color: #07688C;  /* Color of links in menu, when hovered */
+        --MENU-SECTION-ACTIVE-CATEGORY-color: #03384B; /* Color of active category text */
+        --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #fff; /* Color of background for the active category (only) */
+
+        --MENU-VISITED-color: #33a1ff; /* Color of 'page visited' icons in menu */
+        --MENU-SECTION-HR-color: #20272b; /* Color of <hr> separator in menu */
+
+        /* Notice/Box colors for light mode */
+        --BOX-CAPTION-color: rgba(255, 255, 255, 1); /* text color of colored box titles */
+        --BOX-BG-color: rgba(255, 255, 255, 0.9); /* background color of colored boxes */
+        --BOX-TEXT-color: rgba(28, 66, 72, 1); /* text color of colored box content */
+        --BOX-GREY-color: rgba(232, 240, 245, 1); /* background color of grey boxes */
+
+        --CODE-theme: relearn-light; /* Light syntax highlighting */
+    }
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --PRIMARY-color: #00B8E6;
+        --SECONDARY-color: #0098CB;
+        --ACCENT-color: #167ad0;
+
+        --MAIN-TEXT-color: #E8F0F5; /* Light text for dark background */
+        --MAIN-TITLES-TEXT-color: #F9FCFE; /* Lighter color for titles */
+        --MAIN-LINK-color: #00B8E6; /* Brighter blue for links on dark background */
+        --MAIN-LINK-HOVER-color: #33C4E8; /* Lighter hover color */
+        --MAIN-ANCHOR-color: #5BB4F3; /* Lighter anchor color */
+        --MAIN-BG-color: #1a1a1a; /* Dark content background */
+
+        --MENU-HEADER-BG-color: #03384B; /* Darker header background */
+        --MENU-HEADER-BORDER-color: #07536F; /* Border color */
+
+        --MENU-SEARCH-BG-color: #2a3238; /* Dark search field background */
+        --MENU-SEARCH-BOX-color: #2a3238; /* Dark search field border */
+        --MENU-SEARCH-BOX-ICONS-color: #E8F0F5; /* Light icons */
+
+        --MENU-SECTIONS-ACTIVE-BG-color: #2a3238; /* Dark active section background */
+        --MENU-SECTIONS-BG-color: #1C4248; /* Dark menu background */
+        --MENU-SECTIONS-LINK-color: #B8CDD6; /* Light menu links */
+        --MENU-SECTIONS-LINK-HOVER-color: #00B8E6; /* Bright hover color */
+        --MENU-SECTION-ACTIVE-CATEGORY-color: #fff; /* Active category color */
+        --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #2a3238; /* Active category background */
+
+        --MENU-VISITED-color: #5BB4F3; /* Visited page icons */
+        --MENU-SECTION-HR-color: #4a5258; /* HR separator color */
+
+        /* Notice/Box colors for dark mode */
+        --BOX-CAPTION-color: rgba(232, 240, 245, 1); /* text color of colored box titles */
+        --BOX-BG-color: rgba(42, 50, 56, 0.9); /* background color of colored boxes */
+        --BOX-TEXT-color: rgba(232, 240, 245, 1); /* text color of colored box content */
+        --BOX-GREY-color: rgba(74, 82, 88, 1); /* background color of grey boxes */
+
+        --CODE-theme: relearn-dark; /* Dark syntax highlighting */
+    }
+}
 
 body {
     color: var(--MAIN-TEXT-color) !important;
-    line-height: 2.5;
+    line-height: 2;
 }
 
 textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
-    border-color: none;
+    border: none;
     box-shadow: none;
 }
 
@@ -89,7 +145,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 #chapter #R-body-inner h3:first-child {
     font-style: italic;
     margin: 0;
-    color: #07688C;
+    color: var(--SECONDARY-color);
 }
 
 h1, h2, h3, h4, h5 {
@@ -130,10 +186,6 @@ a:hover {
     color: var(--MAIN-LINK-HOVER-color);
 }
 
-#sidebar ul li.visited > a .read-icon {
-	color: var(--MENU-VISITED-color);
-}
-
 #body a.highlight:after {
     display: block;
     content: "";
@@ -146,24 +198,55 @@ a:hover {
     background-color: var(--MAIN-LINK-HOVER-color);
 }
 
-#sidebar {
-	background-color: var(--MENU-SECTIONS-BG-color);
+/* Sidebar */
+
+.R-sidebarmenu ul.enlarge > li > :is(a, span) {
+    font-size: 1rem;
 }
-#sidebar #header-wrapper {
-    background: #03384B;
-    color: var(--MENU-SEARCH-BOX-color);
-    border-color: var(--MENU-HEADER-BORDER-color);
-    border-bottom: 0;
+
+#R-sidebar ul.enlarge > li > ul li:last-child {
+    padding-bottom: 0;
 }
-#sidebar #header a {
-    display: block;
-    line-height: 0;
+
+.R-sidebarmenu .active > a {
+    font-weight: 900;
 }
-#grav-logo {
+
+.R-sidebarmenu .active > ul.collapsible-menu > li,
+.R-sidebarmenu .alwaysopen > ul.collapsible-menu > li {
+    border-left: 4px solid var(--MENU-HEADER-BORDER-color);
+}
+
+.R-sidebarmenu > ul.collapsible-menu > li.active > ul.collapsible-menu {
+    padding-bottom: 1rem !important;
+}
+
+
+/* Logo */
+#logo svg {
     max-width: 100%;
     width: 168px;
     height: 56px;
 }
+
+/* Logo switching for light/dark mode */
+.logo-light {
+    display: block;
+}
+.logo-dark {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .logo-light {
+        display: none;
+    }
+    .logo-dark {
+        display: block;
+    }
+}
+
+/* Sidebar */
 
 #sidebar .searchbox {
     border: none;
@@ -172,31 +255,33 @@ a:hover {
     color: var(--MENU-SEARCH-BOX-ICONS-color);
 }
 #sidebar .searchbox input {
-    color: #1C4248;
-    background: #F9FCFE;
+    color: var(--MAIN-TEXT-color);
+    background: var(--MENU-SECTIONS-ACTIVE-BG-color);
 }
 .searchbox input::placeholder {
-    color: #9AAFB7;
+    color: var(--MENU-SECTIONS-LINK-color);
+    opacity: 0.7;
 }
 .autocomplete-suggestions {
     border: 0;
-    border-bottom: solid 1px #eee;
-    box-shadow: 0 2em 2em rgba(180,180,180,.1);
+    border-bottom: solid 1px var(--MENU-SECTION-HR-color);
+    box-shadow: 0 2em 2em rgba(0,0,0,.2);
+    background-color: var(--MENU-SECTIONS-BG-color);
 }
 .autocomplete-suggestion {
-    color: #3E4548;
+    color: var(--MAIN-TEXT-color);
 }
 .autocomplete-suggestion .context {
-    color: #777C7E;
+    color: var(--MENU-SECTIONS-LINK-color);
 }
 .autocomplete-suggestion.selected,
 .autocomplete-suggestion:hover {
-    background: #0098CB;
-    color: #fff;
+    background: var(--PRIMARY-color);
+    color: var(--MAIN-BG-color);
 }
 .autocomplete-suggestion.selected .context,
 .autocomplete-suggestion:hover .context {
-    color: #CCEAF5;
+    color: var(--MENU-SECTIONS-ACTIVE-BG-color);
 }
 
 #sidebar a {
@@ -244,15 +329,15 @@ a:hover {
 }
 
 .ui-text {
-    background: #cdd7db;
+    background: var(--MENU-SECTION-ACTIVE-CATEGORY-BG-color);
     border-radius: .1875rem;
-    color: #03384B;
+    color: var(--MENU-SECTION-ACTIVE-CATEGORY-color);
     padding: .125rem .5rem;
     font-weight: 500;
 }
 
 .expand {
-    background: #F9F6F2;
+    background: var(--MENU-SECTIONS-ACTIVE-BG-color);
     padding: 2rem;
 }
 
@@ -260,18 +345,18 @@ a:hover {
     margin: 0;
     font-family: inherit;
     font-weight: bold;
-    color: #07688C !important;
+    color: var(--SECONDARY-color) !important;
     letter-spacing: inherit;
     text-rendering: inherit;
 }
 
 .expand-label:hover {
-    color: #0098CB !important;
+    color: var(--PRIMARY-color) !important;
 }
 
 .expand-content {
     padding: 3em;
-    background: #fff;
+    background: var(--MAIN-BG-color);
     margin-top: 2em;
 }
 
@@ -282,8 +367,8 @@ a:hover {
 #body a img {
     margin-left: 0;
     margin-right: 0;
-    border: solid 1px #ededed;
-    box-shadow: 2px 2px 20px 4px rgba(200, 200, 200, 0.1);
+    border: solid 1px var(--MENU-SECTION-HR-color);
+    box-shadow: 2px 2px 20px 4px rgba(0, 0, 0, 0.1);
 }
 
 #body .expand-content img {
@@ -295,7 +380,8 @@ a:hover {
 }
 
 mark {
-    background: #FBE7CB;
+    background: var(--BOX-GREY-color);
+    color: var(--MAIN-TEXT-color);
 }
 
 :not(pre) > code {
@@ -303,16 +389,16 @@ mark {
     display: inline;
     padding: .4375rem .3125rem;
     white-space: normal;
-    background: #f7f7f7;
-    color: #1C4248;
+    background: var(--CODE-INLINE-BG-color, var(--MENU-SECTIONS-ACTIVE-BG-color));
+    color: var(--CODE-INLINE-color, var(--MAIN-TEXT-color));
 }
 
 .btn > * {
     border-width: 2px !important;
     font-size: 1rem !important;
-    color: #fff !important;
-    background-color: #0098CB !important;
-    border-color: #0098CB !important;
+    color: var(--MAIN-BG-color) !important;
+    background-color: var(--PRIMARY-color) !important;
+    border-color: var(--PRIMARY-color) !important;
     font-weight: 700 !important;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
 }
@@ -320,21 +406,21 @@ mark {
 .btn.primary:hover > *,
 .btn.primary:focus > *,
 .btn.primary:active > * {
-    color: #fff!important;
-    background-color: #007ba5 !important;
-    border-color: #007298 !important;
+    color: var(--MAIN-BG-color) !important;
+    background-color: var(--SECONDARY-color) !important;
+    border-color: var(--SECONDARY-color) !important;
 }
 
 .btn.transparent > *,
 .btn.transparent:focus > *,
 .btn.transparent:active > * {
-    color: #0098CB !important;
-    border-color: #0098CB !important;
-    background-color: #fff !important;
+    color: var(--PRIMARY-color) !important;
+    border-color: var(--PRIMARY-color) !important;
+    background-color: var(--MAIN-BG-color) !important;
 }
 
 .btn.transparent:hover > * {
-    color: #fff !important;
-    background-color: #0098CB !important;
-    border-color: #0098CB !important;
+    color: var(--MAIN-BG-color) !important;
+    background-color: var(--PRIMARY-color) !important;
+    border-color: var(--PRIMARY-color) !important;
 }

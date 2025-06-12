@@ -37,6 +37,13 @@ home = [ "HTML", "RSS", "JSON"]
 
   editURL = "https://github.com/TugboatQA/docs/edit/main/content/"
 
+[[params.boxStyle]]
+  color = 'purple'
+  i18n = ''
+  icon = 'rainbow'
+  identifier = 'tier'
+  title = 'Tugboat Tier'
+
 # Set Twitter card defaults for documentation site
 [params.twitterCard]
     card = "summary"
