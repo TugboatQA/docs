@@ -19,7 +19,7 @@ home = [ "HTML", "RSS", "JSON"]
       unsafe = true
 
 [params]
-  # Google Analytics ID (replaces deprecated .Site.GoogleAnalytics)
+  # Google Analytics ID, uncomment to enable.
   #googleAnalytics = "G-1K7LBY47YH"
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "tugboat"

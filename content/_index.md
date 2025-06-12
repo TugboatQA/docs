@@ -1,7 +1,9 @@
 ---
-title: "Welcome to Tugboat!"
+title: "Tugboat Documentation"
 date: 2019-09-17T09:34:20-04:00
 ---
+
+## Welcome to Tugboat!
 
 Tugboat is a system that builds a working preview of a website for any branch, tag, commit, or pull request in a git
 repository. It can automatically create these previews for pull requests by integrating with GitHub, GitLab, or
