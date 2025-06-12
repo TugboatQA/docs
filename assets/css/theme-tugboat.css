@@ -48,6 +48,7 @@
         --MENU-SECTIONS-LINK-HOVER-color: #07688C;  /* Color of links in menu, when hovered */
         --MENU-SECTION-ACTIVE-CATEGORY-color: #03384B; /* Color of active category text */
         --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #fff; /* Color of background for the active category (only) */
+        --MENU-SECTION-ACTIVE-CATEGORY-BORDER-color: #E8F0F5;
 
         --MENU-VISITED-color: #33a1ff; /* Color of 'page visited' icons in menu */
         --MENU-SECTION-HR-color: #20272b; /* Color of <hr> separator in menu */
@@ -83,12 +84,13 @@
         --MENU-SEARCH-BOX-color: #2a3238; /* Dark search field border */
         --MENU-SEARCH-BOX-ICONS-color: #E8F0F5; /* Light icons */
 
-        --MENU-SECTIONS-ACTIVE-BG-color: #2a3238; /* Dark active section background */
+        --MENU-SECTIONS-ACTIVE-BG-color: #111; /* Dark active section background */
         --MENU-SECTIONS-BG-color: #1e1e1e; /* Dark menu background */
         --MENU-SECTIONS-LINK-color: #B8CDD6; /* Light menu links */
         --MENU-SECTIONS-LINK-HOVER-color: #00B8E6; /* Bright hover color */
         --MENU-SECTION-ACTIVE-CATEGORY-color: #fff; /* Active category color */
-        --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #2a3238; /* Active category background */
+        --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #111; /* Active category background */
+        --MENU-SECTION-ACTIVE-CATEGORY-BORDER-color: #1e1e1e;
 
         --MENU-VISITED-color: #5BB4F3; /* Visited page icons */
         --MENU-SECTION-HR-color: #4a5258; /* HR separator color */
@@ -115,7 +117,6 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 
 #R-header-topbar {
     border: 0;
-    border-right: solid 4px #fff;
 }
 
 #R-body-inner {
@@ -338,7 +339,7 @@ a:hover {
 }
 
 .expand {
-    background: var(--MENU-SECTIONS-ACTIVE-BG-color);
+    background: var(--MENU-SECTIONS-BG-color);
     padding: 2rem;
 }
 

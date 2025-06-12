@@ -1,8 +1,6 @@
 #baseURL = "https://docs.tugboatqa.com/"
 languageCode = "en-us"
 title = "Tugboat Documentation"
-# Uncomment the following to enable GA.
-#googleAnalytics = "G-1K7LBY47YH"
 
 # Suppress raw HTML warnings for Hugo Relearn compatibility
 ignoreLogs = ['warning-goldmark-raw-html']
