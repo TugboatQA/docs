@@ -76,15 +76,15 @@
         --MAIN-ANCHOR-color: #5BB4F3; /* Lighter anchor color */
         --MAIN-BG-color: #1a1a1a; /* Dark content background */
 
-        --MENU-HEADER-BG-color: #03384B; /* Darker header background */
-        --MENU-HEADER-BORDER-color: #07536F; /* Border color */
+        --MENU-HEADER-BG-color: none; /* Darker header background */
+        --MENU-HEADER-BORDER-color: rgba(134, 134, 134, 0.066); /* Border color */
 
         --MENU-SEARCH-BG-color: #2a3238; /* Dark search field background */
         --MENU-SEARCH-BOX-color: #2a3238; /* Dark search field border */
         --MENU-SEARCH-BOX-ICONS-color: #E8F0F5; /* Light icons */
 
         --MENU-SECTIONS-ACTIVE-BG-color: #2a3238; /* Dark active section background */
-        --MENU-SECTIONS-BG-color: #1C4248; /* Dark menu background */
+        --MENU-SECTIONS-BG-color: #1e1e1e; /* Dark menu background */
         --MENU-SECTIONS-LINK-color: #B8CDD6; /* Light menu links */
         --MENU-SECTIONS-LINK-HOVER-color: #00B8E6; /* Bright hover color */
         --MENU-SECTION-ACTIVE-CATEGORY-color: #fff; /* Active category color */
@@ -111,6 +111,11 @@ body {
 textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
     border: none;
     box-shadow: none;
+}
+
+#R-header-topbar {
+    border: 0;
+    border-right: solid 4px #fff;
 }
 
 #R-body-inner {
@@ -221,7 +226,6 @@ a:hover {
     padding-bottom: 1rem !important;
 }
 
-
 /* Logo */
 #logo svg {
     max-width: 100%;
@@ -246,7 +250,7 @@ a:hover {
     }
 }
 
-/* Sidebar */
+/* Search */
 
 #sidebar .searchbox {
     border: none;
@@ -268,21 +272,18 @@ a:hover {
     box-shadow: 0 2em 2em rgba(0,0,0,.2);
     background-color: var(--MENU-SECTIONS-BG-color);
 }
-.autocomplete-suggestion {
+.autocomplete-suggestion,
+.autocomplete-suggestion.selected,
+.autocomplete-suggestion.selected .context {
     color: var(--MAIN-TEXT-color);
 }
-.autocomplete-suggestion .context {
-    color: var(--MENU-SECTIONS-LINK-color);
-}
+
 .autocomplete-suggestion.selected,
-.autocomplete-suggestion:hover {
-    background: var(--PRIMARY-color);
-    color: var(--MAIN-BG-color);
+.autocomplete-suggestion.selected .context {
+    background-color: var(--MENU-SECTIONS-ACTIVE-BG-color);
 }
-.autocomplete-suggestion.selected .context,
-.autocomplete-suggestion:hover .context {
-    color: var(--MENU-SECTIONS-ACTIVE-BG-color);
-}
+
+/* Sidebar */
 
 #sidebar a {
     color: var(--MENU-SECTIONS-LINK-color);
