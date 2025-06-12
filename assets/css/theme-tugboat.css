@@ -78,8 +78,8 @@
         --MAIN-ANCHOR-color: #5BB4F3; /* Lighter anchor color */
         --MAIN-BG-color: #1a1a1a; /* Dark content background */
 
-        --MENU-HEADER-BG-color: none; /* Darker header background */
-        --MENU-HEADER-BORDER-color: rgba(134, 134, 134, 0.066); /* Border color */
+        --MENU-HEADER-BG-color: #1e1e1e; /* Darker header background */
+        --MENU-HEADER-BORDER-color: #2a3238; /* Border color */
 
         --MENU-SEARCH-BG-color: #2a3238; /* Dark search field background */
         --MENU-SEARCH-BOX-color: #2a3238; /* Dark search field border */
@@ -104,6 +104,10 @@
 
         --CODE-theme: relearn-dark; /* Dark syntax highlighting */
     }
+}
+
+#R-homelinks {
+    display: none;
 }
 
 body {
@@ -205,29 +209,6 @@ a:hover {
     background-color: var(--MAIN-LINK-HOVER-color);
 }
 
-/* Sidebar */
-
-.R-sidebarmenu ul.enlarge > li > :is(a, span) {
-    font-size: 1rem;
-}
-
-#R-sidebar ul.enlarge > li > ul li:last-child {
-    padding-bottom: 0;
-}
-
-.R-sidebarmenu .active > a {
-    font-weight: 900;
-}
-
-.R-sidebarmenu .active > ul.collapsible-menu > li,
-.R-sidebarmenu .alwaysopen > ul.collapsible-menu > li {
-    border-left: 4px solid var(--MENU-HEADER-BORDER-color);
-}
-
-.R-sidebarmenu > ul.collapsible-menu > li.active > ul.collapsible-menu {
-    padding-bottom: 1rem !important;
-}
-
 /* Logo */
 #logo svg {
     max-width: 100%;
@@ -287,6 +268,28 @@ a:hover {
 
 /* Sidebar */
 
+.R-sidebarmenu ul.enlarge > li > :is(a, span) {
+    font-size: 1rem;
+}
+
+#R-sidebar ul.enlarge > li > ul li:last-child {
+    padding-bottom: 0;
+}
+
+.R-sidebarmenu .active > a {
+    font-weight: 900;
+}
+
+.R-sidebarmenu .parent > ul.collapsible-menu > li,
+.R-sidebarmenu .active > ul.collapsible-menu > li,
+.R-sidebarmenu .alwaysopen > ul.collapsible-menu > li {
+    border-left: 4px solid var(--MENU-HEADER-BORDER-color);
+}
+
+.R-sidebarmenu > ul.collapsible-menu > li > ul.collapsible-menu {
+    padding-bottom: 0.75rem !important;
+}
+
 #sidebar a {
     color: var(--MENU-SECTIONS-LINK-color);
 }
@@ -329,6 +332,12 @@ a:hover {
 
 #sidebar .highlightable {
     padding: 0;
+}
+
+/* Top bar */
+
+#R-topbar > .topbar-wrapper {
+    background: var(--MENU-HEADER-BG-color);
 }
 
 .ui-text {
