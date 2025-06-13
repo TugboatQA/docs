@@ -6,10 +6,6 @@ chapter = true
 pre = "<b></b>"
 +++
 
-### Reference
-
-# Help and Support
-
 Getting used to a new tool can sometimes be a little overwhelming.
 
 Don’t fret—we’re here for you!

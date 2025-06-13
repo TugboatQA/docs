@@ -6,13 +6,9 @@ chapter: true
 pre: "<b>1. </b>"
 ---
 
-### Chapter 1
-
-# Setting up Tugboat
-
 Connecting Tugboat to your git provider, creating projects, adding repositories.
 
-{{% children  /%}}
+{{%children%}}
 
 {{% notice tip %}} If you want to learn more about setting up Tugboat and get a feel for the overall workflow, watch our
 [Getting Started with Tugboat video](https://www.youtube.com/watch?v=HYTsrm5ORmU) on YouTube. {{% /notice %}}

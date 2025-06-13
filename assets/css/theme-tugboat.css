@@ -1,0 +1,442 @@
+/* Poppins font loaded via local @font-face in head-fonts.html partial for better performance */
+
+:root {
+    /* Font customizations - these remain the same for both modes */
+    --MAIN-font-weight: 400; /* Regular weight instead of light (300) */
+    --MAIN-BOLD-font-weight: 600; /* Semibold for emphasis */
+    
+    /* Headings use Poppins */
+    --MAIN-TITLES-font: "Poppins", sans-serif;
+    --MAIN-TITLES-font-weight: 500; /* Medium weight for headings */
+    --MAIN-TITLES-H1-font: "Poppins", sans-serif;
+    --MAIN-TITLES-H1-font-weight: 900; /* Bold for H1 */
+    --MAIN-TITLES-H1-letter-spacing: -0.03em;
+    --MAIN-TITLES-H1-text-transform: none;
+    --MAIN-TITLES-H2-font: "Poppins", sans-serif;
+    --MAIN-TITLES-H2-font-weight: 700; /* Bold weight for H2 */
+    --MAIN-TITLES-H2-letter-spacing: -0.02em;
+
+    /* Chroma theme selection */
+    --CODE-theme: relearn-light; /* Light syntax highlighting by default */
+    --BOX-TIP-color: #0098cb;
+}
+
+/* Light mode colors */
+@media (prefers-color-scheme: light) {
+    :root {
+        --PRIMARY-color: #0098CB;
+        --SECONDARY-color: #07688C;
+        --ACCENT-color: #03384B;
+
+        --MAIN-TEXT-color: #1C4248; /* Color of text by default */
+        --MAIN-TITLES-TEXT-color: #1C4248; /* Color of titles h2-h3-h4-h5 */
+        --MAIN-LINK-color: #0098CB; /* Color of links */
+        --MAIN-LINK-HOVER-color: #167ad0; /* Color of hovered links */
+        --MAIN-ANCHOR-color: #1C90F3; /* color of anchors on titles */
+        --MAIN-BG-color: #ffffff; /* Main content background */
+
+        --MENU-HEADER-BG-color: #E8F0F5; /* Background color of menu header */
+        --MENU-HEADER-BORDER-color: #E8F0F5; /*Color of menu header border */
+
+        --MENU-SEARCH-BG-color: #E8F0F5; /* Search field background color (by default borders + icons) */
+        --MENU-SEARCH-BG-color: #F9FCFE; /* Search field background color (by default borders + icons) */
+        --MENU-SEARCH-BOX-color: #E8F0F5; /* Override search field border color */
+        --MENU-SEARCH-BOX-ICONS-color: #1C4248; /* Override search field icons color */
+
+        --MENU-SECTIONS-ACTIVE-BG-color: #fff; /* Background color of the active section and its childs */
+        --MENU-SECTIONS-BG-color: #E8F0F5; /* Background color of other sections */
+        --MENU-SECTIONS-LINK-color: #535B60; /* Color of links in menu */
+        --MENU-SECTIONS-LINK-HOVER-color: #07688C;  /* Color of links in menu, when hovered */
+        --MENU-SECTION-ACTIVE-CATEGORY-color: #03384B; /* Color of active category text */
+        --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #fff; /* Color of background for the active category (only) */
+        --MENU-SECTION-ACTIVE-CATEGORY-BORDER-color: #E8F0F5;
+
+        --MENU-VISITED-color: #33a1ff; /* Color of 'page visited' icons in menu */
+        --MENU-SECTION-HR-color: #20272b; /* Color of <hr> separator in menu */
+
+        /* Notice/Box colors for light mode */
+        --BOX-CAPTION-color: rgba(255, 255, 255, 1); /* text color of colored box titles */
+        --BOX-BG-color: rgba(255, 255, 255, 0.9); /* background color of colored boxes */
+        --BOX-TEXT-color: rgba(28, 66, 72, 1); /* text color of colored box content */
+        --BOX-GREY-color: rgba(232, 240, 245, 1); /* background color of grey boxes */
+
+        --CODE-theme: relearn-light; /* Light syntax highlighting */
+
+    }
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --PRIMARY-color: #00B8E6;
+        --SECONDARY-color: #0098CB;
+        --ACCENT-color: #167ad0;
+
+        --MAIN-TEXT-color: #E8F0F5; /* Light text for dark background */
+        --MAIN-TITLES-TEXT-color: #F9FCFE; /* Lighter color for titles */
+        --MAIN-LINK-color: #00B8E6; /* Brighter blue for links on dark background */
+        --MAIN-LINK-HOVER-color: #33C4E8; /* Lighter hover color */
+        --MAIN-ANCHOR-color: #5BB4F3; /* Lighter anchor color */
+        --MAIN-BG-color: #1a1a1a; /* Dark content background */
+
+        --MENU-HEADER-BG-color: #1e1e1e; /* Darker header background */
+        --MENU-HEADER-BORDER-color: #2a3238; /* Border color */
+
+        --MENU-SEARCH-BG-color: #2a3238; /* Dark search field background */
+        --MENU-SEARCH-BOX-color: #2a3238; /* Dark search field border */
+        --MENU-SEARCH-BOX-ICONS-color: #E8F0F5; /* Light icons */
+
+        --MENU-SECTIONS-ACTIVE-BG-color: #111; /* Dark active section background */
+        --MENU-SECTIONS-BG-color: #1e1e1e; /* Dark menu background */
+        --MENU-SECTIONS-LINK-color: #B8CDD6; /* Light menu links */
+        --MENU-SECTIONS-LINK-HOVER-color: #00B8E6; /* Bright hover color */
+        --MENU-SECTION-ACTIVE-CATEGORY-color: #fff; /* Active category color */
+        --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #111; /* Active category background */
+        --MENU-SECTION-ACTIVE-CATEGORY-BORDER-color: #1e1e1e;
+
+        --MENU-VISITED-color: #5BB4F3; /* Visited page icons */
+        --MENU-SECTION-HR-color: #4a5258; /* HR separator color */
+
+        /* Notice/Box colors for dark mode */
+        --BOX-CAPTION-color: rgba(232, 240, 245, 1); /* text color of colored box titles */
+        --BOX-BG-color: rgba(42, 50, 56, 0.9); /* background color of colored boxes */
+        --BOX-TEXT-color: rgba(232, 240, 245, 1); /* text color of colored box content */
+        --BOX-GREY-color: rgba(74, 82, 88, 1); /* background color of grey boxes */
+
+        --CODE-theme: relearn-dark; /* Dark syntax highlighting */
+        --CODE-BLOCK-BG-color: #1e1e1e;
+        --CODE-BLOCK-BORDER-color: #1e1e1e;
+        --CODE-BLOCK-color: #fff;
+    }
+}
+
+#R-homelinks {
+    display: none;
+}
+
+body {
+    color: var(--MAIN-TEXT-color) !important;
+    line-height: 2;
+}
+
+textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
+    border: none;
+    box-shadow: none;
+}
+
+#R-header-topbar {
+    border: 0;
+}
+
+#R-body-inner {
+    padding-top: 5em;
+}
+
+@media only all and (max-width: 59.938em) {
+    #R-body-inner {
+        padding-top: 4em;
+    }
+
+    #chapter #Rbody-inner {
+        padding-top: 1.6em;
+    }
+}
+
+#R-body-inner p, #R-body-inner ul {
+    max-width: 56em;
+}
+
+#chapter {
+    justify-content: normal;
+    padding: 0;
+    align-items: initial;
+    display: initial;
+}
+
+#chapter p {
+    font-size: 1rem;
+}
+
+#chapter #R-body-inner h3:first-child {
+    font-style: italic;
+    margin: 0;
+    color: var(--SECONDARY-color);
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+}
+
+h1, #chapter * {
+    text-align: left !important;
+    text-transform: none;
+}
+
+h1, #chapter h1, body #chapter h1 {
+    font-size: 3.14rem;
+}
+
+h2 {
+    font-size: 2.14rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+a {
+    color: var(--MAIN-LINK-color);
+    font-weight: 600;
+}
+
+.anchor {
+    color: var(--MAIN-ANCHOR-color);
+}
+
+a:hover {
+    color: var(--MAIN-LINK-HOVER-color);
+}
+
+#body a.highlight:after {
+    display: block;
+    content: "";
+    height: 1px;
+    width: 0%;
+    -webkit-transition: width 0.5s ease;
+    -moz-transition: width 0.5s ease;
+    -ms-transition: width 0.5s ease;
+    transition: width 0.5s ease;
+    background-color: var(--MAIN-LINK-HOVER-color);
+}
+
+/* Logo */
+#logo svg {
+    max-width: 100%;
+    width: 168px;
+    height: 56px;
+}
+
+/* Logo switching for light/dark mode */
+.logo-light {
+    display: block;
+}
+.logo-dark {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .logo-light {
+        display: none;
+    }
+    .logo-dark {
+        display: block;
+    }
+}
+
+/* Search */
+
+#sidebar .searchbox {
+    border: none;
+}
+#sidebar .searchbox * {
+    color: var(--MENU-SEARCH-BOX-ICONS-color);
+}
+#sidebar .searchbox input {
+    color: var(--MAIN-TEXT-color);
+    background: var(--MENU-SECTIONS-ACTIVE-BG-color);
+}
+.searchbox input::placeholder {
+    color: var(--MENU-SECTIONS-LINK-color);
+    opacity: 0.7;
+}
+.autocomplete-suggestions {
+    border: 0;
+    border-bottom: solid 1px var(--MENU-SECTION-HR-color);
+    box-shadow: 0 2em 2em rgba(0,0,0,.2);
+    background-color: var(--MENU-SECTIONS-BG-color);
+}
+.autocomplete-suggestion,
+.autocomplete-suggestion.selected,
+.autocomplete-suggestion.selected .context {
+    color: var(--MAIN-TEXT-color);
+}
+
+.autocomplete-suggestion.selected,
+.autocomplete-suggestion.selected .context {
+    background-color: var(--MENU-SECTIONS-ACTIVE-BG-color);
+}
+
+/* Sidebar */
+
+.R-sidebarmenu ul.enlarge > li > :is(a, span) {
+    font-size: 1rem;
+}
+
+#R-sidebar ul.enlarge > li > ul li:last-child {
+    padding-bottom: 0;
+}
+
+.R-sidebarmenu .active > a {
+    font-weight: 900;
+}
+
+.R-sidebarmenu .parent > ul.collapsible-menu > li,
+.R-sidebarmenu .active > ul.collapsible-menu > li,
+.R-sidebarmenu .alwaysopen > ul.collapsible-menu > li {
+    border-left: 4px solid var(--MENU-HEADER-BORDER-color);
+}
+
+.R-sidebarmenu > ul.collapsible-menu > li > ul.collapsible-menu {
+    padding-bottom: 0.75rem !important;
+}
+
+#sidebar a {
+    color: var(--MENU-SECTIONS-LINK-color);
+}
+#sidebar a:hover {
+    color: var(--MENU-SECTIONS-LINK-HOVER-color);
+}
+
+#sidebar ul.topics {
+    margin: 1rem 1rem 0 1rem;
+}
+
+#sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
+    background: var(--MENU-SECTIONS-ACTIVE-BG-color);
+}
+#sidebar ul li.active > a {
+    background: var(--MENU-SECTION-ACTIVE-CATEGORY-BG-color);
+    color: var(--MENU-SECTION-ACTIVE-CATEGORY-color) !important;
+    font-style: italic;
+}
+
+#sidebar hr {
+    border-color: var(--MENU-SECTION-HR-color);
+}
+
+#sidebar ul.topics > li > a b {
+    opacity: 1;
+}
+
+#sidebar ul.topics ul {
+    padding-bottom: 0;
+}
+
+#sidebar .topics ul li:first-child > a {
+    margin-top: .5rem;
+}
+
+#sidebar .topics ul li:last-child > a {
+    padding-bottom: .5rem;
+}
+
+#sidebar .highlightable {
+    padding: 0;
+}
+
+/* Top bar */
+
+#R-topbar > .topbar-wrapper {
+    background: var(--MENU-HEADER-BG-color);
+}
+
+.ui-text {
+    background: var(--MENU-SECTION-ACTIVE-CATEGORY-BG-color);
+    border-radius: .1875rem;
+    color: var(--MENU-SECTION-ACTIVE-CATEGORY-color);
+    padding: .125rem .5rem;
+    font-weight: 500;
+}
+
+.expand {
+    background: var(--MENU-SECTIONS-BG-color);
+    padding: 2rem;
+}
+
+.expand-label {
+    margin: 0;
+    font-family: inherit;
+    font-weight: bold;
+    color: var(--SECONDARY-color) !important;
+    letter-spacing: inherit;
+    text-rendering: inherit;
+}
+
+.expand-label:hover {
+    color: var(--PRIMARY-color) !important;
+}
+
+.expand-content {
+    padding: 3em;
+    background: var(--MAIN-BG-color);
+    margin-top: 2em;
+}
+
+#body ul {
+    line-height: 2;
+}
+
+#body a img {
+    margin-left: 0;
+    margin-right: 0;
+    border: solid 1px var(--MENU-SECTION-HR-color);
+    box-shadow: 2px 2px 20px 4px rgba(0, 0, 0, 0.1);
+}
+
+#body .expand-content img {
+    margin: 1em 0 6em;
+}
+
+#body .expand-content p:last-child img {
+    margin-bottom: 0;
+}
+
+mark {
+    background: var(--BOX-GREY-color);
+    color: var(--MAIN-TEXT-color);
+}
+
+:not(pre) > code {
+    border: none;
+    display: inline;
+    padding: .4375rem .3125rem;
+    white-space: normal;
+    background: var(--CODE-INLINE-BG-color, var(--MENU-SECTIONS-ACTIVE-BG-color));
+    color: var(--CODE-INLINE-color, var(--MAIN-TEXT-color));
+}
+
+.btn > * {
+    border-width: 2px !important;
+    font-size: 1rem !important;
+    color: var(--MAIN-BG-color) !important;
+    background-color: var(--PRIMARY-color) !important;
+    border-color: var(--PRIMARY-color) !important;
+    font-weight: 700 !important;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+.btn.primary:hover > *,
+.btn.primary:focus > *,
+.btn.primary:active > * {
+    color: var(--MAIN-BG-color) !important;
+    background-color: var(--SECONDARY-color) !important;
+    border-color: var(--SECONDARY-color) !important;
+}
+
+.btn.transparent > *,
+.btn.transparent:focus > *,
+.btn.transparent:active > * {
+    color: var(--PRIMARY-color) !important;
+    border-color: var(--PRIMARY-color) !important;
+    background-color: var(--MAIN-BG-color) !important;
+}
+
+.btn.transparent:hover > * {
+    color: var(--MAIN-BG-color) !important;
+    background-color: var(--PRIMARY-color) !important;
+    border-color: var(--PRIMARY-color) !important;
+}

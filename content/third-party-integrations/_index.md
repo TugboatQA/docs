@@ -6,10 +6,6 @@ chapter = true
 pre = "<b></b>"
 +++
 
-### Reference
-
-# Third-Party Integrations
-
 The following resources describe how to integrate your Tugboat project with various third-party services.
 
-{{% children depth="4" /%}}
+{{%children depth="4"%}}

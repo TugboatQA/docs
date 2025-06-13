@@ -6,10 +6,6 @@ chapter = true
 pre = "<b>3. </b>"
 +++
 
-### Chapter 3
-
-# Building a Preview
-
 How to build and update a Preview, administer Previews, and use Base Previews.
 
-{{% children depth="2" /%}}
+{{%children depth="2"%}}

@@ -7,10 +7,6 @@ chapter = true
 pre = "<b></b>"
 +++
 
-### Starter Configs
-
-# Code Snippets
-
 Example config.yml code stubs to use when adding functionality to your projects.
 
-{{% children  /%}}
+{{%children%}}

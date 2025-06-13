@@ -1,6 +1,6 @@
 ---
 title: "Slack Webhook Integration"
-date: Thu, Apr 29 2021
+date: 2021-04-29T10:00:00-04:00
 weight: 20
 aliases:
   - /starter-configs/code-snippets/slack-integration

@@ -1,24 +1,46 @@
 #baseURL = "https://docs.tugboatqa.com/"
 languageCode = "en-us"
 title = "Tugboat Documentation"
-# Uncomment the following to enable GA.
-#googleAnalytics = "G-1K7LBY47YH"
+
+# Suppress raw HTML warnings for Hugo Relearn compatibility
+ignoreLogs = ['warning-goldmark-raw-html']
 
 # Change the default theme to be use when building the site with Hugo
-theme = "hugo-theme-learn"
+theme = "hugo-theme-relearn"
 
 # For search functionality
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
 
+# Markup configuration for Hugo Relearn
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
+  # Google Analytics ID, uncomment to enable.
+  #googleAnalytics = "G-1K7LBY47YH"
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "tugboat"
 
   # Set this to true to disable copy-to-clipboard button for inline code.
   disableInlineCopyToClipBoard = true
 
+  # Hide the Home button in the sidebar navigation
+  disableLandingPageButton = true
+
+  # Hide date display on documents
+  hideAuthorDate = true
+
   editURL = "https://github.com/TugboatQA/docs/edit/main/content/"
+
+[[params.boxStyle]]
+  color = 'purple'
+  i18n = ''
+  icon = 'rainbow'
+  identifier = 'tier'
+  title = 'Tugboat Tier'
 
 # Set Twitter card defaults for documentation site
 [params.twitterCard]

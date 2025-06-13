@@ -7,10 +7,6 @@ chapter = true
 pre = ""
 +++
 
-### Starter Configs
-
-# Tutorials
-
 Information about configuring frameworks to work with Tugboat, and example config.yml files to get you started.
 
-{{% children  /%}}
+{{%children%}}
