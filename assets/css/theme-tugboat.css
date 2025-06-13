@@ -18,6 +18,7 @@
 
     /* Chroma theme selection */
     --CODE-theme: relearn-light; /* Light syntax highlighting by default */
+    --BOX-TIP-color: #0098cb;
 }
 
 /* Light mode colors */
@@ -103,6 +104,9 @@
         --BOX-GREY-color: rgba(74, 82, 88, 1); /* background color of grey boxes */
 
         --CODE-theme: relearn-dark; /* Dark syntax highlighting */
+        --CODE-BLOCK-BG-color: #1e1e1e;
+        --CODE-BLOCK-BORDER-color: #1e1e1e;
+        --CODE-BLOCK-color: #fff;
     }
 }
 
