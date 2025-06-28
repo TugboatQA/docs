@@ -165,6 +165,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 
 h1, h2, h3, h4, h5 {
     font-weight: bold;
+    line-height: 1.2;
 }
 
 h1, #chapter * {
@@ -174,18 +175,27 @@ h1, #chapter * {
 
 h1, #chapter h1, body #chapter h1 {
     font-size: 3.14rem;
+    margin-top: 4rem;
 }
 
 h2 {
     font-size: 2.14rem;
+    margin-top: 3.5rem;
 }
 
 h3 {
     font-size: 1.6rem;
+    margin-top: 3rem;
 }
 
 h4 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    margin-top: 2.5rem;
+}
+
+h5 {
+    font-size: 1rem;
+    margin-top: 2rem;
 }
 
 a {
