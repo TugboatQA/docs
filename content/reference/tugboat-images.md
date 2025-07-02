@@ -47,6 +47,7 @@ look at the **Supported Tags** linked below for the image you plan on using.
 | [Solr](#solr)                         | `image: tugboatqa/solr:[TAG]`             | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/solr/TAGS.md)             |
 | Traefik                               | `image: tugboatqa/traefik:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/traefik/TAGS.md)          |
 | Ubuntu                                | `image: tugboatqa/ubuntu:[TAG]`           | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/ubuntu/TAGS.md)           |
+| Valkey                                | `image: tugboatqa/valkey:[TAG]`           | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/valkey/TAGS.md)           |
 | Varnish                               | `image: tugboatqa/varnish:[TAG]`          | [Supported Tags](https://github.com/TugboatQA/dockerfiles/blob/main/varnish/TAGS.md)          |
 
 ---
