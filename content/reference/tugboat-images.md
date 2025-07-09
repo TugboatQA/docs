@@ -200,7 +200,7 @@ services:
     checkout: true
     commands:
       init:
-        - su -s /bin/sh -c "/opt/solr/bin/solr create_core -c [CORE] -force" solr
+        - su -s /bin/sh -c "/opt/solr/bin/solr create_core -c [CORE]" solr
 
       build:
         - cd "${SOLR_HOME}/[CORE]" && rm -rf conf
