@@ -137,8 +137,7 @@ the clone will fail.
 - **Default:** _no default_
 - **Required:** No
 
-Defines environment variables that will be imported into the Service's container when it is created. Environment
-variables can be specified in two formats:
+Defines environment variables that will be imported into the Service's container when it is created.
 
 {{% notice warning %}} **Sensitive Information**: Do not store sensitive information such as API keys, passwords, or
 other secrets directly in config.yml. Since config.yml is typically committed to version control, these values would be
@@ -146,8 +145,7 @@ visible to anyone with repository access. For sensitive data, use
 [Repo Custom Environment Variables](/setting-up-services/how-to-set-up-services/custom-environment-variables/) instead.
 {{% /notice %}}
 
-The `environment` configuration in config.yml is best used for non-sensitive values like application modes, public URLs,
-feature flags, and other configuration that doesn't compromise security if exposed.
+Environment variables can be specified in two formats:
 
 **Object Format (Key-Value Pairs)**
 
