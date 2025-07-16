@@ -1,6 +1,7 @@
 ---
 title: "Create Custom Environment Variables"
 date: 2019-09-26T15:39:08-04:00
+lastmod: 2025-07-16T12:00:00-04:00
 weight: 9
 ---
 
@@ -12,6 +13,11 @@ need to be unique to Tugboat but shared between your Previews.
 Tugboat provides a convenient way of injecting these values into a Preview's services via custom environment variables.
 These variables can be found on the
 [Repository Settings](/setting-up-tugboat/select-repo-settings/#change-repository-settings) page.
+
+{{% notice info %}} **Non-sensitive Environment Variables**: If you need to set service-specific environment variables
+that are not sensitive (such as application modes, public URLs, or feature flags), you can define them directly in your
+[config.yml environment configuration](/reference/tugboat-configuration/#environment) instead. This is often more
+convenient for non-secret values since they're defined alongside your service configuration. {{% /notice %}}
 
 ![Environment Variable Configuration](/_images/envvars-config.png)
 

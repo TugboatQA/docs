@@ -1,19 +1,20 @@
 ---
 title: "Tugboat Configuration"
 date: 2019-09-17T11:26:18-04:00
-lastmod: 2020-07-20T15:00:00-04:00
+lastmod: 2025-07-16T12:00:00-04:00
 weight: 4
 ---
 
 The following attributes control how a Service is built:
 
-| Key                             | Type    | Description                                         |
-| :------------------------------ | :------ | :-------------------------------------------------- |
-| [image](#image)                 | String  | The Docker image to use for this Service            |
-| [checkout](#checkout)           | Boolean | Whether to clone the git repository to this Service |
-| [checkout_path](#checkout-path) | String  | Where to clone the git repository                   |
-| [depends](#depends)             | List    | List of other Services that this Service depends on |
-| [commands](#commands)           | List    | List of commands to run for various build stages    |
+| Key                             | Type        | Description                                                |
+| :------------------------------ | :---------- | :--------------------------------------------------------- |
+| [image](#image)                 | String      | The Docker image to use for this Service                   |
+| [checkout](#checkout)           | Boolean     | Whether to clone the git repository to this Service        |
+| [checkout_path](#checkout-path) | String      | Where to clone the git repository                          |
+| [depends](#depends)             | List        | List of other Services that this Service depends on        |
+| [environment](#environment)     | Object/List | Environment variables to import into the Service container |
+| [commands](#commands)           | List        | List of commands to run for various build stages           |
 
 The following attributes configure how Service URLs are generated
 
@@ -127,6 +128,84 @@ Whether or not this Service should have a copy of the git repository cloned into
 
 Specifies the path where the git repository should be cloned if `checkout: true` is set. If this path already exists,
 the clone will fail.
+
+---
+
+#### `environment`
+
+- **Type:** Object or List
+- **Default:** _no default_
+- **Required:** No
+
+Defines environment variables that will be imported into the Service's container when it is created. Environment
+variables can be specified in two formats:
+
+{{% notice warning %}} **Sensitive Information**: Do not store sensitive information such as API keys, passwords, or
+other secrets directly in config.yml. Since config.yml is typically committed to version control, these values would be
+visible to anyone with repository access. For sensitive data, use
+[Repo Custom Environment Variables](/setting-up-services/how-to-set-up-services/custom-environment-variables/) instead.
+{{% /notice %}}
+
+The `environment` configuration in config.yml is best used for non-sensitive values like application modes, public URLs,
+feature flags, and other configuration that doesn't compromise security if exposed.
+
+**Object Format (Key-Value Pairs)**
+
+Environment variables can be defined as an object with key-value pairs:
+
+```yaml
+environment:
+  NODE_ENV: production
+  API_URL: "https://api.example.com"
+  DEBUG: true
+```
+
+**List Format (NAME=value)**
+
+Environment variables can also be defined as a list of strings in the `NAME=value` format:
+
+```yaml
+environment:
+  - NODE_ENV=production
+  - API_URL=https://api.example.com
+  - DEBUG=true
+```
+
+**Mixed Usage**
+
+Both formats can be used in the same configuration file across different services, but each service should use only one
+format consistently.
+
+Environment variables defined here will be available to all commands run during the service's lifecycle (init, update,
+build, ready, online, start, clone) as well as to the running application.
+
+**Complete Example**
+
+Here's an example showing both formats in a complete config.yml:
+
+```yaml
+services:
+  web:
+    image: tugboatqa/php:8.4-apache
+    default: true
+    environment:
+      NODE_ENV: production
+      API_URL: https://api.example.com
+      DEBUG: false
+      MAX_CONNECTIONS: 100
+    commands:
+      build:
+        - echo "NODE_ENV is set to: $NODE_ENV"
+        - echo "API_URL is: $API_URL"
+
+  database:
+    image: tugboatqa/mysql:8.0
+    environment:
+      - MYSQL_DATABASE=myapp
+      - MYSQL_USER=appuser
+      - CHARSET=utf8mb4
+      - COLLATION=utf8mb4_unicode_ci
+```
 
 ---
 
