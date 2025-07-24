@@ -115,6 +115,35 @@
                 }
               ]
             },
+            "environment": {
+              "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#environment",
+              "description": "Environment variables to import into the Service's container when it is created",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "description": "Environment variables defined as key-value pairs",
+                  "patternProperties": {
+                    "^[A-Z_][A-Z0-9_]*$": {
+                      "type": ["string", "number", "boolean"]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "array",
+                  "description": "Environment variables defined as NAME=value strings",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Z_][A-Z0-9_]*=.*$"
+                  }
+                },
+                {
+                  "type": "string",
+                  "description": "Environment variable defined as NAME=value string",
+                  "pattern": "^[A-Z_][A-Z0-9_]*=.*$"
+                }
+              ]
+            },
             "commands": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#commands",
               "title": "Build stage commands",
