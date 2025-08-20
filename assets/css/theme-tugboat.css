@@ -166,6 +166,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 h1, h2, h3, h4, h5 {
     font-weight: bold;
     line-height: 1.2;
+    overflow: visible;
 }
 
 h1, #chapter * {
