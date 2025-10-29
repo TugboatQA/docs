@@ -1,16 +1,13 @@
 ---
-title: "MySQL TLS / SSL error 2026: disabling SSL"
+title: "MySQL Error 2026: TLS/SSL error"
 date: 2025-02-18T10:00:00-05:00
 weight: 5
 ---
 
-Newer versions of the MySQL and MariaDB client require SSL connections by default when connecting to MySQL-flavored
-database services. Tugboat cannot automatically provision SSL certificates because it has no way to determine which
-services in your stack require them, what certificate requirements they have, or how your applications expect them to be
-configured—these decisions are specific to each application's architecture and security needs. This can cause database
-connection failures during Preview builds.
+Newer versions of the MariaDB client require SSL connections by default when connecting to MySQL-flavored database
+services.
 
-You may encounter an error like:
+If you are affected by this, you may encounter an error like:
 
 ```
 ERROR 2026 (HY000): TLS/SSL error: SSL is required, but the server does not support it
@@ -18,13 +15,14 @@ ERROR 2026 (HY000): TLS/SSL error: SSL is required, but the server does not supp
 
 ## Understanding the Issue
 
-This error typically occurs when the MariaDB client is expecting to connect to MariaDB 11.4 or greater. Starting from
-version 11.4, MariaDB enables TLS automatically—certificates are generated on startup, stored only in memory, and
-certificate verification is enabled by default on the client side for MitM-safe authentication plugins
-(mysql_native_password, ed25519, parsec).
+This error typically occurs when the MariaDB client is expecting to connect to MariaDB server 11.4 or greater. Starting
+from version 11.4,
+[MariaDB server enables TLS automatically](https://mariadb.com/docs/server/security/securing-mariadb/encryption/data-in-transit-encryption/securing-connections-for-client-and-server#enabling-tls-for-mariadb-server)—certificates
+are generated on startup, stored only in memory, and certificate verification is enabled by default on the client side
+for MitM-safe authentication plugins (mysql_native_password, ed25519, parsec).
 
-When your client expects this automatic TLS support but connects to an older MySQL server (MySQL, MariaDB < 11.4, or
-Percona), the connection fails because these servers don't have TLS configured by default.
+When your client expects this automatic TLS support but connects to an incompatible MySQL server (MySQL, MariaDB < 11.4,
+or Percona), the connection fails because these servers don't have TLS configured by default.
 
 ## Solutions
 
