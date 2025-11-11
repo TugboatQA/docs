@@ -178,11 +178,11 @@ Using the official Solr image inside of Tugboat requires creating the cores as t
 services:
   ...
   solr:
-    image: tugboatqa/solr:8.6
+    image: tugboatqa/solr:9.9
     checkout: true
     commands:
       init:
-        - su -s /bin/sh -c "solr create_core -c [CORE] -force" solr
+        - su -s /bin/sh -c "/opt/solr/bin/solr create -c [YOURCORENAME]" solr
 ```
 
 #### Drupal and Search API Solr
@@ -190,36 +190,52 @@ services:
 The following is an example setup for use with Drupal's
 [Search API Solr module](https://www.drupal.org/project/search_api_solr).
 
-##### 1. Create a new Solr service in your Tugboat config.yml
+{{% notice note %}} Solr 9.x introduces several changes from Solr 8.x. The configuration below reflects these changes,
+including the required `SOLR_MODULES` environment variable and the need to manually reload cores after copying
+configuration files. {{% /notice %}}
+
+##### 1. Prepare your Solr configuration files
+
+Copy the example configuration from the Search API Solr module's `jump-start/solr9/configset` directory into your
+repository at `.tugboat/solr/conf` (or another path of your choosing). This provides a complete, working configset for
+Solr 9.x.
+
+{{% notice warning %}} The config files in `search_api_solr/solr-conf-templates/9.x` are **not** sufficient. Per the
+module's README, these templates are not meant to be used as a complete configset. Use the jump-start folder configset
+instead. {{% /notice %}}
+
+##### 2. Create a new Solr service in your Tugboat config.yml
 
 ```yaml
 services:
   ...
   solr:
-    image: tugboatqa/solr:8.6
+    image: tugboatqa/solr:9.9
+    expose: 8983
+    environment:
+      SOLR_MODULES: "extraction,langid,ltr,analysis-extras"
+      tugboat_solr_core: yourcorename
     checkout: true
     commands:
       init:
-        - su -s /bin/sh -c "/opt/solr/bin/solr create_core -c [CORE]" solr
-
-      build:
-        - cd "${SOLR_HOME}/[CORE]" && rm -rf conf
-        - cd "${SOLR_HOME}/[CORE]" && ln -snf "${TUGBOAT_ROOT}/path/to/solr/config" conf
+        # Create the core
+        - su -s /bin/sh -c "/opt/solr/bin/solr create -c $tugboat_solr_core" solr
+        # Copy Solr config to Solr home
+        - cp -r $TUGBOAT_ROOT/.tugboat/solr/conf/. $SOLR_HOME/$tugboat_solr_core/conf/.
+        # Change ownership to the solr user
+        - cd "$SOLR_HOME/$tugboat_solr_core" && sudo chown solr:solr -R conf
+        # Reload the core (required in Solr 9.x)
+        - curl -X POST "http://localhost:8983/api/cores/$tugboat_solr_core/reload"
 ```
 
-You will need to replace `[CORE]` with the name of your solr core configured in Search API Solr. You will also need to
-export the `config.zip` configset from the Search API Solr module, extract the archive, and store it in version control
-in your project for Tugboat to use (you also should do this for your other environments) in order to remove the
-"Incompatible configset" error message in the Drupal admin UI.
+**Important notes for Solr 9.x:**
 
-The `${SOLR_HOME}` environment variable may not be available with some Solr images, in which case you would need to
-hard-code the path:
+- The `SOLR_MODULES` environment variable is required to load necessary Solr modules. From Solr 9.8+, the deprecated
+  `<lib>` declarations in `solrconfig.xml` are ignored by default.
+- You must manually reload the core after copying configuration files. This is a new requirement in Solr 9.x.
+- The command changed from `create_core` to `create` in Solr 9.x.
 
-```shell
-cd "/opt/solr/server/solr/[CORE]" && rm -rf conf
-```
-
-##### 2. Depend on the Solr service
+##### 3. Depend on the Solr service
 
 Make sure to add the `solr` service (or whatever you call your Solr service) to the `depends` directive under the
 default application.
@@ -232,7 +248,7 @@ default application.
       - solr
 ```
 
-##### 3. Configure Search API with the Solr service hostname
+##### 4. Configure Search API with the Solr service hostname
 
 One way to accomplish this is to add the following to a `settings.php` file that's loaded specifically for Tugboat:
 
@@ -243,16 +259,17 @@ $config['search_api.server.SERVER_MACHINE_NAME'] = [
     'connector_config' => [
       'scheme' => 'http',
       'host' => 'solr',
-      'path' => '',
-      'core' => [CORE], # Matches core name created in Solr setup in Tugboat config.yml
-      'port' => '8983',
+      'path' => '/',
+      'core' => getenv('tugboat_solr_core'),
+      'port' => 8983,
     ],
   ],
 ];
 ```
 
 Note: `solr` here is the service name in `.tugboat/config.yml`. If you name your service something different, make sure
-to use that service name as the host.
+to use that service name as the host. The `tugboat_solr_core` environment variable should be set in your Tugboat
+configuration to match the core name you created in the Solr service.
 
 The Search API UI for editing the doesn't show overwritten changes. To validate the overrides, run the following
 command: `drush cget search_api.server.SERVER_MACHINE_NAME --include-overridden`.
