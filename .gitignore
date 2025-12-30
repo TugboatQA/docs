@@ -16,5 +16,6 @@ yarn-error.log
 
 # Hugo dir generated from Hugo build
 public
+.hugo_build.lock
 
 .ddev
