@@ -13,7 +13,7 @@ To get started, you'll need to set up Hugo to preview your changes locally:
    [classic Yarn documentation](https://classic.yarnpkg.com/en/docs/install#mac-stable).
 
 3. **Running the Local Environment**: Once Hugo and Yarn are installed, you can start the local environment by running
-   `hugo serve` or `yarn serve`.
+   `hugo server` or `yarn serve`.
 
 Visit `http://localhost:1313` in your browser to see the site.
 
