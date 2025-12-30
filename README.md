@@ -11,12 +11,15 @@ for all experience levels.
 
 ## Contributing
 
-This document is open-source, and is available on [GitHub](https://github.com/TugboatQA/docs). If you have any suggestions or other feedback about this document, we are happy to hear it! [Open a GitHub issue](https://github.com/TugboatQA/docs/issues/new) or email us at
+This document is open-source, and is available on [GitHub](https://github.com/TugboatQA/docs). If you have any
+suggestions or other feedback about this document, we are happy to hear it!
+[Open a GitHub issue](https://github.com/TugboatQA/docs/issues/new) or email us at
 [support@tugboatqa.com](mailto:support@tugboatqa.com).
 
 ## Theme
 
-The [Hugo Relearn Theme](https://github.com/matcornic/hugo-theme-learn) is included in this repo as a git submodule. To populate the _themes/hugo-theme-relearn_ directory, run the following:
+The [Hugo Relearn Theme](https://github.com/matcornic/hugo-theme-learn) is included in this repo as a git submodule. To
+populate the _themes/hugo-theme-relearn_ directory, run the following:
 
 ```sh
 git submodule update --init --recursive
