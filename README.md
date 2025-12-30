@@ -11,9 +11,7 @@ for all experience levels.
 
 ## Contributing
 
-This document is open-source, and is available on [GitHub](https://github.com/TugboatQA/docs). If you have any
-suggestions or other feedback about this document, we are happy to hear it!
-[Open a GitHub issue](https://github.com/TugboatQA/docs/issues/new) or email us at
+This document is open-source, and is available on [GitHub](https://github.com/TugboatQA/docs). If you have any suggestions or other feedback about this document, we are happy to hear it! [Open a GitHub issue](https://github.com/TugboatQA/docs/issues/new) or email us at
 [support@tugboatqa.com](mailto:support@tugboatqa.com).
 
 ## Theme
