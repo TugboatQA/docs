@@ -1,7 +1,7 @@
 ---
 name: Tugboat Docs Issue
 about: Report a problem, suggest an improvement, or request new documentation
-title: '[ISSUE TYPE] Brief description'
+title: 'Brief description'
 labels: ''
 assignees: ''
 ---
