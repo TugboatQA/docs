@@ -4,14 +4,15 @@ date: 2026-01-07T10:00:00-05:00
 weight: 6
 ---
 
-If you have more than one pipeline job for the same commit, like `Tugboat` and `Tugboat - Visual Diffs`, sometimes the
-status of these pipelines in GitLab may not match the status in your Tugboat Dashboard.
+If you have more than one pipeline job for the same commit, like `Tugboat`, `Tugboat - Visual Diffs`, and
+`Tugboat - Lighthouse`, sometimes the status of these pipelines in GitLab may not match the status in your Tugboat
+Dashboard.
 
 ## What is going on?
 
 When a merge request is opened or a push occurs, a preview build is triggered via a webhook. Tugboat then uses the
 GitLab API to send commit status updates for the preview. These updates are known as **external commit statuses** and
-appear in GitLab as the `Tugboat` and `Tugboat - Visual Diffs` jobs under the external stage.
+appear in GitLab as the `Tugboat`, `Tugboat - Visual Diffs`, and `Tugboat - Lighthouse`, jobs under the external stage.
 
 According to the
 [GitLab documentation on external commit statuses](https://docs.gitlab.com/ci/ci_cd_for_external_repos/external_commit_statuses/),
