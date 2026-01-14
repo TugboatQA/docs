@@ -4,15 +4,20 @@ date: 2026-01-13T12:00:00-04:00
 weight: 8
 ---
 
-A Tugboat Preview for a decoupled site with [Drupal](https://drupal.org/) powering the backend and [Next.js](https://nextjs.org/) powering the front-end, builds the builds and connects the PHP, Node.js, and MariaDB services and then serves the site. The Preview is accessible via the secure Tugboat URL by anyone who has the link. No need for the viewer to configure a local environment.
+A Tugboat Preview for a decoupled site with [Drupal](https://drupal.org/) powering the backend and
+[Next.js](https://nextjs.org/) powering the front-end, builds the builds and connects the PHP, Node.js, and MariaDB
+services and then serves the site. The Preview is accessible via the secure Tugboat URL by anyone who has the link. No
+need for the viewer to configure a local environment.
 
-This configuration is an example to get you started, but you will need to customize and fill in details to get the configuration working on your project. See also [10 Tips for Writing Your Tugboat YAML Config](https://www.tugboatqa.com/blog/10-tips-for-writing-your-tugboat-yaml-config).
+This configuration is an example to get you started, but you will need to customize and fill in details to get the
+configuration working on your project. See also
+[10 Tips for Writing Your Tugboat YAML Config](https://www.tugboatqa.com/blog/10-tips-for-writing-your-tugboat-yaml-config).
 
 ## Configure Tugboat
 
 The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create-a-tugboat-config-file/) at
-`.tugboat/config.yml` in the git repository. Here's an example decoupled Drupal + Next.js configuration you can use as a starting
-point, with comments to explain what's going on:
+`.tugboat/config.yml` in the git repository. Here's an example decoupled Drupal + Next.js configuration you can use as a
+starting point, with comments to explain what's going on:
 
 ```yaml
 # Next.js front end in `front-end` directory.
