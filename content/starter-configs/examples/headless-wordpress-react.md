@@ -18,7 +18,9 @@ The Tugboat configuration is managed by a [YAML file](/setting-up-tugboat/create
 `.tugboat/config.yml` in the git repository. Here's an example decoupled Drupal + Next.js configuration you can use as a
 starting point, with comments to explain what's going on:
 
-In this example, we assume that the frontend is located in a separate repo. If the frontend and backend are in the same
+In this example, we assume that the frontend is located in a separate repo. In addition to this configuration, you will need to [use the Public SSH key that is on the Repository Settings page](/setting-up-tugboat/select-repo-settings/index.html#use-the-tugboat-ssh-key), and add that as a Deploy Key to the repository in GitHub/GitLab/Bitbucket.
+
+If the frontend and backend are in the same
 monorepo, but in separate directories, see also [Next.js + Drupal](/starter-configs/examples/nextjs.md).
 
 ```yaml
