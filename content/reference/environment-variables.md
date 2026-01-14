@@ -1,6 +1,6 @@
 ---
 title: "Environment Variables"
-date: 2019-09-17T11:26:07-04:00
+date: 2026-01-14T11:26:07-04:00
 weight: 5
 ---
 
@@ -59,7 +59,7 @@ as run-time configuration files, etc.
 | **`$TUGBOAT_ROOT`**                           | The filesystem location where the git repository is cloned.                                                                       | `/var/lib/tugboat`                                              |
 | **`$TUGBOAT_SERVICE_ID`**                     | The ID of the current service.                                                                                                    | `65d80b183a26bc1dcec69e21`                                      |
 | **`$TUGBOAT_SERVICE`**                        | The friendly name of the current Service. This is also the hostname used to reference this Service container from other Services. | `apache`                                                        |
-| **`$TUGBOAT_SMTP`**                           | The hostname of a Tugboat SMTP server that can be used to capture outbound email from the Preview.                                | `tugboat-agent-proxy.tugboatqa.tugboat.qa`                      |
+| **`$TUGBOAT_SMTP`**                           | The hostname of a Tugboat SMTP server that can be used to capture outbound email from the Preview.                                | `tugboat-agent-proxy.worker6.tugboatqa.com`                     |
 
 ## Exposed Service Variables
 
