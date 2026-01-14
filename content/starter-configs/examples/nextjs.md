@@ -9,8 +9,9 @@ A Tugboat Preview for a decoupled site with [Drupal](https://drupal.org/) poweri
 services and then serves the site. The Preview is accessible via the secure Tugboat URL by anyone who has the link. No
 need for the viewer to configure a local environment.
 
-This configuration and the accompanying Next.js config example addresses out-of-memory problems a project like this may encounter. This code should get you started, but you will need to customize and fill in details to get the
-configuration working on your project. See also
+This configuration and the accompanying Next.js config example addresses out-of-memory problems a project like this may
+encounter. This code should get you started, but you will need to customize and fill in details to get the configuration
+working on your project. See also
 [10 Tips for Writing Your Tugboat YAML Config](https://www.tugboatqa.com/blog/10-tips-for-writing-your-tugboat-yaml-config).
 
 ## Configure Tugboat
