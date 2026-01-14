@@ -109,6 +109,13 @@ $settings['skip_permissions_hardening'] = TRUE;
 $settings['trusted_host_patterns'] = [
   '\.tugboatqa\.com$',
 ];
+
+/**
+ * Set the memory limit for the CLI.
+ */
+if (PHP_SAPI === 'cli') {
+  ini_set('memory_limit', '-1');
+}
 ```
 
 ## Configure Tugboat
