@@ -24,7 +24,7 @@ need to
 and add that as a Deploy Key to the repository in GitHub/GitLab/Bitbucket.
 
 If the frontend and backend are in the same monorepo, but in separate directories, see also
-[Next.js + Drupal](/starter-configs/examples/nextjs.md).
+[Decoupled Drupal + Next.js](/starter-configs/examples/nextjs.md).
 
 ```yaml
 services:

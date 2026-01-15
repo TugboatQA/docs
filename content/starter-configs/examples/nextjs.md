@@ -104,7 +104,7 @@ services:
 
 ## Configure Next.js
 
-Integrate the following into your `next.config.js`.
+Incorporate the following into your `next.config.js`.
 
 ```js
 const nextConfig = {
