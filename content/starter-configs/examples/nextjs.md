@@ -1,5 +1,5 @@
 ---
-title: "Next.js + Drupal"
+title: "Decoupled Drupal + Next.js"
 date: 2026-01-13T12:00:00-04:00
 weight: 9
 ---
