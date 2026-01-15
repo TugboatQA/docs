@@ -102,7 +102,9 @@ services:
         - rm /tmp/database.sql.gz
 ```
 
-## next.config.js
+## Configure Next.js
+
+Integrate the following into your `next.config.js`.
 
 ```js
 const nextConfig = {
