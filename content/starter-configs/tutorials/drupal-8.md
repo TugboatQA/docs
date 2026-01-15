@@ -52,6 +52,26 @@ $settings['hash_salt'] = hash('sha256', getenv('TUGBOAT_REPO_ID'));
 // web root, it's recommended to uncomment and adapt the following. Note: the
 // TUGBOAT_ROOT environment variable is equivalent to the git repo root.
 # $settings['file_private_path'] = getenv('TUGBOAT_ROOT') . '/files-private';
+
+/**
+ * Trusted host configuration for Tugboat preview environments.
+ *
+ * Drupal requires you to specify which hostnames are allowed to access your
+ * site. Since Tugboat preview URLs use the tugboatqa.com domain, we add this
+ * pattern to allow Drupal to accept requests from any Tugboat preview URL.
+ *
+ * @see https://www.drupal.org/docs/installing-drupal/trusted-host-settings
+ */
+$settings['trusted_host_patterns'] = [
+  '\.tugboatqa\.com$',
+];
+
+/**
+ * Set the memory limit for the CLI.
+ */
+if (PHP_SAPI === 'cli') {
+  ini_set('memory_limit', '-1');
+}
 ```
 
 ## Configure Tugboat
