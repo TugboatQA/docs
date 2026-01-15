@@ -29,6 +29,13 @@ When you're working with custom environment variables in Tugboat, you may want t
 - [Limit environment variables to only be available at certain points in the build process](#define-a-scope-for-environment-variable-availability)
 - [Store complex data in a custom environment variable](#storing-complex-data)
 
+## Custom variable scopes
+
+| Type       | Scope                                                                                                                                                                 |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Build-time | Available to [all command groups in config.yml](https://docs.tugboatqa.com/reference/tugboat-configuration/index.html#commands) (all stages of a Preview's lifecycle) |
+| Run-time   | Available after a Preview has finished building.                                                                                                                      |
+
 ## Define a scope for environment variable availability
 
 For security reasons, you may want to limit the scope of environment variables containing sensitive data to only be
@@ -94,3 +101,10 @@ like the following:
 ```sh
 echo $VAR | base64 -D > /tmp/file
 ```
+
+## Troubleshooting
+
+### Variable not available
+
+- If your Preview has commands in the `build` stage that rely on the newly-added variable, **rebuild** the Preview, and
+  then variable will be available during the entire build process.
