@@ -17,11 +17,19 @@ executive or [Tugboat Support](https://www.tugboatqa.com/support). {{% /notice %
 4. Scroll down to {{% ui-text %}}Your Plan{{% /ui-text %}}.
 5. Click the {{% ui-text %}}Billing Information{{% /ui-text %}} link.
 
-From here, you can:
+### To update the billing email address
 
-- Edit the email address associated with billing for the Tugboat project
-- Edit the payment method
-- View or print invoices
+Click the {{% ui-text %}}Update{{% /ui-text %}} button below the email address to update it.
+
+### To update the billing address
+
+In the upper-right area of the **Payment Method** section, click {{% ui-text %}}Change{{% /ui-text %}} to update the
+billing address.
+
+### To view or print invoices
+
+In the list of invoices, click the linked invoice number to view the invoice. From here you will be able to print the
+invoice.
 
 {{%expand "Visual Walkthrough" %}}
 
@@ -48,6 +56,7 @@ Click the {{% ui-text %}}Billing Information{{% /ui-text %}} link.
 From here, you can:
 
 - Edit the email address associated with billing for the Tugboat project
+- Update the billing address
 - Edit the payment method
 - View or print invoices
 

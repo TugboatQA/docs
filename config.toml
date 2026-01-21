@@ -17,6 +17,9 @@ home = [ "HTML", "RSS", "JSON"]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.highlight]
+    lineNos = true
+    lineNumbersInTable = false
 
 [params]
   # Google Analytics ID, uncomment to enable.
