@@ -23,11 +23,13 @@ Click the {{% ui-text %}}Update{{% /ui-text %}} button below the email address t
 
 ### To update the billing address
 
-In the upper-right area of the **Payment Method** section, click {{% ui-text %}}Change{{% /ui-text %}} to update the billing address.
+In the upper-right area of the **Payment Method** section, click {{% ui-text %}}Change{{% /ui-text %}} to update the
+billing address.
 
 ### To view or print invoices
 
-In the list of invoices, click the linked invoice number to view the invoice. From here you will be able to print the invoice.
+In the list of invoices, click the linked invoice number to view the invoice. From here you will be able to print the
+invoice.
 
 {{%expand "Visual Walkthrough" %}}
 
