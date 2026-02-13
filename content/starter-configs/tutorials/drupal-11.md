@@ -111,7 +111,7 @@ $settings['trusted_host_patterns'] = [
 ];
 
 /**
- * Set the memory limit for the CLI.
+ * Set the memory limit for the CLI (drush).
  */
 if (PHP_SAPI === 'cli') {
   ini_set('memory_limit', '-1');
