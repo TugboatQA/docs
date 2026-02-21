@@ -5,10 +5,10 @@ weight: 1
 ---
 
 If you need a specific version of Node.js on an image other than the `tugboatqa/node` image, we recommend using
-[NodeSource distributions](https://github.com/nodesource/distributions) to do so. The majority of Tugboat images are
+[NodeSource distributions](https://nodesource.com/products/distributions) to do so. The majority of Tugboat images are
 Debian-based.
 
-For example, to install Node.js version 18.x on a PHP service:
+For example, to install Node.js version 24.x on a PHP service:
 
 ```yaml
 services:
@@ -17,12 +17,7 @@ services:
     commands:
       init:
         - apt-get update
-        - apt-get install -yq ca-certificates curl gnupg
-        - mkdir -p /etc/apt/keyrings
-        - curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o
-          /etc/apt/keyrings/nodesource.gpg
-        - echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" |
-          tee /etc/apt/sources.list.d/nodesource.list
-        - apt-get update
-        - apt-get install -yq nodejs
+        - apt-get install -y curl
+        - curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
+        - apt-get install -y nodejs
 ```
