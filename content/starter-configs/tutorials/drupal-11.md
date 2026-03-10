@@ -220,8 +220,8 @@ services:
 
         # Optional: Copy Drupal's public files directory from an external server.
         # The public SSH key found in the Tugboat Repository configuration must be
-        # copied to the external server in order to use rsync over SSH. More commonly
-        # we use Stage File Proxy, which we enable in the `build` step below.
+        # copied to the external server in order to use rsync over SSH. More common
+        # is to use Stage File Proxy, which you can enable in the `build` steps below.
         # - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
 
       # Commands that build the site. This is where you would add things
