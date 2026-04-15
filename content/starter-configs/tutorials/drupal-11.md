@@ -1,6 +1,6 @@
 ---
 title: "Drupal 11"
-date: 2025-01-12T11:14:19-04:00
+date: 2026-04-14T11:14:19-04:00
 weight: 1
 ---
 
@@ -132,8 +132,10 @@ services:
   # Define the database service.
   database:
     # Drupal 11 requires MariaDB 10.6+ or MySQL 8.0+
-    # Use MariaDB 10.11 for best compatibility
-    image: tugboatqa/mariadb:10.11
+    # Use at least MariaDB 11.4 to avoid TLS/SSL error
+    # See https://docs.tugboatqa.com/troubleshooting/mysql-ssl-disabled/index.html
+
+    image: tugboatqa/mariadb:11.8
 
     # A set of commands to run while building this service
     commands:
@@ -155,10 +157,6 @@ services:
         - scp user@example.com:database.sql.gz /tmp/database.sql.gz
         - zcat /tmp/database.sql.gz | mysql -h database -u tugboat -ptugboat tugboat
         - rm /tmp/database.sql.gz
-
-      # Run any commands needed to prepare the site. This is generally not needed
-      # for database services.
-      build: []
 
   # Define the webserver service.
   webserver:
@@ -183,17 +181,9 @@ services:
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
 
-        # Increase PHP memory limit to 512MB for Drupal operations.
-        # Drupal 11 installation and updates can be memory-intensive.
-        - echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/tugboat.ini
-
         # Link the document root to the expected path. This example links /web
         # to the docroot (standard for composer-based Drupal projects).
         - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
-
-        # Create any required directories that don't exist.
-        # Uncomment if using private files outside the webroot:
-        # - mkdir -p "${TUGBOAT_ROOT}/files-private"
 
       # Commands that import files, databases, or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
@@ -211,6 +201,13 @@ services:
         # the standard Drupal directory structure:
         # - ln -snf "${TUGBOAT_ROOT}/custom/themes" "${DOCROOT}/themes/custom"
         # - ln -snf "${TUGBOAT_ROOT}/custom/modules" "${DOCROOT}/modules/custom"
+
+        # Create any required directories that don't exist.
+        # Uncomment if using private files outside the webroot:
+        # - mkdir -p "${TUGBOAT_ROOT}/files-private"
+        # - chgrp -R www-data "${TUGBOAT_ROOT}/files-private"
+        # - find "${TUGBOAT_ROOT}/files-private" -type d -exec chmod 2775 {} \;
+        # - find "${TUGBOAT_ROOT}/files-private" -type f -exec chmod 0664 {} \;
 
         # Make sure our files and translations folders exist and are writable.
         - mkdir -p "${DOCROOT}/sites/default/files/translations"
@@ -236,15 +233,13 @@ services:
         - composer install --optimize-autoloader
 
         # Run any pending database updates and import configuration.
-        - vendor/bin/drush cache:rebuild
-        - vendor/bin/drush config:import --yes
-        - vendor/bin/drush updatedb --yes
+        - vendor/bin/drush deploy --yes
 
         # If you are downloading your files from a remote server, you won't need
         # to enable Stage File Proxy. Otherwise, enable it to fetch files on-demand.
-        - vendor/bin/drush pm:enable --yes stage_file_proxy
-        - vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
-        - vendor/bin/drush config:set --yes stage_file_proxy.settings origin_dir "sites/default/files"
+        # - vendor/bin/drush pm:enable --yes stage_file_proxy
+        # - vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
+        # - vendor/bin/drush config:set --yes stage_file_proxy.settings origin_dir "sites/default/files"
 
         # One last cache rebuild.
         - vendor/bin/drush cache:rebuild
