@@ -129,35 +129,6 @@ with comments to explain what's going on:
 # https://docs.tugboatqa.com/starter-configs/tutorials/drupal-11/
 
 services:
-  # Define the database service.
-  database:
-    # Drupal 11 requires MariaDB 10.6+ or MySQL 8.0+
-    # Use at least MariaDB 11.4 to avoid TLS/SSL error
-    # See https://docs.tugboatqa.com/troubleshooting/mysql-ssl-disabled/index.html
-
-    image: tugboatqa/mariadb:11.8
-
-    # A set of commands to run while building this service
-    commands:
-      # Configure the server for the site to run on.
-      init:
-        # Increase the allowed packet size to 512MB.
-        - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
-        # Ensure this packet size persists even if MySQL restarts.
-        - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
-
-      # Commands that import files, databases, or other assets. When an
-      # existing preview is refreshed, the build workflow starts here,
-      # skipping the init step, because the results of that step will
-      # already be present.
-      update:
-        # TODO: Copy a database dump from an external server. The public
-        # SSH key found in the Tugboat Repository configuration must be
-        # copied to the external server in order to use scp.
-        - scp user@example.com:database.sql.gz /tmp/database.sql.gz
-        - zcat /tmp/database.sql.gz | mysql -h database -u tugboat -ptugboat tugboat
-        - rm /tmp/database.sql.gz
-
   # Define the webserver service.
   webserver:
     # Drupal 11 requires PHP 8.3 as the minimum version.
@@ -247,6 +218,35 @@ services:
         # Generate a one-time login link for easy admin access.
         # This will appear in the build logs.
         - vendor/bin/drush user:login --uri="${TUGBOAT_SERVICE_URL}"
+
+  # Define the database service.
+  database:
+    # Drupal 11 requires MariaDB 10.6+ or MySQL 8.0+
+    # Use at least MariaDB 11.4 to avoid TLS/SSL error
+    # See https://docs.tugboatqa.com/troubleshooting/mysql-ssl-disabled/index.html
+
+    image: tugboatqa/mariadb:11.8
+
+    # A set of commands to run while building this service
+    commands:
+      # Configure the server for the site to run on.
+      init:
+        # Increase the allowed packet size to 512MB.
+        - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
+        # Ensure this packet size persists even if MySQL restarts.
+        - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
+
+      # Commands that import files, databases, or other assets. When an
+      # existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
+      update:
+        # TODO: Copy a database dump from an external server. The public
+        # SSH key found in the Tugboat Repository configuration must be
+        # copied to the external server in order to use scp.
+        - scp user@example.com:database.sql.gz /tmp/database.sql.gz
+        - zcat /tmp/database.sql.gz | mysql -h database -u tugboat -ptugboat tugboat
+        - rm /tmp/database.sql.gz
 ```
 
 Want to know more about something mentioned in the comments of this config file? Check out these topics:
