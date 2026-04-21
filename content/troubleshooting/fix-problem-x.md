@@ -198,7 +198,12 @@ authorization. If you need to use an alternative method to authenticate with a g
 
 ![Screenshot of Available to Build Pull Requests shows an error message that states that there was an error loading Pull Requests. Try again.](/_images/error-loading-prs.png)
 
-A error loading Pull Requests in the Dashboard under **Available to Build** can happen if the person who initially added
-the repo to Tugboat no longer has access to the repo, or their permissions have changed.
+A error loading Pull Requests in the Dashboard under **Available to Build** can happen if the Git provider is having
+intermittent issues, or if the person who initially added the repo to Tugboat either no longer has access to the repo,
+or their permissions have changed.
 
-Try re-authenticating the repo on the Repository settings page in Tugboat.
+### What to try
+
+- Click the linked text, **Try again**.
+- Try re-authenticating the repo on the Repository settings page in Tugboat.
+- Check the status page of your Git provider to see if there's a service outage.
