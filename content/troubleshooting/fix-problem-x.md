@@ -11,7 +11,7 @@ weight: 4
 - [Running a background process "breaks" the build](#running-a-background-process)
 - [My script is missing after a Preview build completes](#my-script-is-missing-after-a-preview-build-completes)
 - [I'm not seeing GitHub repositories I expect to see](#missing-github-repositories)
-- [Error loading Pull Requests under Available to Build]()
+- [Error loading Pull Requests under Available to Build](#error-loading-pull-requests)
 
 ## PHP out of memory issues
 
@@ -194,7 +194,7 @@ repository you expect to see, it may be because an organization can't or won't g
 authorization. If you need to use an alternative method to authenticate with a git provider, see:
 [Connect with Your Provider -> Authenticating using an API access token](/setting-up-tugboat/connect-with-your-provider/#authenticating-using-an-api-access-token).
 
-## Error loading Pull Requests under Available to Build
+## Error loading Pull Requests
 
 ![Screenshot of Available to Build - Pull Requests shows an error message that states that there was an error loading Pull Requests. Try again.](_images/error-loading-prs.png)
 
