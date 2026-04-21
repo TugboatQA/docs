@@ -11,6 +11,7 @@ weight: 4
 - [Running a background process "breaks" the build](#running-a-background-process)
 - [My script is missing after a Preview build completes](#my-script-is-missing-after-a-preview-build-completes)
 - [I'm not seeing GitHub repositories I expect to see](#missing-github-repositories)
+- [Error loading Pull Requests under Available to Build]()
 
 ## PHP out of memory issues
 
@@ -192,3 +193,12 @@ A different condition can cause a similar result; when you go to Tugboat's "Crea
 repository you expect to see, it may be because an organization can't or won't grant organization-level OAuth
 authorization. If you need to use an alternative method to authenticate with a git provider, see:
 [Connect with Your Provider -> Authenticating using an API access token](/setting-up-tugboat/connect-with-your-provider/#authenticating-using-an-api-access-token).
+
+## Error loading Pull Requests under Available to Build
+
+![Screenshot of Available to Build - Pull Requests shows an error message that states that there was an error loading Pull Requests. Try again.](_images/error-loading-prs.png)
+
+A error loading Pull Requests in the Dashboard under **Available to Build** can happen if the person who initially added
+the repo to Tugboat no longer has access to the repo, or their permissions have changed.
+
+Try re-authenticating the repo on the Repository settings page in Tugboat.
