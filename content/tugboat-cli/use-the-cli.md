@@ -1,13 +1,14 @@
 ---
-title: "Use the Cli"
+title: "Use the CLI"
 date: 2019-09-19T10:41:55-04:00
 weight: 3
 ---
 
 ## CLI commands
 
-Run `tugboat` to see a list of commands you can execute. You can view the help of any command by passing the `-h`
-or `--help` option, or use `tugboat help <command>`. Most of the commands support returning JSON by passing the `-j` or `--json` option.
+Run `tugboat` to see a list of commands you can execute. You can view the help of any command by passing the `-h` or
+`--help` option, or use `tugboat help <command>`. Most of the commands support returning JSON by passing the `-j` or
+`--json` option.
 
 A few common commands include:
 
