@@ -113,6 +113,7 @@ services:
               dump:
                 options:
                   extra: "--skip-ssl"
+                  extra-dump: "--skip-ssl"
               query:
                 options:
                   extra: "--skip-ssl"

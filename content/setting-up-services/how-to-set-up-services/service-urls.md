@@ -1,6 +1,6 @@
 ---
 title: "How to obtain service URLs for non-default services"
-date: 2019-09-17T11:27:02-04:00
+date: 2026-01-14T11:27:02-04:00
 weight: 11
 ---
 
@@ -91,7 +91,7 @@ apt-get update && apt-get install -y jq
 
 # Curl the API and retrieve the public storybook URL
 curl --silent --header "Authorization: Token $TUGBOAT_SERVICE_TOKEN" \
-  https://api.tugboat.qa/v3/previews/$TUGBOAT_PREVIEW_ID/services |
+  https://api.tugboatqa.com/v3/previews/$TUGBOAT_PREVIEW_ID/services |
   jq -r '.[] | select(.name == "storybook") | .urls[0]'
 ```
 
@@ -112,7 +112,7 @@ services:
         - |
           set -e
           STORYBOOK_URL=$(curl --silent -H "Authorization: Token $TUGBOAT_SERVICE_TOKEN"
-            https://api.tugboat.qa/v3/previews/$TUGBOAT_PREVIEW_ID/services |
+            https://api.tugboatqa.com/v3/previews/$TUGBOAT_PREVIEW_ID/services |
             jq -r '.[] | select(.name == "storybook") | .urls[0]')
           # Run command to use the STORYBOOK_URL in Drupal settings.php
           printf "\$settings['YOUR_VARIABLE'] = '%s';\n" "$STORYBOOK_URL" >> path/to/settings.local.php
