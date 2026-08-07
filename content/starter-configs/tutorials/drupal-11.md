@@ -62,27 +62,7 @@ $databases['default']['default'] = array (
  */
 $settings['hash_salt'] = hash('sha256', getenv('TUGBOAT_REPO_ID'));
 
-/**
- * Location of config sync directory in Tugboat preview environment.
- *
- * If your Drupal config sync directory is outside of the Drupal web root,
- * uncomment and adapt the following setting.
- *
- * Note: the TUGBOAT_ROOT environment variable is equivalent to the git repo
- * root.
- */
-$settings['config_sync_directory'] = getenv('TUGBOAT_ROOT') . '/config';
 
-/**
- * Location of private file path in Tugboat preview environment.
- *
- * If you are using private files, and that directory is outside of the Drupal
- * web root, uncomment and adapt the following.
- *
- * Note: the TUGBOAT_ROOT environment variable is equivalent to the git repo
- * root.
- */
-# $settings['file_private_path'] = getenv('TUGBOAT_ROOT') . '/files-private';
 
 /**
  * Skip file system permissions hardening.
@@ -131,7 +111,6 @@ services:
   # Define the webserver service.
   webserver:
     # Drupal 11 requires PHP 8.3 as the minimum version.
-    # This is updated from PHP 8.1 used in the Drupal 10 tutorial.
     image: tugboatqa/php:8.3-apache
 
     # Set this as the default service. This does a few things
@@ -140,7 +119,7 @@ services:
     #   3. Routes requests to the preview URL to this service
     default: true
 
-    # Wait until the mysql service is done building.
+    # Wait until the database service is done building.
     depends: database
 
     # A set of commands to run while building this service
@@ -243,9 +222,9 @@ services:
         # TODO: Copy a database dump from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use scp.
-        - scp user@example.com:database.sql.gz /tmp/database.sql.gz
-        - zcat /tmp/database.sql.gz | mysql -h database -u tugboat -ptugboat tugboat
-        - rm /tmp/database.sql.gz
+        # - scp user@example.com:database.sql.gz /tmp/database.sql.gz
+        # - zcat /tmp/database.sql.gz | mysql -h database -u tugboat -ptugboat tugboat
+        # - rm /tmp/database.sql.gz
 ```
 
 Want to know more about something mentioned in the comments of this config file? Check out these topics:
