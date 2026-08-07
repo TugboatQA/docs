@@ -190,13 +190,6 @@ services:
         # - vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
         # - vendor/bin/drush config:set --yes stage_file_proxy.settings origin_dir "sites/default/files"
 
-        # One last cache rebuild.
-        - vendor/bin/drush cache:rebuild
-
-        # Generate a one-time login link for easy admin access.
-        # This will appear in the build logs.
-        - vendor/bin/drush user:login --uri="${TUGBOAT_SERVICE_URL}"
-
   # Define the database service.
   database:
     # Drupal 11 requires MariaDB 10.6+ or MySQL 8.0+
@@ -210,7 +203,7 @@ services:
       # Configure the server for the site to run on.
       init:
         # Increase the allowed packet size to 512MB.
-        - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
+        - mariadb -e "SET GLOBAL max_allowed_packet=536870912;"
         # Ensure this packet size persists even if MySQL restarts.
         - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
 
