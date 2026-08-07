@@ -7,8 +7,8 @@ weight: 1
 Wondering how to configure Tugboat for a typical Drupal 11 repository? Every Drupal site tends to have slightly
 different requirements, so you may need to do more customizing, but this should get you started.
 
-The following documentation assumes you are using Composer to manage your Drupal 11 project (typically with either the
-`drupal/recommended-project` or the `drupal-composer/drupal-project` projects).
+The following documentation assumes you are using Composer to manage your Drupal 11 project (typically with
+`drupal/recommended-project`).
 
 ## Configure Drupal
 
