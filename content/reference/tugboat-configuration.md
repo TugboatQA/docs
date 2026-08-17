@@ -397,6 +397,19 @@ Tugboat default values, and can also be overridden per-URL.
 | `timeout`   | Number  | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `60`                                                                        |
 | `waitUntil` | String  | `load`  | Which browser event to wait for before creating a screenshot of the page                                                                                                         |
 
+##### Screen dimensions
+
+Screenshots are rendered for three screen types, using the following dimensions:
+
+| Screen  | Minimum dimensions (width × height) |
+| :------ | :---------------------------------- |
+| Mobile  | 320 × 512                           |
+| Tablet  | 768 × 1024                          |
+| Desktop | 1400 × 1050                         |
+
+These are minimum dimensions; if the content of a page overflows these dimensions, the screenshot expands to fit the
+content.
+
 ##### `waitUntil`
 
 The `waitUntil` option can be one of, or a list of, the following events. If a list of events is given, the screenshot
@@ -467,7 +480,8 @@ defined for each of the following screen types
 - `tablet`
 - `mobile`
 
-If any of the screen types are not present, the threshold for that screen is set to `0`.
+If any of the screen types are not present, the threshold for that screen is set to `0`. See
+[screen dimensions](#screen-dimensions) for the size at which each screen type is rendered.
 
 ```yaml
 threshold:
