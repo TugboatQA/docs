@@ -16,6 +16,19 @@ calculation displayed next to the diff is a literal calculation of how many pixe
 to After. This makes it a great tool for front-end developers to visually see what has changed on the page, and it also
 helps Q/A, Product and UX spot new feature implementation - and also regression bugs.
 
+## What size are Visual Diff images?
+
+Tugboat generates Visual Diffs for three screen sizes, using the following dimensions:
+
+| Screen  | Minimum dimensions (width × height) |
+| :------ | :---------------------------------- |
+| Mobile  | 320 × 512                           |
+| Tablet  | 768 × 1024                          |
+| Desktop | 1400 × 1050                         |
+
+These are minimum dimensions; if the content of a page overflows these dimensions, the screenshot expands to fit the
+content.
+
 ![Example Visual Diff with page contents moved down](/_images/visual-diffs-page-contents-moved-down.png)
 
 As a result of the way Visual Diffs are calculated, though, when you move something at the top of the page that bumps
