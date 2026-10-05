@@ -215,9 +215,9 @@ services:
         # TODO: Copy a database dump from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use scp.
-        # - scp user@example.com:database.sql.gz /tmp/database.sql.gz
-        # - zcat /tmp/database.sql.gz | mysql -h database -u tugboat -ptugboat tugboat
-        # - rm /tmp/database.sql.gz
+        - scp user@example.com:database.sql.gz /tmp/database.sql.gz
+        - zcat /tmp/database.sql.gz | mariadb tugboat
+        - rm /tmp/database.sql.gz
 ```
 
 Want to know more about something mentioned in the comments of this config file? Check out these topics:
