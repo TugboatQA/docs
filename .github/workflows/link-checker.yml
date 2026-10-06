@@ -9,22 +9,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: true
       - name: install hugo
-        # Equivalent to peaceiris/actions-hugo@v2.5.0
-        uses: peaceiris/actions-hugo@c03b5dbed22245418539b65eb9a3b1d5fdd9a0a6
+        # Equivalent to peaceiris/actions-hugo@v3.2.1
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78
         with:
           hugo-version: '0.147.8'
       - name: build hugo
         run: hugo
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: yarn
       - name: yarn install
-        # Equivalent to borales/actions-yarn@v3.0.0
-        uses: borales/actions-yarn@d8ce577a6f5d99a459fc7fdf2a86844617e353e4
-        with:
-          cmd: install
+        run: yarn install --frozen-lockfile
       - name: yarn test
-        uses: borales/actions-yarn@d8ce577a6f5d99a459fc7fdf2a86844617e353e4
-        with:
-          cmd: test
+        run: yarn test
