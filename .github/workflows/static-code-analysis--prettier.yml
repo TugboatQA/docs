@@ -1,8 +1,9 @@
 name: prettier
 
+# Called by static-code-analysis.yml as part of the "Static code analysis" required status check.
+
 on:
-  - push
-  - pull_request
+  workflow_call:
 
 permissions: {}
 

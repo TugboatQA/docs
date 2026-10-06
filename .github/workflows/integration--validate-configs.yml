@@ -1,16 +1,15 @@
 name: Validate TugboatQA/tugboat-test configs against schema
 
+# Called by integration.yml as part of the "Integration" required status check, when the schema changes.
+
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/validate-configs.yml'
-      - 'static/config-schema.json'
+  workflow_call:
   workflow_dispatch:
 
 permissions: {}
 
 jobs:
-  validate:
+  validate-configs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -44,10 +43,10 @@ jobs:
           # Get all remote branches
           git ls-remote --heads https://github.com/TugboatQA/tugboat-test.git | sed 's|^.*refs/heads/||' | while read -r branch; do
             echo "::group::Checking branch: $branch"
-            
+
             # Checkout branch
             git checkout "$branch"
-            
+
             # If config.yml exists, validate it
             if [ -f .tugboat/config.yml ]; then
               echo "Validating config.yml in branch $branch"

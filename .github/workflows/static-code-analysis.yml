@@ -1,0 +1,36 @@
+name: Static code analysis
+
+# Every job in this workflow is part of the "Static code analysis" required status check. Each linter lives in its own
+# static-code-analysis--*.yml workflow, called here with workflow_call. To add a linter, add a job that calls its
+# workflow and list it in the "needs" of the gate job; branch protection does not need to change.
+
+on:
+  - push
+  - pull_request
+
+permissions: {}
+
+jobs:
+  prettier:
+    permissions:
+      contents: read
+    uses: $/.github/workflows/static-code-analysis--prettier.yml
+
+  static-code-analysis:
+    # The required status check for branch protection. It runs even when a job it needs fails or is skipped, and fails
+    # if any of those jobs failed or was cancelled. A skipped job counts as passing.
+    name: Static code analysis
+    if: always()
+    needs: [prettier]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail if any job failed or was cancelled
+        env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          echo "Job results: ${RESULTS}"
+          for result in ${RESULTS}; do
+            if [ "${result}" = "failure" ] || [ "${result}" = "cancelled" ]; then
+              exit 1
+            fi
+          done

@@ -1,8 +1,9 @@
-name: link checker
+name: link-checker
+
+# Called by integration.yml as part of the "Integration" required status check.
 
 on:
-  - push
-  - pull_request
+  workflow_call:
 
 permissions: {}
 
