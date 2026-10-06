@@ -10,3 +10,13 @@ updates:
     schedule:
       interval: daily
     versioning-strategy: lockfile-only
+    cooldown:
+      default-days: 7
+
+  # Keep the SHA-pinned actions in .github/workflows up to date.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
