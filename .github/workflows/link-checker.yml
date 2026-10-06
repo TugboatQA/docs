@@ -7,24 +7,31 @@ on:
 jobs:
   link-checker:
     runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.147.8
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: true
       - name: install hugo
-        # Equivalent to peaceiris/actions-hugo@v2.5.0
-        uses: peaceiris/actions-hugo@c03b5dbed22245418539b65eb9a3b1d5fdd9a0a6
-        with:
-          hugo-version: '0.147.8'
+        # Download from gohugoio/hugo releases and verify against the published checksums.
+        run: |
+          mkdir -p "${HOME}/.local/bin"
+          curl -sLo "hugo_${HUGO_VERSION}_linux-amd64.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          curl -sLo "hugo_checksums.txt" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_checksums.txt"
+          sha256sum --check --ignore-missing "hugo_checksums.txt"
+          tar -C "${HOME}/.local/bin" -xf "hugo_${HUGO_VERSION}_linux-amd64.tar.gz" hugo
+          rm "hugo_${HUGO_VERSION}_linux-amd64.tar.gz" "hugo_checksums.txt"
+          echo "${HOME}/.local/bin" >> "${GITHUB_PATH}"
       - name: build hugo
         run: hugo
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: yarn
       - name: yarn install
-        # Equivalent to borales/actions-yarn@v3.0.0
-        uses: borales/actions-yarn@d8ce577a6f5d99a459fc7fdf2a86844617e353e4
-        with:
-          cmd: install
+        run: yarn install --frozen-lockfile
       - name: yarn test
-        uses: borales/actions-yarn@d8ce577a6f5d99a459fc7fdf2a86844617e353e4
-        with:
-          cmd: test
+        run: yarn test
