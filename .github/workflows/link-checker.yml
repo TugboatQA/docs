@@ -7,16 +7,23 @@ on:
 jobs:
   link-checker:
     runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.147.8
 
     steps:
       - uses: actions/checkout@v7
         with:
           submodules: true
       - name: install hugo
-        # Equivalent to peaceiris/actions-hugo@v3.2.1
-        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78
-        with:
-          hugo-version: '0.147.8'
+        # Download from gohugoio/hugo releases and verify against the published checksums.
+        run: |
+          mkdir -p "${HOME}/.local/bin"
+          curl -sLo "hugo_${HUGO_VERSION}_linux-amd64.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          curl -sLo "hugo_checksums.txt" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_checksums.txt"
+          sha256sum --check --ignore-missing "hugo_checksums.txt"
+          tar -C "${HOME}/.local/bin" -xf "hugo_${HUGO_VERSION}_linux-amd64.tar.gz" hugo
+          rm "hugo_${HUGO_VERSION}_linux-amd64.tar.gz" "hugo_checksums.txt"
+          echo "${HOME}/.local/bin" >> "${GITHUB_PATH}"
       - name: build hugo
         run: hugo
       - name: Setup Node.js
