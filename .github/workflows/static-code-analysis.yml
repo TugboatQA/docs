@@ -1,7 +1,8 @@
 name: Static code analysis
 
-# Every job in this workflow is part of the "Static code analysis" required status check. Add new linters as jobs here
-# and list them in the "needs" of the gate job; branch protection does not need to change.
+# Every job in this workflow is part of the "Static code analysis" required status check. Each linter lives in its own
+# static-code-analysis--*.yml workflow, called here with workflow_call. To add a linter, add a job that calls its
+# workflow and list it in the "needs" of the gate job; branch protection does not need to change.
 
 on:
   - push
@@ -12,20 +13,7 @@ permissions:
 
 jobs:
   prettier:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v7
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: "24"
-          cache: yarn
-      - name: yarn install
-        run: yarn install --frozen-lockfile
-      - name: yarn lint
-        # Runs the Prettier version pinned in yarn.lock against all Markdown files.
-        run: yarn lint
+    uses: ./.github/workflows/static-code-analysis--prettier.yml
 
   static-code-analysis:
     # The required status check for branch protection. It runs even when a job it needs fails or is skipped, and fails
