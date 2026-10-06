@@ -1,0 +1,23 @@
+name: zizmor
+
+# Called by static-code-analysis.yml as part of the "Static code analysis" required status check.
+
+on:
+  workflow_call:
+
+permissions: {}
+
+jobs:
+  zizmor:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install zizmor
+        run: pip install zizmor==1.30.1
+      - name: Run zizmor
+        run: zizmor .github
