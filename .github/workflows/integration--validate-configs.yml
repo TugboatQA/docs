@@ -1,35 +1,40 @@
 name: Validate TugboatQA/tugboat-test configs against schema
 
+# Called by integration.yml as part of the "Integration" required status check, when the schema changes.
+
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/validate-configs.yml'
-      - 'static/config-schema.json'
+  workflow_call:
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
-  validate:
+  validate-configs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout schema repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           path: schema-repo
+          persist-credentials: false
 
       - name: Checkout test repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: TugboatQA/tugboat-test
           path: test-repo
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: '24'
 
       - name: Install ajv-cli
-        run: |
+        run: | # zizmor: ignore[adhoc-packages] exact version, used only to validate test configs
           npm install -g ajv-cli@5.0.0
 
       - name: Validate configs
@@ -38,10 +43,10 @@ jobs:
           # Get all remote branches
           git ls-remote --heads https://github.com/TugboatQA/tugboat-test.git | sed 's|^.*refs/heads/||' | while read -r branch; do
             echo "::group::Checking branch: $branch"
-            
+
             # Checkout branch
             git checkout "$branch"
-            
+
             # If config.yml exists, validate it
             if [ -f .tugboat/config.yml ]; then
               echo "Validating config.yml in branch $branch"

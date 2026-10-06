@@ -1,0 +1,29 @@
+name: prettier
+
+# Called by static-code-analysis.yml as part of the "Static code analysis" required status check.
+
+on:
+  workflow_call:
+
+permissions: {}
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+          cache: yarn
+      - name: yarn install
+        run: yarn install --frozen-lockfile
+      - name: yarn lint
+        # Runs the Prettier version pinned in yarn.lock against all Markdown files.
+        run: yarn lint
