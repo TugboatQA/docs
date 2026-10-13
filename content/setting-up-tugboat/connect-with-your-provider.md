@@ -17,6 +17,7 @@ weight: 1
 
 - [How to connect Tugboat to GitHub](#how-do-i-link-tugboat-to-github)
 - [Using the GitHub integration](#using-the-github-integration)
+- [Connecting GitHub Enterprise Server](#authenticating-using-an-api-access-token)
 
 ### How do I link Tugboat to GitHub?
 
@@ -279,6 +280,10 @@ By default, Tugboat uses OAuth to authenticate to git hosting providers. However
 administrators can't or won't approve Tugboat as an organization-level OAuth application. As a workaround, you can use a
 git provider's API access token to add a GitHub, GitLab, or Bitbucket repo to Tugboat.
 
+This method is also how you connect a repository hosted on GitHub Enterprise Server, or on GitHub Enterprise Cloud with
+data residency. These products serve the GitHub API from a custom domain, so you need to tell Tugboat the address of
+that API. See [Set the GitHub API address](#set-the-github-api-address).
+
 You'll need to use the [Tugboat API](https://api.tugboatqa.com/) to pass an alternate authentication method.
 
 This example shows how to implement this workaround for a GitHub repository, but you can do the same thing using a
@@ -324,7 +329,8 @@ export TUGBOAT_TOKEN=[your-tugboat-token]
 
 #### Create a GitHub personal access token
 
-1. Go to [GitHub -> Personal access tokens](https://github.com/settings/tokens) and click Generate new token.
+1. Go to [GitHub -> Personal access tokens](https://github.com/settings/tokens) and click Generate new token. If you use
+   GitHub Enterprise Server, go to `https://[your-github-hostname]/settings/tokens` instead.
 2. Name your token something recognizable, such as "Tugboat for ExampleOrg/ExampleRepo"
 3. Under _Select scopes_, check the checkbox next to _repo_.
 4. Save the token, switch back to your terminal, and export the token as an environment variable, replacing
@@ -333,6 +339,34 @@ export TUGBOAT_TOKEN=[your-tugboat-token]
 ```
 export GH_TOKEN=[github-api-token]
 ```
+
+#### Set the GitHub API address
+
+Export the URL of the GitHub API as an environment variable, replacing `[github-api-url]` with the value for your GitHub
+product:
+
+| GitHub product                              | GitHub API URL                          |
+| ------------------------------------------- | --------------------------------------- |
+| GitHub.com                                  | `https://api.github.com`                |
+| GitHub Enterprise Server                    | `https://[your-github-hostname]/api/v3` |
+| GitHub Enterprise Cloud with data residency | `https://api.[your-subdomain].ghe.com`  |
+
+```
+export GH_API_URL=[github-api-url]
+```
+
+For example, if your GitHub Enterprise Server instance is at `https://github.example.com`, run:
+
+```
+export GH_API_URL=https://github.example.com/api/v3
+```
+
+Include the `/api/v3` path for GitHub Enterprise Server, and do not add a trailing slash. Tugboat appends API paths such
+as `/repos/[organization]/[repo]` directly to this address.
+
+Tugboat uses this address for every GitHub API request it makes for the repository. When you add the repository, Tugboat
+uses the API to add a deploy key to it, then clones the repository over SSH with that key. Tugboat must be able to reach
+your GitHub host over both HTTPS, for the API, and SSH, for git.
 
 #### Export additional environment variables
 
@@ -356,11 +390,17 @@ that will be sent to the Tugboat API. Copy and paste this directly into your she
 ```
 export PAYLOAD=`printf '{ \
   "project": "%s",\
-  "provider": { "name": "github" },\
+  "provider": { "name": "github", "address": "%s" },\
   "repository": { "name": "%s", "group": "%s" },\
   "auth": { "token": "%s" },\
   "name": "%s/%s"\
-}' "$PROJECT" "$GH_REPO" "$GH_ORG" "$GH_TOKEN" "$GH_ORG" "$GH_REPO"`
+}' "$PROJECT" "$GH_API_URL" "$GH_REPO" "$GH_ORG" "$GH_TOKEN" "$GH_ORG" "$GH_REPO"`
+```
+
+Check that the payload contains the values you expect before you send it:
+
+```
+echo "$PAYLOAD"
 ```
 
 #### Make cURL request to the Tugboat API
