@@ -92,7 +92,7 @@
               "description": "Whether to clone the git repository to this Service",
               "type": "boolean"
             },
-            "checkout-path": {
+            "checkout_path": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#checkout-path",
               "description": "Where to clone the git repository",
               "type": "string",
@@ -201,7 +201,7 @@
                 }
               ]
             },
-            "alias-type": {
+            "alias_type": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#alias-type",
               "description": "What kind of aliases to generate",
               "enum": [
@@ -215,7 +215,7 @@
               "description": "Whether subpath URLs should be generated for this Service",
               "type": "boolean"
             },
-            "subpath-map": {
+            "subpath_map": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#subpath-map",
               "description": "Whether to map the generated subpath to /",
               "type": "boolean",

@@ -7,60 +7,8 @@ weight: 7
 When working with Previews, there are a few handy things you can do in the {{% ui-text %}}Actions{{% /ui-text %}} menu
 beyond updating and deleting your Previews. You can change the states of your Previews in a few different ways:
 
-- [Start, Stop](#start-stop)
 - [Lock, Unlock](#lock-unlock)
 - [Reset](#reset)
-
-## Start, Stop
-
-Sometimes, you might want to stop all of a Preview's Services and take it offline. You can use the
-{{% ui-text %}}Stop{{% /ui-text %}} option in the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu to take the
-Preview offline. This is different from a suspended Preview, in that a suspended Preview will start again automatically
-if someone visits the Preview link, while a Stopped Preview remains stopped until someone manually Starts it.
-
-On the flip side, Starting a Preview resumes all Services. You can Start a Preview that is suspended or Stopped.
-
-### To Start or Stop a Preview:
-
-1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
-2. Select the project where you want to Stop or Start a Preview.
-3. Click into the repo where you want to Stop/Start a Preview.
-4. Select the Preview you want to Stop or Start.
-5. Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that Preview, and select
-   {{% ui-text %}}Stop{{% /ui-text %}} or {{% ui-text %}}Start{{% /ui-text %}}.
-
-When the Preview is successfully stopped, you'll see a red _stopped_ status. When a Preview is Starting, you'll see a
-yellow _starting_ or _resuming_ (depending on whether the Preview was Stopped or Suspended), and then the Preview will
-go to a green _ready_ status.
-
-{{%expand "Visual Walkthrough" %}}
-
-Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
-
-![Go to username -> My Projects](/_images/go-to-user-my-projects.png)
-
-Select the project where you want to Stop or Start a Preview.
-
-![Select the project](/_images/select-a-project.png)
-
-Click into the repo where you want to Stop/Start a Preview.
-
-![Click into Tugboat repository](/_images/click-into-tugboat-repository.png)
-
-Select the Preview you want to Stop or Start.
-
-![Select a Preview build](/_images/select-a-preview.png)
-
-Click the {{% ui-text %}}Actions{{% /ui-text %}} drop-down menu for that Preview, and select
-{{% ui-text %}}Stop{{% /ui-text %}} or {{% ui-text %}}Start{{% /ui-text %}}.
-
-![Click the Actions drop-down, and select Stop or Start.](/_images/preview-action-stop.png)
-
-When the Preview is successfully stopped, you'll see a red _stopped_ status. When a Preview is Starting, you'll see a
-yellow _starting_ or _resuming_ (depending on whether the Preview was Stopped or Suspended), and then the Preview will
-go to a green _ready_ status.
-
-{{% /expand%}}
 
 ## Lock, Unlock
 

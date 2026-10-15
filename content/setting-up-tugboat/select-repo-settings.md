@@ -81,8 +81,10 @@ By default, Preview builds timeout at 3600 seconds. You can change the Preview b
 ### Modify Environment Variables
 
 Here's where you can enter environment variables, like API keys or passwords, that you wouldn't want to store in your
-repo. If you're looking for Tugboat's environment variables to add to your Build Scripts or configuration files, check
-out [Reference -> Environment Variables](/reference/environment-variables).
+repo. You can also mark individual variables to be
+[encrypted at rest](/setting-up-services/how-to-set-up-services/custom-environment-variables/#encrypt-environment-variable-value-at-rest)
+for additional protection. If you're looking for Tugboat's environment variables to add to your Build Scripts or
+configuration files, check out [Reference -> Environment Variables](/reference/environment-variables).
 
 ### Set up Remote SSH Access
 

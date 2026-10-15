@@ -10,14 +10,9 @@ services:
         # Install node.
         - apt-get update
         - apt-get install -yq ca-certificates curl gnupg
-        - mkdir -p /etc/apt/keyrings
-        - curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o
-          /etc/apt/keyrings/nodesource.gpg
-        - echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" |
-          tee /etc/apt/sources.list.d/nodesource.list
-        - apt-get update
+        - curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
         - apt-get install -yq nodejs
-        - npm install
+        - npm ci
 
       build:
         - git submodule init && git submodule update
@@ -25,7 +20,7 @@ services:
         - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
 
         # Get a list of all environment vars and their example values.
-        - npm install
+        - npm ci
         - node ${TUGBOAT_ROOT}/.tugboat/compile-vars.js
 
     urls:

@@ -135,19 +135,3 @@ You can also view all of the SEO audits that your web app or webpage has passed 
 
 For more on what Lighthouse SEO metrics mean, how they're scored, and how to address issues identified in the Lighthouse
 SEO report, see: [Lighthouse SEO audit documentation](https://web.dev/lighthouse-seo/).
-
-### Lighthouse Progressive Web App reports in Tugboat
-
-![Screenshot of Lighthouse progressive web app report](/_images/lighthouse-progressive-web-app-report.png)
-
-Lighthouse audits progressive web apps to validate common issues and confirm your progressive web app is fast, reliable,
-and installable. Lighthouse PWA audits check for things like:
-
-- Whether your progressive web app is fast and reliable
-- Is your PWA installable?
-- Whether your PWA is optimized
-- Guidance on additional items to check manually
-
-For more on what Lighthouse progressive web app metrics mean, how they're scored, and how to address issues identified
-in the Lighthouse PWA report, see:
-[Lighthouse progressive web app audit documentation](https://web.dev/lighthouse-pwa/).

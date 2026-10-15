@@ -22,5 +22,11 @@
   },
   "dependencies": {
     "js-yaml": "^4.1.1"
+  },
+  "overrides": {
+    "tmp": "^0.2.6"
+  },
+  "resolutions": {
+    "tmp": "^0.2.6"
   }
 }
