@@ -18,6 +18,8 @@ People frequently ask about whether Tugboat works with these technologies:
   [Setting up Tugboat -> Connect with your git provider](/setting-up-tugboat/connect-with-your-provider/)
 - **Self-hosted git repositories?** Yes! See:
   [Setting up Tugboat -> Generic git server](/setting-up-tugboat/connect-with-your-provider/#generic-git-server)
+- **GitHub Enterprise Server?** Yes! See:
+  [Setting up Tugboat -> Authenticating using an API access token](/setting-up-tugboat/connect-with-your-provider/#authenticating-using-an-api-access-token)
 - **My own images?** Yes! See:
   [Setting up Services -> Specify a Service image](/setting-up-services/how-to-set-up-services/specify-a-service-image/)
 - **My existing database?** Yes! Take a look at
