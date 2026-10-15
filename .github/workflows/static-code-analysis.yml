@@ -5,8 +5,10 @@ name: Static code analysis
 # workflow and list it in the "needs" of the gate job; branch protection does not need to change.
 
 on:
-  - push
-  - pull_request
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
 
 permissions: {}
 
