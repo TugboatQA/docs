@@ -95,14 +95,10 @@ services:
         - a2enmod headers rewrite
         # Install node
         - apt-get update
-        - apt-get install -yq ca-certificates curl gnupg
-        - mkdir -p /etc/apt/keyrings
-        - curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o
-          /etc/apt/keyrings/nodesource.gpg
-        - echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" |
-          tee /etc/apt/sources.list.d/nodesource.list
-        - apt-get update
-        - apt-get install -yq nodejs
+        - apt-get install -y curl
+        - curl -fsSL https://deb.nodesource.com/setup_24.x -o /tmp/nodesource_setup.sh
+        - bash /tmp/nodesource_setup.sh
+        - apt-get install -y nodejs
         # Copy the tugboat .env we created before
         - cp "${TUGBOAT_ROOT}/.tugboat/.env.tugboat" "${TUGBOAT_ROOT}/.env"
         # Link the document root to the expected path. This example links
