@@ -26,7 +26,8 @@ services:
         # Install node.js version 24.
         - apt-get update
         - apt-get install -y curl
-        - curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
+        - curl -fsSL https://deb.nodesource.com/setup_24.x -o /tmp/nodesource_setup.sh
+        - bash /tmp/nodesource_setup.sh
         - apt-get install -y nodejs
 
         # Set the webroot for to the Gatsby public folder.
