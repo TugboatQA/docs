@@ -53,6 +53,14 @@ To update the Tugboat CLI to the latest version with Homebrew:
 brew upgrade tugboat-cli
 ```
 
+#### Trust the `tugboatqa/tugboat/tugboat-cli` formula
+
+You may receive a warning about the `tugboatqa/tugboat` tap not being trusted. It is best practice to only trust the specific formulae, casks, or commands you need. And trust is required for Homebrew to run formulae, casks, and commands from taps. To trust the `tugboatqa/tugboat/tugboat-cli` formula, run:
+
+```sh
+brew trust --formula tugboatqa/tugboat/tugboat-cli
+```
+
 Happy brewing!
 
 ### Manual install on MacOS
