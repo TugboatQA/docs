@@ -1,0 +1,39 @@
+name: Mirror to docs-private
+
+# Force-pushes main to main on TugboatQA/docs-private, which is a read-only mirror of this repo. Private work lives on
+# the "private" branch there, which merges main in. Authenticates with a deploy key that has write access to
+# docs-private, stored here as the DOCS_PRIVATE_DEPLOY_KEY secret.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: mirror-docs-private
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    if: github.repository == 'TugboatQA/docs'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Push main to TugboatQA/docs-private
+        env:
+          DEPLOY_KEY: ${{ secrets.DOCS_PRIVATE_DEPLOY_KEY }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "${DEPLOY_KEY}" > ~/.ssh/mirror_key
+          chmod 600 ~/.ssh/mirror_key
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/mirror_key -o IdentitiesOnly=yes"
+          git push --force git@github.com:TugboatQA/docs-private.git HEAD:refs/heads/main
