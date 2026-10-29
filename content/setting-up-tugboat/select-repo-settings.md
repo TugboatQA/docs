@@ -12,6 +12,7 @@ Repository Settings, you can:
 - [Rebuild Orphaned Previews Automatically](#rebuild-orphaned-previews-automatically)
 - [Rebuild Stale Previews Automatically](#rebuild-stale-previews-automatically)
 - [Refresh Base Previews Automatically](#refresh-base-previews-automatically)
+- [Set Preview Expiration](#set-preview-expiration)
 - [Specify Build Timeout](#specify-build-timeout)
 - [Modify Environment Variables](#modify-environment-variables)
 - [Set up Remote SSH Access](#set-up-remote-ssh-access)
@@ -73,6 +74,13 @@ By default, Tugboat refreshes your Base Previews every day at 12am UTC. You can 
 automatic refresh, or you can specify your preferred interval and time for the refresh to occur. Automatically
 refreshing Base Previews is a great way to ensure your large assets, such as databases, stay up-to-date, saving you time
 when you build a new Preview from a recently-refreshed Base Preview.
+
+### Set Preview Expiration
+
+Use the {{% ui-text %}}Preview expiration{{% /ui-text %}} field to have Tugboat delete new Previews after a number of
+days. The default is `0`, which turns this off. The maximum is 1825 days (5 years). This setting does not apply to Base
+Previews. Only repository admins can change it. For details, see
+[Auto-delete Previews](/building-a-preview/automate-previews/auto-delete/#delete-previews-after-a-number-of-days).
 
 ### Specify Build Timeout
 
