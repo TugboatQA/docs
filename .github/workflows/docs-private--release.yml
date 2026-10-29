@@ -1,0 +1,61 @@
+name: Release to docs
+
+# Runs in TugboatQA/docs-private only. It lives in this repo so the "Mirror to docs-private" workflow copies it there.
+# Run it by hand to release everything on the "private" branch. With "commit" empty, it is a dry run that lists the
+# commits and files the release would publish. With "commit" set to the commit the dry run reports, it pushes that
+# commit to a release/YYYY-MM-DD branch on TugboatQA/docs and opens a pull request from it into main. The commits are
+# public as soon as the branch is pushed.
+#
+# Pushes with a token for the GitHub App in the DOCS_PRIVATE_APP_CLIENT_ID and DOCS_PRIVATE_APP_PRIVATE_KEY secrets.
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: Full SHA of the private commit to release, from the dry run. Leave empty for a dry run.
+        type: string
+        required: false
+
+permissions: {}
+
+concurrency:
+  group: release-to-docs
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.repository == 'TugboatQA/docs-private'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: private
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Compare private with TugboatQA/docs main
+        id: compare
+        env:
+          COMMIT: ${{ inputs.commit }}
+          GH_TOKEN: ${{ github.token }}
+        run: .github/helpers/docs-private-release-check.sh
+      - uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        if: steps.compare.outputs.release == 'true'
+        id: app-token
+        with:
+          client-id: ${{ secrets.DOCS_PRIVATE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.DOCS_PRIVATE_APP_PRIVATE_KEY }}
+          owner: TugboatQA
+          repositories: docs
+          permission-contents: write
+          permission-pull-requests: write
+          permission-workflows: write
+      - name: Push the release branch and open the pull request
+        if: steps.compare.outputs.release == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          BASE: ${{ steps.compare.outputs.base }}
+          HEAD: ${{ steps.compare.outputs.head }}
+        run: .github/helpers/docs-private-release-open-pr.sh
