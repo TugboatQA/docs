@@ -1,0 +1,24 @@
+name: shellcheck
+
+# Called by static-code-analysis.yml as part of the "Static code analysis" required status check.
+
+on:
+  workflow_call:
+
+permissions: {}
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@203a3fd018dfe73f8ae7e3aa8da2c149a5f41c33
+        env:
+          SHELLCHECK_OPTS: -x
+        with:
+          severity: warning
