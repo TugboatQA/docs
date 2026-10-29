@@ -18,6 +18,11 @@ jobs:
       contents: read
     uses: $/.github/workflows/static-code-analysis--prettier.yml
 
+  shellcheck:
+    permissions:
+      contents: read
+    uses: $/.github/workflows/static-code-analysis--shellcheck.yml
+
   zizmor:
     permissions:
       contents: read
@@ -28,7 +33,7 @@ jobs:
     # if any of those jobs failed or was cancelled. A skipped job counts as passing.
     name: Static code analysis
     if: always()
-    needs: [prettier, zizmor]
+    needs: [prettier, shellcheck, zizmor]
     runs-on: ubuntu-latest
     steps:
       - name: Fail if any job failed or was cancelled
