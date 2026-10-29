@@ -17,7 +17,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@203a3fd018dfe73f8ae7e3aa8da2c149a5f41c33
+        uses: ludeeus/action-shellcheck@00cae500b08a931fb5698e11e79bfbd38e612a38 # 2.0.0
         env:
           SHELLCHECK_OPTS: -x
         with:
