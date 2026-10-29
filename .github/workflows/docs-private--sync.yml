@@ -1,14 +1,17 @@
 name: Sync private
 
 # Runs in TugboatQA/docs-private only. It lives in this repo so the "Mirror to docs-private" workflow copies it there.
-# On every push to main, which the mirror makes, rebases the "private" branch onto main and force-pushes it. If the
-# rebase conflicts, the run fails and someone rebases private by hand. After a release merges, private contains no
-# commits that main lacks, and the rebase fast-forwards it to main.
+# On every push to main, which the mirror makes, rebases the "private" branch onto TugboatQA/docs main and
+# force-pushes it. If the rebase fails, the run fails and someone rebases private by hand. After a release merges,
+# private contains no commits that main lacks, and the rebase fast-forwards it to main.
 #
-# Both branches require signed commits, so the rebase signs every commit it rewrites with the tugbot SSH signing key
-# in the DOCS_PRIVATE_SIGNING_KEY secret. tugbot becomes the committer; authors are unchanged. Pushes with a token for
-# the GitHub App in the DOCS_PRIVATE_APP_CLIENT_ID and DOCS_PRIVATE_APP_PRIVATE_KEY secrets. GITHUB_TOKEN cannot push
-# commits that change workflow files, which a rebase onto main can do.
+# Both branches require signed commits, so the rebase signs every commit it rewrites with the tugbot Secure Shell (SSH)
+# signing key in the DOCS_PRIVATE_SIGNING_KEY secret. tugbot becomes the committer; authors are unchanged. Pushes with a
+# token for the GitHub App in the DOCS_PRIVATE_APP_CLIENT_ID and DOCS_PRIVATE_APP_PRIVATE_KEY secrets. GITHUB_TOKEN
+# cannot push commits that change workflow files, which a rebase onto main can do.
+#
+# The helper script comes from TugboatQA/docs main, not from private. Code on private has not been reviewed in
+# TugboatQA/docs, and it does not run with these secrets. It also means the script exists before private contains it.
 
 on:
   push:
@@ -36,13 +39,24 @@ jobs:
           private-key: ${{ secrets.DOCS_PRIVATE_APP_PRIVATE_KEY }}
           permission-contents: write
           permission-workflows: write
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check out the helper scripts from TugboatQA/docs main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: TugboatQA/docs
+          ref: main
+          path: docs
+          sparse-checkout: .github/helpers
+          persist-credentials: false
+      - name: Check out private
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: private
+          path: private
           fetch-depth: 0
           persist-credentials: false
       - name: Rebase private onto main
+        working-directory: private
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           SIGNING_KEY: ${{ secrets.DOCS_PRIVATE_SIGNING_KEY }}
-        run: .github/helpers/docs-private-sync.sh
+        run: ../docs/.github/helpers/docs-private-sync.sh
