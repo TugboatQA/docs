@@ -25,10 +25,10 @@ base="$(git rev-parse FETCH_HEAD)"
 head="$(git rev-parse HEAD)"
 
 if ! git merge-base --is-ancestor "${base}" "${head}"; then
-  echo "::error::private is not rebased onto TugboatQA/docs main. Wait for the Sync private workflow, or run it by hand."
+  echo "::error::private does not contain TugboatQA/docs main. Wait for the Sync private workflow, or run it by hand."
   exit 1
 fi
-if [ "$(git rev-list --count "${base}..${head}")" -eq 0 ]; then
+if [ "$(git rev-list --count --no-merges "${base}..${head}")" -eq 0 ]; then
   echo "::error::private has no commits that TugboatQA/docs main does not already contain."
   exit 1
 fi
@@ -42,12 +42,10 @@ if [ -n "${unverified}" ]; then
   exit 1
 fi
 
-references=""
-for sha in $(git rev-list --reverse "${base}..${head}"); do
-  if git log -1 --format=%B "${sha}" | grep -qE '(^|[[:space:](])(#[0-9]+|@[[:alnum:]-]+)'; then
-    references="${references}$(git log -1 --format='%h %s' "${sha}")"$'\n'
-  fi
-done
+# Merge commits from the Sync private workflow are left out. GitHub writes
+# their messages, and they contain no references or mentions.
+references="$(git log --reverse --no-merges -E --format='%h %s' \
+  --grep='(^|[[:space:](])(#[0-9]+|@[[:alnum:]-]+)' "${base}..${head}")"
 
 {
   echo "## Release candidate"
@@ -57,7 +55,7 @@ done
   echo "### Commits"
   echo
   # shellcheck disable=SC2016 # The backticks are Markdown, not command substitution.
-  git log --reverse --format='- `%h` %s' "${base}..${head}"
+  git log --reverse --no-merges --format='- `%h` %s' "${base}..${head}"
   echo
   echo "### Files"
   echo
@@ -72,7 +70,7 @@ done
     echo "rewriting their messages on \`private\` before the release."
     echo
     echo '```'
-    printf '%s' "${references}"
+    echo "${references}"
     echo '```'
     echo
   fi
@@ -81,7 +79,7 @@ if [ -n "${references}" ]; then
   echo "::warning::Some commit messages contain #123 references or @name mentions. See the job summary."
 fi
 
-requested="$(printf '%s' "${COMMIT}" | tr -d '[:space:]')"
+requested="$(printf '%s' "${COMMIT}" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')"
 if [ -z "${requested}" ]; then
   echo "Dry run. To release, run this workflow again with **commit** set to \`${head}\`." >>"${GITHUB_STEP_SUMMARY}"
   echo "release=false" >>"${GITHUB_OUTPUT}"
@@ -89,12 +87,14 @@ if [ -z "${requested}" ]; then
 fi
 # Only a hash counts as the reviewed commit. A branch name such as "private"
 # would match whatever private is at.
-if ! [[ "${requested}" =~ ^[0-9a-f]{7,40}$ ]] || ! requested="$(git rev-parse --verify --quiet "${requested}^{commit}")"; then
-  echo "::error::${COMMIT} is not a commit on private. Copy the commit from the dry run's job summary."
+# The error prints requested, not COMMIT. requested has no line breaks, so it
+# cannot start a workflow command.
+if ! [[ "${requested}" =~ ^[0-9a-f]{7,40}$ ]] || ! resolved="$(git rev-parse --verify --quiet "${requested}^{commit}")"; then
+  echo "::error::${requested} is not a commit on private. Copy the commit from the dry run's job summary."
   exit 1
 fi
-if [ "${requested}" != "${head}" ]; then
-  echo "::error::private is at ${head}, not ${requested}. Run a new dry run and review it."
+if [ "${resolved}" != "${head}" ]; then
+  echo "::error::private is at ${head}, not ${resolved}. Run a new dry run and review it."
   exit 1
 fi
 
