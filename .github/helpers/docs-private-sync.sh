@@ -1,90 +1,56 @@
 #!/bin/bash
 #
-# Rebase the "private" branch, checked out in the current directory, onto
-# TugboatQA/docs main, signing every commit the rebase rewrites as tugbot, and
-# force-push it. Run by docs-private--sync.yml in TugboatQA/docs-private. If
-# the rebase fails, abort it and exit non-zero so someone rebases private by
-# hand.
+# Bring TugboatQA/docs main into the "private" branch of the repository in
+# GITHUB_REPOSITORY. Run by docs-private--sync.yml in TugboatQA/docs-private.
 #
-# It rebases onto TugboatQA/docs main, which docs-private main mirrors, so a
-# commit pushed only to docs-private main never reaches private.
+# If private has no commits that main lacks, which is the case after a release
+# merges, this fast-forwards private to main. Otherwise it merges main into
+# private with the GitHub merges API. GitHub signs the merge commit, so private
+# keeps its signed-commits rule without a signing key here. If the merge
+# conflicts, this exits non-zero so someone merges main into private by hand.
+#
+# It merges the commit that TugboatQA/docs main is at, so a commit pushed only
+# to docs-private main never reaches private.
 #
 # Required environment variables:
-#   GH_TOKEN     Token with contents: write and workflows: write on the repository
-#   SIGNING_KEY  Private Secure Shell (SSH) key, without a passphrase, that is
-#                registered as a signing key on tugbot
+#   GH_TOKEN  Token with contents: write and workflows: write on the repository
 
 set -euo pipefail
 
-key=~/.ssh/signing_key
-install -m 700 -d ~/.ssh
-printf '%s\n' "${SIGNING_KEY}" >"${key}"
-chmod 600 "${key}"
-# Fails if the key is malformed or has a passphrase, either of which would
-# otherwise stop the rebase at its first signature.
-if ! ssh-keygen -y -P '' -f "${key}" >/dev/null 2>&1; then
-  echo "::error::DOCS_PRIVATE_SIGNING_KEY is not a private SSH key without a passphrase."
-  exit 1
-fi
-git config user.name tugbot
-git config user.email accounts@tugboatqa.com
-git config gpg.format ssh
-git config user.signingkey "${key}"
+main="$(gh api repos/TugboatQA/docs/commits/main --jq .sha)"
+status="$(gh api "repos/${GITHUB_REPOSITORY}/compare/private...${main}" --jq .status)"
 
-git fetch --quiet https://github.com/TugboatQA/docs.git main
-old="$(git rev-parse HEAD)"
-if ! git rebase --gpg-sign FETCH_HEAD; then
-  conflicts="$(git diff --name-only --diff-filter=U)"
-  if [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ]; then
-    git rebase --abort
-  fi
-
-  if [ -n "${conflicts}" ]; then
-    {
-      echo "## Rebase failed"
-      echo
-      echo "\`main\` and \`private\` change the same lines in these files:"
-      echo
-      echo '```'
-      echo "${conflicts}"
-      echo '```'
-      echo
-      echo "Rebase \`private\` onto \`main\` by hand, as described in"
-      echo "[the docs-private wiki](https://github.com/TugboatQA/docs-private/wiki)."
-    } >>"${GITHUB_STEP_SUMMARY}"
-    echo "::error::Rebasing private onto main conflicts. Rebase private by hand."
-  else
-    {
-      echo "## Rebase failed"
-      echo
-      echo "\`git rebase\` failed without a conflict. See the log of the \"Rebase private onto main\" step."
-    } >>"${GITHUB_STEP_SUMMARY}"
-    echo "::error::git rebase failed without a conflict. See the log above."
-  fi
-  exit 1
-fi
-new="$(git rev-parse HEAD)"
-
-if [ "${old}" = "${new}" ]; then
-  echo "\`private\` already contains \`main\`. Nothing to push." >>"${GITHUB_STEP_SUMMARY}"
-  exit 0
-fi
-
-git push --force-with-lease="private:${old}" \
-  "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:private
-
-{
-  echo "## Rebased private onto main"
-  echo
-  echo "| | Commit |"
-  echo "| --- | --- |"
-  echo "| Previous \`private\` | \`${old}\` |"
-  echo "| New \`private\` | \`${new}\` |"
-  echo
-  echo "To rebase a branch that was cut from the previous \`private\`:"
-  echo
-  echo '```sh'
-  echo "git fetch origin"
-  echo "git rebase --onto origin/private ${old} <branch>"
-  echo '```'
-} >>"${GITHUB_STEP_SUMMARY}"
+case "${status}" in
+  identical | behind)
+    echo "\`private\` already contains \`main\` (\`${main}\`). Nothing to do." >>"${GITHUB_STEP_SUMMARY}"
+    ;;
+  ahead)
+    gh api --method PATCH "repos/${GITHUB_REPOSITORY}/git/refs/heads/private" \
+      -f sha="${main}" -F force=false --silent
+    echo "Fast-forwarded \`private\` to \`main\` (\`${main}\`)." >>"${GITHUB_STEP_SUMMARY}"
+    ;;
+  diverged)
+    if ! response="$(gh api --include --method POST "repos/${GITHUB_REPOSITORY}/merges" \
+      -f base=private -f head="${main}" \
+      -f commit_message="Merge TugboatQA/docs main into private" 2>&1)"; then
+      if head -n 1 <<<"${response}" | grep -q ' 409 '; then
+        {
+          echo "## Merge failed"
+          echo
+          echo "\`main\` and \`private\` change the same lines. Merge \`main\` into \`private\` by hand, as described in"
+          echo "[the docs-private wiki](https://github.com/TugboatQA/docs-private/wiki)."
+        } >>"${GITHUB_STEP_SUMMARY}"
+        echo "::error::Merging main into private conflicts. Merge main into private by hand."
+      else
+        echo "${response}"
+        echo "::error::The merges API failed without a conflict. See the response above."
+      fi
+      exit 1
+    fi
+    echo "Merged \`main\` (\`${main}\`) into \`private\`." >>"${GITHUB_STEP_SUMMARY}"
+    ;;
+  *)
+    echo "::error::Unexpected comparison status '${status}' between private and ${main}."
+    exit 1
+    ;;
+esac
