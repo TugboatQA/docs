@@ -1,0 +1,52 @@
+name: Sync private
+
+# Runs in TugboatQA/docs-private only. It lives in this repo so the "Mirror to docs-private" workflow copies it there.
+# On every push to main, which the mirror makes, brings TugboatQA/docs main into the "private" branch. If private has
+# no commits that main lacks, which is the case after a release merges, it fast-forwards private to main. Otherwise it
+# merges main into private with the GitHub merges API, which signs the merge commit. If the merge conflicts, the run
+# fails and someone merges main into private by hand.
+#
+# Uses a token for the GitHub App in the DOCS_PRIVATE_APP_CLIENT_ID and DOCS_PRIVATE_APP_PRIVATE_KEY secrets.
+# GITHUB_TOKEN cannot update a branch with commits that change workflow files, which bringing in main can do.
+#
+# The helper script comes from TugboatQA/docs main, not from private. Code on private has not been reviewed in
+# TugboatQA/docs, and it does not run with these secrets. It also means the script exists before private contains it.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: sync-private
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.repository == 'TugboatQA/docs-private'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        id: app-token
+        with:
+          client-id: ${{ secrets.DOCS_PRIVATE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.DOCS_PRIVATE_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-workflows: write
+      - name: Check out the helper scripts from TugboatQA/docs main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: TugboatQA/docs
+          ref: main
+          path: docs
+          sparse-checkout: .github/helpers
+          persist-credentials: false
+      - name: Bring main into private
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: docs/.github/helpers/docs-private-sync.sh
