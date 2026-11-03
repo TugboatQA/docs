@@ -18,6 +18,14 @@ branch="release/${date}-${HEAD:0:7}"
 
 git push "https://x-access-token:${GH_TOKEN}@github.com/TugboatQA/docs.git" "${HEAD}:refs/heads/${branch}"
 
+# A rerun after the pull request was opened pushes nothing new. Report the
+# existing pull request instead of failing on a duplicate.
+existing="$(gh pr list --repo TugboatQA/docs --head "${branch}" --state open --json url --jq '.[0].url // empty')"
+if [ -n "${existing}" ]; then
+  echo "A pull request for \`${branch}\` is already open: ${existing}" >>"${GITHUB_STEP_SUMMARY}"
+  exit 0
+fi
+
 # The commit list is a code block, so GitHub does not turn #123 references into
 # links or @name mentions into notifications in this public pull request.
 {
@@ -28,7 +36,7 @@ git push "https://x-access-token:${GH_TOKEN}@github.com/TugboatQA/docs.git" "${H
   echo "## Commits"
   echo
   echo '```'
-  git log --reverse --format='%h %s' "${BASE}..${HEAD}"
+  git log --reverse --no-merges --format='%h %s' "${BASE}..${HEAD}"
   echo '```'
 } >"${RUNNER_TEMP}/body.md"
 
