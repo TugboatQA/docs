@@ -57,25 +57,37 @@ Happy brewing!
 
 ### Manual install on MacOS
 
-1. Download the CLI from [https://dashboard.tugboatqa.com/downloads](https://dashboard.tugboatqa.com/downloads).
-2. Extract the downloaded `tugboat.tar.gz` file to `/usr/local/bin`
+1. Download the CLI from [https://dashboard.tugboatqa.com/downloads](https://dashboard.tugboatqa.com/downloads). Choose
+   **MacOS (Apple Silicon)** or **MacOS (Intel)** to match your Mac.
+2. Extract the downloaded `tugboat.tar.gz` file to `/usr/local/bin`, creating the folder if it doesn't exist:
 
 ```sh
-tar -zxf tugboat.tar.gz -C /usr/local/bin/
+sudo mkdir -p /usr/local/bin
+sudo tar -zxf tugboat.tar.gz -C /usr/local/bin/
 ```
 
-#### MacOS Catalina
+<a id="macos-catalina"></a>
 
-With Catalina's enhanced security features, the first time you try to execute a CLI command, you'll get a dialog telling
-you that the Tugboat CLI can't be opened. Until we're able to release a signed version of the CLI, here's how to work
-around this issue:
+#### Allow the CLI to run on MacOS
 
-1. Go into the Finder, and locate the `tugboat` file.
-2. Control-click or right-click the file, and then choose the **OPEN** option from the drop-down menu.
-3. Press the **Open** button.
+The first time you run a CLI command, MacOS may show a dialog telling you that the Tugboat CLI can't be opened. Until
+the CLI is notarized by Apple, here's how to work around this issue:
+
+1. Click **Done** to close the dialog. Don't click **Move to Trash**, which deletes the CLI.
+2. Open **System Settings**, and go to **Privacy & Security**.
+3. Scroll down to the **Security** section, find the message about `tugboat` being blocked, and press **Open Anyway**.
+   The message only appears for about an hour after MacOS blocks the CLI.
+4. Enter your password if prompted.
+5. Run the CLI command again, and press **Open Anyway** in the dialog that appears.
 
 This saves the Tugboat CLI as an exception to your security settings. From here, you should be able to use it as you
 normally would.
+
+If you prefer the command line, you can remove the quarantine attribute from the file instead:
+
+```sh
+sudo xattr -d com.apple.quarantine /usr/local/bin/tugboat
+```
 
 ## Linux
 
