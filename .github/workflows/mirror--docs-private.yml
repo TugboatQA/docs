@@ -1,8 +1,12 @@
 name: Mirror to docs-private
 
-# Force-pushes main to main on TugboatQA/docs-private, which is a read-only mirror of this repo. Private work lives on
+# Pushes main to main on TugboatQA/docs-private, which is a read-only mirror of this repo. Private work lives on
 # the "private" branch there, which merges main in. Authenticates with a deploy key that has write access to
-# docs-private, stored here as the DOCS_PRIVATE_DEPLOY_KEY secret.
+# docs-private, stored in the docs-private-mirror environment as the DOCS_PRIVATE_DEPLOY_KEY secret. That environment
+# only allows the main branch, so jobs on other branches cannot read the key.
+#
+# The push does not use --force. Re-running an older run fails with a non-fast-forward rejection instead of moving
+# docs-private main backwards.
 
 on:
   push:
@@ -17,8 +21,12 @@ concurrency:
 
 jobs:
   mirror:
-    if: github.repository == 'TugboatQA/docs'
+    if: github.repository == 'TugboatQA/docs' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: docs-private-mirror
+      deployment: false
     permissions:
       contents: read
 
@@ -27,13 +35,17 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      # The runner image already lists GitHub's host keys in /etc/ssh/ssh_known_hosts.
       - name: Push main to TugboatQA/docs-private
         env:
           DEPLOY_KEY: ${{ secrets.DOCS_PRIVATE_DEPLOY_KEY }}
         run: |
+          if [ -z "${DEPLOY_KEY}" ]; then
+            echo "::error::DOCS_PRIVATE_DEPLOY_KEY is empty. Check that the docs-private-mirror environment has the secret."
+            exit 1
+          fi
           install -m 700 -d ~/.ssh
           printf '%s\n' "${DEPLOY_KEY}" > ~/.ssh/mirror_key
           chmod 600 ~/.ssh/mirror_key
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/mirror_key -o IdentitiesOnly=yes"
-          git push --force git@github.com:TugboatQA/docs-private.git HEAD:refs/heads/main
+          git push git@github.com:TugboatQA/docs-private.git HEAD:refs/heads/main
