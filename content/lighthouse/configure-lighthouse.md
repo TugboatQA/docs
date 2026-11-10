@@ -49,7 +49,7 @@ custom Lighthouse configuration, to tweak audit scoring or add custom checks, yo
 configuration object to use when generating reports.
 
 Check out
-[the `GoogleChrome/Lighthouse` blob on GitHub](https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md)
+[the `GoogleChrome/Lighthouse` blob on GitHub](https://github.com/GoogleChrome/lighthouse/blob/v12.8.2/docs/configuration.md)
 for more information about creating a custom Lighthouse config.
 
 ```yaml
@@ -61,9 +61,9 @@ services:
         extends: lighthouse:default
         settings:
           onlyAudits:
-            - first-meaningful-paint
+            - first-contentful-paint
             - speed-index
-            - interactive
+            - largest-contentful-paint
     urls:
       # Conduct Lighthouse audits of the these URLs using the custom config
       - /
@@ -73,7 +73,27 @@ services:
 
 {{% notice tip %}} In addition to formatting the Lighthouse custom config object as YAML in the example above, you can
 also copy/paste JSON directly from the Google Lighthouse blob into your Tugboat config, since YAML is a superset of
-JSON. Example follows.{{% /notice %}}
+JSON. The following example uses the same custom config as the example above, written as JSON.{{% /notice %}}
+
+<!-- prettier-ignore-start -->
+```yaml
+services:
+  apache:
+    # Paste a JSON Lighthouse config object as the value of the config key
+    lighthouse:
+      config:
+        {
+          "extends": "lighthouse:default",
+          "settings": {
+            "onlyAudits": ["first-contentful-paint", "speed-index", "largest-contentful-paint"]
+          }
+        }
+    urls:
+      - /
+      - /blog
+      - /about
+```
+<!-- prettier-ignore-end -->
 
 ## Specify Lighthouse settings per-URL
 
@@ -94,9 +114,9 @@ services:
             extends: lighthouse:default
             settings:
               onlyAudits:
-                - first-meaningful-paint
+                - first-contentful-paint
                 - speed-index
-                - interactive
+                - largest-contentful-paint
 
       # Turn off Lighthouse audits for /about, but leave the URL in the list for other Service URL activities, such as generating visual diffs
       - url: /about

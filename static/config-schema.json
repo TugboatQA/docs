@@ -677,21 +677,21 @@
     "lighthouseConfig": {
       "type": "object",
       "description": "Configuration options to control Lighthouse's behavior",
-      "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md",
+      "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v12.8.2/docs/configuration.md",
       "properties": {
         "extends": {
           "description": "Base configuration to extend from. Currently only 'lighthouse:default' is supported",
-          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md#extends",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v12.8.2/docs/configuration.md#extends-lighthousedefaultundefined",
           "type": "string",
           "enum": ["lighthouse:default"]
         },
         "settings": {
           "type": "object",
           "description": "Global settings that control how Lighthouse runs and what audits it includes",
-          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md#settings",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v12.8.2/docs/configuration.md#settings-objectundefined",
           "properties": {
             "onlyCategories": {
-              "description": "Only run the specified categories. If both onlyCategories and onlyAudits are present, onlyCategories takes precedence",
+              "description": "Only include the specified categories in the report. Additive with onlyAudits",
               "type": "array",
               "items": {
                 "type": "string",
@@ -699,14 +699,14 @@
               }
             },
             "onlyAudits": {
-              "description": "Only run the specified audits. If both onlyCategories and onlyAudits are present, onlyCategories takes precedence",
+              "description": "Only include the specified audits in the report. Additive with onlyCategories",
               "type": "array",
               "items": {
                 "type": "string"
               }
             },
             "skipAudits": {
-              "description": "Skip the specified audits. Takes precedence over onlyAudits and onlyCategories",
+              "description": "Exclude the specified audits from the report. Takes precedence over onlyCategories. An audit ID can't appear in both skipAudits and onlyAudits",
               "type": "array",
               "items": {
                 "type": "string"
@@ -715,60 +715,32 @@
           }
         },
         "passes": {
-          "description": "Controls how to load the page and what information to gather about it. Each pass loads the page with different settings and gathers different information",
-          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md#passes",
+          "description": "Not supported. Lighthouse 10 deprecated passes, Lighthouse 11 removed them, and Lighthouse 12 ignores this key. Use artifacts to choose what Lighthouse collects, and settings to control how it loads the page",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v12.8.2/docs/configuration.md#artifacts-object",
+          "not": {}
+        },
+        "artifacts": {
+          "description": "Artifacts to collect during the Lighthouse run. Each artifact names the gatherer that produces it. When the config extends lighthouse:default, an artifact with a new ID is added to the default artifacts, and an artifact with the ID of a default artifact overrides that artifact",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v12.8.2/docs/configuration.md#artifacts-object",
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["passName", "gatherers"],
+            "required": ["id", "gatherer"],
             "properties": {
-              "passName": {
+              "id": {
                 "type": "string",
-                "description": "Unique identifier for the pass. Used to match gatherer results with the pass"
+                "description": "Unique identifier for the artifact. Audits reference the artifact by this ID"
               },
-              "recordTrace": {
-                "type": "boolean",
-                "description": "Whether to record a trace during this pass for later analysis"
-              },
-              "useThrottling": {
-                "type": "boolean",
-                "description": "Whether to apply CPU and network throttling during this pass"
-              },
-              "pauseAfterLoadMs": {
-                "type": "number",
-                "description": "How long to wait after the load event before running pass",
-                "default": 0
-              },
-              "networkQuietThresholdMs": {
-                "type": "number",
-                "description": "Wait for this amount of network quiet before continuing",
-                "default": 5000
-              },
-              "pauseAfterNetworkQuietMs": {
-                "type": "number",
-                "description": "How long to wait after network quiet before continuing",
-                "default": 0
-              },
-              "blockedUrlPatterns": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "Block any network requests to URLs matching these patterns"
-              },
-              "gatherers": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "List of gatherers to run during this pass. Gatherers collect information about the page"
+              "gatherer": {
+                "type": "string",
+                "description": "The gatherer that produces this artifact"
               }
             }
           }
         },
         "audits": {
           "description": "List of audit IDs to run. Only audits referenced by a category will appear in the report",
-          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md#audits",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v12.8.2/docs/configuration.md#audits-string",
           "type": "array",
           "items": {
             "type": "string"
@@ -777,7 +749,7 @@
         "categories": {
           "type": "object",
           "description": "Categories group audit results into sections in the report. Each category is organized by a set of audit references with their individual scores and grouped by audit groups",
-          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md#categories",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v12.8.2/docs/configuration.md#categories-objectundefined",
           "patternProperties": {
             "^[a-zA-Z0-9-]+$": {
               "type": "object",
@@ -820,7 +792,7 @@
         "groups": {
           "type": "object",
           "description": "Groups organize audits in categories into expandable sections",
-          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md#groups",
+          "$comment": "https://github.com/GoogleChrome/lighthouse/blob/v12.8.2/docs/configuration.md#groups-objectundefined",
           "patternProperties": {
             "^[a-zA-Z0-9-]+$": {
               "type": "object",

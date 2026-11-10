@@ -378,7 +378,7 @@ tend to be inaccurate due to the shared nature of the Tugboat infrastructure, an
 Lighthouse score.
 
 Documentation for creating a custom Lighthouse configuration can be found at
-https://github.com/GoogleChrome/lighthouse/blob/HEAD/docs/configuration.md
+https://github.com/GoogleChrome/lighthouse/blob/v12.8.2/docs/configuration.md
 
 ---
 
