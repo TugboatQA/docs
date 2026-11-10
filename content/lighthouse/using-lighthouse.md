@@ -8,7 +8,7 @@ When you build a Preview in Tugboat, Tugboat can run Lighthouse performance, acc
 audits against URLs in your Tugboat Preview. Tugboat displays the results of those audits as Lighthouse Reports in the
 Tugboat Preview Dashboard.
 
-![Screenshots of Performance, Accessibility, and Best Practices Lighthouse reports run against Tugboat Preview pages](/_images/lighthouse-reports.png)
+![Screenshots of Performance, Accessibility, Best Practices, and SEO Lighthouse reports run against Tugboat Preview pages](/_images/lighthouse-reports.png)
 
 ## What is Lighthouse?
 
@@ -23,27 +23,27 @@ For more about Google Lighthouse, take a look at its documentation:
 While Google Lighthouse is an open-source tool that you can manually run against Tugboat Previews, Tugboat's Lighthouse
 integration automates this process, and integrates it with the additional tasks you can perform against your Tugboat
 Previews. When you use Tugboat's Lighthouse integration to generate your Lighthouse reports, you'll see a status message
-on the linked git provider pull request showing whether the reports generated correctly, and providing a link to view
-the reports
+on the linked git provider pull request showing whether the reports generated and passed their thresholds, with a link
+to view the reports.
 
 ![Screenshots of Lighthouse reports link on GitHub PR](/_images/lighthouse-reports-on-github-pr.png)
 
 You'll also be able to view a summary of the reports in the Tugboat Dashboard, and can click into the summary to view
 more details.
 
-![Screenshots of Lighthouse reports listed in Tugboat dashboard](/_images/lighthouse-reports-in-dashboard.png)
+![Screenshots of Lighthouse reports listed in Tugboat dashboard](/_images/lighthouse-reports-in-preview-dashboard.png)
 
-For more on how to view these reports, see: [View Lighthouse Reports](../view-lighthouse-reports/).
+For more on how to view these reports, see: [View Lighthouse Reports](../view-lighthouse-reports/). For how Tugboat sets
+a pass or fail status on each report, see: [Use Lighthouse Thresholds](../use-lighthouse-thresholds/).
 
 ## What do Lighthouse reports measure?
 
-Tugboat's Lighthouse integration uses the default Lighthouse config, which audits five groups of metrics:
+Tugboat's Lighthouse integration uses the default Lighthouse config, which audits four groups of metrics:
 
 - [Performance](#lighthouse-performance-reports-in-tugboat)
 - [Accessibility](#lighthouse-accessibility-reports-in-tugboat)
 - [Best Practices](#lighthouse-best-practices-reports-in-tugboat)
 - [SEO](#lighthouse-seo-reports-in-tugboat)
-- [Progressive Web App](#lighthouse-progressive-web-app-reports-in-tugboat)
 
 However, because Tugboat runs on shared infrastructure, our configuration disables a few server performance metrics that
 would not provide an accurate representation of your website or web app's performance.

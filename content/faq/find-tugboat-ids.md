@@ -163,12 +163,12 @@ tugboat ls projects
 You'll see a response similar to this:
 
 ```sh
-Project ID                Sleep  Base  Quota  Size      Name
-------------------------  -----  ----  -----  --------  ------------------------
-5dfic23e53my123401b8d0e5     15  Yes    30GB    6.07GB  Company ABC Marketing Site
-5mdkso12376f987ckif01f10     15  Yes     2GB     1.3GB  Company ABC Documentation Site
-5j0amdc4a123456789a6di0c     15  Yes     2GB        0B  Example webapp project
-5k987f54omu1234567kmsi56     15  Yes     2GB        0B  Static site project
+Project ID                Quota   Size      Name
+------------------------  ------  --------  ------------------------------------
+5dfic23e53my123401b8d0e5    30GB    6.07GB  Company ABC Marketing Site
+5mdkso12376f987ckif01f10     2GB     1.3GB  Company ABC Documentation Site
+5j0amdc4a123456789a6di0c     2GB        0B  Example webapp project
+5k987f54omu1234567kmsi56     2GB        0B  Static site project
 ```
 
 #### Repository ID in the CLI

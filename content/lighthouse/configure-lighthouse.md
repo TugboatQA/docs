@@ -15,6 +15,9 @@ When Tugboat completes Google Lighthouse audits of your specified URLs, you'll b
 right in the Tugboat Dashboard. For more info about what you'll see, check out:
 [View Lighthouse Reports](../view-lighthouse-reports/).
 
+If you want Tugboat to mark reports as passing or failing based on their scores, see:
+[Use Lighthouse Thresholds](../use-lighthouse-thresholds/).
+
 {{% notice tier %}} This feature is available for [Tugboat Premium plans](https://www.tugboatqa.com/premium). If you'd
 like to run Lighthouse audits against your Tugboat Previews, but you're on a different tier, you'll need to upgrade your
 project to Premium.{{% /notice %}}

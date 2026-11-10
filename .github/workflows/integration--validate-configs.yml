@@ -50,8 +50,8 @@ jobs:
             # If config.yml exists, validate it
             if [ -f .tugboat/config.yml ]; then
               echo "Validating config.yml in branch $branch"
-              if [ "$branch" = "yaml-fail" ] || [ "$branch" = "invalid-yaml" ]; then
-                # For yaml-fail and invalid-yaml branches, we expect validation to fail
+              if [ "$branch" = "yaml-fail" ] || [ "$branch" = "invalid-yaml" ] || [[ "$branch" == *-invalid-* ]]; then
+                # For yaml-fail, invalid-yaml, and *-invalid-* branches, we expect validation to fail
                 if ajv validate --all-errors -s ../schema-repo/static/config-schema.json -d .tugboat/config.yml; then
                   echo "::error::Branch $branch was expected to fail validation but passed"
                   exit 1

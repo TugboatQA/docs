@@ -268,6 +268,10 @@
                     "enum": ["desktop", "mobile"]
                   },
                   "default": ["desktop"]
+                },
+                "threshold": {
+                  "$comment": "https://docs.tugboatqa.com/lighthouse/use-lighthouse-thresholds/",
+                  "$ref": "#/definitions/lighthouseThreshold"
                 }
               }
             },
@@ -561,6 +565,111 @@
       },
       "additionalProperties": false
     },
+    "lighthouseThreshold": {
+      "description": "The Lighthouse thresholds for the reports generated from these URLs. A single value applies to both desktop and mobile. Use the desktop and mobile keys to set each screen separately",
+      "anyOf": [
+        {
+          "$ref": "#/definitions/lighthouseScreenThreshold"
+        },
+        {
+          "type": "object",
+          "description": "Set thresholds for each screen. A screen that you leave out compares every category to the base report",
+          "properties": {
+            "desktop": {
+              "$ref": "#/definitions/lighthouseScreenThreshold"
+            },
+            "mobile": {
+              "$ref": "#/definitions/lighthouseScreenThreshold"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      ]
+    },
+    "lighthouseScreenThreshold": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/lighthouseCategoryThreshold"
+        },
+        {
+          "type": "array",
+          "description": "Set a threshold for each category. Tugboat doesn't check categories that you leave out",
+          "minItems": 1,
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/lighthouseCategoryThreshold/anyOf/2"
+              },
+              {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/lighthouseCategoryThreshold/anyOf/3"
+                  },
+                  {
+                    "required": ["category"]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "lighthouseCategoryThreshold": {
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "base",
+          "description": "Compare every category to the base report"
+        },
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Use the same threshold for every category"
+        },
+        {
+          "type": "string",
+          "description": "Compare this category to the base report",
+          "enum": ["performance", "accessibility", "best-practices", "seo"]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "description": "The category this threshold applies to",
+              "enum": ["performance", "accessibility", "best-practices", "seo"]
+            },
+            "threshold": {
+              "description": "A score from 0 to 100, or base to use the score of the base report",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "base"
+                },
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              ],
+              "default": "base"
+            },
+            "tolerance": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "The number of points a score can fall below its threshold and still pass",
+              "default": 0
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      ]
+    },
     "lighthouseConfig": {
       "type": "object",
       "description": "Configuration options to control Lighthouse's behavior",
@@ -582,7 +691,7 @@
               "type": "array",
               "items": {
                 "type": "string",
-                "enum": ["performance", "accessibility", "best-practices", "seo", "pwa"]
+                "enum": ["performance", "accessibility", "best-practices", "seo"]
               }
             },
             "onlyAudits": {
