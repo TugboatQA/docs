@@ -138,9 +138,11 @@ Press the {{% ui-text %}}Refresh{{% /ui-text %}} button.
 ### Automatically Refresh a Base Preview
 
 You'll generally want to keep your Base Preview up to date with your latest codebase, and a fresh copy of your database,
-image files, and other assets. By default, Tugboat automatically checks for updates every night at 12 am UTC, and
-refreshes your Base Preview with these updates. You can toggle this feature, or change the time and interval at which
-Tugboat does an automated Refresh of your Base Previews.
+image files, and other assets. By default, Tugboat automatically checks for updates every day during a randomly assigned
+hour between 4am and 10am UTC for a new repository, and refreshes your Base Preview with these updates. You can toggle
+this feature, or change the hour and interval at which Tugboat does an automated Refresh of your Base Previews. Tugboat
+starts each refresh at a random time within the hour you select, and the refresh can start later if Tugboat is still
+running other refreshes.
 
 #### To change Tugboat's settings to automatically Refresh Base Previews:
 
