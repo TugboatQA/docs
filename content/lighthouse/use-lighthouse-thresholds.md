@@ -9,12 +9,18 @@ score can fall below its threshold and still pass. Tugboat compares each report 
 "Fail" status on the report. That status displays in the Tugboat Dashboard, and it reports to the linked git provider,
 for example GitHub.
 
+Lighthouse scores can vary between runs of the same page, even when the page doesn't change. Performance scores vary the
+most, because Tugboat runs Lighthouse on shared infrastructure. With a tolerance of zero, a small variation can fail a
+report. For example, with a threshold of `base`, a performance score of 89 fails when the Base Preview scored 90. A
+tolerance of a few points lets those small variations pass, and still fails a report whose score drops further.
+
 {{% notice tier %}} This feature is available for
 [Tugboat Premium plans](https://www.tugboatqa.com/premium).{{% /notice %}}
 
 You may want to do a few things with Lighthouse thresholds:
 
 - [Compare reports to the Base Preview](#compare-reports-to-the-base-preview)
+- [Set thresholds in `config.yml`](#set-thresholds-in-configyml)
 - [Set thresholds with the CLI](#set-thresholds-with-the-cli)
 - [View pass/fail results in a linked git repository](#view-passfail-results-in-a-linked-git-repository)
 - [View pass/fail results in the Tugboat Dashboard](#view-passfail-results-in-the-tugboat-dashboard)
@@ -25,11 +31,137 @@ You may want to do a few things with Lighthouse thresholds:
 
 When a Preview is built from a [Base Preview](/building-a-preview/work-with-base-previews/), Tugboat uses the scores of
 the matching report in the Base Preview as the thresholds for each report that doesn't have thresholds in your
-`config.yml`, with a tolerance of zero. A matching report has the same Service, URL, alias, and screen. If the Base
-Preview doesn't have a matching report, Tugboat generates one first.
+[`config.yml`](#set-thresholds-in-configyml), with a tolerance of zero. A matching report has the same Service, URL,
+alias, and screen. If the Base Preview doesn't have a matching report, Tugboat generates one first.
 
 To use this comparison, [configure Lighthouse](../configure-lighthouse/) and
 [set a Base Preview](/building-a-preview/work-with-base-previews/set-a-base-preview/).
+
+## Set thresholds in `config.yml`
+
+To set thresholds for the reports generated from the `urls` in your `config.yml`, add a `threshold` key to a
+`lighthouse` block. A `threshold` in the Service-level [`lighthouse`](/reference/tugboat-configuration/#lighthouse)
+block applies to every URL of the Service. A `threshold` in the `lighthouse` block of a single
+[URL](/reference/tugboat-configuration/#urls) applies to that URL.
+
+A threshold is a score from 0 to 100, or `base` to use the score of the matching report in the Base Preview, as
+described in [Compare reports to the Base Preview](#compare-reports-to-the-base-preview). The categories are
+`performance`, `accessibility`, `best-practices`, and `seo`.
+
+To use the same threshold for every category, set `threshold` to a number:
+
+```yaml
+services:
+  apache:
+    lighthouse:
+      threshold: 90
+    urls:
+      - /
+      - /blog
+```
+
+To set a tolerance, set `threshold` to an object with `threshold` and `tolerance` keys. The `threshold` key defaults to
+`base`, and the `tolerance` key defaults to zero:
+
+```yaml
+services:
+  apache:
+    lighthouse:
+      threshold:
+        threshold: 90
+        tolerance: 5
+    urls:
+      - /
+```
+
+{{% notice info %}} Put `tolerance` inside the `threshold` object. Tugboat ignores a `tolerance` key at the same level
+as `threshold`. {{% /notice %}}
+
+To set a threshold for individual categories, set `threshold` to a list. Tugboat doesn't check categories that you leave
+out. Each item is a category name, which compares that category to the Base Preview, or an object with a `category` key
+and optional `threshold` and `tolerance` keys:
+
+```yaml
+services:
+  apache:
+    lighthouse:
+      threshold:
+        # Performance must score at least 85, with a tolerance of 3 points
+        - category: performance
+          threshold: 85
+          tolerance: 3
+        # Accessibility must score at least 95
+        - category: accessibility
+          threshold: 95
+        # SEO compares to the Base Preview
+        - seo
+    urls:
+      - /
+```
+
+### Set thresholds for each screen
+
+A number, `base`, object, or list applies to both the `desktop` and `mobile` screens. To set each screen separately, use
+`desktop` and `mobile` keys. Each key accepts any of the forms above. When `threshold` has a `desktop` or `mobile` key,
+it can't have any other keys. On a Service, a screen that you leave out compares every category to the Base Preview. On
+a URL, a screen that you leave out keeps the Service-level threshold, as described in
+[Override Service thresholds for a URL](#override-service-thresholds-for-a-url).
+
+```yaml
+services:
+  apache:
+    lighthouse:
+      screen:
+        - desktop
+        - mobile
+      threshold:
+        desktop:
+          threshold: 90
+          tolerance: 2
+        mobile: base
+    urls:
+      - /
+```
+
+Tugboat generates reports only for the screens in the `screen` list, which defaults to `desktop`. A threshold for a
+screen that isn't in the list has no effect.
+
+### Override Service thresholds for a URL
+
+A `threshold` on a URL overrides the Service-level `threshold` only for the screens that it sets. The other screens keep
+the Service-level threshold.
+
+```yaml
+services:
+  apache:
+    lighthouse:
+      screen:
+        - desktop
+        - mobile
+      threshold: 90
+    urls:
+      # Desktop and mobile use the Service threshold of 90
+      - /
+      # Desktop and mobile compare to the Base Preview
+      - url: /blog
+        lighthouse:
+          threshold: base
+      # Desktop compares to the Base Preview, and mobile keeps the Service threshold of 90
+      - url: /about
+        lighthouse:
+          threshold:
+            desktop: base
+```
+
+### Invalid thresholds
+
+When a `threshold` is invalid, the Preview fails to build with error `1056`, `Invalid Preview configuration`. For more
+information, see [Tugboat Error Codes](/reference/tugboat-error-codes/). These values are invalid:
+
+- A score or tolerance outside 0 to 100
+- An unknown category name
+- An empty list, or a list item without a category
+- A `desktop` or `mobile` key next to any other key, such as `tablet` or `threshold`
 
 ## Set thresholds with the CLI
 
@@ -41,8 +173,9 @@ The default tolerance is zero.
 
 {{% notice info %}} Thresholds that you set with the CLI last until the Preview builds, rebuilds, or refreshes. When it
 does, Tugboat sets the reports generated from the `urls` in your `config.yml` back to the thresholds in your
-`config.yml`, and deletes any other reports you created with `tugboat create lighthouse`. A report without a threshold
-in your `config.yml` goes back to comparing against the Base Preview, with a tolerance of zero. {{% /notice %}}
+[`config.yml`](#set-thresholds-in-configyml), and deletes any other reports you created with
+`tugboat create lighthouse`. A report without a threshold in your `config.yml` goes back to comparing against the Base
+Preview, with a tolerance of zero. {{% /notice %}}
 
 By default, Tugboat compares a report you create with the CLI to the matching report in the Base Preview, as described
 in [Compare reports to the Base Preview](#compare-reports-to-the-base-preview). To create a report with the default

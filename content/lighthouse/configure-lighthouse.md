@@ -10,6 +10,7 @@ How to configure Lighthouse accessibility, SEO, and web-development best-practic
 - [Use a custom Lighthouse configuration](#use-a-custom-lighthouse-configuration)
 - [Specify Lighthouse settings per-URL](#specify-lighthouse-settings-per-url)
 - [Group Lighthouse reports via service alias](#group-lighthouse-reports-via-service-alias)
+- [Set Lighthouse thresholds](#set-lighthouse-thresholds)
 
 When Tugboat completes Google Lighthouse audits of your specified URLs, you'll be able to view the Lighthouse reports
 right in the Tugboat Dashboard. For more info about what you'll see, check out:
@@ -128,3 +129,9 @@ services:
 
 {{% notice tip %}} If you're not running an `apache` service on your Preview, but you _are_ running `php`, set up
 Lighthouse under the `php` service. {{% /notice %}}
+
+## Set Lighthouse thresholds
+
+To mark reports as passing or failing based on their scores, add a `threshold` key to a Service-level or URL-level
+`lighthouse` block. For the accepted values and examples, see
+[Use Lighthouse Thresholds -> Set thresholds in `config.yml`](../use-lighthouse-thresholds/#set-thresholds-in-configyml).

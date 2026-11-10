@@ -246,34 +246,7 @@
             "lighthouse": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#lighthouse",
               "description": "Lighthouse configurations that affect all of the URLs defined for this Service. Values configured here override the Tugboat default values, but can also be overridden per-URL.",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "enabled": {
-                  "description": "Whether to render Lighthouse Reports for the URLs defined for this Service",
-                  "type": "boolean",
-                  "default": true
-                },
-                "config": {
-                  "description": "A custom Lighthouse configuration object to use while rendering Lighthouse Reports",
-                  "$ref": "#/definitions/lighthouseConfig"
-                },
-                "screen": {
-                  "description": "Which screen sizes to generate Lighthouse Reports for",
-                  "type": "array",
-                  "uniqueItems": true,
-                  "minItems": 1,
-                  "items": {
-                    "type": "string",
-                    "enum": ["desktop", "mobile"]
-                  },
-                  "default": ["desktop"]
-                },
-                "threshold": {
-                  "$comment": "https://docs.tugboatqa.com/lighthouse/use-lighthouse-thresholds/",
-                  "$ref": "#/definitions/lighthouseThreshold"
-                }
-              }
+              "$ref": "#/definitions/lighthouseOptions"
             },
             "visualdiff": {
               "$comment": "https://docs.tugboatqa.com/reference/tugboat-configuration/#visualdiff",
@@ -317,7 +290,7 @@
                             "default": [":default"]
                           },
                           "lighthouse": {
-                            "$ref": "#/definitions/lighthouseConfig"
+                            "$ref": "#/definitions/lighthouseOptions"
                           },
                           "screenshot": {
                             "$ref": "#/definitions/screenshotConfig",
@@ -354,7 +327,7 @@
                                 "description": "The relative URL to process"
                               },
                               "lighthouse": {
-                                "$ref": "#/definitions/lighthouseConfig"
+                                "$ref": "#/definitions/lighthouseOptions"
                               },
                               "screenshot": {
                                 "$ref": "#/definitions/screenshotConfig",
@@ -565,6 +538,37 @@
       },
       "additionalProperties": false
     },
+    "lighthouseOptions": {
+      "description": "Tugboat's Lighthouse options for a Service or a URL",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "description": "Whether to render Lighthouse Reports for these URLs",
+          "type": "boolean",
+          "default": true
+        },
+        "config": {
+          "description": "A custom Lighthouse configuration object to use while rendering Lighthouse Reports",
+          "$ref": "#/definitions/lighthouseConfig"
+        },
+        "screen": {
+          "description": "Which screen sizes to generate Lighthouse Reports for",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": ["desktop", "mobile"]
+          },
+          "default": ["desktop"]
+        },
+        "threshold": {
+          "$comment": "https://docs.tugboatqa.com/lighthouse/use-lighthouse-thresholds/#set-thresholds-in-configyml",
+          "$ref": "#/definitions/lighthouseThreshold"
+        }
+      }
+    },
     "lighthouseThreshold": {
       "description": "The Lighthouse thresholds for the reports generated from these URLs. A single value applies to both desktop and mobile. Use the desktop and mobile keys to set each screen separately",
       "anyOf": [
@@ -573,7 +577,7 @@
         },
         {
           "type": "object",
-          "description": "Set thresholds for each screen. A screen that you leave out compares every category to the base report",
+          "description": "Set thresholds for each screen. On a Service, a screen that you leave out compares every category to the base report. On a URL, a screen that you leave out keeps the Service threshold",
           "properties": {
             "desktop": {
               "$ref": "#/definitions/lighthouseScreenThreshold"

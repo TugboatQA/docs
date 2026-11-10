@@ -366,11 +366,12 @@ with `/` before being forwarded to the Service. When `false`, URLs are passed th
 Lighthouse configurations that affect all of the URLs defined for this Service. Values configured here override the
 Tugboat default values, but can also be overridden per-URL.
 
-| Option    | Type    | Default   | Description                                                                                                              |
-| :-------- | :------ | :-------- | :----------------------------------------------------------------------------------------------------------------------- |
-| `enabled` | Boolean | `true`    | Whether to render Lighthouse Reports for the URLs defined for this Service                                               |
-| `config`  | Object  |           | A custom Lighthouse configuration object to use while rendering Lighthouse Reports for the URLs defined for this Service |
-| `screen`  | List    | `desktop` | Which screens should be used when rendering Lighthouse Reports. Valid options are `desktop` and/or `mobile`              |
+| Option      | Type                            | Default   | Description                                                                                                                                                             |
+| :---------- | :------------------------------ | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enabled`   | Boolean                         | `true`    | Whether to render Lighthouse Reports for the URLs defined for this Service                                                                                              |
+| `config`    | Object                          |           | A custom Lighthouse configuration object to use while rendering Lighthouse Reports for the URLs defined for this Service                                                |
+| `screen`    | List                            | `desktop` | Which screens should be used when rendering Lighthouse Reports. Valid options are `desktop` and/or `mobile`                                                             |
+| `threshold` | Number, String, List, or Object | `base`    | The minimum scores that Lighthouse Reports must reach to pass. See [Set thresholds in `config.yml`](/lighthouse/use-lighthouse-thresholds/#set-thresholds-in-configyml) |
 
 Tugboat uses the default Lighthouse configuration, but disables a few of the server performance metrics. These metrics
 tend to be inaccurate due to the shared nature of the Tugboat infrastructure, and can negatively impact the overall
@@ -535,6 +536,11 @@ The special `:default` alias tells Tugboat to use the automatically generated Se
 
 [lighthouse](#lighthouse), [screenshot](#screenshot), and [visualdiff](#visualdiff) configuration options are the same
 as the Service-level options
+
+A URL-level Lighthouse `threshold` overrides the Service-level `threshold` only for the screens that it sets. See
+[Override Service thresholds for a URL](/lighthouse/use-lighthouse-thresholds/#override-service-thresholds-for-a-url). A
+URL-level Lighthouse `screen` list that is empty or left out uses the Service-level `screen` list, or `desktop` when the
+Service doesn't set one.
 
 Advanced URLs can be mixed with Simple URLs.
 
