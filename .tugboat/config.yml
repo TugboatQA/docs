@@ -31,6 +31,9 @@ services:
           # infrastructure, so leave it out of the performance score
           skipAudits:
             - total-blocking-time
+            # Previews block search engine indexing, so this audit always
+            # fails on a Preview
+            - is-crawlable
       threshold:
         # Compare performance to the Base Preview, with a tolerance of 3 points
         - category: performance
