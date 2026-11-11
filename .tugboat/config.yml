@@ -24,6 +24,13 @@ services:
         - node ${TUGBOAT_ROOT}/.tugboat/compile-vars.js
 
     lighthouse:
+      config:
+        extends: lighthouse:default
+        settings:
+          # Total Blocking Time varies the most between runs on shared
+          # infrastructure, so leave it out of the performance score
+          skipAudits:
+            - total-blocking-time
       threshold:
         # Compare performance to the Base Preview, with a tolerance of 3 points
         - category: performance
