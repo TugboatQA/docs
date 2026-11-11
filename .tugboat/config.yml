@@ -23,6 +23,15 @@ services:
         - npm ci
         - node ${TUGBOAT_ROOT}/.tugboat/compile-vars.js
 
+    lighthouse:
+      threshold:
+        # Compare performance to the Base Preview, with a tolerance of 3 points
+        - category: performance
+          tolerance: 3
+        - accessibility
+        - best-practices
+        - seo
+
     urls:
       - /
       - /setting-up-services/
