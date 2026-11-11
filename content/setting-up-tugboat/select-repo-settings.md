@@ -60,7 +60,8 @@ To unpack this a little:
 - And the Base Preview is
   [refreshed](/building-a-preview/work-with-base-previews/change-or-update/#update-a-base-preview)  
   (You may manually Refresh a Base Preview, or have Tugboat
-  [refresh Base Previews automatically](#refresh-base-previews-automatically), for example, every day at 12am UTC.)
+  [refresh Base Previews automatically](#refresh-base-previews-automatically), for example, every day between 4am and
+  10am UTC.)
 - The Base Preview kicks off the
   [build process](/building-a-preview/preview-deep-dive/how-previews-work/#the-build-process-explained) from the
   `update` phase, and runs commands in both `update` and `build`
@@ -69,10 +70,17 @@ To unpack this a little:
 
 ### Refresh Base Previews Automatically
 
-By default, Tugboat refreshes your Base Previews every day at 12am UTC. You can de-select this checkbox to turn off
-automatic refresh, or you can specify your preferred interval and time for the refresh to occur. Automatically
-refreshing Base Previews is a great way to ensure your large assets, such as databases, stay up-to-date, saving you time
-when you build a new Preview from a recently-refreshed Base Preview.
+By default, Tugboat refreshes the Base Previews in a new repository every day during a randomly assigned hour between
+4am and 10am UTC. Repositories keep the hour they already have. You can de-select this checkbox to turn off automatic
+refresh, or you can specify your preferred interval and hour for the refresh to occur.
+
+The hour options appear as ranges, for example {{% ui-text %}}12am–1am UTC{{% /ui-text %}}. Tugboat starts each refresh
+at a random time within the hour you select, so a refresh doesn't always start at the top of the hour. A refresh can
+start later in the hour if Tugboat is still running other refreshes. When you select {{% ui-text %}}Every
+Hour{{% /ui-text %}}, Tugboat starts the refreshes at the top of each hour.
+
+Automatically refreshing Base Previews is a great way to ensure your large assets, such as databases, stay up-to-date,
+saving you time when you build a new Preview from a recently-refreshed Base Preview.
 
 ### Specify Build Timeout
 

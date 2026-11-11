@@ -10,10 +10,14 @@ How to configure Lighthouse accessibility, SEO, and web-development best-practic
 - [Use a custom Lighthouse configuration](#use-a-custom-lighthouse-configuration)
 - [Specify Lighthouse settings per-URL](#specify-lighthouse-settings-per-url)
 - [Group Lighthouse reports via service alias](#group-lighthouse-reports-via-service-alias)
+- [Set Lighthouse thresholds](#set-lighthouse-thresholds)
 
 When Tugboat completes Google Lighthouse audits of your specified URLs, you'll be able to view the Lighthouse reports
 right in the Tugboat Dashboard. For more info about what you'll see, check out:
 [View Lighthouse Reports](../view-lighthouse-reports/).
+
+If you want Tugboat to mark reports as passing or failing based on their scores, see:
+[Use Lighthouse Thresholds](../use-lighthouse-thresholds/).
 
 {{% notice tier %}} This feature is available for [Tugboat Premium plans](https://www.tugboatqa.com/premium). If you'd
 like to run Lighthouse audits against your Tugboat Previews, but you're on a different tier, you'll need to upgrade your
@@ -45,7 +49,7 @@ custom Lighthouse configuration, to tweak audit scoring or add custom checks, yo
 configuration object to use when generating reports.
 
 Check out
-[the `GoogleChrome/Lighthouse` blob on GitHub](https://github.com/GoogleChrome/lighthouse/blob/v9.6.8/docs/configuration.md)
+[the `GoogleChrome/Lighthouse` blob on GitHub](https://github.com/GoogleChrome/lighthouse/blob/v12.8.2/docs/configuration.md)
 for more information about creating a custom Lighthouse config.
 
 ```yaml
@@ -57,9 +61,9 @@ services:
         extends: lighthouse:default
         settings:
           onlyAudits:
-            - first-meaningful-paint
+            - first-contentful-paint
             - speed-index
-            - interactive
+            - largest-contentful-paint
     urls:
       # Conduct Lighthouse audits of the these URLs using the custom config
       - /
@@ -69,7 +73,27 @@ services:
 
 {{% notice tip %}} In addition to formatting the Lighthouse custom config object as YAML in the example above, you can
 also copy/paste JSON directly from the Google Lighthouse blob into your Tugboat config, since YAML is a superset of
-JSON. Example follows.{{% /notice %}}
+JSON. The following example uses the same custom config as the example above, written as JSON.{{% /notice %}}
+
+<!-- prettier-ignore-start -->
+```yaml
+services:
+  apache:
+    # Paste a JSON Lighthouse config object as the value of the config key
+    lighthouse:
+      config:
+        {
+          "extends": "lighthouse:default",
+          "settings": {
+            "onlyAudits": ["first-contentful-paint", "speed-index", "largest-contentful-paint"]
+          }
+        }
+    urls:
+      - /
+      - /blog
+      - /about
+```
+<!-- prettier-ignore-end -->
 
 ## Specify Lighthouse settings per-URL
 
@@ -90,9 +114,9 @@ services:
             extends: lighthouse:default
             settings:
               onlyAudits:
-                - first-meaningful-paint
+                - first-contentful-paint
                 - speed-index
-                - interactive
+                - largest-contentful-paint
 
       # Turn off Lighthouse audits for /about, but leave the URL in the list for other Service URL activities, such as generating visual diffs
       - url: /about
@@ -125,3 +149,9 @@ services:
 
 {{% notice tip %}} If you're not running an `apache` service on your Preview, but you _are_ running `php`, set up
 Lighthouse under the `php` service. {{% /notice %}}
+
+## Set Lighthouse thresholds
+
+To mark reports as passing or failing based on their scores, add a `threshold` key to a Service-level or URL-level
+`lighthouse` block. For the accepted values and examples, see
+[Use Lighthouse Thresholds -> Set thresholds in `config.yml`](../use-lighthouse-thresholds/#set-thresholds-in-configyml).

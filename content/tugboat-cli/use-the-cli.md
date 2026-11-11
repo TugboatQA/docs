@@ -19,6 +19,7 @@ A few common commands include:
 - [View the Services in a Preview](#view-the-services-of-a-preview)
 - [View Preview logs](#view-preview-logs)
 - [View Service logs](#view-services-logs)
+- [View a Lighthouse report](#view-a-lighthouse-report)
 
 #### Administer Previews
 
@@ -67,6 +68,20 @@ To view the logs for a Service with an ID of `5d092b16bd44cb22a498be90` that's r
 ```sh
 tugboat log 5d092b16bd44cb22a498be90
 ```
+
+### View a Lighthouse report
+
+To view a Lighthouse report with an ID of `5d092b16bd44cb22a498be91`, including its scores. If the report has a base
+report, the output also includes its thresholds, tolerances, and approval status:
+
+```sh
+tugboat ls 5d092b16bd44cb22a498be91 --verbose
+```
+
+To see the thresholds of a report without a base report, use `--json` instead of `--verbose`.
+
+To create, update, and approve Lighthouse reports with thresholds, see:
+[Use Lighthouse Thresholds](/lighthouse/use-lighthouse-thresholds/#set-thresholds-with-the-cli).
 
 ## Administer Previews
 
