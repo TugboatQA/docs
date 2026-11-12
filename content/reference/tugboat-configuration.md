@@ -96,7 +96,7 @@ or
 In order for these domains to resolve, a DNS entry must be added to the alias domains as a `CNAME` to
 `previews.tugboatqa.com`. A wildcard entry is required if `subpath` is set to `false`. To serve these domains over HTTPS
 without certificate warnings, see
-[Use a Custom Domain with HTTPS](/building-a-preview/share-a-preview/custom-domain-https/).
+[Use a Custom Domain with HTTPS](/setting-up-services/how-to-set-up-services/custom-domain-https/).
 
 ---
 
@@ -282,7 +282,7 @@ A custom domain to use when generating URLs for the Service. If `example.com` is
 will resemble `https://pr123-token.example.com` or `https://preview.example.com/pr123-token/`, depending on the other
 configuration values. Tugboat's SSL/TLS certificate doesn't cover custom domains, so browsers show certificate warnings
 when a custom domain is combined with `https: true`. To serve a custom domain over HTTPS with a valid certificate, see
-[Use a Custom Domain with HTTPS](/building-a-preview/share-a-preview/custom-domain-https/).
+[Use a Custom Domain with HTTPS](/setting-up-services/how-to-set-up-services/custom-domain-https/).
 
 ---
 
