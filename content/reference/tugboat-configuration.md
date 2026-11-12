@@ -76,8 +76,8 @@ If `aliases` is set to `['foo', 'bar']`, alias URLs look like the following
 
 or
 
-- https://previews.tugboatqa.com/foo-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
-- https://previews.tugboatqa.com/bar-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+- https://preview.tugboatqa.com/foo-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+- https://preview.tugboatqa.com/bar-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
 
 **`domain`**
 
@@ -94,7 +94,9 @@ or
 - https://bar.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
 
 In order for these domains to resolve, a DNS entry must be added to the alias domains as a `CNAME` to
-`previews.tugboatqa.com`. A wildcard entry is required if `subpath` is set to `false`.
+`previews.tugboatqa.com`. A wildcard entry is required if `subpath` is set to `false`. To serve these domains over HTTPS
+without certificate warnings, see
+[Use a Custom Domain with HTTPS](/building-a-preview/share-a-preview/custom-domain-https/).
 
 ---
 
@@ -277,9 +279,10 @@ guaranteed order in which Services will execute their commands relative to other
 - **Required:** No
 
 A custom domain to use when generating URLs for the Service. If `example.com` is used, for example, URLs for the service
-will resemble `http://pr123-token.example.com` or `http://preview.example.com/pr123-token/`, depending on the other
-configuration values. Note that using a custom domain will result in browsers issuing SSL/TLS certificate warnings when
-combined with `https: true`.
+will resemble `https://pr123-token.example.com` or `https://preview.example.com/pr123-token/`, depending on the other
+configuration values. Tugboat's SSL/TLS certificate doesn't cover custom domains, so browsers show certificate warnings
+when a custom domain is combined with `https: true`. To serve a custom domain over HTTPS with a valid certificate, see
+[Use a Custom Domain with HTTPS](/building-a-preview/share-a-preview/custom-domain-https/).
 
 ---
 
