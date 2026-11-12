@@ -1,8 +1,8 @@
----
-title: "Use a Custom Domain with HTTPS"
-date: 2026-11-12T10:00:00-05:00
-weight: 4
----
++++
+title = "Use a Custom Domain with HTTPS"
+date = 2026-11-12T10:00:00-05:00
+weight = 12
++++
 
 By default, Tugboat generates Preview URLs on `tugboatqa.com`, and serves them over HTTPS with a valid certificate. If
 you set a custom [`domain`](/reference/tugboat-configuration/#domain) for a Service, or use
