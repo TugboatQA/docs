@@ -23,6 +23,25 @@ services:
         - npm ci
         - node ${TUGBOAT_ROOT}/.tugboat/compile-vars.js
 
+    lighthouse:
+      config:
+        extends: lighthouse:default
+        settings:
+          # Total Blocking Time varies the most between runs on shared
+          # infrastructure, so leave it out of the performance score
+          skipAudits:
+            - total-blocking-time
+            # Previews block search engine indexing, so this audit always
+            # fails on a Preview
+            - is-crawlable
+      threshold:
+        # Compare performance to the Base Preview, with a tolerance of 3 points
+        - category: performance
+          tolerance: 3
+        - accessibility
+        - best-practices
+        - seo
+
     urls:
       - /
       - /setting-up-services/
