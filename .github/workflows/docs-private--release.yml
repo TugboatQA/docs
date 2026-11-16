@@ -32,6 +32,7 @@ jobs:
   release:
     if: github.repository == 'TugboatQA/docs-private' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: read
 
@@ -52,6 +53,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        if: ${{ !inputs.dry_run }}
         id: app-token
         with:
           client-id: ${{ secrets.DOCS_PRIVATE_APP_CLIENT_ID }}
@@ -61,7 +63,7 @@ jobs:
           permission-contents: write
           permission-pull-requests: write
           permission-workflows: write
-      - name: Push the version branch and open the pull request
+      - name: Check the version branch, push it, and open the pull request
         working-directory: docs-private
         env:
           GH_TOKEN: ${{ github.token }}
