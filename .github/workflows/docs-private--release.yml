@@ -2,13 +2,12 @@ name: Release to docs
 
 # Runs in TugboatQA/docs-private only. It lives in this repo so the "Mirror to docs-private" workflow copies it there.
 # Run it by hand from main to release a version branch, which holds the documentation for one TugboatQA/tugboat
-# release, for example v2.26.47. With "commit" empty, it is a dry run that lists the commits and files the release
-# would publish. With "commit" set to the commit the dry run reports, it pushes that commit to a branch with the same
-# name on TugboatQA/docs and opens a pull request from it into main. The commits are public as soon as the branch is
-# pushed.
+# release, for example v2.26.47. It pushes the version branch to a branch with the same name on TugboatQA/docs and
+# opens a pull request from it into main. The commits are public as soon as the branch is pushed. With "dry_run"
+# checked, it lists the commits the release would publish and pushes nothing.
 #
 # Pushes with a token for the GitHub App in the DOCS_PRIVATE_APP_CLIENT_ID and DOCS_PRIVATE_APP_PRIVATE_KEY secrets.
-# The helper scripts come from TugboatQA/docs main, not from the version branch, so code on a version branch that has
+# The helper script comes from TugboatQA/docs main, not from the version branch, so code on a version branch that has
 # not been reviewed in TugboatQA/docs does not run with that token.
 
 on:
@@ -18,11 +17,10 @@ on:
         description: Version branch to release, for example v2.26.47.
         type: string
         required: true
-      commit:
-        description: >-
-          Secure Hash Algorithm (SHA) hash of the commit to release, from the dry run. Leave empty for a dry run.
-        type: string
-        required: false
+      dry_run:
+        description: List the commits the release would publish, and push nothing.
+        type: boolean
+        default: false
 
 permissions: {}
 
@@ -38,7 +36,7 @@ jobs:
       contents: read
 
     steps:
-      - name: Check out the helper scripts from TugboatQA/docs main
+      - name: Check out the helper script from TugboatQA/docs main
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: TugboatQA/docs
@@ -53,16 +51,7 @@ jobs:
           path: docs-private
           fetch-depth: 0
           persist-credentials: false
-      - name: Compare the version branch with TugboatQA/docs main
-        id: compare
-        working-directory: docs-private
-        env:
-          VERSION: ${{ inputs.version }}
-          COMMIT: ${{ inputs.commit }}
-          GH_TOKEN: ${{ github.token }}
-        run: ../docs/.github/helpers/docs-private-release-check.sh
       - uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
-        if: steps.compare.outputs.release == 'true'
         id: app-token
         with:
           client-id: ${{ secrets.DOCS_PRIVATE_APP_CLIENT_ID }}
@@ -73,11 +62,10 @@ jobs:
           permission-pull-requests: write
           permission-workflows: write
       - name: Push the version branch and open the pull request
-        if: steps.compare.outputs.release == 'true'
         working-directory: docs-private
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ github.token }}
+          DOCS_TOKEN: ${{ steps.app-token.outputs.token }}
           VERSION: ${{ inputs.version }}
-          BASE: ${{ steps.compare.outputs.base }}
-          HEAD: ${{ steps.compare.outputs.head }}
-        run: ../docs/.github/helpers/docs-private-release-open-pr.sh
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: ../docs/.github/helpers/docs-private-release.sh
