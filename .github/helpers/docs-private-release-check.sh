@@ -35,7 +35,13 @@ if ! git merge-base --is-ancestor "${base}" "${head}"; then
   echo "::error::${VERSION} does not contain TugboatQA/docs main. Wait for the Sync version branches workflow, or run it by hand."
   exit 1
 fi
-if [ "$(git rev-list --count --no-merges "${base}..${head}")" -eq 0 ]; then
+# Merge commits from the Sync version branches workflow are left out of the
+# commit list. GitHub writes their messages, and they change no files beyond
+# what TugboatQA/docs main already has. A merge made by hand to resolve a
+# conflict is listed, unless it has the same subject.
+commits="$(git log --reverse --format='%h %s' "${base}..${head}" |
+  grep -vE '^[0-9a-f]+ Merge TugboatQA/docs main into v[0-9]+\.[0-9]+\.[0-9]+$' || [ "$?" -eq 1 ])"
+if [ -z "${commits}" ]; then
   echo "::error::${VERSION} has no commits that TugboatQA/docs main does not already contain."
   exit 1
 fi
@@ -56,7 +62,7 @@ while IFS= read -r branch; do
   fi
 done < <(git for-each-ref --format='%(refname:lstrip=3)' 'refs/remotes/origin/v*')
 if [ -n "${older}" ]; then
-  echo "::error::These older version branches have commits that TugboatQA/docs main lacks. Release them first:${older}"
+  echo "::error::These older version branches have commits that TugboatQA/docs main lacks. Release them first, or delete them if they are abandoned:${older}"
   exit 1
 fi
 
@@ -69,9 +75,7 @@ if [ -n "${unverified}" ]; then
   exit 1
 fi
 
-# Merge commits from the Sync version branches workflow are left out. GitHub
-# writes their messages, and they contain no references or mentions.
-references="$(git log --reverse --no-merges -E --format='%h %s' \
+references="$(git log --reverse -E --format='%h %s' \
   --grep='(^|[[:space:](])(#[0-9]+|@[[:alnum:]-]+)' "${base}..${head}")"
 
 {
@@ -82,7 +86,7 @@ references="$(git log --reverse --no-merges -E --format='%h %s' \
   echo "### Commits"
   echo
   # shellcheck disable=SC2016 # The backticks are Markdown, not command substitution.
-  git log --reverse --no-merges --format='- `%h` %s' "${base}..${head}"
+  sed -E 's/^([0-9a-f]+) /- `\1` /' <<<"${commits}"
   echo
   echo "### Files"
   echo
@@ -112,16 +116,17 @@ if [ -z "${requested}" ]; then
   echo "release=false" >>"${GITHUB_OUTPUT}"
   exit 0
 fi
-# Only a hash counts as the reviewed commit. A branch name such as the version
-# would match whatever the version branch is at.
-# The error prints requested, not COMMIT. requested has no line breaks, so it
+# Only a hash counts as the reviewed commit. It is compared with the start of
+# the hash the version branch is at and never resolved as a ref, so a branch
+# or tag name cannot match.
+# The errors print requested, not COMMIT. requested has no line breaks, so it
 # cannot start a workflow command.
-if ! [[ "${requested}" =~ ^[0-9a-f]{7,40}$ ]] || ! resolved="$(git rev-parse --verify --quiet "${requested}^{commit}")"; then
-  echo "::error::${requested} is not a commit on ${VERSION}. Copy the commit from the dry run's job summary."
+if ! [[ "${requested}" =~ ^[0-9a-f]{7,40}$ ]]; then
+  echo "::error::${requested} is not a commit hash. Copy the commit from the dry run's job summary."
   exit 1
 fi
-if [ "${resolved}" != "${head}" ]; then
-  echo "::error::${VERSION} is at ${head}, not ${resolved}. Run a new dry run and review it."
+if [[ "${head}" != "${requested}"* ]]; then
+  echo "::error::${VERSION} is at ${head}, not ${requested}. Run a new dry run and review it."
   exit 1
 fi
 

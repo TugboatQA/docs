@@ -15,7 +15,9 @@
 # someone merges main into that branch by hand.
 #
 # It merges the commit that TugboatQA/docs main is at, so a commit pushed only
-# to docs-private main never reaches a version branch.
+# to docs-private main never reaches a version branch. If the mirror has not
+# copied that commit to this repository yet, this warns and exits zero. The
+# mirror's push of that commit starts another run.
 #
 # Required environment variables:
 #   GH_TOKEN  Token with contents: write and workflows: write on the repository
@@ -26,10 +28,17 @@ main="$(gh api repos/TugboatQA/docs/commits/main --jq .sha)"
 refs="$(gh api --paginate "repos/${GITHUB_REPOSITORY}/git/matching-refs/heads/v" \
   --jq '.[].ref | sub("^refs/heads/"; "")')"
 # grep exits 1 when no branch matches, which is not a failure.
-branches="$(grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' <<<"${refs}" | sort -V || true)"
+branches="$(grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' <<<"${refs}" || [ "$?" -eq 1 ])"
+branches="$(sort -V <<<"${branches}")"
 
 if [ -z "${branches}" ]; then
   echo "There are no version branches. Nothing to do." >>"${GITHUB_STEP_SUMMARY}"
+  exit 0
+fi
+
+if ! gh api "repos/${GITHUB_REPOSITORY}/commits/${main}" --silent 2>/dev/null; then
+  echo "TugboatQA/docs \`main\` is at \`${main}\`, which the mirror has not copied to this repository yet. Nothing done." >>"${GITHUB_STEP_SUMMARY}"
+  echo "::warning::TugboatQA/docs main (${main}) is not in this repository yet. The mirror's push starts another run."
   exit 0
 fi
 
@@ -68,10 +77,15 @@ while IFS= read -r branch; do
         continue
       fi
       # The merges API does not name the conflicting files. git merge-tree
-      # merges without changing the checkout and exits 1 on a conflict. Its
-      # first line of output is a tree, and the rest are the files.
-      files="$(git merge-tree --write-tree --name-only --no-messages "origin/${branch}" "${main}" 2>/dev/null |
-        tail -n +2 || true)"
+      # merges without changing the checkout. On a conflict, its first line of
+      # output is a tree and the rest are the files. If the first line is not
+      # a tree, the checkout, which was made before this script started, lacks
+      # one of the two commits.
+      files=""
+      merge_output="$(git merge-tree --write-tree --name-only --no-messages "origin/${branch}" "${main}" 2>&1 || true)"
+      if [[ "$(head -n 1 <<<"${merge_output}")" =~ ^[0-9a-f]{40,64}$ ]]; then
+        files="$(tail -n +2 <<<"${merge_output}")"
+      fi
       {
         echo "- Merging \`main\` (\`${main}\`) into \`${branch}\` conflicts. Merge \`main\` into \`${branch}\` by hand, as"
         echo "  described in [the docs-private wiki](https://github.com/TugboatQA/docs-private/wiki)."
@@ -83,6 +97,9 @@ while IFS= read -r branch; do
           # shellcheck disable=SC2001 # The pattern is a line start, which ${var//} cannot match.
           sed 's/^/  /' <<<"${files}"
           echo '  ```'
+        else
+          echo
+          echo "  The conflicting files could not be listed from this run's checkout."
         fi
       } >>"${GITHUB_STEP_SUMMARY}"
       echo "::error::Merging main into ${branch} conflicts. Merge main into ${branch} by hand."

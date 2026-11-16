@@ -1,10 +1,11 @@
 name: Release to docs
 
 # Runs in TugboatQA/docs-private only. It lives in this repo so the "Mirror to docs-private" workflow copies it there.
-# Run it by hand to release a version branch, which holds the documentation for one TugboatQA/tugboat release, for
-# example v2.26.47. With "commit" empty, it is a dry run that lists the commits and files the release would publish.
-# With "commit" set to the commit the dry run reports, it pushes that commit to a branch with the same name on
-# TugboatQA/docs and opens a pull request from it into main. The commits are public as soon as the branch is pushed.
+# Run it by hand from main to release a version branch, which holds the documentation for one TugboatQA/tugboat
+# release, for example v2.26.47. With "commit" empty, it is a dry run that lists the commits and files the release
+# would publish. With "commit" set to the commit the dry run reports, it pushes that commit to a branch with the same
+# name on TugboatQA/docs and opens a pull request from it into main. The commits are public as soon as the branch is
+# pushed.
 #
 # Pushes with a token for the GitHub App in the DOCS_PRIVATE_APP_CLIENT_ID and DOCS_PRIVATE_APP_PRIVATE_KEY secrets.
 # The helper scripts come from TugboatQA/docs main, not from the version branch, so code on a version branch that has
@@ -31,20 +32,12 @@ concurrency:
 
 jobs:
   release:
-    if: github.repository == 'TugboatQA/docs-private'
+    if: github.repository == 'TugboatQA/docs-private' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
 
     steps:
-      - name: Check that the version is a version branch name
-        env:
-          VERSION: ${{ inputs.version }}
-        run: |
-          if ! [[ "${VERSION}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "::error::The version is not a version branch name such as v2.26.47."
-            exit 1
-          fi
       - name: Check out the helper scripts from TugboatQA/docs main
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:

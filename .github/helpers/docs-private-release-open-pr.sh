@@ -17,8 +17,10 @@ set -euo pipefail
 git push "https://x-access-token:${GH_TOKEN}@github.com/TugboatQA/docs.git" "${HEAD}:refs/heads/${VERSION}"
 
 # A rerun after the pull request was opened pushes nothing new. Report the
-# existing pull request instead of failing on a duplicate.
-existing="$(gh pr list --repo TugboatQA/docs --head "${VERSION}" --state open --json url --jq '.[0].url // empty')"
+# existing pull request instead of failing on a duplicate. --head matches by
+# branch name only, so pull requests from forks are left out.
+existing="$(gh pr list --repo TugboatQA/docs --head "${VERSION}" --state open --json url,isCrossRepository \
+  --jq '[.[] | select(.isCrossRepository | not)][0].url // empty')"
 if [ -n "${existing}" ]; then
   echo "A pull request for \`${VERSION}\` is already open: ${existing}" >>"${GITHUB_STEP_SUMMARY}"
   exit 0
@@ -34,7 +36,10 @@ fi
   echo "## Commits"
   echo
   echo '```'
-  git log --reverse --no-merges --format='%h %s' "${BASE}..${HEAD}"
+  # Leave out the merge commits from the Sync version branches workflow, as
+  # docs-private-release-check.sh does.
+  git log --reverse --format='%h %s' "${BASE}..${HEAD}" |
+    grep -vE '^[0-9a-f]+ Merge TugboatQA/docs main into v[0-9]+\.[0-9]+\.[0-9]+$' || [ "$?" -eq 1 ]
   echo '```'
 } >"${RUNNER_TEMP}/body.md"
 

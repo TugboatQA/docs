@@ -26,7 +26,7 @@ concurrency:
 
 jobs:
   sync:
-    if: github.repository == 'TugboatQA/docs-private'
+    if: github.repository == 'TugboatQA/docs-private' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
