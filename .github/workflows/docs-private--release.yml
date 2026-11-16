@@ -3,8 +3,9 @@ name: Release to docs
 # Runs in TugboatQA/docs-private only. It lives in this repo so the "Mirror to docs-private" workflow copies it there.
 # Run it by hand from main to release a version branch, which holds the documentation for one TugboatQA/tugboat
 # release, for example v2.26.47. It pushes the version branch to a branch with the same name on TugboatQA/docs and
-# opens a pull request from it into main. The commits are public as soon as the branch is pushed. With "dry_run"
-# checked, it lists the commits the release would publish and pushes nothing.
+# opens a pull request from it into main, then deletes the version branch from TugboatQA/docs-private. The commits are
+# public as soon as the branch is pushed, and from then on changes for that version are made on the pull request. With
+# "dry_run" checked, it lists the commits the release would publish, pushes nothing, and deletes nothing.
 #
 # Pushes with a token for the GitHub App in the DOCS_PRIVATE_APP_CLIENT_ID and DOCS_PRIVATE_APP_PRIVATE_KEY secrets.
 # The helper script comes from TugboatQA/docs main, not from the version branch, so code on a version branch that has
@@ -34,7 +35,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
-      contents: read
+      contents: write # Delete the version branch after the release
+      pull-requests: read # List open pull requests into the version branch
 
     steps:
       - name: Check out the helper script from TugboatQA/docs main
@@ -63,7 +65,7 @@ jobs:
           permission-contents: write
           permission-pull-requests: write
           permission-workflows: write
-      - name: Check the version branch, push it, and open the pull request
+      - name: Check the version branch, push it, open the pull request, and delete the branch
         working-directory: docs-private
         env:
           GH_TOKEN: ${{ github.token }}
