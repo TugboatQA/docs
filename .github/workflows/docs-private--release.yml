@@ -1,22 +1,25 @@
 name: Release to docs
 
 # Runs in TugboatQA/docs-private only. It lives in this repo so the "Mirror to docs-private" workflow copies it there.
-# Run it by hand to release everything on the "private" branch. With "commit" empty, it is a dry run that lists the
-# commits and files the release would publish. With "commit" set to the commit the dry run reports, it pushes that
-# commit to a release/YYYY-MM-DD-<commit> branch on TugboatQA/docs and opens a pull request from it into main. The
-# commits are public as soon as the branch is pushed.
+# Run it by hand to release a version branch, which holds the documentation for one TugboatQA/tugboat release, for
+# example v2.26.47. With "commit" empty, it is a dry run that lists the commits and files the release would publish.
+# With "commit" set to the commit the dry run reports, it pushes that commit to a branch with the same name on
+# TugboatQA/docs and opens a pull request from it into main. The commits are public as soon as the branch is pushed.
 #
 # Pushes with a token for the GitHub App in the DOCS_PRIVATE_APP_CLIENT_ID and DOCS_PRIVATE_APP_PRIVATE_KEY secrets.
-# The helper scripts come from TugboatQA/docs main, not from private, so code on private that has not been reviewed in
-# TugboatQA/docs does not run with that token.
+# The helper scripts come from TugboatQA/docs main, not from the version branch, so code on a version branch that has
+# not been reviewed in TugboatQA/docs does not run with that token.
 
 on:
   workflow_dispatch:
     inputs:
+      version:
+        description: Version branch to release, for example v2.26.47.
+        type: string
+        required: true
       commit:
         description: >-
-          Secure Hash Algorithm (SHA) hash of the private commit to release, from the dry run. Leave empty for a dry
-          run.
+          Secure Hash Algorithm (SHA) hash of the commit to release, from the dry run. Leave empty for a dry run.
         type: string
         required: false
 
@@ -34,6 +37,14 @@ jobs:
       contents: read
 
     steps:
+      - name: Check that the version is a version branch name
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if ! [[ "${VERSION}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::The version is not a version branch name such as v2.26.47."
+            exit 1
+          fi
       - name: Check out the helper scripts from TugboatQA/docs main
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -42,17 +53,18 @@ jobs:
           path: docs
           sparse-checkout: .github/helpers
           persist-credentials: false
-      - name: Check out private
+      - name: Check out the version branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: private
-          path: private
+          ref: ${{ inputs.version }}
+          path: docs-private
           fetch-depth: 0
           persist-credentials: false
-      - name: Compare private with TugboatQA/docs main
+      - name: Compare the version branch with TugboatQA/docs main
         id: compare
-        working-directory: private
+        working-directory: docs-private
         env:
+          VERSION: ${{ inputs.version }}
           COMMIT: ${{ inputs.commit }}
           GH_TOKEN: ${{ github.token }}
         run: ../docs/.github/helpers/docs-private-release-check.sh
@@ -67,11 +79,12 @@ jobs:
           permission-contents: write
           permission-pull-requests: write
           permission-workflows: write
-      - name: Push the release branch and open the pull request
+      - name: Push the version branch and open the pull request
         if: steps.compare.outputs.release == 'true'
-        working-directory: private
+        working-directory: docs-private
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          VERSION: ${{ inputs.version }}
           BASE: ${{ steps.compare.outputs.base }}
           HEAD: ${{ steps.compare.outputs.head }}
         run: ../docs/.github/helpers/docs-private-release-open-pr.sh

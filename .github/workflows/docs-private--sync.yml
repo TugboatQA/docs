@@ -1,16 +1,17 @@
-name: Sync private
+name: Sync version branches
 
 # Runs in TugboatQA/docs-private only. It lives in this repo so the "Mirror to docs-private" workflow copies it there.
-# On every push to main, which the mirror makes, brings TugboatQA/docs main into the "private" branch. If private has
-# no commits that main lacks, which is the case after a release merges, it fast-forwards private to main. Otherwise it
-# merges main into private with the GitHub merges API, which signs the merge commit. If the merge conflicts, the run
-# fails and someone merges main into private by hand.
+# On every push to main, which the mirror makes, brings TugboatQA/docs main into every version branch. A version
+# branch holds the documentation for one TugboatQA/tugboat release and is named after it, for example v2.26.47. If a
+# version branch has no commits that main lacks, the workflow fast-forwards it to main. Otherwise it merges main into
+# the branch with the GitHub merges API, which signs the merge commit. If a merge conflicts, the job summary lists the
+# conflicting files, the run fails after the other branches are done, and someone merges main into that branch by hand.
 #
 # Uses a token for the GitHub App in the DOCS_PRIVATE_APP_CLIENT_ID and DOCS_PRIVATE_APP_PRIVATE_KEY secrets.
 # GITHUB_TOKEN cannot update a branch with commits that change workflow files, which bringing in main can do.
 #
-# The helper script comes from TugboatQA/docs main, not from private. Code on private has not been reviewed in
-# TugboatQA/docs, and it does not run with these secrets. It also means the script exists before private contains it.
+# The helper script comes from TugboatQA/docs main, not from a version branch. Code on a version branch has not been
+# reviewed in TugboatQA/docs, and it does not run with these secrets.
 
 on:
   push:
@@ -20,7 +21,7 @@ on:
 permissions: {}
 
 concurrency:
-  group: sync-private
+  group: sync-version-branches
   cancel-in-progress: false
 
 jobs:
@@ -46,7 +47,15 @@ jobs:
           path: docs
           sparse-checkout: .github/helpers
           persist-credentials: false
-      - name: Bring main into private
+      # The helper script reads the branches from this checkout to list the files in a merge conflict.
+      - name: Check out every branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: docs-private
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Bring main into every version branch
+        working-directory: docs-private
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: docs/.github/helpers/docs-private-sync.sh
+        run: ../docs/.github/helpers/docs-private-sync.sh
