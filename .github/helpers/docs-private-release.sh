@@ -2,17 +2,21 @@
 #
 # Push the version branch VERSION, checked out in the current directory with
 # every branch fetched, to a branch with the same name on TugboatQA/docs and
-# open a pull request from it into main. Run by docs-private--release.yml in
+# open a pull request from it into main, then delete the version branch from
+# TugboatQA/docs-private. Run by docs-private--release.yml in
 # TugboatQA/docs-private. The commits are public as soon as the push completes.
+# From then on, changes for that version are made on the pull request.
 #
 # Before pushing, this exits non-zero if the version branch has no commits
-# that TugboatQA/docs main lacks, has a commit without a verified signature, or
-# contains the unreleased commits of an older version branch. It warns about
+# that TugboatQA/docs main lacks, has a commit without a verified signature,
+# contains the unreleased commits of an older version branch, or is the base of
+# an open pull request, which deleting the branch would close. It warns about
 # commit messages with references such as #123 or @name mentions, which link to
 # the wrong items or notify people once they are in TugboatQA/docs.
 #
 # Required environment variables, besides the ones GitHub Actions sets:
-#   GH_TOKEN    Token with contents: read on TugboatQA/docs-private
+#   GH_TOKEN    Token with contents: write and pull-requests: read on
+#               TugboatQA/docs-private
 #   VERSION     Version branch to release, for example v2.26.47
 #   DRY_RUN     "true" to list the commits in the job summary and stop before
 #               the push
@@ -106,38 +110,54 @@ if [ -n "${unverified}" ]; then
   exit 1
 fi
 
+# Deleting the version branch closes every open pull request into it.
+open="$(gh pr list --repo "${GITHUB_REPOSITORY}" --base "${VERSION}" --state open --json number \
+  --jq 'map("#\(.number)") | join(" ")')"
+if [ -n "${open}" ]; then
+  echo "::error::These pull requests into ${VERSION} are still open. Merge or close them first: ${open}"
+  exit 1
+fi
+
 if [ "${DRY_RUN}" = "true" ]; then
   echo "Dry run. Nothing was pushed." >>"${GITHUB_STEP_SUMMARY}"
   exit 0
 fi
 
 # The push is rejected if the branch on TugboatQA/docs has commits that this
-# one lacks, for example a merge of main made on the release pull request.
+# one lacks. That happens only if the version branch was created again after
+# an earlier release of it.
 if ! git push "https://x-access-token:${DOCS_TOKEN}@github.com/TugboatQA/docs.git" "${head}:refs/heads/${VERSION}"; then
   echo "::error::The push failed. If ${VERSION} on TugboatQA/docs has commits that this branch lacks, make further changes on the release pull request there."
   exit 1
 fi
-export GH_TOKEN="${DOCS_TOKEN}"
 
 {
   echo "Releases the documentation for Tugboat ${VERSION}, written in TugboatQA/docs-private."
   echo
-  echo "Merge with **Create a merge commit**, then delete the \`${VERSION}\` branch here and in TugboatQA/docs-private."
+  echo "The \`${VERSION}\` branch in TugboatQA/docs-private is deleted. Make further changes for this version on this pull"
+  echo "request. Merge with **Create a merge commit**."
   echo
   cat "${RUNNER_TEMP}/commits.md"
 } >"${RUNNER_TEMP}/body.md"
 
-# A rerun pushes new commits to the pull request that is already open, and
-# updates its commit list. --head matches by branch name only, so pull requests
-# from forks are left out.
-existing="$(gh pr list --repo TugboatQA/docs --head "${VERSION}" --state open --json url,isCrossRepository \
-  --jq '[.[] | select(.isCrossRepository | not)][0].url // empty')"
+# A rerun after a run that failed below finds the pull request already open
+# and updates its commit list. --head matches by branch name only, so pull
+# requests from forks are left out.
+existing="$(GH_TOKEN="${DOCS_TOKEN}" gh pr list --repo TugboatQA/docs --head "${VERSION}" --state open \
+  --json url,isCrossRepository --jq '[.[] | select(.isCrossRepository | not)][0].url // empty')"
 if [ -n "${existing}" ]; then
-  gh pr edit "${existing}" --body-file "${RUNNER_TEMP}/body.md" >/dev/null
+  GH_TOKEN="${DOCS_TOKEN}" gh pr edit "${existing}" --body-file "${RUNNER_TEMP}/body.md" >/dev/null
   echo "Updated ${existing}" >>"${GITHUB_STEP_SUMMARY}"
-  exit 0
+else
+  url="$(GH_TOKEN="${DOCS_TOKEN}" gh pr create --repo TugboatQA/docs --base main --head "${VERSION}" \
+    --title "Release ${VERSION}" --body-file "${RUNNER_TEMP}/body.md")"
+  echo "Opened ${url}" >>"${GITHUB_STEP_SUMMARY}"
 fi
 
-url="$(gh pr create --repo TugboatQA/docs --base main --head "${VERSION}" \
-  --title "Release ${VERSION}" --body-file "${RUNNER_TEMP}/body.md")"
-echo "Opened ${url}" >>"${GITHUB_STEP_SUMMARY}"
+# The pull request on TugboatQA/docs is now the only place for this version's
+# documentation.
+if ! gh api --method DELETE "repos/${GITHUB_REPOSITORY}/git/refs/heads/${VERSION}" --silent; then
+  echo "::error::The pull request is open, but deleting ${VERSION} from ${GITHUB_REPOSITORY} failed. Delete the branch by hand."
+  exit 1
+fi
+echo "Deleted \`${VERSION}\` from ${GITHUB_REPOSITORY}." >>"${GITHUB_STEP_SUMMARY}"
