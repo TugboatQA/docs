@@ -9,9 +9,9 @@ you set a custom [`domain`](/reference/tugboat-configuration/#domain) for a Serv
 [`alias_type: domain`](/reference/tugboat-configuration/#alias_type), Tugboat's certificate doesn't cover your hostname,
 so browsers show a certificate warning when the Service uses `https: true`.
 
-To serve Previews on your own domain with a valid certificate, put [Cloudflare](https://www.cloudflare.com/) in front of
-it. Cloudflare presents its own certificate for your domain to visitors, and connects to Tugboat over HTTPS behind the
-scenes.
+To serve Previews on your own domain with a valid certificate, proxy the domain through
+[Cloudflare](https://www.cloudflare.com/). Cloudflare presents its own certificate for your domain to visitors, and
+forwards their HTTPS requests to Tugboat over HTTPS.
 
 ### Before you start
 
@@ -71,57 +71,96 @@ services:
     domain: example.com
 ```
 
-To use subpath URLs instead, also set [`subpath: true`](/reference/tugboat-configuration/#subpath).
+This example generates subdomain Preview URLs, such as `https://pr123-token.example.com`, so only use it in a zone
+that's dedicated to Previews. To use subpath URLs instead, also set
+[`subpath: true`](/reference/tugboat-configuration/#subpath).
 
-If you're using [`aliases`](/reference/tugboat-configuration/#aliases) with
-[`alias_type: domain`](/reference/tugboat-configuration/#alias_type), repeat the following steps for each alias domain,
-using the alias hostnames from the table above.
+To use [`aliases`](/reference/tugboat-configuration/#aliases) instead of `domain`, set
+[`alias_type: domain`](/reference/tugboat-configuration/#alias_type). The following example serves Previews from
+`https://preview.example.com/pr123-token/`, which suits a zone shared with production:
+
+```yaml
+services:
+  webserver:
+    image: tugboatqa/httpd:2.4
+    default: true
+    subpath: true
+    alias_type: domain
+    aliases:
+      - preview.example.com
+```
+
+Tugboat generates alias URLs in addition to the normal Service URL. With this example, the Preview also keeps its URL on
+`preview.tugboatqa.com`, and the alias URL is the one that uses your domain.
+
+If you list more than one alias, repeat the following steps for each alias domain, using the alias hostnames from the
+table above.
 
 ### 2. Add a proxied DNS record in Cloudflare
 
 In the Cloudflare dashboard, go to **DNS** > **Records** for your domain, and add a `CNAME` record that points to
 `previews.tugboatqa.com`:
 
-| Configuration                                        | Name      | Target                   | Proxy status |
-| :--------------------------------------------------- | :-------- | :----------------------- | :----------- |
-| Subdomain URLs (the default)                         | `*`       | `previews.tugboatqa.com` | Proxied      |
-| Subpath URLs with `domain: example.com`              | `preview` | `previews.tugboatqa.com` | Proxied      |
-| Subpath URLs with `aliases: ['preview.example.com']` | `preview` | `previews.tugboatqa.com` | Proxied      |
-| Subpath URLs with `aliases: ['example.com']`         | `@`       | `previews.tugboatqa.com` | Proxied      |
+| Configuration                                                           | Name      | Target                   | Proxy status |
+| :---------------------------------------------------------------------- | :-------- | :----------------------- | :----------- |
+| Subdomain URLs with `domain: example.com` or `aliases: ['example.com']` | `*`       | `previews.tugboatqa.com` | Proxied      |
+| Subpath URLs with `domain: example.com`                                 | `preview` | `previews.tugboatqa.com` | Proxied      |
+| Subpath URLs with `aliases: ['preview.example.com']`                    | `preview` | `previews.tugboatqa.com` | Proxied      |
+| Subpath URLs with `aliases: ['example.com']`                            | `@`       | `previews.tugboatqa.com` | Proxied      |
 
-The `aliases` rows assume `alias_type: domain`. For subpath URLs with an alias, the record name is the alias hostname
-itself.
+The `aliases` values assume `alias_type: domain`. For subpath URLs with an alias, the record name is the alias hostname
+itself. For subdomain URLs with an alias that isn't the zone's root domain, such as `preview.example.com`, the record
+name is a wildcard below the alias, such as `*.preview`.
 
-Only add the `@` record in a zone that's dedicated to Previews. In a zone shared with production, the `@` record points
-your root domain at Tugboat instead of your production site. Cloudflare supports a `CNAME` on the root domain (`@`)
-through [CNAME flattening](https://developers.cloudflare.com/dns/cname-flattening/).
+Only add the `*` or `@` record in a zone that's dedicated to Previews. Don't add either record in a zone shared with
+production:
+
+- The `*` record points every hostname that has no DNS record of its own at Tugboat. Hostnames with their own records,
+  such as `www`, keep working, but you can't scope the SSL/TLS and caching settings in the following steps to Preview
+  hostnames only.
+- The `@` record points your root domain at Tugboat instead of your production site.
+
+Cloudflare supports a `CNAME` on the root domain (`@`) through
+[CNAME flattening](https://developers.cloudflare.com/dns/cname-flattening/).
 
 The record must be **Proxied** (orange cloud). A **DNS only** record sends visitors straight to Tugboat, and they'll see
 the same certificate warning as before.
 
-A wildcard record doesn't override records you've already defined, such as `www`, so your other hostnames keep working.
-
 ### 3. Set the SSL/TLS encryption mode to Full
 
-Go to **SSL/TLS** > **Overview**, and set the encryption mode to **Full**.
-
-Don't use **Full (strict)**. In strict mode, Cloudflare validates the certificate Tugboat presents, which is issued for
-`tugboatqa.com` and not your domain, so every request fails with a
+Cloudflare must use the **Full** encryption mode for your Preview hostnames, and not **Full (strict)**. In strict mode,
+Cloudflare validates the certificate Tugboat presents, which is issued for `tugboatqa.com` and not your domain, so every
+request fails with a
 [526 error](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-526/).
 
-In **Full** mode, traffic between Cloudflare and Tugboat is encrypted, but Cloudflare doesn't verify Tugboat's
-certificate. Traffic between visitors and Cloudflare is encrypted and uses a valid certificate.
+Where you set the encryption mode depends on the zone:
 
-The encryption mode applies to the whole zone. If your production site shares the zone and uses **Full (strict)**, keep
-that setting, and instead add a [Configuration Rule](https://developers.cloudflare.com/rules/configuration-rules/) that
-sets SSL to **Full** only for requests where **Hostname** equals your Preview hostname, such as `preview.example.com`.
+- **In a zone dedicated to Previews**, go to **SSL/TLS** > **Overview**, choose **Custom SSL/TLS**, and set the
+  encryption mode to **Full**.
+- **In a zone shared with production**, don't change the zone's encryption mode, because it also applies to your
+  production site. Instead, add a [Configuration Rule](https://developers.cloudflare.com/rules/configuration-rules/)
+  that sets SSL to **Full** only for requests where **Hostname** equals your Preview hostname, such as
+  `preview.example.com`.
 
-Cloudflare's
-[Automatic SSL/TLS](https://developers.cloudflare.com/ssl/origin-configuration/ssl-modes/#automatic-ssltls-default)
-option periodically scans your origin, and can change the zone's encryption mode to a stricter one, such as **Full
-(strict)**. In a zone dedicated to Previews, choose **Custom SSL/TLS** instead of **Automatic SSL/TLS** when you select
-**Full**, so that the encryption mode stays where you set it. In a zone shared with production, the Configuration Rule
-sets the encryption mode for the Preview hostname separately from the zone's encryption mode.
+In both cases, we recommend **Custom SSL/TLS** instead of
+[**Automatic SSL/TLS**](https://developers.cloudflare.com/ssl/origin-configuration/ssl-modes/#automatic-ssltls-default)
+on the **SSL/TLS** > **Overview** page. Automatic SSL/TLS periodically scans your origin, and can change the zone's
+encryption mode to a stricter one, such as **Full (strict)**. With Custom SSL/TLS, the zone's encryption mode stays
+where you set it. Cloudflare's documentation doesn't state whether a Configuration Rule still applies after Automatic
+SSL/TLS raises the zone's encryption mode.
+
+In [**Full**](https://developers.cloudflare.com/ssl/origin-configuration/ssl-modes/full/) mode, Cloudflare connects to
+Tugboat with the same protocol that the visitor uses:
+
+- When a visitor uses HTTPS, traffic between the visitor and Cloudflare is encrypted and uses a valid certificate.
+  Traffic between Cloudflare and Tugboat is also encrypted, but Cloudflare doesn't verify Tugboat's certificate.
+- When a visitor uses HTTP, Cloudflare connects to Tugboat over unencrypted HTTP.
+
+To redirect HTTP requests to HTTPS at Cloudflare, go to **SSL/TLS** > **Edge Certificates**, and turn on
+[**Always Use HTTPS**](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/always-use-https/).
+This setting applies to every hostname in the zone. In a zone shared with production, if you don't want the setting for
+the whole zone, create a redirect rule for your Preview hostname instead, as Cloudflare's Always Use HTTPS documentation
+describes.
 
 ### 4. Bypass the Cloudflare cache for Previews
 
@@ -139,5 +178,10 @@ To prevent this, go to **Caching** > **Cache Rules**, and create a rule that byp
 
 ### 5. Test the Preview URL
 
-Build or rebuild a Preview, then open its URL. The browser should load it over HTTPS without a certificate warning. If
-you see a warning, check that the DNS record is proxied, and that Cloudflare's certificate covers the hostname.
+Build or rebuild a Preview, then open its URL on your domain. If you use `aliases`, open the alias URL, and not the
+Preview's URL on `tugboatqa.com`. The browser should load it over HTTPS without a certificate warning. If you see a
+warning, check that the DNS record is proxied, and that Cloudflare's certificate covers the hostname.
+
+If you recently added the domain to Cloudflare, the certificate might not be issued yet. Cloudflare can take from 15
+minutes to 24 hours after it activates a domain to issue the Universal SSL certificate. Go to **SSL/TLS** > **Edge
+Certificates** to check the certificate's status.

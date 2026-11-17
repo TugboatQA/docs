@@ -93,6 +93,9 @@ or
 - https://foo.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
 - https://bar.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
 
+When `subpath` is `true`, Tugboat uses each alias value as the host name, and doesn't add `preview.` to it, unlike
+[`domain`](#domain). Don't set an alias to a host name that your production site uses.
+
 In order for these domains to resolve, a DNS entry must be added to the alias domains as a `CNAME` to
 `previews.tugboatqa.com`. A wildcard entry is required if `subpath` is set to `false`. To serve these domains over HTTPS
 without certificate warnings, see
