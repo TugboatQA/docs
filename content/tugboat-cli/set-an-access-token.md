@@ -4,10 +4,41 @@ date: 2019-09-19T10:41:45-04:00
 weight: 2
 ---
 
-The first time you attempt to access a Tugboat resource in the Command Line Interface, you'll be asked for an Access
-Token.
+The first time you attempt to access a Tugboat resource in the Command Line Interface (CLI), you'll be asked for an
+Access Token. You can sign in with your browser and have the CLI save an Access Token for you, or you can create an
+Access Token in the dashboard and paste it in.
 
-To set an Access Token:
+## Sign in with your browser
+
+To sign in with your browser:
+
+1. Run the following command:
+
+   ```sh
+   tugboat login
+   ```
+
+2. The CLI opens the Tugboat dashboard in your browser and prints a code in your terminal. Enter the code on the page
+   and approve the request.
+3. The CLI saves a new Access Token and the dashboard address to the `.tugboat.yml` file in your home directory. The
+   token appears on the dashboard's Access Tokens page with the type {{% ui-text %}}CLI login{{% /ui-text %}}.
+
+The dashboard address must use HTTPS. The `tugboat login` command accepts these options:
+
+- `--dashboard=<url>` sets the dashboard address. Use this for on-premise installs, or set the `TUGBOAT_DASHBOARD`
+  environment variable or the `dashboard` key in `.tugboat.yml`. By default, the CLI uses
+  `https://dashboard.tugboatqa.com`.
+- `--no-browser` prints the address instead of opening a browser. Use this when you connect over SSH.
+
+For example, to sign in to an on-premise install:
+
+```sh
+tugboat login --dashboard=https://dashboard.example.com
+```
+
+## Create an Access Token manually
+
+To create an Access Token in the dashboard and paste it into the CLI:
 
 1. In Tugboat's web interface, go to User Name -> Access Tokens, or
    [click this link](https://dashboard.tugboatqa.com/access-tokens).
@@ -26,7 +57,7 @@ Tugboat token will be encrypted, stored securely, and accessible from any machin
 
 Now you're all set to use the Tugboat Command Line Interface!
 
-{{%expand "Visual Walkthrough" %}}
+{{%expand "Visual Walkthrough: create an Access Token manually" %}}
 
 In Tugboat's web interface, go to User Name -> Access Tokens, or
 [click this link](https://dashboard.tugboatqa.com/access-tokens).
