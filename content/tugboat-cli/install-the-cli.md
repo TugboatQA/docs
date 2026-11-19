@@ -4,16 +4,41 @@ date: 2019-09-19T10:41:37-04:00
 weight: 1
 ---
 
-The Tugboat Command Line Tool is available for Windows, MacOS, and Linux.
+The Tugboat Command Line Tool is available for Windows, MacOS, and Linux. You can also install it with npm on any
+platform that runs Node.js.
 
+- [npm](#npm)
 - [Windows](#windows)
 - [MacOS](#macos)
 - [Linux](#linux)
 
+## npm
+
+If you have Node.js 18 or later installed, you can install the Tugboat CLI from npm on Windows, MacOS, or Linux.
+
+To install the Tugboat CLI globally:
+
+```sh
+npm i -g @tugboatqa/cli
+```
+
+To run the Tugboat CLI without installing it globally:
+
+```sh
+npx @tugboatqa/cli version
+```
+
+To update a global install to the latest version:
+
+```sh
+npm i -g @tugboatqa/cli@latest
+```
+
 ## Windows
 
-There is currently no installer included with the Windows version of the Tugboat Command Line Tool. You'll either need
-to execute it from the directory where you downloaded it, or copy it to a directory in the system PATH variable.
+There is currently no installer included with the Windows version of the Tugboat Command Line Tool. If you have Node.js
+installed, you can [install the CLI with npm](#npm) instead. Otherwise, you'll either need to execute it from the
+directory where you downloaded it, or copy it to a directory in the system PATH variable.
 
 To copy the Tugboat CLI into a directory in the system PATH variable:
 
