@@ -4,8 +4,10 @@ name: Release to docs
 # Run it by hand from main to release a version branch, which holds the documentation for one TugboatQA/tugboat
 # release, for example v2.26.47. It pushes the version branch to a branch with the same name on TugboatQA/docs and
 # opens a pull request from it into main, then deletes the version branch from TugboatQA/docs-private. The commits are
-# public as soon as the branch is pushed, and from then on changes for that version are made on the pull request. With
-# "dry_run" checked, it lists the commits the release would publish, pushes nothing, and deletes nothing.
+# public as soon as the branch is pushed, and from then on changes for that version are made on the pull request. It
+# turns on auto-merge with a merge commit for the pull request. It refuses a version branch that changes a file under
+# .github/, because workflows on TugboatQA/docs would run that change as soon as it is pushed. With "dry_run" checked,
+# it lists the commits and files the release would publish, pushes nothing, and deletes nothing.
 #
 # Pushes with a token for the GitHub App in the DOCS_PRIVATE_APP_CLIENT_ID and DOCS_PRIVATE_APP_PRIVATE_KEY secrets.
 # The helper script comes from TugboatQA/docs main, not from the version branch, so code on a version branch that has

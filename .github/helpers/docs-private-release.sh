@@ -5,12 +5,15 @@
 # open a pull request from it into main, then delete the version branch from
 # TugboatQA/docs-private. Run by docs-private--release.yml in
 # TugboatQA/docs-private. The commits are public as soon as the push completes.
-# From then on, changes for that version are made on the pull request.
+# From then on, changes for that version are made on the pull request. It turns
+# on auto-merge with a merge commit for the pull request, so the merge button
+# and its choice of merge method are not used.
 #
 # Before pushing, this exits non-zero if the version branch has no commits
-# that TugboatQA/docs main lacks, has a commit without a verified signature,
-# contains the unreleased commits of an older version branch, or is the base of
-# an open pull request, which deleting the branch would close. It warns about
+# that TugboatQA/docs main lacks, changes a file under .github/, has a commit
+# without a verified signature, contains the unreleased commits of an older
+# version branch, or is the base of an open pull request, which deleting the
+# branch would close. It warns about
 # commit messages with references such as #123 or @name mentions, which link to
 # the wrong items or notify people once they are in TugboatQA/docs.
 #
@@ -45,6 +48,11 @@ if [ -z "${commits}" ]; then
   exit 1
 fi
 
+# Files the version branch changes, without the changes main has made since
+# the branch was created.
+merge_base="$(git merge-base "${base}" "${head}")"
+files="$(git diff --stat "${merge_base}" "${head}")"
+
 # The pattern leaves out an @ that follows a letter or digit, which is an email
 # address.
 references="$(git log --reverse -E --format='%h %s' \
@@ -60,6 +68,12 @@ fi
   echo
   echo '```'
   echo "${commits}"
+  echo '```'
+  echo
+  echo "## Files"
+  echo
+  echo '```'
+  echo "${files}"
   echo '```'
 } >"${RUNNER_TEMP}/commits.md"
 {
@@ -78,6 +92,15 @@ fi
   fi
   echo
 } >>"${GITHUB_STEP_SUMMARY}"
+
+# Workflows on TugboatQA/docs run on every push and pull request with access
+# to that repository's secrets, so a changed workflow file would run as soon as
+# this script pushes it, before anyone reviews it there.
+github_files="$(git diff --name-only "${merge_base}" "${head}" -- .github/)"
+if [ -n "${github_files}" ]; then
+  echo "::error::${VERSION} changes files under .github/. Make those changes in a pull request on TugboatQA/docs: $(echo "${github_files}" | tr '\n' ' ')"
+  exit 1
+fi
 
 # A version branch is created from the newest version branch that exists, so
 # it contains that branch's commits. Releasing it before the older branch is
@@ -100,11 +123,13 @@ if [ -n "${older}" ]; then
 fi
 
 # TugboatQA/docs main requires signed commits, and one unverified commit blocks
-# merging the release. The comparison starts at the merge base because this
-# repository may not have the commit TugboatQA/docs main is at yet.
-merge_base="$(git merge-base "${base}" "${head}")"
-unverified="$(gh api --paginate "repos/${GITHUB_REPOSITORY}/compare/${merge_base}...${head}" \
-  --jq '.commits[] | select(.commit.verification.verified | not) | .sha')"
+# merging the release. Every commit to release must be in the list of verified
+# commits, so a commit that the API response leaves out counts as unverified.
+# The comparison starts at the merge base because this repository may not have
+# the commit TugboatQA/docs main is at yet.
+verified="$(gh api --paginate "repos/${GITHUB_REPOSITORY}/compare/${merge_base}...${head}" \
+  --jq '.commits[] | select(.commit.verification.verified) | .sha')"
+unverified="$(git rev-list "${base}..${head}" | grep -vxFf <(echo "${verified}") || [ "$?" -eq 1 ])"
 if [ -n "${unverified}" ]; then
   echo "::error::These commits do not have verified signatures, so the release could not merge: $(echo "${unverified}" | tr '\n' ' ')"
   exit 1
@@ -126,7 +151,11 @@ fi
 # The push is rejected if the branch on TugboatQA/docs has commits that this
 # one lacks. That happens only if the version branch was created again after
 # an earlier release of it.
-if ! git push "https://x-access-token:${DOCS_TOKEN}@github.com/TugboatQA/docs.git" "${head}:refs/heads/${VERSION}"; then
+# The token goes in a header, not in the URL, so git cannot print it in an
+# error message.
+credentials="$(printf 'x-access-token:%s' "${DOCS_TOKEN}" | base64 | tr -d '\n')"
+if ! git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic ${credentials}" \
+  push https://github.com/TugboatQA/docs.git "${head}:refs/heads/${VERSION}"; then
   echo "::error::The push failed. If ${VERSION} on TugboatQA/docs has commits that this branch lacks, make further changes on the release pull request there."
   exit 1
 fi
@@ -135,7 +164,11 @@ fi
   echo "Releases the documentation for Tugboat ${VERSION}, written in TugboatQA/docs-private."
   echo
   echo "The \`${VERSION}\` branch in TugboatQA/docs-private is deleted. Make further changes for this version on this pull"
-  echo "request. Merge with **Create a merge commit**."
+  echo "request."
+  echo
+  echo "Auto-merge with a merge commit is on. Approve this pull request and it merges once the checks pass. If auto-merge"
+  echo "is off, merge with **Create a merge commit**, never with squash or rebase. The next version branch contains these"
+  echo "commits, and with another merge method its release publishes them again."
   echo
   cat "${RUNNER_TEMP}/commits.md"
 } >"${RUNNER_TEMP}/body.md"
@@ -146,12 +179,21 @@ fi
 existing="$(GH_TOKEN="${DOCS_TOKEN}" gh pr list --repo TugboatQA/docs --head "${VERSION}" --state open \
   --json url,isCrossRepository --jq '[.[] | select(.isCrossRepository | not)][0].url // empty')"
 if [ -n "${existing}" ]; then
-  GH_TOKEN="${DOCS_TOKEN}" gh pr edit "${existing}" --body-file "${RUNNER_TEMP}/body.md" >/dev/null
-  echo "Updated ${existing}" >>"${GITHUB_STEP_SUMMARY}"
+  url="${existing}"
+  GH_TOKEN="${DOCS_TOKEN}" gh pr edit "${url}" --body-file "${RUNNER_TEMP}/body.md" >/dev/null
+  echo "Updated ${url}" >>"${GITHUB_STEP_SUMMARY}"
 else
   url="$(GH_TOKEN="${DOCS_TOKEN}" gh pr create --repo TugboatQA/docs --base main --head "${VERSION}" \
     --title "Release ${VERSION}" --body-file "${RUNNER_TEMP}/body.md")"
   echo "Opened ${url}" >>"${GITHUB_STEP_SUMMARY}"
+fi
+
+# The next version branch contains these commits. After a squash or rebase
+# merge, TugboatQA/docs main has them under other hashes, and the next release
+# publishes them again. With auto-merge, GitHub merges with a merge commit once
+# the pull request is approved and its checks pass.
+if ! GH_TOKEN="${DOCS_TOKEN}" gh pr merge "${url}" --auto --merge; then
+  echo "::warning::Auto-merge could not be turned on for ${url}. Merge it with Create a merge commit."
 fi
 
 # The pull request on TugboatQA/docs is now the only place for this version's
