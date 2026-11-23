@@ -51,6 +51,8 @@ Press the {{% ui-text %}}Save Configuration{{% /ui-text %}} button to save your 
 You can have Tugboat delete new Previews a set number of days after they are created, whether or not they belong to an
 open pull request.
 
+![Screenshot shows the Preview expiration repository setting with a field to enter the number of days after which Tugboat should automatically delete a new preview. The setting does not apply to base previews.](/_images/delete-previews-after-x-days.png)
+
 To set the number of days:
 
 1. Go to username -> [My Projects](https://dashboard.tugboatqa.com/projects) at the upper-right of the Tugboat screen.
