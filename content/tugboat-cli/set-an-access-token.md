@@ -12,11 +12,13 @@ To set an Access Token:
 1. In Tugboat's web interface, go to User Name -> Access Tokens, or
    [click this link](https://dashboard.tugboatqa.com/access-tokens).
 2. Click the {{% ui-text %}}Generate New Token option{{% /ui-text %}}.
-3. You'll be asked to give the Access Token a description; for example, "Command Line Tool"; enter a description and
-   press the {{% ui-text %}}Generate{{% /ui-text %}} button.
-4. Make sure you save your Access Token somewhere safe, such as [1Password](https://1password.com/) or other password
+3. Give the Access Token a description; for example, "Command Line Tool".
+4. Choose a {{% ui-text %}}Role{{% /ui-text %}} for the Access Token. The default is {{% ui-text %}}Full
+   access{{% /ui-text %}}. See [Access Token roles](#access-token-roles).
+5. Press the {{% ui-text %}}Generate{{% /ui-text %}} button.
+6. Make sure you save your Access Token somewhere safe, such as [1Password](https://1password.com/) or other password
    manager.
-5. When you run the CLI, and attempt to access a resource, you'll be asked for an Access Token; paste it in and hit `Y`
+7. When you run the CLI, and attempt to access a resource, you'll be asked for an Access Token. Paste it in and hit `Y`.
    to remember it.
 
 {{% notice tip %}} 1Password users can install
@@ -25,6 +27,25 @@ Tugboat token will be encrypted, stored securely, and accessible from any machin
 [Chromatic](https://chromatichq.com) for contributing this plugin. {{% /notice %}}
 
 Now you're all set to use the Tugboat Command Line Interface!
+
+## Access Token roles
+
+Each Access Token has a role. You choose the role when you generate the Access Token, and you can't change it later. The
+Access Tokens page shows the role of each token in the {{% ui-text %}}Role{{% /ui-text %}} column.
+
+- {{% ui-text %}}Full access{{% /ui-text %}}: The token can do everything you can do. Access Tokens that you created
+  before roles were available have full access.
+- {{% ui-text %}}Sandbox agent{{% /ui-text %}}: The token can only work with Sandbox Previews that you own.
+
+When a token's role doesn't permit an operation that you could perform, the API returns error `1163`,
+`Access token role does not permit this operation`. For more information, see
+[Tugboat Error Codes](/reference/tugboat-error-codes/).
+
+To set the role when you create an Access Token with the CLI, pass `role=full` or `role=sandbox`:
+
+```sh
+tugboat create key "My agent" role=sandbox
+```
 
 {{%expand "Visual Walkthrough" %}}
 
@@ -37,8 +58,8 @@ Click the {{% ui-text %}}Generate New Token{{% /ui-text %}} option.
 
 ![Click Generate new token](../../_images/generate-new-token.png)
 
-You'll be asked to give the Access Token a description; for example, "Command Line Tool"; enter a description and press
-the {{% ui-text %}}Generate{{% /ui-text %}} button.
+You'll be asked to give the Access Token a description; for example, "Command Line Tool". Enter a description, choose a
+{{% ui-text %}}Role{{% /ui-text %}}, and press the {{% ui-text %}}Generate{{% /ui-text %}} button.
 
 ![Enter token description and press Generate](../../_images/enter-token-description-and-generate.png)
 

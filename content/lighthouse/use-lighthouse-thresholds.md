@@ -237,8 +237,8 @@ conditions:
 - The report has no thresholds.
 - You approved the report.
 
-The status shows as a "Fail" when any report doesn't meet its thresholds and isn't approved, or when you reject it. The
-status shows as running while Tugboat generates reports.
+The status shows as a "Fail" when any report doesn't meet its thresholds and isn't approved, when you reject it, or when
+Tugboat can't generate it. The status shows as running while Tugboat generates reports.
 
 ![Screenshot of GitHub status showing a red X on Tugboat - Lighthouse Reports](/_images/lighthouse-thresholds-failed-github.png)
 
