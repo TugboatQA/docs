@@ -51,7 +51,7 @@ fi
 # Files the version branch changes, without the changes main has made since
 # the branch was created.
 merge_base="$(git merge-base "${base}" "${head}")"
-files="$(git diff --stat "${merge_base}" "${head}")"
+files="$(git diff --stat=200 "${merge_base}" "${head}")"
 
 # The pattern leaves out an @ that follows a letter or digit, which is an email
 # address.
@@ -61,25 +61,27 @@ if [ -n "${references}" ]; then
   echo "::warning::Some commit messages contain references or @name mentions. See the job summary."
 fi
 
-# The commit lists are code blocks, so GitHub does not turn #123 references
-# into links or @name mentions into notifications in the public pull request.
-{
+# Print the commit and file lists, each cut at the number of lines in $1. They
+# are code blocks, so GitHub does not turn #123 references into links or @name
+# mentions into notifications in the public pull request.
+lists() {
   echo "## Commits"
   echo
   echo '```'
-  echo "${commits}"
+  head -n "$1" <<<"${commits}"
   echo '```'
   echo
   echo "## Files"
   echo
   echo '```'
-  echo "${files}"
+  head -n "$1" <<<"${files}"
   echo '```'
-} >"${RUNNER_TEMP}/commits.md"
+}
+
 {
   echo "\`${VERSION}\` is at \`${head}\`."
   echo
-  cat "${RUNNER_TEMP}/commits.md"
+  lists 100000
   if [ -n "${references}" ]; then
     echo
     echo "### Commits with references or @name mentions"
@@ -118,18 +120,19 @@ while IFS= read -r branch; do
   fi
 done < <(git for-each-ref --format='%(refname:lstrip=3)' 'refs/remotes/origin/v*')
 if [ -n "${older}" ]; then
-  echo "::error::These older version branches have commits that TugboatQA/docs main lacks. Release them first, or delete them if they are abandoned:${older}"
+  echo "::error::These older version branches have commits that TugboatQA/docs main lacks. Release them first. ${VERSION} may contain their commits, so deleting one of them does not make this release safe:${older}"
   exit 1
 fi
 
 # TugboatQA/docs main requires signed commits, and one unverified commit blocks
 # merging the release. Every commit to release must be in the list of verified
-# commits, so a commit that the API response leaves out counts as unverified.
-# The comparison starts at the merge base because this repository may not have
-# the commit TugboatQA/docs main is at yet.
-verified="$(gh api --paginate "repos/${GITHUB_REPOSITORY}/compare/${merge_base}...${head}" \
+# commits, so a commit that the response leaves out counts as unverified. The
+# comparison starts at the merge base because this repository may not have the
+# commit TugboatQA/docs main is at yet.
+verified="$(gh api --paginate "repos/${GITHUB_REPOSITORY}/compare/${merge_base}...${head}?per_page=100" \
   --jq '.commits[] | select(.commit.verification.verified) | .sha')"
-unverified="$(git rev-list "${base}..${head}" | grep -vxFf <(echo "${verified}") || [ "$?" -eq 1 ])"
+to_release="$(git rev-list "${base}..${head}")"
+unverified="$(grep -vxFf <(echo "${verified}") <<<"${to_release}" || [ "$?" -eq 1 ])"
 if [ -n "${unverified}" ]; then
   echo "::error::These commits do not have verified signatures, so the release could not merge: $(echo "${unverified}" | tr '\n' ' ')"
   exit 1
@@ -151,9 +154,11 @@ fi
 # The push is rejected if the branch on TugboatQA/docs has commits that this
 # one lacks. That happens only if the version branch was created again after
 # an earlier release of it.
-# The token goes in a header, not in the URL, so git cannot print it in an
-# error message.
+# The token goes in a header, not in the address of the remote, so git cannot
+# print it in an error message. GitHub Actions hides DOCS_TOKEN in the log but
+# not this encoded form of it, until add-mask names it.
 credentials="$(printf 'x-access-token:%s' "${DOCS_TOKEN}" | base64 | tr -d '\n')"
+echo "::add-mask::${credentials}"
 if ! git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic ${credentials}" \
   push https://github.com/TugboatQA/docs.git "${head}:refs/heads/${VERSION}"; then
   echo "::error::The push failed. If ${VERSION} on TugboatQA/docs has commits that this branch lacks, make further changes on the release pull request there."
@@ -170,7 +175,12 @@ fi
   echo "is off, merge with **Create a merge commit**, never with squash or rebase. The next version branch contains these"
   echo "commits, and with another merge method its release publishes them again."
   echo
-  cat "${RUNNER_TEMP}/commits.md"
+  # GitHub rejects a pull request body over 65,536 characters.
+  lists 150
+  if [ "$(wc -l <<<"${commits}")" -gt 150 ] || [ "$(wc -l <<<"${files}")" -gt 150 ]; then
+    echo
+    echo "Each list is cut at 150 lines."
+  fi
 } >"${RUNNER_TEMP}/body.md"
 
 # A rerun after a run that failed below finds the pull request already open
@@ -197,7 +207,13 @@ if ! GH_TOKEN="${DOCS_TOKEN}" gh pr merge "${url}" --auto --merge; then
 fi
 
 # The pull request on TugboatQA/docs is now the only place for this version's
-# documentation.
+# documentation. A commit pushed to the version branch after this run checked
+# it out is not in the pull request, and deleting the branch would lose it.
+current="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/${VERSION}" --jq .object.sha)"
+if [ "${current}" != "${head}" ]; then
+  echo "::error::${VERSION} in ${GITHUB_REPOSITORY} changed during this run, so it was not deleted. Run the workflow again to release the new commits."
+  exit 1
+fi
 if ! gh api --method DELETE "repos/${GITHUB_REPOSITORY}/git/refs/heads/${VERSION}" --silent; then
   echo "::error::The pull request is open, but deleting ${VERSION} from ${GITHUB_REPOSITORY} failed. Delete the branch by hand."
   exit 1
