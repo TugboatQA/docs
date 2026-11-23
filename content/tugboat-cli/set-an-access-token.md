@@ -12,13 +12,13 @@ To set an Access Token:
 1. In Tugboat's web interface, go to User Name -> Access Tokens, or
    [click this link](https://dashboard.tugboatqa.com/access-tokens).
 2. Click the {{% ui-text %}}Generate New Token option{{% /ui-text %}}.
-3. You'll be asked to give the Access Token a description; for example, "Command Line Tool"; enter a description.
+3. Give the Access Token a description; for example, "Command Line Tool".
 4. Choose a {{% ui-text %}}Role{{% /ui-text %}} for the Access Token. The default is {{% ui-text %}}Full
    access{{% /ui-text %}}. See [Access Token roles](#access-token-roles).
 5. Press the {{% ui-text %}}Generate{{% /ui-text %}} button.
 6. Make sure you save your Access Token somewhere safe, such as [1Password](https://1password.com/) or other password
    manager.
-7. When you run the CLI, and attempt to access a resource, you'll be asked for an Access Token; paste it in and hit `Y`
+7. When you run the CLI, and attempt to access a resource, you'll be asked for an Access Token. Paste it in and hit `Y`.
    to remember it.
 
 {{% notice tip %}} 1Password users can install
