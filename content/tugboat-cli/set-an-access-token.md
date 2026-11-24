@@ -55,8 +55,8 @@ To create an Access Token in the dashboard and paste it into the CLI:
    ![Screenshot of a list of Access Tokens with Generate new token highlighted](/_images/access-tokens-generate-new-token-button.png)
 
 3. Provide a description for the access token; for example, "Command Line Tool".
-4. Select a role. **Full access** can do everything you can do. **Sandbox agent** can only work with Sandbox Previews
-   you own. The role cannot be changed after the token is created.
+4. Choose a {{% ui-text %}}Role{{% /ui-text %}} for the Access Token. The default is {{% ui-text %}}Full
+   access{{% /ui-text %}}. See [Access Token roles](#access-token-roles).
 5. Press the {{% ui-text %}}Generate{{% /ui-text %}} button.
 
    ![Screenshot of new access token with reminder to copy it now.](/_images/access-token-copy-new-token.png)
@@ -73,3 +73,22 @@ To create an Access Token in the dashboard and paste it into the CLI:
    to remember it.
 
 Now you're all set to use the Tugboat Command Line Interface!
+
+## Access Token roles
+
+Each Access Token has a role. You choose the role when you generate the Access Token, and you can't change it later. The
+Access Tokens page shows the role of each token in the {{% ui-text %}}Role{{% /ui-text %}} column.
+
+- {{% ui-text %}}Full access{{% /ui-text %}}: The token can do everything you can do. Access Tokens that you created
+  before roles were available have full access.
+- {{% ui-text %}}Sandbox agent{{% /ui-text %}}: The token can only work with Sandbox Previews that you own.
+
+When a token's role doesn't permit an operation that you could perform, the API returns error `1163`,
+`Access token role does not permit this operation`. For more information, see
+[Tugboat Error Codes](/reference/tugboat-error-codes/).
+
+To set the role when you create an Access Token with the CLI, pass `role=full` or `role=sandbox`:
+
+```sh
+tugboat create key "My agent" role=sandbox
+```

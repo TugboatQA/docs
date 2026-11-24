@@ -107,6 +107,11 @@ for which you're generating visual diffs.
 When you specify settings for `visualdiff`, those configuration options determine the screenshots taken of the Base
 Preview that Tugboat compares against to generate visual diffs.
 
+If you don't set the `fullPage`, `timeout`, or `waitUntil` option in `visualdiff`, Tugboat takes the Base Preview
+screenshot with the value of the same option in `screenshot`. This way, both screenshots in a visual diff are taken with
+the same settings. A `visualdiff` option overrides the `screenshot` option at the same level. A URL-level `screenshot`
+option takes precedence over a Service-level `visualdiff` option. If neither is set, Tugboat uses its default.
+
 For a full list of the configuration options you can use when setting both `screenshot` and `visualdiff` options, see:
 [Tugboat Configuration -> screenshot](/reference/tugboat-configuration/#screenshot) and
 [Tugboat Configuration -> visualdiff](/reference/tugboat-configuration/#visualdiff).

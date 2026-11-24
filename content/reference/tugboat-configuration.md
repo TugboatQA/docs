@@ -76,8 +76,8 @@ If `aliases` is set to `['foo', 'bar']`, alias URLs look like the following
 
 or
 
-- https://previews.tugboatqa.com/foo-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
-- https://previews.tugboatqa.com/bar-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+- https://preview.tugboatqa.com/foo-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
+- https://preview.tugboatqa.com/bar-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
 
 **`domain`**
 
@@ -93,8 +93,13 @@ or
 - https://foo.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
 - https://bar.com/pr123-4vdrhxvyddvr5tne7zcr4y72vzowqohj/
 
+When `subpath` is `true`, Tugboat uses each alias value as the host name, and doesn't add `preview.` to it, unlike
+[`domain`](#domain). Don't set an alias to a host name that your production site uses.
+
 In order for these domains to resolve, a DNS entry must be added to the alias domains as a `CNAME` to
-`previews.tugboatqa.com`. A wildcard entry is required if `subpath` is set to `false`.
+`previews.tugboatqa.com`. A wildcard entry is required if `subpath` is set to `false`. To serve these domains over HTTPS
+without certificate warnings, see
+[Use a Custom Domain with HTTPS](/setting-up-services/how-to-set-up-services/custom-domain-https/).
 
 ---
 
@@ -277,9 +282,10 @@ guaranteed order in which Services will execute their commands relative to other
 - **Required:** No
 
 A custom domain to use when generating URLs for the Service. If `example.com` is used, for example, URLs for the service
-will resemble `http://pr123-token.example.com` or `http://preview.example.com/pr123-token/`, depending on the other
-configuration values. Note that using a custom domain will result in browsers issuing SSL/TLS certificate warnings when
-combined with `https: true`.
+will resemble `https://pr123-token.example.com` or `https://preview.example.com/pr123-token/`, depending on the other
+configuration values. Tugboat's SSL/TLS certificate doesn't cover custom domains, so browsers show certificate warnings
+when a custom domain is combined with `https: true`. To serve a custom domain over HTTPS with a valid certificate, see
+[Use a Custom Domain with HTTPS](/setting-up-services/how-to-set-up-services/custom-domain-https/).
 
 ---
 
@@ -437,13 +443,23 @@ Tugboat default values, and can also be overridden per-URL.
 Visual Diffs can only be automatically generated for Previews built from a Base Preview. These options apply to
 screenshots taken of the Base Preview used to compare to screenshots taken of this Preview.
 
-| Option      | Type             | Default | Description                                                                                                                                                                          |
-| :---------- | :--------------- | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enabled`   | Boolean          | `true`  | Whether to render Visual Diffs for the URLs defined for this Service. Visual Diffs depend on Screenshots being enabled. If Screenshots are disabled, this setting has no effect.     |
-| `fullPage`  | Boolean          | `true`  | Whether to use the default `fullPage` method. Disabling this uses an alternative that is more friendly to elements that have `vh` CSS Styles, but can sometimes be less accurate     |
-| `timeout`   | Number           | `30`    | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `60`                                                                            |
-| `waitUntil` | String           | `load`  | Which browser event to wait for before creating a screenshot of the page                                                                                                             |
-| `threshold` | Number or Object | `0`     | What percent similar a Visual Diff must be to the base preview in order to "pass". Visual Diffs that are less similar than this will generate an error. Minimum: `0`, Maximum: `100` |
+| Option      | Type             | Default                              | Description                                                                                                                                                                          |
+| :---------- | :--------------- | :----------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enabled`   | Boolean          | `true`                               | Whether to render Visual Diffs for the URLs defined for this Service. Visual Diffs depend on Screenshots being enabled. If Screenshots are disabled, this setting has no effect.     |
+| `fullPage`  | Boolean          | `screenshot` value, otherwise `true` | Whether to use the default `fullPage` method. Disabling this uses an alternative that is more friendly to elements that have `vh` CSS Styles, but can sometimes be less accurate     |
+| `timeout`   | Number           | `screenshot` value, otherwise `30`   | How long to wait for a page to be ready when taking a screenshot, in seconds. Minimum: `1`, Maximum: `60`                                                                            |
+| `waitUntil` | String           | `screenshot` value, otherwise `load` | Which browser event to wait for before creating a screenshot of the page                                                                                                             |
+| `threshold` | Number or Object | `0`                                  | What percent similar a Visual Diff must be to the base preview in order to "pass". Visual Diffs that are less similar than this will generate an error. Minimum: `0`, Maximum: `100` |
+
+Tugboat takes the Base Preview screenshot with the same `fullPage`, `timeout`, and `waitUntil` settings as the
+screenshot of this Preview, so that both screenshots in a Visual Diff are taken the same way. Each of these options uses
+the first value that is set, in this order:
+
+1. The URL `visualdiff` option
+2. The URL `screenshot` option
+3. The Service `visualdiff` option
+4. The Service `screenshot` option
+5. The Tugboat default
 
 ```yaml
 visualdiff:
